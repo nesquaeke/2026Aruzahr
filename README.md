@@ -24,4 +24,8 @@ npm run dev -- --host 127.0.0.1 --open
 
 Derlemek için `npm run build` çalıştır. Statik yayın çıktısı `web/dist/` olur. Ayrıntılı kurulum ve tarayıcı testleri için [uygulama notlarına](web/README.md) bak.
 
-Genel wiki sekiz bölgeyi ve haritadaki 28 yerleşimi içerir. Görev sırları, DM notları ve Broken Oath web uygulamasına dahil edilmez; ham lore belgelerini barındırma hizmetine yükleme.
+Genel wiki sekiz ülke/bölgeyi, haritadaki yerleşimleri ve Danstsud’un üç alt bölgesini içerir. Danstsud sayfaları Eryndorn’un hâlâ tahtta olduğu darbe öncesini anlatır. Görev sırları, DM notları ve Broken Oath web uygulamasına dahil edilmez; ham lore belgelerini barındırma hizmetine yükleme.
+
+## Danstsud lore çalışması
+
+Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [lore/danstsud/](lore/danstsud/) dizinindedir. Bu yazar çalışma belgeleri görev sırları içerir; web uygulaması bunları doğrudan yüklemez. Halka açık Danstsud metinleri [web/src/lore/danstsud.ts](web/src/lore/danstsud.ts) dosyasında ayrı tutulur.

@@ -1,9 +1,22 @@
+import { danstsudRegion, danstsudPlaces, danstsudSubregions } from './lore/danstsud'
+
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[] }
 export type Region = {
   id: RegionId; name: string; subtitle: string; climate: string; color: string;
   quote: string; summary: string; tags: string[]; point: [number, number];
   box: [number, number, number, number]; sections: Section[]; sources: string[];
+}
+export type SubregionId = 'hardlane' | 'manorveil' | 'lowvale'
+type LocationRecord = {
+  id: string; name: string; region: RegionId; point: [number, number]; summary?: string;
+  subtitle?: string; sections?: Section[]; sources?: string[]; related?: string[];
+  subregion?: SubregionId; major?: boolean;
+}
+export type Place = LocationRecord & { kind?: 'settlement' }
+export type Subregion = LocationRecord & {
+  id: SubregionId; kind: 'subregion'; region: 'danstsud'; subtitle: string;
+  box: [number, number, number, number]; summary: string; sections: Section[]; sources: string[];
 }
 
 // This is an intentionally curated public dataset. Never import the raw campaign
@@ -46,18 +59,7 @@ export const regions: Region[] = [
       { title: 'Göçlerin bıraktığı iz', paragraphs: ['Geçmiş yüzyıllarda yaşanan göçler, halkın dağılımını ve toplulukların ilişkilerini değiştirmiştir. Coğrafyanın baskısı, her nesli yeni yaşam yolları aramaya zorlar.', 'Eski anlatılar, Honud ile Danstsud’un parçalanmadan önce aynı kara bütününün parçası olduğunu söyler. Bugünün ayrılığı, ortak bir geçmişi tamamen silememiştir.'] },
     ],
   },
-  {
-    id: 'danstsud', name: 'Danstsud', subtitle: 'Taş, taç ve büyünün sınırları', climate: 'Vadiler & krallıklar', color: '#b19ac8',
-    quote: 'Bakır Ana, bizi ateşin çocuğundan koru.', point: [.73, .72], box: [.38, .46, .61, .54],
-    summary: 'Büyük şehirlerin, loncaların ve kontrollü büyü okullarının toprakları. Danstsud’un düzen anlayışının ardında Büyük Kırılma’nın derin hatırası vardır.',
-    tags: ['Krallıklar', 'Loncalar', 'Büyü okulları'], sources: ['Valhunar.pdf', '21.11.2025 aruzhar bolum 1.docx', 'Aruzahr 8k (1).jpg'],
-    sections: [
-      { title: 'Kentler ve yollar', paragraphs: ['Harita, Danstsud’u Valdareth, Dorvenhall, Lirendil, Lowvale, Hardlane ve başka yerleşimlerle birlikte gösterir. Limanlar, yollar, kaleler ve dağ geçitleri, bu geniş coğrafyayı birbirine bağlar.', 'Valdareth soylu başkent olarak işaretlenmiştir. Lirendil lonca yaşamıyla, Dorvenhall ise ticaret ve üretimle ilişkilidir.'] },
-      { title: 'Kırılmanın hatırası', paragraphs: ['Danstsud’un efsanelerinde Yarethus, düzenin koruyucusu ve Bakır Ana olarak anılır. Tapınaklarda anlatılan felaket öyküleri, ateşin tehlikesiyle kutsalın koruyuculuğunu karşı karşıya koyar.', 'Aynı tarih Honud’da farklı anlatılır. Bu kültürel ayrılık, bir olayın her halkın hafızasında başka bir yüz taşıdığını gösterir.'] },
-      { title: 'Büyü ve denetim', paragraphs: ['Büyük Kırılma’dan sonra büyünün öngörülemeyen sonuçları, kontrollü okulların ve kuralların önemini artırmıştır. Danstsud’da büyünün okul dışındaki kullanımı yasaklarla çevrilidir.', 'Büyü araştırmaları, dünyanın dengesini ve geçmişteki felaketleri anlamaya çalışır. Toplumun büyüye yaklaşımında korku ile bilgi arayışı yan yana bulunur.'] },
-      { title: 'Loncaların dünyası', paragraphs: ['ÇelikKalkan gibi loncalar, kentin askeri ve toplumsal yaşamında yer alır. Demirciler, hekimler, eğitim ustaları ve arşivler, lonca yaşamının farklı yüzlerini oluşturur.', 'Danstsud’un şehirleri yalnızca hükümdarlardan ibaret değildir. Yolları kullanan tüccarlar, sığınacak yer arayan göçmenler ve kendi hayatını kuran zanaatkârlar da bu dünyanın parçasıdır.'] },
-    ],
-  },
+  danstsudRegion,
   {
     id: 'garmirk', name: 'Garmirk', subtitle: 'Dağların kalbi', climate: 'Dağlar & fırtınalar', color: '#b9b8a3',
     quote: 'Taş kırılır, ama yankı kalır.', point: [.84, .13], box: [.67, 0, .32, .31],
@@ -108,7 +110,6 @@ export const regions: Region[] = [
   },
 ]
 
-export type Place = { id: string; name: string; region: RegionId; point: [number, number]; summary?: string }
 // Pins were placed against visible settlements on the original map, not against
 // uncertain prose geography. Lore-only locations are listed in articles without pins.
 export const places: Place[] = [
@@ -121,17 +122,7 @@ export const places: Place[] = [
   { id: 'frostheimr', name: 'Frostheimr', region: 'honud', point: [.332, .735] },
   { id: 'norrvar', name: 'Norrvar', region: 'honud', point: [.320, .653] },
   { id: 'kaldryss', name: 'Kaldryss', region: 'honud', point: [.254, .879] },
-  { id: 'valdareth', name: 'Valdareth', region: 'danstsud', point: [.734, .667], summary: 'Haritada soylu başkent olarak anılan Valdareth; taş binaları, kraliyet düzeni ve kent yaşamıyla Danstsud’un önemli merkezlerinden biridir.' },
-  { id: 'lirendil', name: 'Lirendil', region: 'danstsud', point: [.367, .446], summary: 'Denize uzanan Lirendil, lonca yaşamı ve kale çevresinde gelişen düzeniyle bilinir. Demirciler, eğitim alanları, hekimler ve arşivler bu yaşamın parçalarıdır.' },
-  { id: 'dorvenhall', name: 'Dorvenhall', region: 'danstsud', point: [.782, .553], summary: 'Ticaret ve üretimle ilişkilendirilen Dorvenhall, kırmızı tuğlalı bacalarıyla kampanya belgelerinde anılır. Danstsud’un yolları bu yerleşimi çevresindeki merkezlere bağlar.' },
-  { id: 'brannis', name: 'Brannis', region: 'danstsud', point: [.660, .555], summary: 'Brannis, Valdareth ile Lirendil arasında geçen yolculuk anlatılarında yer alır. Farklı bölgelerden gelen insanların buluştuğu bir Danstsud yerleşimidir.' },
-  { id: 'elorwyn', name: 'Elorwyn', region: 'danstsud', point: [.750, .863] },
-  { id: 'lowvale', name: 'Lowvale', region: 'danstsud', point: [.944, .603] },
-  { id: 'theramis', name: 'Theramis', region: 'danstsud', point: [.932, .905] },
-  { id: 'hardlane', name: 'Hardlane', region: 'danstsud', point: [.496, .848] },
-  { id: 'marahalden', name: 'Marahalden', region: 'danstsud', point: [.610, .853] },
-  { id: 'frostbay', name: 'Frostbay', region: 'danstsud', point: [.478, .824], summary: 'Haritada karlı kıyı yerleşimleri arasında gösterilen Frostbay, Danstsud’un soğuk coğrafyasına açılan bir duraktır.' },
-  { id: 'vyssgard', name: 'Vyssgard', region: 'danstsud', point: [.523, .779] },
+  ...danstsudPlaces,
   { id: 'hurnreach', name: 'Hurnreach', region: 'gurbin', point: [.674, .227] },
   { id: 'kraenfall', name: 'Kraenfall', region: 'gurbin', point: [.608, .390] },
   { id: 'volriks-maw', name: 'Volrik’s Maw', region: 'gurbin', point: [.780, .473] },
@@ -153,6 +144,11 @@ export const historyArticle = {
   ] as Section[],
 }
 
+export const subregions: Subregion[] = danstsudSubregions
+export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
+export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
 export const regionById = (id: string) => regions.find(r => r.id === id)
-export const placeById = (id: string) => places.find(p => p.id === id)
+export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))
+export const subregionById = (id: string) => subregions.find(s => s.id === id)
+export const locationById = (id: string) => placeById(id) || subregionById(id)
 export const normalize = (text: string) => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i').replace(/[’']/g, '')

@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 're
 import type { CSSProperties } from 'react'
 import OpenSeadragon from 'openseadragon'
 import { Compass, LoaderCircle, RotateCcw } from 'lucide-react'
-import { normalize, places, regions, regionById, placeById } from './data'
+import { locationById, mapLocations, normalize, regions, regionById, placeById, subregionById } from './data'
 
 export type AtlasHandle = { zoom: (factor: number) => void; home: () => void }
 type Props = {
@@ -53,11 +53,12 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
     })
     viewer.current = instance
     instance.addHandler('open', () => {
-      for (const entry of [...regions, ...places]) {
-        const isRegion = 'sections' in entry
+      for (const entry of [...regions, ...mapLocations]) {
+        const isRegion = 'box' in entry
+        const isSubregion = 'kind' in entry && entry.kind === 'subregion'
         const button = document.createElement('button')
         button.type = 'button'
-        button.className = `map-pin ${isRegion ? 'region-pin' : 'city-pin'}`
+        button.className = `map-pin ${isRegion ? 'region-pin' : 'city-pin'}${isSubregion ? ' subregion-pin' : ''}`
         button.dataset.testid = `marker-${entry.id}`
         button.setAttribute('aria-label', `${entry.name} ${isRegion ? 'bölgesini' : 'yerleşimini'} keşfet`)
         const symbol = document.createElement('span')
@@ -94,7 +95,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
 
   useEffect(() => {
     if (!ready || !selected || !viewer.current) return
-    const region = regionById(selected)
+    const region = regionById(selected) || subregionById(selected)
     const place = placeById(selected)
     if (region) {
       const [x, y, w, h] = region.box
@@ -107,19 +108,28 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
 
   useEffect(() => {
     const needle = normalize(query)
-    for (const entry of [...regions, ...places]) {
+    for (const entry of [...regions, ...mapLocations]) {
       const marker = markers.current.get(entry.id)
       if (!marker) continue
-      const isRegion = 'sections' in entry
-      const match = !needle || normalize(entry.name).includes(needle)
-      const visible = match && (isRegion || showCities || zoom > 175 || Boolean(needle))
+      const isRegion = 'box' in entry
+      const isSubregion = 'kind' in entry && entry.kind === 'subregion'
+      const searchText = 'region' in entry
+        ? `${entry.name} ${regionById(entry.region)?.name} ${subregionById(entry.subregion || '')?.name || ''}`
+        : entry.name
+      const match = !needle || normalize(searchText).includes(needle)
+      const selectedInDanstsud = selected === 'danstsud' || locationById(selected || '')?.region === 'danstsud'
+      const visible = match && (isSubregion
+        ? selectedInDanstsud || zoom > 175 || Boolean(needle)
+        : isRegion || showCities || zoom > 175 || Boolean(needle))
       marker.classList.toggle('is-hidden', !visible)
       marker.classList.toggle('selected', entry.id === selected)
       marker.setAttribute('aria-pressed', String(entry.id === selected))
     }
   }, [query, showCities, zoom, ready, selected])
 
-  const scene = regionById(selected || '')?.id || placeById(selected || '')?.region || 'world'
+  const location = locationById(selected || '')
+  const scene = selected === 'hardlane' || location?.subregion === 'hardlane'
+    ? 'honud' : regionById(selected || '')?.id || location?.region || 'world'
   return <>
     <div className="atlas-viewer" ref={element} data-testid="atlas-viewer" aria-label="Valhunar interaktif haritası. Fareyle sürükle; tekerlekle veya kontrollerle yakınlaştır." />
     <div className="map-vignette" />

@@ -1,0 +1,124 @@
+# Danstsud — harita ve yerleşim envanteri
+
+Kaynak: `Aruzahr 8k (1).jpg`, 8192 × 5668. Okuma tarihi: 7 Ekim 2026. Bu liste şehir lore'u üretmek için başlangıç envanteridir. Haritada bazı yazılar ağaçlar ve büyük ülke yazısı altında kalıyor; bu adlar ayrıca işaretlendi. **Kesin nüfus, kuruluş yılı veya lord adı haritadan çıkarılmadı.**
+
+## Kullanıcının kesinleştirdiği listeler
+
+**Başlıca şehirler:** Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn, Theramis. Bu sıra büyüklük sırası değildir. Valdareth başkenttir.
+
+**Hardlane şehirleri:** Ternhaven, Dranthol, Frostbay, Vyssgard. Diğer Hardlane yerleşimleri resmen Frostbay idaresine bağlı; uygulamada bu düzen zayıf. Bölgedeki ayrıntılar [KANON.md](KANON.md) içinde.
+
+**Bölgeler:** Hardlane, Manorveil, Lowvale. Bunlar şehir listesine girmeyecek.
+
+## Kuzey ve merkezde okunabilen yerleşimler
+
+Bu grup haritanın kraliyet merkezi ve kuzey kıyıları çevresidir. Manorveil'e kesin idari aidiyet listesi anlamına gelmez.
+
+| Ad | Kaynak / ayırt edici başlangıç bilgisi |
+| --- | --- |
+| Valdareth | Başkent; altı başlıca şehirden biri; kraliyet merkezi |
+| Lirendil | Başlıca şehir; kale ve lonca merkezi; kıyı bağlantısı |
+| Myrran | Lirendil yakınındaki yerleşim; A'da kervan güzergâhı |
+| Luthen | Harita adı; A'da karakol ve kervan hedefi; otomatik olarak Luthun'a çevrilmeyecek |
+| Morvail | Harita adı; kuzey kıyı yolu çevresi |
+| Aelmar | Kıyı yerleşimi; ayrıntılı profil yok |
+| Thessar | Kıyı yerleşimi; ayrıntılı profil yok |
+| Kethra | A'da kent ve liman; Damian lordluk taslağı, Paslı Kanca ve antrepolar |
+| Galmire | Harita adı; kıyı yolu çevresi |
+| Brannis | C'de yol durağı ve mülteci krizi |
+| Nuvik | Harita adı |
+| Yornhal | Harita adı |
+| Vornic | Harita adı |
+| Frethar | Harita adı |
+| Rilorn | Harita adı; kıyı yerleşimi |
+| Arden | Harita adı |
+| Brolin | Harita adı |
+| Velthar | Harita adı; Karlan çevresi |
+| Naeron | Harita adı; başkent çevresi |
+| Fevric | Harita adı; başkent çevresi |
+| Ildar | Haritada okunan ad; başkent güneybatısı |
+
+## Doğu ve güneydoğuda okunabilen yerleşimler
+
+Bu grup Lowvale yazısı çevresi ve doğu/güney kent ağını kapsar. Dorvenhall, Elorwyn ve diğer sınır kentlerinin idari aidiyetini yalnızca haritadaki yakınlıktan kesinleştirmiyoruz.
+
+| Ad | Kaynak / ayırt edici başlangıç bilgisi |
+| --- | --- |
+| Dorvenhall | Başlıca şehir; B'de üretim/ticaret, kırmızı tuğlalı bacalar |
+| Othmar | Harita yazımı; Othimar diye değiştirilmemeli |
+| Eldwen | Harita adı |
+| Thandor | Harita adı |
+| Cevan | Harita adı |
+| Rymar | Harita adı |
+| Velyra | Harita adı; Dorvenhall güneyi |
+| Korthen | Harita adı |
+| Lysmar | Harita adı |
+| Lurnvalf | Haritada okunan ad; çevresinde ağaçlar var, yazımı son kanon turunda teyit edilebilir |
+| Jathra | Harita adı |
+| Melthir | Harita adı |
+| Orinhal | Harita adı; kıyı bağlantısı |
+| Oren | Harita adı |
+| Cylwen | Harita adı |
+| Halden | Harita adı |
+| Runeth | Harita adı |
+| Teyla | Harita adı |
+| Vossir | Harita adı |
+| Theld | Başkentin güney tarafında okunan harita adı |
+| Eroth | Harita adı |
+| Anvar | Harita adı |
+| Theramis | Başlıca şehir; A'da büyücülü lonca ekibi |
+| Elorwyn | Başlıca şehir; aynı ad soyluların soyadı olarak da geçiyor; bağ henüz belirlenmedi |
+
+## Karlan ve batıdaki karlı yerleşimler
+
+| Ad | Kaynak / durum |
+| --- | --- |
+| Ternhaven | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
+| Dranthol | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
+| Frostbay | **Hardlane aidiyeti kullanıcı tarafından doğrulandı**; sınırlı vergi/kamu hizmeti; kâğıt üzerinde bölgesel idare |
+| Vyssgard | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
+| Kaldmere | Karlı sahada harita adı; idari aidiyet ayrıca teyit edilecek |
+| Mavric | Karlı sahada küçük yerleşim; idari aidiyet ayrıca teyit edilecek |
+| Marhalden | **Başlıca şehir**; Karlan/kar geçişindeki büyük tahkimat; hangi bölgeye bağlı olduğu kesinleşmedi |
+| Tora | Marhalden doğusunda harita adı; idari aidiyet ayrıca teyit edilecek |
+
+## Yazının kısmen örtüldüğü yerler
+
+Bu satırlar henüz kesin yerleşim adı veya yeni pin değildir. Haritadaki okunabilen parçayı ve olası okumayı ayırıyoruz.
+
+| Okunabilen parça | Olası okuma | Neden belirsiz? |
+| --- | --- | --- |
+| `Tyelm…r` | Tyelmar | Ağaç bir harfin gövdesini örtüyor |
+| `Telva…` | Telvar / Telvai | Son harfler ağaçlarla örtülü |
+| `…amden` | Lamden | İlk harf pembe ağacın altında kalıyor |
+| `Ke…er` | Kester | Büyük Danstsud yazısı orta harfleri örtüyor |
+| `…rven` | Irven | Büyük ülke yazısı başlangıcı örtüyor |
+| `Har…en` | Harlen / Harren | Büyük ülke yazısı orta kısmı örtüyor |
+| `Tolv…` | Tolva | Son bölüm büyük ülke yazısının altında |
+| Marhalden güneydoğusunda `…k` | Henüz önerilmedi | Şehir çizimi ve ağaçlar adın çoğunu kapatıyor |
+
+### Honud sınırında dikkat edilecekler
+
+**Varnskuld, Nivor ve Isenreach** çevrede görülen komşu yer adlarıdır. Mavi yazımları ve Honud tarafındaki konumları nedeniyle Danstsud şehirleri listesine otomatik alınmadı. Soğuk iklimin aynı olması siyasi aidiyet kanıtı değildir. Haritadaki ülke sınırı kesinleşmeden bunlara Danstsud pini konmamalı.
+
+## Şehir olmayan coğrafi öğeler
+
+| Ad | Tür / not |
+| --- | --- |
+| Hardlane | Bölge |
+| Manorveil | Bölge |
+| Lowvale | Bölge |
+| Karlan Zirveleri / Karlan Dağları | Dağ kuşağı; kullanıcıya göre kraliyet otoritesinin erişiminde önemli eşik |
+| Rydorn Sırtı | Coğrafi sırt; Ryondorn askerleriyle aynı şey olduğu varsayılmamalı |
+| Thural Kalkanı | Dağ kuşağı |
+| Frostmere Gölü | Göl; Frostbay şehriyle ayrı ad ve ayrı kayıt |
+| Aldara Nehri | Nehir |
+| Serenth Nehri | Nehir |
+| Terra Nehri | Nehir |
+| Velmor Denizi | Belgelerde anılan deniz; ceset/kayıp haberleri görev akışında geçiyor |
+
+## İlk şehir yazım sırası
+
+Önce **Valdareth**: saray, hanedan, kent yaşamı ve merkezî güç. Sonra **Frostbay** üzerinden Hardlane'in kâğıt üzerindeki ve gerçek idaresi. Ardından diğer başlıca şehirlerin lordluk ağı; kaynakta ayrıntısı olan **Lirendil, Kethra, Dorvenhall ve Brannis** bu ağı dolduracak. Son turda küçük yerleşimlerin pazarı, üretimi, ulaşımı ve büyük şehirlere bağı yazılacak.
+
+Harita üzerinde yalnızca adı açıkça okunmuş ve yeri görülmüş yerler pin alacak. Çok sayıda küçük yerleşim henüz şehir makalesi yazım aşamasında değildir; bu envanter tüm şehirlerin tamamlanmış lore'u olarak sunulmamalı.

@@ -2,16 +2,16 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { ArrowDown, ArrowLeft, ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Flame, Globe2, Keyboard, Layers, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Share2, Snowflake, Sparkles, Trees, Waves, X } from 'lucide-react'
 import type { AtlasHandle } from './Atlas'
-import { historyArticle, normalize, placeById, places, regionById, regions } from './data'
+import { canonicalId, historyArticle, locationById, mapLocations, normalize, places, regionById, regions, subregionById, subregions } from './data'
 import type { RegionId, Section } from './data'
 
 const icons = { xotar: Flame, murgul: Trees, honud: Snowflake, danstsud: Castle, garmirk: Mountain, ariki: Waves, gurbin: Compass, lakbar: Flame }
 const Atlas = lazy(() => import('./Atlas'))
 const readRoute = () => window.location.hash.slice(1) || '/atlas'
-const decodeId = (value: string) => { try { return decodeURIComponent(value) } catch { return value } }
-const allIds = new Set([...regions, ...places, historyArticle].map(entry => entry.id))
+const decodeId = (value: string) => { try { return canonicalId(decodeURIComponent(value)) } catch { return canonicalId(value) } }
+const allIds = new Set([...regions, ...mapLocations, historyArticle].map(entry => entry.id))
 function readSaved(): string[] {
-  try { const value = JSON.parse(localStorage.getItem('aruzahr-saved') || '[]'); return Array.isArray(value) ? value.filter((id): id is string => typeof id === 'string' && allIds.has(id)) : [] } catch { return [] }
+  try { const value = JSON.parse(localStorage.getItem('aruzahr-saved') || '[]'); return Array.isArray(value) ? [...new Set(value.filter((id): id is string => typeof id === 'string').map(canonicalId).filter(id => allIds.has(id)))] : [] } catch { return [] }
 }
 function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -38,7 +38,7 @@ export default function App() {
   const wiki = route.startsWith('/wiki')
   const articleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
   const selectedRegion = regionById(selected || '')
-  const selectedPlace = placeById(selected || '')
+  const selectedPlace = locationById(selected || '')
   const detailRegion = selectedRegion || regionById(selectedPlace?.region || '')
   const selectedName = selectedRegion?.name || selectedPlace?.name
   const needle = normalize(query.trim())
@@ -65,7 +65,7 @@ export default function App() {
   }, [selected, wiki])
 
   const filteredRegions = useMemo(() => regions.filter(region => (!savedOnly || saved.includes(region.id)) && (!needle || normalize([region.name, region.summary, ...region.tags].join(' ')).includes(needle))), [savedOnly, saved, needle])
-  const filteredPlaces = useMemo(() => places.filter(place => (!savedOnly || saved.includes(place.id)) && (!needle || normalize(`${place.name} ${regionById(place.region)?.name}`).includes(needle))), [savedOnly, saved, needle])
+  const filteredPlaces = useMemo(() => mapLocations.filter(place => (!savedOnly || saved.includes(place.id)) && (!needle || normalize(`${place.name} ${regionById(place.region)?.name} ${subregionById(place.subregion || '')?.name || ''}`).includes(needle))), [savedOnly, saved, needle])
   const historyResult = (Boolean(query) || savedOnly) && (!savedOnly || saved.includes(historyArticle.id)) && (!needle || normalize(historyArticle.name).includes(needle))
 
   async function share(id: string) {
@@ -75,14 +75,21 @@ export default function App() {
   }
 
   const articleRegion = regionById(articleId || '')
-  const articlePlace = placeById(articleId || '')
+  const articlePlace = locationById(articleId || '')
   const isHistory = articleId === historyArticle.id
   const articleContext = articleRegion || regionById(articlePlace?.region || '')
   const articleName = articleRegion?.name || articlePlace?.name || (isHistory ? historyArticle.name : '')
-  const articleSections: Section[] = articleRegion?.sections || (isHistory ? historyArticle.sections : articlePlace ? [
+  const articleSections: Section[] = articleRegion?.sections || articlePlace?.sections || (isHistory ? historyArticle.sections : articlePlace ? [
     { title: 'Yerleşim kaydı', paragraphs: [articlePlace.summary || `${articlePlace.name}, Valhunar haritasında ${articleContext?.name} bölgesindeki yerleşimler arasında gösterilir.`, 'Bu kayıt, haritadaki konumu bölgenin genel kültürü ve coğrafyasıyla birlikte keşfetmen için bir başlangıç noktasıdır.'] },
     { title: `${articleContext?.name} dünyası`, paragraphs: [articleContext?.summary || ''] },
   ] : [])
+  const articleSubregions = articleRegion ? subregions.filter(area => area.region === articleRegion.id) : []
+  const articleRelated = articlePlace
+    ? [...new Set([articlePlace.region, articlePlace.subregion, ...(articlePlace.related || [])])]
+      .filter((id): id is string => Boolean(id) && id !== articlePlace.id)
+      .map(id => regionById(id) || locationById(id)).filter(entry => Boolean(entry))
+    : places.filter(place => place.region === articleContext?.id)
+  const articleKind = isHistory ? 'TARİH & EFSANELER' : articlePlace?.kind === 'subregion' ? 'DANSTSUD BÖLGELERİ' : articlePlace ? 'YERLEŞİMLER' : articleRegion?.id === 'danstsud' ? 'KRALLIKLAR' : 'BÖLGELER'
 
   return <div className="app-shell">
     <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus() }}>İçeriğe geç</a>
@@ -105,7 +112,7 @@ export default function App() {
       <div className="sidebar-section-heading"><span>{savedOnly ? 'KAYDEDİLEN YERLER' : query ? 'ARAMA SONUÇLARI' : 'VALHUNAR BÖLGELERİ'}</span><span>{query || savedOnly ? filteredRegions.length + filteredPlaces.length + Number(historyResult) : filteredRegions.length}</span></div>
       <div className="region-list">
         {filteredRegions.map(region => { const Icon = icons[region.id]; return <button key={region.id} className={`region-link ${detailRegion?.id === region.id ? 'active' : ''}`} onClick={() => wiki ? navigate(`/wiki/${region.id}`) : select(region.id)} style={{ '--region-color': region.color } as CSSProperties}><span className="region-icon"><Icon size={18} strokeWidth={1.5} /></span><span><strong>{region.name}</strong><small>{region.climate}</small></span><ChevronRight size={14} /></button> })}
-        {(query || savedOnly) && filteredPlaces.map(place => <button className="place-search-result" key={place.id} onClick={() => wiki ? navigate(`/wiki/${place.id}`) : select(place.id)}><MapPin size={14} /><span>{place.name}<small>{regionById(place.region)?.name}</small></span><ChevronRight size={13} /></button>)}
+        {(query || savedOnly) && filteredPlaces.map(place => <button className="place-search-result" key={place.id} onClick={() => wiki ? navigate(`/wiki/${place.id}`) : select(place.id)}><MapPin size={14} /><span>{place.name}<small>{regionById(place.region)?.name}{place.kind === 'subregion' ? ' · Bölge' : ''}</small></span><ChevronRight size={13} /></button>)}
         {historyResult && <button className="place-search-result" onClick={() => navigate('/wiki/buyuk-kirilma')}><BookOpen size={14} /><span>Büyük Kırılma<small>Tarih & efsaneler</small></span><ChevronRight size={13} /></button>}
         {(query || savedOnly) && !filteredRegions.length && !filteredPlaces.length && !historyResult && <div className="empty-search"><Compass size={26} /><p>{savedOnly ? 'Henüz bir yer kaydetmedin.' : 'Bu aramada bir kayıt bulunamadı.'}</p><small>{savedOnly ? 'Bir bölgedeki yer imi simgesine dokun.' : 'Bir şehir veya bölge adı dene.'}</small></div>}
       </div>
@@ -121,8 +128,8 @@ export default function App() {
             <Suspense fallback={<div className="map-loading" role="status">Atlas açılıyor…</div>}><Atlas ref={atlas} selected={selected} onSelect={select} query={query} showCities={cities} effects={effects} reducedMotion={reducedMotion} onZoom={setZoom} /></Suspense>
             {!detailRegion && !cities && !query && zoom < 150 && <div className="map-welcome"><span className="eyebrow"><i /> KEŞFİN BURADA BAŞLIYOR</span><h2>Bilinmeyene doğru.</h2><p>Bir bölgeye dokun. Hikâyesine adım at.</p><button onClick={() => select('danstsud')}>İlk yolculuğuna başla <ArrowRight size={15} /></button></div>}
             {detailRegion && selectedName && <aside className="detail-panel" aria-label={`${selectedName} kısa bilgi`} data-testid="detail-panel" style={{ '--region-color': detailRegion.color } as CSSProperties}>
-              <div className="detail-cover"><img src={`/atlas/${detailRegion.id}.webp`} alt={`${detailRegion.name} bölgesinin harita detayı`} /><div className="cover-shade" /><span className="detail-type">{selectedPlace ? 'YERLEŞİM KAYDI' : 'BÖLGE KAYDI'}</span><button className="detail-close icon-button" aria-label="Bilgi panelini kapat" onClick={closeDetail}><X size={16} /></button></div>
-              <div className="detail-body"><div className="detail-heading"><h2>{selectedName}</h2><button className={`icon-button ${saved.includes(selected!) ? 'toggled' : ''}`} aria-label={saved.includes(selected!) ? `${selectedName} kaydını kaldır` : `${selectedName} kaydet`} onClick={() => toggleSaved(selected!)}><Bookmark size={18} fill={saved.includes(selected!) ? 'currentColor' : 'none'} /></button></div><span className="detail-subtitle">{selectedPlace ? `${detailRegion.name} · Valhunar` : detailRegion.subtitle}</span><p>{selectedPlace?.summary || (selectedPlace ? `${selectedPlace.name}, Valhunar haritasında ${detailRegion.name} bölgesindeki yerleşimler arasında yer alır.` : detailRegion.summary)}</p>{!selectedPlace && <blockquote>“{detailRegion.quote}”</blockquote>}<div className="detail-tags">{detailRegion.tags.map(tag => <span key={tag}>{tag}</span>)}</div><button className="gold-button" onClick={() => navigate(`/wiki/${selected}`)}><BookOpen size={16} /> Wiki sayfasını aç <ArrowRight size={15} /></button>{selectedPlace && <button className="detail-region-link" onClick={() => select(detailRegion.id)}>{detailRegion.name} bölgesini keşfet <ChevronRight size={13} /></button>}</div>
+              <div className="detail-cover"><img src={`/atlas/${detailRegion.id}.webp`} alt={`${detailRegion.name} bölgesinin harita detayı`} /><div className="cover-shade" /><span className="detail-type">{selectedPlace?.kind === 'subregion' ? 'DANSTSUD BÖLGESİ' : selectedPlace ? 'YERLEŞİM KAYDI' : 'BÖLGE KAYDI'}</span><button className="detail-close icon-button" aria-label="Bilgi panelini kapat" onClick={closeDetail}><X size={16} /></button></div>
+              <div className="detail-body"><div className="detail-heading"><h2>{selectedName}</h2><button className={`icon-button ${saved.includes(selected!) ? 'toggled' : ''}`} aria-label={saved.includes(selected!) ? `${selectedName} kaydını kaldır` : `${selectedName} kaydet`} onClick={() => toggleSaved(selected!)}><Bookmark size={18} fill={saved.includes(selected!) ? 'currentColor' : 'none'} /></button></div><span className="detail-subtitle">{selectedPlace ? selectedPlace.subtitle || `${detailRegion.name} · Valhunar` : detailRegion.subtitle}</span><p>{selectedPlace?.summary || (selectedPlace ? `${selectedPlace.name}, Valhunar haritasında ${detailRegion.name} bölgesindeki yerleşimler arasında yer alır.` : detailRegion.summary)}</p>{!selectedPlace && <blockquote>“{detailRegion.quote}”</blockquote>}<div className="detail-tags">{detailRegion.tags.map(tag => <span key={tag}>{tag}</span>)}</div><button className="gold-button" onClick={() => navigate(`/wiki/${selected}`)}><BookOpen size={16} /> Wiki sayfasını aç <ArrowRight size={15} /></button>{selectedPlace && <button className="detail-region-link" onClick={() => select(detailRegion.id)}>{detailRegion.name} bölgesini keşfet <ChevronRight size={13} /></button>}</div>
             </aside>}
             <div className="zoom-controls"><button aria-label="Yakınlaştır" onClick={() => atlas.current?.zoom(1.5)}><Plus size={18} /></button><span data-testid="zoom-level">{zoom}%</span><button aria-label="Uzaklaştır" onClick={() => atlas.current?.zoom(1 / 1.5)}><Minus size={18} /></button><span className="control-divider" /><button aria-label="Haritanın tamamını göster" onClick={() => { navigate('/atlas'); atlas.current?.home() }}><Maximize2 size={16} /></button></div>
           </div>
@@ -132,13 +139,45 @@ export default function App() {
       </> : articleId ? <>
         {!articleName ? <div className="not-found"><Compass size={40} /><h1>Kayıt bulunamadı.</h1><p>Bu sayfanın izleri atlasın dışında kalmış olabilir.</p><button className="gold-button" onClick={() => navigate('/wiki')}>Ansiklopediye dön <ArrowRight size={16} /></button></div> : <article className="wiki-article" key={articleId}>
           <div className="article-topline"><button onClick={() => navigate('/wiki')}><ArrowLeft size={15} /> Ansiklopedi</button><div><button className={`icon-button ${saved.includes(articleId) ? 'toggled' : ''}`} aria-label={saved.includes(articleId) ? 'Kaydı kaldır' : 'Kaydı kaydet'} onClick={() => toggleSaved(articleId)}><Bookmark size={17} fill={saved.includes(articleId) ? 'currentColor' : 'none'} /></button><button className="icon-button" aria-label="Wiki bağlantısını kopyala" onClick={() => share(articleId)}><Share2 size={17} /></button></div></div>
-          <div className={`article-cover ${isHistory ? 'history-cover' : ''}`} style={{ backgroundImage: `linear-gradient(0deg, #10161c 2%, #10161c25 100%), url(/atlas/${articleContext?.id || 'lakbar'}.webp)` }}><div className="article-title"><span className="eyebrow">VALHUNAR ANSİKLOPEDİSİ <span> / </span> {isHistory ? 'TARİH & EFSANELER' : articlePlace ? 'YERLEŞİMLER' : 'BÖLGELER'}</span><h1>{articleName}</h1><p>{articleRegion?.subtitle || (isHistory ? historyArticle.subtitle : `${articleContext?.name} · Valhunar`)}</p></div></div>
-          <div className="article-layout"><div className="article-content"><p className="article-lead">{articleRegion?.summary || articlePlace?.summary || (isHistory ? historyArticle.summary : `${articleName}, ${articleContext?.name} bölgesindeki harita kayıtlarından biridir.`)}</p>{(articleRegion || isHistory) && <blockquote className="article-quote"><span>“</span>{articleRegion?.quote || historyArticle.quote}</blockquote>}{articleSections.map((section, index) => <section id={`article-section-${index}`} key={section.title}><span className="section-number">0{index + 1}</span><h2>{section.title}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section>)}{articleContext && <section className="related-places"><h2>{articlePlace ? 'Bölgenin izini sür' : 'Haritadaki yerleşimler'}</h2>{articlePlace ? <button onClick={() => navigate(`/wiki/${articleContext.id}`)}><Compass size={17} /><span>{articleContext.name}<small>{articleContext.subtitle}</small></span><ArrowRight size={16} /></button> : places.filter(place => place.region === articleContext.id).map(place => <button key={place.id} onClick={() => navigate(`/wiki/${place.id}`)}><MapPin size={15} /><span>{place.name}</span><ArrowRight size={14} /></button>)}</section>}<div className="article-sources"><BookOpen size={15} /><div><strong>Kaynaklar</strong><p>{(articleRegion?.sources || (isHistory ? ['Valhunar.pdf — genel kültürel anlatılar'] : ['Aruzahr 8k (1).jpg', ...(articlePlace?.summary ? articleContext?.sources.filter(source => !source.endsWith('.jpg')) || [] : [])])).join(' · ')}</p><small>Genel dünya bilgisi · Kampanya sırları bu ansiklopedide yayımlanmaz.</small></div></div></div><aside className="article-toc"><span className="eyebrow">BU SAYFADA</span>{articleSections.map((section, index) => <button key={section.title} onClick={() => document.getElementById(`article-section-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><span>0{index + 1}</span>{section.title}</button>)}{!isHistory && <button className="gold-button" onClick={() => navigate(`/atlas/${articleId}`)}><Map size={15} /> Haritada göster</button>}<div className="toc-note"><Compass size={24} strokeWidth={1} /><p>Bir yerin hikâyesi, onu keşfedenle tamamlanır.</p></div></aside></div>
+          <div className={`article-cover ${isHistory ? 'history-cover' : ''}`} style={{ backgroundImage: `linear-gradient(0deg, #10161c 2%, #10161c25 100%), url(/atlas/${articleContext?.id || 'lakbar'}.webp)` }}><div className="article-title"><span className="eyebrow">VALHUNAR ANSİKLOPEDİSİ <span> / </span> {articleKind}</span><h1>{articleName}</h1><p>{articleRegion?.subtitle || articlePlace?.subtitle || (isHistory ? historyArticle.subtitle : `${articleContext?.name} · Valhunar`)}</p></div></div>
+          <div className="article-layout">
+            <div className="article-content">
+              {articleContext?.id === 'danstsud' && <p className="article-period">ERYNDORN’UN HÜKÜMDARLIĞI · DARBE ÖNCESİ</p>}
+              <p className="article-lead">{articleRegion?.summary || articlePlace?.summary || (isHistory ? historyArticle.summary : `${articleName}, ${articleContext?.name} bölgesindeki harita kayıtlarından biridir.`)}</p>
+              {(articleRegion || isHistory) && <blockquote className="article-quote"><span>“</span>{articleRegion?.quote || historyArticle.quote}</blockquote>}
+              {articleSections.map((section, index) => <section id={`article-section-${index}`} key={section.title}>
+                <span className="section-number">{String(index + 1).padStart(2, '0')}</span>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+              </section>)}
+              {articleSubregions.length > 0 && <section className="related-places" data-testid="subregion-links">
+                <h2>Danstsud’un bölgeleri</h2>
+                {articleSubregions.map(area => <button key={area.id} onClick={() => navigate(`/wiki/${area.id}`)}>
+                  <Compass size={17} /><span>{area.name}<small>{area.subtitle}</small></span><ArrowRight size={16} />
+                </button>)}
+              </section>}
+              {articleContext && articleRelated.length > 0 && <section className="related-places" data-testid="related-locations">
+                <h2>{articlePlace ? 'Bağlantılı yerler' : 'Haritadaki yerleşimler'}</h2>
+                {articleRelated.map(entry => entry && <button key={entry.id} onClick={() => navigate(`/wiki/${entry.id}`)}>
+                  <MapPin size={15} /><span>{entry.name}<small>{'region' in entry ? entry.kind === 'subregion' ? 'Danstsud bölgesi' : entry.major ? 'Başlıca şehir' : 'Yerleşim' : entry.subtitle}</small></span><ArrowRight size={16} />
+                </button>)}
+              </section>}
+              <div className="article-sources"><BookOpen size={15} /><div><strong>Kaynaklar</strong>
+                <p>{(articleRegion?.sources || articlePlace?.sources || (isHistory ? ['Valhunar.pdf — genel kültürel anlatılar'] : ['Aruzahr 8k (1).jpg'])).join(' · ')}</p>
+                <small>Genel dünya bilgisi · Kampanya sırları bu ansiklopedide yayımlanmaz.</small>
+              </div></div>
+            </div>
+            <aside className="article-toc"><span className="eyebrow">BU SAYFADA</span>
+              {articleSections.map((section, index) => <button key={section.title} onClick={() => document.getElementById(`article-section-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</button>)}
+              {!isHistory && <button className="gold-button" onClick={() => navigate(`/atlas/${articleId}`)}><Map size={15} /> Haritada göster</button>}
+              <div className="toc-note"><Compass size={24} strokeWidth={1} /><p>Bir yerin hikâyesi, onu keşfedenle tamamlanır.</p></div>
+            </aside>
+          </div>
         </article>}
       </> : <>
         <div className="page-heading wiki-heading"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>DÜNYA ANSİKLOPEDİSİ</span></div><h1>Hikâyelerin <em>izinde.</em></h1><p>Toprakları, halkları ve bir dünyayı birbirine bağlayan efsaneleri tanı.</p></div><BookOpen className="heading-symbol" size={42} strokeWidth={.8} /></div>
         <div className="wiki-grid">{filteredRegions.map(region => { const Icon = icons[region.id]; return <a href={`#/wiki/${region.id}`} className="wiki-card" key={region.id}><div className="wiki-card-image"><img src={`/atlas/${region.id}.webp`} alt={`${region.name} haritası`} loading="lazy" /><span><Icon size={17} strokeWidth={1.3} />{region.climate}</span></div><div className="wiki-card-body"><span className="eyebrow">VALHUNAR BÖLGESİ</span><h2>{region.name}</h2><p>{region.summary}</p><span className="text-link">Hikâyesini oku <ArrowRight size={15} /></span></div></a> })}</div>
-        {(query || savedOnly) && filteredPlaces.length > 0 && <section className="wiki-place-results"><h2>Yerleşimler</h2>{filteredPlaces.map(place => <a href={`#/wiki/${place.id}`} key={place.id}><MapPin size={15} /><span>{place.name}<small>{regionById(place.region)?.name}</small></span><ArrowRight size={14} /></a>)}</section>}
+        {(query || savedOnly) && filteredPlaces.length > 0 && <section className="wiki-place-results"><h2>Yerler ve bölgeler</h2>{filteredPlaces.map(place => <a href={`#/wiki/${place.id}`} key={place.id}><MapPin size={15} /><span>{place.name}<small>{regionById(place.region)?.name}</small></span><ArrowRight size={14} /></a>)}</section>}
         {!filteredRegions.length && !filteredPlaces.length && !historyResult && <div className="empty-search"><Compass size={35} /><h2>Kayıt bulunamadı.</h2><p>Aramayı temizleyerek bütün bölgelere dönebilirsin.</p><button className="gold-button" onClick={() => { setQuery(''); setSavedOnly(false) }}>Bütün bölgeleri göster</button></div>}
         {(!needle || normalize(historyArticle.name).includes(needle)) && (!savedOnly || saved.includes(historyArticle.id)) && <a className="wiki-history" href="#/wiki/buyuk-kirilma"><span className="history-symbol">✧</span><div><span className="eyebrow">ATEŞ, IŞIK VE HAFIZA</span><h2>Büyük Kırılma</h2><p>Aynı geçmişin farklı halklarda bıraktığı izler.</p></div><ArrowRight size={24} strokeWidth={1} /></a>}
       </>}

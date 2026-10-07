@@ -95,6 +95,46 @@ test('mobile navigation, map and wiki fit without horizontal overflow', async ({
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
 })
 
+test('Danstsud distinguishes its regions from cities and follows Hardlane to Frostbay', async ({ page }) => {
+  await page.goto('/#/wiki/danstsud')
+  await expect(page.getByRole('heading', { name: 'Taç, lordlar ve vergi' })).toBeVisible()
+  await expect(page.locator('.article-period')).toContainText('DARBE ÖNCESİ')
+  await expect(page.getByTestId('subregion-links').getByRole('button')).toHaveCount(3)
+  const settlements = page.getByTestId('related-locations')
+  for (const city of ['Lirendil', 'Dorvenhall', 'Marhalden', 'Valdareth', 'Elorwyn', 'Theramis']) {
+    await expect(settlements.getByRole('button', { name: `${city} Başlıca şehir`, exact: true })).toBeVisible()
+  }
+  await expect(settlements).not.toContainText('Lowvale')
+  await expect(settlements).not.toContainText('Hardlane')
+  await page.getByTestId('subregion-links').getByRole('button', { name: /^Hardlane/ }).click()
+  await expect(page.getByRole('heading', { name: 'Hardlane', exact: true })).toBeVisible()
+  await expect(page.locator('.article-content')).toContainText('kâğıt üzerinde')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Frostbay Yerleşim', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Sınırlı hizmet ve tahsilat', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Haritada göster' }).click()
+  await expect(page.getByTestId('detail-panel')).toContainText('Frostbay')
+  await expect(page.locator('.atmosphere')).toHaveClass(/scene-honud/)
+  await expect(page.getByTestId('marker-frostbay')).toHaveClass(/city-pin/)
+  await expect(page.getByTestId('marker-hardlane')).toHaveClass(/subregion-pin/)
+})
+
+test('specific city articles and old Marahalden links and bookmarks remain usable', async ({ page }) => {
+  await page.goto('/#/wiki/lirendil')
+  await expect(page.getByRole('heading', { name: 'Körük ve Örs', exact: true })).toBeVisible()
+  await expect(page.locator('.article-content')).toContainText('Ghorin')
+  await expect(page.locator('.article-content')).toContainText('Zylara')
+  await page.goto('/#/wiki/kethra')
+  await expect(page.getByRole('heading', { name: 'Paslı Kanca ve antrepolar', exact: true })).toBeVisible()
+  await page.evaluate(() => localStorage.setItem('aruzahr-saved', JSON.stringify(['marahalden'])))
+  await page.goto('/#/wiki/marahalden')
+  await page.reload()
+  await expect(page.getByRole('heading', { name: 'Marhalden', exact: true })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Kaydı kaldır', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Haritada göster' }).click()
+  await expect(page).toHaveURL(/#\/atlas\/marhalden$/)
+  await expect(page.getByTestId('detail-panel')).toContainText('Marhalden')
+})
+
 test('published artifacts omit DM secrets and development server blocks raw lore files', async ({ request }) => {
   const secretPhrases = ['Yarethus’un Kutsal İzi', 'Halendar’ın Kızıl Kıvılcımı', 'PROJECT: BROKEN OATH', 'Deli Kral Halendar’ın Ateş Mahkemesi', 'Denge Ritüeli', 'DM NOTU']
   function inspect(directory: string) {
@@ -103,7 +143,8 @@ test('published artifacts omit DM secrets and development server blocks raw lore
       if (name.isDirectory()) inspect(file)
       else {
         expect(file).not.toMatch(/\.(docx|pdf)$/)
-        if (/\.(js|html|json|txt)$/.test(file)) {
+        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md/)
+        if (/\.(js|html|json|txt|md)$/.test(file)) {
           const text = readFileSync(file, 'utf8')
           for (const phrase of secretPhrases) expect(text).not.toContain(phrase)
         }
@@ -116,4 +157,7 @@ test('published artifacts omit DM secrets and development server blocks raw lore
     expect(response.status()).toBe(403)
     expect(response.headers()['content-type'] || '').not.toMatch(/pdf|officedocument/)
   }
+  const authorNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/KAYNAK_METINLERI.md')
+  expect(authorNotes.status()).toBe(403)
+  expect(await authorNotes.text()).not.toContain('Yarethus’un Kutsal İzi')
 })
