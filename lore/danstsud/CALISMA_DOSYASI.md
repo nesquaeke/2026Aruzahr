@@ -6,6 +6,8 @@
 
 **İkinci karar turu:** Ruhsatlı büyü okul dışında yasal; izinsiz uygulama ve kurban ritüelleri yasak. Eryndorn'un bilinen erkek varisi yok, gayrimeşru oğulları var. Elorwyn şehri hep aynı hanedan tarafından yönetilmiş. Kullanıcının ad/aile oluşturma yetkisiyle **Vaeranth** kraliyet ailesi ve **Elorwynder** hanedan adı yazıldı; isimler eski kaynakların bulgusu olarak sunulmaz. Ayrıntılar [HANEDANLAR_VE_BUYU_HUKUKU.md](HANEDANLAR_VE_BUYU_HUKUKU.md) içinde.
 
+**Üçüncü karar turu:** Valdareth'in beş suru, ova ve liman düzeni; Karlan'ın üç kütlesi, iki kollu Aldara, nadir metal; Marhalden'in lonca seçimi, vergi köyleri ve mülteci girişini kapatması kesinleştirildi. Yeni mahalle, makam, lonca ve canlı yazımı [VALDARETH_KARLAN_MARHALDEN.md](VALDARETH_KARLAN_MARHALDEN.md) içinde. Aşağıdaki eski kaynak incelemesindeki eksik şehir profilleri artık güncel ilerlemeyi temsil etmez.
+
 ## 1. İncelemenin dayanağı
 
 Güncel `main` dalındaki tüm lore dosyaları tarandı. Danstsud için ayrı bir ülke tanıtım DOCX'i mevcut dosya listesinde bulunmuyor; krallık bilgisi üç macera belgesine, Valhunar PDF'sine ve haritaya dağılmış durumda. Önceki wiki, bu malzemeyi çok kısa özetledi; şehir sayfalarının çoğunda kaynaklara özgü içerik bulunmuyor.
@@ -80,7 +82,7 @@ Tam kaynak metinleri ve dosya özet değerleri [KAYNAK_METINLERI.md](KAYNAK_METI
 | Elorwyn | Haritada büyük kent; Elorwyn adı siyasi kişilerde soyadı olarak da kullanılır | Şehir ile hanedan arasında bağ var mı? Tharion ve Damian'ın akrabalığı ne? Aynı adın kökeni ne? |
 | Marhalden | Haritada büyük, tahkim edilmiş ve dağ/kar geçişinde yer alan kent | İdari aidiyet, yönetici, kuruluş, ekonomik işlev, Hardlane ile ilişkisi; belgelerde bağımsız şehir profili yok |
 
-**Şehir çizimlerinin büyüklüğü bir nüfus sayımı değildir.** Harita Valdareth'i başkent ilan eder. Kullanıcı Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn ve Theramis'i başlıca şehirler olarak kesinleştirdi; kendi aralarındaki nüfus sırası henüz verilmedi.
+**Şehir çizimlerinin büyüklüğü bir nüfus sayımı değildir.** Harita Valdareth'i başkent ilan eder. Kullanıcı Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn ve Theramis'i başlıca şehirler olarak kesinleştirdi; sonraki kararda Valdareth en kalabalık şehir olarak, Marhalden ise yüksek nüfuslu olmayan bir şehir olarak tanımlandı; diğer kentlerin sıralaması hâlâ verilmedi.
 
 ## 5. Kişi ve kurum kayıtları
 
@@ -318,4 +320,4 @@ Başkent ve büyük kentlerde daha çok alt bölüm gerekir; küçük kasabalar 
 2. **Bölgesel yönetim:** Feodal krallık; doğrudan kraliyet vergisi Manorveil'de, lordların tahsilatı diğer lordluklarda. Hardlane'de gerçek kraliyet erişimi çok zayıf; Frostbay'in bölgesel idaresi çoğunlukla kâğıt üzerinde.
 3. **Eryndorn'un amacı:** Zeki, bilgiye çok aç ve tükenmiş; yaptığı şeyleri bilerek yapıyor, durursa daha kötüsünün olacağına inanıyor.
 
-İlk iskelet [KANON.md](KANON.md) içinde kuruldu. Kraliyet ailesi oluşturuldu ve okul dışında ruhsatlı büyü kesinleşti. Sıradaki kararlar: **veraset hukuku; kayıp kraliçe anlatısı; Tharion–Damian akrabalığı; başlıca şehirlerin lord/bölge aidiyeti; harita ölçeği.** Kuruluş tarihi, nüfuslar ve vergi oranları henüz kesin bilgi olarak eklenmeyecek. Valdareth'in saray makamları, mahalleleri ve geçim düzeni sıradaki şehir geliştirmesi.
+İlk iskelet [KANON.md](KANON.md) içinde kuruldu. Kraliyet ailesi oluşturuldu ve okul dışında ruhsatlı büyü kesinleşti. Sıradaki kararlar: **veraset hukuku; kayıp kraliçe anlatısı; Tharion–Damian akrabalığı; başlıca şehirlerin lord/bölge aidiyeti; harita ölçeği.** Kuruluş tarihi, nüfuslar ve vergi oranları henüz kesin bilgi olarak eklenmeyecek. Valdareth'in makam, mahalle ve geçim düzeni ile Marhalden/Karlan temeli yeni genişleme belgesinde yazıldı. Sırada kesin harita eşleştirmeleri ve kalan büyük şehirlerin yerel yönetimi var.

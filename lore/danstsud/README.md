@@ -14,4 +14,6 @@ Bu metinlerde beş farklı bilgi seviyesi vardır:
 
 Görev sırları ve olası kampanya sonları çalışma belgelerinde bulunur. Bu klasör `web/` dışında tutulur; web uygulaması yalnızca ayrı hazırlanan genel lore metinlerini kullanır. GitHub'da bu klasörü okuyabilen kişiler çalışma sırlarını da okuyabilir; klasör adı erişim koruması sağlamaz. Önceden seçilen genel lore / görev sırrı ayrımı wiki içeriğinde uygulanır.
 
-Mevcut aşama: başlangıç dönemi, feodal vergi düzeni, Hardlane'in durumu, altı başlıca şehir, Eryndorn'un motivasyonu ve ruhsatlı büyü kuralı kullanıcı tarafından kesinleştirildi. Kullanıcının yetkisiyle Vaeranth ailesi ve Elorwynder adı oluşturuldu. Tharion–Damian akrabalığı, veraset hukukunun ayrıntıları, şehir aidiyetleri ve harita ölçeği henüz kesinleşmedi.
+Valdareth'in mahalleleri, saray makamları, loncaları ve geçim ağı; Karlan'ın üç zirvesi, Veyralt, sekiz canlı; Marhalden'in yönetimi ve vergi köyleri [genişletilmiş şehir/dağ belgesinde](VALDARETH_KARLAN_MARHALDEN.md) bulunur. Belge, kullanıcı kararları ve yeni yazımı ayırır, ardından kamuya açık tam metinleri verir.
+
+Mevcut aşama: başlangıç dönemi, feodal düzen, Hardlane'in genel durumu, Eryndorn, ruhsatlı büyü, Valdareth ve Marhalden'in temel şehir düzeni kuruldu. Aldara'nın iki kolu kullanıcı tarafından seçildi. Tharion–Damian akrabalığı, veraset, bazı adların harita eşleştirmesi, kesin bölge sınırları ve dünya ölçeği hâlâ açık.

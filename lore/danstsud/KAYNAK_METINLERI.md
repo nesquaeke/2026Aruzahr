@@ -1158,3 +1158,19 @@ Eryndorn zekidir, bilgiye çok açtır, arayışı tarafından tüketilmiş ve t
 7 Ekim 2026: Kullanıcı Eryndorn'un hanedan adını ve ailesini oluşturma yetkisini verdi. Eryndorn'un bilinen erkek varisi yok; gayrimeşru oğulları var. Elorwyn şehri hep aynı hanedan tarafından yönetilmiş; hanedan için Elorwynder veya benzeri ayrı bir ad oluşturulacak. Ruhsatlı büyü okul dışında yasal; izinsiz uygulama ve kurban ritüelleri yasak.
 
 Bu yanıtta isimleri, aile ağacını, oğulların sayısını veya Tharion–Damian akrabalığını kullanıcı vermedi. Vaeranth, Elorwynder ve yeni aile üyeleri yetkilendirilmiş yeni yazım olarak ayrı kaydedildi; kaynak alıntılarına yerleştirilmedi.
+
+## U3 — Valdareth, Karlan ve Marhalden kullanıcı kararları
+
+7 Ekim 2026. Aşağıdaki kayıt kullanıcının uzun şehir/dağ tarifinin anlamını koruyan özetidir; önceki belge alıntıları aynen bırakıldı.
+
+Valdareth düzensiz büyümüş, birçok iç duvar ve iç kaleli, çok yüksek nüfuslu ve en kalabalık başkenttir. Beş ana duvarla sarılır; içten dışa zayıflar ve fakirleşir, dış çeper köy gibidir. İçte saray/kale ve siyah obsidyen kaplı kilise, eski büyük fener ve limanı ayıran koruyucu duvar vardır. Serenith, Aldara, Teyra verimli ovayı besler; uzaklara uzanan büyük tarım arazileri ve yel değirmenleri vardır. Mavi mor kiremit saraylarda başladı; mineral Dorvenhall'dan gelir, iki şehirde işlenir. Başkentte büyük hapishane, kralın özel birliği, şehir muhafızları, ÇelikKalkan ve diğer loncalar bulunur. Mor Donanma Rilorn Körfezi'nde bekler. Pilorn, Fehar, Gaalmire, Naeron, Fevric, Theld, Korhenden doğrudan Valdareth'e vergi verir. Kullanıcı mahalle, makam, lonca ve ek şehir lore'u oluşturulmasını istedi.
+
+Karlan Hardlane'i Manorveil/Lowvale'den ayırır; en yüksek zirve 13.000 m. Kuzey Velthar/Brolin Körfezi'ne, orta Marhalden Dağı'na ve Aldara kaynağına, güney Harven/Tolvur çevresine bağlıdır. Ortadaki büyük zirve en küçüktür. Karlan dışında bulunmayan nadir, demirden hafif ve çok dayanıklı silah/zırh madeni ile ayrıntılı hayvan ve yaratık isimlerinin oluşturulması istendi. Aldara Marhalden üzerinden Frostmere'e dökülür. Marhalden bilinen düzenli geçiştir; eski maden yolları ve kaçak kuzey/güney patikaları tehlikelidir. Kralın/Kraliçenin Yolu batıya uzanmaz.
+
+Kral lordları atayabilir/azledebilir; şehir gelenekleri Şafak Çağı'ndan sürer. Marhalden'de kazı, şekillendirme/işleme ve satış lonca çevrelerinin küçük lord ve aristokratları lordu sekiz yılda, baş lonca üyesini dört yılda bir seçer. Şehir çok yüksek nüfuslu değildir; maden/ocak/ticarethane, küçük seçkin birlik, küçük kuşatma silahları, muhafızlar, güçlü duvar ve yüksek güvenlikli zindan vardır. Lord ve lonca başının kaleleri nehrin karşılıklı kıyılarındadır. Tarım neredeyse yok, balık boldur ama en büyük sanayi değildir. Theramis büyücüleri ve Elorwyn ruhbanları iklimi dengeler: kış −35 °C, yaz en fazla 25 °C, ortalama 5–10 °C. Son mülteci akını ardından şehir girişe kapandı.
+
+Uldar, Tolvur, Toran doğudaki elverişli iklimli ticaret/hayvancılık ve erzak yerleridir; Harven/Mavric Hardlane'de, Marhalden birliklerince korunan az sayıdaki düzenli köylerdendir. Beşi Marhalden'e vergi verir. Batıdaki iki köyde tarım yoktur; av, odunculuk, son dönemde köle ticareti ve yağmada ölenlerin ziynetleri gelir sağlar. Frostmere yılın yarısı donuk, yarısı açık sudur.
+
+**U3-A — Aldara yön sorusunun yanıtı:** Kullanıcı "İki kol: doğu ovaya, batı Frostmere'e" seçeneğini seçti. Ortak buzul kaynak alanından çıkan Doğu Aldara Valdareth ovasını, Batı Aldara Marhalden üzerinden Frostmere'i besleyecek.
+
+Üretilen mahalle, lonca, makam, zirve, maden ve canlı adları bu kullanıcı özeti veya eski kaynak alıntıları içine yerleştirilmedi; [yeni yazım belgesinde](VALDARETH_KARLAN_MARHALDEN.md) ayrı kaydedildi.

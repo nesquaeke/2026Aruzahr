@@ -78,8 +78,8 @@ Bu grup Lowvale yazısı çevresi ve doğu/güney kent ağını kapsar. Dorvenha
 | Frostbay | **Hardlane aidiyeti kullanıcı tarafından doğrulandı**; sınırlı vergi/kamu hizmeti; kâğıt üzerinde bölgesel idare |
 | Vyssgard | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
 | Kaldmere | Karlı sahada harita adı; idari aidiyet ayrıca teyit edilecek |
-| Mavric | Karlı sahada küçük yerleşim; idari aidiyet ayrıca teyit edilecek |
-| Marhalden | **Başlıca şehir**; Karlan/kar geçişindeki büyük tahkimat; hangi bölgeye bağlı olduğu kesinleşmedi |
+| Mavric | Karlı sahada küçük yerleşim; Marhalden vergisi ve garnizon koruması kullanıcı kararı |
+| Marhalden | **Başlıca şehir**; Karlan geçidini ve Üç Mühür lonca ağını tutar; kesin Manorveil/Lowvale sınır aidiyeti hâlâ açık |
 | Tora | Marhalden doğusunda harita adı; idari aidiyet ayrıca teyit edilecek |
 
 ## Yazının kısmen örtüldüğü yerler
@@ -122,3 +122,22 @@ Bu satırlar henüz kesin yerleşim adı veya yeni pin değildir. Haritadaki oku
 Önce **Valdareth**: saray, hanedan, kent yaşamı ve merkezî güç. Sonra **Frostbay** üzerinden Hardlane'in kâğıt üzerindeki ve gerçek idaresi. Ardından diğer başlıca şehirlerin lordluk ağı; kaynakta ayrıntısı olan **Lirendil, Kethra, Dorvenhall ve Brannis** bu ağı dolduracak. Son turda küçük yerleşimlerin pazarı, üretimi, ulaşımı ve büyük şehirlere bağı yazılacak.
 
 Harita üzerinde yalnızca adı açıkça okunmuş ve yeri görülmüş yerler pin alacak. Çok sayıda küçük yerleşim henüz şehir makalesi yazım aşamasında değildir; bu envanter tüm şehirlerin tamamlanmış lore'u olarak sunulmamalı.
+
+## Yeni vergi bağları ve adların eşleştirilmesi
+
+7 Ekim 2026 kullanıcı kararı: **Pilorn, Fehar, Gaalmire, Naeron, Fevric, Theld, Korhenden → doğrudan Valdareth**. **Uldar, Tolvur, Toran, Harven, Mavric → Marhalden**. Harven/Mavric Hardlane'de, diğer üçü dağların doğusunda.
+
+| Güncel lore adı | Eski harita okuması / durum | Aktarım kuralı |
+| --- | --- | --- |
+| Gaalmire | Galmire | Olası eş ad; önceki okuma korunur, pin otomatik konmaz |
+| Uldar | Ildar | Olası eş ad; konum teyidi gerekir |
+| Toran | Tora | Olası eş ad; konum teyidi gerekir |
+| Tolvur | Tolv… / Tolva | Örtülü eski okuma; yeni lore adı kullanılır |
+| Harven | …rven / Har…en | Örtülü eski okuma; yeni lore adı kullanılır |
+| Serenith | Serenth Nehri | Güncel yazım Serenith |
+| Teyra | Terra Nehri | Güncel yazım Teyra |
+| Pilorn | Rilorn ayrı kıyı adı | Birleştirilmez |
+| Fehar | Frethar ayrı okuma | Aynı yer sayılmaz |
+| Korhenden | Korthen ayrı okuma | Aynı yer sayılmaz |
+
+Veyrakar, Aldarataç ve Tholkar yeni zirve adlarıdır; haritanın özgün yazılarından okunmuş gibi sunulmaz. Yeni wiki coğrafya kayıtları mevcut Marhalden/Frostbay/Valdareth konumlarına bağlanır; ölçülmemiş zirve, nehir veya köy pinleri eklenmez.

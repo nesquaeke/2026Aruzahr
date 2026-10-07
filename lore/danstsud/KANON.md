@@ -1,6 +1,6 @@
 # Danstsud Krallığı — kanon temeli ve yeni yazım
 
-7 Ekim 2026 tarihli kullanıcı kararları ve kullanıcının hanedan/ailesini oluşturma yetkisiyle hazırlanan yeni yazım. **Yazar çalışma belgesi.** Kullanıcının doğrudan verdiği bilgiler ile oluşturulan isimler ayrı belirtilir. Eryndorn'un iç dünyası ve halka açık olmayan aile bilgileri wikiye açıklanmaz.
+7 Ekim 2026 tarihli kullanıcı kararları ve kullanıcının hanedan, şehir, dağ ve canlıları geliştirme yetkisiyle hazırlanan yeni yazım. **Yazar çalışma belgesi.** Kullanıcının doğrudan verdiği bilgiler ile oluşturulan isimler ayrı belirtilir. Eryndorn'un iç dünyası ve halka açık olmayan aile bilgileri wikiye açıklanmaz.
 
 ## Dünya zamanı
 
@@ -16,7 +16,7 @@ Danstsud **feodal bir krallıktır**. Hardlane, Manorveil ve Lowvale ayrı ülke
 
 Manorveil'in ayırt edici özelliği **vergisinin krala toplanmasıdır**. Bu, kraliyetin doğrudan topraklarıdır. Kullanıcının ilk tanımı da kralın yönetimindeki topraklar şeklindedir.
 
-Henüz verilmemiş bilgiler: vergi görevlilerinin örgütlenmesi, yerel makamlar, hangi şehir ve köylerin doğrudan bu vergi sisteminde olduğu, kralın arazisi ile lordların özel mülklerinin sınırı. Valdareth harita bağlamında kraliyet merkezidir; diğer başlıca şehirlerin aidiyeti ayrıca kesinleştirilecek.
+Pilorn, Fehar, Gaalmire, Naeron, Fevric, Theld ve Korhenden doğrudan Valdareth'e kraliyet vergisi verir. Başkent makamları ve tahsilatın kayıt düzeni yeni şehir yazımında kuruldu. Diğer şehirlerin aidiyeti, tüm lordluk sınırları ve vergi oranları henüz kesinleşmedi.
 
 ### Lowvale
 
@@ -36,6 +36,8 @@ Bu iki cümleyi şimdilik şöyle kullanıyoruz: **Hardlane'de düzenli, işleye
 
 **Diğer Hardlane yerleşimlerinin idaresi resmen Frostbay'e bağlıdır.** Bu bağlılık çoğunlukla kâğıt üzerinde kalır; gündelik hayatta etkili bir bölgesel idare kurulmuş değildir. Frostbay'in yöneticisinin unvanı, adı veya seçilme biçimi verilmedi.
 
+**Yeni özel istisna:** Harven ve Mavric, kullanıcı tarafından Marhalden'in vergi topladığı ve garnizonla koruduğu Hardlane yerleşimleri olarak kesinleştirildi. Frostbay'in geniş kâğıt üstü idaresi bu iki köyde Marhalden'in fiilî yetkisinin yerine geçmez. Diğer Hardlane şehirlerinin zayıf tahsilat ve yönetim koşulları değişmedi.
+
 Bu düzenin önemli bir sonucu: Haritada krallığa ait olmak, düzenli koruma, altyapı ve devlet erişimi almakla aynı şey değildir. Kullanıcının kararından çıkan bu ilişki wikiye genel siyasi durum olarak aktarılabilir. Ancak hangi yerel toplulukların fiilen mahkeme, güvenlik veya yol bakımını üstlendiği ayrıca yazılacaktır.
 
 ## Başlıca şehirler
@@ -50,6 +52,8 @@ Kullanıcı altı başlıca şehri açıkça belirledi:
 6. **Theramis**
 
 Bu liste nüfus sırası değildir. Başlıca şehir olmak, mutlaka doğrudan kral tarafından yönetilmek anlamına gelmez. Kentlerin lordları ve bölge aidiyetleri henüz bütün liste için kesinleşmedi. Brannis ve Kethra gibi kaynakta önemli yer tutan şehirler var olmaya devam eder; bu altılı listede olmamaları onları haritadan veya lore'dan silmez.
+
+Yeni kullanıcı kararı **Valdareth'in en kalabalık şehir**, **Marhalden'in nüfusunun yüksek olmadığı** bilgisidir. Diğer şehirler arasında nüfus sırası veya kesin sayı hâlâ verilmedi.
 
 ## Kral Eryndorn — yazarın bildiği karakter temeli
 
@@ -87,12 +91,24 @@ Kaynaklardaki **Tharion Elorwyn** ve **Damian Elorwyn**, yeni isimlendirmede **T
 
 Aynı hukuk Hardlane'de de geçerlidir, fakat fiilî denetim kraliyet erişimiyle sınırlıdır. Yabancı ruhsatların tanınması, kendi kanını kullanan tekniklerin sınıfları, cezalar ve acil müdahale istisnaları henüz seçilmedi. Ayrıntılı kurallar [hanedanlar ve büyü hukuku dosyasında](HANEDANLAR_VE_BUYU_HUKUKU.md).
 
+## Valdareth, Karlan ve Marhalden temeli
+
+Valdareth beş düzensiz ana sur kuşağıyla çevrili çok kalabalık başkenttir. En içte saray/kale ile obsidyen kaplı kilise; limanda eski büyük fener ve ayrı koruyucu duvar vardır. İçten dışa servet ve hizmet azalır; dış çeper köye benzer. Serenith, Doğu Aldara ve Teyra'nın beslediği çok verimli ova, geniş tarım alanları ve yel değirmenleriyle kenti besler. Mor Donanma Rilorn Körfezi'nde bekler. Mavi mor kiremidin malzemesi Dorvenhall'dan; işlenmesi iki şehirdendir.
+
+Karlan, Hardlane ile doğudaki iki bölgeyi ayırır; en yüksek zirvesi 13.000 metredir. Orta en küçük büyük kütle Marhalden Dağı'dır. Kullanıcının seçtiği iki kollu Aldara düzeni, doğuda ovayı ve batıda Marhalden üzerinden Frostmere'i besler. Frostmere yılın yaklaşık yarısını donuk geçirir.
+
+Marhalden tek bilinen düzenli kara geçididir; Kralın/Kraliçenin Yolu burada son bulur. Eski maden geçişleri ve kaçak patikalar güvenilmezdir. Şehir maden, işleme ve satış kollarının örgütlediği lonca yönetimine sahiptir: lord sekiz, baş lonca üyesi dört yılda bir seçilir. Kralın atama/azil yetkisi ile Şafak Çağı şehir gelenekleri birlikte geçerlidir.
+
+Marhalden Uldar, Tolvur, Toran, Harven, Mavric'ten vergi toplar. Doğu köyleri erzak sağlar; batıdaki iki köyde tarım yoktur, garnizon koruması, av ve odunculuk vardır. Son dönemde köle ve yağmadan kalan ziynet ticareti başlamıştır; bunun krallık genelindeki hukuki statüsü henüz seçilmedi. Şehir mülteci girişine kapanmıştır.
+
+**Yeni yazım:** Mahalleler, saray görevlileri, loncalar, üç zirve adı, Veyralt, sekiz canlı ve Üç Mühür uygulama ayrıntıları [VALDARETH_KARLAN_MARHALDEN.md](VALDARETH_KARLAN_MARHALDEN.md) içinde. Kullanıcı bilgisi ile üretilen ayrıntı burada ayrı gösterilir; kaynak metinleri değiştirilmez.
+
 ## Bu temelden sonra geliştirme sırası
 
-1. **Valdareth:** Aile temeli oluşturuldu; sırada sarayın makamları, veraset hukuku, loncayla yetki ilişkisi ve başkentin mahalle/iaşe düzeni var.
+1. **Valdareth:** Mahalle, makam, lonca ve iaşe düzeni kuruldu. Sırada veraset hukuku ve şehirdeki güç odaklarının olaylar karşısındaki kişisel tercihleri var.
 2. **Frostbay ve Hardlane:** Resmî bağlılık ile gerçek yönetim arasındaki fark; dört şehrin birbirine bağı; merkezin ihmalinin gündelik sonuçları.
-3. **Lordluk ağı:** Lirendil, Dorvenhall, Marhalden, Elorwyn ve Theramis'in yönetimleri ve bölge aidiyetleri. Tharion ile Damian'ın hanedan içindeki yerleri.
+3. **Lordluk ağı:** Marhalden'in yerel yönetimi kuruldu; diğer büyük şehirlerin yönetimleri ve kesin bölge aidiyetleri geliştirilecek. Tharion ile Damian'ın hanedan içindeki yerleri hâlâ açık.
 4. **Büyü hukuku:** Ruhsatlı hizmet kuralı ve sicil temeli kuruldu; yabancı ruhsatlar, kan büyüsü teknikleri, cezalar ve denetim uyuşmazlıkları geliştirilecek.
-5. **Küçük yerleşimler:** Büyük kentlerin su, gıda, yakacak, ulaşım ve üretim ağını tamamlayan yerler.
+5. **Küçük yerleşimler:** Valdareth'in yedi ve Marhalden'in beş vergi yerleşimi için temel üretim bağları yazıldı. Sırada harita eşleştirmesi ve her yerleşimin kendi ayrıntılı yaşamı var.
 
 Temel soru artık “bölgelerin adı ne?” değil: **Kimin hangi kaynak ve insan üzerinde gerçek yetkisi var; bunun karşılığında ne sağlıyor?** Her şehir bu ilişkiyi somut bir gündelik hayatla anlatmalı.

@@ -1,4 +1,5 @@
 import type { Place, Region, Subregion } from '../data'
+import { expansionSources, marhaldenExpansionSections, valdarethExpansionSections } from './danstsud-expansion'
 
 // Public lore at the campaign's beginning: Eryndorn is still on the throne.
 // Author notes, alternate coups, secret identities and quest outcomes stay outside web/.
@@ -16,14 +17,14 @@ export const danstsudRegion: Region = {
   point: [.73, .72], box: [.38, .46, .61, .54],
   summary: 'Eryndorn’un tahtta olduğu feodal krallık. Manorveil’de vergi krala, lordluk topraklarında lordlara toplanır. Karlan Dağları’nın ötesindeki Hardlane ise aynı krallığa bağlı olmasına rağmen merkezî düzenin çok azına erişir.',
   tags: ['Feodal krallık', 'Üç bölge', 'Bakır Ana'],
-  sources: [canonSource, newWritingSource, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
+  sources: [canonSource, newWritingSource, ...expansionSources, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
   sections: [
     { title: 'Danstsud Krallığı', paragraphs: [
       'Danstsud, Valhunar’ın kentler, kaleler, loncalar ve yollarla birbirine bağlanan feodal krallığıdır. Başkenti Valdareth’tir; tahtta Vaeranth Hanedanı’ndan Kral Eryndorn bulunur. Krallığın toprakları Hardlane, Manorveil ve Lowvale adlı üç bölgeye ayrılır. Bu bölgeler aynı tacın altında yer alır, fakat kraliyet gücünü aynı ölçüde hissetmez.',
       'Bir başkentte kayıt altına alınabilen vergi, askerî emir veya kamu hizmeti, uzak bir yerleşimde aynı biçimde uygulanmayabilir. Danstsud’un siyasi coğrafyasını yalnızca sınırlar değil, yöneticilerin gerçekten ulaşabildiği insanlar ve yollar da belirler.',
     ] },
     { title: 'Taç, lordlar ve vergi', paragraphs: [
-      'Manorveil, kralın doğrudan topraklarıdır. Bu bölgenin vergisi krala toplanır. Diğer lordluk topraklarında tahsilatı lordlar yürütür; böylece yerel iktidar, kraliyet merkezinden ayrı bir güç kazanır.',
+      'Manorveil, kralın doğrudan topraklarıdır. Bu bölgenin vergisi krala toplanır. Diğer lordluk topraklarında tahsilatı lordlar yürütür. Kral lord atayabilir veya makamdan alabilir; şehirlerin Şafak Çağı’ndan süregelen yerel gelenekleri ise fiilî yönetimi biçimlendirir.',
       'Danstsud’daki feodal düzen, ülkeyi tek bir yönetim haritasından daha karmaşık hâle getirir. Bir yerin krallığa bağlı olması, orada merkezî yönetimin her gün işlemesi anlamına gelmez. Bu fark en belirgin biçimde Hardlane’de görülür.',
     ] },
     { title: 'Manorveil: kraliyetin doğrudan toprakları', paragraphs: [
@@ -32,7 +33,7 @@ export const danstsudRegion: Region = {
     ] },
     { title: 'Hardlane: uzaktaki bağlılık', paragraphs: [
       'Batının karlı bölgesi Hardlane’de, Karlan Dağları’nın ötesine geçen kraliyet otoritesi büyük ölçüde zayıflar. Ternhaven, Dranthol, Frostbay ve Vyssgard Danstsud’a bağlıdır; buna rağmen halkı merkezin düzenine ve imkânlarına eşit biçimde erişmez. Hardlaneliler krallık içinde aşağı bir konuma itilmiş topluluklar olarak görülür.',
-      'Düzenli vergilendirmenin işlemediği bölgede Frostbay sınırlı bir istisnadır: vergi, güvenlik, altyapı ve gümrük uygulamaları az da olsa vardır. Diğer Hardlane yerleşimlerinin idaresi resmen Frostbay’e bağlıdır, fakat bu bağ çoğunlukla kâğıt üzerinde kalır.',
+      'Düzenli vergilendirmenin işlemediği bölgede Frostbay sınırlı bir istisnadır: vergi, güvenlik, altyapı ve gümrük uygulamaları az da olsa vardır. Geniş Hardlane idaresi resmen Frostbay’e bağlıdır, fakat bu bağ çoğunlukla kâğıt üzerinde kalır. Harven ve Mavric, Marhalden’in asker konuşlandırıp yerel vergi topladığı özel bağlı yerleşimlerdir.',
     ] },
     { title: 'Lowvale: lordluk toprakları', paragraphs: [
       'Lowvale, Hardlane ve Manorveil dışında kalan arazileri kapsar. Manorveil’de doğrudan krala toplanan verginin karşısında, lordların tahsilat ve yerel güç sahibi olduğu topraklar krallığın feodal yapısını görünür kılar.',
@@ -73,6 +74,7 @@ export const danstsudSubregions: Subregion[] = [
       { title: 'Frostbay’in sınırlı idaresi', paragraphs: [
         'Diğer Hardlane yerleşimleri resmen Frostbay’in idaresine bağlıdır. Bu düzen büyük ölçüde kâğıt üzerinde kalır; Frostbay bölgenin her yerinde etkili bir yönetim kuramaz.',
         'Hardlane’de düzenli vergilendirme işlemez. Frostbay’de vergi, güvenlik, altyapı ve gümrük işlemleri sınırlı da olsa vardır. Bu küçük yönetim kapasitesi, bütün bölgenin işleyen bir kraliyet düzenine sahip olduğu anlamına gelmez.',
+        'Harven ve Mavric bu genel düzenin özel istisnasıdır: Marhalden’in konuşlandırdığı askerlerce korunur ve yerel lordluğa vergi verir. Sınırlı garnizon düzeni, bütün Hardlane’i kraliyetin işleyen merkezine dönüştürmez.',
       ] },
     ],
   },
@@ -112,7 +114,7 @@ export const danstsudSubregions: Subregion[] = [
       ] },
       { title: 'Nehirler ve yerleşimler', paragraphs: [
         'Haritanın Lowvale çevresinde nehirler, köprüler, tarlalar, küçük yerleşimler ve büyük tahkimatlar yan yana çizilmiştir. Doğu ve güneydeki bu yerleşim ağı, Danstsud’un karlı batısından farklı bir görünüm taşır.',
-        'Serenth ve Terra nehirleri bu coğrafyada belirgindir. Kentler ve küçük yerleşimler su yolları ve kara yollarıyla birbirine bağlanır.',
+      'Serenith ve Teyra nehirleri, Doğu Aldara’yla birlikte tarım ve yerleşim ağlarını besler. Kentler ve küçük yerleşimler su yolları ve kara yollarıyla birbirine bağlanır.',
       ] },
     ],
   },
@@ -121,39 +123,10 @@ export const danstsudSubregions: Subregion[] = [
 export const danstsudPlaces: Place[] = [
   {
     id: 'valdareth', name: 'Valdareth', region: 'danstsud', subregion: 'manorveil', major: true,
-    point: [.734, .667], subtitle: 'Danstsud’un soylu başkenti',
-    summary: 'Danstsud’un soylu başkenti ve Kral Eryndorn’un tahtının merkezi. Gri taş, sis, surlar ve kalabalık kent yaşamı, kraliyet düzeninin bu şehirdeki görünümünü oluşturur.',
-    sources: [canonSource, newWritingSource, openingSource, questSource, fractureSource, mapSource], related: ['vaeranth-hanedani', 'eryndorn', 'buyu-ruhsatlari', 'lirendil', 'brannis', 'dorvenhall'],
-    sections: [
-      { title: 'Başkent ve taç', paragraphs: [
-        'Valdareth, Danstsud Krallığı’nın başkentidir. Şehir ile ülke aynı şey değildir: Danstsud üç bölgeyi ve çok sayıda yerleşimi kapsar; Valdareth bu siyasi bütünün taht merkezidir. Kral Eryndorn Vaeranth hâlâ hüküm sürmektedir.',
-        'Haritada soylu başkent olarak işaretlenen kent, kraliyet merkezi çevresindeki Manorveil düzeniyle ilişkilidir. Manorveil’in vergisi doğrudan krala toplanır.',
-      ] },
-      { title: 'Vaeranth ailesi ve saray', paragraphs: [
-        'Eryndorn’un babası Caedren Vaeranth önceki hükümdardır; Caedren ve kraliçe Isolde ölmüştür. Güncel saray ailesinde Eryndorn’un eşi Kraliçe Alisande, küçük kız kardeşi Leydi Mirelda ve kızı Prenses Ilyenne yer alır.',
-        'Alisande sarayın erzak, yardım ve harcama ihtiyaçlarıyla ilgilenir. Mirelda, hanedanı lord aileleriyle yapılan görüşmelerde temsil eder. Ilyenne sarayda yerel yönetim, kayıt ve hukuk konularını öğrenir. Bu farklı uğraşlar sarayın araştırma, geçim ve siyaset ihtiyaçlarını aynı aile çevresine taşır.',
-      ] },
-      { title: 'Tahtın geleceği', paragraphs: [
-        'Eryndorn’un bilinen bir erkek varisi yoktur. Ilyenne kraliyet ailesinin halka açık meşru çocuğudur; bu aile konumu, onun kendiliğinden ilan edilmiş bir veliaht olduğu anlamına gelmez.',
-        'Hanedanın geleceği hakkındaki tartışma yalnızca sarayın özel hayatıyla sınırlı kalmaz. Tahtın kime geçeceği, kralın doğrudan toprakları ile yerel lordlukların aynı siyasi bütün içinde nasıl yaşayacağıyla da ilgilidir.',
-      ] },
-      { title: 'Taş, sis ve kent yaşamı', paragraphs: [
-        'Şehir gri taşlı, sisli ve soğuk olarak anlatılır. Büyük surlu kent çizimi, kuleleri ve çevresindeki yerleşim ağı Valdareth’i haritada belirgin kılar. Pazar yaşamı ve kalabalık sokaklar, başkentin askerî yüzünün yanında sivil bir hayat da bulunduğunu gösterir.',
-        'Valdareth’in düzeni ülkenin her yerinde aynı biçimde yaşanmaz. Karlan Dağları’nın ötesindeki Hardlane halkı, kraliyet merkezinin sunduğu güvenlik ve altyapıya çok daha sınırlı erişir.',
-      ] },
-      { title: 'Zindanlar ve askerî güç', paragraphs: [
-        'Valdareth’in zindanları kalabalıktır. Mahkûmlar, göçmenler ve düşmüş soylular aynı ağır koşulların içinde bulunur. Taş duvarlar, paslı demir ve dar hücreler şehrin baskı düzeninin bir yüzüdür.',
-        'Kraliyet askerleri ve ÇelikKalkan loncası, başkentin askerî yaşamında adları geçen güçlerdir. Loncanın etkisi, askerî hizmetin sarayla birlikte şehir hayatına da uzandığını gösterir.',
-      ] },
-      { title: 'Kraliyet Büyü Sicili', paragraphs: [
-        'Danstsud’un büyü ruhsatlarının merkez kaydı Valdareth’te tutulur. Kraliyet Büyü Sicili uygulayıcının kimliğini, eğitimini doğrulayan kurum veya ustayı ve izin verilen hizmet alanını kaydeder. Eğitim almak ile yasal hizmet verme izni taşımak ayrı durumlardır.',
-        'Ruhsatlı büyücü okul dışında da izin kapsamındaki hizmeti verebilir. İzinsiz uygulama ve kurban ritüelleri yasaktır. Bir loncanın veya tapınağın üyesi olmak tek başına uygulama ruhsatı yerine geçmez.',
-      ] },
-      { title: 'Başkenti bağlayan yollar', paragraphs: [
-        'Brannis, Valdareth’ten Lirendil’e uzanan yolculuklarda bir duraktır. Dorvenhall ise üretim ve ticaretin öne çıktığı diğer büyük merkezlerden biridir. Başkent, bu yollar ve yerleşimler ağı içinde bulunur.',
-        'Valdareth’i krallığın bütünü olarak görmek, diğer şehirlerin ve uzak bölgelerin deneyimini örter. Danstsud’un merkezî gücü burada somutlaşır; fakat ülkenin her yerinde aynı derecede işlemez.',
-      ] },
-    ],
+    point: [.734, .667], subtitle: 'Beş surun ardındaki soylu başkent',
+    summary: 'Danstsud’un soylu başkenti ve en kalabalık şehri. Eryndorn Vaeranth’ın taht merkezi, beş düzensiz sur kuşağıyla çevrilidir; içeride saray zenginliği, dışarıda ova ve köy yaşamı birbirine eklenir.',
+    sources: [canonSource, newWritingSource, ...expansionSources, openingSource, questSource, fractureSource, mapSource], related: ['valdareth-mahalleleri', 'valdareth-saray-makamlari', 'valdareth-loncalari', 'valdareth-vergi-havzasi', 'vaeranth-hanedani', 'eryndorn', 'buyu-ruhsatlari', 'lirendil', 'brannis', 'dorvenhall'],
+    sections: valdarethExpansionSections,
   },
   {
     id: 'lirendil', name: 'Lirendil', region: 'danstsud', major: true,
@@ -183,7 +156,7 @@ export const danstsudPlaces: Place[] = [
     id: 'dorvenhall', name: 'Dorvenhall', region: 'danstsud', major: true,
     point: [.782, .553], subtitle: 'Tuğla bacalar, üretim ve ticaret',
     summary: 'Kırmızı tuğlalı bacalarıyla anlatılan Dorvenhall, Danstsud’un başlıca üretim ve ticaret merkezlerinden biridir. Büyük surlu kent, çevresindeki yollar ve küçük yerleşimler ağı içinde bulunur.',
-    sources: [canonSource, questSource, mapSource], related: ['valdareth', 'brannis'],
+    sources: [canonSource, ...expansionSources, questSource, mapSource], related: ['valdareth', 'valdareth-loncalari', 'brannis'],
     sections: [
       { title: 'Üreten şehir', paragraphs: [
         'Dorvenhall, Danstsud’un altı başlıca şehrinden biridir. Uzaktan görülen kırmızı tuğlalı bacalar, kentte üretim ve ticaretin önemini gösterir. Şehir, krallığın askerî merkezlerinden farklı bir çalışma ve alışveriş yüzü taşır.',
@@ -197,33 +170,24 @@ export const danstsudPlaces: Place[] = [
         'Dorvenhall, Valdareth’in bir mahallesi veya başka bir krallık değildir. Danstsud’un kendi adı ve işlevi olan büyük şehirlerinden biridir.',
         'Üretim ve ticaret kimliği, Danstsud’daki şehirlerin yalnızca saray ve loncalarla tanımlanmadığını gösterir. Krallığın gündelik çalışma hayatının önemli bir yüzü burada görünür olur.',
       ] },
+      { title: 'Menekşespatı ve saray kiremitleri', paragraphs: [
+        'Valdareth saraylarında ilk kez kullanılan mavi mor kiremitlere renk veren mineral Dorvenhall’dan çıkar. Menekşespatının arıtılması ve kiremitlerin işlenmesi Dorvenhall ile Valdareth’te yürütülür. Başkentin Mor Sır loncası bu üretim zincirinin kurumlarından biridir.',
+        'Dorvenhall’ın renk minerali, yalnız Karlan’da doğal yatağı bulunan Veyralt’tan farklıdır. Kiremit ustalığı ve nadir silah metali, Danstsud’un birbirine bağlı fakat ayrı uzmanlıklarıdır.',
+      ] },
     ],
   },
   {
     id: 'marhalden', name: 'Marhalden', region: 'danstsud', major: true,
     point: [.610, .853], subtitle: 'Karlan çevresindeki büyük tahkimat',
-    summary: 'Danstsud’un altı başlıca şehrinden Marhalden, Karlan Dağları ile karlı ve daha ılıman arazilerin geçişinde görülen büyük surlu kenttir.',
-    sources: [canonSource, mapSource], related: ['hardlane', 'frostbay', 'valdareth'],
-    sections: [
-      { title: 'Başlıca şehirlerden biri', paragraphs: [
-        'Marhalden, Lirendil, Dorvenhall, Valdareth, Elorwyn ve Theramis ile birlikte Danstsud’un başlıca şehirleri arasındadır. Haritadaki adı Marhalden’dir.',
-        'Büyük surları ve kuleleriyle çizilen kent, krallığın dağlık kesiminde belirgin bir yer tutar. Bir bölge adı değil, ayrı bir şehir kaydıdır.',
-      ] },
-      { title: 'Karlan ve kar sınırı', paragraphs: [
-        'Haritada Marhalden, Karlan Zirveleri çevresinde, karlı arazi ile farklı bitki örtüsünün yan yana geldiği yerde gösterilir. Kentin çevresinde dağ, su ve orman çizimleri bulunur.',
-        'Karlan, Danstsud’un siyasi erişiminde de önemli bir eşiktir: dağların Hardlane tarafında kraliyet otoritesi zayıflar. Marhalden’in bu dağ kuşağındaki konumu, onu krallığın coğrafyasını anlamada önemli bir durak yapar.',
-      ] },
-      { title: 'Batı ve merkez arasında', paragraphs: [
-        'Frostbay ve Hardlane’in karlı yerleşimleri, Marhalden’in batısındaki farklı yönetim koşullarını temsil eder. Valdareth ise kraliyet merkezinin bulunduğu başkenttir.',
-        'Aynı krallıkta dağlar, yalnızca manzarayı değiştirmez. Kraliyetin bir yere ne kadar ulaşabildiğini ve merkezî düzenin nerede zayıfladığını da belirginleştirir.',
-      ] },
-    ],
+    summary: 'Karlan’daki düzenli kara geçidini tutan, yüksek nüfuslu olmayan güçlü kale şehri. Üç Mühür loncaları, nadir Veyralt madeni ve doğudan gelen erzak Marhalden’in gücünü taşır; mülteci girişine kapıları kapalıdır.',
+    sources: [canonSource, ...expansionSources, mapSource], related: ['karlan-daglari', 'veyralt', 'marhalden-uc-muhur', 'marhalden-lordlugu', 'karlan-canlilari', 'frostmere-golu', 'hardlane', 'frostbay', 'valdareth', 'theramis', 'elorwyn'],
+    sections: marhaldenExpansionSections,
   },
   {
     id: 'elorwyn', name: 'Elorwyn', region: 'danstsud', major: true,
     point: [.750, .863], subtitle: 'Elorwynder Hanedanı’nın şehri',
     summary: 'Danstsud’un başlıca şehirlerinden Elorwyn, bilinen tarihi boyunca Elorwynder Hanedanı tarafından yönetilmiştir. Güneydeki büyük surlu kentte yönetici ailenin geçmişi ile şehir tarihi birlikte anılır.',
-    sources: [canonSource, newWritingSource, mapSource], related: ['elorwynder-hanedani', 'valdareth', 'theramis', 'kethra'],
+    sources: [canonSource, newWritingSource, ...expansionSources, mapSource], related: ['elorwynder-hanedani', 'valdareth', 'theramis', 'kethra', 'marhalden', 'danstsud-lordluk-hukuku'],
     sections: [
       { title: 'Elorwynder yönetiminin sürekliliği', paragraphs: [
         'Elorwyn şehri hep aynı hanedanın yönetiminde kalmıştır. Ailenin güncel adı Elorwynder’dir; şehrin adı Elorwyn olarak kullanılır. Yerel yönetimin geçmişi, aile geçmişiyle süreklilik taşır.',
@@ -241,13 +205,17 @@ export const danstsudPlaces: Place[] = [
         'Valdareth kuzeyde kraliyet merkezini, Theramis doğuda başka bir büyük kenti oluşturur. Elorwyn, bu merkezlerle aynı feodal krallığın siyasi bütününde bulunur.',
         'Elorwyn’in süreklilik taşıyan aile yönetimi, Danstsud’un yerel güçlerinin başkentten ayrı geçmişleri olduğunu gösterir. Kentler, aynı krallık içinde kendilerine ait yönetim hafızasını korur.',
       ] },
+      { title: 'Karlan’daki ruhban hizmeti', paragraphs: [
+        'Elorwyn’den gelen ruhbanlar, Theramis büyücüleriyle birlikte Marhalden’in sert ikliminde Dört Ocak Çemberleri’nin bakımına katılır. Korunaklı avlular ve su geçişleri, dağın bütün havasını değiştirmeden şehirde yaşamı kolaylaştırır.',
+        'Dua, bakım ve gerçek büyü uygulaması farklı işlerdir. Büyü uygulayan görevliler krallığın ruhsat düzenine bağlıdır; dinî görev, tek başına uygulama izni sağlamaz.',
+      ] },
     ],
   },
   {
     id: 'theramis', name: 'Theramis', region: 'danstsud', major: true,
     point: [.932, .905], subtitle: 'Büyük kıyı kenti ve lonca geleneği',
     summary: 'Danstsud’un başlıca şehirlerinden Theramis, güneydoğudaki büyük surlu kıyı kentidir. Şehir adına anılan loncada büyücüler bulunur; Başbüyücü Solan ve Altın Yılan amblemi bu kurumla ilişkilidir.',
-    sources: [canonSource, newWritingSource, openingSource, mapSource], related: ['buyu-ruhsatlari', 'elorwyn', 'lirendil', 'danstsud'],
+    sources: [canonSource, newWritingSource, ...expansionSources, openingSource, mapSource], related: ['buyu-ruhsatlari', 'elorwyn', 'lirendil', 'danstsud', 'marhalden'],
     sections: [
       { title: 'Güneydoğudaki büyük şehir', paragraphs: [
         'Theramis, Danstsud’un altı başlıca şehrinden biridir. Haritada ülkenin güneydoğusunda, kıyıyla bağlantılı büyük bir tahkimat olarak gösterilir.',
@@ -256,6 +224,7 @@ export const danstsudPlaces: Place[] = [
       { title: 'Theramis Loncası', paragraphs: [
         'Theramis adına anılan loncada büyücüler de yer alır. Başbüyücü Solan, bu kurumla ilişkili isimlerden biridir. Altın Yılan amblemi loncanın tanınan işaretidir.',
         'Danstsud’da ruhsatlı büyücüler okul dışında da yasal hizmet verebilir. Theramis Loncası’nın büyücüleri de hizmet sırasında bu ruhsat düzenine bağlıdır; lonca üyeliği tek başına uygulama izni değildir. İzinsiz büyü ve kurban ritüelleri yasaktır.',
+        'Theramis büyücüleri, Elorwyn ruhbanlarıyla birlikte Marhalden’in Dört Ocak Çemberleri’nde çalışır. Isıyı tutan ve buzlanmayı geciktiren düzen yerel koruma sağlar; yakıt ve bakım gereksinimini ortadan kaldırmaz.',
       ] },
       { title: 'Krallığın farklı bir yüzü', paragraphs: [
         'Theramis, Valdareth’in taht merkezi veya Lirendil’in ÇelikKalkan çevresiyle aynı şehir değildir. Danstsud’un farklı büyük kentleri, kendi coğrafyaları ve kurumlarıyla krallığın yaşamına katılır.',
@@ -328,6 +297,7 @@ export const danstsudPlaces: Place[] = [
       { title: 'Kâğıt üzerindeki bölgesel idare', paragraphs: [
         'Diğer Hardlane yerleşimleri resmen Frostbay’in idaresine bağlıdır. Bununla birlikte kraliyet otoritesi Karlan Dağları’nın bu tarafında zayıf işler; Frostbay’in bütün bölgeye ulaşan güçlü bir yönetimi yoktur.',
         'Resmî bağlılık ile gerçek idare arasındaki fark, şehir için temel bir koşuldur. Krallığın kaydında bir merkez olmak, bölgenin her yerinde bu düzeni uygulayabilmek anlamına gelmez.',
+        'Harven ve Mavric’te Marhalden’in yerel asker ve vergi düzeni ayrı bir istisnadır. Frostbay’in geniş kâğıt üstü idaresi, bu iki yerleşimdeki fiilî lordluk bağının yerine geçmez.',
       ] },
       { title: 'Sınırlı hizmet ve tahsilat', paragraphs: [
         'Hardlane’de düzenli vergilendirme işlemez. Frostbay’de ise vergi ve gümrük işlemleri az da olsa bulunur. Bu sınırlı tahsilata güvenlik ve altyapının yine sınırlı varlığı eşlik eder.',

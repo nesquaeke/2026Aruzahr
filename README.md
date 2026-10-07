@@ -28,8 +28,12 @@ Genel wiki sekiz ülke/bölgeyi, haritadaki yerleşimleri ve Danstsud’un üç 
 
 Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatları için ayrı wiki sayfaları vardır. Bunlar aramada bulunur, kaydedilebilir ve ilgili şehir sayfalarından açılır. Eski Tharion Elorwyn ve Damian Elorwyn adları da aramada desteklenir.
 
+Valdareth ve Marhalden ayrıntılı şehir sayfalarıdır. Mahalleler, saray makamları, loncalar, vergi havzaları, Karlan Dağları, Veyralt, sekiz dağ canlısı, Frostmere ve lordluk hukuku için on bir ek wiki kaydı vardır. Tablolar mobilde kendi alanında kaydırılır; arama şehir metinlerini ve tablo içeriklerini de tarar.
+
 ## Danstsud lore çalışması
 
 Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [lore/danstsud/](lore/danstsud/) dizinindedir. Bu yazar çalışma belgeleri görev sırları içerir; web uygulaması bunları doğrudan yüklemez. Halka açık Danstsud metinleri [web/src/lore/danstsud.ts](web/src/lore/danstsud.ts) dosyasında ayrı tutulur.
 
 Yeni aile şeması, hanedan adları ve büyü düzeni [hanedanlar ve büyü hukuku belgesinde](lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md) açıklanır. Halka açık hanedan, kişi ve hukuk metinleri [web/src/lore/danstsud-court.ts](web/src/lore/danstsud-court.ts) dosyasındadır; oğulların kimlikleri yazar belgesinde kalır.
+
+[Valdareth, Karlan ve Marhalden tam lore belgesi](lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md), yeni şehir ve doğa yazımını içerir. Bunun kamuya açık wiki verisi [danstsud-expansion.ts](web/src/lore/danstsud-expansion.ts) dosyasındadır.

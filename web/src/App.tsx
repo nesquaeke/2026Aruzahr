@@ -71,10 +71,13 @@ export default function App() {
   }, [selected, wiki])
 
   const filteredRegions = useMemo(() => regions.filter(region => (!savedOnly || saved.includes(region.id)) && (!needle || normalize([region.name, region.summary, ...region.tags].join(' ')).includes(needle))), [savedOnly, saved, needle])
-  const filteredPlaces = useMemo(() => mapLocations.filter(place => (!savedOnly || saved.includes(place.id)) && (!needle || normalize(`${place.name} ${regionById(place.region)?.name} ${subregionById(place.subregion || '')?.name || ''}`).includes(needle))), [savedOnly, saved, needle])
+  const filteredPlaces = useMemo(() => mapLocations.filter(place => (!savedOnly || saved.includes(place.id)) && (!needle || normalize([
+    place.name, place.summary, regionById(place.region)?.name, subregionById(place.subregion || '')?.name,
+    ...(place.sections || []).flatMap(section => [section.title, ...section.paragraphs, ...(section.table?.rows.flat() || [])]),
+  ].join(' ')).includes(needle))), [savedOnly, saved, needle])
   const filteredLore = useMemo(() => loreArticles.filter(article => (!savedOnly || saved.includes(article.id)) && (!needle || normalize([
     article.name, article.summary, regionById(article.region)?.name, ...(article.aliases || []),
-    ...article.sections.flatMap(section => [section.title, ...section.paragraphs]),
+    ...article.sections.flatMap(section => [section.title, ...section.paragraphs, ...(section.table?.rows.flat() || [])]),
   ].join(' ')).includes(needle))), [savedOnly, saved, needle])
   const historyResult = (Boolean(query) || savedOnly) && (!savedOnly || saved.includes(historyArticle.id)) && (!needle || normalize(historyArticle.name).includes(needle))
 
@@ -126,7 +129,7 @@ export default function App() {
       <div className="sidebar-section-heading"><span>{savedOnly ? 'KAYDEDİLEN YERLER' : query ? 'ARAMA SONUÇLARI' : 'VALHUNAR BÖLGELERİ'}</span><span>{query || savedOnly ? filteredRegions.length + filteredPlaces.length + filteredLore.length + Number(historyResult) : filteredRegions.length}</span></div>
       <div className="region-list">
         {filteredRegions.map(region => { const Icon = icons[region.id]; return <button key={region.id} className={`region-link ${detailRegion?.id === region.id ? 'active' : ''}`} onClick={() => wiki ? navigate(`/wiki/${region.id}`) : select(region.id)} style={{ '--region-color': region.color } as CSSProperties}><span className="region-icon"><Icon size={18} strokeWidth={1.5} /></span><span><strong>{region.name}</strong><small>{region.climate}</small></span><ChevronRight size={14} /></button> })}
-        {(query || savedOnly) && filteredPlaces.map(place => <button className="place-search-result" key={place.id} onClick={() => wiki ? navigate(`/wiki/${place.id}`) : select(place.id)}><MapPin size={14} /><span>{place.name}<small>{regionById(place.region)?.name}{place.kind === 'subregion' ? ' · Bölge' : ''}</small></span><ChevronRight size={13} /></button>)}
+        {(query || savedOnly) && filteredPlaces.map(place => <button className="place-search-result" data-testid={`location-result-${place.id}`} key={place.id} onClick={() => wiki ? navigate(`/wiki/${place.id}`) : select(place.id)}><MapPin size={14} /><span>{place.name}<small>{regionById(place.region)?.name}{place.kind === 'subregion' ? ' · Bölge' : ''}</small></span><ChevronRight size={13} /></button>)}
         {(query || savedOnly) && filteredLore.map(article => <button className="place-search-result lore-search-result" key={article.id} onClick={() => navigate(`/wiki/${article.id}`)}><BookOpen size={14} /><span>{article.name}<small>{regionById(article.region)?.name} · {loreKindLabels[article.kind]}</small></span><ChevronRight size={13} /></button>)}
         {historyResult && <button className="place-search-result" onClick={() => navigate('/wiki/buyuk-kirilma')}><BookOpen size={14} /><span>Büyük Kırılma<small>Tarih & efsaneler</small></span><ChevronRight size={13} /></button>}
         {(query || savedOnly) && !filteredRegions.length && !filteredPlaces.length && !filteredLore.length && !historyResult && <div className="empty-search"><Compass size={26} /><p>{savedOnly ? 'Henüz bir yer kaydetmedin.' : 'Bu aramada bir kayıt bulunamadı.'}</p><small>{savedOnly ? 'Bir bölgedeki yer imi simgesine dokun.' : 'Bir şehir veya bölge adı dene.'}</small></div>}
@@ -164,6 +167,12 @@ export default function App() {
                 <span className="section-number">{String(index + 1).padStart(2, '0')}</span>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+                {section.table && <div className="lore-table-scroll" role="region" aria-label={`${section.title} tablosu`} tabIndex={0}>
+                  <table className="lore-table"><caption>{section.title}</caption>
+                    <thead><tr>{section.table.columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead>
+                    <tbody>{section.table.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, cellIndex) => cellIndex === 0 ? <th key={cellIndex} scope="row">{cell}</th> : <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+                  </table>
+                </div>}
               </section>)}
               {articleSubregions.length > 0 && <section className="related-places" data-testid="subregion-links">
                 <h2>Danstsud’un bölgeleri</h2>
@@ -174,11 +183,11 @@ export default function App() {
               {articleContext && articleRelated.length > 0 && <section className="related-places" data-testid="related-locations">
                 <h2>{articleEntry ? 'Bağlantılı kayıtlar' : 'Haritadaki yerleşimler'}</h2>
                 {articleRelated.map(entry => entry && <button key={entry.id} onClick={() => navigate(`/wiki/${entry.id}`)}>
-                  <MapPin size={15} /><span>{entry.name}<small>{recordLabel(entry)}</small></span><ArrowRight size={16} />
+                  {articleById(entry.id) ? <BookOpen size={15} /> : <MapPin size={15} />}<span>{entry.name}<small>{recordLabel(entry)}</small></span><ArrowRight size={16} />
                 </button>)}
               </section>}
               {articleLore.length > 0 && <section className="related-places" data-testid="lore-links">
-                <h2>Hanedanlar, kişiler ve hukuk</h2>
+                <h2>Danstsud lore kayıtları</h2>
                 {articleLore.map(article => <button key={article.id} onClick={() => navigate(`/wiki/${article.id}`)}>
                   <BookOpen size={15} /><span>{article.name}<small>{loreKindLabels[article.kind]}</small></span><ArrowRight size={16} />
                 </button>)}

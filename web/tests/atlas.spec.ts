@@ -24,7 +24,7 @@ test('original map tiles, region selection, wiki and return to map work', async 
 test('city search, bookmarks persist and zoom controls change the view', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Valdareth')
-  await page.locator('.place-search-result').filter({ hasText: 'Valdareth' }).click()
+  await page.getByTestId('location-result-valdareth').click()
   await expect(page.getByTestId('detail-panel')).toContainText('soylu başkent')
   await page.getByRole('button', { name: 'Valdareth kaydet', exact: true }).click()
   await page.reload()
@@ -190,6 +190,67 @@ test('mobile lore pages are discoverable and long titles stay inside the cover',
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
 })
 
+test('Valdareth walls, districts and court tables are discoverable through full text search', async ({ page }) => {
+  await page.goto('/#/wiki/valdareth')
+  const walls = page.getByRole('table', { name: 'Beş surun başkenti', exact: true })
+  await expect(walls.getByRole('row')).toHaveCount(6)
+  await expect(walls).toContainText('Taç Duvarı')
+  await expect(walls).toContainText('Sabançeper')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Valdareth Mahalleleri Coğrafya', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Kandiller: azınlıkların çok dilli mahallesi', exact: true })).toBeVisible()
+  await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Kraliyet emirleri, lordluk beratları')
+  await page.locator('.lore-search-result').filter({ hasText: 'Valdareth Saray Makamları' }).click()
+  await expect(page.getByRole('table', { name: 'Tahtın günlük idaresi', exact: true })).toContainText('Orren Vask')
+  await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Kandiller')
+  await expect(page.getByTestId('location-result-valdareth')).toBeVisible()
+})
+
+test('expanded lore pages and every related record resolve without invented map pins', async ({ page }) => {
+  test.setTimeout(60000)
+  await page.goto('/#/wiki')
+  const paths = await page.getByTestId('wiki-lore-results').getByRole('link').evaluateAll(links => links.map(link => link.getAttribute('href')!))
+  expect(paths).toContain('#/wiki/karlan-daglari')
+  expect(paths).toContain('#/wiki/frostmere-golu')
+  for (const path of paths) {
+    await page.goto('/' + path)
+    await expect(page.locator('.article-title h1')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Kayıt bulunamadı.', exact: true })).toHaveCount(0)
+    const relatedNames = await page.getByTestId('related-locations').getByRole('button').evaluateAll(buttons => buttons.map(button => button.querySelector('span')!.childNodes[0].textContent!.trim()))
+    for (let index = 0; index < relatedNames.length; index++) {
+      const name = relatedNames[index]
+      await page.getByTestId('related-locations').getByRole('button').nth(index).click()
+      await expect(page.locator('.article-title h1')).toHaveText(name)
+      await page.goto('/' + path)
+    }
+  }
+  await page.goto('/#/wiki/marhalden')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Karlan Dağları Coğrafya', exact: true }).click()
+  await expect(page.locator('.article-content')).toContainText('Aldarataç')
+  await expect(page.locator('.article-content')).toContainText('13.000 m')
+  await page.getByRole('button', { name: 'İlgili yeri haritada göster', exact: true }).click()
+  await expect(page).toHaveURL(/#\/atlas\/marhalden$/)
+  await expect(page.getByTestId('marker-karlan-daglari')).toHaveCount(0)
+})
+
+test('mobile climate and tax tables stay within the page and fauna links open complete profiles', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/#/wiki/marhalden')
+  await expect(page.locator('.article-content')).toContainText('−35 °C')
+  await expect(page.locator('.article-content')).toContainText('mülteci girişine kapatmıştır')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Marhalden Lordluğu Coğrafya', exact: true }).click()
+  const villages = page.getByRole('table', { name: 'Beş yerleşimin vergi bağı', exact: true })
+  await expect(villages).toContainText('Harven')
+  await expect(villages).toContainText('Mavric')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.goto('/#/wiki/karlan-canlilari')
+  for (const name of ['Karlan Taç Keçisi', 'Veyrakar Kar Kartalı', 'Tholkar Çığ Kuzgunu', 'Sırtyünlü Orvak', 'Buzyeleli Varkul', 'Körük Sırtlı Kharven', 'Yarık Dinleyicisi Ulveth', 'Aldara Gümüşalası']) {
+    await expect(page.getByRole('heading', { name, exact: true })).toBeVisible()
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.goto('/#/wiki/frostmere-golu')
+  await expect(page.locator('.article-content')).toContainText('yaklaşık yarısında göl yüzeyi donuktur')
+})
+
 test('published artifacts omit DM secrets and development server blocks raw lore files', async ({ request }) => {
   const secretPhrases = ['Yarethus’un Kutsal İzi', 'Halendar’ın Kızıl Kıvılcımı', 'PROJECT: BROKEN OATH', 'Deli Kral Halendar’ın Ateş Mahkemesi', 'Denge Ritüeli', 'DM NOTU', 'Corven', 'Ossian', 'gayrimeşru']
   function inspect(directory: string) {
@@ -198,7 +259,7 @@ test('published artifacts omit DM secrets and development server blocks raw lore
       if (name.isDirectory()) inspect(file)
       else {
         expect(file).not.toMatch(/\.(docx|pdf)$/)
-        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md|HANEDANLAR_VE_BUYU_HUKUKU/)
+        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md|HANEDANLAR_VE_BUYU_HUKUKU|VALDARETH_KARLAN_MARHALDEN/)
         if (/\.(js|html|json|txt|md)$/.test(file)) {
           const text = readFileSync(file, 'utf8')
           for (const phrase of secretPhrases) expect(text).not.toContain(phrase)
@@ -218,4 +279,6 @@ test('published artifacts omit DM secrets and development server blocks raw lore
   const familyNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md')
   expect(familyNotes.status()).toBe(403)
   expect(await familyNotes.text()).not.toContain('Corven')
+  const expansionNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md')
+  expect(expansionNotes.status()).toBe(403)
 })
