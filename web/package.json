@@ -1,0 +1,33 @@
+{
+  "name": "aruzahr-atlas",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "assets": "node scripts/build-map.mjs",
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/dm-sans": "5.3.0",
+    "lucide-react": "1.52.0",
+    "openseadragon": "6.1.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "sharp": "0.35.5",
+    "typescript": "5.9.3",
+    "vite": "8.3.3"
+  }
+}
