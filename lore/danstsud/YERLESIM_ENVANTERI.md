@@ -149,3 +149,7 @@ Veyrakar, Aldarataç ve Tholkar yeni zirve adlarıdır; haritanın özgün yazı
 **Yeni kullanıcı adları:** Kemiğe Basan Yol, Cevher Çizgisi, Ak Cam Denizi, Ayaz Yutan, Kırağı Denizi / Son Nefes Denizi, Soluk Su ve Kefen Denizi. Bunlar özgün haritanın yazılarından okunmuş isimler olarak sunulmaz. Yol/deniz sınır ve etaplarının kesin koordinatları henüz verilmedi; yeni kayıtlar yakın mevcut şehir/bölge üzerinden “haritada göster” bağlantısı alır. Cevher Çizgisi hayata geçmemiş projedir ve atlas üzerinde yapılmış yol olarak çizilmez.
 
 Bryndon’un Kıyı Defteri, kültür, hayvan ve kanun metinleri şehir pini değildir. Yeni tam yazım [HARDLANE.md](HARDLANE.md) içinde.
+
+## 8 Ekim görsel atlas eklemesi
+
+Kullanıcının yeni isimlerin haritada da görünmesi isteğiyle 32 özgün yerleşim pini korunup 12 **yaklaşık** vergi yerleşimi işareti eklendi: Pilorn, Fehar, Gaalmire, Naeron, Fevric, Theld, Korhenden, Uldar, Tolvur, Toran, Harven, Mavric. Toplam 44 yerleşim. Bu, okunamayan harita adlarını kesin eşleştirme kararı değildir. Yeni işaretlerde yaklaşık konum notu bulunur; ilk envanterdeki ad belirsizlikleri sürer. Deniz, zirve, körfez ve yol hedeflerinin ayrıntısı [TASARIM_VE_KARTLAR.md](TASARIM_VE_KARTLAR.md) içinde.

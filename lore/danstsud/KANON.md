@@ -123,7 +123,7 @@ Marhalden Uldar, Tolvur, Toran, Harven, Mavric'ten vergi toplar. Doğu köyleri 
 
 **Deniz adları kullanıcıdan:** Ak Cam (Ternhaven/Dranthol önü açık su), Ayaz Yutan (Dranthol’un aşağısındaki boğaz), Soluk Su (iki şehir arası sisli ve kayalık kıyı), Kırağı / Son Nefes (Danstsud–Honud arasındaki aynı donmuş deniz), Kefen (doğuya bakan ayrı don örtüsü). Kefen’in kopuk buzları diğer sulara taşınır; örtüler arasında kesintisiz yürünebilir bağlantı yoktur. Kırağı’nın çatlama, hızlı akış, yeniden donma ve basınçla kırılma döngüsüne **Buz Solunumu** adı yeni yazımda verildi.
 
-**Kültür ve hayvanlar yeni yazım:** Ocak Hatırı, İlk Tas Hakkı, İkinci Duman, Buz Çatısı Gecesi; Tervan, Norruk ve Velkir. Don kabuğu altında besin bulmak sınırsız kış üretimi değildir; sürüler yazdan tutulan yeme muhtaçtır. Dünya takvimi, yol/deniz mesafeleri, diğer şehir nüfusları, ceza cetvelleri ve kesin vergi oranları henüz seçilmedi.
+**Kültür ve hayvanlar yeni yazım:** Ocak Hatırı, İlk Tas Hakkı, İkinci Duman, Buz Çatısı Gecesi; Tervan, Norruk ve Velkir. Don kabuğu altında besin bulmak sınırsız kış üretimi değildir; sürüler yazdan tutulan yeme muhtaçtır. Dünya takvimi, yol/deniz mesafeleri, kesin nüfus sayımları, ceza cetvelleri ve kesin vergi oranları henüz seçilmedi.
 
 ## Bu temelden sonra geliştirme sırası
 
@@ -134,3 +134,9 @@ Marhalden Uldar, Tolvur, Toran, Harven, Mavric'ten vergi toplar. Doğu köyleri 
 5. **Küçük yerleşimler:** Valdareth'in yedi ve Marhalden'in beş vergi yerleşimi için temel üretim bağları yazıldı. Sırada harita eşleştirmesi ve her yerleşimin kendi ayrıntılı yaşamı var.
 
 Temel soru artık “bölgelerin adı ne?” değil: **Kimin hangi kaynak ve insan üzerinde gerçek yetkisi var; bunun karşılığında ne sağlıyor?** Her şehir bu ilişkiyi somut bir gündelik hayatla anlatmalı.
+
+## Şehir kartları ve yaklaşık atlas işaretleri
+
+8 Ekim 2026 görsel tasarım turunda şehir kartlarına yeni kurgusal nüfus tahminleri ve bazı yeni makam sahipleri eklendi. Bunlar kaynak belgeden çıkarılmış bilgi değildir. Valdareth yaklaşık 420.000 ile en büyük şehir, Marhalden yaklaşık 12.000 ile küçük fakat stratejik geçit kenti olarak ele alındı. Frostbay 45–50 bin ve Dranthol toplam yaklaşık 15.000 kullanıcı sayıları korunur. Diğer tahminler, yeni lord/komutan adları ve makam sınırları [TASARIM_VE_KARTLAR.md](TASARIM_VE_KARTLAR.md) içinde. Elorwynder aile reisinin kimliği ve Tharion–Damian aile bağı açık kalır.
+
+Yeni yer ve deniz isimlerini haritada görmek isteyen kullanıcı için özgün pinler korunarak 12 vergi yerleşimi ve 16 coğrafya/yol hedefi yaklaşık işaretlendi. Beş yol şematik gösterilir; Cevher Çizgisi **hiç yapılmamış proje** olarak ayrılır. Pin ve çizgiler kesin coğrafi sınır veya seyahat süresi belirlemez.

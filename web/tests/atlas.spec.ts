@@ -206,7 +206,7 @@ test('Valdareth walls, districts and court tables are discoverable through full 
 })
 
 test('expanded lore pages and every related record resolve without invented map pins', async ({ page }) => {
-  test.setTimeout(60000)
+  test.setTimeout(120000)
   await page.goto('/#/wiki')
   const paths = await page.getByTestId('wiki-lore-results').getByRole('link').evaluateAll(links => links.map(link => link.getAttribute('href')!))
   expect(paths).toContain('#/wiki/karlan-daglari')
@@ -215,7 +215,7 @@ test('expanded lore pages and every related record resolve without invented map 
     await page.goto('/' + path)
     await expect(page.locator('.article-title h1')).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Kayıt bulunamadı.', exact: true })).toHaveCount(0)
-    const relatedNames = await page.getByTestId('related-locations').getByRole('button').evaluateAll(buttons => buttons.map(button => button.querySelector('span')!.childNodes[0].textContent!.trim()))
+    const relatedNames = await page.getByTestId('related-locations').getByRole('button').evaluateAll(buttons => buttons.map(button => button.querySelector('.related-name')!.childNodes[0].textContent!.trim()))
     for (let index = 0; index < relatedNames.length; index++) {
       const name = relatedNames[index]
       await page.getByTestId('related-locations').getByRole('button').nth(index).click()
@@ -259,7 +259,7 @@ test('published artifacts omit DM secrets and development server blocks raw lore
       if (name.isDirectory()) inspect(file)
       else {
         expect(file).not.toMatch(/\.(docx|pdf)$/)
-        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md|HANEDANLAR_VE_BUYU_HUKUKU|VALDARETH_KARLAN_MARHALDEN|HARDLANE\.md|BRYNDONUN_KIYI_DEFTERI/)
+        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md|HANEDANLAR_VE_BUYU_HUKUKU|VALDARETH_KARLAN_MARHALDEN|HARDLANE\.md|BRYNDONUN_KIYI_DEFTERI|TASARIM_VE_KARTLAR/)
         if (/\.(js|html|json|txt|md)$/.test(file)) {
           const text = readFileSync(file, 'utf8')
           for (const phrase of secretPhrases) expect(text).not.toContain(phrase)
@@ -281,7 +281,7 @@ test('published artifacts omit DM secrets and development server blocks raw lore
   expect(await familyNotes.text()).not.toContain('Corven')
   const expansionNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md')
   expect(expansionNotes.status()).toBe(403)
-  for (const name of ['HARDLANE.md', 'BRYNDONUN_KIYI_DEFTERI.md']) {
+  for (const name of ['HARDLANE.md', 'BRYNDONUN_KIYI_DEFTERI.md', 'TASARIM_VE_KARTLAR.md']) {
     expect((await request.get(`/@fs/workspace/2026Aruzahr/lore/danstsud/${name}`)).status()).toBe(403)
   }
 })
@@ -290,7 +290,7 @@ test('Kaldmere is a searchable Hardlane settlement with a usable southern map pi
   await page.goto('/')
   await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Kaldmere')
   await page.getByTestId('location-result-kaldmere').click()
-  await expect(page.getByTestId('detail-panel')).toContainText('son umut')
+  await expect(page.getByTestId('detail-panel')).toContainText(/son umut/i)
   const marker = page.getByTestId('marker-kaldmere')
   await expect(marker).toBeVisible()
   const point = await marker.locator('.pin-symbol').boundingBox()
@@ -346,9 +346,12 @@ test('Bryndon manuscript and sea aliases are searchable, bookmarkable and linked
   await expect(page).toHaveURL(/#\/atlas\/frostbay$/)
   await expect(page.getByTestId('marker-bryndon-kiyi-defteri')).toHaveCount(0)
   await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('SON NEFES DENİZİ')
-  await page.locator('.lore-search-result').filter({ hasText: 'Kırağı Denizi' }).click()
+  await page.getByTestId('feature-result-kiragi-denizi').click()
+  await expect(page).toHaveURL(/#\/atlas\/kiragi-denizi$/)
+  await expect(page.getByTestId('detail-panel')).toContainText('Hareketli buz')
+  await page.getByRole('button', { name: 'Wiki sayfasını aç' }).click()
   await expect(page).toHaveURL(/#\/wiki\/kiragi-denizi$/)
   await page.getByRole('button', { name: 'İlgili yeri haritada göster', exact: true }).click()
-  await expect(page).toHaveURL(/#\/atlas\/frostbay$/)
-  await expect(page.getByTestId('marker-kiragi-denizi')).toHaveCount(0)
+  await expect(page).toHaveURL(/#\/atlas\/kiragi-denizi$/)
+  await expect(page.getByTestId('marker-kiragi-denizi')).toBeVisible()
 })

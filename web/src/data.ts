@@ -5,6 +5,8 @@ import { hardlaneArticles } from './lore/hardlane'
 import { hardlaneLawArticles } from './lore/hardlane-laws'
 import { hardlaneCoastArticles } from './lore/hardlane-coasts'
 import { bryndonArticles } from './lore/bryndon'
+import { taxVillages, visualPeopleArticles } from './presentation'
+import { atlasRouteArticles } from './map-features'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; table?: { columns: string[]; rows: string[][] } }
@@ -18,6 +20,7 @@ type LocationRecord = {
   id: string; name: string; region: RegionId; point: [number, number]; summary?: string;
   subtitle?: string; sections?: Section[]; sources?: string[]; related?: string[];
   subregion?: SubregionId; major?: boolean;
+  positionStatus?: 'mapped' | 'approximate';
 }
 export type Place = LocationRecord & { kind?: 'settlement' }
 export type Subregion = LocationRecord & {
@@ -122,8 +125,8 @@ export const regions: Region[] = [
   },
 ]
 
-// Pins were placed against visible settlements on the original map, not against
-// uncertain prose geography. Lore-only locations are listed in articles without pins.
+// Original pins follow visible settlements. At the author’s request, new tax
+// settlements use explicitly approximate anchors, keeping original coordinates intact.
 export const places: Place[] = [
   { id: 'zarim-khet', name: 'Zarim’khet', region: 'xotar', point: [.155, .129] },
   { id: 'thariz', name: 'Thariz', region: 'xotar', point: [.052, .193] },
@@ -135,6 +138,7 @@ export const places: Place[] = [
   { id: 'norrvar', name: 'Norrvar', region: 'honud', point: [.320, .653] },
   { id: 'kaldryss', name: 'Kaldryss', region: 'honud', point: [.254, .879] },
   ...danstsudPlaces,
+  ...taxVillages,
   { id: 'hurnreach', name: 'Hurnreach', region: 'gurbin', point: [.674, .227] },
   { id: 'kraenfall', name: 'Kraenfall', region: 'gurbin', point: [.608, .390] },
   { id: 'volriks-maw', name: 'Volrik’s Maw', region: 'gurbin', point: [.780, .473] },
@@ -158,7 +162,7 @@ export const historyArticle = {
 
 export const subregions: Subregion[] = danstsudSubregions
 export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles]
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles]
 export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))

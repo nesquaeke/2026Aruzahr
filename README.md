@@ -30,7 +30,7 @@ Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatlar�
 
 Valdareth ve Marhalden ayrıntılı şehir sayfalarıdır. Mahalleler, saray makamları, loncalar, vergi havzaları, Karlan Dağları, Veyralt, sekiz dağ canlısı, Frostmere ve lordluk hukuku için on bir ek wiki kaydı vardır. Tablolar mobilde kendi alanında kaydırılır; arama şehir metinlerini ve tablo içeriklerini de tarar.
 
-Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Toplam 28 ek lore kaydı ve haritada 32 gerçek yerleşim pini vardır; Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
+Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Toplam 33 ek lore kaydı ve haritada 32 özgün, 12 yaklaşık yeni yerleşim pini vardır; Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
 
 ## Danstsud lore çalışması
 
@@ -41,3 +41,11 @@ Yeni aile şeması, hanedan adları ve büyü düzeni [hanedanlar ve büyü huku
 [Valdareth, Karlan ve Marhalden tam lore belgesi](lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md), yeni şehir ve doğa yazımını içerir. Bunun kamuya açık wiki verisi [danstsud-expansion.ts](web/src/lore/danstsud-expansion.ts) dosyasındadır.
 
 [Hardlane tam lore belgesi](lore/danstsud/HARDLANE.md), kullanıcı kararlarını, yeni isimleri, tutarlılık kararlarını, açık geliştirme alanlarını ve wiki metinlerini bir araya getirir. [Bryndon’un Kıyı Defteri](lore/danstsud/BRYNDONUN_KIYI_DEFTERI.md) ayrıca okunabilir. Web metinleri `hardlane.ts`, `hardlane-laws.ts`, `hardlane-coasts.ts` ve `bryndon.ts` modüllerindedir; ham yazar belgeleri uygulamaya alınmaz.
+
+## Görselli wiki ve şehir kartları
+
+Şehir wikileri illüstrasyonlu kapak, nüfus ve yönetim kartı, geçim etiketleri, idare/ticaret/ekonomi/savunma göstergeleri ve açılabilir lore bölümleriyle okunur. **Kartlar / Tam lore** arasında geçilebilir. Haritaya dönüş son yakınlığı hatırlar; mobilde bilgi kartı haritanın altında açılır. Ansiklopedide şehir ve portre koleksiyonları, Ashara galerisi ve lore türü filtreleri vardır.
+
+**Denizler & zirveler** ile **Ticaret yolları** ayrı harita katmanlarıdır. Beş deniz, göl, üç zirve, iki körfez ve beş şematik yol haritada seçilebilir. **Cevher Çizgisi yapılmamış bir projedir**; diğer yollardan farklı çizilir. Yeni vergi köylerinin konumları yaklaşık olarak belirtilir.
+
+Nüfus tahminleri, yeni yöneticiler, göreli güç ölçeği ve yaklaşık harita işaretlerinin yazım kaydı [Tasarım ve kartlar](lore/danstsud/TASARIM_VE_KARTLAR.md) belgesindedir. Frostbay ve Dranthol nüfusları kullanıcıdan; diğer kart nüfusları yeni kurgusal tahminlerdir.

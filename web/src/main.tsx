@@ -12,5 +12,6 @@ import '@fontsource/dm-sans/latin-600.css'
 import '@fontsource/dm-sans/latin-ext-600.css'
 import App from './App'
 import './styles.css'
+import './experience.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>)
