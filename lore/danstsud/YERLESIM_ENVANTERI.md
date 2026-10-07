@@ -67,7 +67,7 @@ Bu grup Lowvale yazısı çevresi ve doğu/güney kent ağını kapsar. Dorvenha
 | Eroth | Harita adı |
 | Anvar | Harita adı |
 | Theramis | Başlıca şehir; A'da büyücülü lonca ekibi |
-| Elorwyn | Başlıca şehir; aynı ad soyluların soyadı olarak da geçiyor; bağ henüz belirlenmedi |
+| Elorwyn | Başlıca şehir; kullanıcıya göre hep aynı yönetici hanedanın elinde. Hanedanın yeni adı Elorwynder; şehir adı Elorwyn olarak kalır. |
 
 ## Karlan ve batıdaki karlı yerleşimler
 

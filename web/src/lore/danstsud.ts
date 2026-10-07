@@ -4,6 +4,7 @@ import type { Place, Region, Subregion } from '../data'
 // Author notes, alternate coups, secret identities and quest outcomes stay outside web/.
 const mapSource = 'Aruzahr 8k (1).jpg'
 const canonSource = 'Danstsud kanonu — 7 Ekim 2026 tarihli yazar kararları'
+const newWritingSource = 'Danstsud: hanedanlar ve büyü hukuku — 7 Ekim 2026 yeni yazım'
 const openingSource = '21.11.2025 aruzhar bolum 1.docx — genel şehir ve lonca bilgileri'
 const questSource = 'Main questler.docx — genel şehir bilgileri'
 const fractureSource = 'Danstud’un Kırılma Noktası, Bölüm 1 — genel yerleşim bilgileri'
@@ -15,10 +16,10 @@ export const danstsudRegion: Region = {
   point: [.73, .72], box: [.38, .46, .61, .54],
   summary: 'Eryndorn’un tahtta olduğu feodal krallık. Manorveil’de vergi krala, lordluk topraklarında lordlara toplanır. Karlan Dağları’nın ötesindeki Hardlane ise aynı krallığa bağlı olmasına rağmen merkezî düzenin çok azına erişir.',
   tags: ['Feodal krallık', 'Üç bölge', 'Bakır Ana'],
-  sources: [canonSource, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
+  sources: [canonSource, newWritingSource, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
   sections: [
     { title: 'Danstsud Krallığı', paragraphs: [
-      'Danstsud, Valhunar’ın kentler, kaleler, loncalar ve yollarla birbirine bağlanan feodal krallığıdır. Başkenti Valdareth’tir; tahtta Kral Eryndorn bulunur. Krallığın toprakları Hardlane, Manorveil ve Lowvale adlı üç bölgeye ayrılır. Bu bölgeler aynı tacın altında yer alır, fakat kraliyet gücünü aynı ölçüde hissetmez.',
+      'Danstsud, Valhunar’ın kentler, kaleler, loncalar ve yollarla birbirine bağlanan feodal krallığıdır. Başkenti Valdareth’tir; tahtta Vaeranth Hanedanı’ndan Kral Eryndorn bulunur. Krallığın toprakları Hardlane, Manorveil ve Lowvale adlı üç bölgeye ayrılır. Bu bölgeler aynı tacın altında yer alır, fakat kraliyet gücünü aynı ölçüde hissetmez.',
       'Bir başkentte kayıt altına alınabilen vergi, askerî emir veya kamu hizmeti, uzak bir yerleşimde aynı biçimde uygulanmayabilir. Danstsud’un siyasi coğrafyasını yalnızca sınırlar değil, yöneticilerin gerçekten ulaşabildiği insanlar ve yollar da belirler.',
     ] },
     { title: 'Taç, lordlar ve vergi', paragraphs: [
@@ -46,7 +47,8 @@ export const danstsudRegion: Region = {
       'Honud aynı geçmişi farklı anlatır; oradaki öyküler iki kadim hükümdarın da kusurlarına ağırlık verir. Danstsud’un inancı, bütün halkların üzerinde uzlaştığı tarafsız bir tarih değildir. Aynı yıkımın bıraktığı farklı hatıralardan biridir.',
     ] },
     { title: 'Büyü, loncalar ve dış dünya', paragraphs: [
-      'Büyük Kırılma’dan sonra büyünün öngörülemeyen sonuçları, Danstsud’da denetimli okulların önemini artırdı. Okul dışındaki büyü kullanımı yasaklarla çevrilidir. Büyü araştırma enstitüsü eski felaketin nedenlerini açıklamaya çalışırken, halkın büyüye yaklaşımında bilgi arayışı ile korku yan yana bulunur.',
+      'Büyük Kırılma’dan sonra büyünün öngörülemeyen sonuçları, Danstsud’da denetimli eğitimin önemini artırdı. Eğitimli ve ruhsatlı büyücüler okul dışında da yasal hizmet verebilir; izinsiz uygulama ve kurban ritüelleri yasaktır. Valdareth’teki Kraliyet Büyü Sicili, uygulayıcıyı ve izin verilen hizmet alanını kaydeder.',
+      'Büyü araştırma enstitüsü eski felaketin nedenlerini açıklamaya çalışır. Bu araştırmalar, halkın büyüye yaklaşımındaki bilgi arayışı ve korkuyla birlikte sürer; bir açıklamanın araştırılması, onun kanıtlanmış tarih olduğu anlamına gelmez.',
       'ÇelikKalkan gibi loncalarda eğitim, demircilik, hekimlik ve arşiv yaşamı askerî hizmetle birlikte yürür. Xotar’ın Rüzgâr Hatları krallığa ulaşır; Garmirk’le silah ve maden alışverişi vardır. Danstsud kendi sınırları içine kapanmış bir dünya değildir: tüccarlar, göçmenler ve deniz yolları ülkenin yaşamına katılır.',
     ] },
   ],
@@ -121,11 +123,19 @@ export const danstsudPlaces: Place[] = [
     id: 'valdareth', name: 'Valdareth', region: 'danstsud', subregion: 'manorveil', major: true,
     point: [.734, .667], subtitle: 'Danstsud’un soylu başkenti',
     summary: 'Danstsud’un soylu başkenti ve Kral Eryndorn’un tahtının merkezi. Gri taş, sis, surlar ve kalabalık kent yaşamı, kraliyet düzeninin bu şehirdeki görünümünü oluşturur.',
-    sources: [canonSource, openingSource, questSource, fractureSource, mapSource], related: ['lirendil', 'brannis', 'dorvenhall'],
+    sources: [canonSource, newWritingSource, openingSource, questSource, fractureSource, mapSource], related: ['vaeranth-hanedani', 'eryndorn', 'buyu-ruhsatlari', 'lirendil', 'brannis', 'dorvenhall'],
     sections: [
       { title: 'Başkent ve taç', paragraphs: [
-        'Valdareth, Danstsud Krallığı’nın başkentidir. Şehir ile ülke aynı şey değildir: Danstsud üç bölgeyi ve çok sayıda yerleşimi kapsar; Valdareth bu siyasi bütünün taht merkezidir. Kral Eryndorn hâlâ hüküm sürmektedir.',
+        'Valdareth, Danstsud Krallığı’nın başkentidir. Şehir ile ülke aynı şey değildir: Danstsud üç bölgeyi ve çok sayıda yerleşimi kapsar; Valdareth bu siyasi bütünün taht merkezidir. Kral Eryndorn Vaeranth hâlâ hüküm sürmektedir.',
         'Haritada soylu başkent olarak işaretlenen kent, kraliyet merkezi çevresindeki Manorveil düzeniyle ilişkilidir. Manorveil’in vergisi doğrudan krala toplanır.',
+      ] },
+      { title: 'Vaeranth ailesi ve saray', paragraphs: [
+        'Eryndorn’un babası Caedren Vaeranth önceki hükümdardır; Caedren ve kraliçe Isolde ölmüştür. Güncel saray ailesinde Eryndorn’un eşi Kraliçe Alisande, küçük kız kardeşi Leydi Mirelda ve kızı Prenses Ilyenne yer alır.',
+        'Alisande sarayın erzak, yardım ve harcama ihtiyaçlarıyla ilgilenir. Mirelda, hanedanı lord aileleriyle yapılan görüşmelerde temsil eder. Ilyenne sarayda yerel yönetim, kayıt ve hukuk konularını öğrenir. Bu farklı uğraşlar sarayın araştırma, geçim ve siyaset ihtiyaçlarını aynı aile çevresine taşır.',
+      ] },
+      { title: 'Tahtın geleceği', paragraphs: [
+        'Eryndorn’un bilinen bir erkek varisi yoktur. Ilyenne kraliyet ailesinin halka açık meşru çocuğudur; bu aile konumu, onun kendiliğinden ilan edilmiş bir veliaht olduğu anlamına gelmez.',
+        'Hanedanın geleceği hakkındaki tartışma yalnızca sarayın özel hayatıyla sınırlı kalmaz. Tahtın kime geçeceği, kralın doğrudan toprakları ile yerel lordlukların aynı siyasi bütün içinde nasıl yaşayacağıyla da ilgilidir.',
       ] },
       { title: 'Taş, sis ve kent yaşamı', paragraphs: [
         'Şehir gri taşlı, sisli ve soğuk olarak anlatılır. Büyük surlu kent çizimi, kuleleri ve çevresindeki yerleşim ağı Valdareth’i haritada belirgin kılar. Pazar yaşamı ve kalabalık sokaklar, başkentin askerî yüzünün yanında sivil bir hayat da bulunduğunu gösterir.',
@@ -134,6 +144,10 @@ export const danstsudPlaces: Place[] = [
       { title: 'Zindanlar ve askerî güç', paragraphs: [
         'Valdareth’in zindanları kalabalıktır. Mahkûmlar, göçmenler ve düşmüş soylular aynı ağır koşulların içinde bulunur. Taş duvarlar, paslı demir ve dar hücreler şehrin baskı düzeninin bir yüzüdür.',
         'Kraliyet askerleri ve ÇelikKalkan loncası, başkentin askerî yaşamında adları geçen güçlerdir. Loncanın etkisi, askerî hizmetin sarayla birlikte şehir hayatına da uzandığını gösterir.',
+      ] },
+      { title: 'Kraliyet Büyü Sicili', paragraphs: [
+        'Danstsud’un büyü ruhsatlarının merkez kaydı Valdareth’te tutulur. Kraliyet Büyü Sicili uygulayıcının kimliğini, eğitimini doğrulayan kurum veya ustayı ve izin verilen hizmet alanını kaydeder. Eğitim almak ile yasal hizmet verme izni taşımak ayrı durumlardır.',
+        'Ruhsatlı büyücü okul dışında da izin kapsamındaki hizmeti verebilir. İzinsiz uygulama ve kurban ritüelleri yasaktır. Bir loncanın veya tapınağın üyesi olmak tek başına uygulama ruhsatı yerine geçmez.',
       ] },
       { title: 'Başkenti bağlayan yollar', paragraphs: [
         'Brannis, Valdareth’ten Lirendil’e uzanan yolculuklarda bir duraktır. Dorvenhall ise üretim ve ticaretin öne çıktığı diğer büyük merkezlerden biridir. Başkent, bu yollar ve yerleşimler ağı içinde bulunur.',
@@ -207,13 +221,17 @@ export const danstsudPlaces: Place[] = [
   },
   {
     id: 'elorwyn', name: 'Elorwyn', region: 'danstsud', major: true,
-    point: [.750, .863], subtitle: 'Güneydeki büyük surlu şehir',
-    summary: 'Danstsud’un altı başlıca şehrinden Elorwyn, haritanın güneyinde büyük surları, kent içi yapıları ve çevresindeki nehirli araziyle gösterilir.',
-    sources: [canonSource, mapSource], related: ['valdareth', 'theramis'],
+    point: [.750, .863], subtitle: 'Elorwynder Hanedanı’nın şehri',
+    summary: 'Danstsud’un başlıca şehirlerinden Elorwyn, bilinen tarihi boyunca Elorwynder Hanedanı tarafından yönetilmiştir. Güneydeki büyük surlu kentte yönetici ailenin geçmişi ile şehir tarihi birlikte anılır.',
+    sources: [canonSource, newWritingSource, mapSource], related: ['elorwynder-hanedani', 'valdareth', 'theramis', 'kethra'],
     sections: [
-      { title: 'Danstsud’un büyük kentlerinden', paragraphs: [
-        'Elorwyn, Danstsud Krallığı’nın başlıca şehirlerinden biridir. Valdareth başkenttir; Elorwyn ise aynı ülkenin kendi adıyla tanımlanan büyük kentlerinden biridir.',
-        'Harita Elorwyn’i geniş surlar içinde, birden çok yapı topluluğuyla gösterir. Kent, ülkenin güneydeki yerleşim ağının belirgin öğelerindendir.',
+      { title: 'Elorwynder yönetiminin sürekliliği', paragraphs: [
+        'Elorwyn şehri hep aynı hanedanın yönetiminde kalmıştır. Ailenin güncel adı Elorwynder’dir; şehrin adı Elorwyn olarak kullanılır. Yerel yönetimin geçmişi, aile geçmişiyle süreklilik taşır.',
+        'Elorwyn aynı zamanda Danstsud’un altı başlıca şehrinden biridir. Krallığın başkenti Valdareth’tir; Elorwyn kendi yerel yönetim tarihiyle bu siyasi bütünün içinde bulunur.',
+      ] },
+      { title: 'Hanedan ve kraliyet', paragraphs: [
+        'Vaeranth, Danstsud’un güncel kraliyet hanedanıdır. Elorwynder ise Elorwyn’in yönetici ailesidir. Bir şehrin yerel hanedanı ile bütün krallığın taht ailesi farklı makamları temsil eder.',
+        'Lord Tharion ve Lord Damian Elorwynder, bu ailenin adıyla anılan kişilerdir. Damian’ın Kethra lordu olarak bilinmesi, hanedanın Elorwyn dışındaki siyasi ilişkilerini de görünür kılar.',
       ] },
       { title: 'Surlar ve su çevresi', paragraphs: [
         'Elorwyn’in kent görünümünde surlar, kuleler, büyük yapılar ve su öğeleri bir aradadır. Çevresindeki arazi, küçük yerleşimler ve nehir yollarıyla çizilmiştir.',
@@ -221,7 +239,7 @@ export const danstsudPlaces: Place[] = [
       ] },
       { title: 'Başkent ve diğer şehirler', paragraphs: [
         'Valdareth kuzeyde kraliyet merkezini, Theramis doğuda başka bir büyük kenti oluşturur. Elorwyn, bu merkezlerle aynı feodal krallığın siyasi bütününde bulunur.',
-        'Danstsud’u yalnızca başkent üzerinden okumak, Elorwyn gibi büyük şehirlerin varlığını geri plana iter. Krallık bir taht merkeziyle birlikte farklı kentlerden ve bölgesel yönetimlerden oluşur.',
+        'Elorwyn’in süreklilik taşıyan aile yönetimi, Danstsud’un yerel güçlerinin başkentten ayrı geçmişleri olduğunu gösterir. Kentler, aynı krallık içinde kendilerine ait yönetim hafızasını korur.',
       ] },
     ],
   },
@@ -229,7 +247,7 @@ export const danstsudPlaces: Place[] = [
     id: 'theramis', name: 'Theramis', region: 'danstsud', major: true,
     point: [.932, .905], subtitle: 'Büyük kıyı kenti ve lonca geleneği',
     summary: 'Danstsud’un başlıca şehirlerinden Theramis, güneydoğudaki büyük surlu kıyı kentidir. Şehir adına anılan loncada büyücüler bulunur; Başbüyücü Solan ve Altın Yılan amblemi bu kurumla ilişkilidir.',
-    sources: [canonSource, openingSource, mapSource], related: ['elorwyn', 'lirendil', 'danstsud'],
+    sources: [canonSource, newWritingSource, openingSource, mapSource], related: ['buyu-ruhsatlari', 'elorwyn', 'lirendil', 'danstsud'],
     sections: [
       { title: 'Güneydoğudaki büyük şehir', paragraphs: [
         'Theramis, Danstsud’un altı başlıca şehrinden biridir. Haritada ülkenin güneydoğusunda, kıyıyla bağlantılı büyük bir tahkimat olarak gösterilir.',
@@ -237,7 +255,7 @@ export const danstsudPlaces: Place[] = [
       ] },
       { title: 'Theramis Loncası', paragraphs: [
         'Theramis adına anılan loncada büyücüler de yer alır. Başbüyücü Solan, bu kurumla ilişkili isimlerden biridir. Altın Yılan amblemi loncanın tanınan işaretidir.',
-        'Bu lonca, Danstsud’daki büyü ile örgütlü kurum yaşamının birbirinden tamamen ayrı olmadığını gösterir. Ülkenin büyü korkusu ve denetimli eğitim geleneğiyle birlikte okunması gereken bir kent ayrıntısıdır.',
+        'Danstsud’da ruhsatlı büyücüler okul dışında da yasal hizmet verebilir. Theramis Loncası’nın büyücüleri de hizmet sırasında bu ruhsat düzenine bağlıdır; lonca üyeliği tek başına uygulama izni değildir. İzinsiz büyü ve kurban ritüelleri yasaktır.',
       ] },
       { title: 'Krallığın farklı bir yüzü', paragraphs: [
         'Theramis, Valdareth’in taht merkezi veya Lirendil’in ÇelikKalkan çevresiyle aynı şehir değildir. Danstsud’un farklı büyük kentleri, kendi coğrafyaları ve kurumlarıyla krallığın yaşamına katılır.',
@@ -262,11 +280,11 @@ export const danstsudPlaces: Place[] = [
   },
   {
     id: 'kethra', name: 'Kethra', region: 'danstsud', point: [.566, .514],
-    summary: 'Sisli ve kalabalık liman şehri Kethra, Lord Damian Elorwyn adıyla ilişkilidir. Paslı Kanca meyhanesi, kıyı antrepoları ve yakınındaki dağlık arazi şehir yaşamının parçalarıdır.',
-    sources: [openingSource, mapSource], related: ['lirendil', 'luthen'],
+    summary: 'Sisli ve kalabalık liman şehri Kethra, Lord Damian Elorwynder adıyla ilişkilidir. Paslı Kanca meyhanesi, kıyı antrepoları ve yakınındaki dağlık arazi şehir yaşamının parçalarıdır.',
+    sources: [canonSource, newWritingSource, openingSource, mapSource], related: ['elorwynder-hanedani', 'elorwyn', 'lirendil', 'luthen'],
     sections: [
       { title: 'Liman şehri', paragraphs: [
-        'Kethra, kıyısında liman ve depolar bulunan bir Danstsud kentidir. Sis, kalabalık ve liman kokuları şehir betimlemelerinde öne çıkar. Lord Damian Elorwyn, Kethra lordu olarak anılır.',
+        'Kethra, kıyısında liman ve depolar bulunan bir Danstsud kentidir. Sis, kalabalık ve liman kokuları şehir betimlemelerinde öne çıkar. Lord Damian Elorwynder, Kethra lordu olarak anılır; eski anlatılarda aile adı Elorwyn şeklinde de geçer.',
         'Şehir haritada kıyı yollarının üzerinde gösterilir. Luthen çevresinden Kethra’ya ulaşan yolculuklar, kentler arasındaki kara ve kıyı ilişkisini görünür kılar.',
       ] },
       { title: 'Paslı Kanca ve antrepolar', paragraphs: [

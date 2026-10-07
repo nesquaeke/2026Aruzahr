@@ -1,6 +1,6 @@
-# Danstsud Krallığı — onaylanan temel
+# Danstsud Krallığı — kanon temeli ve yeni yazım
 
-7 Ekim 2026 tarihli kullanıcı kararları. **Yazar çalışma belgesi.** Eryndorn'un iç dünyası burada yazar bilgisi olarak yer alır; halka açık wiki bunu gizli görev gerçeğiyle birlikte açıklamaz.
+7 Ekim 2026 tarihli kullanıcı kararları ve kullanıcının hanedan/ailesini oluşturma yetkisiyle hazırlanan yeni yazım. **Yazar çalışma belgesi.** Kullanıcının doğrudan verdiği bilgiler ile oluşturulan isimler ayrı belirtilir. Eryndorn'un iç dünyası ve halka açık olmayan aile bilgileri wikiye açıklanmaz.
 
 ## Dünya zamanı
 
@@ -65,16 +65,34 @@ Bu nedenle “deli kral” ifadesi tarafsız anlatıcının kesin teşhisi yerin
 - Korkusu, yaptığı şeyin yanlış olmasından çok, yapmayı bırakırsa korumaya çalıştığı her şeyi kaybetme ihtimalidir. Bu, kullanıcı kararını geliştiren yorumdur; belirli bir felaketin gerçekliği henüz ayrıca tanımlanmadı.
 - Yorgunluğu onu aptallaştırmak zorunda değildir. Kontrol isteği ve belirsizliğe tahammülsüzlüğü sahnede gösterilebilir; bunlar yazım önerileridir.
 
-Henüz seçilmemiş bilgiler: Eryndorn'un elindeki kanıt; korktuğu felaketin ne kadar gerçek olduğu; hangi yöntemlere başvurduğu; kişisel olarak hangi bedeli ödediği; durmasını sağlayabilecek kişi veya olay; bilgiyi paylaşıp paylaşmadığı; hanedanı, varisi ve kraliçesi.
+Henüz seçilmemiş bilgiler: Eryndorn'un elindeki kanıt; korktuğu felaketin ne kadar gerçek olduğu; hangi yöntemlere başvurduğu; kişisel olarak hangi bedeli ödediği; durmasını sağlayabilecek kişi veya olay; bilgiyi paylaşıp paylaşmadığı; kayıp kraliçe anlatısının güncel aileyle bağı ve veraset hukukunun ayrıntıları.
 
 Halka açık wiki onun hükümdarlığını ve bilginin krallıktaki yerini anlatabilir. Gizli ayin, kervan yükü, manipülasyon ve felaketin gerçek mekanizması halka açık kesin bilgi yapılmaz.
 
+## Kraliyet ailesi ve Elorwyn'in hanedanı
+
+**Kullanıcı kararı:** Eryndorn'un bilinen erkek varisi yok; gayrimeşru oğulları var. Hanedanının adı ve ailesi bu çalışma içinde oluşturulacak. Elorwyn şehri hep aynı hanedan tarafından yönetilmiş.
+
+**Yetkilendirilmiş yeni yazım:** Kraliyet hanedanı **Vaeranth**; Elorwyn'in yönetici hanedanı **Elorwynder** olarak adlandırıldı. Şehir adı Elorwyn olarak kalır. Eryndorn'un babası ve önceki kral **Caedren**, annesi **Isolde**, eşi **Alisande**, küçük kız kardeşi **Mirelda**, kızı **Ilyenne Vaeranth** olarak oluşturuldu. Caedren ve Isolde ölmüş; Alisande'nin kayıp kraliçe anlatısıyla ilişkisi henüz kesinleşmedi.
+
+Ilyenne'nin varlığı, onun otomatik veliaht olduğu veya kadınların tahta çıkamadığı anlamına gelmez. Henüz böyle bir veraset hukuku yazılmadı. Oğulların kimlikleri [aile çalışma dosyasında](HANEDANLAR_VE_BUYU_HUKUKU.md) tutulur; halka açık wikiye aktarılmaz.
+
+Kaynaklardaki **Tharion Elorwyn** ve **Damian Elorwyn**, yeni isimlendirmede **Tharion Elorwynder** ve **Damian Elorwynder** olarak geçer. Eski adlar kaynak alıntılarında ve arama eş adlarında korunur. Tharion–Damian akrabalığı ve hanedanın güncel başı henüz seçilmedi; kuzen olmaları yalnızca çalışma önerisi.
+
+## Büyü hukuku
+
+**Kullanıcı tarafından kesinleşti:** Eğitimli ve ruhsatlı büyücüler okul dışında yasal hizmet verebilir. İzinsiz büyü uygulaması ve kurban ritüelleri yasaktır. Eski kaynakların “okul dışında yasak” ifadesi güncel kanonda ruhsatsız uygulama yasağı olarak yeniden yazılır.
+
+**Yeni uygulama düzeni:** Valdareth merkezli **Kraliyet Büyü Sicili**; uygulayıcının kimliği, eğitimini doğrulayan kurum/usta ve izin verilen hizmet alanı kaydedilir. Eğitim belgesi ile uygulama ruhsatı ayrı işlemlerdir. Lonca üyeliği veya tapınağa bağlılık tek başına ruhsat değildir. Büyüye güç sağlamak için canlı kurban veya başkasının yaşamını soğurma, ruhsatla da yasal hâle gelmez.
+
+Aynı hukuk Hardlane'de de geçerlidir, fakat fiilî denetim kraliyet erişimiyle sınırlıdır. Yabancı ruhsatların tanınması, kendi kanını kullanan tekniklerin sınıfları, cezalar ve acil müdahale istisnaları henüz seçilmedi. Ayrıntılı kurallar [hanedanlar ve büyü hukuku dosyasında](HANEDANLAR_VE_BUYU_HUKUKU.md).
+
 ## Bu temelden sonra geliştirme sırası
 
-1. **Valdareth:** Taht, hanedan, saray ile lonca ilişkisi, başkent yaşamı. Krallığın merkezi burada görünür hâle gelecek.
+1. **Valdareth:** Aile temeli oluşturuldu; sırada sarayın makamları, veraset hukuku, loncayla yetki ilişkisi ve başkentin mahalle/iaşe düzeni var.
 2. **Frostbay ve Hardlane:** Resmî bağlılık ile gerçek yönetim arasındaki fark; dört şehrin birbirine bağı; merkezin ihmalinin gündelik sonuçları.
 3. **Lordluk ağı:** Lirendil, Dorvenhall, Marhalden, Elorwyn ve Theramis'in yönetimleri ve bölge aidiyetleri. Tharion ile Damian'ın hanedan içindeki yerleri.
-4. **Büyü hukuku:** Kontrollü okullar, ruhsatlı hizmet, yasak ritüel ve denetleyen kurum.
+4. **Büyü hukuku:** Ruhsatlı hizmet kuralı ve sicil temeli kuruldu; yabancı ruhsatlar, kan büyüsü teknikleri, cezalar ve denetim uyuşmazlıkları geliştirilecek.
 5. **Küçük yerleşimler:** Büyük kentlerin su, gıda, yakacak, ulaşım ve üretim ağını tamamlayan yerler.
 
 Temel soru artık “bölgelerin adı ne?” değil: **Kimin hangi kaynak ve insan üzerinde gerçek yetkisi var; bunun karşılığında ne sağlıyor?** Her şehir bu ilişkiyi somut bir gündelik hayatla anlatmalı.

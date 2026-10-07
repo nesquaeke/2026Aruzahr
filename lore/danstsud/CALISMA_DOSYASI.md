@@ -4,6 +4,8 @@
 
 **İncelemeden sonra kesinleşen kararlar:** Dünya darbe öncesi; Eryndorn tahtta. Krallık feodal; Manorveil'in vergisi krala, diğer lordlukların vergisi lordlara toplanır. Hardlane'de kraliyet erişimi ve düzenli vergilendirme zayıftır; Frostbay sınırlı hizmet sağlar ve diğer Hardlane yerleşimlerini çoğunlukla kâğıt üzerinde idare eder. Altı başlıca şehir Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn, Theramis. Hardlane şehirleri Ternhaven, Dranthol, Frostbay, Vyssgard. Eryndorn zeki, bilgiye aç ve tükenmiştir; yaptıklarının farkındadır ve yapmazsa daha kötüsünün olacağına inanır. Güncel temel için [KANON.md](KANON.md) esas alınır. Aşağıdaki kaynak sorunları eski belgelerin incelemesidir.
 
+**İkinci karar turu:** Ruhsatlı büyü okul dışında yasal; izinsiz uygulama ve kurban ritüelleri yasak. Eryndorn'un bilinen erkek varisi yok, gayrimeşru oğulları var. Elorwyn şehri hep aynı hanedan tarafından yönetilmiş. Kullanıcının ad/aile oluşturma yetkisiyle **Vaeranth** kraliyet ailesi ve **Elorwynder** hanedan adı yazıldı; isimler eski kaynakların bulgusu olarak sunulmaz. Ayrıntılar [HANEDANLAR_VE_BUYU_HUKUKU.md](HANEDANLAR_VE_BUYU_HUKUKU.md) içinde.
+
 ## 1. İncelemenin dayanağı
 
 Güncel `main` dalındaki tüm lore dosyaları tarandı. Danstsud için ayrı bir ülke tanıtım DOCX'i mevcut dosya listesinde bulunmuyor; krallık bilgisi üç macera belgesine, Valhunar PDF'sine ve haritaya dağılmış durumda. Önceki wiki, bu malzemeyi çok kısa özetledi; şehir sayfalarının çoğunda kaynaklara özgü içerik bulunmuyor.
@@ -163,7 +165,7 @@ Danstsud'da Yarethus'un dünyayı bakır bir kalkan gibi örterek koruduğuna in
 - Danstsud'un okulları bu tehlikenin denetimli cevabı olarak anlatılır. Okul, ruhsat ve büyü kullanım izni birbirinden ayrılmamıştır. [D]
 - Araştırma enstitüsünün felaket açıklaması bir hipotezdir; kadim sırların tamamını biliyor gibi gösterilmemeli. [D, s. 2]
 
-**Önerilen hukuk modeli — karar bekliyor:** Denetimli okulda eğitim, ruhsatlı uygulama, izinsiz uygulama ve yaşam soğuran ritüel dört ayrı kategoridir. Eryndorn belirli kurumlara ayrıcalık verebilir; darbe sonrası rejim bu istisnaları kaldırabilir. Böyle bir sistem hem büyü okullarını hem Theramis ekibini hem sonraki baskıyı açıklayabilir. Eski metindeki “okul dışında yasak” ifadesinin dışarıda hizmet veren mezunları kapsayıp kapsamadığı seçilmeden bu model kanon değildir.
+**Güncel hukuk modeli:** Kullanıcı ruhsatlı uygulamanın okul dışında yasal olduğunu; izinsiz uygulama ve kurban ritüellerinin yasak olduğunu kesinleştirdi. Eski “okul dışında yasak” anlatımı güncel kanonda ruhsatsız uygulama yasağı olarak düzeltilir. Eğitim ve uygulama ruhsatı ayrı işlemler; yeni yazımdaki Kraliyet Büyü Sicili izin kapsamını kaydeder. Darbe sonrası rejimin ruhsatları kaldırması henüz gerçekleşmiş tarih değildir. Kan büyüsünün teknik sınıfları ve yabancı ruhsatların tanınması ayrıca seçilecek.
 
 ### Yazar/DM gerçeği — wikiye taşınmayacak
 
@@ -316,4 +318,4 @@ Başkent ve büyük kentlerde daha çok alt bölüm gerekir; küçük kasabalar 
 2. **Bölgesel yönetim:** Feodal krallık; doğrudan kraliyet vergisi Manorveil'de, lordların tahsilatı diğer lordluklarda. Hardlane'de gerçek kraliyet erişimi çok zayıf; Frostbay'in bölgesel idaresi çoğunlukla kâğıt üzerinde.
 3. **Eryndorn'un amacı:** Zeki, bilgiye çok aç ve tükenmiş; yaptığı şeyleri bilerek yapıyor, durursa daha kötüsünün olacağına inanıyor.
 
-İlk iskelet [KANON.md](KANON.md) içinde kuruldu. Sıradaki kararlar: **Eryndorn'un hanedanı ve varisi; başlıca şehirlerin lord/bölge aidiyeti; büyü okulunun dışında ruhsatlı uygulama mümkün mü; harita ölçeği.** Kuruluş tarihi, nüfuslar ve vergi oranları henüz kesin bilgi olarak eklenmeyecek. Tam şehir geliştirmesinde ilk odak Valdareth olacak.
+İlk iskelet [KANON.md](KANON.md) içinde kuruldu. Kraliyet ailesi oluşturuldu ve okul dışında ruhsatlı büyü kesinleşti. Sıradaki kararlar: **veraset hukuku; kayıp kraliçe anlatısı; Tharion–Damian akrabalığı; başlıca şehirlerin lord/bölge aidiyeti; harita ölçeği.** Kuruluş tarihi, nüfuslar ve vergi oranları henüz kesin bilgi olarak eklenmeyecek. Valdareth'in saray makamları, mahalleleri ve geçim düzeni sıradaki şehir geliştirmesi.

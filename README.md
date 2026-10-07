@@ -26,6 +26,10 @@ Derlemek için `npm run build` çalıştır. Statik yayın çıktısı `web/dist
 
 Genel wiki sekiz ülke/bölgeyi, haritadaki yerleşimleri ve Danstsud’un üç alt bölgesini içerir. Danstsud sayfaları Eryndorn’un hâlâ tahtta olduğu darbe öncesini anlatır. Görev sırları, DM notları ve Broken Oath web uygulamasına dahil edilmez; ham lore belgelerini barındırma hizmetine yükleme.
 
+Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatları için ayrı wiki sayfaları vardır. Bunlar aramada bulunur, kaydedilebilir ve ilgili şehir sayfalarından açılır. Eski Tharion Elorwyn ve Damian Elorwyn adları da aramada desteklenir.
+
 ## Danstsud lore çalışması
 
 Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [lore/danstsud/](lore/danstsud/) dizinindedir. Bu yazar çalışma belgeleri görev sırları içerir; web uygulaması bunları doğrudan yüklemez. Halka açık Danstsud metinleri [web/src/lore/danstsud.ts](web/src/lore/danstsud.ts) dosyasında ayrı tutulur.
+
+Yeni aile şeması, hanedan adları ve büyü düzeni [hanedanlar ve büyü hukuku belgesinde](lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md) açıklanır. Halka açık hanedan, kişi ve hukuk metinleri [web/src/lore/danstsud-court.ts](web/src/lore/danstsud-court.ts) dosyasındadır; oğulların kimlikleri yazar belgesinde kalır.

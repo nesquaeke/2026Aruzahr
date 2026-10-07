@@ -1152,3 +1152,9 @@ Kullanıcı tarafından doğrulanan idari ayrım: **Hardlane** batıdaki karlı 
 7 Ekim 2026: Wiki darbe öncesini anlatır; Eryndorn tahtta. Danstsud feodal krallıktır. Manorveil’in vergisi krala, diğer lordlukların vergisi lordlara toplanır. Başlıca şehirler Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn, Theramis. Hardlane şehirleri Ternhaven, Dranthol, Frostbay, Vyssgard. Karlan Dağları’nın ötesinde kraliyet otoritesi zayıftır; Hardlane halkı merkezdekilerden aşağı konumda görülür. Vergilendirmenin işlemediği bu bölgede Frostbay sınırlı vergi, güvenlik, altyapı ve gümrük kapasitesine sahiptir. Diğer Hardlane yerleşimleri idari olarak Frostbay’e bağlıdır fakat bu düzen çoğunlukla kâğıt üzerinde kalır.
 
 Eryndorn zekidir, bilgiye çok açtır, arayışı tarafından tüketilmiş ve tükenmiştir. Yaptığının farkındadır; yapmazsa daha kötüsünün olacağına inanır. Bu yazar bilgisi onun gizli görev eylemlerini halka açık bilgi hâline getirmez.
+
+## U2 — hanedan ve büyü hukuku yanıtları
+
+7 Ekim 2026: Kullanıcı Eryndorn'un hanedan adını ve ailesini oluşturma yetkisini verdi. Eryndorn'un bilinen erkek varisi yok; gayrimeşru oğulları var. Elorwyn şehri hep aynı hanedan tarafından yönetilmiş; hanedan için Elorwynder veya benzeri ayrı bir ad oluşturulacak. Ruhsatlı büyü okul dışında yasal; izinsiz uygulama ve kurban ritüelleri yasak.
+
+Bu yanıtta isimleri, aile ağacını, oğulların sayısını veya Tharion–Damian akrabalığını kullanıcı vermedi. Vaeranth, Elorwynder ve yeni aile üyeleri yetkilendirilmiş yeni yazım olarak ayrı kaydedildi; kaynak alıntılarına yerleştirilmedi.

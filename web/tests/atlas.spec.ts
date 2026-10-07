@@ -135,15 +135,70 @@ test('specific city articles and old Marahalden links and bookmarks remain usabl
   await expect(page.getByTestId('detail-panel')).toContainText('Marhalden')
 })
 
+test('court records link from cities, persist as bookmarks and return to a real map location', async ({ page }) => {
+  await page.goto('/#/wiki/valdareth')
+  await expect(page.getByRole('heading', { name: 'Vaeranth ailesi ve saray', exact: true })).toBeVisible()
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Vaeranth Hanedanı Hanedan', exact: true }).click()
+  await expect(page).toHaveURL(/#\/wiki\/vaeranth-hanedani$/)
+  await expect(page.getByRole('heading', { name: 'Vaeranth Hanedanı', exact: true })).toBeVisible()
+  await expect(page.locator('.article-content')).toContainText('Ilyenne')
+  await expect(page.locator('.article-content')).toContainText('bilinen bir erkek varisi yoktur')
+  await expect(page.locator('.article-content')).not.toContainText('Corven')
+  await expect(page.locator('.article-content')).not.toContainText('Ossian')
+  await page.getByRole('button', { name: 'Kaydı kaydet', exact: true }).click()
+  await page.reload()
+  await expect(page.getByRole('button', { name: 'Kaydı kaldır', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Kaydedilen yerleri göster' }).click()
+  await expect(page.locator('.lore-search-result')).toContainText('Vaeranth Hanedanı')
+  await page.getByRole('button', { name: 'İlgili yeri haritada göster', exact: true }).click()
+  await expect(page).toHaveURL(/#\/atlas\/valdareth$/)
+  await expect(page.getByTestId('detail-panel')).toContainText('Valdareth')
+  await expect(page.getByTestId('marker-vaeranth-hanedani')).toHaveCount(0)
+})
+
+test('old family names are searchable and magic law connects to Theramis', async ({ page }) => {
+  await page.goto('/#/wiki')
+  await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Damian Elorwyn')
+  await page.locator('.lore-search-result').filter({ hasText: 'Elorwynder Hanedanı' }).click()
+  await expect(page.getByRole('heading', { name: 'Elorwynder Hanedanı', exact: true })).toBeVisible()
+  await expect(page.locator('.article-content')).toContainText('hep bu hanedanın yönetiminde')
+  await expect(page.locator('.article-content')).toContainText('Damian Elorwynder')
+  await page.goto('/#/wiki/buyu-ruhsatlari')
+  await expect(page.getByRole('heading', { name: 'Kraliyet Büyü Sicili', exact: true })).toBeVisible()
+  await expect(page.locator('.article-lead')).toContainText('okul dışında da yasal hizmet')
+  await expect(page.locator('.article-content')).toContainText('ruhsatla da yasal hâle gelmez')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Theramis Başlıca şehir', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Theramis', exact: true })).toBeVisible()
+  await expect(page.locator('.article-content')).toContainText('ruhsa')
+  await page.getByTestId('related-locations').getByRole('button', { name: 'Büyü Ruhsatları Hukuk', exact: true }).click()
+  await expect(page).toHaveURL(/#\/wiki\/buyu-ruhsatlari$/)
+})
+
+test('mobile lore pages are discoverable and long titles stay inside the cover', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/#/wiki')
+  await page.getByTestId('wiki-lore-results').getByRole('link', { name: /Vaeranth Hanedanı/ }).click()
+  await expect(page.getByRole('heading', { name: 'Vaeranth Hanedanı', exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  const cover = await page.locator('.article-cover').boundingBox()
+  const title = await page.locator('.article-title').boundingBox()
+  expect(title!.y).toBeGreaterThanOrEqual(cover!.y)
+  await page.getByRole('button', { name: 'Bölge menüsünü aç' }).click()
+  await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill('Eryndorn')
+  await page.locator('.lore-search-result').filter({ hasText: 'Eryndorn Vaeranth' }).click()
+  await expect(page.getByRole('heading', { name: 'Eryndorn Vaeranth', exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})
+
 test('published artifacts omit DM secrets and development server blocks raw lore files', async ({ request }) => {
-  const secretPhrases = ['Yarethus’un Kutsal İzi', 'Halendar’ın Kızıl Kıvılcımı', 'PROJECT: BROKEN OATH', 'Deli Kral Halendar’ın Ateş Mahkemesi', 'Denge Ritüeli', 'DM NOTU']
+  const secretPhrases = ['Yarethus’un Kutsal İzi', 'Halendar’ın Kızıl Kıvılcımı', 'PROJECT: BROKEN OATH', 'Deli Kral Halendar’ın Ateş Mahkemesi', 'Denge Ritüeli', 'DM NOTU', 'Corven', 'Ossian', 'gayrimeşru']
   function inspect(directory: string) {
     for (const name of readdirSync(directory, { withFileTypes: true })) {
       const file = join(directory, name.name)
       if (name.isDirectory()) inspect(file)
       else {
         expect(file).not.toMatch(/\.(docx|pdf)$/)
-        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md/)
+        expect(file).not.toMatch(/KAYNAK_METINLERI|CALISMA_DOSYASI|KANON\.md|HANEDANLAR_VE_BUYU_HUKUKU/)
         if (/\.(js|html|json|txt|md)$/.test(file)) {
           const text = readFileSync(file, 'utf8')
           for (const phrase of secretPhrases) expect(text).not.toContain(phrase)
@@ -160,4 +215,7 @@ test('published artifacts omit DM secrets and development server blocks raw lore
   const authorNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/KAYNAK_METINLERI.md')
   expect(authorNotes.status()).toBe(403)
   expect(await authorNotes.text()).not.toContain('Yarethus’un Kutsal İzi')
+  const familyNotes = await request.get('/@fs/workspace/2026Aruzahr/lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md')
+  expect(familyNotes.status()).toBe(403)
+  expect(await familyNotes.text()).not.toContain('Corven')
 })
