@@ -30,6 +30,8 @@ Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatlar�
 
 Valdareth ve Marhalden ayrıntılı şehir sayfalarıdır. Mahalleler, saray makamları, loncalar, vergi havzaları, Karlan Dağları, Veyralt, sekiz dağ canlısı, Frostmere ve lordluk hukuku için on bir ek wiki kaydı vardır. Tablolar mobilde kendi alanında kaydırılır; arama şehir metinlerini ve tablo içeriklerini de tarar.
 
+Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Toplam 28 ek lore kaydı ve haritada 32 gerçek yerleşim pini vardır; Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
+
 ## Danstsud lore çalışması
 
 Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [lore/danstsud/](lore/danstsud/) dizinindedir. Bu yazar çalışma belgeleri görev sırları içerir; web uygulaması bunları doğrudan yüklemez. Halka açık Danstsud metinleri [web/src/lore/danstsud.ts](web/src/lore/danstsud.ts) dosyasında ayrı tutulur.
@@ -37,3 +39,5 @@ Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [
 Yeni aile şeması, hanedan adları ve büyü düzeni [hanedanlar ve büyü hukuku belgesinde](lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md) açıklanır. Halka açık hanedan, kişi ve hukuk metinleri [web/src/lore/danstsud-court.ts](web/src/lore/danstsud-court.ts) dosyasındadır; oğulların kimlikleri yazar belgesinde kalır.
 
 [Valdareth, Karlan ve Marhalden tam lore belgesi](lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md), yeni şehir ve doğa yazımını içerir. Bunun kamuya açık wiki verisi [danstsud-expansion.ts](web/src/lore/danstsud-expansion.ts) dosyasındadır.
+
+[Hardlane tam lore belgesi](lore/danstsud/HARDLANE.md), kullanıcı kararlarını, yeni isimleri, tutarlılık kararlarını, açık geliştirme alanlarını ve wiki metinlerini bir araya getirir. [Bryndon’un Kıyı Defteri](lore/danstsud/BRYNDONUN_KIYI_DEFTERI.md) ayrıca okunabilir. Web metinleri `hardlane.ts`, `hardlane-laws.ts`, `hardlane-coasts.ts` ve `bryndon.ts` modüllerindedir; ham yazar belgeleri uygulamaya alınmaz.

@@ -1,12 +1,12 @@
 # Danstsud — harita ve yerleşim envanteri
 
-Kaynak: `Aruzahr 8k (1).jpg`, 8192 × 5668. Okuma tarihi: 7 Ekim 2026. Bu liste şehir lore'u üretmek için başlangıç envanteridir. Haritada bazı yazılar ağaçlar ve büyük ülke yazısı altında kalıyor; bu adlar ayrıca işaretlendi. **Kesin nüfus, kuruluş yılı veya lord adı haritadan çıkarılmadı.**
+Kaynak: `Aruzahr 8k (1).jpg`, 8192 × 5668. İlk okuma: 7 Ekim 2026; Kaldmere ve yeni kıyı adları güncellemesi: 8 Ekim 2026. Bu liste şehir lore'u üretmek için başlangıç envanteridir. Haritada bazı yazılar ağaçlar ve büyük ülke yazısı altında kalıyor; bu adlar ayrıca işaretlendi. **Kesin nüfus, kuruluş yılı veya lord adı haritadan çıkarılmadı.**
 
 ## Kullanıcının kesinleştirdiği listeler
 
 **Başlıca şehirler:** Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn, Theramis. Bu sıra büyüklük sırası değildir. Valdareth başkenttir.
 
-**Hardlane şehirleri:** Ternhaven, Dranthol, Frostbay, Vyssgard. Diğer Hardlane yerleşimleri resmen Frostbay idaresine bağlı; uygulamada bu düzen zayıf. Bölgedeki ayrıntılar [KANON.md](KANON.md) içinde.
+**Hardlane şehirleri:** Ternhaven, Dranthol, Frostbay, Vyssgard, Kaldmere. Diğer Hardlane yerleşimleri resmen Frostbay idaresine bağlı; uygulamada bu düzen zayıf. Bölgedeki ayrıntılar [KANON.md](KANON.md) içinde.
 
 **Bölgeler:** Hardlane, Manorveil, Lowvale. Bunlar şehir listesine girmeyecek.
 
@@ -77,7 +77,7 @@ Bu grup Lowvale yazısı çevresi ve doğu/güney kent ağını kapsar. Dorvenha
 | Dranthol | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
 | Frostbay | **Hardlane aidiyeti kullanıcı tarafından doğrulandı**; sınırlı vergi/kamu hizmeti; kâğıt üzerinde bölgesel idare |
 | Vyssgard | **Hardlane aidiyeti kullanıcı tarafından doğrulandı** |
-| Kaldmere | Karlı sahada harita adı; idari aidiyet ayrıca teyit edilecek |
+| Kaldmere | **Hardlane aidiyeti ve mülteci kuruluşu kullanıcı tarafından doğrulandı (8 Ekim)**; haritadaki beyaz yerleşimden wiki/atlas pini eklendi |
 | Mavric | Karlı sahada küçük yerleşim; Marhalden vergisi ve garnizon koruması kullanıcı kararı |
 | Marhalden | **Başlıca şehir**; Karlan geçidini ve Üç Mühür lonca ağını tutar; kesin Manorveil/Lowvale sınır aidiyeti hâlâ açık |
 | Tora | Marhalden doğusunda harita adı; idari aidiyet ayrıca teyit edilecek |
@@ -141,3 +141,11 @@ Harita üzerinde yalnızca adı açıkça okunmuş ve yeri görülmüş yerler p
 | Korhenden | Korthen ayrı okuma | Aynı yer sayılmaz |
 
 Veyrakar, Aldarataç ve Tholkar yeni zirve adlarıdır; haritanın özgün yazılarından okunmuş gibi sunulmaz. Yeni wiki coğrafya kayıtları mevcut Marhalden/Frostbay/Valdareth konumlarına bağlanır; ölçülmemiş zirve, nehir veya köy pinleri eklenmez.
+
+## Hardlane’in yeni pin ve kıyı kayıtları — 8 Ekim 2026
+
+**Kaldmere:** Özgün 8192 × 5668 haritada, ülke yazısının altında Kaldmere etiketi ve beyaz kıyı evleri görüldü. Yerleşim kümesine konan yaklaşık pin: `(3744, 5492)` piksel; normalize konum `[0.457, 0.969]`. Önceki dört Hardlane şehrinin pinleri değiştirilmedi. Danstsud’un gerçek yerleşim pinleri 15, bütün atlasın 32 oldu.
+
+**Yeni kullanıcı adları:** Kemiğe Basan Yol, Cevher Çizgisi, Ak Cam Denizi, Ayaz Yutan, Kırağı Denizi / Son Nefes Denizi, Soluk Su ve Kefen Denizi. Bunlar özgün haritanın yazılarından okunmuş isimler olarak sunulmaz. Yol/deniz sınır ve etaplarının kesin koordinatları henüz verilmedi; yeni kayıtlar yakın mevcut şehir/bölge üzerinden “haritada göster” bağlantısı alır. Cevher Çizgisi hayata geçmemiş projedir ve atlas üzerinde yapılmış yol olarak çizilmez.
+
+Bryndon’un Kıyı Defteri, kültür, hayvan ve kanun metinleri şehir pini değildir. Yeni tam yazım [HARDLANE.md](HARDLANE.md) içinde.

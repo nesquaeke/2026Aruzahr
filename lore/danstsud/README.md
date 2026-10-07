@@ -16,4 +16,6 @@ Görev sırları ve olası kampanya sonları çalışma belgelerinde bulunur. Bu
 
 Valdareth'in mahalleleri, saray makamları, loncaları ve geçim ağı; Karlan'ın üç zirvesi, Veyralt, sekiz canlı; Marhalden'in yönetimi ve vergi köyleri [genişletilmiş şehir/dağ belgesinde](VALDARETH_KARLAN_MARHALDEN.md) bulunur. Belge, kullanıcı kararları ve yeni yazımı ayırır, ardından kamuya açık tam metinleri verir.
 
-Mevcut aşama: başlangıç dönemi, feodal düzen, Hardlane'in genel durumu, Eryndorn, ruhsatlı büyü, Valdareth ve Marhalden'in temel şehir düzeni kuruldu. Aldara'nın iki kolu kullanıcı tarafından seçildi. Tharion–Damian akrabalığı, veraset, bazı adların harita eşleştirmesi, kesin bölge sınırları ve dünya ölçeği hâlâ açık.
+[Hardlane tam lore belgesi](HARDLANE.md) beş şehri, iki kraliyet kanununu, Vyssgard sözleşmesini, kültürü, üç otlak hayvanını ve kıyı/ulaşım düzenini içerir. [Bryndon’un Kıyı Defteri — Kıştan Önceki Taşlar](BRYNDONUN_KIYI_DEFTERI.md), Frostbay’in geçmişini kâtibin kendi sesiyle araştıran dokuz bölümlük evren içi metindir. Bunlar 8 Ekim 2026 kullanıcı kararları ve oluşturma yetkisiyle yazıldı.
+
+Mevcut aşama: başlangıç dönemi, feodal düzen, Eryndorn, ruhsatlı büyü, Valdareth, Marhalden ve Hardlane’in beş şehir/kıyı düzeni kuruldu. Aldara'nın iki kolu kullanıcı tarafından seçildi. Tharion–Damian akrabalığı, veraset, reformların takvimi, kesin garnizon ve iaşe bütçeleri, bazı adların harita eşleştirmesi, kesin bölge sınırları ve dünya ölçeği hâlâ açık. Sonraki geliştirme önerisi: Dranthol’un kale, asker ve yiyecek hesabını bir mevsimde karşılaştırmak.

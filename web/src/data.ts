@@ -1,6 +1,10 @@
 import { danstsudRegion, danstsudPlaces, danstsudSubregions } from './lore/danstsud'
 import { danstsudArticles } from './lore/danstsud-court'
 import { danstsudExpansionArticles, karlanExpansionArticles } from './lore/danstsud-expansion'
+import { hardlaneArticles } from './lore/hardlane'
+import { hardlaneLawArticles } from './lore/hardlane-laws'
+import { hardlaneCoastArticles } from './lore/hardlane-coasts'
+import { bryndonArticles } from './lore/bryndon'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; table?: { columns: string[]; rows: string[][] } }
@@ -21,11 +25,11 @@ export type Subregion = LocationRecord & {
   box: [number, number, number, number]; summary: string; sections: Section[]; sources: string[];
 }
 export type LoreArticle = {
-  id: string; name: string; kind: 'dynasty' | 'person' | 'law' | 'institution' | 'geography' | 'material' | 'fauna'; region: RegionId;
+  id: string; name: string; kind: 'dynasty' | 'person' | 'law' | 'institution' | 'geography' | 'material' | 'fauna' | 'culture' | 'chronicle'; region: RegionId;
   subtitle: string; summary: string; sections: Section[]; sources: string[];
   related?: string[]; aliases?: string[]; mapLocation?: string;
 }
-export const loreKindLabels = { dynasty: 'Hanedan', person: 'Kişi', law: 'Hukuk', institution: 'Kurum', geography: 'Coğrafya', material: 'Maden', fauna: 'Canlılar' }
+export const loreKindLabels = { dynasty: 'Hanedan', person: 'Kişi', law: 'Hukuk', institution: 'Kurum', geography: 'Coğrafya', material: 'Maden', fauna: 'Canlılar', culture: 'Kültür', chronicle: 'Tanıklık' }
 
 // This is an intentionally curated public dataset. Never import the raw campaign
 // documents into the client bundle: they contain private DM notes and endgame secrets.
@@ -154,7 +158,7 @@ export const historyArticle = {
 
 export const subregions: Subregion[] = danstsudSubregions
 export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles]
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles]
 export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))

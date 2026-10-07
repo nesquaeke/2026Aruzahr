@@ -1,6 +1,6 @@
 # Danstsud Krallığı — kanon temeli ve yeni yazım
 
-7 Ekim 2026 tarihli kullanıcı kararları ve kullanıcının hanedan, şehir, dağ ve canlıları geliştirme yetkisiyle hazırlanan yeni yazım. **Yazar çalışma belgesi.** Kullanıcının doğrudan verdiği bilgiler ile oluşturulan isimler ayrı belirtilir. Eryndorn'un iç dünyası ve halka açık olmayan aile bilgileri wikiye açıklanmaz.
+7–8 Ekim 2026 tarihli kullanıcı kararları ve kullanıcının hanedan, şehir, dağ, canlı, Hardlane kültürü ve hukukunu geliştirme yetkisiyle hazırlanan yeni yazım. **Yazar çalışma belgesi.** Kullanıcının doğrudan verdiği bilgiler ile oluşturulan isimler ayrı belirtilir. Eryndorn'un iç dünyası ve halka açık olmayan aile bilgileri wikiye açıklanmaz.
 
 ## Dünya zamanı
 
@@ -30,13 +30,13 @@ Lowvale'in ortak kültürü ve tarihi hâlâ geliştirilecek. Sınır tanımı, 
 
 Hardlane batıdaki karlı bölgedir. **Karlan Dağları'nın bu tarafında kraliyet otoritesi güçlü biçimde işlemez.** Bölge yine Danstsud Krallığı'na bağlıdır; siyasi ve toplumsal olarak merkezdeki halkla eşit konumda görülmez. Kullanıcının ifadesiyle halkı “üçüncü sınıf vatandaş” gibi muamele görür.
 
-**Ternhaven, Dranthol, Frostbay ve Vyssgard** Hardlane şehirleridir. Kullanıcı bu şehirlerin vergilendirilmediğini, Frostbay'de ise vergi, güvenlik, altyapı ve gümrüğün sınırlı da olsa var olduğunu belirtti.
+**Ternhaven, Dranthol, Frostbay, Vyssgard ve Kaldmere** Hardlane şehirleridir. İlk dört şehrin genel vergilendirme zayıflığına ilişkin karar, yeni reform ayrıntılarıyla birlikte okunur. Frostbay’de vergi, güvenlik, altyapı ve gümrük sınırlı da olsa vardır; Dranthol yeni güçlü garnizon ve kraliyet yatırımının istisnasıdır. Ternhaven reformlarla sınırlı iyileşme görmüş, Kaldmere’e kamu altyapısı ve etkin kraliyet otoritesi gelmemiştir.
 
-Bu iki cümleyi şimdilik şöyle kullanıyoruz: **Hardlane'de düzenli, işleyen bir vergi sistemi yok; Frostbay sınırlı tahsilat ve kamu hizmetinin istisnası.** Frostbay'deki tahsilatın liman/gümrük ücreti mi, yerel vergi mi, başka bir yükümlülük mü olduğu henüz seçilmedi. Bu nedenle belirli bir vergi kalemi veya oranı kanon ilan edilmedi.
+Güncel genel kural: **Hardlane'de düzenli, işleyen bir vergi sistemi yok; Frostbay sınırlı tahsilat ve kamu hizmetinin istisnası.** Frostbay'deki tahsilatın liman/gümrük ücreti mi, yerel vergi mi, başka bir yükümlülük mü olduğu henüz seçilmedi. Bu nedenle belirli bir vergi kalemi veya oranı kanon ilan edilmedi.
 
-**Diğer Hardlane yerleşimlerinin idaresi resmen Frostbay'e bağlıdır.** Bu bağlılık çoğunlukla kâğıt üzerinde kalır; gündelik hayatta etkili bir bölgesel idare kurulmuş değildir. Frostbay'in yöneticisinin unvanı, adı veya seçilme biçimi verilmedi.
+**Diğer Hardlane yerleşimlerinin idaresi resmen Frostbay'e bağlıdır.** Bu bağlılık çoğunlukla kâğıt üzerinde kalır; gündelik hayatta etkili bir bölgesel idare kurulmuş değildir. Yeni yazımda kent işleri için **İskele Vekili Nera Veld**, garnizon için **Nöbetbaşı Odran Vehl** oluşturuldu. Makamlara gelme usulleri henüz yazılmadı; bunlar bütün bölgenin güçlü bir üst lordu değildir.
 
-**Yeni özel istisna:** Harven ve Mavric, kullanıcı tarafından Marhalden'in vergi topladığı ve garnizonla koruduğu Hardlane yerleşimleri olarak kesinleştirildi. Frostbay'in geniş kâğıt üstü idaresi bu iki köyde Marhalden'in fiilî yetkisinin yerine geçmez. Diğer Hardlane şehirlerinin zayıf tahsilat ve yönetim koşulları değişmedi.
+**Yeni özel istisna:** Harven ve Mavric, kullanıcı tarafından Marhalden'in vergi topladığı ve garnizonla koruduğu Hardlane yerleşimleri olarak kesinleştirildi. Frostbay'in geniş kâğıt üstü idaresi bu iki köyde Marhalden'in fiilî yetkisinin yerine geçmez. Dranthol’un yeni garnizonu ve Ternhaven’in sınırlı yatırımı, bütün Hardlane’in güçlü kraliyet düzenine dönüştüğü anlamına gelmez.
 
 Bu düzenin önemli bir sonucu: Haritada krallığa ait olmak, düzenli koruma, altyapı ve devlet erişimi almakla aynı şey değildir. Kullanıcının kararından çıkan bu ilişki wikiye genel siyasi durum olarak aktarılabilir. Ancak hangi yerel toplulukların fiilen mahkeme, güvenlik veya yol bakımını üstlendiği ayrıca yazılacaktır.
 
@@ -103,10 +103,32 @@ Marhalden Uldar, Tolvur, Toran, Harven, Mavric'ten vergi toplar. Doğu köyleri 
 
 **Yeni yazım:** Mahalleler, saray görevlileri, loncalar, üç zirve adı, Veyralt, sekiz canlı ve Üç Mühür uygulama ayrıntıları [VALDARETH_KARLAN_MARHALDEN.md](VALDARETH_KARLAN_MARHALDEN.md) içinde. Kullanıcı bilgisi ile üretilen ayrıntı burada ayrı gösterilir; kaynak metinleri değiştirilmez.
 
+## Hardlane’in yeni şehir, kültür ve deniz düzeni
+
+8 Ekim 2026 kullanıcı kararları ve yeni yazımın tam kaydı [HARDLANE.md](HARDLANE.md) içinde.
+
+**Frostbay:** En eski şehir, bilinmeyen ustaların hâlâ kullanılan haşmetli taş yapıları; yaklaşık **45–50 bin kişi**. Küçük fener, yetersiz garnizon, sınırlı posta/gümrük/idare; korsan ticaretine korunak, Honudlu mültecilerin ilk uğraklarından. Altı ay düşük verimli tarım, az otlak, balık ve av. Yuvarlak taş yapılar ve eski değirmenler üzerine Kâtip Bryndon’un araştırması, geçmişte daha yaşanabilir ve yeşil iklim ihtimalini açar. Sebebi ve kesin kuruluş çağı açıklanmadı. [Kıyı Defteri](BRYNDONUN_KIYI_DEFTERI.md) evren içi tanıklıktır.
+
+**Kaldmere:** Adı “son umut”; Danstsudlu mültecilerin kurduğu kamp/köyden küçük şehre büyüdü, kurucu yerli nüfus yok. Eryndorn döneminde statüye ulaştı. Kamu altyapısı ve kraliyet otoritesi fiilen yok; barakalar, küçük liman, buz deliği balıkçılığı, av ve odun; az tüccar. Farklı yörelerden gelen hanelerin din ve gelenekleri çeşitlidir.
+
+**Dranthol:** Yaklaşık **1.500 → toplam 15.000 kişi**; reformlarla büyük kale, liman ve fener kuruldu. Hardlane’in kişi başına en güçlü güvenliği. Korsanların Vyssgard’a çekilmesi ticaret ve altın akışını da azalttı; Frostbay kadar gelişemedi.
+
+**Vyssgard:** Eski önemli kentte kraliyet idaresi işlemiyor; çeteler zorla kendi kurallarını uygulatıyor. **Beş İskele Sözleşmesi** ve on bir maddesi yetkilendirilmiş yeni yazım; kraliyet hukuku veya eşit hak düzeni değildir.
+
+**Ternhaven:** Rydorn Sırtı sıcak suları çevresinde görece ılıman, eski Hardlane kültürünün baskın olduğu ve temel ihtiyacını karşılayabilen küçük şehir. İki reformdan yararlandı. **Cevher Çizgisi** Marhalden yol projesi hiç hayata geçmedi. Marhalden’in kapıları, Vyssgard ve başkentteki idari/iaşe karışıklıkları başarısızlığın genel nedenleridir; darbe olmuş sayılmaz.
+
+**İki kraliyet reformu:** Kül Üzerine Ocak Kanunu (statü; 12 madde), Mahrumiyet Mıntıkayı İskân ve Sermaye Tevzi Kanunnamesi (yatırım; 14 madde). Amaçlar ve isimler kullanıcıdan; maddeler yeni yazım. Statü, tahsis ve teslim ayrı işlemlerdir. Kaldmere’in statüsü altyapı teslimi sayılmaz; Hardlane’e otomatik yeni genel toprak vergisi getirilmedi.
+
+**Kemiğe Basan Yol**, Ternhaven–Dranthol–Frostbay–Marhalden’i bağlayan uzun ve güvensiz gayriresmî hattır. Mevcut Marhalden kara geçidine dayanır; Kralın Yolu’nun tamamlanmış batı uzantısı veya ikinci dağ geçidi değildir. Cevher Çizgisi’yle aynı proje değildir.
+
+**Deniz adları kullanıcıdan:** Ak Cam (Ternhaven/Dranthol önü açık su), Ayaz Yutan (Dranthol’un aşağısındaki boğaz), Soluk Su (iki şehir arası sisli ve kayalık kıyı), Kırağı / Son Nefes (Danstsud–Honud arasındaki aynı donmuş deniz), Kefen (doğuya bakan ayrı don örtüsü). Kefen’in kopuk buzları diğer sulara taşınır; örtüler arasında kesintisiz yürünebilir bağlantı yoktur. Kırağı’nın çatlama, hızlı akış, yeniden donma ve basınçla kırılma döngüsüne **Buz Solunumu** adı yeni yazımda verildi.
+
+**Kültür ve hayvanlar yeni yazım:** Ocak Hatırı, İlk Tas Hakkı, İkinci Duman, Buz Çatısı Gecesi; Tervan, Norruk ve Velkir. Don kabuğu altında besin bulmak sınırsız kış üretimi değildir; sürüler yazdan tutulan yeme muhtaçtır. Dünya takvimi, yol/deniz mesafeleri, diğer şehir nüfusları, ceza cetvelleri ve kesin vergi oranları henüz seçilmedi.
+
 ## Bu temelden sonra geliştirme sırası
 
 1. **Valdareth:** Mahalle, makam, lonca ve iaşe düzeni kuruldu. Sırada veraset hukuku ve şehirdeki güç odaklarının olaylar karşısındaki kişisel tercihleri var.
-2. **Frostbay ve Hardlane:** Resmî bağlılık ile gerçek yönetim arasındaki fark; dört şehrin birbirine bağı; merkezin ihmalinin gündelik sonuçları.
+2. **Frostbay ve Hardlane:** Beş şehir, iki reform, çete hukuku, kültür, yol ve kıyı düzeni yazıldı. Sırada Dranthol’un garnizon/iaşe bütçesi, yerel güç odakları ve reformların takvimi var.
 3. **Lordluk ağı:** Marhalden'in yerel yönetimi kuruldu; diğer büyük şehirlerin yönetimleri ve kesin bölge aidiyetleri geliştirilecek. Tharion ile Damian'ın hanedan içindeki yerleri hâlâ açık.
 4. **Büyü hukuku:** Ruhsatlı hizmet kuralı ve sicil temeli kuruldu; yabancı ruhsatlar, kan büyüsü teknikleri, cezalar ve denetim uyuşmazlıkları geliştirilecek.
 5. **Küçük yerleşimler:** Valdareth'in yedi ve Marhalden'in beş vergi yerleşimi için temel üretim bağları yazıldı. Sırada harita eşleştirmesi ve her yerleşimin kendi ayrıntılı yaşamı var.

@@ -1174,3 +1174,24 @@ Uldar, Tolvur, Toran doğudaki elverişli iklimli ticaret/hayvancılık ve erzak
 **U3-A — Aldara yön sorusunun yanıtı:** Kullanıcı "İki kol: doğu ovaya, batı Frostmere'e" seçeneğini seçti. Ortak buzul kaynak alanından çıkan Doğu Aldara Valdareth ovasını, Batı Aldara Marhalden üzerinden Frostmere'i besleyecek.
 
 Üretilen mahalle, lonca, makam, zirve, maden ve canlı adları bu kullanıcı özeti veya eski kaynak alıntıları içine yerleştirilmedi; [yeni yazım belgesinde](VALDARETH_KARLAN_MARHALDEN.md) ayrı kaydedildi.
+
+
+## U4 — Hardlane şehirleri, reformlar ve kıyılar (8 Ekim 2026)
+
+**Kullanıcının bu konuşmada verdiği yeni lore’un anlamı korunarak düzenlenmiş özeti.** Bu bölüm ham DOCX/PDF alıntısı değildir. Yeni hayvan, mahalle, kanun maddesi veya kitap cümlesi bu kaynak özeti içine eklenmedi.
+
+Frostbay Hardlane’in en eski ve en ilgi çekici şehridir. Kim tarafından, ne zaman yapıldığı bilinmeyen haşmetli harabeleri yerel yönetimce postahane, gümrük ve idare için hâlâ kullanılır. Barakalar, mülteciler ve düşük gelirli insanlar arasında yaklaşık 45–50 bin kişi yaşar. Garnizonu tüm şehri koruyamaz. Korsan ve yağmacılar ticaret edip uyuyabilecek doğal korunak bulur. Tarım altı ay düşük verimlidir, az otlak vardır; don altındaki otu çıkarabilen özel hayvan adları istendi. Balık ve av yaygın, küçük fener var; Honudlu mültecilerin ilk uğraklarından. Theramisli kâtipler binlerce yıl geriye uzanan araştırma yapar; Bryndon’un yuvarlak taş yığma yapılar ve eski yel değirmenleri araştırması, geçmişte iklimin daha yaşanabilir ve yeşil olduğu ihtimalini açmalı. Eski kitap biçiminde, onun bakış açısından merak uyandıran anlatı istendi.
+
+Kaldmere yalnız Danstsudlu mültecilerin kurduğu kamp/köyden küçük şehir boyutuna büyüdü; kurucu yerli nüfus yok. Adı Danstsud dilinde “son umut”. Son kral döneminde statüye ulaştı, sonra gelişme çok az. Kamu altyapısı ve kraliyet otoritesi yok; barakalar, az tüccar, farklı din/kültür, küçük liman, buz delinerek balık avı, bol orman ve av. Danstsudluların burada tutunması hazırlıksız bir ziyaretçiye göre daha kolay.
+
+Dranthol, Eryndorn Vaeranth’ın **Kül Üzerine Ocak Kanunu** (yeni yerleşimlere şehir/köy statüsü) ve **Mahrumiyet Mıntıkayı İskân ve Sermaye Tevzi Kanunnamesi** (yatırım) sayesinde büyüdü. İki kanunun ayrıntılı metni istendi. Önce yaklaşık 1.500 yerli, bugün yaklaşık 15.000 kişi. Küçük garnizon yerine büyük kale, liman ve fener. Eskiden korsanların işlek uğrağı; artık korsanlar açıkta gemi bırakıp Vyssgard’a kürekle gidiyor. Kişi başına güvenlik bölgenin en güçlüsü; korsan parasının çekilmesi ticareti ve altını azalttığı için Frostbay’den daha köhne.
+
+Vyssgard eski önemli kent, göçmen ve mülteci akışından sonra korsan/kaçakçı/suçlu örgütlerinin zorla kendi otorite ve kanunlarını uyguladığı çok tehlikeli yerleşim. Sıradan köylü çok az, kraliyet otoritesi yok. Kanundan kaçanların dahi nefes almak için kendi kanunlarını kurduğu bu yerin yasaları istendi.
+
+Ternhaven, Rydorn Sırtı sıcak suları çevresinde görece ılıman, eski Hardlane halkı/kültürünün baskın olduğu küçük şehir. Diğerlerine göre daha az göç ve suç akışı. İki reformla daha yaşanabilir; az üretir, kendine yeter ve ticaret yapar. Marhalden ile **Cevher Çizgisi** yol projesi hiç hayata geçmedi; Marhalden’in kapıları kapatması, Vyssgard ve başkentin karışıklıkları engelledi. Bunun yerine çok uzun, güvensiz gayriresmî yol var. **Kemiğe Basan Yol** Ternhaven, Dranthol, Frostbay’i Marhalden’e bağlar.
+
+Hardlane kültürü/lore’u istendi. Çok Danstsudlu mülteci/göçmen; başkentten ve başka kıtalardan kaçan aranan insanlar son çare buraya gelir.
+
+**Ak Cam Denizi:** Ternhaven ve Dranthol önü donmamış deniz. **Ayaz Yutan:** Dranthol’un aşağısındaki boğaz, bundan sonra donmuş sular. **Kırağı Denizi / Son Nefes Denizi:** Danstsud ile Honud’u ayıran aynı donmuş deniz; yürüyerek geçmek neredeyse imkânsız, sığınak ve tutunacak yer yok, çok rüzgârlı ve kırılgan. Dönem dönem çatlar, hızlı nehir gibi akar, tekrar donar; basınçla patlar gibi buzunu atıp yeniden donar. **Soluk Su:** Dranthol–Ternhaven arasındaki kıyı, sis ve rüzgâr gemileri karaya/kayalıklara sürer. **Kefen Denizi:** Danstsud doğusunda ayrı donmuş deniz; diğer örtülerle birleşmeyen buzları kıyı boyunca Ak Cam, Kırağı ve Soluk Su’ya taşınır.
+
+Yetkilendirilmiş yeni yazım ve tutarlılık kararları [HARDLANE.md](HARDLANE.md) içinde; Bryndon’un üretilen evren içi metni [BRYNDONUN_KIYI_DEFTERI.md](BRYNDONUN_KIYI_DEFTERI.md) içinde.

@@ -1,5 +1,6 @@
 import type { Place, Region, Subregion } from '../data'
 import { expansionSources, marhaldenExpansionSections, valdarethExpansionSections } from './danstsud-expansion'
+import { hardlaneSources, hardlaneSections, frostbaySections, kaldmereSections, drantholSections, vyssgardSections, ternhavenSections } from './hardlane'
 
 // Public lore at the campaign's beginning: Eryndorn is still on the throne.
 // Author notes, alternate coups, secret identities and quest outcomes stay outside web/.
@@ -17,7 +18,7 @@ export const danstsudRegion: Region = {
   point: [.73, .72], box: [.38, .46, .61, .54],
   summary: 'Eryndorn’un tahtta olduğu feodal krallık. Manorveil’de vergi krala, lordluk topraklarında lordlara toplanır. Karlan Dağları’nın ötesindeki Hardlane ise aynı krallığa bağlı olmasına rağmen merkezî düzenin çok azına erişir.',
   tags: ['Feodal krallık', 'Üç bölge', 'Bakır Ana'],
-  sources: [canonSource, newWritingSource, ...expansionSources, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
+  sources: [canonSource, newWritingSource, ...expansionSources, ...hardlaneSources, 'Valhunar.pdf — genel tarih ve kültürel inanışlar', openingSource, questSource, fractureSource, 'Xotar.docx', 'Garmirik.docx', mapSource],
   sections: [
     { title: 'Danstsud Krallığı', paragraphs: [
       'Danstsud, Valhunar’ın kentler, kaleler, loncalar ve yollarla birbirine bağlanan feodal krallığıdır. Başkenti Valdareth’tir; tahtta Vaeranth Hanedanı’ndan Kral Eryndorn bulunur. Krallığın toprakları Hardlane, Manorveil ve Lowvale adlı üç bölgeye ayrılır. Bu bölgeler aynı tacın altında yer alır, fakat kraliyet gücünü aynı ölçüde hissetmez.',
@@ -32,8 +33,8 @@ export const danstsudRegion: Region = {
       'Manorveil, krallığın kendisiyle eş anlamlı değildir. Kraliyet merkezi ile uzak bölgeler arasındaki yönetim farkı, Danstsud’un iç ilişkilerini biçimlendirir.',
     ] },
     { title: 'Hardlane: uzaktaki bağlılık', paragraphs: [
-      'Batının karlı bölgesi Hardlane’de, Karlan Dağları’nın ötesine geçen kraliyet otoritesi büyük ölçüde zayıflar. Ternhaven, Dranthol, Frostbay ve Vyssgard Danstsud’a bağlıdır; buna rağmen halkı merkezin düzenine ve imkânlarına eşit biçimde erişmez. Hardlaneliler krallık içinde aşağı bir konuma itilmiş topluluklar olarak görülür.',
-      'Düzenli vergilendirmenin işlemediği bölgede Frostbay sınırlı bir istisnadır: vergi, güvenlik, altyapı ve gümrük uygulamaları az da olsa vardır. Geniş Hardlane idaresi resmen Frostbay’e bağlıdır, fakat bu bağ çoğunlukla kâğıt üzerinde kalır. Harven ve Mavric, Marhalden’in asker konuşlandırıp yerel vergi topladığı özel bağlı yerleşimlerdir.',
+      'Batının karlı bölgesi Hardlane’de, Karlan Dağları’nın ötesine geçen kraliyet otoritesi büyük ölçüde zayıflar. Ternhaven, Dranthol, Frostbay, Vyssgard ve mültecilerin kurduğu Kaldmere Danstsud’a bağlıdır; buna rağmen halkı merkezin düzenine ve imkânlarına eşit biçimde erişmez. Hardlaneliler krallık içinde aşağı bir konuma itilmiş topluluklar olarak görülür.',
+      'Düzenli vergilendirmenin işlemediği bölgede Frostbay sınırlı tahsilat ve hizmetin eski istisnasıdır. Eryndorn’un iki iskân reformu Dranthol’a güçlü garnizon, liman ve fener; Ternhaven’e sınırlı yatırım getirdi. Kaldmere’de kâğıttaki şehir statüsünün ardından altyapı gelmedi. Geniş Hardlane idaresi resmen Frostbay’e bağlıdır, fakat bu bağ çoğunlukla kâğıt üzerinde kalır. Harven ve Mavric, Marhalden’in asker konuşlandırıp yerel vergi topladığı özel bağlı yerleşimlerdir.',
     ] },
     { title: 'Lowvale: lordluk toprakları', paragraphs: [
       'Lowvale, Hardlane ve Manorveil dışında kalan arazileri kapsar. Manorveil’de doğrudan krala toplanan verginin karşısında, lordların tahsilat ve yerel güç sahibi olduğu topraklar krallığın feodal yapısını görünür kılar.',
@@ -41,7 +42,7 @@ export const danstsudRegion: Region = {
     ] },
     { title: 'Başlıca şehirler ve yerleşim ağı', paragraphs: [
       'Lirendil, Dorvenhall, Marhalden, Valdareth, Elorwyn ve Theramis krallığın başlıca şehirleridir. Valdareth başkent; Lirendil kale ve lonca yaşamıyla, Dorvenhall üretim ve ticaretle öne çıkar. Theramis’te büyücülerin de yer aldığı bir lonca bulunur. Marhalden, Karlan çevresindeki büyük tahkimatıyla haritada belirgindir.',
-      'Bu büyük kentlerin yanında Brannis, Kethra, Myrran ve Luthen gibi yerler yolların ve kıyıların farklı parçalarını oluşturur. Brannis göç baskısıyla, Kethra liman yaşamıyla, Myrran–Luthen hattı kervan yolculuklarıyla ilişkilidir. Hardlane’in dört şehri ise ülkenin karlı batısının yerleşim ağını taşır.',
+      'Bu büyük kentlerin yanında Brannis, Kethra, Myrran ve Luthen gibi yerler yolların ve kıyıların farklı parçalarını oluşturur. Brannis göç baskısıyla, Kethra liman yaşamıyla, Myrran–Luthen hattı kervan yolculuklarıyla ilişkilidir. Hardlane’in beş kıyı şehri ise ülkenin karlı batısının yerleşim ağını taşır.',
     ] },
     { title: 'Bakır Ana ve Kırılma’nın hatırası', paragraphs: [
       'Danstsud’un eski felaket anlatısında Kraliçe Yarethus, Bakır Ana olarak anılır. Onun dünyayı bir kalkan gibi örterek korumaya çalıştığına, Halendar’ın ateşi ve hırsının bu korumayı kırdığına inanılır. Tapınak duası bu hafızayı taşır: “Bakır Ana, bizi ateşin çocuğundan koru.”',
@@ -59,24 +60,11 @@ export const danstsudRegion: Region = {
 export const danstsudSubregions: Subregion[] = [
   {
     id: 'hardlane', kind: 'subregion', name: 'Hardlane', region: 'danstsud',
-    subtitle: 'Karlı batı ve kâğıt üzerindeki kraliyet idaresi', point: [.496, .848], box: [.39, .65, .27, .35],
-    summary: 'Karlan Dağları’nın ötesindeki karlı Danstsud bölgesi. Krallığa bağlıdır; ancak kraliyet otoritesi, vergi ve kamu hizmetleri burada çok sınırlı işler. Ternhaven, Dranthol, Frostbay ve Vyssgard bu bölgenin şehirleridir.',
-    sources: [canonSource, fractureSource, mapSource], related: ['frostbay', 'ternhaven', 'dranthol', 'vyssgard', 'marhalden'],
-    sections: [
-      { title: 'Karlan’ın batısındaki yaşam', paragraphs: [
-        'Hardlane, Danstsud’un batıdaki karlı bölgesidir. Karlan Dağları kraliyet merkezinin erişiminde önemli bir eşik oluşturur. Haritada karla örtülü yerleşimler, kıyılar, dağlık araziler ve Frostmere Gölü bölgenin görünümünü belirler.',
-        'Ternhaven, Dranthol, Frostbay ve Vyssgard Hardlane şehirleridir. Dağ insanları ve göçerler de bölgenin yaşamında yer alır; Hardlane yalnızca surlu kentlerden oluşmaz.',
-      ] },
-      { title: 'Bağlılık ve eşitsizlik', paragraphs: [
-        'Hardlane bağımsız bir ülke değildir. Danstsud’a bağlı kalır, fakat Karlan’ın bu tarafında kraliyet otoritesi güçlü biçimde işlemez. Merkezî yönetimin varlığı burada bir başkent sokağındaki kadar somut değildir.',
-        'Hardlane halkı krallık içinde aşağı bir konuma itilmiştir. Aynı ülkeye ait olmalarına rağmen güvenlik, altyapı ve yönetim erişimi bakımından merkezdeki halkla eşit bir durumda değildirler.',
-      ] },
-      { title: 'Frostbay’in sınırlı idaresi', paragraphs: [
-        'Diğer Hardlane yerleşimleri resmen Frostbay’in idaresine bağlıdır. Bu düzen büyük ölçüde kâğıt üzerinde kalır; Frostbay bölgenin her yerinde etkili bir yönetim kuramaz.',
-        'Hardlane’de düzenli vergilendirme işlemez. Frostbay’de vergi, güvenlik, altyapı ve gümrük işlemleri sınırlı da olsa vardır. Bu küçük yönetim kapasitesi, bütün bölgenin işleyen bir kraliyet düzenine sahip olduğu anlamına gelmez.',
-        'Harven ve Mavric bu genel düzenin özel istisnasıdır: Marhalden’in konuşlandırdığı askerlerce korunur ve yerel lordluğa vergi verir. Sınırlı garnizon düzeni, bütün Hardlane’i kraliyetin işleyen merkezine dönüştürmez.',
-      ] },
-    ],
+    subtitle: 'Eski kıyılar, yeni ocaklar ve eşitsiz reform', point: [.496, .848], box: [.39, .65, .27, .35],
+    summary: 'Karlan’ın batısındaki beş kıyı şehri. Frostbay’in kadim taşları, Dranthol’un yeni kalesi ve Kaldmere’in barakaları, aynı krallığın farklı hayatlarını taşır.',
+    sources: [...hardlaneSources, canonSource, fractureSource, mapSource],
+    related: ['frostbay', 'kaldmere', 'dranthol', 'vyssgard', 'ternhaven', 'marhalden', 'hardlane-kulturu', 'hardlane-otlak-hayvanlari', 'kul-uzerine-ocak-kanunu', 'mahrumiyet-iskan-sermaye', 'kemige-basan-yol', 'cevher-cizgisi', 'ak-cam-denizi', 'ayaz-yutan', 'kiragi-denizi', 'soluk-su', 'kefen-denizi', 'bryndon-kiyi-defteri'],
+    sections: hardlaneSections,
   },
   {
     id: 'manorveil', kind: 'subregion', name: 'Manorveil', region: 'danstsud',
@@ -286,54 +274,44 @@ export const danstsudPlaces: Place[] = [
   },
   {
     id: 'frostbay', name: 'Frostbay', region: 'danstsud', subregion: 'hardlane', point: [.478, .824],
-    subtitle: 'Hardlane’in sınırlı yönetim merkezi',
-    summary: 'Hardlane’de sınırlı vergi, güvenlik, altyapı ve gümrük uygulamaları bulunan karlı kıyı şehri. Diğer Hardlane yerleşimleri resmen Frostbay’e bağlıdır, fakat bu idare büyük ölçüde kâğıt üzerinde kalır.',
-    sources: [canonSource, mapSource], related: ['ternhaven', 'dranthol', 'vyssgard', 'marhalden'],
-    sections: [
-      { title: 'Karlı kıyı şehri', paragraphs: [
-        'Frostbay, Ternhaven, Dranthol ve Vyssgard ile birlikte Hardlane’in şehirlerinden biridir. Danstsud’un batıdaki karlı coğrafyasına aittir. Haritada kıyı yapıları, karlı yerleşim ve yakındaki Frostmere Gölü birlikte görülür.',
-        'Frostbay bir şehir, Frostmere bir göldür. Bu iki ad, aynı yerin farklı yazımları değildir.',
-      ] },
-      { title: 'Kâğıt üzerindeki bölgesel idare', paragraphs: [
-        'Diğer Hardlane yerleşimleri resmen Frostbay’in idaresine bağlıdır. Bununla birlikte kraliyet otoritesi Karlan Dağları’nın bu tarafında zayıf işler; Frostbay’in bütün bölgeye ulaşan güçlü bir yönetimi yoktur.',
-        'Resmî bağlılık ile gerçek idare arasındaki fark, şehir için temel bir koşuldur. Krallığın kaydında bir merkez olmak, bölgenin her yerinde bu düzeni uygulayabilmek anlamına gelmez.',
-        'Harven ve Mavric’te Marhalden’in yerel asker ve vergi düzeni ayrı bir istisnadır. Frostbay’in geniş kâğıt üstü idaresi, bu iki yerleşimdeki fiilî lordluk bağının yerine geçmez.',
-      ] },
-      { title: 'Sınırlı hizmet ve tahsilat', paragraphs: [
-        'Hardlane’de düzenli vergilendirme işlemez. Frostbay’de ise vergi ve gümrük işlemleri az da olsa bulunur. Bu sınırlı tahsilata güvenlik ve altyapının yine sınırlı varlığı eşlik eder.',
-        'Frostbay, Hardlane’in merkezle aynı koşullara sahip olduğunu gösteren bir örnek değildir. Bölgedeki düşük yönetim kapasitesinin içinde küçük bir istisna oluşturur.',
-      ] },
-      { title: 'Hardlane halkı ve krallık', paragraphs: [
-        'Frostbay halkı da Danstsud’a bağlıdır. Hardlane’in krallık içinde aşağı bir konuma itilmesi, burada yaşayanların siyasi ve toplumsal durumunun bir parçasıdır.',
-        'Ternhaven, Dranthol ve Vyssgard’ın Frostbay’e resmî bağlılığı, bu şehirlerin kendi gündelik hayatında etkin bir kraliyet düzeni bulunduğu anlamına gelmez.',
-      ] },
-    ],
+    subtitle: 'Kadim taşların arasındaki kalabalık kıyı',
+    summary: 'Yaklaşık 45–50 bin kişinin yaşadığı Hardlane’in en eski şehri. Bilinmeyen ustaların taş yapıları posta ve gümrüğe ev sahipliği yapar; yetersiz garnizon, mülteciler ve korsan ticareti aynı sokakları paylaşır.',
+    sources: [...hardlaneSources, canonSource, mapSource],
+    related: ['hardlane', 'ternhaven', 'dranthol', 'vyssgard', 'kaldmere', 'marhalden', 'frostmere-golu', 'hardlane-otlak-hayvanlari', 'hardlane-kulturu', 'bryndon-kiyi-defteri', 'kemige-basan-yol', 'kiragi-denizi'],
+    sections: frostbaySections,
   },
   {
     id: 'ternhaven', name: 'Ternhaven', region: 'danstsud', subregion: 'hardlane', point: [.520, .736],
-    summary: 'Hardlane’in karlı kıyı şehirlerinden Ternhaven, Danstsud’a bağlı olmasına rağmen kraliyet otoritesinin zayıf işlediği batıdaki yerleşimlerdendir.',
-    sources: [canonSource, mapSource], related: ['frostbay', 'dranthol', 'vyssgard'],
-    sections: [
-      { title: 'Hardlane kıyısında', paragraphs: ['Ternhaven, Hardlane’in kullanıcı tarafından belirlenmiş dört şehrinden biridir. Haritada karlı kıyı yerleşimi olarak gösterilir; Karlan çevresindeki karlı alanların kuzey kesimindedir.'] },
-      { title: 'Resmî bağlılık, zayıf idare', paragraphs: ['Ternhaven Danstsud Krallığı’na, bölgesel idare bakımından da resmen Frostbay’e bağlıdır. Bu idare gündelik hayatta güçlü biçimde işlemez. Düzenli vergilendirmenin ve kraliyet erişiminin zayıflığı, Hardlane halkının merkezden farklı koşullarda yaşamasının bir parçasıdır.'] },
-    ],
+    subtitle: 'Rydorn’un sıcak sularında eski kıyı hayatı',
+    summary: 'Sıcak suların çevresinde görece ılıman ve kendine yeten küçük şehir. Eski Hardlane kültürü güçlüdür; iki reformla iyileşen yaşam, tamamlanmayan Cevher Çizgisi’ni bekler.',
+    sources: [...hardlaneSources, canonSource, mapSource],
+    related: ['hardlane', 'frostbay', 'dranthol', 'marhalden', 'hardlane-kulturu', 'kul-uzerine-ocak-kanunu', 'mahrumiyet-iskan-sermaye', 'cevher-cizgisi', 'kemige-basan-yol', 'ak-cam-denizi', 'soluk-su'],
+    sections: ternhavenSections,
   },
   {
     id: 'dranthol', name: 'Dranthol', region: 'danstsud', subregion: 'hardlane', point: [.450, .794],
-    summary: 'Danstsud’un karlı batısındaki Hardlane şehri Dranthol, kıyı yerleşimidir. Kraliyete bağlıdır; Frostbay üzerinden tanımlanan idaresi büyük ölçüde kâğıt üzerinde kalır.',
-    sources: [canonSource, mapSource], related: ['frostbay', 'ternhaven', 'vyssgard'],
-    sections: [
-      { title: 'Batıdaki kıyı yerleşimi', paragraphs: ['Dranthol, Hardlane’in dört şehrinden biridir. Haritada karla örtülü yapıları ve kıyı bağlantısıyla gösterilir. Danstsud’un merkezî kentlerinden farklı bir coğrafi görünüm taşır.'] },
-      { title: 'Krallığın uzak tarafı', paragraphs: ['Dranthol krallığa bağlı kalır; fakat Karlan Dağları’nın bu tarafında güçlü bir kraliyet düzeni işlemez. Düzenli vergilendirme yoktur. Frostbay’e resmî idari bağlılık, günlük yaşamda etkili bir bölgesel yönetim anlamına gelmez.'] },
-    ],
+    subtitle: 'Yeni kale, azalan korsan ve çekilen altın',
+    summary: 'Reformlarla yaklaşık 1.500’den 15.000 kişiye büyüyen liman şehri. Büyük kale ve deniz feneri Hardlane’in kişi başına en güçlü güvenliğini sağlarken korsan ticaretinin çekilmesi pazarı daraltır.',
+    sources: [...hardlaneSources, canonSource, mapSource],
+    related: ['hardlane', 'frostbay', 'ternhaven', 'vyssgard', 'kul-uzerine-ocak-kanunu', 'mahrumiyet-iskan-sermaye', 'kemige-basan-yol', 'ak-cam-denizi', 'soluk-su', 'ayaz-yutan'],
+    sections: drantholSections,
   },
   {
     id: 'vyssgard', name: 'Vyssgard', region: 'danstsud', subregion: 'hardlane', point: [.523, .779],
-    summary: 'Karlan çevresindeki karlı yerleşimlerden Vyssgard, Hardlane şehridir. Krallıkla resmî bağı sürerken etkin kraliyet idaresi ve düzenli vergilendirme burada işlemez.',
-    sources: [canonSource, mapSource], related: ['frostbay', 'ternhaven', 'dranthol'],
-    sections: [
-      { title: 'Kar ve dağ çevresi', paragraphs: ['Vyssgard, Ternhaven, Dranthol ve Frostbay ile birlikte Hardlane’in şehirlerinden biridir. Haritada karlı yapılar, dağ ve su çevresiyle gösterilir. Karlan’ın batısındaki siyasi koşullar bu yerleşimde de geçerlidir.'] },
-      { title: 'Frostbay’e bağlılık', paragraphs: ['Vyssgard’ın bölgesel idaresi resmen Frostbay’e bağlıdır. Bu bağ büyük ölçüde kâğıt üzerinde kalır. Kraliyetin güvenlik ve altyapıya erişimi zayıftır; bölge halkı Danstsud içinde merkezdeki halkla eşit koşullara sahip değildir.'] },
-    ],
+    subtitle: 'Kanundan kaçanların başka kanunlara girdiği kent',
+    summary: 'Bir zamanların önemli şehri, bugün korsanlar ve çetelerce paylaşılır. Kraliyet idaresinin boşluğunda Beş İskele Sözleşmesi zorla uygulanır; kentte kalan aileler de bu düzene bağımlıdır.',
+    sources: [...hardlaneSources, canonSource, mapSource],
+    related: ['hardlane', 'frostbay', 'ternhaven', 'dranthol', 'vyssgard-kanunlari', 'hardlane-kulturu', 'cevher-cizgisi'],
+    sections: vyssgardSections,
+  },
+  {
+    // Anchor read from the white settlement cluster below the Kaldmere label
+    // on the original 8192 × 5668 map, approximately pixel (3744, 5492).
+    id: 'kaldmere', name: 'Kaldmere', region: 'danstsud', subregion: 'hardlane', point: [.457, .969],
+    subtitle: 'Son umut: mültecilerin kurduğu baraka şehri',
+    summary: 'Danstsudlu mültecilerin kampından büyüyen küçük kıyı şehri. Adı “son umut” demektir; kâğıttaki statüsüne rağmen kamu altyapısı ve kraliyet otoritesi yoktur.',
+    sources: [...hardlaneSources, mapSource],
+    related: ['hardlane', 'frostbay', 'dranthol', 'hardlane-kulturu', 'kul-uzerine-ocak-kanunu', 'mahrumiyet-iskan-sermaye', 'kiragi-denizi'],
+    sections: kaldmereSections,
   },
 ]

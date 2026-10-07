@@ -2,6 +2,8 @@
 
 7 Ekim 2026. **Yazar çalışma belgesi.** Darbe öncesi; Eryndorn tahtta. Bu dosya kullanıcı kararlarını, yetkilendirilmiş yeni yazımı ve açık ayrıntıları ayırır. Aşağıdaki şehir ve doğa metinleri halka açık wiki için hazırlanmıştır; önceki belgelerdeki görev sırları bunlara eklenmemiştir.
 
+**8 Ekim güncellemesi:** Bu belge Valdareth/Karlan/Marhalden çalışmasının 7 Ekim sürümüdür. Yeni Hardlane şehirleri ve reformları [HARDLANE.md](HARDLANE.md) içinde: Dranthol güçlü kraliyet garnizonu, Ternhaven sınırlı yatırım istisnasıdır; Kaldmere beşinci şehir olarak kesinleşti. Genel zayıf yönetim ve Harven/Mavric bağı devam eder. Kemiğe Basan Yol, mevcut Marhalden eşiğine dayanan gayriresmî hattır; ikinci güvenli dağ geçidi değildir.
+
 ## Bilginin dayanağı
 
 ### Kullanıcının doğrudan verdiği bilgiler

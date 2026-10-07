@@ -8,6 +8,8 @@
 
 **Üçüncü karar turu:** Valdareth'in beş suru, ova ve liman düzeni; Karlan'ın üç kütlesi, iki kollu Aldara, nadir metal; Marhalden'in lonca seçimi, vergi köyleri ve mülteci girişini kapatması kesinleştirildi. Yeni mahalle, makam, lonca ve canlı yazımı [VALDARETH_KARLAN_MARHALDEN.md](VALDARETH_KARLAN_MARHALDEN.md) içinde. Aşağıdaki eski kaynak incelemesindeki eksik şehir profilleri artık güncel ilerlemeyi temsil etmez.
 
+**Dördüncü karar turu — 8 Ekim 2026:** Hardlane’in beş şehri (Kaldmere dahil), Frostbay’in yaklaşık 45–50 bin ve Dranthol’un yaklaşık 1.500 → 15.000 nüfusu, iki iskân reformu, Vyssgard çete düzeni, Ternhaven sıcak su kültürü, Kemiğe Basan Yol, yapılmamış Cevher Çizgisi ve beş deniz/kıyı adı kesinleştirildi. Tam şehir/kültür/hukuk metinleri [HARDLANE.md](HARDLANE.md), evren içi kâtip anlatısı [BRYNDONUN_KIYI_DEFTERI.md](BRYNDONUN_KIYI_DEFTERI.md) içinde. İlk incelemedeki dört şehir listesi ve boş Hardlane profilleri bu güncellemeyle tamamlandı; aşağıdaki tablo eski kaynakların durumunu gösterir.
+
 ## 1. İncelemenin dayanağı
 
 Güncel `main` dalındaki tüm lore dosyaları tarandı. Danstsud için ayrı bir ülke tanıtım DOCX'i mevcut dosya listesinde bulunmuyor; krallık bilgisi üç macera belgesine, Valhunar PDF'sine ve haritaya dağılmış durumda. Önceki wiki, bu malzemeyi çok kısa özetledi; şehir sayfalarının çoğunda kaynaklara özgü içerik bulunmuyor.

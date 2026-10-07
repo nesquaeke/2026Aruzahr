@@ -108,6 +108,11 @@ export default function App() {
   const articleKind = isHistory ? 'TARİH & EFSANELER' : articleRecord ? loreKindLabels[articleRecord.kind].toLocaleUpperCase('tr-TR') : articlePlace?.kind === 'subregion' ? 'DANSTSUD BÖLGELERİ' : articlePlace ? 'YERLEŞİMLER' : articleRegion?.id === 'danstsud' ? 'KRALLIKLAR' : 'BÖLGELER'
   const articleMapTarget = articleRecord ? articleRecord.mapLocation : articleId
 
+  function goToSection(index: number) {
+    document.querySelector('details.mobile-article-contents')?.removeAttribute('open')
+    requestAnimationFrame(() => document.getElementById(`article-section-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' }))
+  }
+
   return <div className="app-shell">
     <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus() }}>İçeriğe geç</a>
     <header className="topbar">
@@ -155,9 +160,13 @@ export default function App() {
         </section>
         <div className="below-map"><span><span className="small-diamond">✧</span> Sekiz bölge. Ortak bir geçmiş. Keşfedilecek bir dünya.</span><a href="#/wiki">Ansiklopediye göz at <ArrowRight size={14} /></a></div>
       </> : articleId ? <>
-        {!articleName ? <div className="not-found"><Compass size={40} /><h1>Kayıt bulunamadı.</h1><p>Bu sayfanın izleri atlasın dışında kalmış olabilir.</p><button className="gold-button" onClick={() => navigate('/wiki')}>Ansiklopediye dön <ArrowRight size={16} /></button></div> : <article className={`wiki-article${articleRecord ? ' lore-article' : ''}`} key={articleId}>
+        {!articleName ? <div className="not-found"><Compass size={40} /><h1>Kayıt bulunamadı.</h1><p>Bu sayfanın izleri atlasın dışında kalmış olabilir.</p><button className="gold-button" onClick={() => navigate('/wiki')}>Ansiklopediye dön <ArrowRight size={16} /></button></div> : <article className={`wiki-article${articleRecord ? ' lore-article' : ''}${articleRecord?.kind === 'chronicle' ? ' manuscript-article' : ''}`} key={articleId}>
           <div className="article-topline"><button onClick={() => navigate('/wiki')}><ArrowLeft size={15} /> Ansiklopedi</button><div><button className={`icon-button ${saved.includes(articleId) ? 'toggled' : ''}`} aria-label={saved.includes(articleId) ? 'Kaydı kaldır' : 'Kaydı kaydet'} onClick={() => toggleSaved(articleId)}><Bookmark size={17} fill={saved.includes(articleId) ? 'currentColor' : 'none'} /></button><button className="icon-button" aria-label="Wiki bağlantısını kopyala" onClick={() => share(articleId)}><Share2 size={17} /></button></div></div>
           <div className={`article-cover ${isHistory ? 'history-cover' : ''}`} style={{ backgroundImage: `linear-gradient(0deg, #10161c 2%, #10161c25 100%), url(/atlas/${articleContext?.id || 'lakbar'}.webp)` }}><div className="article-title"><span className="eyebrow">VALHUNAR ANSİKLOPEDİSİ <span> / </span> {articleKind}</span><h1>{articleName}</h1><p>{articleRegion?.subtitle || articleEntry?.subtitle || (isHistory ? historyArticle.subtitle : `${articleContext?.name} · Valhunar`)}</p></div></div>
+          <details className="mobile-article-contents" data-testid="mobile-article-contents">
+            <summary>İçindekiler <span>{articleSections.length} bölüm</span></summary>
+            <nav aria-label="Sayfa bölümleri">{articleSections.map((section, index) => <button key={section.title} onClick={() => goToSection(index)}><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</button>)}</nav>
+          </details>
           <div className="article-layout">
             <div className="article-content">
               {articleContext?.id === 'danstsud' && <p className="article-period">ERYNDORN’UN HÜKÜMDARLIĞI · DARBE ÖNCESİ</p>}
@@ -198,7 +207,7 @@ export default function App() {
               </div></div>
             </div>
             <aside className="article-toc"><span className="eyebrow">BU SAYFADA</span>
-              {articleSections.map((section, index) => <button key={section.title} onClick={() => document.getElementById(`article-section-${index}`)?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</button>)}
+              {articleSections.map((section, index) => <button key={section.title} onClick={() => goToSection(index)}><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</button>)}
               {!isHistory && articleMapTarget && <button className="gold-button" onClick={() => navigate(`/atlas/${articleMapTarget}`)}><Map size={15} />{articleRecord ? 'İlgili yeri haritada göster' : 'Haritada göster'}</button>}
               <div className="toc-note"><Compass size={24} strokeWidth={1} /><p>Bir yerin hikâyesi, onu keşfedenle tamamlanır.</p></div>
             </aside>
