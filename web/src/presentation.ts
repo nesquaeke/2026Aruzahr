@@ -1,4 +1,7 @@
 import type { LoreArticle, Place } from "./data";
+import { primaryArtwork } from "./media";
+import { characterCards } from "./lore/characters";
+import { villageLife } from "./lore/village-life";
 
 export type Power = { label: string; value: number; note: string };
 export type PersonCard = {
@@ -483,6 +486,8 @@ export const powersFor = (profile: Dossier): Power[] => [
   },
 ];
 export const artFor = (id: string, region = "danstsud"): string => {
+  const primary = primaryArtwork(id);
+  if (primary) return primary.src;
   const art = dossiers[id]?.art;
   if (art) return `/illustrations/${art}.webp`;
   if (
@@ -533,6 +538,7 @@ export const artFor = (id: string, region = "danstsud"): string => {
     [
       "danstsud",
       "manorveil",
+      "rilorn-korfezi",
       "eryndorn",
       "vaeranth-hanedani",
       "buyu-ruhsatlari",
@@ -542,8 +548,16 @@ export const artFor = (id: string, region = "danstsud"): string => {
     id.startsWith("valdareth-")
   )
     return "/illustrations/valdareth.webp";
-  return `/atlas/${region}.webp`;
+  return `/illustrations/region-${region}.webp`;
 };
+
+for (const [city, profile] of Object.entries(dossiers)) {
+  const people = characterCards(city);
+  if (people.length) profile.people = people;
+  if (["brannis", "luthen", "myrran", "kethra"].includes(city)) profile.art = city;
+}
+dossiers.elorwyn.ruler = "Lord Tharion Elorwynder";
+dossiers.frostbay.people!.push({name:'Kâtip Bryndon',role:'Kıyı araştırmacısı',portrait:'bryndon',article:'bryndon-kiyi-defteri'});
 
 export const visualPeopleArticles: LoreArticle[] = [
   {
@@ -740,3 +754,22 @@ export const taxVillages: Place[] = [
     },
   ],
 }));
+
+for (const place of taxVillages) {
+  const life = villageLife[place.id];
+  if (!life) continue;
+  const royal = ['pilorn','fehar','gaalmire','naeron','fevric','theld','korhenden'].includes(place.id);
+  const ruler = royal ? 'Eryndorn Vaeranth' : 'Edran Korr';
+  place.sections = [place.sections![0], { title: life.title, paragraphs: [life.scene] }, { title: 'Geçimin kırılgan tarafı', paragraphs: [life.tension] }];
+  place.sources!.push('8 Ekim 2026 yerleşim yaşamı · yeni yazım ve nüfus taslakları');
+  dossiers[place.id] = {
+    badge: royal ? 'Kraliyet vergi yerleşimi' : 'Marhalden bağlı yerleşimi',
+    population: life.population, populationNote: 'Kurgu nüfus taslağı · sayım kaydı değildir', ruler,
+    government: royal ? 'Doğrudan kraliyet tahsilatı' : 'Marhalden lordluğuna bağlılık',
+    climate: life.hardlane ? 'Hardlane · sert orman iklimi' : royal ? 'Valdareth ova havzası' : 'Karlan’ın doğu yamaçları',
+    exports: life.exports, powers: life.hardlane ? [2,1,1,3] : [2,2,2,1], art: place.id,
+    motto: life.title,
+    hooks: [{title: 'Geçim', text: life.scene.split('. ')[0] + '.'}, {title: 'Bağlılık',text: royal ? 'Vergi doğrudan Valdareth’in kraliyet düzenine gider.' : 'Marhalden’in erzak ve güvenlik ağına bağlıdır.'}],
+    people: [{name:ruler,role:royal?'Kraliyet otoritesi':'Bağlı olunan lord',article:royal?'eryndorn':'edran-korr',portrait:royal?'eryndorn':'edran-korr'}],
+  };
+}

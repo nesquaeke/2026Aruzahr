@@ -3,7 +3,7 @@ import type { LoreArticle, RegionId } from "./data";
 export type MapFeature = {
   id: string;
   name: string;
-  kind: "sea" | "lake" | "mountain" | "bay" | "route";
+  kind: "sea" | "lake" | "mountain" | "bay" | "route" | "ridge";
   region: RegionId;
   point: [number, number];
   box: [number, number, number, number];
@@ -12,6 +12,7 @@ export type MapFeature = {
   fact: string;
   paths?: [number, number][][];
   status?: "open" | "dangerous" | "planned";
+  stops?: string[];
 };
 // The author's spatial descriptions guide these approximate label anchors and
 // schematic routes. They do not replace the original map or survey boundaries.
@@ -34,7 +35,7 @@ export const mapFeatures: MapFeature[] = [
     name: "Soluk Su",
     kind: "sea",
     region: "danstsud",
-    point: [0.479, 0.752],
+    point: [0.455, 0.739],
     box: [0.42, 0.705, 0.15, 0.13],
     article: "soluk-su",
     summary:
@@ -86,7 +87,7 @@ export const mapFeatures: MapFeature[] = [
     name: "Frostmere Gölü",
     kind: "lake",
     region: "danstsud",
-    point: [0.565, 0.843],
+    point: [0.548, 0.862],
     box: [0.49, 0.77, 0.16, 0.16],
     article: "frostmere-golu",
     summary:
@@ -135,7 +136,7 @@ export const mapFeatures: MapFeature[] = [
     region: "danstsud",
     point: [0.594, 0.64],
     box: [0.55, 0.595, 0.17, 0.15],
-    article: "valdareth",
+    article: "rilorn-korfezi",
     summary:
       "Mor Donanma’nın beklediği korunaklı körfez. Başkentin deniz gücünün sığınağı.",
     fact: "Mor Donanma · güvenli demirleme",
@@ -152,6 +153,7 @@ export const mapFeatures: MapFeature[] = [
       "Kuzey Karlan çevresindeki körfez; Veyrakar’ın baktığı kıyı alanlarından.",
     fact: "Karlan’ın kuzey kıyısı",
   },
+  { id: "rydorn-sirti", name: "Rydorn Sırtı", kind: "ridge", region: "danstsud", point: [0.511, 0.545], box: [0.44, 0.47, 0.17, 0.13], article: "rydorn-sirti", summary: "Kıyı yollarının ardındaki sırt; sıcak sular ve Rook Valdenar’ın arazisindeki harabelerle anılır.", fact: "Sıcak sular · eski harabeler" },
   {
     id: "kemige-basan-yol",
     name: "Kemiğe Basan Yol",
@@ -164,18 +166,13 @@ export const mapFeatures: MapFeature[] = [
       "Ternhaven, Dranthol ve Frostbay’i Marhalden’e bağlayan uzun, güvensiz gayriresmî yük hattı.",
     fact: "Gayriresmî · uzun · güvensiz",
     status: "dangerous",
+    stops: ["ternhaven", "dranthol", "frostbay", "marhalden"],
     paths: [
       [
-        [0.52, 0.736],
-        [0.513, 0.755],
-        [0.483, 0.766],
+        [0.507, 0.719],
         [0.45, 0.794],
-        [0.461, 0.81],
-        [0.478, 0.824],
-        [0.514, 0.835],
-        [0.55, 0.85],
-        [0.586, 0.851],
-        [0.61, 0.853],
+        [0.468, 0.858],
+        [0.600, 0.880],
       ],
     ],
   },
@@ -191,13 +188,11 @@ export const mapFeatures: MapFeature[] = [
       "Ternhaven–Marhalden yol projesi. Hayata geçmedi; çizgi planlanan bağlantıyı gösterir.",
     fact: "Planlandı · inşa edilmedi",
     status: "planned",
+    stops: ["ternhaven", "marhalden"],
     paths: [
       [
-        [0.52, 0.736],
-        [0.55, 0.753],
-        [0.569, 0.791],
-        [0.59, 0.82],
-        [0.61, 0.853],
+        [0.507, 0.719],
+        [0.600, 0.880],
       ],
     ],
   },
@@ -213,14 +208,11 @@ export const mapFeatures: MapFeature[] = [
       "Kraliyet merkezinden Marhalden eşiğine uzanan kara bağlantısı. Bakımlı yol Hardlane’in batı şehirlerine devam etmez.",
     fact: "Kraliyet yolu · Marhalden’de biter",
     status: "open",
+    stops: ["valdareth", "marhalden"],
     paths: [
       [
         [0.734, 0.667],
-        [0.699, 0.694],
-        [0.679, 0.75],
-        [0.658, 0.8],
-        [0.65, 0.831],
-        [0.61, 0.853],
+        [0.600, 0.880],
       ],
     ],
   },
@@ -236,11 +228,10 @@ export const mapFeatures: MapFeature[] = [
       "Dorvenhall menekşespatını ve kiremit ustalığını Valdareth saraylarına bağlayan ticaret zinciri.",
     fact: "Menekşespatı · saray kiremitleri",
     status: "open",
+    stops: ["dorvenhall", "valdareth"],
     paths: [
       [
         [0.782, 0.553],
-        [0.763, 0.577],
-        [0.749, 0.61],
         [0.734, 0.667],
       ],
     ],
@@ -257,11 +248,11 @@ export const mapFeatures: MapFeature[] = [
       "Lirendil’den Myrran üzerinden Luthen’e giden kıyı kervan bağlantısı.",
     fact: "Kervan · kıyı yerleşimleri",
     status: "open",
+    stops: ["lirendil", "myrran", "luthen"],
     paths: [
       [
         [0.367, 0.446],
         [0.431, 0.485],
-        [0.458, 0.493],
         [0.482, 0.497],
       ],
     ],
@@ -275,6 +266,7 @@ export const featureLabels = {
   mountain: "Zirve",
   bay: "Körfez",
   route: "Ticaret yolu",
+  ridge: "Sırt",
 };
 export const atlasRouteArticles: LoreArticle[] = mapFeatures
   .filter((f) =>
@@ -318,3 +310,15 @@ export const atlasRouteArticles: LoreArticle[] = mapFeatures
       },
     ],
   }));
+
+export const atlasGeographyArticles: LoreArticle[] = [{
+  id: 'rilorn-korfezi', name: 'Rilorn Körfezi', kind: 'geography', region: 'danstsud',
+  subtitle: 'Mor Donanma’nın korunaklı demirleme yeri', mapLocation: 'rilorn-korfezi',
+  summary: 'Valdareth’in deniz gücü Rilorn’un korunaklı sularında bekler. Mor Donanma’nın gemileri ile başkenti besleyen yüklerin deniz tarafı, bu kıyının gündelik hayatını oluşturur.',
+  sources: ['8 Ekim 2026 yazar kararı · Valdareth ve Mor Donanma', 'Danstsud görsel atlası · yeni gündelik yaşam betimlemeleri'],
+  related: ['valdareth', 'doran-kest', 'valdareth-loncalari', 'mor-sir-hatti'],
+  sections: [
+    { title: 'Korunan suyun içindeki hayat', paragraphs: ['Körfezin güvenli demirlemesi, Mor Donanma’yı başkentin hemen ötesinde hazır tutar. Ufuktaki mor yelkenler bir şehir sakini için kraliyetin uzak bir arması değildir; liman gününün görünür parçalarıdır.', 'Korunaklı suyun kenarında halat, yelken ve erzak işi sürer. Bir geminin denize açılması, kıyıdaki çok sayıda elin işini zamanında bitirmesine bağlıdır. Valdareth’in büyük nüfusunu besleyen ova ile donanmanın ihtiyaçları aynı ambar ve taşıma düzenine bakar.'] },
+    { title: 'Körfezden şehir kapısına', paragraphs: ['Valdareth’in limanını ayıran koruyucu duvar, denizden gelen yükle iç mahallelerin arasındaki geçişi denetler. Liman nazırı Doran Kest’in rıhtım, tartı ve gümrük işleri bu eşikte yürür.', 'Körfezde bir savaş gemisinin beklemesi, her yükün askerî emirle taşındığı anlamına gelmez. Tacın deniz gücü, tüccarın malı ve yükçünün günlük kazancı aynı kıyıda birbirine değen ayrı hayatlar olarak sürer.'] },
+  ],
+}]

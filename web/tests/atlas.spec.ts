@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
+import { loreArticles } from '../src/data'
 
 test('original map tiles, region selection, wiki and return to map work', async ({ page }) => {
   const errors: string[] = []
@@ -205,24 +206,31 @@ test('Valdareth walls, districts and court tables are discoverable through full 
   await expect(page.getByTestId('location-result-valdareth')).toBeVisible()
 })
 
-test('expanded lore pages and every related record resolve without invented map pins', async ({ page }) => {
-  test.setTimeout(120000)
-  await page.goto('/#/wiki')
-  const paths = await page.getByTestId('wiki-lore-results').getByRole('link').evaluateAll(links => links.map(link => link.getAttribute('href')!))
-  expect(paths).toContain('#/wiki/karlan-daglari')
-  expect(paths).toContain('#/wiki/frostmere-golu')
-  for (const path of paths) {
-    await page.goto('/' + path)
-    await expect(page.locator('.article-title h1')).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Kayıt bulunamadı.', exact: true })).toHaveCount(0)
-    const relatedNames = await page.getByTestId('related-locations').getByRole('button').evaluateAll(buttons => buttons.map(button => button.querySelector('.related-name')!.childNodes[0].textContent!.trim()))
-    for (let index = 0; index < relatedNames.length; index++) {
-      const name = relatedNames[index]
-      await page.getByTestId('related-locations').getByRole('button').nth(index).click()
-      await expect(page.locator('.article-title h1')).toHaveText(name)
-      await page.goto('/' + path)
+// Keep complete link coverage as the library grows. Each batch has its own
+// browser and time budget; hash navigation exercises the application's router.
+for (let start = 0; start < loreArticles.length; start += 10) {
+  const batch = loreArticles.slice(start, start + 10)
+  test(`lore records ${start + 1}–${start + batch.length} and all their related links resolve`, async ({ page }) => {
+    test.setTimeout(60000)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/#/wiki/' + batch[0].id)
+    for (const record of batch) {
+      const path = '#/wiki/' + record.id
+      await page.evaluate(hash => { window.location.hash = hash }, path)
+      await expect(page.locator('.article-title h1')).toHaveText(record.name)
+      await expect(page.getByRole('heading', { name: 'Kayıt bulunamadı.', exact: true })).toHaveCount(0)
+      const relatedNames = await page.getByTestId('related-locations').getByRole('button').evaluateAll(buttons => buttons.map(button => button.querySelector('.related-name')!.childNodes[0].textContent!.trim()))
+      for (let index = 0; index < relatedNames.length; index++) {
+        await page.getByTestId('related-locations').getByRole('button').nth(index).click()
+        await expect(page.locator('.article-title h1')).toHaveText(relatedNames[index])
+        await page.evaluate(hash => { window.location.hash = hash }, path)
+        await expect(page.locator('.article-title h1')).toHaveText(record.name)
+      }
     }
-  }
+  })
+}
+
+test('expanded geography opens on the atlas without inventing a city pin', async ({ page }) => {
   await page.goto('/#/wiki/marhalden')
   await page.getByTestId('related-locations').getByRole('button', { name: 'Karlan Dağları Coğrafya', exact: true }).click()
   await expect(page.locator('.article-content')).toContainText('Aldarataç')

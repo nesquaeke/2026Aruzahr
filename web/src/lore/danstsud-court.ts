@@ -56,17 +56,17 @@ export const danstsudArticles: LoreArticle[] = [
   {
     id: 'elorwynder-hanedani', name: 'Elorwynder Hanedanı', kind: 'dynasty', region: 'danstsud',
     subtitle: 'Elorwyn’in süreklilik taşıyan yönetici ailesi', mapLocation: 'elorwyn',
-    summary: 'Elorwyn şehrinin bilinen tarihi boyunca yönetimini elinde tutan hanedan. Elorwynder aile adıdır; Elorwyn şehir adıdır. Lord Tharion ve Lord Damian bu hanedanın üyeleridir.',
+    summary: 'Elorwyn şehrinin bilinen tarihi boyunca yönetimini elinde tutan hanedan. Elorwynder aile adıdır; Elorwyn şehir adıdır. Elorwyn’i Lord Tharion yönetir; Kethra lordu Damian aynı hanedanın mensubudur.',
     sources: [canonSource, newWritingSource, openingSource],
     aliases: ['Elorwyn Hanedanı', 'Elorwyn ailesi', 'Tharion Elorwyn', 'Damian Elorwyn', 'Tharion Elorwynder', 'Damian Elorwynder'],
-    related: ['elorwyn', 'kethra', 'vaeranth-hanedani', 'danstsud'],
+    related: ['elorwyn', 'kethra', 'tharion', 'damian', 'aveline', 'rook', 'vaeranth-hanedani', 'danstsud'],
     sections: [
       { title: 'Şehirle birlikte anılan soy', paragraphs: [
         'Elorwyn’in yönetim tarihi aynı aileyle süreklilik gösterir. Şehir hep bu hanedanın yönetiminde kalmıştır. Bu yüzden yerel yönetimin geçmişi ile ailenin geçmişi birbirinden kolayca ayrılmaz.',
         'Güncel aile adı Elorwynder’dir. Şehrin adı Elorwyn olarak kullanılır. Daha eski anlatılarda Tharion ve Damian’ın aile adı Elorwyn şeklinde de geçer.',
       ] },
       { title: 'Tharion ve Damian', paragraphs: [
-        'Lord Tharion Elorwynder ve Lord Damian Elorwynder hanedanın üyeleridir. Damian, Kethra lordu olarak anılır; böylece aile adı Elorwyn dışında başka bir şehirle de ilişkilidir.',
+        'Lord Tharion Elorwynder, Elorwyn’in güncel yöneticisidir. Lord Damian Elorwynder, Kethra lordudur; böylece aile adı Elorwyn dışında başka bir şehirle de ilişkilidir.',
         'Bir hanedana ait olmak, aile üyelerinin aynı makamı veya aynı çıkarı taşıdığı anlamına gelmez. Elorwynder adı yerel bir yönetim geçmişini ve birden çok siyasi kişiyi bir araya getirir.',
       ] },
       { title: 'Danstsud’un feodal düzeni', paragraphs: [
@@ -87,6 +87,7 @@ export const danstsudArticles: LoreArticle[] = [
         'Büyü eğitimi almak ile yasal uygulama ruhsatı taşımak ayrı durumlardır. Geçerli ruhsatı olan eğitimli büyücü, izin verilen alan içinde okul dışında da hizmet verebilir. İzinsiz uygulama yasaktır.',
         'Şifa, koruma veya başka bir büyü hizmetinin hukuk karşısındaki durumu, nerede yapıldığından önce uygulayıcının izin kapsamıyla ilgilidir. Ruhsat her tür uygulama için sınırsız yetki vermez.',
       ] },
+      { title: 'Elorwyn’in katı yerel uygulaması', paragraphs: ['Elorwyn, büyüye Danstsud’un en katı yaklaşan kentidir. Yerel gelenek, kamusal büyü gösterilerini yasaklar; ruhsatlı hizmetlerin uygulanmasını da sıkı denetler. Krallıkta ruhsatın varlığı, kentte her kapının aynı kolaylıkla açılacağı anlamına gelmez.', 'Ruhban görevi veya paladin kimliği, yapılan her işin büyü olduğu anlamına gelmez. Gerçek büyü uygulaması varsa izin kapsamı ve yerel denetim birlikte değerlendirilir. Elorwynli birinin Lirendil akademisinde çalışması da iki şehrin aynı kültürel tutuma sahip olduğunu göstermez.'] },
       { title: 'Kraliyet Büyü Sicili', paragraphs: [
         'Merkez kaydı Valdareth’te tutulan Kraliyet Büyü Sicili, uygulayıcının adını, eğitimini doğrulayan kurum veya ustayı ve izin verilen hizmet alanını kaydeder. Bir okulun eğitim belgesi, tek başına uygulama ruhsatının yerine geçmez.',
         'Büyü hizmeti alan kişi, uygulayıcının ruhsatını kontrol ettirebilir. Lordlukların yerel görevlileri de ruhsatı denetleyebilir. Kural aynı krallığın bütününde geçerlidir; denetimin fiilî gücü yönetimin erişimine bağlıdır.',

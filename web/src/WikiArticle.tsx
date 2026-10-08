@@ -30,6 +30,10 @@ import type { LoreArticle, Place, Region, Section, Subregion } from "./data";
 import { featureById } from "./map-features";
 import { artFor, dossiers } from "./presentation";
 import { PowerMeter } from "./DiscoveryCard";
+import MediaGallery, { ArtworkButton, ImageViewer } from "./MediaGallery";
+import { artworks, faunaArt, galleryFor, portraitFor } from "./media";
+import { characterById } from "./lore/characters";
+import HistoryExperience from "./HistoryExperience";
 
 function recordLabel(entry: Region | Place | Subregion | LoreArticle) {
   if (
@@ -43,12 +47,6 @@ function recordLabel(entry: Region | Place | Subregion | LoreArticle) {
   if ("major" in entry && entry.major) return "Başlıca şehir";
   return "region" in entry ? "Yerleşim" : entry.subtitle;
 }
-const portraits: Record<string, string> = {
-  eryndorn: "eryndorn",
-  "nera-veld": "nera-veld",
-  "edran-korr": "edran-korr",
-  "bryndon-kiyi-defteri": "bryndon",
-};
 const preview = (text: string) => {
   const sentences = text.split(/(?<=[.!?])\s+/);
   return sentences
@@ -115,6 +113,7 @@ export default function WikiArticle({
   reducedMotion,
 }: Props) {
   const [fullReading, setFullReading] = useState(false);
+  const [peopleExpanded, setPeopleExpanded] = useState(false);
   const region = regionById(id);
   const place = locationById(id);
   const record = articleById(id);
@@ -141,6 +140,9 @@ export default function WikiArticle({
           ]
         : []);
   const profile = dossiers[id];
+  const character = characterById(id);
+  const portrait = portraitFor(character?.portrait || id);
+  const [imageIndex, setImageIndex] = useState<number | null>(null);
   const summary =
     region?.summary ||
     entry?.summary ||
@@ -185,8 +187,13 @@ export default function WikiArticle({
     region?.sources ||
     entry?.sources ||
     (history
-      ? ["Valhunar.pdf — genel kültürel anlatılar"]
+      ? historyArticle.sources
       : ["Aruzahr 8k (1).jpg"]);
+
+  const galleryBase = galleryFor(id, context?.id || "lakbar", artFor(id, context?.id || "lakbar"));
+  const gallery = [...galleryBase, ...(profile?.people || []).map(p => portraitFor(p.portrait || '')).filter((p): p is NonNullable<typeof p> => !!p)].filter((item, i, all) => all.findIndex(a => a.id === item.id) === i);
+  const cover = portrait ? artFor(mapTarget || context?.id || "danstsud", context?.id) : artFor(id, context?.id || "lakbar");
+  function openArtwork(key: string) { const index = gallery.findIndex(item => item.id === key); if (index >= 0) setImageIndex(index); }
 
   function goToSection(index: number) {
     document
@@ -300,7 +307,7 @@ export default function WikiArticle({
       <div
         className="article-cover"
         style={{
-          backgroundImage: `linear-gradient(0deg,#0c1215 0%,#0c121555 55%,#0c121510),url(${artFor(id, context?.id || "lakbar")})`,
+          backgroundImage: `linear-gradient(0deg,#0c1215 0%,#0c121555 55%,#0c121510),url(${cover})`,
         }}
       >
         <div className="article-title">
@@ -320,13 +327,8 @@ export default function WikiArticle({
               historyArticle.subtitle}
           </p>
         </div>
-        {portraits[id] && !profile && (
-          <img
-            className="hero-portrait"
-            src={`/illustrations/${portraits[id]}.webp`}
-            alt={name}
-          />
-        )}
+        {portrait && !profile && <button className="hero-portrait-button" aria-label={`${name} portresini büyüt`} onClick={() => openArtwork(portrait.id)}><img className="hero-portrait" src={portrait.src} alt={name} /></button>}
+        <button className="cover-gallery-button" onClick={() => setImageIndex(0)}>Görselleri aç <span>{gallery.length}</span></button>
       </div>
       {profile && (
         <div className="city-passport" data-testid="city-passport">
@@ -368,6 +370,8 @@ export default function WikiArticle({
           </div>
         </div>
       )}
+      {character && <div className="character-passport" data-testid="character-passport"><div><span>Rol</span><strong>{character.role}</strong></div><div><span>Bağlılık</span><strong>{character.affiliation}</strong></div><div><span>İlgili yer</span><button onClick={() => navigate(`/wiki/${character.city}`)}>{locationById(character.city)?.name || character.city}<ArrowRight size={14} /></button></div><div className="character-traits">{character.traits.map(trait => <span key={trait}>{trait}</span>)}</div></div>}
+      {history && <HistoryExperience jump={goToSection} />}
       {context?.id === "danstsud" && (
         <p className="article-period">
           ERYNDORN’UN HÜKÜMDARLIĞI · DARBE ÖNCESİ
@@ -394,14 +398,14 @@ export default function WikiArticle({
             <h2>Şehirde söz sahibi olanlar</h2>
           </div>
           <div className="people-grid">
-            {profile.people.map((person) => (
+            {(peopleExpanded ? profile.people : profile.people.slice(0, 6)).map((person) => (
               <div className="person-card" key={person.name}>
                 {person.portrait ? (
-                  <img
-                    src={`/illustrations/${person.portrait}.webp`}
+                  <button className="person-image-button" aria-label={`${person.name} portresini büyüt`} onClick={() => openArtwork(person.portrait!)}><img
+                    src={portraitFor(person.portrait)?.src || `/illustrations/${person.portrait}.webp`}
                     alt={person.name}
                     loading="lazy"
-                  />
+                  /></button>
                 ) : (
                   <span className="person-seal">
                     <Crown size={28} />
@@ -420,8 +424,10 @@ export default function WikiArticle({
               </div>
             ))}
           </div>
+          {profile.people.length > 6 && <button className="gallery-more" aria-expanded={peopleExpanded} onClick={() => setPeopleExpanded(!peopleExpanded)}>{peopleExpanded ? 'Kadroyu daralt' : `Bütün yüzleri tanı (${profile.people.length})`}<ArrowRight size={15} /></button>}
         </section>
       ) : null}
+      <MediaGallery items={gallery} open={setImageIndex} />
       <div className="reading-toolbar">
         <div>
           <span className="eyebrow">
@@ -487,6 +493,8 @@ export default function WikiArticle({
                   </span>
                   <h2>{section.title}</h2>
                 </header>
+                {id === "karlan-canlilari" && faunaArt[index] && <ArtworkButton item={faunaArt[index]} className="section-artwork" onClick={() => openArtwork(faunaArt[index].id)} />}
+                {id === "hardlane-otlak-hayvanlari" && ["tervan", "norruk", "velkir"][index] && artworks[["tervan", "norruk", "velkir"][index]] && <ArtworkButton item={artworks[["tervan", "norruk", "velkir"][index]]} className="section-artwork" onClick={() => openArtwork(["tervan", "norruk", "velkir"][index])} />}
                 {!fullReading && (
                   <p className="section-preview">
                     {preview(section.paragraphs[0] || "")}
@@ -582,6 +590,7 @@ export default function WikiArticle({
           </div>
         </aside>
       </div>
+      <ImageViewer items={gallery} index={imageIndex} setIndex={setImageIndex} />
     </article>
   );
 }

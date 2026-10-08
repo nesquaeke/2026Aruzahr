@@ -19,6 +19,8 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
   const selectedRef = useRef(selected)
   const restoredView = useRef(false)
   const routeElements = useRef<Map<string, SVGGElement>>(new Map())
+  const refreshMarkers = useRef<() => void>(() => {})
+  const refreshFrame = useRef<number>(0)
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
   const [zoom, setZoom] = useState(100)
@@ -75,8 +77,13 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         const group = document.createElementNS(ns, 'g')
         group.setAttribute('class', `atlas-route ${route.status || 'open'}`)
         group.dataset.testid = `route-${route.id}`
-        for (const points of route.paths!) {
-          const geometry = points.map(([x, y], i) => `${i ? 'L' : 'M'}${x * 8192},${y * 5668}`).join(' ')
+        for (const points of route.stops ? [route.stops.map(id => placeById(id)!.point)] : route.paths!) {
+          // Smooth the known stops without introducing fictional detours.
+          const p = points.map(([x, y]) => [x * 8192, y * 5668])
+          const geometry = `M${p[0].join(',')} ` + p.slice(1).map((end, i) => {
+            const start = p[i], before = p[Math.max(0, i - 1)], after = p[Math.min(p.length - 1, i + 2)]
+            return `C${start[0] + (end[0] - before[0]) / 8},${start[1] + (end[1] - before[1]) / 8} ${end[0] - (after[0] - start[0]) / 8},${end[1] - (after[1] - start[1]) / 8} ${end.join(',')}`
+          }).join(' ')
           for (const type of ['hit', 'shadow', 'line']) {
             const path = document.createElementNS(ns, 'path')
             path.setAttribute('d', geometry)
@@ -110,7 +117,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         if (feature || ('positionStatus' in entry && entry.positionStatus === 'approximate')) button.title = `${entry.name} · Yaklaşık konum${feature?.kind === 'route' ? ' · Şematik güzergâh' : ''}`
         const symbol = document.createElement('span')
         symbol.className = 'pin-symbol'
-        symbol.textContent = feature ? feature.kind === 'mountain' ? '▲' : feature.kind === 'route' ? '⌁' : '≈' : isRegion ? '✧' : '◆'
+        symbol.textContent = feature ? ['mountain', 'ridge'].includes(feature.kind) ? '▲' : feature.kind === 'route' ? '⌁' : '≈' : isRegion ? '✧' : '◆'
         const label = document.createElement('span')
         label.className = 'pin-label'
         label.textContent = entry.name
@@ -142,12 +149,21 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
       const value = Math.round(instance.viewport.getZoom() / instance.viewport.getHomeZoom() * 100)
       setZoom(value)
       onZoom(value)
+      scheduleRefresh()
     })
+    function scheduleRefresh() {
+      if (refreshFrame.current) return
+      refreshFrame.current = requestAnimationFrame(() => { refreshFrame.current = 0; refreshMarkers.current() })
+    }
+    instance.addHandler('pan', scheduleRefresh)
+    instance.addHandler('resize', scheduleRefresh)
     instance.addHandler('animation-finish', () => {
       const center = instance.viewport.getCenter()
       try { sessionStorage.setItem('aruzahr-map-camera', JSON.stringify({ selected: selectedRef.current, zoom: instance.viewport.getZoom(), x: center.x, y: center.y })) } catch { /* Storage is optional. */ }
     })
     return () => {
+      cancelAnimationFrame(refreshFrame.current)
+      refreshFrame.current = 0
       instance.destroy()
       markers.current.clear()
       routeElements.current.clear()
@@ -171,31 +187,72 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
   }, [selected, ready, reducedMotion])
 
   useEffect(() => {
-    const needle = normalize(query)
-    for (const entry of [...regions, ...mapLocations, ...mapFeatures]) {
-      const marker = markers.current.get(entry.id)
-      if (!marker) continue
-      const isRegion = 'box' in entry
-      const isSubregion = 'kind' in entry && entry.kind === 'subregion'
-      const feature = featureById(entry.id)
-      const searchText = 'region' in entry
-        ? `${entry.name} ${regionById(entry.region)?.name} ${subregionById(('subregion' in entry && entry.subregion) || '')?.name || ''}`
-        : entry.name
-      const match = entry.id === selected || !needle || normalize(searchText + ' ' + (feature?.summary || '')).includes(needle)
-      const selectedInDanstsud = selected === 'danstsud' || locationById(selected || '')?.region === 'danstsud' || featureById(selected || '')?.region === 'danstsud'
-      const visible = match && (feature ? (feature.kind === 'route' ? showRoutes : showGeography) && (zoom > 160 || entry.id === selected || !!needle) : isSubregion
-        ? selectedInDanstsud || zoom > 175 || Boolean(needle)
-        : isRegion || ('positionStatus' in entry && entry.positionStatus === 'approximate' ? zoom > 350 || entry.id === selected || Boolean(needle) : showCities || zoom > 175 || Boolean(needle)))
-      marker.parentElement!.style.zIndex = entry.id === selected ? '30' : 'major' in entry && entry.major ? '10' : feature ? '4' : isRegion ? '3' : '6'
-      marker.classList.toggle('is-hidden', !visible)
-      marker.classList.toggle('selected', entry.id === selected)
-      marker.classList.toggle('distant-pin', zoom < 180 && entry.id !== selected)
-      marker.setAttribute('aria-pressed', String(entry.id === selected))
+    refreshMarkers.current = () => {
+      const instance = viewer.current
+      if (!instance || !ready || !element.current) return
+      const needle = normalize(query)
+      const level = instance.viewport.getZoom() / instance.viewport.getHomeZoom() * 100
+      const { x: width, y: height } = instance.viewport.getContainerSize()
+      const country = regionById(selected || '')?.id || locationById(selected || '')?.region || featureById(selected || '')?.region
+      const route = featureById(selected || '')?.kind === 'route' ? featureById(selected!) : undefined
+      const stops = route?.stops || []
+      const candidates: { marker: HTMLButtonElement; x: number; y: number; priority: number; id: string }[] = []
+      for (const entry of [...regions, ...mapLocations, ...mapFeatures]) {
+        const marker = markers.current.get(entry.id)
+        if (!marker) continue
+        const isRegion = 'box' in entry
+        const isSubregion = 'kind' in entry && entry.kind === 'subregion'
+        const feature = featureById(entry.id)
+        const searchText = 'region' in entry ? `${entry.name} ${regionById(entry.region)?.name} ${subregionById(('subregion' in entry && entry.subregion) || '')?.name || ''}` : entry.name
+        const chosen = entry.id === selected
+        const match = chosen || !needle || normalize(searchText + ' ' + (feature?.summary || '')).includes(needle)
+        const point = instance.viewport.pixelFromPoint(instance.viewport.imageToViewportCoordinates(entry.point[0] * 8192, entry.point[1] * 5668), true)
+        const inView = point.x > -12 && point.x < width + 12 && point.y > -12 && point.y < height + 12
+        const inCountry = !country || ('region' in entry ? entry.region === country : entry.id === country)
+        let tier = false
+        if (feature) tier = feature.kind === 'route'
+          ? showRoutes && (route ? chosen : feature.status !== 'planned')
+          : showGeography && !route && (level > 160 || country === 'danstsud')
+        else if (isSubregion) tier = !route && country === 'danstsud' && level < 350
+        else if (isRegion) tier = level < 175 && !route
+        else tier = route ? stops.includes(entry.id) : inCountry && (showCities || level > (country ? 130 : 175)) && (!('positionStatus' in entry && entry.positionStatus === 'approximate') || level > 350)
+        const visible = inView && match && ((chosen && (!feature || (feature.kind === 'route' ? showRoutes : showGeography))) || tier || Boolean(needle))
+        marker.parentElement!.style.zIndex = chosen ? '30' : 'major' in entry && entry.major ? '10' : feature ? '4' : isRegion ? '3' : '6'
+        marker.classList.toggle('is-hidden', !visible)
+        marker.classList.toggle('selected', chosen)
+        marker.classList.toggle('distant-pin', !route && level < 175 && !country && !showCities && !needle && !chosen)
+        marker.classList.toggle('route-stop', stops.includes(entry.id))
+        marker.setAttribute('aria-pressed', String(chosen))
+        if (visible) candidates.push({ marker, x: point.x, y: point.y, id: entry.id, priority: chosen ? 100 : stops.includes(entry.id) ? 90 : isRegion ? 80 : 'major' in entry && entry.major ? 70 : isSubregion ? 60 : feature ? 40 : 50 })
+      }
+      // Labels collide in screen space. A muted label still has a small marker
+      // and appears on hover/focus. Recalculate on pan, resize and zoom.
+      const occupied = candidates.map(c => ({ l: c.x - 13, r: c.x + 13, t: c.y - 13, b: c.y + 13, id: c.id }))
+      let count = 0
+      for (const c of candidates.sort((a, b) => b.priority - a.priority)) {
+        const label = c.marker.querySelector<HTMLSpanElement>('.pin-label')!
+        c.marker.classList.remove('label-muted', 'label-left')
+        const w = Math.min(label.offsetWidth || 130, width - 30), h = Math.max(label.offsetHeight, 22)
+        let placed = false
+        for (const left of [false, true]) {
+          const l = left ? c.x - 23 - w : c.x + 23
+          const rect = { l, r: l + w, t: c.y - h / 2 - 3, b: c.y + h / 2 + 3, id: c.id }
+          const overlap = occupied.some(o => o.id !== c.id && rect.l < o.r + 5 && rect.r > o.l - 5 && rect.t < o.b + 4 && rect.b > o.t - 4)
+          if ((c.id === selected || (!overlap && count < (width < 600 ? 10 : 18))) && rect.l >= 6 && rect.r <= width - 6 && rect.t >= 5 && rect.b <= height - 5) {
+            c.marker.classList.toggle('label-left', left)
+            occupied.push(rect); count++; placed = true; break
+          }
+        }
+        c.marker.classList.toggle('label-muted', !placed && c.id !== selected)
+      }
+      for (const [id, element] of routeElements.current) {
+        const feature = featureById(id)!
+        element.classList.toggle('route-hidden', !showRoutes || (route ? selected !== id : feature.status === 'planned') || (!!needle && selected !== id && !normalize(feature.name).includes(needle)))
+        element.classList.toggle('route-selected', selected === id)
+        element.querySelectorAll('.route-hit').forEach(path => path.setAttribute('tabindex', element.classList.contains('route-hidden') ? '-1' : '0'))
+      }
     }
-    for (const [id, element] of routeElements.current) {
-      element.classList.toggle('route-hidden', !showRoutes || (!!needle && selected !== id && !normalize(featureById(id)!.name).includes(needle)))
-      element.classList.toggle('route-selected', selected === id)
-    }
+    refreshMarkers.current()
   }, [query, showCities, showGeography, showRoutes, zoom, ready, selected])
 
   const location = locationById(selected || '')

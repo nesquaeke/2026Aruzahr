@@ -79,27 +79,25 @@ test("named seas and mountains have real map targets and can be hidden as a laye
 test("route strokes respond to clicks and unfinished Cevher is visibly distinguished", async ({
   page,
 }) => {
-  await page.goto("/#/atlas/kemige-basan-yol");
+  await page.goto("/#/atlas/hardlane");
+  await page.getByRole("button", { name: "Ticaret yolları", exact: true }).click();
+  const active = page.getByTestId("route-kemige-basan-yol");
   const route = page.getByTestId("route-cevher-cizgisi");
   await expect(route).toHaveClass(/planned/);
+  await expect(route).toBeHidden();
   await page.waitForTimeout(1100);
-  const click = await route
-    .locator(".route-hit")
-    .evaluate((path: SVGPathElement) => {
-      for (const fraction of [0.15, 0.3, 0.45, 0.6, 0.75, 0.9]) {
-        const point = path
-          .getPointAtLength(path.getTotalLength() * fraction)
-          .matrixTransform(path.getScreenCTM()!);
-        if (document.elementFromPoint(point.x, point.y) === path)
-          return { x: point.x, y: point.y };
-      }
-      return null;
-    });
-  expect(
-    click,
-    "A visible portion of the planned route accepts a pointer",
-  ).not.toBeNull();
+  const click = await active.locator(".route-hit").evaluate((path: SVGPathElement) => {
+    for (const fraction of [0.15, 0.3, 0.45, 0.6, 0.75, 0.9]) {
+      const point = path.getPointAtLength(path.getTotalLength() * fraction).matrixTransform(path.getScreenCTM()!);
+      if (document.elementFromPoint(point.x, point.y) === path) return { x: point.x, y: point.y };
+    }
+    return null;
+  });
+  expect(click, "An operating route accepts a pointer").not.toBeNull();
   await page.mouse.click(click!.x, click!.y);
+  await expect(page).toHaveURL(/#\/atlas\/kemige-basan-yol$/);
+  await expect(route).toBeHidden();
+  await page.getByRole('navigation', { name: 'Ticaret rotası seç' }).getByRole('button', { name: /Cevher Çizgisi/ }).click();
   await expect(page).toHaveURL(/#\/atlas\/cevher-cizgisi$/);
   await expect(page.getByTestId("detail-panel")).toContainText(
     "Bu yol inşa edilmedi",
@@ -194,9 +192,10 @@ test("mobile dossier stays below the map, reading fits and Ashara gallery opens 
       .evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
   ).toBeGreaterThanOrEqual(15);
   await page.goto("/#/wiki");
+  await page.getByRole("button", { name: /Bütün karakterler ve portreler/ }).click();
   await page.getByRole("button", { name: "Ashara Portre galerisi" }).click();
   await expect(
-    page.getByRole("dialog", { name: "Ashara portresi" }),
+    page.getByRole("dialog", { name: "Görsel galerisi" }),
   ).toBeVisible();
   await expect
     .poll(() =>

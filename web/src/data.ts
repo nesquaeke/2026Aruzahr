@@ -6,7 +6,9 @@ import { hardlaneLawArticles } from './lore/hardlane-laws'
 import { hardlaneCoastArticles } from './lore/hardlane-coasts'
 import { bryndonArticles } from './lore/bryndon'
 import { taxVillages, visualPeopleArticles } from './presentation'
-import { atlasRouteArticles } from './map-features'
+import { atlasRouteArticles, atlasGeographyArticles } from './map-features'
+import { characterArticles } from './lore/characters'
+import { lirendilInstitutions } from './lore/lirendil-institutions'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; table?: { columns: string[]; rows: string[][] } }
@@ -126,7 +128,8 @@ export const regions: Region[] = [
 ]
 
 // Original pins follow visible settlements. At the author’s request, new tax
-// settlements use explicitly approximate anchors, keeping original coordinates intact.
+// settlements use explicitly approximate anchors. Existing anchors follow the
+// drawn settlements; the original image remains intact.
 export const places: Place[] = [
   { id: 'zarim-khet', name: 'Zarim’khet', region: 'xotar', point: [.155, .129] },
   { id: 'thariz', name: 'Thariz', region: 'xotar', point: [.052, .193] },
@@ -149,20 +152,11 @@ export const places: Place[] = [
   { id: 'eldrascar', name: 'Eldrascar', region: 'ariki', point: [.943, .460] },
 ]
 
-export const historyArticle = {
-  id: 'buyuk-kirilma', name: 'Büyük Kırılma', subtitle: 'Bir dünyanın hafızası',
-  quote: 'Bir olay. Birbirinden farklı sekiz hatıra.',
-  summary: 'Aruzahr’ın halkları, ateş ve kutsalın dengesinin bozulduğu eski felaketi farklı biçimlerde anlatır. Bugünün coğrafyasında ve inançlarında bu hatıra yaşamaya devam eder.',
-  sections: [
-    { title: 'Sessiz Binyıl', paragraphs: ['Kadim Valhunnar İmparatorluğu’nun Kral Halendar ve Kraliçe Yarethus dönemindeki barış çağını, tarihçiler Sessiz Binyıl diye anar. Ateş ve kutsal, anlatılarda bu düzenin iki kutbu olarak yer alır.'] },
-    { title: 'Değişen dünya', paragraphs: ['Büyük Kırılma efsaneleri; iklimin değişmesini, büyünün öngörülemez sonuçlarını ve halkların göçlerini aynı eski felaketle ilişkilendirir. Bu anlatılar, bugünün coğrafyasını anlamanın kültürel yollarından biridir.'] },
-    { title: 'Aynı geçmiş, farklı anlatılar', paragraphs: ['Honud’un anlatıları, ateş ve ışığın çatışmasını, soğukla mücadele eden halkın gözünden aktarır. Danstsud ise Bakır Ana’ya ve düzenin korunmasına vurgu yapar.', 'Bu atlas, halkların genel kültürel anlatılarını bir araya getirir. Efsanenin bilinmeyen yönleri, yolculuğun keşfedilecek kısmı olarak kalır.'] },
-  ] as Section[],
-}
+export { historyArticle } from './lore/history'
 
 export const subregions: Subregion[] = danstsudSubregions
 export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles]
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions]
 export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))

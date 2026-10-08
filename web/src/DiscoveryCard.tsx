@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import type { Place, Region, Subregion } from "./data";
+import { placeById } from "./data";
 import type { MapFeature } from "./map-features";
 import { featureLabels } from "./map-features";
 import { artFor, dossiers, powersFor } from "./presentation";
@@ -177,6 +178,7 @@ export default function DiscoveryCard({
               <span>{feature.fact}</span>
             </div>
             <p className="feature-summary">{summary}</p>
+            {feature.stops && <ol className="route-itinerary" aria-label="Yolun durakları">{feature.stops.map((stop, i) => <li key={stop}><span>{i + 1}</span><button onClick={() => navigate(`/wiki/${stop}`)}>{placeById(stop)?.name}<small>Yerleşimi tanı</small></button><ArrowRight size={14} /></li>)}</ol>}
             {feature.status === "planned" && (
               <p className="route-status">
                 <Shield size={15} />

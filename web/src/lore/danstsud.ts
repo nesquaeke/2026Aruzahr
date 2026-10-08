@@ -166,7 +166,7 @@ export const danstsudPlaces: Place[] = [
   },
   {
     id: 'marhalden', name: 'Marhalden', region: 'danstsud', major: true,
-    point: [.610, .853], subtitle: 'Karlan çevresindeki büyük tahkimat',
+    point: [.600, .880], subtitle: 'Karlan çevresindeki büyük tahkimat',
     summary: 'Karlan’daki düzenli kara geçidini tutan, yüksek nüfuslu olmayan güçlü kale şehri. Üç Mühür loncaları, nadir Veyralt madeni ve doğudan gelen erzak Marhalden’in gücünü taşır; mülteci girişine kapıları kapalıdır.',
     sources: [canonSource, ...expansionSources, mapSource], related: ['karlan-daglari', 'veyralt', 'marhalden-uc-muhur', 'marhalden-lordlugu', 'karlan-canlilari', 'frostmere-golu', 'hardlane', 'frostbay', 'valdareth', 'theramis', 'elorwyn'],
     sections: marhaldenExpansionSections,
@@ -177,6 +177,7 @@ export const danstsudPlaces: Place[] = [
     summary: 'Danstsud’un başlıca şehirlerinden Elorwyn, bilinen tarihi boyunca Elorwynder Hanedanı tarafından yönetilmiştir. Güneydeki büyük surlu kentte yönetici ailenin geçmişi ile şehir tarihi birlikte anılır.',
     sources: [canonSource, newWritingSource, ...expansionSources, mapSource], related: ['elorwynder-hanedani', 'valdareth', 'theramis', 'kethra', 'marhalden', 'danstsud-lordluk-hukuku'],
     sections: [
+      { title: 'Tharion’un şehri ve büyüye sınır', paragraphs: ['Elorwyn’in güncel yöneticisi Lord Tharion Elorwynder’dir. Kent, krallık içinde büyüye en katı yaklaşan yer olarak tanınır; kamusal büyü gösterileri yasaktır ve ruhsatlı uygulamalar sıkı yerel denetim altındadır.', 'Jeremiah ve paladin Volomiyr’in kökeni bu şehre uzanır; bugün ikisi de Lirendil’de ÇelikKalkan çevresindedir. Ser Valerius, kentin iktidarının önemli rakiplerinden biridir; Rina Ironvale onun yaveridir.'] },
       { title: 'Elorwynder yönetiminin sürekliliği', paragraphs: [
         'Elorwyn şehri hep aynı hanedanın yönetiminde kalmıştır. Ailenin güncel adı Elorwynder’dir; şehrin adı Elorwyn olarak kullanılır. Yerel yönetimin geçmişi, aile geçmişiyle süreklilik taşır.',
         'Elorwyn aynı zamanda Danstsud’un altı başlıca şehrinden biridir. Krallığın başkenti Valdareth’tir; Elorwyn kendi yerel yönetim tarihiyle bu siyasi bütünün içinde bulunur.',
@@ -238,7 +239,7 @@ export const danstsudPlaces: Place[] = [
   {
     id: 'kethra', name: 'Kethra', region: 'danstsud', point: [.566, .514],
     summary: 'Sisli ve kalabalık liman şehri Kethra, Lord Damian Elorwynder adıyla ilişkilidir. Paslı Kanca meyhanesi, kıyı antrepoları ve yakınındaki dağlık arazi şehir yaşamının parçalarıdır.',
-    sources: [canonSource, newWritingSource, openingSource, mapSource], related: ['elorwynder-hanedani', 'elorwyn', 'lirendil', 'luthen'],
+    sources: [canonSource, newWritingSource, openingSource, mapSource], related: ['elorwynder-hanedani', 'elorwyn', 'lirendil', 'luthen', 'damian', 'aveline', 'rook', 'rydorn-sirti'],
     sections: [
       { title: 'Liman şehri', paragraphs: [
         'Kethra, kıyısında liman ve depolar bulunan bir Danstsud kentidir. Sis, kalabalık ve liman kokuları şehir betimlemelerinde öne çıkar. Lord Damian Elorwynder, Kethra lordu olarak anılır; eski anlatılarda aile adı Elorwyn şeklinde de geçer.',
@@ -273,7 +274,7 @@ export const danstsudPlaces: Place[] = [
     ],
   },
   {
-    id: 'frostbay', name: 'Frostbay', region: 'danstsud', subregion: 'hardlane', point: [.478, .824],
+    id: 'frostbay', name: 'Frostbay', region: 'danstsud', subregion: 'hardlane', point: [.468, .858],
     subtitle: 'Kadim taşların arasındaki kalabalık kıyı',
     summary: 'Yaklaşık 45–50 bin kişinin yaşadığı Hardlane’in en eski şehri. Bilinmeyen ustaların taş yapıları posta ve gümrüğe ev sahipliği yapar; yetersiz garnizon, mülteciler ve korsan ticareti aynı sokakları paylaşır.',
     sources: [...hardlaneSources, canonSource, mapSource],
@@ -281,7 +282,7 @@ export const danstsudPlaces: Place[] = [
     sections: frostbaySections,
   },
   {
-    id: 'ternhaven', name: 'Ternhaven', region: 'danstsud', subregion: 'hardlane', point: [.520, .736],
+    id: 'ternhaven', name: 'Ternhaven', region: 'danstsud', subregion: 'hardlane', point: [.507, .719],
     subtitle: 'Rydorn’un sıcak sularında eski kıyı hayatı',
     summary: 'Sıcak suların çevresinde görece ılıman ve kendine yeten küçük şehir. Eski Hardlane kültürü güçlüdür; iki reformla iyileşen yaşam, tamamlanmayan Cevher Çizgisi’ni bekler.',
     sources: [...hardlaneSources, canonSource, mapSource],
@@ -297,7 +298,7 @@ export const danstsudPlaces: Place[] = [
     sections: drantholSections,
   },
   {
-    id: 'vyssgard', name: 'Vyssgard', region: 'danstsud', subregion: 'hardlane', point: [.523, .779],
+    id: 'vyssgard', name: 'Vyssgard', region: 'danstsud', subregion: 'hardlane', point: [.514, .797],
     subtitle: 'Kanundan kaçanların başka kanunlara girdiği kent',
     summary: 'Bir zamanların önemli şehri, bugün korsanlar ve çetelerce paylaşılır. Kraliyet idaresinin boşluğunda Beş İskele Sözleşmesi zorla uygulanır; kentte kalan aileler de bu düzene bağımlıdır.',
     sources: [...hardlaneSources, canonSource, mapSource],
