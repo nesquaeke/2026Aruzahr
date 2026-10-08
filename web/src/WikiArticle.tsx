@@ -35,6 +35,7 @@ import { artworks, faunaArt, galleryFor, portraitFor } from "./media";
 import { characterById } from "./lore/characters";
 import HistoryExperience from "./HistoryExperience";
 import ReadingProgress from './ReadingProgress';
+import CharacterCard from './CharacterCard';
 
 function recordLabel(entry: Region | Place | Subregion | LoreArticle) {
   if (
@@ -329,7 +330,7 @@ export default function WikiArticle({
               historyArticle.subtitle}
           </p>
         </div>
-        {portrait && !profile && <button className="hero-portrait-button" aria-label={`${name} portresini büyüt`} onClick={() => openArtwork(portrait.id)}><img className="hero-portrait" src={portrait.src} alt={name} /></button>}
+        {portrait && !profile && <button className="hero-portrait-button" aria-label={`${name} portresini büyüt`} onClick={() => openArtwork(portrait.id)}><CharacterCard id={character?.id} src={portrait.src} name={name} role={character?.role} eager /></button>}
         <button className="cover-gallery-button" onClick={() => setImageIndex(0)}>Görselleri aç <span>{gallery.length}</span></button>
       </div>
       {profile && (
@@ -401,13 +402,9 @@ export default function WikiArticle({
           </div>
           <div className="people-grid">
             {(peopleExpanded ? profile.people : profile.people.slice(0, 6)).map((person) => (
-              <div className="person-card" key={person.name}>
+              <div className={`person-card ${person.portrait ? 'framed-person' : ''}`} key={person.name}>
                 {person.portrait ? (
-                  <button className="person-image-button" aria-label={`${person.name} portresini büyüt`} onClick={() => openArtwork(person.portrait!)}><img
-                    src={portraitFor(person.portrait)?.src || `/illustrations/${person.portrait}.webp`}
-                    alt={person.name}
-                    loading="lazy"
-                  /></button>
+                  <button className="person-image-button" aria-label={`${person.name} portresini büyüt`} onClick={() => openArtwork(person.portrait!)}><CharacterCard id={person.article} src={portraitFor(person.portrait)?.src || `/illustrations/${person.portrait}.webp`} name={person.name} role={person.role} /></button>
                 ) : (
                   <span className="person-seal">
                     <Crown size={28} />

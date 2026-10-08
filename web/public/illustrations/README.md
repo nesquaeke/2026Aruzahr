@@ -1,5 +1,7 @@
 # Aruzahr görsel varlıkları
 
+Sonraki karakter, hayvan ve yaratık illüstrasyonları için kullanıcının onayladığı tablo hissi, fırça dokusu, renk ve netlik tercihleri [Görsel ve Anlatı Rehberi](../../../lore/GORSEL_VE_ANLATI_REHBERI.md) içinde kayıtlıdır. Sohbette verilen görseller yalnızca tarz referansıdır.
+
 8 Ekim 2026. Bu dizindeki 116 WebP görsel `src/media.ts` tarafından ad, açıklama, kaynak türü ve galeri ilişkileriyle tanımlanır. Yeni kurulumda görsel üretimi veya dış bir görsel sunucusu gerekmez.
 
 - 34 özgün yazar görselinin web kopyası: GitHub'daki portreler, şehir çizimleri, lonca, meyhane, demirhane ve liman sahneleri. Özgün yüklemeler değiştirilmez.
