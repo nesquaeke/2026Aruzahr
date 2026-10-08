@@ -34,6 +34,7 @@ import MediaGallery, { ArtworkButton, ImageViewer } from "./MediaGallery";
 import { artworks, faunaArt, galleryFor, portraitFor } from "./media";
 import { characterById } from "./lore/characters";
 import HistoryExperience from "./HistoryExperience";
+import ReadingProgress from './ReadingProgress';
 
 function recordLabel(entry: Region | Place | Subregion | LoreArticle) {
   if (
@@ -51,7 +52,7 @@ const preview = (text: string) => {
   const sentences = text.split(/(?<=[.!?])\s+/);
   return sentences
     .slice(0, sentences[0]?.length < 130 ? 2 : 1)
-    .join("")
+    .join(" ")
     .trim();
 };
 function LoreTable({ section }: { section: Section }) {
@@ -264,6 +265,7 @@ export default function WikiArticle({
     <article
       className={`wiki-article visual-article ${profile ? "city-article" : ""} ${record ? "lore-article" : ""} ${record?.kind === "chronicle" ? "manuscript-article" : ""} ${record?.kind === "law" ? "law-article" : ""} ${fullReading ? "reading-full" : "reading-cards"}`}
     >
+      <ReadingProgress id={id} />
       <div className="article-topline">
         <div className="article-breadcrumbs">
           <button onClick={() => navigate(backToMap)}>
@@ -483,7 +485,7 @@ export default function WikiArticle({
           <div className="lore-section-grid">
             {sections.map((section, index) => (
               <section
-                className={`lore-section-card ${section.table ? "has-table" : ""}`}
+                className={`lore-section-card ${section.table ? "has-table" : ""} ${section.scene ? 'daily-scene' : ''}`}
                 id={`article-section-${index}`}
                 key={section.title}
               >
@@ -493,6 +495,7 @@ export default function WikiArticle({
                   </span>
                   <h2>{section.title}</h2>
                 </header>
+                {section.scene && <><div className="scene-label">SOKAKTAN BİR SAHNE</div><img className="scene-picture" src={artFor(id, context?.id)} alt="" loading="lazy" /></>}
                 {id === "karlan-canlilari" && faunaArt[index] && <ArtworkButton item={faunaArt[index]} className="section-artwork" onClick={() => openArtwork(faunaArt[index].id)} />}
                 {id === "hardlane-otlak-hayvanlari" && ["tervan", "norruk", "velkir"][index] && artworks[["tervan", "norruk", "velkir"][index]] && <ArtworkButton item={artworks[["tervan", "norruk", "velkir"][index]]} className="section-artwork" onClick={() => openArtwork(["tervan", "norruk", "velkir"][index])} />}
                 {!fullReading && (

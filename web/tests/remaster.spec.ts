@@ -1,0 +1,95 @@
+import { expect, test } from '@playwright/test'
+import { places, regions, articleById } from '../src/data'
+
+test('focus mode stays open when exploring another town and exits for its wiki', async ({page}) => {
+  await page.goto('/#/atlas/hardlane')
+  await page.getByRole('button',{name:'Odak moduna geç'}).click()
+  await page.getByTestId('marker-frostbay').click()
+  await expect(page).toHaveURL(/#\/atlas\/frostbay$/)
+  await expect(page.locator('.map-shell')).toHaveClass(/focus-mode/)
+  await page.getByRole('button',{name:'Wiki sayfasını aç'}).click()
+  await expect(page).toHaveURL(/#\/wiki\/frostbay$/)
+  await expect(page.locator('.map-shell')).toHaveCount(0)
+})
+
+test('exploration journeys select actual towns, retain the map return and can be closed', async ({page}) => {
+  await page.goto('/#/wiki')
+  await page.getByRole('button',{name:'Taçtan kırağıya yolculuğuna başla'}).click()
+  await expect(page).toHaveURL(/#\/atlas\/valdareth$/)
+  const journey=page.getByRole('region',{name:'Keşif yolculuğu'})
+  await expect(journey.locator('[aria-current=step]')).toHaveText('1Valdareth')
+  await page.getByRole('button',{name:'Sonraki keşif durağı'}).click()
+  await expect(page).toHaveURL(/#\/atlas\/dorvenhall$/)
+  await expect(page.getByTestId('marker-dorvenhall')).toBeVisible()
+  await expect(page.getByTestId('route-kemige-basan-yol')).toBeHidden()
+  await page.getByRole('button',{name:'Wiki sayfasını aç'}).click()
+  await expect(page.getByRole('heading',{name:'Dorvenhall',exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'Haritaya dön'}).click()
+  await expect(page).toHaveURL(/#\/atlas\/dorvenhall$/)
+  await expect(journey.locator('[aria-current=step]')).toHaveText('2Dorvenhall')
+  await page.getByRole('button',{name:'Keşif yolculuğunu kapat'}).click()
+  await expect(journey).toHaveCount(0)
+})
+
+test('character collection filters names and places without assigning unknown portraits', async ({page}) => {
+  await page.goto('/#/wiki')
+  await page.getByRole('combobox',{name:'Karakterin ilgili olduğu yer'}).selectOption('lirendil')
+  await page.getByRole('searchbox',{name:'Karakter adı veya görevi'}).fill('VAELCOR')
+  await expect(page.locator('.portrait-grid a')).toHaveCount(1)
+  await expect(page.locator('.portrait-grid a')).toContainText('Magister Vaelcor')
+  await page.getByRole('searchbox',{name:'Karakter adı veya görevi'}).fill('bulunmayan yüz')
+  await expect(page.locator('.portrait-grid a')).toHaveCount(0)
+  await page.getByRole('button',{name:'Filtreleri temizle'}).click()
+  await expect(page.locator('.portrait-grid a')).toHaveCount(12)
+})
+
+test('other kingdoms have browsable city collections and their own readable chapters', async ({page}) => {
+  await page.goto('/#/wiki')
+  await page.getByRole('combobox',{name:'Yerleşim koleksiyonunun bölgesi'}).selectOption('lakbar')
+  await expect(page.locator('.city-collection a')).toHaveCount(0)
+  await expect(page.locator('.collection-empty')).toContainText('adlandırılmış bir yerleşim')
+  await page.getByRole('combobox',{name:'Yerleşim koleksiyonunun bölgesi'}).selectOption('xotar')
+  await expect(page.locator('.city-collection a')).toHaveCount(4)
+  await page.locator('.city-collection a').filter({hasText:'Thariz'}).click()
+  await expect(page.getByRole('heading',{name:'Thariz',exact:true})).toBeVisible()
+  await expect(page.getByRole('heading',{name:'Günün serin saatleri'})).toBeVisible()
+  await expect(page.getByRole('heading',{name:'Tamir edilen yolculuklar'})).toBeVisible()
+  await expect(page.locator('.daily-scene img')).toBeVisible()
+})
+
+test('reading progress follows a chapter jump and returns to the article top', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await page.goto('/#/wiki/valdareth')
+  await expect(page.locator('.section-preview').first()).toContainText('şehridir. Vaeranth')
+  await page.getByRole('button',{name:'Tam lore',exact:true}).click()
+  await page.locator('.article-toc').getByRole('button',{name:'Başkent, ekmek kokusuyla uyanır'}).click()
+  const progress=page.getByRole('progressbar',{name:'Okuma ilerlemesi'})
+  await expect.poll(async()=>Number(await progress.getAttribute('aria-valuenow'))).toBeGreaterThan(8)
+  await page.getByRole('button',{name:'Makalenin başına dön'}).click()
+  await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBe(0)
+  await expect(progress).toHaveAttribute('aria-valuenow','0')
+})
+
+test('guided discovery and new reading cards fit a phone viewport', async ({page}) => {
+  await page.setViewportSize({width:390,height:844})
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await page.goto('/')
+  await page.getByRole('button',{name:'Buzun tuttuğu hatıralar yolculuğuna başla'}).click()
+  await expect(page).toHaveURL(/#\/atlas\/frostbay$/)
+  await page.getByRole('button',{name:'Sonraki keşif durağı'}).click()
+  await expect(page).toHaveURL(/#\/atlas\/dranthol$/)
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  await page.getByRole('button',{name:'Wiki sayfasını aç'}).click()
+  await expect(page.getByRole('heading',{name:'Kalenin gölgesindeki dükkân'})).toBeVisible()
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+})
+
+test('all map settlements contain actual lore and the new civic records resolve existing locations', () => {
+  expect(places).toHaveLength(44)
+  for(const place of places) {
+    expect(place.sections?.length,place.id).toBeGreaterThanOrEqual(2)
+    expect(place.sections?.every(section=>section.paragraphs.some(p=>p.trim().length>30)),place.id).toBe(true)
+  }
+  for(const region of regions.filter(r=>r.id!=='danstsud')) expect(region.sections.length,region.id).toBeGreaterThanOrEqual(6)
+  for(const id of ['danstsud-ekmek-ve-vergi','hardlane-bir-kis','karlan-iscilik-ve-gecit','danstsud-makam-ve-itiraz']) expect(articleById(id)?.sections).toHaveLength(4)
+})

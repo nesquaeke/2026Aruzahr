@@ -2,6 +2,8 @@
 
 Orijinal 8K harita üzerinde interaktif keşif ve genel lore wikisi. Uygulamanın giriş dosyası [`web/index.html`](web/index.html), kaynak kodları [`web/`](web/) dizinindedir.
 
+Remaster sürümü sinematik giriş, üç rehberli keşif seçkisi, karakter ve bölge filtreleri, daha rahat wiki okuması ve genişletilmiş günlük yaşam lore'u içerir. Haritadaki 44 yerleşimin tamamında okunabilir bölümler vardır; 116 görsel manifestte tanımlıdır. [Yeni yazım ve tasarım notları](lore/danstsud/REMASTER_VE_YASAYAN_DUNYA.md).
+
 ## Bilgisayarında aç
 
 1. [Node.js LTS](https://nodejs.org/en/download) kur. Sürüm 22.12 veya üzeri olmalı.
@@ -30,7 +32,7 @@ Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatlar�
 
 Valdareth ve Marhalden ayrıntılı şehir sayfalarıdır. Mahalleler, saray makamları, loncalar, vergi havzaları, Karlan Dağları, Veyralt, sekiz dağ canlısı, Frostmere ve lordluk hukuku için on bir ek wiki kaydı vardır. Tablolar mobilde kendi alanında kaydırılır; arama şehir metinlerini ve tablo içeriklerini de tarar.
 
-Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Toplam 33 ek lore kaydı ve haritada 32 özgün, 12 yaklaşık yeni yerleşim pini vardır; Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
+Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Şehir ve bölge sayfalarının yanında toplam 83 lore/kişi kaydı; haritada 32 özgün, 12 yaklaşık yeni yerleşim pini vardır. Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
 
 ## Danstsud lore çalışması
 

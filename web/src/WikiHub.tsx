@@ -11,11 +11,13 @@ import {
   X,
 } from "lucide-react";
 import type { LoreArticle, Place, Region, Subregion } from "./data";
-import { loreKindLabels, places } from "./data";
+import { loreKindLabels, places, locationById, regionById, normalize } from "./data";
 import { artFor, dossiers } from "./presentation";
 import { characters } from "./lore/characters";
 import { artworks, portraitFor } from "./media";
 import { ImageViewer } from "./MediaGallery";
+import { JourneyCollection } from './Journeys';
+import type { JourneyId } from './Journeys';
 
 type Props = {
   regions: Region[];
@@ -25,6 +27,7 @@ type Props = {
   savedOnly: boolean;
   navigate: (route: string) => void;
   clear: () => void;
+  onStartJourney: (id: JourneyId) => void;
 };
 const filters = [
   { id: "all", name: "Tümü" },
@@ -32,6 +35,8 @@ const filters = [
   { id: "person", name: "İnsanlar" },
   { id: "fauna", name: "Canlılar" },
   { id: "law", name: "Kanunlar" },
+  { id: "culture", name: "Gündelik hayat" },
+  { id: "institution", name: "Kurumlar" },
   { id: "chronicle", name: "Anlatılar" },
 ];
 export default function WikiHub({
@@ -42,33 +47,40 @@ export default function WikiHub({
   savedOnly,
   navigate,
   clear,
+  onStartJourney,
 }: Props) {
   const [filter, setFilter] = useState("all");
   const [allCities, setAllCities] = useState(false);
   const [allPeople, setAllPeople] = useState(false);
   const [portraitIndex, setPortraitIndex] = useState<number | null>(null);
+  const [personQuery, setPersonQuery] = useState('');
+  const [personCity, setPersonCity] = useState('all');
+  const [cityRegion, setCityRegion] = useState('danstsud');
   const extraPortraits = [artworks.ashara, artworks.lysandra, artworks.roddic];
-  const shownCharacters = characters.filter(c => !query && !savedOnly || lore.some(a => a.id === c.id));
+  const shownCharacters = characters.filter(c => (!query && !savedOnly || lore.some(a => a.id === c.id)) && (personCity === 'all' || c.city === personCity) && normalize([c.name,c.role,c.affiliation].join(' ')).includes(normalize(personQuery)));
+  const characterCities = [...new Set(characters.map(c => c.city))].map(id => ({id,name:locationById(id)?.name || regionById(id)?.name || id})).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
   const cities =
     query || savedOnly
       ? matches
-      : places.filter((place) => place.region === "danstsud");
+      : places.filter((place) => cityRegion === 'all' || place.region === cityRegion);
   const shownLore =
     filter === "all" ? lore : lore.filter((record) => record.kind === filter);
   const searching = !!query || savedOnly;
   return (
     <>
-      <div className="page-heading wiki-heading">
+      <div className={`page-heading wiki-heading ${!searching ? 'library-hero' : ''}`}>
         <div>
           <div className="breadcrumb">VALHUNAR / KEŞİF KÜTÜPHANESİ</div>
           <h1>
-            Bir hikâye <em>seç.</em>
+            Haritanın ardındaki <em>hayat.</em>
           </h1>
           <p>Şehirleri tanı. Yüzleri hatırla. Haritada izlerini bul.</p>
+          {!searching && <div className="hero-entry-links"><button className="gold-button" onClick={() => navigate('/atlas')}>Haritayı keşfet<ArrowRight size={16} /></button><a href="#/wiki/buyuk-kirilma">Bu dünya nasıl kırıldı?<ArrowRight size={15} /></a></div>}
         </div>
         <BookOpen className="heading-symbol" size={42} strokeWidth={0.8} />
       </div>
       {!searching && <nav className="library-jumps" aria-label="Ansiklopedi koleksiyonları">{[['library-kingdoms','Krallıklar'],['library-places','Yerleşimler'],['library-people','Karakterler'],['library-lore','Lore defterleri']].map(([id,label]) => <button key={id} onClick={() => document.getElementById(id)?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}>{label}<ArrowRight size={14} /></button>)}</nav>}
+      {!searching && <JourneyCollection onStart={onStartJourney} />}
       {!searching && (
         <a
           className="library-feature"
@@ -131,7 +143,7 @@ export default function WikiHub({
           </div>
         </section>
       )}
-      {cities.length > 0 && (
+      {(!searching || cities.length > 0) && (
         <section className="library-cities" id="library-places">
           <div className="section-heading">
             <span className="eyebrow">
@@ -141,6 +153,7 @@ export default function WikiHub({
               {searching ? "Yerler ve bölgeler" : "Bir kapıdan içeri gir."}
             </h2>
           </div>
+          {!searching && <label className="city-region-filter"><span>Hangi toprağın şehirleri?</span><select aria-label="Yerleşim koleksiyonunun bölgesi" value={cityRegion} onChange={e=>{setCityRegion(e.target.value);setAllCities(false)}}><option value="all">Bütün Valhunar</option>{regions.map(region=><option key={region.id} value={region.id}>{region.name}</option>)}</select><small>{cities.length} yerleşim</small></label>}
           <div className="city-collection">
             {(searching || allCities ? cities : cities.filter(c => c.positionStatus !== 'approximate')).map((city) => {
               const profile = dossiers[city.id];
@@ -176,17 +189,19 @@ export default function WikiHub({
               );
             })}
           </div>
-          {!searching && <button className="gallery-more" aria-expanded={allCities} onClick={() => setAllCities(!allCities)}>{allCities ? 'Vergi köylerini gizle' : 'Vergi köylerini de keşfet (12)'}<ArrowRight size={15} /></button>}
+          {!cities.length && <div className="collection-empty"><p>Bu bölge için adlandırılmış bir yerleşim kaydı bulunmuyor.</p><button onClick={()=>navigate(`/wiki/${cityRegion}`)}>Bölgenin hikâyesini keşfet<ArrowRight size={15} /></button></div>}
+          {!searching && cities.some(c=>c.positionStatus === 'approximate') && <button className="gallery-more" aria-expanded={allCities} onClick={() => setAllCities(!allCities)}>{allCities ? 'Vergi köylerini gizle' : 'Vergi köylerini de keşfet (12)'}<ArrowRight size={15} /></button>}
         </section>
       )}
-      {shownCharacters.length > 0 && (
+      {(shownCharacters.length > 0 || personQuery || personCity !== 'all') && (
         <section className="portrait-collection" id="library-people" data-testid="character-collection">
           <div className="section-heading">
             <span className="eyebrow">EVRENİN YÜZLERİ</span>
             <h2>Taşın ardında insanlar var.</h2>
           </div>
+          <div className="character-finder"><label><span>Adı veya göreviyle bul</span><input type="search" aria-label="Karakter adı veya görevi" value={personQuery} onChange={e => setPersonQuery(e.target.value)} placeholder="Bir yüz, bir unvan…" /></label><label><span>İlgili yer</span><select aria-label="Karakterin ilgili olduğu yer" value={personCity} onChange={e => setPersonCity(e.target.value)}><option value="all">Bütün yerler</option>{characterCities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}</select></label><span aria-live="polite">{shownCharacters.length} karakter</span></div>
           <div className="portrait-grid">
-            {(searching || allPeople ? shownCharacters : shownCharacters.slice(0, 12)).map((person) => (
+            {(searching || allPeople || personQuery || personCity !== 'all' ? shownCharacters : shownCharacters.slice(0, 12)).map((person) => (
               <a href={`#/wiki/${person.id}`} key={person.id}>
                 <img
                   src={portraitFor(person.portrait)?.src}
@@ -200,8 +215,9 @@ export default function WikiHub({
                 <ArrowRight size={17} />
               </a>
             ))}
-            {!searching && allPeople && extraPortraits.map((item, i) => <button key={item.id} onClick={() => setPortraitIndex(i)} className="ashara-gallery"><img src={item.src} alt={item.title} loading="lazy" /><span><strong>{item.title}</strong><small>Portre galerisi</small></span><ArrowRight size={17} /></button>)}
+            {!searching && !personQuery && personCity === 'all' && allPeople && extraPortraits.map((item, i) => <button key={item.id} onClick={() => setPortraitIndex(i)} className="ashara-gallery"><img src={item.src} alt={item.title} loading="lazy" /><span><strong>{item.title}</strong><small>Portre galerisi</small></span><ArrowRight size={17} /></button>)}
           </div>
+          {!shownCharacters.length && <p className="no-category-results">Bu ad veya yerde eşleşen karakter yok. <button onClick={() => {setPersonQuery('');setPersonCity('all')}}>Filtreleri temizle</button></p>}
           {!searching && <button className="gallery-more" aria-expanded={allPeople} onClick={() => setAllPeople(!allPeople)}>{allPeople ? 'Kadroyu daralt' : `Bütün karakterler ve portreler (${characters.length + extraPortraits.length})`}<ArrowRight size={15} /></button>}
         </section>
       )}

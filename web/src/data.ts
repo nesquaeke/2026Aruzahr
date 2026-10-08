@@ -9,9 +9,10 @@ import { taxVillages, visualPeopleArticles } from './presentation'
 import { atlasRouteArticles, atlasGeographyArticles } from './map-features'
 import { characterArticles } from './lore/characters'
 import { lirendilInstitutions } from './lore/lirendil-institutions'
+import { cityLife, regionalLife, livingArticles, livingWorldSource } from './lore/living-world'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
-export type Section = { title: string; paragraphs: string[]; table?: { columns: string[]; rows: string[][] } }
+export type Section = { title: string; paragraphs: string[]; scene?: boolean; table?: { columns: string[]; rows: string[][] } }
 export type Region = {
   id: RegionId; name: string; subtitle: string; climate: string; color: string;
   quote: string; summary: string; tags: string[]; point: [number, number];
@@ -39,7 +40,7 @@ export const loreKindLabels = { dynasty: 'Hanedan', person: 'Kişi', law: 'Hukuk
 // This is an intentionally curated public dataset. Never import the raw campaign
 // documents into the client bundle: they contain private DM notes and endgame secrets.
 // The map governs marker positions; the user's chosen spellings govern display names.
-export const regions: Region[] = [
+const baseRegions: Region[] = [
   {
     id: 'xotar', name: 'Xotar', subtitle: 'Çölün kalbi, güneşin iradesi', climate: 'Çöl & vahalar', color: '#d6aa63',
     quote: 'Su kimdeyse, güç ondadır.', point: [.17, .16], box: [0, 0, .37, .39],
@@ -127,10 +128,12 @@ export const regions: Region[] = [
   },
 ]
 
+export const regions: Region[] = baseRegions.map(region => ({ ...region, sections: [...region.sections, ...(regionalLife[region.id] || [])], sources: [...region.sources, ...(regionalLife[region.id] ? [livingWorldSource] : [])] }))
+
 // Original pins follow visible settlements. At the author’s request, new tax
 // settlements use explicitly approximate anchors. Existing anchors follow the
 // drawn settlements; the original image remains intact.
-export const places: Place[] = [
+const basePlaces: Place[] = [
   { id: 'zarim-khet', name: 'Zarim’khet', region: 'xotar', point: [.155, .129] },
   { id: 'thariz', name: 'Thariz', region: 'xotar', point: [.052, .193] },
   { id: 'sahrim', name: 'Sahrim', region: 'xotar', point: [.325, .188] },
@@ -154,9 +157,21 @@ export const places: Place[] = [
 
 export { historyArticle } from './lore/history'
 
+export const places: Place[] = basePlaces.map(place => {
+  const additions = cityLife[place.id] || []
+  const furtherReading = place.id === 'valdareth' ? ['danstsud-ekmek-ve-vergi', 'danstsud-makam-ve-itiraz'] : place.id === 'marhalden' ? ['karlan-iscilik-ve-gecit', 'danstsud-ekmek-ve-vergi'] : place.subregion === 'hardlane' ? ['hardlane-bir-kis'] : []
+  return { ...place,
+    summary: place.summary || additions[0]?.paragraphs[0].split(/(?<=[.!?])\s+/).slice(0,2).join(' '),
+    subtitle: place.subtitle || additions[0]?.title,
+    sections: [...(place.sections || []), ...additions],
+    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(additions.length ? [livingWorldSource] : [])],
+    related: [...new Set([...(place.related || []), ...(place.region !== 'danstsud' ? [place.region] : []), ...furtherReading])],
+  }
+})
+
 export const subregions: Subregion[] = danstsudSubregions
 export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions]
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles]
 export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))
