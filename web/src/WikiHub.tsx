@@ -18,6 +18,7 @@ import { artworks, portraitFor } from "./media";
 import { ImageViewer } from "./MediaGallery";
 import { JourneyCollection } from './Journeys';
 import type { JourneyId } from './Journeys';
+import CharacterCard, { CharacterFrameLegend } from './CharacterCard';
 
 type Props = {
   regions: Region[];
@@ -200,22 +201,14 @@ export default function WikiHub({
             <h2>Taşın ardında insanlar var.</h2>
           </div>
           <div className="character-finder"><label><span>Adı veya göreviyle bul</span><input type="search" aria-label="Karakter adı veya görevi" value={personQuery} onChange={e => setPersonQuery(e.target.value)} placeholder="Bir yüz, bir unvan…" /></label><label><span>İlgili yer</span><select aria-label="Karakterin ilgili olduğu yer" value={personCity} onChange={e => setPersonCity(e.target.value)}><option value="all">Bütün yerler</option>{characterCities.map(city => <option value={city.id} key={city.id}>{city.name}</option>)}</select></label><span aria-live="polite">{shownCharacters.length} karakter</span></div>
+          <CharacterFrameLegend />
           <div className="portrait-grid">
             {(searching || allPeople || personQuery || personCity !== 'all' ? shownCharacters : shownCharacters.slice(0, 12)).map((person) => (
-              <a href={`#/wiki/${person.id}`} key={person.id}>
-                <img
-                  src={portraitFor(person.portrait)?.src}
-                  alt={person.name}
-                  loading="lazy"
-                />
-                <span>
-                  <strong>{person.name}</strong>
-                  <small>{person.role}</small>
-                </span>
-                <ArrowRight size={17} />
+              <a href={`#/wiki/${person.id}`} key={person.id} className="character-card-link">
+                <CharacterCard id={person.id} src={portraitFor(person.portrait)!.src} name={person.name} role={person.role} />
               </a>
             ))}
-            {!searching && !personQuery && personCity === 'all' && allPeople && extraPortraits.map((item, i) => <button key={item.id} onClick={() => setPortraitIndex(i)} className="ashara-gallery"><img src={item.src} alt={item.title} loading="lazy" /><span><strong>{item.title}</strong><small>Portre galerisi</small></span><ArrowRight size={17} /></button>)}
+            {!searching && !personQuery && personCity === 'all' && allPeople && extraPortraits.map((item, i) => <button key={item.id} onClick={() => setPortraitIndex(i)} className="ashara-gallery character-card-link" aria-label={`${item.title} Portre galerisi`}><CharacterCard src={item.src} name={item.title} role="Portre galerisi" /></button>)}
           </div>
           {!shownCharacters.length && <p className="no-category-results">Bu ad veya yerde eşleşen karakter yok. <button onClick={() => {setPersonQuery('');setPersonCity('all')}}>Filtreleri temizle</button></p>}
           {!searching && <button className="gallery-more" aria-expanded={allPeople} onClick={() => setAllPeople(!allPeople)}>{allPeople ? 'Kadroyu daralt' : `Bütün karakterler ve portreler (${characters.length + extraPortraits.length})`}<ArrowRight size={15} /></button>}

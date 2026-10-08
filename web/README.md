@@ -60,6 +60,8 @@ Görseller `public/illustrations/` içinde sürümlenir; yeni kurulumda yeniden 
 
 ## Remaster
 
+Karakterler `CharacterCard.tsx` ile isim plakalı, işlemeli kartlar olarak sunulur. `character-card-profiles.ts` içindeki 46 editoryal güç sınıfı dövüş, büyü ve siyasi nüfuzun toplam etkisini gösterir: Olağan, Seçkin, Kudretli ve Yüce. İşleme yoğunluğu bu sırayla artar; sayısal savaş istatistiği değildir. Koleksiyon, şehir kadroları, kişi kapakları ve görsel galerisi aynı sınıfı kullanır. Kimliği açıklanmamış portreler “Gücü bilinmiyor” olarak kalır. Sonraki karakter/canlı çizimleri ve lore için [kalıcı yaratıcı rehber](../lore/GORSEL_VE_ANLATI_REHBERI.md) uygulanır.
+
 `src/remaster.css` koyu lacivert, sıcak altın ve daha okunur metinlerle atlası ve wikiyi yeniden düzenler. Panoramik giriş illüstrasyonu coğrafi harita yerine geçmez. Odak modunda şehirler arasında gezinirken büyük harita açık kalır; wikiye geçince normal okuma görünümü açılır.
 
 `Journeys.tsx` üç rehberli keşif seçkisini sunar. Bunlar mevcut şehirlerde okuma/gezinme duraklarıdır; haritaya fiziksel yol çizmez. Wikiye gidip haritaya dönüşte seçki korunur. `ReadingProgress.tsx` makalenin gerçek kaydırma ilerlemesini izler, açılan bölümlerde güncellenir ve başa dönüş sağlar.

@@ -4,6 +4,8 @@ Orijinal 8K harita üzerinde interaktif keşif ve genel lore wikisi. Uygulamanı
 
 Remaster sürümü sinematik giriş, üç rehberli keşif seçkisi, karakter ve bölge filtreleri, daha rahat wiki okuması ve genişletilmiş günlük yaşam lore'u içerir. Haritadaki 44 yerleşimin tamamında okunabilir bölümler vardır; 116 görsel manifestte tanımlıdır. [Yeni yazım ve tasarım notları](lore/danstsud/REMASTER_VE_YASAYAN_DUNYA.md).
 
+Sonraki karakter ve canlı üretimleri için kullanıcının verdiği resimsel tarz ve lore örnekleri [Görsel ve Anlatı Rehberi](lore/GORSEL_VE_ANLATI_REHBERI.md) içinde kayıtlıdır. Bu tercih [AGENTS.md](AGENTS.md) üzerinden proje çalışmalarına taşınır.
+
 ## Bilgisayarında aç
 
 1. [Node.js LTS](https://nodejs.org/en/download) kur. Sürüm 22.12 veya üzeri olmalı.

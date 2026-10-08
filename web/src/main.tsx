@@ -15,5 +15,6 @@ import './styles.css'
 import './experience.css'
 import './atlas-refresh.css'
 import './remaster.css'
+import './character-cards.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>)
