@@ -1,13 +1,17 @@
-import type { LoreArticle } from '../data'
+import type { LoreArticle, RegionId, Section } from '../data'
+import type { PowerTier } from '../character-card-profiles'
+import { newWorldCharacters } from './world-roster'
+import { newDanstsudCharacters } from './danstsud-roster'
 
 export type Character = {
   id: string; name: string; role: string; city: string; affiliation: string;
   portrait: string; traits: string[]; summary: string; background: string;
   presence: string; related?: string[]; origin?: string; source: 'author' | 'new';
+  region?: RegionId; sections?: Section[]; power?: PowerTier;
 }
 const authorSource = 'Karakterler/ · özgün portreler ve kişi notları; 8 Ekim 2026 yazar eşleştirmeleri'
 const newSource = 'Danstsud kişi taslakları · 7–8 Ekim 2026 yeni yazım'
-export const characters: Character[] = [
+const originalCharacters: Character[] = [
   { id: 'eryndorn', name: 'Eryndorn Vaeranth', role: 'Danstsud kralı', city: 'valdareth', affiliation: 'Vaeranth Hanedanı', portrait: 'eryndorn', traits: ['Bilgiye aç', 'Zeki', 'Tükenmiş'], summary: 'Danstsud’un tahtındaki hükümdar; bilgi arayışı ve kraliyet otoritesinin sertliğiyle tanınır.', background: 'Caedren ve Isolde’nin oğlu, Alisande’nin eşidir. Ilyenne ile Mirelda saray ailesinin diğer yaşayan üyeleridir.', presence: 'Emirleri Manorveil’e doğrudan, lordluklara ise feodal bağlar aracılığıyla ulaşır.', source: 'author' },
   { id: 'alisande', name: 'Kraliçe Alisande Vaeranth', role: 'Danstsud kraliçesi', city: 'valdareth', affiliation: 'Vaeranth Hanedanı', portrait: 'alisande', traits: ['Gözlemci', 'Ölçülü', 'İaşeyi önemser'], summary: 'Eryndorn’un eşi Alisande, sarayın iaşe, yardım ve harcama düzeninde belirgin bir yer tutar.', background: 'Ilyenne’nin annesi olan kraliçe, saray ihtiyacını kentin gündelik yaşamından ayırmadan değerlendirmeye çalışır. Bir araştırmanın maliyetini yalnızca hazinedeki altınla ölçmez.', presence: 'Bir saray sofrasıyla Sabançeper’deki bir hanenin kışlık erzağı arasında aynı ürünler dolaşır. Alisande’nin takip ettiği yardım ve harcama işleri, tacın kentle kurduğu ilişkinin görünür bir parçasıdır.', related: ['eryndorn', 'ilyenne', 'vaeranth-hanedani', 'valdareth-loncalari'], source: 'new' },
   { id: 'ilyenne', name: 'Prenses Ilyenne Vaeranth', role: 'Kraliyet prensesi', city: 'valdareth', affiliation: 'Vaeranth Hanedanı', portrait: 'ilyenne', traits: ['Meraklı', 'Hukuk öğrencisi', 'Genç yetişkin'], summary: 'Eryndorn ile Alisande’nin kızı Ilyenne, sarayda yerel yönetim, kayıt ve hukuk öğrenir.', background: 'Hanedanın halka açık meşru çocuğudur. Kralın bilinen erkek varisi bulunmaması, onun saraydaki yerini önemli kılar; bu durum onu kendiliğinden resmen belirlenmiş bir veliaht yapmaz.', presence: 'Bir lordluk beratı, bir mahalle şikâyeti veya bir vergi kaydı, öğrendiği yönetimin farklı yüzleridir. Sarayın kararlarının dış surlarda nasıl hissedildiğini anlamak, kitap bilgisi kadar gözlem de ister.', related: ['alisande', 'eryndorn', 'vaeranth-hanedani'], source: 'new' },
@@ -57,12 +61,13 @@ export const characters: Character[] = [
 
 ]
 
+export const characters: Character[] = [...originalCharacters, ...newDanstsudCharacters, ...newWorldCharacters]
 const existing = new Set(['eryndorn', 'nera-veld', 'edran-korr', 'bryndon-kiyi-defteri'])
 export const characterArticles: LoreArticle[] = characters.filter(c => !existing.has(c.id)).map(c => ({
-  id: c.id, name: c.name, kind: 'person', region: 'danstsud', subtitle: c.role, mapLocation: c.city, summary: c.summary,
-  sources: c.source === 'author' ? [authorSource, newSource + ' · gündelik yaşam betimlemeleri'] : [newSource], related: [c.city, ...(c.related || [])],
+  id: c.id, name: c.name, kind: 'person', region: c.region || 'danstsud', subtitle: c.role, mapLocation: c.city, summary: c.summary,
+  sources: c.source === 'author' ? [authorSource, newSource + ' · gündelik yaşam betimlemeleri'] : [c.region && c.region !== 'danstsud' ? 'Dünya kadroları · 8 Ekim 2026 yeni yazım' : newSource], related: [c.city, ...(c.related || [])],
   aliases: c.id === 'varoxh' ? ['Varokh', 'Varoxh'] : c.id === 'volomiyr' ? ['Volomyr'] : c.id === 'damian' ? ['Damien', 'Damian Elorwyn'] : c.id === 'tharion' ? ['Tharion Elorwyn'] : [],
-  sections: [{ title: 'Kimdir?', paragraphs: [c.summary, c.background] }, { title: 'Dünyadaki yeri', paragraphs: [c.presence] }],
+  sections: c.sections || [{ title: 'Kimdir?', paragraphs: [c.summary, c.background] }, { title: 'Dünyadaki yeri', paragraphs: [c.presence] }],
 }))
 export const characterById = (id: string) => characters.find(c => c.id === id)
-export const characterCards = (city: string) => characters.filter(c => c.city === city && !['grathor', 'varoxh', 'tarb', 'yasli-kaelen'].includes(c.id)).map(c => ({ name: c.name, role: c.role, article: c.id, portrait: c.portrait }))
+export const characterCards = (city: string) => characters.filter(c => c.city === city).map(c => ({ name: c.name, role: c.role, article: c.id, portrait: c.portrait }))

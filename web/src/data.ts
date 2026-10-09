@@ -10,6 +10,10 @@ import { atlasRouteArticles, atlasGeographyArticles } from './map-features'
 import { characterArticles } from './lore/characters'
 import { lirendilInstitutions } from './lore/lirendil-institutions'
 import { cityLife, regionalLife, livingArticles, livingWorldSource } from './lore/living-world'
+import { bookArticles } from './lore/books'
+import { newFaunaArticles } from './lore/world-fauna'
+import { mapCorrections, newlyMappedPlaces, mapAuditSource } from './map-corrections'
+import { newDanstsudInstitutions } from './lore/danstsud-roster'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; scene?: boolean; table?: { columns: string[]; rows: string[][] } }
@@ -17,6 +21,7 @@ export type Region = {
   id: RegionId; name: string; subtitle: string; climate: string; color: string;
   quote: string; summary: string; tags: string[]; point: [number, number];
   box: [number, number, number, number]; sections: Section[]; sources: string[];
+  aliases?: string[];
 }
 export type SubregionId = 'hardlane' | 'manorveil' | 'lowvale'
 type LocationRecord = {
@@ -24,6 +29,8 @@ type LocationRecord = {
   subtitle?: string; sections?: Section[]; sources?: string[]; related?: string[];
   subregion?: SubregionId; major?: boolean;
   positionStatus?: 'mapped' | 'approximate';
+  mapLabel?: string;
+  aliases?: string[];
 }
 export type Place = LocationRecord & { kind?: 'settlement' }
 export type Subregion = LocationRecord & {
@@ -128,11 +135,12 @@ const baseRegions: Region[] = [
   },
 ]
 
-export const regions: Region[] = baseRegions.map(region => ({ ...region, sections: [...region.sections, ...(regionalLife[region.id] || [])], sources: [...region.sources, ...(regionalLife[region.id] ? [livingWorldSource] : [])] }))
+const regionalAliases: Partial<Record<RegionId, string[]>> = { danstsud: ['Danstud'], honud: ['Honut'], garmirk: ['Garmirik'], murgul: ['İki Murgul Meclisi'] }
+export const regions: Region[] = baseRegions.map(region => ({ ...region, aliases: regionalAliases[region.id], sections: [...region.sections, ...(regionalLife[region.id] || [])], sources: [...region.sources, ...(regionalLife[region.id] ? [livingWorldSource] : [])] }))
 
-// Original pins follow visible settlements. At the author’s request, new tax
-// settlements use explicitly approximate anchors. Existing anchors follow the
-// drawn settlements; the original image remains intact.
+// Base records retain their original anchors. The audited map corrections below
+// replace all confirmed settlement centres; Fehar alone stays approximate.
+// The author's original drawing remains intact.
 const basePlaces: Place[] = [
   { id: 'zarim-khet', name: 'Zarim’khet', region: 'xotar', point: [.155, .129] },
   { id: 'thariz', name: 'Thariz', region: 'xotar', point: [.052, .193] },
@@ -157,22 +165,25 @@ const basePlaces: Place[] = [
 
 export { historyArticle } from './lore/history'
 
-export const places: Place[] = basePlaces.map(place => {
+export const places: Place[] = [...basePlaces, ...newlyMappedPlaces].map(original => {
+  const correction = mapCorrections[original.id]
+  const place = { ...original, ...correction, aliases: [...(original.aliases || []), ...(correction?.mapLabel ? [correction.mapLabel] : [])] }
   const additions = cityLife[place.id] || []
   const furtherReading = place.id === 'valdareth' ? ['danstsud-ekmek-ve-vergi', 'danstsud-makam-ve-itiraz'] : place.id === 'marhalden' ? ['karlan-iscilik-ve-gecit', 'danstsud-ekmek-ve-vergi'] : place.subregion === 'hardlane' ? ['hardlane-bir-kis'] : []
   return { ...place,
     summary: place.summary || additions[0]?.paragraphs[0].split(/(?<=[.!?])\s+/).slice(0,2).join(' '),
     subtitle: place.subtitle || additions[0]?.title,
     sections: [...(place.sections || []), ...additions],
-    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(additions.length ? [livingWorldSource] : [])],
+    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(correction ? [mapAuditSource] : []), ...(additions.length ? [livingWorldSource] : [])],
     related: [...new Set([...(place.related || []), ...(place.region !== 'danstsud' ? [place.region] : []), ...furtherReading])],
   }
 })
 
 export const subregions: Subregion[] = danstsudSubregions
 export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles]
-export const canonicalId = (id: string) => id === 'marahalden' ? 'marhalden' : id
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions]
+const routeAliases: Record<string, string> = { marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', 'serenth-nehri': 'serenith-nehri' }
+export const canonicalId = (id: string) => routeAliases[id] || id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))
 export const subregionById = (id: string) => subregions.find(s => s.id === id)

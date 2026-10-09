@@ -1,9 +1,10 @@
 import type { LoreArticle, RegionId } from "./data";
+import { mappedLandmarks, mappedLandmarkArticles } from './map-landmarks';
 
 export type MapFeature = {
   id: string;
   name: string;
-  kind: "sea" | "lake" | "mountain" | "bay" | "route" | "ridge";
+  kind: "sea" | "lake" | "mountain" | "bay" | "route" | "ridge" | "river" | "landmark";
   region: RegionId;
   point: [number, number];
   box: [number, number, number, number];
@@ -13,6 +14,7 @@ export type MapFeature = {
   paths?: [number, number][][];
   status?: "open" | "dangerous" | "planned";
   stops?: string[];
+  aliases?: string[];
 };
 // The author's spatial descriptions guide these approximate label anchors and
 // schematic routes. They do not replace the original map or survey boundaries.
@@ -61,7 +63,7 @@ export const mapFeatures: MapFeature[] = [
     name: "Kırağı · Son Nefes Denizi",
     kind: "sea",
     region: "danstsud",
-    point: [0.377, 0.896],
+    point: [3450 / 8192, 5060 / 5668],
     box: [0.31, 0.8, 0.18, 0.2],
     article: "kiragi-denizi",
     summary:
@@ -74,8 +76,8 @@ export const mapFeatures: MapFeature[] = [
     name: "Kefen Denizi",
     kind: "sea",
     region: "danstsud",
-    point: [0.977, 0.87],
-    box: [0.87, 0.72, 0.13, 0.28],
+    point: [8170 / 8192, 4150 / 5668],
+    box: [0.87, 0.58, 0.13, 0.32],
     article: "kefen-denizi",
     summary:
       "Doğuya bakan kıyının ayrı don örtüsü. Kopuk buzları kıyı akıntılarıyla başka sulara taşınır.",
@@ -87,7 +89,7 @@ export const mapFeatures: MapFeature[] = [
     name: "Frostmere Gölü",
     kind: "lake",
     region: "danstsud",
-    point: [0.548, 0.862],
+    point: [4380 / 8192, 4850 / 5668],
     box: [0.49, 0.77, 0.16, 0.16],
     article: "frostmere-golu",
     summary:
@@ -146,7 +148,7 @@ export const mapFeatures: MapFeature[] = [
     name: "Brolin Körfezi",
     kind: "bay",
     region: "danstsud",
-    point: [0.571, 0.713],
+    point: [4740 / 8192, 3970 / 5668],
     box: [0.52, 0.67, 0.16, 0.14],
     article: "karlan-daglari",
     summary:
@@ -257,6 +259,7 @@ export const mapFeatures: MapFeature[] = [
       ],
     ],
   },
+  ...mappedLandmarks,
 ];
 export const featureById = (id: string) =>
   mapFeatures.find((feature) => feature.id === id);
@@ -267,6 +270,8 @@ export const featureLabels = {
   bay: "Körfez",
   route: "Ticaret yolu",
   ridge: "Sırt",
+  river: "Nehir",
+  landmark: "Yapı & harabe",
 };
 export const atlasRouteArticles: LoreArticle[] = mapFeatures
   .filter((f) =>
@@ -311,7 +316,7 @@ export const atlasRouteArticles: LoreArticle[] = mapFeatures
     ],
   }));
 
-export const atlasGeographyArticles: LoreArticle[] = [{
+export const atlasGeographyArticles: LoreArticle[] = [...mappedLandmarkArticles, {
   id: 'rilorn-korfezi', name: 'Rilorn Körfezi', kind: 'geography', region: 'danstsud',
   subtitle: 'Mor Donanma’nın korunaklı demirleme yeri', mapLocation: 'rilorn-korfezi',
   summary: 'Valdareth’in deniz gücü Rilorn’un korunaklı sularında bekler. Mor Donanma’nın gemileri ile başkenti besleyen yüklerin deniz tarafı, bu kıyının gündelik hayatını oluşturur.',

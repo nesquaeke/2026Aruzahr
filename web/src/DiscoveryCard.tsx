@@ -16,6 +16,7 @@ import type { MapFeature } from "./map-features";
 import { featureLabels } from "./map-features";
 import { artFor, dossiers, powersFor } from "./presentation";
 import type { Dossier } from "./presentation";
+import { portraitFor } from './media';
 
 export function PowerMeter({
   profile,
@@ -49,7 +50,7 @@ export function PowerMeter({
       ))}
       {!compact && (
         <small className="power-footnote">
-          Krallık içinde göreli karşılaştırma
+          Atlas için göreli karşılaştırma
         </small>
       )}
     </div>
@@ -160,7 +161,7 @@ export default function DiscoveryCard({
                 disabled={!firstPerson.article}
               >
                 <img
-                  src={`/illustrations/${firstPerson.portrait}.webp`}
+                  src={portraitFor(firstPerson.portrait || '')?.src}
                   alt={firstPerson.name}
                 />
                 <span>

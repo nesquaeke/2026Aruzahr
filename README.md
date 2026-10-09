@@ -1,23 +1,34 @@
 # Aruzahr — Valhunar Atlası
 
-Orijinal 8K harita üzerinde interaktif keşif ve genel lore wikisi. Uygulamanın giriş dosyası [`web/index.html`](web/index.html), kaynak kodları [`web/`](web/) dizinindedir.
+Yazarın özgün 8K haritasında gezilen Türkçe atlas, resimli wiki, karakter kartları, galeri ve kitaplık. Giriş dosyası [web/index.html](web/index.html); uygulama [web/](web/) dizinindedir.
 
-Remaster sürümü sinematik giriş, üç rehberli keşif seçkisi, karakter ve bölge filtreleri, daha rahat wiki okuması ve genişletilmiş günlük yaşam lore'u içerir. Haritadaki 44 yerleşimin tamamında okunabilir bölümler vardır; 116 görsel manifestte tanımlıdır. [Yeni yazım ve tasarım notları](lore/danstsud/REMASTER_VE_YASAYAN_DUNYA.md).
+## Haritanın güncel kapsamı
 
-Sonraki karakter ve canlı üretimleri için kullanıcının verdiği resimsel tarz ve lore örnekleri [Görsel ve Anlatı Rehberi](lore/GORSEL_VE_ANLATI_REHBERI.md) içinde kayıtlıdır. Bu tercih [AGENTS.md](AGENTS.md) üzerinden proje çalışmalarına taşınır.
+**96 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi: toplam 138 tıklanabilir nokta.** Eksik 52 yerleşim eklendi; mevcut 43 yerleşimin noktası özgün çizimle karşılaştırılarak düzeltildi. Her yerleşim kendi bilgi kartına ve bölümleri dolu wiki sayfasına açılır.
+
+Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkeyi seçmek görüş alanındaki komşu şehirleri gizlemez. Uzak görünümde çakışan yazılar azalır, noktalar kalır; fareyle veya klavye odağıyla isim açılır. Ticaret yolları ayrı katmandadır ve güncel şehir merkezlerini izleyen şematik güzergâhlardır. Cevher Çizgisi yapılmamış proje olarak gösterilir.
+
+95 yerleşim özgün haritada eşleşir. **Fehar** için ayrı etiket okunamadığından noktası yaklaşık olarak belirtilir; Frethar ayrı bir yerleşimdir. Eski ve alternatif yazımlar aramada aynı kayda ulaşır. Tam envanter, koordinatlar ve eşleştirme notları [harita konum denetiminde](lore/HARITA_KONUM_DENETIMI.md) bulunur.
+
+## Atlasın içinde
+
+- Şehir kartlarında nüfus tahmini, yönetici, geçim kaynakları ve göreli idare/ticaret/ekonomi/savunma göstergeleri.
+- 155 karakter biyografisi; büyük şehirlerin lonca, askerî birlik, donanma ve dinî kurum kadroları. Başkentteki On İki Şövalye ayrı kişilerden oluşur.
+- 234 genel lore/kişi kaydı; konuya göre bölümler, kısa okuma kartları, tam lore, içindekiler ve sakin okuma modu.
+- 365 görsellik galeri: 197 yeni boya dokulu illüstrasyon, özgün yüklemeler ve 52 yeni yerleşimin özgün haritadan alınan kendi kesiti. Görseller wiki içinden büyütülür.
+- Eski, yasak ve kayıp kitaplar için ayrı kitaplık; sekiz kısa kitap, çevrilebilir parşömen yaprakları.
+
+Portrelerin isim plakalı çerçevesi dövüş, büyü ve siyasi nüfuzun toplam etkisine göre işlenir. Yeni çizimlerde görünür fırça dokusu ve resimsel biçimler kullanılır. Üretim tercihleri [Görsel ve Anlatı Rehberinde](lore/GORSEL_VE_ANLATI_REHBERI.md), kapsam [master promptta](lore/URETIM_MASTER_PROMPTU.md), gerçek görsel envanteri [üretim kaydında](lore/GORSEL_URETIM_KAYDI.md) saklanır.
 
 ## Bilgisayarında aç
 
-1. [Node.js LTS](https://nodejs.org/en/download) kur. Sürüm 22.12 veya üzeri olmalı.
-2. GitHub'da **Code → Download ZIP** ile deponun tamamını indir ve ZIP'i bir klasöre çıkar. Harita için yalnızca `index.html` dosyasını indirmek yeterli değildir.
-3. **Windows:** Ana klasördeki `BASLAT.bat` dosyasına çift tıkla.
-4. **macOS / Linux:** Ana klasörde terminal açıp `bash baslat.sh` çalıştır.
+1. [Node.js LTS](https://nodejs.org/en/download) kur; sürüm 22.12 veya üzeri olmalı.
+2. GitHub'da **Code → Download ZIP** ile deponun tamamını indir ve ZIP'i çıkar.
+3. Windows'ta ana klasörde **BASLAT.bat** dosyasını aç. macOS/Linux'ta ana klasörde `bash baslat.sh` çalıştır.
 
-Başlatıcı bağımlılıkları kurar, orijinal haritadan yakınlaştırma katmanlarını oluşturur ve siteyi tarayıcıda açar. İlk açılışta internet gerekir. Test ederken açılan terminali açık tut; kapatmak için **Ctrl+C** kullan.
+Başlatıcı bağımlılıkları kurar, özgün haritanın yakınlaştırma katmanlarını üretir ve siteyi tarayıcıda açar. İlk kurulumda internet gerekir. Kullanırken terminali açık tut; kapatmak için **Ctrl+C** kullan. Tarayıcı otomatik açılmazsa terminalin gösterdiği yerel adresi aç.
 
-Bu React/Vite uygulaması, `index.html` dosyasına çift tıklayarak çalışmaz. Geliştirme sunucusu üzerinden açılır. Tarayıcı otomatik açılmazsa terminalde gösterilen yerel adresi bilgisayarındaki tarayıcıya yaz.
-
-## Terminalden çalıştır
+React/Vite uygulaması `index.html` dosyasına çift tıklayarak çalışmaz. Terminalden başlatmak için:
 
 ```bash
 cd web
@@ -26,30 +37,12 @@ npm run assets
 npm run dev -- --host 127.0.0.1 --open
 ```
 
-Derlemek için `npm run build` çalıştır. Statik yayın çıktısı `web/dist/` olur. Ayrıntılı kurulum ve tarayıcı testleri için [uygulama notlarına](web/README.md) bak.
+Derleme için `npm run build`; statik yayın çıktısı `web/dist/`. Kurulum, veri modülleri ve testler [uygulama notlarında](web/README.md) açıklanır.
 
-Genel wiki sekiz ülke/bölgeyi, haritadaki yerleşimleri ve Danstsud’un üç alt bölgesini içerir. Danstsud sayfaları Eryndorn’un hâlâ tahtta olduğu darbe öncesini anlatır. Görev sırları, DM notları ve Broken Oath web uygulamasına dahil edilmez; ham lore belgelerini barındırma hizmetine yükleme.
+## Dünya ve kaynaklar
 
-Vaeranth Hanedanı, Eryndorn Vaeranth, Elorwynder Hanedanı ve Büyü Ruhsatları için ayrı wiki sayfaları vardır. Bunlar aramada bulunur, kaydedilebilir ve ilgili şehir sayfalarından açılır. Eski Tharion Elorwyn ve Damian Elorwyn adları da aramada desteklenir.
+Honud, Danstsud ve Garmirk kullanıcı tarafından belirlenen yazımlardır. Danstsud, Eryndorn Vaeranth'ın tahtta olduğu darbe öncesini anlatır. Genel lore ile yeni yazar metni kaynak notlarında ayrılır; yeni nüfuslar belgelenmiş dünya kurma tahminleridir. Kimliği açıklanmayan portrelere görev veya güç atanmaz.
 
-Valdareth ve Marhalden ayrıntılı şehir sayfalarıdır. Mahalleler, saray makamları, loncalar, vergi havzaları, Karlan Dağları, Veyralt, sekiz dağ canlısı, Frostmere ve lordluk hukuku için on bir ek wiki kaydı vardır. Tablolar mobilde kendi alanında kaydırılır; arama şehir metinlerini ve tablo içeriklerini de tarar.
+Danstsud'un yeni otorite zincirleri [şehirler ve kadrolar belgesinde](lore/danstsud/SEHIRLER_VE_KADROLAR.md), diğer ülkelerin karakterleri ve canlıları [dünya kadroları belgesinde](lore/DUNYA_KADROLARI_VE_CANLILAR.md) bulunur. Ayrıntılı çalışma belgeleri [lore/danstsud/](lore/danstsud/) dizinindedir.
 
-Hardlane’in beş şehri Frostbay, Kaldmere, Dranthol, Vyssgard ve Ternhaven ayrıntılı yazıldı. İki kraliyet reformu, Vyssgard Kanunları, kültür, üç otlak hayvanı, iki yol/proje ve beş kıyı/deniz için ayrı kayıtlar bulunur. Bryndon’un Kıyı Defteri, eski yeşil Frostbay ihtimalini kâtibin kendi sesiyle araştıran dokuz bölümlük bir kitap olarak okunur. Şehir ve bölge sayfalarının yanında toplam 83 lore/kişi kaydı; haritada 32 özgün, 12 yaklaşık yeni yerleşim pini vardır. Kaldmere özgün haritadan eklendi. Telefonda açılır İçindekiler ile bölümler arasında geçilir.
-
-## Danstsud lore çalışması
-
-Onaylanan kanon, kaynak dökümü, çelişki incelemesi ve yerleşim envanteri [lore/danstsud/](lore/danstsud/) dizinindedir. Bu yazar çalışma belgeleri görev sırları içerir; web uygulaması bunları doğrudan yüklemez. Halka açık Danstsud metinleri [web/src/lore/danstsud.ts](web/src/lore/danstsud.ts) dosyasında ayrı tutulur.
-
-Yeni aile şeması, hanedan adları ve büyü düzeni [hanedanlar ve büyü hukuku belgesinde](lore/danstsud/HANEDANLAR_VE_BUYU_HUKUKU.md) açıklanır. Halka açık hanedan, kişi ve hukuk metinleri [web/src/lore/danstsud-court.ts](web/src/lore/danstsud-court.ts) dosyasındadır; oğulların kimlikleri yazar belgesinde kalır.
-
-[Valdareth, Karlan ve Marhalden tam lore belgesi](lore/danstsud/VALDARETH_KARLAN_MARHALDEN.md), yeni şehir ve doğa yazımını içerir. Bunun kamuya açık wiki verisi [danstsud-expansion.ts](web/src/lore/danstsud-expansion.ts) dosyasındadır.
-
-[Hardlane tam lore belgesi](lore/danstsud/HARDLANE.md), kullanıcı kararlarını, yeni isimleri, tutarlılık kararlarını, açık geliştirme alanlarını ve wiki metinlerini bir araya getirir. [Bryndon’un Kıyı Defteri](lore/danstsud/BRYNDONUN_KIYI_DEFTERI.md) ayrıca okunabilir. Web metinleri `hardlane.ts`, `hardlane-laws.ts`, `hardlane-coasts.ts` ve `bryndon.ts` modüllerindedir; ham yazar belgeleri uygulamaya alınmaz.
-
-## Görselli wiki ve şehir kartları
-
-Şehir wikileri illüstrasyonlu kapak, nüfus ve yönetim kartı, geçim etiketleri, idare/ticaret/ekonomi/savunma göstergeleri ve açılabilir lore bölümleriyle okunur. **Kartlar / Tam lore** arasında geçilebilir. Haritaya dönüş son yakınlığı hatırlar; mobilde bilgi kartı haritanın altında açılır. Ansiklopedide şehir ve portre koleksiyonları, Ashara galerisi ve lore türü filtreleri vardır.
-
-**Denizler & zirveler** ile **Ticaret yolları** ayrı harita katmanlarıdır. Beş deniz, göl, üç zirve, iki körfez ve beş şematik yol haritada seçilebilir. **Cevher Çizgisi yapılmamış bir projedir**; diğer yollardan farklı çizilir. Yeni vergi köylerinin konumları yaklaşık olarak belirtilir.
-
-Nüfus tahminleri, yeni yöneticiler, göreli güç ölçeği ve yaklaşık harita işaretlerinin yazım kaydı [Tasarım ve kartlar](lore/danstsud/TASARIM_VE_KARTLAR.md) belgesindedir. Frostbay ve Dranthol nüfusları kullanıcıdan; diğer kart nüfusları yeni kurgusal tahminlerdir.
+Görev sırları, DM notları ve Broken Oath uygulamaya dahil edilmez. Statik barındırmaya yalnızca `web/dist/` yükle; ham yazar belgeleri uygulamanın dışında kalır.

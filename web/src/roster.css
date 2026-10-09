@@ -1,0 +1,47 @@
+.wiki-article .city-institutions { margin:30px 0 35px; }
+.city-institutions .section-heading,.institution-roster .section-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; margin:0 0 19px; }
+.city-institutions .section-heading h2,.institution-roster .section-heading h2 { margin:7px 0 0; font:500 clamp(31px,3vw,42px)/1.08 var(--serif); color:#e8ddc4; }
+.institution-total,.roster-member-count { color:#9eaf9d; font-size:10px; white-space:nowrap; }
+.roster-member-count { display:flex; align-items:center; gap:7px; }
+.city-institution-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+.city-institution-link { min-width:0; display:flex; flex-direction:column; gap:19px; padding:20px; text-align:left; border:1px solid #a4b09830; border-radius:3px 13px 13px 13px; background:linear-gradient(120deg,#24312f,#192426); transition:transform .25s,border-color .25s,background .25s; }
+.city-institution-link:hover { transform:translateY(-4px); border-color:#c8ab7465; background:linear-gradient(120deg,#2a3630,#202b29); }
+.institution-link-heading { display:flex; align-items:center; gap:11px; }
+.institution-seal { flex-shrink:0; width:39px; height:45px; display:grid; place-items:center; color:#c3ad7d; border:1px solid #c3ad7d40; border-radius:45% 45% 3px 3px; }
+.institution-link-heading > span:nth-child(2) { min-width:0; }
+.institution-link-heading strong { display:block; color:#e2d5b6; font:500 24px/1.1 var(--serif); }
+.institution-link-heading small { display:block; color:#98a792; font-size:9px; margin-top:7px; }
+.institution-link-heading > svg { flex-shrink:0; color:#bfa675; margin-left:auto; }
+.institution-link-bottom { display:flex; align-items:center; justify-content:space-between; gap:10px; border-top:1px solid #a4b09820; padding-top:13px; }
+.institution-link-bottom > span:last-child { color:#c0a876; font-size:9px; }
+.institution-avatar-stack { display:flex; align-items:center; padding-left:0; }
+.institution-avatar-stack > img { width:31px; height:36px; border-radius:15px 15px 4px 4px; border:2px solid #1b2726; object-fit:cover; object-position:center 20%; }
+.institution-avatar-stack > img+img { margin-left:-8px; }
+.institution-avatar-stack > span { display:grid; place-items:center; width:31px; height:31px; margin-left:-4px; border:1px solid #b4a17335; border-radius:50%; background:#1b2726; color:#c0b697; font-size:8px; }
+.wiki-article .institution-roster { margin:32px 0; padding-top:8px; scroll-margin-top:100px; }
+.institution-member-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:21px; align-items:start; }
+.institution-member { min-width:0; margin:0; background:#182326; border:1px solid #a4b09825; border-radius:5px 5px 10px 10px; overflow:hidden; }
+.institution-member-portrait { display:block; width:100%; padding:0; }
+.institution-member-portrait .character-card { width:100%; margin:0; border-radius:0; }
+.institution-member-portrait .character-card-image { aspect-ratio:4/4.7; }
+.institution-member-portrait .character-nameplate { min-height:85px; padding:14px 16px 15px; }
+.institution-member-portrait .character-nameplate > strong { font-size:26px; }
+.institution-member-portrait .character-nameplate > small { font-size:9px; line-height:1.5; }
+.institution-member-portrait .character-power-label { font-size:7px; margin-top:7px; }
+.institution-member-info { padding:17px 20px 18px; }
+.institution-member-info h3 { color:#e5d9bc; font:500 25px/1.1 var(--serif); margin:0 0 8px; }
+.institution-member-info p { color:#b7c4b6; font-size:11px; line-height:1.6; margin:0 0 6px; }
+.institution-member-info small { color:#8a9d92; font-size:9px; line-height:1.5; }
+.institution-member-info > button { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; color:#ceb17d; min-height:40px; padding:10px 0 0; border-top:1px solid #a4b09820; margin-top:13px; font-size:10px; }
+.institution-member-info > button:hover { color:#ebd6ab; }
+.institution-member-seal { min-height:230px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:15px; color:#a58d61; background:#25302b; padding:25px; }
+.institution-member-seal strong { color:#d2c39e; font:500 28px/1.1 var(--serif); text-align:center; }
+.roster-expand { display:flex; align-items:center; gap:11px; min-height:44px; margin:23px 0 0; padding:12px 16px; border:1px solid #bfa46e40; border-radius:28px; color:#d6bd8c; font-size:11px; }
+.roster-expand[aria-expanded=true] > svg { transform:rotate(180deg); }
+.roster-expand:hover { background:#bfa46e0d; border-color:#bfa46e70; }
+.wiki-article.quiet-reading .city-institutions,.wiki-article.quiet-reading .institution-roster { display:none; }
+@media (max-width:1150px) { .city-institution-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.institution-member-grid { gap:16px; }.institution-member-info { padding:16px; }.institution-member-portrait .character-nameplate > strong { font-size:24px; } }
+@media (max-width:800px) { .institution-member-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.institution-link-heading strong { font-size:25px; } }
+@media (max-width:550px) { .city-institutions .section-heading,.institution-roster .section-heading { align-items:start; gap:12px; }.city-institutions .section-heading h2,.institution-roster .section-heading h2 { font-size:34px; }.institution-total,.roster-member-count { font-size:8px; padding-top:6px; }.city-institution-grid { grid-template-columns:minmax(0,1fr); gap:12px; }.city-institution-link { padding:20px; }.institution-member-grid { gap:13px; }.institution-member-portrait .character-card-image { aspect-ratio:3/4; }.institution-member-portrait .character-nameplate { min-height:85px; padding:12px 9px 13px; }.institution-member-portrait .character-nameplate > strong { font-size:23px; }.institution-member-portrait .character-nameplate > small { font-size:7px; }.institution-member-info { padding:14px 12px; }.institution-member-info h3 { font-size:24px; }.institution-member-info p { font-size:10px; }.institution-member-info small { font-size:8px; }.institution-member-info > button { font-size:9px; min-height:42px; }.wiki-article .city-institutions { margin-bottom:30px; } }
+@media (max-width:360px) { .institution-member-grid { grid-template-columns:minmax(0,1fr); gap:18px; }.institution-member-portrait .character-card-image { aspect-ratio:4/4.7; }.institution-member-portrait .character-nameplate > strong { font-size:29px; }.institution-member-portrait .character-nameplate > small { font-size:9px; }.institution-member-info { padding:17px 20px; }.institution-member-info h3 { font-size:29px; }.institution-member-info p { font-size:12px; }.institution-member-info small { font-size:10px; }.institution-member-info > button { font-size:11px; }.city-institutions .section-heading h2,.institution-roster .section-heading h2 { font-size:31px; }.institution-link-heading strong { font-size:24px; } }
+@media (prefers-reduced-motion:reduce) { .city-institution-link { transition:none; } }

@@ -1,5 +1,7 @@
 // Editorial frame tiers, combining public martial, magical and political
 // influence as requested by the author. These are not combat statistics.
+import { newWorldCharacters } from './lore/world-roster'
+import { newDanstsudCharacters } from './lore/danstsud-roster'
 export type PowerTier = 'ordinary' | 'distinguished' | 'powerful' | 'supreme'
 export const powerTiers: Record<PowerTier, { label: string; ornament: number; description: string }> = {
   ordinary: { label: 'Olağan', ornament: 0, description: 'Gündelik hayattaki insanlar; sade bir çerçeve.' },
@@ -13,5 +15,5 @@ const groups: Record<PowerTier, string[]> = {
   distinguished: ['ilyenne', 'mirelda', 'aveline', 'rook', 'garran-veyl', 'mera-sorn', 'odran-vehl', 'nera-veld', 'bryndon-kiyi-defteri', 'kaelen', 'ellyn', 'ghorin', 'zylara', 'mrog', 'gil', 'jeremiah', 'volomiyr', 'rickon', 'varric', 'corvan', 'rina', 'grathor', 'varoxh', 'sera-neld', 'doran-kest', 'lethan-orve'],
   ordinary: ['seraphinia', 'tarb', 'yasli-kaelen'],
 }
-export const characterPower: Record<string, PowerTier> = Object.fromEntries(Object.entries(groups).flatMap(([tier, ids]) => ids.map(id => [id, tier as PowerTier])))
+export const characterPower: Record<string, PowerTier> = Object.fromEntries([...Object.entries(groups).flatMap(([tier, ids]) => ids.map(id => [id, tier as PowerTier])), ...[...newDanstsudCharacters, ...newWorldCharacters].filter(c => c.power).map(c => [c.id, c.power!])])
 export const powerFor = (id?: string) => id ? characterPower[id] : undefined

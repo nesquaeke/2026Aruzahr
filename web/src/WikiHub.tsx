@@ -156,7 +156,7 @@ export default function WikiHub({
           </div>
           {!searching && <label className="city-region-filter"><span>Hangi toprağın şehirleri?</span><select aria-label="Yerleşim koleksiyonunun bölgesi" value={cityRegion} onChange={e=>{setCityRegion(e.target.value);setAllCities(false)}}><option value="all">Bütün Valhunar</option>{regions.map(region=><option key={region.id} value={region.id}>{region.name}</option>)}</select><small>{cities.length} yerleşim</small></label>}
           <div className="city-collection">
-            {(searching || allCities ? cities : cities.filter(c => c.positionStatus !== 'approximate')).map((city) => {
+            {(searching || allCities ? cities : cities.filter(c => c.positionStatus !== 'approximate').slice(0, 12)).map((city) => {
               const profile = dossiers[city.id];
               return (
                 <a
@@ -191,7 +191,7 @@ export default function WikiHub({
             })}
           </div>
           {!cities.length && <div className="collection-empty"><p>Bu bölge için adlandırılmış bir yerleşim kaydı bulunmuyor.</p><button onClick={()=>navigate(`/wiki/${cityRegion}`)}>Bölgenin hikâyesini keşfet<ArrowRight size={15} /></button></div>}
-          {!searching && cities.some(c=>c.positionStatus === 'approximate') && <button className="gallery-more" aria-expanded={allCities} onClick={() => setAllCities(!allCities)}>{allCities ? 'Vergi köylerini gizle' : 'Vergi köylerini de keşfet (12)'}<ArrowRight size={15} /></button>}
+          {!searching && (cities.length > 12 || cities.some(c=>c.positionStatus === 'approximate')) && <button className="gallery-more" aria-expanded={allCities} onClick={() => setAllCities(!allCities)}>{allCities ? 'Koleksiyonu daralt' : `Bütün yerleşimleri keşfet (${cities.length})`}<ArrowRight size={15} /></button>}
         </section>
       )}
       {(shownCharacters.length > 0 || personQuery || personCity !== 'all') && (

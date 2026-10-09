@@ -57,7 +57,7 @@ test("named seas and mountains have real map targets and can be hidden as a laye
   await expect(page.getByTestId("marker-ak-cam-denizi")).toBeVisible();
   await expect(page.getByTestId("marker-veyrakar")).toBeVisible();
   await page
-    .getByRole("button", { name: "Denizler & zirveler", exact: true })
+    .getByRole("button", { name: "Coğrafya", exact: true })
     .click();
   await expect(page.getByTestId("marker-ak-cam-denizi")).toBeHidden();
   await expect(page.getByTestId("marker-veyrakar")).toBeHidden();
@@ -132,18 +132,18 @@ test("wiki return keeps the chosen map camera and home fits after the card close
   await expect(page.getByTestId("zoom-level")).toHaveText("100%");
 });
 
-test("new tax settlement pin discloses its approximate position and links to its tax authority", async ({
+test("tax settlement distinguishes an unresolved anchor from a mapped one and links to its tax authority", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/#/atlas/fehar");
+  await expect(page.getByTestId("marker-fehar")).toBeVisible();
+  await expect(page.getByTestId("detail-panel")).toContainText("konum yaklaşık");
   await page
     .getByRole("textbox", { name: "Atlas ve wiki içinde ara" })
     .fill("Korhenden");
   await page.getByTestId("location-result-korhenden").click();
   await expect(page.getByTestId("marker-korhenden")).toBeVisible();
-  await expect(page.getByTestId("detail-panel")).toContainText(
-    "konum yaklaşık",
-  );
+  await expect(page.getByTestId("detail-panel")).not.toContainText("konum yaklaşık");
   await page.getByRole("button", { name: "Wiki sayfasını aç" }).click();
   await expect(page.locator(".article-title h1")).toHaveText("Korhenden");
   await page

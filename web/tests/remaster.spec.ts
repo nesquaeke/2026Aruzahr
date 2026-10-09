@@ -49,7 +49,7 @@ test('other kingdoms have browsable city collections and their own readable chap
   await expect(page.locator('.city-collection a')).toHaveCount(0)
   await expect(page.locator('.collection-empty')).toContainText('adlandırılmış bir yerleşim')
   await page.getByRole('combobox',{name:'Yerleşim koleksiyonunun bölgesi'}).selectOption('xotar')
-  await expect(page.locator('.city-collection a')).toHaveCount(4)
+  await expect(page.locator('.city-collection a')).toHaveCount(5)
   await page.locator('.city-collection a').filter({hasText:'Thariz'}).click()
   await expect(page.getByRole('heading',{name:'Thariz',exact:true})).toBeVisible()
   await expect(page.getByRole('heading',{name:'Günün serin saatleri'})).toBeVisible()
@@ -85,7 +85,7 @@ test('guided discovery and new reading cards fit a phone viewport', async ({page
 })
 
 test('all map settlements contain actual lore and the new civic records resolve existing locations', () => {
-  expect(places).toHaveLength(44)
+  expect(places).toHaveLength(96)
   for(const place of places) {
     expect(place.sections?.length,place.id).toBeGreaterThanOrEqual(2)
     expect(place.sections?.every(section=>section.paragraphs.some(p=>p.trim().length>30)),place.id).toBe(true)

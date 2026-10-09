@@ -49,6 +49,9 @@ test('city search, bookmarks persist and zoom controls change the view', async (
 
 test('city layer is interactive and permanent wiki links survive reload', async ({ page }) => {
   await page.goto('/')
+  await expect(page.getByRole('button', { name: 'Yerleşimler', exact: true })).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.getByTestId('marker-valdareth')).toBeVisible()
+  await page.getByRole('button', { name: 'Yerleşimler', exact: true }).click()
   await expect(page.getByTestId('marker-valdareth')).toBeHidden()
   await page.getByRole('button', { name: 'Yerleşimler', exact: true }).click()
   await expect(page.getByTestId('marker-valdareth')).toBeVisible()
@@ -230,14 +233,15 @@ for (let start = 0; start < loreArticles.length; start += 10) {
   })
 }
 
-test('expanded geography opens on the atlas without inventing a city pin', async ({ page }) => {
+test('the Karlan range opens on its own geography pin and retains its source lore', async ({ page }) => {
   await page.goto('/#/wiki/marhalden')
   await page.getByTestId('related-locations').getByRole('button', { name: 'Karlan Dağları Coğrafya', exact: true }).click()
   await expect(page.locator('.article-content')).toContainText('Aldarataç')
   await expect(page.locator('.article-content')).toContainText('13.000 m')
   await page.getByRole('button', { name: 'İlgili yeri haritada göster', exact: true }).click()
-  await expect(page).toHaveURL(/#\/atlas\/marhalden$/)
-  await expect(page.getByTestId('marker-karlan-daglari')).toHaveCount(0)
+  await expect(page).toHaveURL(/#\/atlas\/karlan-daglari$/)
+  await expect(page.getByTestId('marker-karlan-daglari')).toBeVisible()
+  await expect(page.getByTestId('marker-karlan-daglari')).toHaveClass(/ridge-pin/)
 })
 
 test('mobile climate and tax tables stay within the page and fauna links open complete profiles', async ({ page }) => {

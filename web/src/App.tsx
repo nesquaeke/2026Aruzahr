@@ -1,8 +1,8 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
-import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Keyboard, Layers, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Waves, X } from 'lucide-react'
+import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Waves, X } from 'lucide-react'
 import type { AtlasHandle } from './Atlas'
-import { articleById, canonicalId, historyArticle, locationById, loreArticles, loreKindLabels, mapLocations, normalize, places, regionById, regions, subregionById, subregions } from './data'
+import { articleById, canonicalId, historyArticle, locationById, loreArticles, loreKindLabels, mapLocations, normalize, places, regionById, regions, subregionById } from './data'
 import { featureById, mapFeatures, featureLabels } from './map-features'
 import DiscoveryCard from './DiscoveryCard'
 import WikiArticle from './WikiArticle'
@@ -12,6 +12,8 @@ import type { JourneyId } from './Journeys'
 
 const icons = { xotar: Flame, murgul: Trees, honud: Snowflake, danstsud: Castle, garmirk: Mountain, ariki: Waves, gurbin: Compass, lakbar: Flame }
 const Atlas = lazy(() => import('./Atlas'))
+const GalleryHub = lazy(() => import('./GalleryHub'))
+const Bookshelf = lazy(() => import('./Bookshelf'))
 const readRoute = () => window.location.hash.slice(1) || '/atlas'
 const decodeId = (value: string) => { try { return canonicalId(decodeURIComponent(value)) } catch { return canonicalId(value) } }
 const allIds = new Set([...regions, ...mapLocations, ...loreArticles, ...mapFeatures, historyArticle].map(entry => entry.id))
@@ -30,7 +32,7 @@ export default function App() {
   const [saved, setSaved] = useState(readSaved)
   const [savedOnly, setSavedOnly] = useState(false)
   const [mobileNav, setMobileNav] = useState(false)
-  const [cities, setCities] = useState(false)
+  const [cities, setCities] = useState(true)
   const [effects, setEffects] = useState(true)
   const [geography, setGeography] = useState(true)
   const [routes, setRoutes] = useState(false)
@@ -38,6 +40,8 @@ export default function App() {
   const [zoom, setZoom] = useState(100)
   const [toast, setToast] = useState('')
   const [journey, setJourney] = useState<JourneyId | null>(null)
+  const sidebar = useRef<HTMLElement>(null)
+  const menuTrigger = useRef<HTMLButtonElement>(null)
   const atlas = useRef<AtlasHandle>(null)
   const search = useRef<HTMLInputElement>(null)
   const help = useRef<HTMLDialogElement>(null)
@@ -45,11 +49,15 @@ export default function App() {
   const reducedMotion = useReducedMotion()
   const selected = route.startsWith('/atlas/') ? decodeId(route.slice('/atlas/'.length)) : null
   const wiki = route.startsWith('/wiki')
+  const gallery = route.startsWith('/gallery')
+  const books = route.startsWith('/books')
+  const isAtlas = route.startsWith('/atlas')
   const articleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
   const selectedRegion = regionById(selected || '')
   const selectedPlace = locationById(selected || '')
   const selectedFeature = featureById(selected || '')
   const detailRegion = selectedRegion || regionById(selectedPlace?.region || selectedFeature?.region || '')
+  const browsingRegion = detailRegion || regionById(articleId || '') || regionById(locationById(articleId || '')?.region || articleById(articleId || '')?.region || '')
   const selectedName = selectedRegion?.name || selectedPlace?.name || selectedFeature?.name
   const needle = normalize(query.trim())
 
@@ -74,28 +82,60 @@ export default function App() {
   useEffect(() => { try { localStorage.setItem('aruzahr-saved', JSON.stringify(saved)) } catch { /* Private browser storage is optional. */ } }, [saved])
   useEffect(() => { if (!toast) return; const timeout = window.setTimeout(() => setToast(''), 3500); return () => window.clearTimeout(timeout) }, [toast])
   useEffect(() => {
+    const drawer = sidebar.current
+    if (!drawer || !mobileNav || !window.matchMedia('(max-width: 980px)').matches) return
+    const previousFocus = document.activeElement as HTMLElement | null
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const moveFocus = () => { if (!drawer.contains(document.activeElement)) search.current?.focus() }
+    const focusTimer = window.setTimeout(moveFocus, reducedMotion ? 0 : 320)
+    drawer.addEventListener('transitionend', moveFocus, { once: true })
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return
+      const items = [...drawer.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled])')].filter(item => item.getClientRects().length > 0)
+      const first = items[0], last = items.at(-1)
+      if (!drawer.contains(document.activeElement)) { event.preventDefault(); (event.shiftKey ? last : first)?.focus() }
+      else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+    }
+    document.addEventListener('keydown', trapFocus)
+    return () => { clearTimeout(focusTimer); drawer.removeEventListener('transitionend', moveFocus); document.body.style.overflow = previousOverflow; document.removeEventListener('keydown', trapFocus); if (drawer.contains(document.activeElement)) (previousFocus || menuTrigger.current)?.focus() }
+  }, [mobileNav, reducedMotion])
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 980px)')
+    const releaseDrawer = () => { if (!media.matches) setMobileNav(false) }
+    media.addEventListener('change', releaseDrawer)
+    return () => media.removeEventListener('change', releaseDrawer)
+  }, [])
+  useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement
-      if (event.key === 'Escape') { if (help.current?.open) return; setMobileNav(false); setFocusMode(false); if (selected) closeDetail(); return }
+      if (event.key === 'Escape') {
+        if (help.current?.open) return
+        if (mobileNav) { setMobileNav(false); return }
+        if (focusMode) { setFocusMode(false); return }
+        if (selected) closeDetail()
+        return
+      }
       if (target.matches('input, textarea, [contenteditable]')) return
       if (event.key === '/' || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k')) { event.preventDefault(); setMobileNav(true); search.current?.focus() }
-      if (!wiki && (event.key === '+' || event.key === '=')) atlas.current?.zoom(1.4)
-      if (!wiki && event.key === '-') atlas.current?.zoom(1 / 1.4)
+      if (isAtlas && (event.key === '+' || event.key === '=')) atlas.current?.zoom(1.4)
+      if (isAtlas && event.key === '-') atlas.current?.zoom(1 / 1.4)
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [selected, wiki])
+  }, [selected, isAtlas, mobileNav, focusMode])
 
-  const filteredRegions = useMemo(() => regions.filter(region => (!savedOnly || saved.includes(region.id)) && (!needle || normalize([region.name, region.summary, ...region.tags].join(' ')).includes(needle))), [savedOnly, saved, needle])
+  const filteredRegions = useMemo(() => regions.filter(region => (!savedOnly || saved.includes(region.id)) && (!needle || normalize([region.name, ...(region.aliases || []), region.summary, ...region.tags].join(' ')).includes(needle))), [savedOnly, saved, needle])
   const filteredPlaces = useMemo(() => mapLocations.filter(place => (!savedOnly || saved.includes(place.id)) && (!needle || normalize([
-    place.name, place.summary, regionById(place.region)?.name, subregionById(place.subregion || '')?.name,
+    place.name, place.mapLabel, ...(place.aliases || []), place.summary, regionById(place.region)?.name, subregionById(place.subregion || '')?.name,
     ...(place.sections || []).flatMap(section => [section.title, ...section.paragraphs, ...(section.table?.rows.flat() || [])]),
   ].join(' ')).includes(needle))), [savedOnly, saved, needle])
   const filteredLore = useMemo(() => loreArticles.filter(article => (!savedOnly || saved.includes(article.id)) && (!needle || normalize([
     article.name, article.summary, regionById(article.region)?.name, ...(article.aliases || []),
     ...article.sections.flatMap(section => [section.title, ...section.paragraphs, ...(section.table?.rows.flat() || [])]),
   ].join(' ')).includes(needle))), [savedOnly, saved, needle])
-  const filteredFeatures = useMemo(() => mapFeatures.filter(feature => (!savedOnly || saved.includes(feature.id)) && (!needle || normalize([feature.name, feature.summary, feature.fact].join(' ')).includes(needle))), [savedOnly, saved, needle])
+  const filteredFeatures = useMemo(() => mapFeatures.filter(feature => (!savedOnly || saved.includes(feature.id)) && (!needle || normalize([feature.name, ...(feature.aliases || []), feature.summary, feature.fact].join(' ')).includes(needle))), [savedOnly, saved, needle])
   const historyResult = (Boolean(query) || savedOnly) && (!savedOnly || saved.includes(historyArticle.id)) && (!needle || normalize(historyArticle.name).includes(needle))
 
   async function share(id: string) {
@@ -105,43 +145,51 @@ export default function App() {
   }
 
   const isHistory = articleId === historyArticle.id
+  const navigation = [
+    { href: '/atlas', label: 'Atlas', Icon: Map, active: isAtlas },
+    { href: '/wiki', label: 'Ansiklopedi', Icon: BookOpen, active: wiki && !isHistory },
+    { href: '/gallery', label: 'Galeri', Icon: ImageIcon, active: gallery },
+    { href: '/books', label: 'Kitaplık', Icon: Library, active: books },
+    { href: '/wiki/buyuk-kirilma', label: 'Büyük Kırılma', Icon: Globe2, active: isHistory },
+  ]
+  const activeView = navigation.find(item => item.active)?.label || 'Atlas'
 
   return <div className="app-shell">
     <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus() }}>İçeriğe geç</a>
     <header className="topbar">
-      <button className="mobile-menu icon-button" aria-label="Bölge menüsünü aç" aria-expanded={mobileNav} onClick={() => setMobileNav(!mobileNav)}><Menu size={21} /></button>
-      <a className="brand" href="#/atlas" aria-label="Aruzahr ana atlas"><span className="brand-emblem"><Compass size={30} strokeWidth={1} /></span><span>ARUZAHR<small>THE WORLD WITHIN</small></span></a>
+      <button ref={menuTrigger} className="mobile-menu icon-button" aria-label="Bölge menüsünü aç" aria-controls="atlas-sidebar" aria-expanded={mobileNav} onClick={() => setMobileNav(!mobileNav)}><Menu size={21} /></button>
+      <a className="brand" href="#/atlas" aria-label="Aruzahr ana atlas" onClick={() => navigate('/atlas')}><span className="brand-emblem"><Compass size={30} strokeWidth={1} /></span><span>ARUZAHR<small>THE WORLD WITHIN</small></span></a>
       <nav className="primary-nav" aria-label="Ana gezinme">
-        <a href="#/atlas" className={!wiki ? 'active' : ''}><Map size={15} /> Atlas</a>
-        <a href="#/wiki" className={wiki && !isHistory ? 'active' : ''}><BookOpen size={15} /> Ansiklopedi</a>
-        <a href="#/wiki/buyuk-kirilma" className={isHistory ? 'active' : ''}>Büyük Kırılma</a>
+        {navigation.map(({ href, label, Icon, active }) => <a key={href} href={`#${href}`} onClick={() => navigate(href)} className={active ? 'active' : ''} aria-current={active ? 'page' : undefined}><Icon size={15} /><span>{label}</span></a>)}
       </nav>
+      <span className="topbar-location">{activeView}</span>
       <div className="topbar-right"><span className="world-label"><i /> VALHUNAR KITASI</span><span className="top-divider" /><button className={`icon-button ${savedOnly ? 'toggled' : ''}`} aria-label="Kaydedilen yerleri göster" aria-pressed={savedOnly} onClick={() => { setSavedOnly(!savedOnly); setQuery(''); setMobileNav(true) }}><Bookmark size={18} />{saved.length > 0 && <b className="saved-count">{saved.length}</b>}</button><button className="icon-button help-button" aria-label="Kullanım rehberi" onClick={() => help.current?.showModal()}><Keyboard size={19} /></button></div>
     </header>
 
     {mobileNav && <button className="nav-backdrop" aria-label="Bölge menüsünü kapat" onClick={() => setMobileNav(false)} />}
-    <aside className={`sidebar ${mobileNav ? 'mobile-open' : ''}`} aria-label="Atlas dizini">
-      <div className="sidebar-intro"><span className="eyebrow">KEŞİF DEFTERİ</span><h2>Valhunar</h2><p>Sekiz toprak. Binlerce hikâye.</p></div>
+    <aside ref={sidebar} id="atlas-sidebar" className={`sidebar ${mobileNav ? 'mobile-open' : ''} ${query || savedOnly ? 'sidebar-search-mode' : ''}`} aria-label="Atlas dizini">
+      <div className="sidebar-intro"><div><span className="eyebrow">KEŞİF DEFTERİ</span><h2>Valhunar</h2></div><button className="sidebar-close icon-button" aria-label="Gezinme menüsünü kapat" onClick={() => setMobileNav(false)}><X size={20} /></button></div>
       <label className="search-field"><Search size={16} /><input ref={search} value={query} onChange={event => setQuery(event.target.value)} placeholder="Bir yer, bir hikâye ara…" aria-label="Atlas ve wiki içinde ara" /><kbd>/</kbd></label>
       {query && <button className="clear-search" onClick={() => setQuery('')}><X size={12} /> Aramayı temizle</button>}
+      {!query && !savedOnly && <nav className="sidebar-navigation" aria-label="Keşif alanları">{navigation.map(({ href, label, Icon, active }) => <a key={href} href={`#${href}`} onClick={() => navigate(href)} className={active ? 'active' : ''} aria-current={active ? 'page' : undefined}><Icon size={17} /><span>{label}</span>{active && <span className="nav-active-mark" aria-hidden="true" />}</a>)}</nav>}
       <div className="sidebar-section-heading"><span>{savedOnly ? 'KAYDEDİLEN YERLER' : query ? 'ARAMA SONUÇLARI' : 'VALHUNAR BÖLGELERİ'}</span><span>{query || savedOnly ? filteredRegions.length + filteredPlaces.length + filteredLore.length + (wiki ? filteredFeatures.length : filteredFeatures.filter(f => !articleById(f.id)).length) + Number(historyResult) : filteredRegions.length}</span></div>
       <div className="region-list">
-        {filteredRegions.map(region => { const Icon = icons[region.id]; return <button key={region.id} className={`region-link ${detailRegion?.id === region.id ? 'active' : ''}`} onClick={() => wiki ? navigate(`/wiki/${region.id}`) : select(region.id)} style={{ '--region-color': region.color } as CSSProperties}><span className="region-icon"><Icon size={18} strokeWidth={1.5} /></span><span><strong>{region.name}</strong><small>{region.climate}</small></span><ChevronRight size={14} /></button> })}
+        {filteredRegions.map(region => { const Icon = icons[region.id]; return <button key={region.id} className={`region-link ${browsingRegion?.id === region.id ? 'active' : ''}`} aria-current={browsingRegion?.id === region.id ? 'location' : undefined} onClick={() => wiki ? navigate(`/wiki/${region.id}`) : select(region.id)} style={{ '--region-color': region.color } as CSSProperties}><span className="region-icon"><Icon size={18} strokeWidth={1.5} /></span><span><strong>{region.name}</strong><small>{region.climate}</small></span><ChevronRight size={14} /></button> })}
         {(query || savedOnly) && filteredPlaces.map(place => <button className="place-search-result" data-testid={`location-result-${place.id}`} key={place.id} onClick={() => wiki ? navigate(`/wiki/${place.id}`) : select(place.id)}><MapPin size={14} /><span>{place.name}<small>{regionById(place.region)?.name}{place.kind === 'subregion' ? ' · Bölge' : ''}</small></span><ChevronRight size={13} /></button>)}
         {(query || savedOnly) && filteredFeatures.map(feature => <button className="place-search-result feature-search-result" data-testid={`feature-result-${feature.id}`} key={`map-${feature.id}`} onClick={() => select(feature.id)}><Waves size={14} /><span>{feature.name}<small>{featureLabels[feature.kind]} · Haritada bul</small></span><ChevronRight size={13} /></button>)}
         {(query || savedOnly) && filteredLore.filter(article => wiki || !featureById(article.id)).map(article => <button className="place-search-result lore-search-result" key={article.id} onClick={() => navigate(`/wiki/${article.id}`)}><BookOpen size={14} /><span>{article.name}<small>{regionById(article.region)?.name} · {loreKindLabels[article.kind]}</small></span><ChevronRight size={13} /></button>)}
         {historyResult && <button className="place-search-result" onClick={() => navigate('/wiki/buyuk-kirilma')}><BookOpen size={14} /><span>Büyük Kırılma<small>Tarih & efsaneler</small></span><ChevronRight size={13} /></button>}
         {(query || savedOnly) && !filteredRegions.length && !filteredPlaces.length && !filteredLore.length && !filteredFeatures.length && !historyResult && <div className="empty-search"><Compass size={26} /><p>{savedOnly ? 'Henüz bir yer kaydetmedin.' : 'Bu aramada bir kayıt bulunamadı.'}</p><small>{savedOnly ? 'Bir bölgedeki yer imi simgesine dokun.' : 'Bir şehir veya bölge adı dene.'}</small></div>}
       </div>
-      <div className="sidebar-bottom"><button className="history-card" onClick={() => navigate('/wiki/buyuk-kirilma')}><span className="history-symbol">✧</span><span className="eyebrow">DÜNYANIN HAFIZASI</span><strong>Büyük Kırılma</strong><p>Her efsane, aynı yaradan doğar.</p><span className="text-link">Hikâyeyi keşfet <ArrowRight size={14} /></span></button><div className="sidebar-footer"><span className="small-diamond">◆</span><span>Bir haritadan daha fazlası.</span></div></div>
+      <div className="sidebar-bottom"><div className="sidebar-world-note"><Compass size={23} strokeWidth={1} /><span>Yaşayan bir dünya<small>{places.length} yerleşim · {loreArticles.length} wiki kaydı</small></span></div><div className="sidebar-footer"><span className="small-diamond">◆</span><span>Bir haritadan daha fazlası.</span></div></div>
     </aside>
 
-    <main id="main-content" className={`main-content ${!wiki ? 'atlas-main' : ''}`} tabIndex={-1}>
-      {!wiki ? <>
-        <div className="page-heading atlas-arrival"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>YAŞAYAN ATLAS</span></div><h1>Valhunar’a <em>adım at.</em></h1><p>Her yol bir hikâyeye açılır.</p></div><div className="atlas-stats"><div><Globe2 size={19} /><strong>8</strong><span>BÖLGE</span></div><span className="stat-separator" /><div><MapPin size={19} /><strong>{places.length}</strong><span>YERLEŞİM</span></div></div></div>
+    <main id="main-content" className={`main-content ${isAtlas ? 'atlas-main' : gallery ? 'gallery-main' : books ? 'books-main' : ''}`} tabIndex={-1}>
+      {gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} /></Suspense> : !wiki ? <>
+        <div className="page-heading atlas-arrival"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>YAŞAYAN ATLAS</span></div><h1>Bir dünya. <em>Binlerce hikâye.</em></h1></div><div className="atlas-stats"><div><Globe2 size={19} /><strong>8</strong><span>BÖLGE</span></div><span className="stat-separator" /><div><MapPin size={19} /><strong>{places.length}</strong><span>YERLEŞİM</span></div></div></div>
         <div className="atlas-presets" aria-label="Hızlı keşif"><span>KEŞFET</span><button onClick={() => { setQuery(''); setRoutes(false); select('hardlane') }}><Snowflake size={15} />Hardlane</button><button onClick={() => { setQuery(''); setRoutes(false); select('valdareth') }}><Crown size={15} />Başkent</button><button onClick={() => { setQuery(''); setRoutes(true); select('kemige-basan-yol') }}><Map size={15} />Yolları keşfet</button><button onClick={() => { setQuery(''); setRoutes(false); resetMap() }}><Globe2 size={15} />Bütün dünya</button></div>
         <section className={`map-shell ${focusMode ? 'focus-mode' : ''}`} aria-label="İnteraktif atlas">
-          <div className="map-toolbar"><span className="map-toolbar-title"><Compass size={18} /><strong>VALHUNAR</strong><span className="map-version">KEŞİF ATLASI</span></span><div className="map-toolbar-actions"><button className={cities ? 'toggled' : ''} aria-label="Yerleşimler" aria-pressed={cities} onClick={() => setCities(!cities)}><Layers size={15} /><span>Yerleşimler</span></button><button className={geography ? 'toggled' : ''} aria-label="Denizler & zirveler" aria-pressed={geography} onClick={() => setGeography(!geography)}><Waves size={15} /><span>Denizler & zirveler</span></button><button className={routes ? 'toggled' : ''} aria-label="Ticaret yolları" aria-pressed={routes} onClick={() => setRoutes(!routes)}><Map size={15} /><span>Ticaret yolları</span></button><button className={effects && !reducedMotion ? 'toggled' : ''} aria-pressed={effects && !reducedMotion} aria-label="Atmosfer efektleri" disabled={reducedMotion} onClick={() => setEffects(!effects)}><Sparkles size={15} /><span>Atmosfer</span></button><span className="toolbar-divider" /><button aria-label={focusMode ? 'Odak modundan çık' : 'Odak moduna geç'} aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? <Minimize2 size={17} /> : <Maximize2 size={17} />}</button></div></div>
+          <div className="map-toolbar"><span className="map-toolbar-title"><Compass size={18} /><strong>VALHUNAR</strong><span className="map-version">KEŞİF ATLASI</span></span><div className="map-toolbar-actions"><button className={cities ? 'toggled' : ''} aria-label="Yerleşimler" title={cities ? "Yerleşimleri gizle" : "Yerleşimleri göster"} aria-pressed={cities} onClick={() => setCities(!cities)}><Layers size={15} /><span>Yerleşimler</span></button><button className={geography ? 'toggled' : ''} aria-label="Coğrafya" title={geography ? "Coğrafya işaretlerini gizle" : "Deniz, nehir, dağ ve yapı noktalarını göster"} aria-pressed={geography} onClick={() => setGeography(!geography)}><Waves size={15} /><span>Coğrafya</span></button><button className={routes ? 'toggled' : ''} aria-label="Ticaret yolları" title={routes ? "Ticaret yollarını gizle" : "Bir ticaret hattı seç"} aria-pressed={routes} onClick={() => setRoutes(!routes)}><Map size={15} /><span>Ticaret yolları</span></button><button className={effects && !reducedMotion ? 'toggled' : ''} aria-pressed={effects && !reducedMotion} aria-label="Atmosfer efektleri" title={reducedMotion ? "Hareketi azalt tercihi etkin" : "Bölgenin atmosferini aç veya kapat"} disabled={reducedMotion} onClick={() => setEffects(!effects)}><Sparkles size={15} /><span>Atmosfer</span></button><span className="toolbar-divider" /><button aria-label={focusMode ? 'Odak modundan çık' : 'Odak moduna geç'} title={focusMode ? "Atlas görünümüne dön" : "Haritayı genişlet"} aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? <Minimize2 size={17} /> : <Maximize2 size={17} />}</button></div></div>
           {routes && <nav className="route-picker" aria-label="Ticaret rotası seç"><span>Bir hat seç</span>{mapFeatures.filter(f => f.kind === 'route').map(f => <button key={f.id} aria-pressed={selected === f.id} onClick={() => { setQuery(''); select(f.id) }}><i className={f.status === 'planned' ? 'planned' : f.status === 'dangerous' ? 'dangerous' : ''} />{f.name}{f.status === 'planned' && <small>Yapılmadı</small>}</button>)}</nav>}
           {journey && <JourneyNavigator id={journey} selected={selected} onSelect={id => { setQuery(''); select(id) }} onClose={() => setJourney(null)} />}
           <div className={`map-layout ${detailRegion && selectedName ? 'has-detail' : ''}`}><div className="map-stage">

@@ -117,7 +117,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         if (feature || ('positionStatus' in entry && entry.positionStatus === 'approximate')) button.title = `${entry.name} · Yaklaşık konum${feature?.kind === 'route' ? ' · Şematik güzergâh' : ''}`
         const symbol = document.createElement('span')
         symbol.className = 'pin-symbol'
-        symbol.textContent = feature ? ['mountain', 'ridge'].includes(feature.kind) ? '▲' : feature.kind === 'route' ? '⌁' : '≈' : isRegion ? '✧' : '◆'
+        symbol.textContent = feature ? ['mountain', 'ridge'].includes(feature.kind) ? '▲' : feature.kind === 'route' ? '⌁' : feature.kind === 'landmark' ? '⌑' : '≈' : isRegion ? '✧' : '◆'
         const label = document.createElement('span')
         label.className = 'pin-label'
         label.textContent = entry.name
@@ -157,6 +157,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
     }
     instance.addHandler('pan', scheduleRefresh)
     instance.addHandler('resize', scheduleRefresh)
+    instance.addHandler('after-resize', scheduleRefresh)
     instance.addHandler('animation-finish', () => {
       const center = instance.viewport.getCenter()
       try { sessionStorage.setItem('aruzahr-map-camera', JSON.stringify({ selected: selectedRef.current, zoom: instance.viewport.getZoom(), x: center.x, y: center.y })) } catch { /* Storage is optional. */ }
@@ -203,22 +204,24 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         const isRegion = 'box' in entry
         const isSubregion = 'kind' in entry && entry.kind === 'subregion'
         const feature = featureById(entry.id)
-        const searchText = 'region' in entry ? `${entry.name} ${regionById(entry.region)?.name} ${subregionById(('subregion' in entry && entry.subregion) || '')?.name || ''}` : entry.name
+        const aliases = 'aliases' in entry ? entry.aliases || [] : []
+        const searchText = ('region' in entry ? `${entry.name} ${regionById(entry.region)?.name} ${subregionById(('subregion' in entry && entry.subregion) || '')?.name || ''}` : entry.name) + ' ' + aliases.join(' ')
         const chosen = entry.id === selected
         const match = chosen || !needle || normalize(searchText + ' ' + (feature?.summary || '')).includes(needle)
         const point = instance.viewport.pixelFromPoint(instance.viewport.imageToViewportCoordinates(entry.point[0] * 8192, entry.point[1] * 5668), true)
         const inView = point.x > -12 && point.x < width + 12 && point.y > -12 && point.y < height + 12
-        const inCountry = !country || ('region' in entry ? entry.region === country : entry.id === country)
         let tier = false
         if (feature) tier = feature.kind === 'route'
           ? showRoutes && (route ? chosen : feature.status !== 'planned')
-          : showGeography && !route && (level > 160 || country === 'danstsud')
-        else if (isSubregion) tier = !route && country === 'danstsud' && level < 350
+          : showGeography && !route
+        else if (isSubregion) tier = showGeography && !route
         else if (isRegion) tier = level < 175 && !route
-        else tier = route ? stops.includes(entry.id) : inCountry && (showCities || level > (country ? 130 : 175)) && (!('positionStatus' in entry && entry.positionStatus === 'approximate') || level > 350)
+        else tier = route ? stops.includes(entry.id) : showCities
         const visible = inView && match && ((chosen && (!feature || (feature.kind === 'route' ? showRoutes : showGeography))) || tier || Boolean(needle))
         marker.parentElement!.style.zIndex = chosen ? '30' : 'major' in entry && entry.major ? '10' : feature ? '4' : isRegion ? '3' : '6'
         marker.classList.toggle('is-hidden', !visible)
+        marker.tabIndex = visible ? 0 : -1
+        marker.setAttribute('aria-hidden', String(!visible))
         marker.classList.toggle('selected', chosen)
         marker.classList.toggle('distant-pin', !route && level < 175 && !country && !showCities && !needle && !chosen)
         marker.classList.toggle('route-stop', stops.includes(entry.id))

@@ -3,6 +3,7 @@
 Görsel, karakter biyografisi veya canlı lore'u üretmeden önce [görsel ve anlatı rehberini](lore/GORSEL_VE_ANLATI_REHBERI.md) oku. Kullanıcı bu tercihlerinin sonraki işlerde uygulanmasını istedi.
 
 - Görseller: elle boyanmış tablo hissi, görünür fırça dokusu, yumuşak renk geçişleri, net yüzler ve biçimler. Bu yaklaşım karakter, hayvan, yaratık ve sahne çizimlerinde geçerlidir.
+- Kullanıcının son vurgusu: fotogerçekçilik istemiyor. Yeni çizimlerde fotoğraf, 3D render, parlak plastik yüz ve sinematik lens/gözenek taklidi kullanma. Boya düzlemleri ve belirgin fırça izleriyle resim olduğunu açıkça göster. Ayrıntılı güncel kapsam [üretim master promptunda](lore/URETIM_MASTER_PROMPTU.md) bulunur.
 - Karakter lore'u: somut geçmiş, ilişkiler, seçimler ve dönüm noktaları üzerinden ilerleyen, okunması keyifli biyografiler. İsim ve sıfat sıralamak yerine ayrıntıların birbirini nasıl etkilediğini anlat.
 - Canlı lore'u: beden yapısını, duyuları, davranışı, beslenmeyi, habitatı, iklime uyumu ve insanlarla ilişkisini birbirine bağla. Anatomik özelliklerin yaşamda bir karşılığı olsun.
 - Karakter kartı: altta isim plakası; güç yükseldikçe daha yoğun işlemeli çerçeve. Kullanıcının seçtiği güç ölçüsü **dövüş, büyü ve siyasi nüfuzun toplam etkisidir**. Olağan, Seçkin, Kudretli ve Yüce çerçeveler kullan; yalnızca portresi bilinen kişilere güç uydurma.

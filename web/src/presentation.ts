@@ -2,6 +2,8 @@ import type { LoreArticle, Place } from "./data";
 import { primaryArtwork } from "./media";
 import { characterCards } from "./lore/characters";
 import { villageLife } from "./lore/village-life";
+import { worldDossiers } from './world-dossiers';
+import { mappedPlaceDossiers } from './mapped-place-dossiers';
 
 export type Power = { label: string; value: number; note: string };
 export type PersonCard = {
@@ -486,10 +488,11 @@ export const powersFor = (profile: Dossier): Power[] => [
   },
 ];
 export const artFor = (id: string, region = "danstsud"): string => {
+  const scene = (key: string) => primaryArtwork(key)?.src || `/illustrations/${key}.webp`;
   const primary = primaryArtwork(id);
   if (primary) return primary.src;
   const art = dossiers[id]?.art;
-  if (art) return `/illustrations/${art}.webp`;
+  if (art) return scene(art);
   if (
     [
       "hardlane",
@@ -500,11 +503,11 @@ export const artFor = (id: string, region = "danstsud"): string => {
       "hardlane-otlak-hayvanlari",
     ].includes(id)
   )
-    return "/illustrations/frostbay.webp";
+    return scene("frostbay");
   if (["ak-cam-denizi", "soluk-su", "ayaz-yutan", "kefen-denizi"].includes(id))
-    return "/illustrations/ak-cam.webp";
-  if (id === "cevher-cizgisi") return "/illustrations/ternhaven.webp";
-  if (id === "frostmere-golu") return "/illustrations/frostmere.webp";
+    return scene("ak-cam");
+  if (id === "cevher-cizgisi") return scene("ternhaven");
+  if (id === "frostmere-golu") return scene("frostmere");
   if (
     [
       "karlan-daglari",
@@ -514,7 +517,7 @@ export const artFor = (id: string, region = "danstsud"): string => {
       "karlan-canlilari",
     ].includes(id)
   )
-    return "/illustrations/karlan.webp";
+    return scene("karlan");
   if (
     [
       "karlan-daglari",
@@ -531,9 +534,9 @@ export const artFor = (id: string, region = "danstsud"): string => {
       "kralin-yolu",
     ].includes(id)
   )
-    return "/illustrations/marhalden.webp";
-  if (id === "vyssgard-kanunlari") return "/illustrations/vyssgard.webp";
-  if (id === "mor-sir-hatti") return "/illustrations/dorvenhall.webp";
+    return scene("marhalden");
+  if (id === "vyssgard-kanunlari") return scene("vyssgard");
+  if (id === "mor-sir-hatti") return scene("dorvenhall");
   if (
     [
       "danstsud",
@@ -547,10 +550,12 @@ export const artFor = (id: string, region = "danstsud"): string => {
     ].includes(id) ||
     id.startsWith("valdareth-")
   )
-    return "/illustrations/valdareth.webp";
-  return `/illustrations/region-${region}.webp`;
+    return scene("valdareth");
+  return primaryArtwork(region)?.src || `/illustrations/region-${region}.webp`;
 };
 
+Object.assign(dossiers, worldDossiers);
+Object.assign(dossiers, mappedPlaceDossiers);
 for (const [city, profile] of Object.entries(dossiers)) {
   const people = characterCards(city);
   if (people.length) profile.people = people;

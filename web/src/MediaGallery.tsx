@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Expand, Images, X } from 'lucide-react'
 import type { Artwork } from './media'
+import { portraitFor } from './media'
 import { characters } from './lore/characters'
 import CharacterCard from './CharacterCard'
 
 export function ImageViewer({ items, index, setIndex }: { items: Artwork[]; index: number | null; setIndex: (index: number | null) => void }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const item = index === null ? undefined : items[index]
-  const character = item?.portrait ? characters.find(person => person.portrait === item.id) : undefined
+  const character = item?.portrait ? characters.find(person => portraitFor(person.portrait)?.id === item.id) : undefined
   useEffect(() => {
     if (item && !dialog.current?.open) dialog.current?.showModal()
     if (!item && dialog.current?.open) dialog.current.close()
@@ -26,7 +27,7 @@ export function ImageViewer({ items, index, setIndex }: { items: Artwork[]; inde
 }
 
 export function ArtworkButton({ item, onClick, className = '' }: { item: Artwork; onClick: () => void; className?: string }) {
-  const character = item.portrait ? characters.find(person => person.portrait === item.id) : undefined
+  const character = item.portrait ? characters.find(person => portraitFor(person.portrait)?.id === item.id) : undefined
   return <button className={`artwork-button ${className} ${item.portrait ? 'framed-artwork' : ''}`} onClick={onClick} aria-label={`${item.title} görselini büyüt`}>{item.portrait ? <CharacterCard id={character?.id} src={item.src} name={item.title} role={character?.role} /> : <img src={item.src} alt={item.title} loading="lazy" />}<span className="artwork-expand"><Expand size={16} /></span><span className="artwork-caption"><strong>{item.title}</strong><small>{item.caption}</small></span></button>
 }
 
