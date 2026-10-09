@@ -85,7 +85,7 @@ test('guided discovery and new reading cards fit a phone viewport', async ({page
 })
 
 test('all map settlements contain actual lore and the new civic records resolve existing locations', () => {
-  expect(places).toHaveLength(96)
+  expect(places).toHaveLength(95)
   for(const place of places) {
     expect(place.sections?.length,place.id).toBeGreaterThanOrEqual(2)
     expect(place.sections?.every(section=>section.paragraphs.some(p=>p.trim().length>30)),place.id).toBe(true)

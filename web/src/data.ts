@@ -12,7 +12,7 @@ import { lirendilInstitutions } from './lore/lirendil-institutions'
 import { cityLife, regionalLife, livingArticles, livingWorldSource } from './lore/living-world'
 import { bookArticles } from './lore/books'
 import { newFaunaArticles } from './lore/world-fauna'
-import { mapCorrections, newlyMappedPlaces, mapAuditSource } from './map-corrections'
+import { mapCorrections, newlyMappedPlaces, mapAuditSource, mapSettlementAliases } from './map-corrections'
 import { newDanstsudInstitutions } from './lore/danstsud-roster'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
@@ -166,7 +166,9 @@ const basePlaces: Place[] = [
 
 export { historyArticle } from './lore/history'
 
-export const places: Place[] = [...basePlaces, ...newlyMappedPlaces].map(original => {
+// Source-map spellings that identify an existing place retain that place's
+// lore and dossier rather than creating a second settlement.
+export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place => !mapSettlementAliases[place.id])].map(original => {
   const correction = mapCorrections[original.id]
   const place = { ...original, ...correction, aliases: [...(original.aliases || []), ...(correction?.mapLabel ? [correction.mapLabel] : [])] }
   const additions = cityLife[place.id] || []
@@ -184,7 +186,7 @@ export const subregions: Subregion[] = danstsudSubregions
 export type MappedPlace = Place & { point: [number, number] }
 export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
 export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions]
-const routeAliases: Record<string, string> = { marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
+const routeAliases: Record<string, string> = { ...mapSettlementAliases, marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
 export const canonicalId = (id: string) => routeAliases[id] || id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))

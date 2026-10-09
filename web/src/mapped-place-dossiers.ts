@@ -30,7 +30,6 @@ const estimates: Estimate[] = [
   ['morvail', '≈ 1.500', ['Tahıl', 'Bahçe ürünleri', 'Yerel iaşe']],
   ['yornhal', '≈ 1.300', ['Tarım', 'Sürü ürünleri', 'Araba bakımı']],
   ['vornic', '≈ 1.700', ['Bahçe ürünleri', 'Tahıl', 'Küçük zanaat']],
-  ['frethar', '≈ 1.100', ['Tarım', 'Konaklama', 'Erzak']],
   ['tyelmar', '≈ 2.600', ['Değirmencilik', 'Tahıl', 'Kıyı pazarı']],
   ['arden', '≈ 1.900', ['Nehir ürünleri', 'Bahçecilik', 'Yerel yük']],
   ['nuvik', '≈ 1.050', ['Tarım', 'Odun', 'Sürü ürünleri']],

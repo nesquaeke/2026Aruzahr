@@ -132,16 +132,34 @@ test("wiki return keeps the chosen map camera and home fits after the card close
   await expect(page.getByTestId("zoom-level")).toHaveText("100%");
 });
 
-test("tax settlement distinguishes an unresolved anchor from a mapped one and links to its tax authority", async ({
+test("Fehar and Frethar share a mapped settlement and retain its royal tax authority", async ({
   page,
 }) => {
-  await page.goto("/#/atlas/fehar");
-  await expect(page.getByTestId("detail-panel")).toContainText("konumu henüz doğrulanmadı");
-  await expect(page.getByTestId("marker-fehar")).toHaveCount(0);
+  await page.addInitScript(() => localStorage.setItem('aruzahr-saved', JSON.stringify(['frethar', 'fehar'])));
+  await page.goto("/#/atlas/frethar");
+  await expect(page.getByTestId("detail-panel")).toContainText("Fehar");
+  await expect(page.getByTestId("marker-fehar")).toBeVisible();
+  await expect(page.getByTestId("marker-fehar").locator(".pin-label")).toHaveText("Frethar");
+  await expect(page.getByTestId("marker-frethar")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Fehar kaydını kaldır", exact: true })).toBeVisible();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('aruzahr-saved')!))).toEqual(['fehar']);
+  await expect(page.getByTestId("detail-panel")).toContainText("Eryndorn Vaeranth");
+  await expect(page.getByTestId("detail-panel")).toContainText("1.700");
   await page.getByRole("button", { name: "Wiki sayfasını aç" }).click();
   await expect(page.locator(".article-title h1")).toHaveText("Fehar");
-  await expect(page.locator(".article-map-shortcut")).toHaveCount(0);
-  await page.getByRole("button", { name: "Haritaya dön", exact: true }).click();
+  await expect(page.locator(".article-map-shortcut")).toBeVisible();
+  await expect(page.getByTestId("related-locations")).toContainText("Valdareth Vergi Havzası");
+  await expect(page.getByTestId("article-gallery").locator('img[src="/illustrations/frethar-atlas.webp"]')).toBeVisible();
+  await page.goto("/#/wiki/frethar");
+  await expect(page.locator(".article-title h1")).toHaveText("Fehar");
+  await page.goto("/#/atlas/fehar");
+  await expect(page.getByTestId("marker-fehar")).toBeVisible();
+  const search = page.getByRole("textbox", { name: "Atlas ve wiki içinde ara" });
+  for (const name of ["Fehar", "Frethar"]) {
+    await search.fill(name);
+    await expect(page.getByTestId("location-result-fehar")).toBeVisible();
+    await expect(page.getByTestId("location-result-frethar")).toHaveCount(0);
+  }
   await page
     .getByRole("textbox", { name: "Atlas ve wiki içinde ara" })
     .fill("Korhenden");

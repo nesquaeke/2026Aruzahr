@@ -7,7 +7,7 @@ import { canonicalId, mapLocations, places } from '../src/data'
 const namedAnchors: [string, string, number, number][] = [
   ['Aelmar', 'aelmar', 3300, 3070], ['Thesar', 'thessar', 3730, 3280],
   ['Yornhal', 'yornhal', 4240, 3240], ['Vornic', 'vornic', 4520, 3290],
-  ['Frethar', 'frethar', 4860, 3370], ['Nuvik', 'nuvik', 5750, 3200],
+  ['Frethar', 'fehar', 4860, 3370], ['Nuvik', 'nuvik', 5750, 3200],
   ['Telvar', 'telvai', 5700, 3380], ['Velyra', 'velyra', 6250, 3560],
   ['Korthen', 'korhenden', 6925, 3750], ['Rymar', 'rymar', 7220, 3470],
   ['Othmar', 'othmar', 7100, 3260], ['Eldwen', 'eldwen', 7500, 3270],
@@ -37,8 +37,9 @@ test('all author-listed names identify unique map places at rechecked image anch
     expect(Math.abs(place.point[0] * 8192 - x), name).toBeLessThan(0.005)
     expect(Math.abs(place.point[1] * 5668 - y), name).toBeLessThan(0.005)
   }
-  expect(places.find(place => place.id === 'fehar')?.point).toBeNull()
-  expect(mapLocations.some(place => place.id === 'fehar')).toBe(false)
+  expect(places.every(place => place.point !== null)).toBe(true)
+  expect(canonicalId('frethar')).toBe('fehar')
+  expect(places.some(place => place.id === 'frethar')).toBe(false)
 })
 
 for (const [label, anchors] of [['named settlements', namedAnchors], ['six corrected settlements', correctedAnchors]] as const) {
@@ -69,7 +70,7 @@ for (const [label, anchors] of [['named settlements', namedAnchors], ['six corre
 test('corrected spellings and legacy URLs resolve the same places without duplicate pins', async ({ page }) => {
   test.setTimeout(60000)
   await page.goto('/')
-  for (const [name, id] of namedAnchors.filter(([name]) => ['Thesar', 'Telvar', 'Korthen', 'Lurnvale', 'Orinhall', 'Vosir', 'Lanvar'].includes(name))) {
+  for (const [name, id] of namedAnchors.filter(([name]) => ['Thesar', 'Telvar', 'Korthen', 'Lurnvale', 'Orinhall', 'Vosir', 'Lanvar', 'Frethar'].includes(name))) {
     expect(canonicalId(name.toLocaleLowerCase('tr')), name).toBe(id)
     await page.getByRole('textbox', { name: 'Atlas ve wiki içinde ara' }).fill(name)
     await page.getByTestId(`location-result-${id}`).click()

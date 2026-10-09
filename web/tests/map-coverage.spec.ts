@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { articleById, mapLocations, places, regions } from '../src/data'
+import { articleById, canonicalId, mapLocations, places, regions } from '../src/data'
 import { mapFeatures } from '../src/map-features'
 
 // Names were transcribed from the original 8K drawing, independently of the
@@ -16,8 +16,9 @@ const newlyVisible = [
 
 test('the original-map inventory has unique pins, populated wikis and valid image anchors', () => {
   const ids = places.map(place => place.id)
-  expect(newlyVisible.filter(id => !ids.includes(id))).toEqual([])
-  expect(places).toHaveLength(96)
+  expect(newlyVisible.filter(id => !ids.includes(canonicalId(id)))).toEqual([])
+  expect(places).toHaveLength(95)
+  expect(places.every(place => place.point !== null)).toBe(true)
   const entries = [...regions, ...mapLocations, ...mapFeatures]
   expect(new Set(entries.map(entry => entry.id)).size).toBe(entries.length)
   for (const entry of entries) {
@@ -32,7 +33,7 @@ test('the original-map inventory has unique pins, populated wikis and valid imag
 
 for (const region of regions) {
   const settlements = places.filter(value => value.region === region.id && value.point !== null)
-  // The kingdom has 59 settlements. Separate complete batches keep one long
+  // The kingdom has 58 settlements. Separate complete batches keep one long
   // traversal from consuming the browser's whole time budget.
   const batchSize = region.id === 'danstsud' ? 20 : Math.max(1, settlements.length)
   for (let start = 0; start < Math.max(1, settlements.length); start += batchSize) {
@@ -42,7 +43,9 @@ for (const region of regions) {
     test.setTimeout(180000)
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto('/')
-    await expect(page.getByTestId('marker-xotar')).toBeVisible()
+    // Initial Deep Zoom loading can exceed five seconds when another complete
+    // settlement traversal is using the browser at the same time.
+    await expect(page.getByTestId('marker-xotar')).toBeVisible({ timeout: 15000 })
     for (const place of batch) {
       await page.evaluate(id => { location.hash = `/atlas/${id}` }, place.id)
       const marker = page.getByTestId(`marker-${place.id}`)

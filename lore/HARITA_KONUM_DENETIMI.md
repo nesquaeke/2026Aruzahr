@@ -4,7 +4,7 @@
 
 ## Sonuç ve kapsam
 
-Atlas 96 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi içerir: konumu belirli 95 yerleşim üzerinden toplam **137 ayrı tıklanabilir nokta**. Yerleşim envanterine 52 kayıt eklendi; eski 43 yerleşimin merkezi çizime göre yeniden sabitlendi. Yerleşimlerin 95’i özgün haritadaki çizimle eşleşir. Yazar Fehar’ın yaklaşık noktasını reddettiği için bu nokta kaldırılmıştır; kaydı wiki içinde korunur, doğru konum bilgisi beklenir. Frethar ile birleştirilmez.
+Atlas 95 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi içerir: toplam **137 ayrı tıklanabilir nokta**. Kaynak çizimden 52 ek ad kaydedildi; Frethar mevcut Fehar ile eşleştiği için 51 ayrı yerleşim eklendi. Eski 44 yerleşimin merkezi çizime göre yeniden sabitlendi. Bütün yerleşimlerde harita noktası vardır. Fehar’ın önceki tahmini noktası, yazarın Vornic ile Pilorn arasındaki Frethar tarifinin ardından 4860 × 3370 piksel merkezine taşındı. Fehar ve Frethar aynı kayıt ve tek noktadır; mevcut wiki bilgileri korunur.
 
 Aldara’nın iki kolu, Serenith, Teyra, Thural Kalkanı, Karlan dağ sırası ve Valdareth Ovası artık kendi noktalarından açılır. Lakbar’daki beş belirgin kale/kule, Thessar açığındaki fener ve Runeth kuzeyindeki harabe açıklayıcı atlas adlarıyla erişilebilir. Bu etiketsiz çizimlere eklenen adlar kaynak belgeden alınmış resmî adlar olarak sunulmaz. Her ev, değirmen ve ağaç ayrı yerleşim sayılmaz.
 
@@ -17,6 +17,7 @@ Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkenin seçi
 ## Yazım eşleştirmeleri
 
 - Gaalmire / haritadaki Galmire; Korhenden / Korthen; Toran / Tora aynı kayıt üzerinden açılır. Bunlar yazım farkları için editoryal eşleştirmedir.
+- Fehar / haritadaki Frethar: yazarın “büyük ihtimalle haritadaki Frethar, Vornic ve Pilorn arasında” yanıtı esas alınan eşleştirmedir. Kaynak çizimde okunan ad Frethar’dır; Fehar adı ve mevcut lore kaydı korunur. Her iki arama adı, wiki/atlas bağlantıları ve eski yer imleri tek kayda ulaşır. Bu konum düzeltmesinde yeni lore yazılmadı.
 - Serenith adı korunur; Serenth harita yazımı arama ve bağlantı takma adıdır.
 - Honud, Danstsud ve Garmirk yazarın seçtiği biçimlerdir; eski belge yazımları aramada tanınır.
 - Son yazar düzeltmesiyle Thesar, Telvar, Lurnvale, Orinhall, Vosir ve Lanvar adları kullanılır. Önceki Thessar, Telvai, Lurnvalf, Orinhal, Vossir ve Janvar okumaları arama/bağlantı takma adlarıdır. Korthen haritadaki etiket, Korhenden mevcut lore kaydının adıdır. Eski wiki kimlikleri korunur.
@@ -70,7 +71,7 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Whisperhold | 240 | 5500 | Haritada doğrulandı |
 | Nivor | 2900 | 5540 | Haritada doğrulandı |
 
-### Danstsud — 59 yerleşim
+### Danstsud — 58 yerleşim
 
 | Kayıt | x | y | Durum / harita yazımı |
 |---|---:|---:|---|
@@ -91,7 +92,7 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Vornic | 4520 | 3290 | Haritada doğrulandı |
 | Thandor | 7770 | 3290 | Haritada doğrulandı |
 | Cevan | 8090 | 3330 | Haritada doğrulandı |
-| Frethar | 4860 | 3370 | Haritada doğrulandı |
+| Fehar / Frethar | 4860 | 3370 | Haritadaki Frethar; yazarın Vornic–Pilorn tarifiyle eşleştirildi |
 | Telvar | 5700 | 3380 | Haritada doğrulandı |
 | Pilorn | 5170 | 3450 | Haritada doğrulandı |
 | Rymar | 7220 | 3470 | Haritada doğrulandı |
@@ -102,7 +103,6 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Korhenden | 6925 | 3750 | Haritada doğrulandı · Korthen |
 | Arden | 4850 | 3760 | Haritada doğrulandı |
 | Lurnvale | 7740 | 3790 | Haritada doğrulandı |
-| Fehar | — | — | Eski nokta kaldırıldı; doğru konum bekleniyor |
 | Naeron | 5218 | 3890 | Haritada doğrulandı |
 | Velthar | 4560 | 3910 | Haritada doğrulandı |
 | Brolin | 4890 | 3990 | Haritada doğrulandı |

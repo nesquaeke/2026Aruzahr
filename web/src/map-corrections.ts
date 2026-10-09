@@ -4,6 +4,9 @@ import type { Place, RegionId } from './data'
 // A pin describes a visible settlement centre; it is not a surveyed boundary.
 export const mapAuditSource = '9 Ekim 2026 · özgün 8K harita konum denetimi'
 export const mappedLifeSource = 'Harita Yerleşimleri · yeni kamusal yaşam yazımı'
+// The author identifies lore's Fehar with the Frethar label between Vornic and
+// Pilorn. Preserve the existing Fehar record and both spellings, with one pin.
+export const mapSettlementAliases: Record<string, string> = { frethar: 'fehar' }
 const pixelPoint = (x: number, y: number): [number, number] => [Number((x / 8192).toFixed(6)), Number((y / 5668).toFixed(6))]
 
 type MapCorrection = { point: [number, number] | null; positionStatus: 'mapped' | 'unlocated'; mapLabel?: string }
@@ -17,15 +20,12 @@ const corrected: [string, number, number, string?][] = [
   ['frostbay', 3850, 4850], ['ternhaven', 4120, 4040], ['dranthol', 3680, 4460], ['vyssgard', 4250, 4480], ['kaldmere', 3730, 5530],
   ['hurnreach', 5550, 1340], ['kraenfall', 5110, 2230], ['volriks-maw', 6390, 2400],
   ['baldrek', 6470, 420], ['stoneclans', 7870, 1300], ['twinclans', 6810, 1800], ['northpact', 7660, 1880], ['eldrascar', 7770, 2530],
-  ['pilorn', 5170, 3450], ['gaalmire', 4992, 3140, 'Galmire'], ['naeron', 5218, 3890],
+  ['pilorn', 5170, 3450], ['fehar', 4860, 3370, 'Frethar'], ['gaalmire', 4992, 3140, 'Galmire'], ['naeron', 5218, 3890],
   ['fevric', 5260, 4145], ['theld', 6504, 4327], ['korhenden', 6925, 3750, 'Korthen'],
   ['uldar', 5210, 4400], ['tolvur', 5385, 5538], ['toran', 5360, 5200, 'Tora'],
   ['harven', 4795, 5505], ['mavric', 4410, 5260],
 ]
 export const mapCorrections: Record<string, MapCorrection> = Object.fromEntries(corrected.map(([id, x, y, mapLabel]) => [id, { point: pixelPoint(x, y), positionStatus: 'mapped', ...(mapLabel ? { mapLabel } : {}) }]))
-// The author rejected Fehar's guessed position. Keep its existing wiki, but do
-// not create a pin or move the camera until an actual anchor is identified.
-mapCorrections.fehar = { point: null, positionStatus: 'unlocated' }
 export const correctedMapPixels = corrected.map(([id, x, y, mapLabel]) => ({ id, x, y, mapLabel }))
 
 type MappedSettlement = {
@@ -239,7 +239,7 @@ const settlements: MappedSettlement[] = [
   {
     id: 'frethar', name: 'Frethar', region: 'danstsud', x: 4860, y: 3370,
     subtitle: 'Kıyı yolunun güneyinde küçük yerleşim',
-    summary: 'Frethar’ın küçük çatılarında yolculuk yükü ile ev ihtiyaçları birbirine değinir. Haritada görülen bu ad, lore’daki Fehar ile otomatik birleştirilmemiştir.',
+    summary: 'Frethar’ın küçük çatılarında yolculuk yükü ile ev ihtiyaçları birbirine değinir.',
     scene: ['Kızıl çatılı evlerin önünden geçen yolun üstünde yükün ağırlığı hemen fark edilir. Hayvanın soluklanmasına ayrılan zaman, yakındaki ailenin yiyecek hazırlamasına da fırsat verir.'],
     life: ['Küçük bir yerleşim, büyük kentlere götürülen yükün her zaman sahibi değildir. Yolcuya verilen hizmetler ile hanelerin kendi üretimi birlikte düşünülür; kazanç geçişin durduğu günlerde azalabilir.'],
     related: ['danstsud', 'fehar', 'vornic'],

@@ -91,7 +91,7 @@ test('every kingdom, Danstsud settlement and gallery has real images; the bestia
     const { faunaArt, artworks } = await import('/src/media.ts' as string)
     return { covers: [...regions.map((r: { id: string }) => artFor(r.id, r.id)), ...places.filter((p: { region: string }) => p.region === 'danstsud').map((p: { id: string; region: string }) => artFor(p.id, p.region)), ...faunaArt.map((a: { src: string }) => a.src)] as string[], gallery: Object.values(artworks).map(a => (a as { src: string }).src) }
   })
-  expect(sources.covers).toHaveLength(75)
+  expect(sources.covers).toHaveLength(74)
   for (const src of new Set([...sources.covers, ...sources.gallery])) {
     const response = await request.get(src)
     expect(response.ok(), src).toBe(true)
