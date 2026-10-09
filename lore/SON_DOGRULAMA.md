@@ -21,3 +21,11 @@ Kapsam: bütün 96 yerleşimde gerçek pin → panel → wiki geçişi; bütün 
 Derlenmiş statik site 320, 390, 820, 1024 ve 1440 piksel genişliğinde atlas, Valdareth, yeni Halden kaydı, On İki Taç Şövalyesi, kitaplık ve galeri üzerinde kontrol edildi: **30 görünümde yatay taşma, görünür kırık görsel veya tarayıcı hatası çıkmadı.** Atlas, mobil okuma ve portre kadrosu ekran görüntüleri ayrıca gözle incelendi.
 
 Bu kayıt üretim dosyalarının ve kaynak kodun doğrulamasını anlatır. Bir barındırma hizmetinde canlı yayın yapıldığını ifade etmez.
+
+## Sonraki kullanıcı konum düzeltmesi — 9 Ekim 2026
+
+Kullanıcının verdiği 31 yer adı eşleştirildi; altı yerleşimin noktası yapı kümeleri üzerinde yeniden seçildi. Haritadaki isimler kullanıcının son yazımlarını tanır. Yeni lore veya görsel üretilmedi.
+
+Fehar’ın reddedilen tahmini noktası kaldırıldı. Veri modeli konumu bilinmeyen kaydı `point: null` olarak tutar; haritada nokta oluşturmaz, kamerayı tahmini bir yere taşımaz ve wikide haritada göster düğmesi sunmaz. Wiki kaydı korunur. Güncel görünür envanter 95 yerleşim ve toplam 137 harita hedefidir; 96 yerleşim kaydı vardır.
+
+Bu düzeltme için **11 ayrı tarayıcı senaryosu geçti**: yazar listesinin tam eşleşmesi; 31 noktanın ve altı düzeltilmiş noktanın özgün görüntü piksellerine göre gerçek ekran hizası; alternatif adlar; bütün harita görünümünde noktaların korunması; yolun güncel şehir noktalarıyla birleşmesi; bilinmeyen konumun gizlenmesi ve wikisinin korunması; şehir kartı/okuma, wiki-kamera dönüşü ve mobil galeri. Son TypeScript/Vite üretim derlemesi başarılıdır. Önceki tam test kaydı yukarıda tarihsel doğrulama olarak korunur.

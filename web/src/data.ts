@@ -25,16 +25,17 @@ export type Region = {
 }
 export type SubregionId = 'hardlane' | 'manorveil' | 'lowvale'
 type LocationRecord = {
-  id: string; name: string; region: RegionId; point: [number, number]; summary?: string;
+  id: string; name: string; region: RegionId; point: [number, number] | null; summary?: string;
   subtitle?: string; sections?: Section[]; sources?: string[]; related?: string[];
   subregion?: SubregionId; major?: boolean;
-  positionStatus?: 'mapped' | 'approximate';
+  positionStatus?: 'mapped' | 'approximate' | 'unlocated';
   mapLabel?: string;
   aliases?: string[];
 }
 export type Place = LocationRecord & { kind?: 'settlement' }
 export type Subregion = LocationRecord & {
   id: SubregionId; kind: 'subregion'; region: 'danstsud'; subtitle: string;
+  point: [number, number];
   box: [number, number, number, number]; summary: string; sections: Section[]; sources: string[];
 }
 export type LoreArticle = {
@@ -139,7 +140,7 @@ const regionalAliases: Partial<Record<RegionId, string[]>> = { danstsud: ['Danst
 export const regions: Region[] = baseRegions.map(region => ({ ...region, aliases: regionalAliases[region.id], sections: [...region.sections, ...(regionalLife[region.id] || [])], sources: [...region.sources, ...(regionalLife[region.id] ? [livingWorldSource] : [])] }))
 
 // Base records retain their original anchors. The audited map corrections below
-// replace all confirmed settlement centres; Fehar alone stays approximate.
+// replace confirmed settlement anchors. Unconfirmed places have no map point.
 // The author's original drawing remains intact.
 const basePlaces: Place[] = [
   { id: 'zarim-khet', name: 'Zarim’khet', region: 'xotar', point: [.155, .129] },
@@ -180,9 +181,10 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces].map(origina
 })
 
 export const subregions: Subregion[] = danstsudSubregions
-export const mapLocations: (Place | Subregion)[] = [...places, ...subregions]
+export type MappedPlace = Place & { point: [number, number] }
+export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
 export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions]
-const routeAliases: Record<string, string> = { marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', 'serenth-nehri': 'serenith-nehri' }
+const routeAliases: Record<string, string> = { marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
 export const canonicalId = (id: string) => routeAliases[id] || id
 export const regionById = (id: string) => regions.find(r => r.id === id)
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))

@@ -136,8 +136,12 @@ test("tax settlement distinguishes an unresolved anchor from a mapped one and li
   page,
 }) => {
   await page.goto("/#/atlas/fehar");
-  await expect(page.getByTestId("marker-fehar")).toBeVisible();
-  await expect(page.getByTestId("detail-panel")).toContainText("konum yaklaşık");
+  await expect(page.getByTestId("detail-panel")).toContainText("konumu henüz doğrulanmadı");
+  await expect(page.getByTestId("marker-fehar")).toHaveCount(0);
+  await page.getByRole("button", { name: "Wiki sayfasını aç" }).click();
+  await expect(page.locator(".article-title h1")).toHaveText("Fehar");
+  await expect(page.locator(".article-map-shortcut")).toHaveCount(0);
+  await page.getByRole("button", { name: "Haritaya dön", exact: true }).click();
   await page
     .getByRole("textbox", { name: "Atlas ve wiki içinde ara" })
     .fill("Korhenden");

@@ -6,7 +6,7 @@ export const mapAuditSource = '9 Ekim 2026 · özgün 8K harita konum denetimi'
 export const mappedLifeSource = 'Harita Yerleşimleri · yeni kamusal yaşam yazımı'
 const pixelPoint = (x: number, y: number): [number, number] => [Number((x / 8192).toFixed(6)), Number((y / 5668).toFixed(6))]
 
-type MapCorrection = { point: [number, number]; positionStatus: 'mapped'; mapLabel?: string }
+type MapCorrection = { point: [number, number] | null; positionStatus: 'mapped' | 'unlocated'; mapLabel?: string }
 const corrected: [string, number, number, string?][] = [
   ['zarim-khet', 1450, 660], ['thariz', 340, 1050], ['sahrim', 2790, 970],
   ['qal-nashar', 2500, 1660], ['morihael', 1250, 1880],
@@ -17,12 +17,15 @@ const corrected: [string, number, number, string?][] = [
   ['frostbay', 3850, 4850], ['ternhaven', 4120, 4040], ['dranthol', 3680, 4460], ['vyssgard', 4250, 4480], ['kaldmere', 3730, 5530],
   ['hurnreach', 5550, 1340], ['kraenfall', 5110, 2230], ['volriks-maw', 6390, 2400],
   ['baldrek', 6470, 420], ['stoneclans', 7870, 1300], ['twinclans', 6810, 1800], ['northpact', 7660, 1880], ['eldrascar', 7770, 2530],
-  ['pilorn', 5170, 3450], ['gaalmire', 4992, 3140, 'Galmire'], ['naeron', 5230, 3905],
-  ['fevric', 5250, 4180], ['theld', 6510, 4360], ['korhenden', 6925, 3750, 'Korthen'],
-  ['uldar', 5250, 4420], ['tolvur', 5420, 5550], ['toran', 5360, 5200, 'Tora'],
-  ['harven', 4820, 5520], ['mavric', 4410, 5260],
+  ['pilorn', 5170, 3450], ['gaalmire', 4992, 3140, 'Galmire'], ['naeron', 5218, 3890],
+  ['fevric', 5260, 4145], ['theld', 6504, 4327], ['korhenden', 6925, 3750, 'Korthen'],
+  ['uldar', 5210, 4400], ['tolvur', 5385, 5538], ['toran', 5360, 5200, 'Tora'],
+  ['harven', 4795, 5505], ['mavric', 4410, 5260],
 ]
 export const mapCorrections: Record<string, MapCorrection> = Object.fromEntries(corrected.map(([id, x, y, mapLabel]) => [id, { point: pixelPoint(x, y), positionStatus: 'mapped', ...(mapLabel ? { mapLabel } : {}) }]))
+// The author rejected Fehar's guessed position. Keep its existing wiki, but do
+// not create a pin or move the camera until an actual anchor is identified.
+mapCorrections.fehar = { point: null, positionStatus: 'unlocated' }
 export const correctedMapPixels = corrected.map(([id, x, y, mapLabel]) => ({ id, x, y, mapLabel }))
 
 type MappedSettlement = {
@@ -30,6 +33,7 @@ type MappedSettlement = {
   subtitle: string; summary: string;
   scene: string[]; life: string[];
   related?: string[]; readingNote?: string;
+  aliases?: string[];
 }
 const settlements: MappedSettlement[] = [
   {
@@ -201,7 +205,7 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'lirendil', 'thessar'],
   },
   {
-    id: 'thessar', name: 'Thessar', region: 'danstsud', x: 3730, y: 3280,
+    id: 'thessar', name: 'Thesar', aliases: ['Thessar'], region: 'danstsud', x: 3730, y: 3280,
     subtitle: 'Kıyıda kulelerin ve küçük pazarlığın şehri',
     summary: 'Thessar’ın kıyı evleri, büyük kentlerin yükü arasındaki küçük işleri toplar. Yolcunun acele etmesi, kentteki ustanın işini acele bitireceği anlamına gelmez.',
     scene: ['Bir teknenin yıpranmış bağı, çarşıdaki fiyat konuşmasını keser. Kıyı işçisi aynı işi iki kez yapmak istemediğinde tüccarın beklemekten başka şansı kalmaz.'],
@@ -265,12 +269,12 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'dorvenhall', 'brannis'],
   },
   {
-    id: 'telvai', name: 'Telvai', region: 'danstsud', x: 5700, y: 3380,
+    id: 'telvai', name: 'Telvar', aliases: ['Telvai'], region: 'danstsud', x: 5700, y: 3380,
     subtitle: 'Yol ile ambarların buluştuğu küçük ova durağı',
     summary: 'Telvai’nin ambarları ana yolun yanında görünür. Burada saklanan yük, kentte hemen satılmayan malın da bir sahibi ve hikâyesi olduğunu hatırlatır.',
     scene: ['Yoldan geçen biri yapıların tekdüze çatısını görür; içeride çalışan biri ise hangi duvarın nemi tuttuğunu bilir. Bir malı bir gün daha saklamak bazen iyi kazanç, bazen bütün kaybın başlangıcıdır.'],
     life: ['Ambar işi yalnız kapı kilitlemekten ibaret değildir. Sayım, havalandırma ve taşıyıcının yükü zamanında bulması birlikte yürür; kâğıtta var olan malın rafta bulunması ayrı bir iştir.'],
-    related: ['danstsud', 'dorvenhall', 'nuvik'], readingNote: 'Yerleşim ve merkezi görünür; adın bazı çizgileri ağaç altında. Telvai okuması editoryal ve değiştirilebilir.',
+    related: ['danstsud', 'dorvenhall', 'nuvik'], readingNote: 'Yazarın doğruladığı ad Telvar; yerleşimin etiketi ağaçlarla kısmen örtülü.',
   },
   {
     id: 'velthar', name: 'Velthar', region: 'danstsud', x: 4560, y: 3910,
@@ -345,7 +349,7 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'rymar', 'lurnvalf'],
   },
   {
-    id: 'lurnvalf', name: 'Lurnvalf', region: 'danstsud', x: 7740, y: 3790,
+    id: 'lurnvalf', name: 'Lurnvale', aliases: ['Lurnvalf'], region: 'danstsud', x: 7740, y: 3790,
     subtitle: 'Lowvale yazısı altında yol ve ambar kümesi',
     summary: 'Lurnvalf’in küçük ambarları, yolun yalnız üstünden geçilmediğini gösterir. Burada malın bir sonraki durağa hazır olması için görünmeyen işler yapılır.',
     scene: ['Yoldan gelen çuvalın ağzı yeniden bağlanır. İçeride çalışana küçük görünen bir düzeltme, bir sonraki arabada bütün yükün dağılmasını önleyebilir.'],
@@ -369,7 +373,7 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'valdareth', 'danstsud-ekmek-ve-vergi'],
   },
   {
-    id: 'orinhal', name: 'Orinhal', region: 'danstsud', x: 8050, y: 4030,
+    id: 'orinhal', name: 'Orinhall', aliases: ['Orinhal'], region: 'danstsud', x: 8050, y: 4030,
     subtitle: 'Doğu su kenarında mor çatılı kent',
     summary: 'Orinhal’ın kuleleri tarlaya ve suya aynı anda bakar. Yolun taşıdığı yük ile kıyının beklediği haber, kentte birbirinden ayrı tutulamaz.',
     scene: ['Kıyıya inen yolun üstünde bir yük bırakılırken kentteki alışveriş devam eder. Taşıyıcı dönmeden önce sıcak yemek arar, dükkân sahibi gelecek malın miktarını öğrenmek ister.'],
@@ -409,7 +413,7 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'elorwyn', 'vossir'],
   },
   {
-    id: 'vossir', name: 'Vossir', region: 'danstsud', x: 6930, y: 4660,
+    id: 'vossir', name: 'Vosir', aliases: ['Vossir'], region: 'danstsud', x: 6930, y: 4660,
     subtitle: 'Teyra yakınındaki yük ve ambar durağı',
     summary: 'Vossir’de yük sahipleri suya yakınlığın kolaylığını, ambar işçileri onun nemini konuşur. Aynı kentin zenginliği iki farklı hesapta görünür.',
     scene: ['Bir çuval kıyıya yakın duvara bırakılınca hemen geri alınır. Yolcu küçük uyarıya şaşırabilir; içerideki işçi geçtiğimiz haftanın kaybını hatırlayarak konuşur.'],
@@ -441,7 +445,7 @@ const settlements: MappedSettlement[] = [
     related: ['danstsud', 'elorwyn', 'theramis'],
   },
   {
-    id: 'janvar', name: 'Janvar', region: 'danstsud', x: 7000, y: 5450,
+    id: 'janvar', name: 'Lanvar', aliases: ['Janvar'], region: 'danstsud', x: 7000, y: 5450,
     subtitle: 'Güney kıyıda yolun son küçük ambarları',
     summary: 'Janvar’ın kıyıdaki küçük ambarları, büyük şehirlerin gölgesinde kalan son işleri toplar. Bir yolcunun vardığını haber veren şey bazen yalnız kapı önündeki yeni yük olur.',
     scene: ['Theramis yakınındaki kıyıda yapıların önü kısa süreli bekleyen mallarla dolar. Gelen biri kentteki büyük pazara gitmeden önce yükünü burada düzeltmek isteyebilir.'],
@@ -451,7 +455,7 @@ const settlements: MappedSettlement[] = [
 ]
 
 export const newlyMappedPlaces: Place[] = settlements.map(entry => ({
-  id: entry.id, name: entry.name, region: entry.region, kind: 'settlement',
+  id: entry.id, name: entry.name, aliases: entry.aliases, region: entry.region, kind: 'settlement',
   point: pixelPoint(entry.x, entry.y), positionStatus: 'mapped',
   subtitle: entry.subtitle, summary: entry.summary,
   sources: ['Aruzahr 8k (1).jpg', mapAuditSource, mappedLifeSource],

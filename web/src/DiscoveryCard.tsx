@@ -208,6 +208,9 @@ export default function DiscoveryCard({
         {entry?.positionStatus === "approximate" && (
           <p className="position-note">≈ Haritadaki konum yaklaşık</p>
         )}
+        {entry?.positionStatus === "unlocated" && (
+          <p className="position-note">Haritadaki konumu henüz doğrulanmadı.</p>
+        )}
       </div>
       <div className="detail-actions">
         <button

@@ -216,7 +216,7 @@ export default function WikiArticle({
   const regionLore = region
     ? loreArticles.filter((article) => article.region === region.id)
     : [];
-  const mapTarget = featureById(id) ? id : record ? record.mapLocation : id;
+  const mapTarget = featureById(id) ? id : record ? record.mapLocation : place?.point === null ? undefined : id;
   const wordCount = sections
     .flatMap((section) => section.paragraphs)
     .join(" ")
@@ -324,6 +324,7 @@ export default function WikiArticle({
       className={`wiki-article visual-article story-article ${profile ? "city-article" : ""} ${record ? "lore-article" : ""} ${record?.kind === "chronicle" ? "manuscript-article" : ""} ${record?.kind === "law" ? "law-article" : ""} ${fullReading ? "reading-full" : "reading-cards"} ${quietReading ? 'quiet-reading' : ''}`}
     >
       <ReadingProgress id={id} />
+      {place?.positionStatus === 'unlocated' && <p className="position-note">Haritadaki konumu henüz doğrulanmadı.</p>}
       <div className="article-topline">
         <div className="article-breadcrumbs">
           <button onClick={() => navigate(backToMap)}>

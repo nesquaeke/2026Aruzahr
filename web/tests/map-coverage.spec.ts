@@ -31,7 +31,7 @@ test('the original-map inventory has unique pins, populated wikis and valid imag
 })
 
 for (const region of regions) {
-  const settlements = places.filter(value => value.region === region.id)
+  const settlements = places.filter(value => value.region === region.id && value.point !== null)
   // The kingdom has 59 settlements. Separate complete batches keep one long
   // traversal from consuming the browser's whole time budget.
   const batchSize = region.id === 'danstsud' ? 20 : Math.max(1, settlements.length)
@@ -64,13 +64,13 @@ test('fitting the whole map keeps all settlement and geography dots available ac
   await expect(page.getByTestId('marker-valdareth')).toBeVisible()
   await page.getByRole('button', { name: 'Haritanın tamamını göster' }).click()
   await expect(page.getByTestId('zoom-level')).toHaveText('100%')
-  await expect(page.locator('.city-pin:not(.is-hidden)')).toHaveCount(places.length)
+  await expect(page.locator('.city-pin:not(.is-hidden)')).toHaveCount(places.filter(place => place.point !== null).length)
   await expect(page.locator('.subregion-pin:not(.is-hidden)')).toHaveCount(3)
   await expect(page.locator('.feature-pin:not(.route-pin):not(.is-hidden)')).toHaveCount(mapFeatures.filter(feature => feature.kind !== 'route').length)
   await page.setViewportSize({ width: 390, height: 844 })
   await page.setViewportSize({ width: 1440, height: 1000 })
   await page.getByRole('button', { name: 'Haritanın tamamını göster' }).click()
-  await expect(page.locator('.city-pin:not(.is-hidden)')).toHaveCount(places.length)
+  await expect(page.locator('.city-pin:not(.is-hidden)')).toHaveCount(places.filter(place => place.point !== null).length)
   await expect(page.getByTestId('marker-xotar')).toBeVisible()
   await expect(page.getByTestId('marker-orunq')).toBeVisible()
   await expect(page.getByTestId('marker-cevan')).toBeVisible()

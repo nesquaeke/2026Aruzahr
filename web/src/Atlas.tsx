@@ -77,7 +77,9 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         const group = document.createElementNS(ns, 'g')
         group.setAttribute('class', `atlas-route ${route.status || 'open'}`)
         group.dataset.testid = `route-${route.id}`
-        for (const points of route.stops ? [route.stops.map(id => placeById(id)!.point)] : route.paths!) {
+        const paths = route.stops ? [route.stops.flatMap(id => { const point = placeById(id)?.point; return point ? [point] : [] })] : route.paths!
+        for (const points of paths) {
+          if (points.length < 2) continue
           // Smooth the known stops without introducing fictional detours.
           const p = points.map(([x, y]) => [x * 8192, y * 5668])
           const geometry = `M${p[0].join(',')} ` + p.slice(1).map((end, i) => {
@@ -113,14 +115,15 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
         button.type = 'button'
         button.className = `map-pin ${feature ? `feature-pin ${feature.kind}-pin` : isRegion ? 'region-pin' : 'city-pin'}${isSubregion ? ' subregion-pin' : ''}${'positionStatus' in entry && entry.positionStatus === 'approximate' ? ' approximate-pin' : ''}`
         button.dataset.testid = `marker-${entry.id}`
-        button.setAttribute('aria-label', `${entry.name} ${feature ? featureLabels[feature.kind].toLocaleLowerCase('tr-TR') : isRegion ? 'bölgesini' : 'yerleşimini'} keşfet`)
+        const mapName = 'mapLabel' in entry && entry.mapLabel ? entry.mapLabel : entry.name
+        button.setAttribute('aria-label', `${mapName} ${feature ? featureLabels[feature.kind].toLocaleLowerCase('tr-TR') : isRegion ? 'bölgesini' : 'yerleşimini'} keşfet`)
         if (feature || ('positionStatus' in entry && entry.positionStatus === 'approximate')) button.title = `${entry.name} · Yaklaşık konum${feature?.kind === 'route' ? ' · Şematik güzergâh' : ''}`
         const symbol = document.createElement('span')
         symbol.className = 'pin-symbol'
         symbol.textContent = feature ? ['mountain', 'ridge'].includes(feature.kind) ? '▲' : feature.kind === 'route' ? '⌁' : feature.kind === 'landmark' ? '⌑' : '≈' : isRegion ? '✧' : '◆'
         const label = document.createElement('span')
         label.className = 'pin-label'
-        label.textContent = entry.name
+        label.textContent = mapName
         button.append(symbol, label)
         button.addEventListener('pointerdown', event => event.stopPropagation())
         button.addEventListener('click', event => { event.stopPropagation(); select.current(entry.id) })
@@ -181,7 +184,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelec
     if (region || feature) {
       const [x, y, w, h] = (region || feature)!.box
       viewer.current.viewport.fitBounds(viewer.current.viewport.imageToViewportRectangle(x * 8192, y * 5668, w * 8192, h * 5668), reducedMotion)
-    } else if (place) {
+    } else if (place?.point) {
       const [x, y] = place.point
       viewer.current.viewport.fitBounds(viewer.current.viewport.imageToViewportRectangle((x - .09) * 8192, (y - .09) * 5668, .18 * 8192, .18 * 5668), reducedMotion)
     }

@@ -4,7 +4,7 @@
 
 ## Sonuç ve kapsam
 
-Atlas 96 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi içerir: toplam **138 ayrı tıklanabilir nokta**. Yerleşim envanterine 52 kayıt eklendi; eski 43 yerleşimin merkezi çizime göre yeniden sabitlendi. Yerleşimlerin 95’i özgün haritadaki çizimle eşleşir. Yazarın adlandırdığı Fehar’ın haritada ayrı etiketi okunamadığından mevcut yaklaşık noktası korunur; Frethar ile birleştirilmez.
+Atlas 96 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi içerir: konumu belirli 95 yerleşim üzerinden toplam **137 ayrı tıklanabilir nokta**. Yerleşim envanterine 52 kayıt eklendi; eski 43 yerleşimin merkezi çizime göre yeniden sabitlendi. Yerleşimlerin 95’i özgün haritadaki çizimle eşleşir. Yazar Fehar’ın yaklaşık noktasını reddettiği için bu nokta kaldırılmıştır; kaydı wiki içinde korunur, doğru konum bilgisi beklenir. Frethar ile birleştirilmez.
 
 Aldara’nın iki kolu, Serenith, Teyra, Thural Kalkanı, Karlan dağ sırası ve Valdareth Ovası artık kendi noktalarından açılır. Lakbar’daki beş belirgin kale/kule, Thessar açığındaki fener ve Runeth kuzeyindeki harabe açıklayıcı atlas adlarıyla erişilebilir. Bu etiketsiz çizimlere eklenen adlar kaynak belgeden alınmış resmî adlar olarak sunulmaz. Her ev, değirmen ve ağaç ayrı yerleşim sayılmaz.
 
@@ -19,7 +19,7 @@ Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkenin seçi
 - Gaalmire / haritadaki Galmire; Korhenden / Korthen; Toran / Tora aynı kayıt üzerinden açılır. Bunlar yazım farkları için editoryal eşleştirmedir.
 - Serenith adı korunur; Serenth harita yazımı arama ve bağlantı takma adıdır.
 - Honud, Danstsud ve Garmirk yazarın seçtiği biçimlerdir; eski belge yazımları aramada tanınır.
-- Lurnvalf son harfiyle, Janvar ilk harfiyle büyük kaynak kesitinde doğrulandı. Telvai yazısının bir kısmı ağaçla örtülüdür; envanter bu okuma notunu korur.
+- Son yazar düzeltmesiyle Thesar, Telvar, Lurnvale, Orinhall, Vosir ve Lanvar adları kullanılır. Önceki Thessar, Telvai, Lurnvalf, Orinhal, Vossir ve Janvar okumaları arama/bağlantı takma adlarıdır. Korthen haritadaki etiket, Korhenden mevcut lore kaydının adıdır. Eski wiki kimlikleri korunur.
 - Haritadaki Dravenspire Honud’da işaretlenir. Varric’in yazar tarafından verilen Danstsud köken bilgisi bu harita eşleştirmesiyle sessizce değiştirilmemiştir; kişi kökeni ile bu harita adı arasındaki ayrım ileride yazar kararı gerektirebilir.
 
 ## Yerleşim merkezleri
@@ -87,12 +87,12 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Yornhal | 4240 | 3240 | Haritada doğrulandı |
 | Othmar | 7100 | 3260 | Haritada doğrulandı |
 | Eldwen | 7500 | 3270 | Haritada doğrulandı |
-| Thessar | 3730 | 3280 | Haritada doğrulandı |
+| Thesar | 3730 | 3280 | Haritada doğrulandı |
 | Vornic | 4520 | 3290 | Haritada doğrulandı |
 | Thandor | 7770 | 3290 | Haritada doğrulandı |
 | Cevan | 8090 | 3330 | Haritada doğrulandı |
 | Frethar | 4860 | 3370 | Haritada doğrulandı |
-| Telvai | 5700 | 3380 | Haritada doğrulandı |
+| Telvar | 5700 | 3380 | Haritada doğrulandı |
 | Pilorn | 5170 | 3450 | Haritada doğrulandı |
 | Rymar | 7220 | 3470 | Haritada doğrulandı |
 | Velyra | 6250 | 3560 | Haritada doğrulandı |
@@ -101,25 +101,25 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Jathra | 8040 | 3610 | Haritada doğrulandı |
 | Korhenden | 6925 | 3750 | Haritada doğrulandı · Korthen |
 | Arden | 4850 | 3760 | Haritada doğrulandı |
-| Lurnvalf | 7740 | 3790 | Haritada doğrulandı |
-| Fehar | 5186 | 3809 | Yaklaşık · harita etiketi doğrulanmadı |
-| Naeron | 5230 | 3905 | Haritada doğrulandı |
+| Lurnvale | 7740 | 3790 | Haritada doğrulandı |
+| Fehar | — | — | Eski nokta kaldırıldı; doğru konum bekleniyor |
+| Naeron | 5218 | 3890 | Haritada doğrulandı |
 | Velthar | 4560 | 3910 | Haritada doğrulandı |
 | Brolin | 4890 | 3990 | Haritada doğrulandı |
 | Valdareth | 6200 | 4000 | Haritada doğrulandı |
 | Melthir | 7500 | 4020 | Haritada doğrulandı |
-| Orinhal | 8050 | 4030 | Haritada doğrulandı |
+| Orinhall | 8050 | 4030 | Haritada doğrulandı |
 | Ternhaven | 4120 | 4040 | Haritada doğrulandı |
-| Fevric | 5250 | 4180 | Haritada doğrulandı |
+| Fevric | 5260 | 4145 | Haritada doğrulandı |
 | Oren | 7090 | 4270 | Haritada doğrulandı |
 | Cylwen | 7820 | 4310 | Haritada doğrulandı |
-| Theld | 6510 | 4360 | Haritada doğrulandı |
-| Uldar | 5250 | 4420 | Haritada doğrulandı |
+| Theld | 6504 | 4327 | Haritada doğrulandı |
+| Uldar | 5210 | 4400 | Haritada doğrulandı |
 | Dranthol | 3680 | 4460 | Haritada doğrulandı |
 | Vyssgard | 4250 | 4480 | Haritada doğrulandı |
 | Halden | 7700 | 4540 | Haritada doğrulandı |
 | Lamden | 6600 | 4640 | Haritada doğrulandı |
-| Vossir | 6930 | 4660 | Haritada doğrulandı |
+| Vosir | 6930 | 4660 | Haritada doğrulandı |
 | Runeth | 7260 | 4660 | Haritada doğrulandı |
 | Teyla | 8080 | 4720 | Haritada doğrulandı |
 | Frostbay | 3850 | 4850 | Haritada doğrulandı |
@@ -129,10 +129,10 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 | Theramis | 7480 | 5070 | Haritada doğrulandı |
 | Toran | 5360 | 5200 | Haritada doğrulandı · Tora |
 | Mavric | 4410 | 5260 | Haritada doğrulandı |
-| Janvar | 7000 | 5450 | Haritada doğrulandı |
-| Harven | 4820 | 5520 | Haritada doğrulandı |
+| Lanvar | 7000 | 5450 | Haritada doğrulandı |
+| Harven | 4795 | 5505 | Haritada doğrulandı |
 | Kaldmere | 3730 | 5530 | Haritada doğrulandı |
-| Tolvur | 5420 | 5550 | Haritada doğrulandı |
+| Tolvur | 5385 | 5538 | Haritada doğrulandı |
 
 ### Garmirk — 2 yerleşim
 
@@ -164,3 +164,7 @@ Aşağıdaki x/y değerleri özgün çizimin pikselleridir. Kamera konumu veya e
 ## Bakım
 
 Yerleşim koordinatları `web/src/map-corrections.ts`, coğrafya `map-features.ts` ve yeni yapı/nehir noktaları `map-landmarks.ts` içinde tutulur. Yeni yakın planlar `mapped-art-manifest.ts` üzerinden kaynak çizim olarak tanımlanır. `web/tests/map-coverage.spec.ts` bağımsız ad envanterini, her yerleşimin pin → panel → wiki zincirini, katman görünürlüğünü, yazım aramasını ve ekran boyutu değişimini denetler.
+
+## Son kullanıcı listesiyle yeniden kontrol
+
+9 Ekim 2026: kullanıcının verdiği 31 yer adı aynı kayıtlara ve mevcut yerleşim çizimlerine eşleştirildi. Harven ve Tolvur sola; Theld, Uldar, Fevric ve Naeron yukarı, ilgili yapı kümelerinin üst çatılarındaki seçilebilir noktalara taşındı. Liste için yeni lore yazılmadı. Nokta simgesinin ekrandaki merkezi, özgün görüntü piksellerinin bağımsız SVG izdüşümüyle karşılaştırılarak kontrol edilir; yalnız kayıt kimliğinin bulunması konum doğruluğu sayılmaz.

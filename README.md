@@ -4,11 +4,11 @@ Yazarın özgün 8K haritasında gezilen Türkçe atlas, resimli wiki, karakter 
 
 ## Haritanın güncel kapsamı
 
-**96 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi: toplam 138 tıklanabilir nokta.** Eksik 52 yerleşim eklendi; mevcut 43 yerleşimin noktası özgün çizimle karşılaştırılarak düzeltildi. Her yerleşim kendi bilgi kartına ve bölümleri dolu wiki sayfasına açılır.
+**96 yerleşim kaydı; konumu belirli 95 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi: toplam 137 tıklanabilir nokta.** Eksik 52 yerleşim eklendi; mevcut 43 yerleşimin noktası özgün çizimle karşılaştırılarak düzeltildi. Her harita noktası kendi bilgi kartına ve bölümleri dolu wiki sayfasına açılır.
 
 Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkeyi seçmek görüş alanındaki komşu şehirleri gizlemez. Uzak görünümde çakışan yazılar azalır, noktalar kalır; fareyle veya klavye odağıyla isim açılır. Ticaret yolları ayrı katmandadır ve güncel şehir merkezlerini izleyen şematik güzergâhlardır. Cevher Çizgisi yapılmamış proje olarak gösterilir.
 
-95 yerleşim özgün haritada eşleşir. **Fehar** için ayrı etiket okunamadığından noktası yaklaşık olarak belirtilir; Frethar ayrı bir yerleşimdir. Eski ve alternatif yazımlar aramada aynı kayda ulaşır. Tam envanter, koordinatlar ve eşleştirme notları [harita konum denetiminde](lore/HARITA_KONUM_DENETIMI.md) bulunur.
+95 yerleşim özgün haritada eşleşir. **Fehar** için önceki tahmini nokta kullanıcı tarafından reddedildi ve kaldırıldı. Wiki kaydı korunur; doğru konumu beklenir. Frethar ayrı bir yerleşimdir. Eski ve alternatif yazımlar aramada aynı kayda ulaşır. Tam envanter, koordinatlar ve eşleştirme notları [harita konum denetiminde](lore/HARITA_KONUM_DENETIMI.md) bulunur.
 
 ## Atlasın içinde
 
