@@ -1,10 +1,10 @@
-# Aruzahr — Sıfırdan Danstsud 3D Haritası Master Promptu
+# Aruzahr — Danstsud 3D Atlasını Geliştirme Master Promptu
 
-Son yönlendirme: 10 Ekim 2026. Bu metin önceki, özgün resme kabartma ekleyen yaklaşımın yerini alır.
+Son yönlendirme: 10 Ekim 2026. Önce bu promptu yaz; ardından uygula, gerçek tarayıcı görüntüleriyle incele ve doğrula. Son kullanıcı isteği aşağıdaki ayrıntılı şehir, coğrafya ve malzeme gerekliliklerini ekler.
 
 ## Görev
 
-Danstsud için sıfırdan, gezilebilir ve stilize bir üç boyutlu harita oluştur. Mevcut 8K Aruzahr haritası **yalnızca coğrafi referanstır**. Bu resmi bir düzleme kaplamak, yükseltmek veya üzerindeki çizilmiş şehirlerin yanına modeller koymak görevi karşılamaz. 3D açıldığında kullanıcı yeni çizilmiş kara ve denizleri, gerçek hacimli dağları ve yerleşimleri görmelidir. Özgün resmin yazıları, kareli zemini, şehir çizimleri, gemi süsleri ve kâğıt dokusu yeni haritada bulunmaz.
+Danstsud için sıfırdan, gezilebilir, doğal ışıklı ve ayrıntılı bir üç boyutlu harita oluştur. CK3 gibi strateji haritalarının coğrafi okunabilirliği ve malzeme kalitesi hedeflenir. Ucuz low-poly görünümü, koni dağlar, üçgen topak ağaçlar ve çıplak küplerden şehirler kullanma. Mevcut 8K Aruzahr haritası **yalnızca coğrafi referanstır**. Bu resmi bir düzleme kaplamak, yükseltmek veya üzerindeki çizilmiş şehirlerin yanına modeller koymak görevi karşılamaz. 3D açıldığında kullanıcı yeni çizilmiş kara ve denizleri, gerçek hacimli dağları ve yerleşimleri görmelidir. Özgün resmin yazıları, kareli zemini, şehir çizimleri, gemi süsleri ve kâğıt dokusu yeni haritada bulunmaz.
 
 İlk kapsam yalnızca Danstsud’dur. Normal dünya atlası 2D olarak korunur. Başlangıç görünümü 2D olur; kullanıcı 3D’yi açıkça açabilir ve kapatabilir. Başka krallığa gidilince dünya atlasına dönülür. Her iki görünüm aynı yer adlarını, kimlikleri, bilgi panellerini ve wiki bağlantılarını kullanır.
 
@@ -12,7 +12,7 @@ Danstsud için sıfırdan, gezilebilir ve stilize bir üç boyutlu harita oluşt
 
 1. Özgün haritayı koordinatlı parçalar halinde incele. Danstsud kıyılarını, girintileri, Rydorn uzantısını, Hardlane kıyılarını, gölleri ve önemli akarsuları ayrı vektör verisi olarak çiz. Tahmini geniş bir çokgenle denizleri kara yapma.
 2. Bu veriden yeni bir arazi yüzeyi üret. Karalar deniz seviyesinden yükselsin; kıyılarda kıyı şeridi ve deniz tabanına iniş görülsün. Deniz kendi yüzeyi ve rengiyle ayrı olsun. Göller kara dokusunun üstüne mavi çizgi olarak boyanmasın; su havzaları olarak görünsün.
-3. Yüzeyin renklerini sıfırdan oluştur: ovada soluk yeşiller ve tarım tonları, dağda taş ve toprak, Hardlane’de soğuk gri-mavi ile beyaz. Mat yüzeyler, ölçülü ışık, doğal renk farklılıkları kullan. Fotoğraf dokusu, parlak plastik ve özgün atlas resmi kullanma.
+3. Yüzeyin renklerini sıfırdan oluştur: ovada doğal yeşiller ve tarım tonları, dağda taş ve toprak, Hardlane’de soğuk gri-mavi ile beyaz. Yamaç yönü, yüzey pürüzü, renk ve kar sınırı birlikte çalışsın. Doğal malzeme ayrıntısı ve gölgeler kullan; aşırı doygun düz yeşil, tekrarlanan dalga şeritleri, plastik yüzey ve özgün atlas resmi kullanma. Bu 3D talebi, karakter/hayvan illüstrasyonlarının elle boyanmış tasarım kuralını değiştirmez.
 4. Özgün haritadaki beyaz bölgeleri kar alanı olarak yeniden yorumla. Kar yalnızca parçacık değildir: yerde, yüksek yamaçlarda ve uygun ağaç tepelerinde de görünür. Kış düğmesi mevsimlik örtüyü genişletebilir; kalıcı yüksek dağ karını kaldırmaz.
 
 ## Dağlar, akarsular ve ormanlar
@@ -60,3 +60,37 @@ Yakınlaşma, sürükleme, eğimli/üstten görünüm, kuzeye dönme ve kameray�
 - Kaynak 8K dosya değiştirilmeden kalıyor. Sonuç ve sınırlar belgeleniyor; yapılan şey gerçek ölçekli şehir simülasyonu veya tam CK3 oyunu diye sunulmuyor.
 
 Bu prompt bir öneri listesi değildir. Önce coğrafi veriyi çıkar, sonra yeni haritayı üret, modelleri yerleştir, gerçek tarayıcı görüntülerini incele, hataları düzelt ve çalışan sürümü teslim et.
+
+## Son isteğin ayrıntılı uygulama sözleşmesi
+
+### Kıyılar ve akarsular
+
+Kaynak atlası koordinatlı yakın planlarla incele. Kıyı girintilerini ve çıkıntılarını düzelt; yanlış kapanmış koyları aç. **Lirendil’in kuzeyinde deniz olmalıdır**; görünümün üst kenarını kara ile doldurma. Nehir yatağı ve su aynı, kesintisiz güzergâhta ilerlesin. Doğu/Batı Aldara’nın ortak kaynağını ve Frostmere bağlantısını koru. Serenith ve Teyra’nın eksik veya yanlış parçalarını tamamla. **Valdareth’e ulaşan nehir şehrin bir yanından/içinden geçerek denize kadar akmalı; liman gerçek denize açılmalıdır.** Nehirler yüzeyde boyanmış, kopuk veya dağa gömülü mavi çizgiler olamaz. Marhalden’de dağdan inen çağlayanlar ve şelale görünmelidir.
+
+### Ayrıntılı şehir mimarileri
+
+**Marhalden:** Karlan dağlarının içine yerleşmiş teraslı evler, maden işlikleri, dar dağ sokakları. Ortasından Aldara geçer ve dağ yatağından aşağıya çağlayan/şelalelerle iner. İki yakada iki ayrı kale, taş köprü, köprübaşlarında ve yamaçlarda kuleler bulunur. Kaleleri ve evleri tek düz platforma koyma. Kaya, güçlü savunma, yüksek güvenlikli zindan ve dağ geçidi birlikte okunmalıdır.
+
+**Valdareth:** çok kalabalık, düzensiz büyümüş başkent. Beş ayrı sur kuşağı; en içte kraliyet kalesi ve sarayı ile siyah obsidyen kilise. Ayrı büyük hapishane, muhafız yerleşkeleri, lonca yapıları. İçte daha yoğun ve varlıklı mahalleler; dışa doğru yoksullaşan küçük evler; dışta köy dokusu ve tarım. Duvarlar kusursuz beş çember değildir; kapıları, burçları ve avluları olan düzensiz mahalle kuşaklarıdır. Mavi-mor ev çatıları. Büyük eski deniz feneri, koruyucu liman duvarı, iskeleler, ambarlar ve Mor Donanma’nın koy bağlantısı. Nehir köprüleri ve kıyı mahalleleri suyun denize ulaşmasını gösterir.
+
+**Elorwyn:** paladin ve ruhban şehri. Ferah geniş sokaklar, açık meydan ve avlular, altın işlemeli amblemler, büyük kiliseler ve geniş ruhban okulları. Paladin eğitim sahası, askeri yerleşke, açık taş mimarisi. Altın ayrıntılar kapı, sancak ve dini yapılarda kullanılır; her yüzeye yayılan parlaklık oluşturma.
+
+**Theramis:** liberal ve özgür büyü şehri. Beyaz kuvars taşları, mavi işlemeler, sütunlu meydanlar, büyük büyü okulları, çeşmeler, arşiv ve kemerli geçitler. Yunan şehir devletini çağrıştıran geniş meydan ve sütunlu mimari. Bütün binaları sivri şapkalı kulelere dönüştürme.
+
+**Dorvenhall:** dağların ardında plato ve ovalara açılan sanayi şehri. Büyük/küçük atölyeler, dökümhaneler, ocak ve baca kümeleri, işlik avluları, yük depoları, askeri binalar. Dağ geçitlerinde sınır korucu kuleleri. Şehir yalnızca yüksek bir kaleden ibaret değildir.
+
+**Lirendil:** görece küçük şehir; **çok büyük deniz feneri ve çok büyük kütüphane**. Kütüphane, Çelikkalkan yerleşkesi, ticaret avlusu, kervanlar, yük arabaları, kıyı ve kuzeydeki deniz birbirini açıklar. Başkent kadar ev ekleme; iki büyük simgesel yapı ile küçük şehir ölçeği arasındaki fark görünmelidir.
+
+**Hardlane:** soğuk, ihmale uğramış, yıpranmış ahşap barakalar, kırık duvarlar ve eski yerleşimler. Lore dosyalarından şehirlerin farklarını koru. Frostbay’de çok büyük görkemli ama yıkık taş yapılar ve kalıntılara sığınmış barakalar, eski idari yapı ve küçük fener bulunur. Dranthol reformlarla kurulmuş düzenli kale/garnizon, liman ve fener taşır; çevresi yoksul olabilir. Ternhaven sıcak su çevresinde daha düzenli, eski Hardlane kültürünü koruyan yaşanabilir küçük şehirdir. Vyssgard sıkışık, düzensiz, yamalı depolar ve tahta iskelelerden oluşan suç limanıdır. Kaldmere altyapısız mülteci barakaları ve küçük iskeledir; gösterişli kale ekleme.
+
+58 yerleşimin tamamı korunur. Büyük şehirlerin mimarilerini ortak birkaç şeklin renklerini değiştirerek üretme. Çatı, pencere, kapı, kemer, merdiven, sur kapısı, avlu, çarşı ve iskele ayrıntıları yakın planda görünür olmalıdır. Planlar görsel yorumdur; yeni kaynak kanonu gibi sunulmaz.
+
+### Kral Yolu
+
+**Lirendil’den Valdareth’e kesintisiz kara Kral Yolu** oluştur. Başkentten **Hardlane dışında kalan bütün Danstsud şehirlerine** yollar ve bağlantılar ulaşsın. Marhalden geçidin doğu ucudur ve ağa bağlanır. Batıdaki Hardlane şehirlerine tamamlanmış kraliyet yolu uzatma; Harven/Mavric hariç, doğudaki Uldar/Toran/Tolvur dahil. Yollar karada, yamaçlarda kıvrılarak ve nehirlerde köprüyle ilerlesin. Deniz üzerinden düz altın çizgi çekme. Mevcut ticaret güzergâhları ile tamamlanmamış Cevher Çizgisi projesini koru. Katman kontrolüyle yolları gizlemek mümkün olsun.
+
+### Görsel kalite, kullanım ve doğrulama
+
+Doğal yüzey ayrıntısı, okunabilir sırtlar ve vadiler, kayalık yamaçlar, kademeli kar sınırı, doğal su ve yumuşak gün ışığıyla şehirleri araziye bağla. Ormanların dalları ve dolu taçları olsun; düşük çokgenli topak görünümünden çık. Sabit dağılım tohumu ve uzaklığa uygun ayrıntı kullan; görünmeyen nesneleri çizme. Mobil kullanım, hareket azaltma, GPU temizliği ve WebGL kaybında 2D dönüş korunur.
+
+Kaynakla kıyı/akarsu karşılaştırmasını, Lirendil’in kuzeyindeki suyu, başkentin deniz bağlantısını, Marhalden’in iki yakasını ve şelalesini ayrı doğrula. Uygun bütün şehirler yol ağına bağlı olmalıdır. Ülke görünümünü ve büyük şehir yakın planlarını gerçek tarayıcıda incele. Test geçti diye kaba görünümü kabul etme. Derleme, ilgili etkileşim ve gizlilik testlerini tamamla; sonucu dürüstçe belgele. Tam CK3 oyunu veya gerçek ölçekte mimari simülasyon iddiasında bulunma.

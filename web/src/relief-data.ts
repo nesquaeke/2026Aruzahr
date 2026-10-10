@@ -33,15 +33,15 @@ export const danstsudPlaces = places.filter(place => place.region === 'danstsud'
 export const reliefTargets = [...mapLocations.filter(entry => entry.region === 'danstsud'), ...mapFeatures.filter(entry => entry.region === 'danstsud')]
 // Original pixels remain the coordinate system; the source bitmap is never
 // used by this renderer. The scene is a new, cropped Danstsud geography.
-export const GEOGRAPHY_BOUNDS = {left:2800,top:2450,right:8192,bottom:5668}
-export const DANSTSUD_VIEW = { point: pixels([[5496, 4059]])[0], width: 5392 / MAP_WIDTH * WORLD_WIDTH, depth: 3218 / MAP_HEIGHT * WORLD_DEPTH }
-export const inDanstsudView = ([u,v]: UV) => u >= 2800 / MAP_WIDTH && v >= 2450 / MAP_HEIGHT && u <= 1 && v <= 1
+export const GEOGRAPHY_BOUNDS = {left:2800,top:2100,right:8192,bottom:5668}
+export const DANSTSUD_VIEW = { point: pixels([[5496, 3884]])[0], width: 5392 / MAP_WIDTH * WORLD_WIDTH, depth: 3568 / MAP_HEIGHT * WORLD_DEPTH }
+export const inDanstsudView = ([u,v]: UV) => u >= 2800 / MAP_WIDTH && v >= 2100 / MAP_HEIGHT && u <= 1 && v <= 1
 
 // Coastline manually traced on coordinate-labelled crops of the 8K reference.
 // City sprites obscure some shoreline edges: these segments follow their
 // visible land apron, rather than copying the oversized illustration silhouette.
 export const coastline = pixels([
-  [2800,2450],[3350,2450],[3420,2530],[3410,2620],[3450,2690],[3605,2700],[3650,2780],
+  [2940,2510],[3030,2480],[3150,2475],[3260,2490],[3340,2505],[3415,2530],[3420,2590],[3410,2640],[3470,2690],[3560,2695],[3605,2700],[3650,2780],
   [3760,2800],[3840,2730],[4010,2690],[4080,2760],[4150,2750],[4270,2720],[4340,2790],
   [4500,2830],[4600,2800],[4750,2840],[4860,2935],[4925,2990],[5030,3010],[5080,3090],
   [5160,3115],[5270,3110],[5350,3060],[5500,3080],[5570,3110],[5690,3130],[5740,3090],
@@ -64,21 +64,29 @@ export const coastline = pixels([
   [4740,3980],[4780,3900],[4800,3760],[4730,3730],[4610,3760],[4520,3790],[4420,3730],
   [4360,3620],[4420,3540],[4510,3530],[4580,3570],[4690,3570],[4850,3630],[4930,3680],
   [5010,3740],[5050,3830],[5060,3900],[5100,3980],[5170,4000],[5190,3930],[5140,3890],
-  [5130,3780],[5260,3730],[5380,3710],[5480,3620],[5550,3600],[5450,3570],[5350,3580],
+  [5130,3780],[5260,3730],[5380,3710],[5480,3760],[5630,3840],[5790,3930],
+  [5900,4010],[5960,4020],[6010,3990],[5970,3940],[5900,3910],[5850,3850],[5790,3800],
+  [5730,3740],[5630,3680],[5545,3660],[5480,3620],[5550,3600],[5450,3570],[5350,3580],
   [5290,3530],[5170,3530],[5080,3540],[5000,3490],[4920,3460],[4840,3410],[4810,3440],
   [4740,3400],[4650,3350],[4560,3360],[4480,3340],[4390,3310],[4300,3300],[4210,3290],
   [4170,3230],[4070,3190],[3980,3170],[3900,3180],[3830,3230],[3810,3300],[3770,3350],
   [3680,3340],[3610,3310],[3570,3200],[3490,3160],[3420,3130],[3350,3120],[3310,3160],
   [3240,3150],[3200,3100],[3210,3000],[3160,2960],[3100,2970],[3050,2920],[2980,2850],
-  [2870,2810],[2810,2740],[2820,2650],[2850,2510]
+  [2980,2810],[2940,2740],[2920,2690],[2940,2630],[2910,2570]
 ])
 export const lakeOutline = pixels([[4170,4690],[4280,4670],[4390,4730],[4510,4815],[4750,4800],[4740,4840],[4590,4870],[4510,4920],[4430,4890],[4320,4840],[4210,4750]])
 const coastLoop = [...coastline,coastline[0]],lakeLoop = [...lakeOutline,lakeOutline[0]]
 export const landAt = (point:UV) => inDanstsudView(point) && inPolygon(point,coastline) && !inPolygon(point,lakeOutline)
 export const shoreDistance = (point:UV) => Math.min(lineDistance(point,coastLoop),lineDistance(point,lakeLoop))
-// Smooth, deterministic pigment/relief variation; no satellite or atlas image.
+// Continuous multi-scale value noise. Its fixed lattice is shared by erosion,
+// land colour and forest clustering; the atlas bitmap never enters the scene.
+export function valueNoise(x:number,z:number) {
+  const hash=(a:number,b:number)=>{let n=Math.imul(a,374761393)^Math.imul(b,668265263);n=Math.imul(n^(n>>>13),1274126177);return ((n^(n>>>16))>>>0)/4294967295}
+  const ix=Math.floor(x),iz=Math.floor(z),fx=x-ix,fz=z-iz,sx=fx*fx*(3-2*fx),sz=fz*fz*(3-2*fz)
+  return (hash(ix,iz)*(1-sx)+hash(ix+1,iz)*sx)*(1-sz)+(hash(ix,iz+1)*(1-sx)+hash(ix+1,iz+1)*sx)*sz
+}
 export function terrainNoise(x:number,z:number) {
-  return (Math.sin(x*.73+Math.cos(z*.39))*Math.cos(z*.61-x*.17)+Math.sin(x*2.31+z*1.73)*.28+Math.sin(x*6.81-z*3.1)*.09)/1.37
+  return (valueNoise(x*.42,z*.42)*.56+valueNoise(x*1.17+31,z*1.17)*.28+valueNoise(x*3.6,z*3.6+17)*.16)*2-1
 }
 
 type Peak = { x: number; y: number; rx: number; ry: number; height: number }
@@ -99,11 +107,12 @@ export const mountainFootprints: Mountain[] = [
   mountain('lowvale-east',[[7310,3360],[7390,3350],[7460,3330],[7540,3380],[7610,3390],[7670,3360],[7750,3405],[7800,3380],[7860,3400],[7940,3380],[8000,3410],[8070,3380],[8110,3480],[8050,3530],[7950,3540],[7850,3490],[7750,3530],[7640,3500],[7560,3520],[7440,3510],[7350,3510],[7300,3440]],[[7460,3405,100,130,1.5],[7670,3420,85,110,1.3],[7830,3430,80,100,1.2],[8000,3450,85,110,1.1]]),
   mountain('karlan-north',[[4410,4050],[4490,4005],[4580,4015],[4635,4070],[4730,4060],[4800,4135],[4850,4185],[4930,4230],[4930,4320],[5030,4380],[5100,4475],[5050,4520],[4890,4510],[4825,4570],[4700,4540],[4620,4595],[4540,4510],[4520,4420],[4430,4355],[4340,4340],[4375,4240]],[[4530,4130,140,175,3.8],[4730,4190,145,180,3.15],[4570,4300,165,160,2.25],[4850,4370,150,190,2.7],[4740,4500,145,120,1.6],[4975,4460,95,110,1.35]]),
   mountain('karlan-west-spurs',[[4070,4280],[4150,4240],[4230,4345],[4290,4380],[4350,4435],[4400,4530],[4390,4610],[4315,4550],[4240,4480],[4170,4480],[4065,4380]],[[4130,4320,95,95,1.3],[4295,4430,90,100,1.1],[4350,4530,65,90,.85]]),
+  mountain('marhalden-pass',[[4790,4610],[4900,4550],[5040,4660],[5075,4790],[5070,4950],[5130,5050],[5170,5200],[5030,5310],[4870,5290],[4750,5160],[4710,5030],[4730,4840]],[[4985,4700,130,175,2.55],[4790,4900,100,175,1.6],[5040,5000,115,200,2.05],[4900,5170,130,135,1.6]]),
   mountain('karlan-middle',[[5120,5170],[5220,5125],[5280,5150],[5380,5220],[5430,5300],[5360,5340],[5260,5300],[5170,5320],[5070,5245]],[[5250,5240,145,140,2.35],[5350,5300,80,100,1.0]]),
   mountain('karlan-south',[[5220,5405],[5310,5425],[5360,5500],[5430,5600],[5430,5668],[5070,5668],[5110,5560],[5180,5480]],[[5260,5525,145,150,2.5],[5340,5620,125,130,1.7]]),
   mountain('hardlane-ice-ridge',[[4305,5220],[4360,5185],[4400,5230],[4380,5290],[4320,5380],[4290,5440],[4240,5535],[4150,5580],[4100,5550],[4170,5450],[4210,5380],[4270,5310]],[[4330,5260,60,90,.95],[4265,5400,65,90,.85],[4160,5520,70,80,.8]]),
 ]
-const foundations = danstsudPlaces.map(place=>({point:place.point!,radius:place.major?.8:.3}))
+const foundations = danstsudPlaces.map(place=>({id:place.id,point:place.point!,radius:place.major?.8:.3}))
 export function mountainHeightAt(point: UV,land=landAt(point)) {
   if(!land)return 0
   const x=point[0]*MAP_WIDTH,y=point[1]*MAP_HEIGHT
@@ -120,7 +129,9 @@ export function mountainHeightAt(point: UV,land=landAt(point)) {
       if(distance>=1.65)continue
       const shape=Math.pow(Math.max(0,1-distance/1.65),1.5)
       const angle=Math.atan2(y-peak.y,x-peak.x)
-      const ridges=.88+.12*Math.cos(angle*5+distance*2)
+      const [wx,,wz]=worldPoint(point)
+      const erosion=1-Math.abs(valueNoise(wx*2.7+13,wz*2.7)*2-1)
+      const ridges=(.8+.2*Math.cos(angle*5+distance*2))*(.82+.28*erosion)+Math.sin(angle*9+distance*6)*.045
       height=Math.max(height,peak.height*shape*ridges*smoothstep(24,50,edge))
     }
   }
@@ -129,9 +140,18 @@ export function mountainHeightAt(point: UV,land=landAt(point)) {
   // land, and settlements elsewhere never introduce elevation.
   for(const foundation of foundations) {
     const distance=Math.hypot((point[0]-foundation.point[0])*WORLD_WIDTH,(point[1]-foundation.point[1])*WORLD_DEPTH)
-    if(distance<foundation.radius)height*=smoothstep(foundation.radius*.45,foundation.radius,distance)
+    if(distance<foundation.radius && foundation.id!=='marhalden')height*=smoothstep(foundation.radius*.45,foundation.radius,distance)
   }
   const waterClearance=Math.min(...riverPaths.map(river=>lineDistance(point,river.points)-river.width/2))
+  const marhalden=mountainFootprints.find(area=>area.id==='marhalden-pass')!
+  if(inPolygon(point,marhalden.polygon)) {
+    // The mountain river has a descending bed with a visible rocky step north
+    // of town. It is not flattened to sea level with the lowland tributaries.
+    const west=riverPaths.find(r=>r.id==='bati-aldara')!,d=lineDistance(point,west.points)
+    const profile=y<4800?1.14:y<4820?.77:y<4890?.77:y<4910?.34:.34
+    height=height*smoothstep(.16,.62,d)+profile*(1-smoothstep(.16,.62,d))
+    return height*smoothstep(0,24,lineDistance(point,marhalden.boundary)*MAP_WIDTH/WORLD_WIDTH)
+  }
   return height*smoothstep(.12,.55,waterClearance)
 }
 export function groundHeightAt(point:UV,land=landAt(point),coast=shoreDistance(point),mountains=mountainHeightAt(point,land)) {
@@ -162,12 +182,12 @@ export function coldAt(point: UV, elevation=heightAt(point)) {
   return 0
 }
 export const signatures: Record<string, {type:string;label:string;radius:number;scale:number}> = {
-  valdareth:{type:'capital',label:'Beş sur · kraliyet kalesi · obsidyen mabedi · fener',radius:3.1,scale:1.65},
-  marhalden:{type:'twincastle',label:'İki kale · köprü · maden atölyeleri',radius:2,scale:1.5},
-  dorvenhall:{type:'highcastle',label:'Yüksek kale · mavi-mor çatı · sınır kuleleri',radius:2.4,scale:1.5},
-  elorwyn:{type:'temple',label:'Mabet · paladin avlusu · sur',radius:2.3,scale:1.45},
-  theramis:{type:'academy',label:'Araştırma kuleleri · arşiv · akademi',radius:2.3,scale:1.5},
-  lirendil:{type:'guild',label:'Çelik Kalkan salonu · kent · kıyı iskelesi',radius:2.2,scale:1.4},
+  valdareth:{type:'capital',label:'Beş sur · saray · obsidyen kilise · Derinkilit · nehir limanı',radius:3.8,scale:1.65},
+  marhalden:{type:'twincastle',label:'Dağ terasları · iki kale · Mühür Köprüsü · Aldara şelalesi',radius:2.5,scale:1.5},
+  dorvenhall:{type:'highcastle',label:'Dağ platosu · dökümhaneler · atölyeler · korucu kalesi',radius:2.4,scale:1.5},
+  elorwyn:{type:'temple',label:'Geniş meydanlar · paladin yerleşkesi · ruhban okulları',radius:2.3,scale:1.45},
+  theramis:{type:'academy',label:'Kuvars sütunlar · mavi akademiler · çeşmeler · arşiv',radius:2.3,scale:1.5},
+  lirendil:{type:'guild',label:'Büyük kütüphane · deniz feneri · Çelikkalkan · kervan',radius:2.2,scale:1.4},
   frostbay:{type:'ruins',label:'Eski taş daireler · düzensiz kıyı yerleşimi',radius:1.5,scale:1.3},
   dranthol:{type:'portfort',label:'Liman kalesi · deniz feneri',radius:1.4,scale:1.3},
   ternhaven:{type:'springs',label:'Sıcak su havuzu · ocak evleri',radius:1.2,scale:1.2},
@@ -185,14 +205,18 @@ export const forestZones:Forest[]=[
   {id:'elorwyn-groves',polygon:pixels([[5560,4570],[7190,4440],[7180,5610],[6450,5668],[5490,5470]]),count:770,type:'autumn',color:'#9c8151'},
   {id:'hardlane-pines',polygon:pixels([[3810,3970],[4400,3940],[4720,4600],[4700,5668],[3720,5668],[3560,4380]]),count:990,type:'pine',color:'#668b80'},
 ]
+// Water paths are continuous pixel polylines used both for incision and
+// ribbon construction. Flow joins share exact coordinates to avoid gaps.
 export const riverPaths=[
-  // The broad northern branch between Othmar and Eldwen is visible in the
-  // source. It belongs to the existing Serenith target, not a new lore place.
-  {id:'serenith-nehri',name:'Serenith kuzey kolu',width:.64,points:pixels([[7250,3240],[7250,3310],[7290,3380],[7290,3440],[7320,3500],[7235,3590],[7220,3690],[7150,3850],[7150,3970],[7190,4070],[7190,4140]])},
-  {id:'aldara-nehri',name:'Doğu Aldara',width:.34,points:pixels([[4940,4410],[5140,4440],[5340,4390],[5450,4330],[5530,4250],[5510,4160],[5400,4050]])},
-  {id:'bati-aldara',name:'Batı Aldara',width:.3,points:pixels([[4880,4440],[4900,4690],[4900,4930],[4600,4890],[4390,4810]])},
-  {id:'serenith-nehri',name:'Serenith',width:.46,points:pixels([[8110,4040],[7850,4120],[7550,4140],[7370,4150],[7190,4040],[7000,3970],[6840,3880],[6630,3840],[6450,3820],[6160,3850],[6020,3850]])},
-  {id:'teyra-nehri',name:'Teyra',width:.34,points:pixels([[7430,4800],[7310,4770],[7270,4640],[7280,4500],[7210,4360],[7140,4250],[7060,4090]])},
+  {id:'serenith-nehri',name:'Serenith kuzey kolu',width:.55,points:pixels([[7250,3240],[7250,3310],[7290,3380],[7290,3440],[7320,3500],[7280,3560],[7235,3590],[7220,3690],[7150,3850],[7150,3970],[7170,4070],[7240,4170]])},
+  {id:'aldara-nehri',name:'Doğu Aldara',width:.4,points:pixels([[4985,4700],[5040,4600],[5200,4500],[5290,4390],[5390,4330],[5430,4250],[5420,4160],[5340,4070],[5300,3960],[5320,3880],[5330,3760],[5270,3670],[5250,3570],[5200,3470],[5140,3390]])},
+  {id:'aldara-nehri',name:'Aldara başkent kolu',width:.32,points:pixels([[5290,4390],[5550,4290],[5790,4330],[6000,4360],[6170,4390],[6310,4350],[6500,4380],[6720,4330],[6870,4340],[6980,4430],[7060,4490]])},
+  {id:'bati-aldara',name:'Batı Aldara',width:.3,points:pixels([[4985,4700],[4965,4770],[4940,4810],[4930,4870],[4900,4930],[4830,4920],[4760,4870],[4600,4840],[4470,4800],[4390,4810]])},
+  {id:'serenith-nehri',name:'Serenith',width:.46,points:pixels([[8150,4180],[7960,4180],[7810,4170],[7610,4170],[7430,4170],[7240,4170],[7070,4190],[6950,4100],[6790,4030],[6630,4010],[6470,4015],[6340,4020],[6200,4038],[6070,4020],[5990,3990],[5890,3940],[5790,3870]])},
+  {id:'serenith-nehri',name:'Serenith ova kolu',width:.3,points:pixels([[6470,4015],[6410,3950],[6340,3830],[6270,3700],[6200,3640],[6120,3560],[6000,3450],[5880,3330],[5830,3210]])},
+  {id:'serenith-nehri',name:'Kuzey ova suyu',width:.28,points:pixels([[6270,3700],[6410,3670],[6590,3710],[6740,3690],[6930,3650],[7010,3660],[7050,3730],[7170,3770]])},
+  {id:'teyra-nehri',name:'Teyra',width:.36,points:pixels([[7190,5300],[7190,5100],[7130,4900],[7170,4720],[7180,4570],[7170,4470],[7080,4390],[7060,4300],[7020,4170],[6950,4100]])},
+  {id:'teyra-nehri',name:'Teyra güney kolu',width:.25,points:pixels([[7170,4720],[7370,4680],[7550,4730],[7630,4700],[7780,4590],[7870,4550]])},
 ]
 export function seededRandom(seed:string) {
   let value=2166136261

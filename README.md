@@ -4,7 +4,7 @@ Yazarın özgün 8K haritasında gezilen Türkçe atlas, resimli wiki, karakter 
 
 ## Haritanın güncel kapsamı
 
-Harita 2D açılır. **Danstsud 3D** düğmesi sıfırdan oluşturulan 3D haritayı açar/kapatır: yeni kara/deniz yüzeyleri, dağlar, kar, ormanlar ve 58 yerleşim modeli vardır. 8K çizim yalnızca coğrafi referanstır; 3D zeminde gösterilmez. [Güncel 3D kapsamı ve kontrolleri](lore/3D_ATLAS_TESLIMI.md).
+Harita 2D açılır. **Danstsud 3D** düğmesi sıfırdan oluşturulan 3D haritayı açar/kapatır: yeni kara/deniz yüzeyleri, dağlar, kar, ormanlar ve 58 yerleşim modeli vardır. 8K çizim yalnızca coğrafi referanstır; 3D zeminde gösterilmez. [Güncel 3D kapsamı ve görsel önizlemeler](lore/3D_ATLAS_TESLIMI.md). Lirendil’in kuzeyindeki deniz, Valdareth’in nehir ağzı ve Marhalden’in iki kaleli dağ/şelale düzeni yeniden işlendi. Şehirlere özel mimari, doğal yüzey ayrıntıları ve 51 yerleşime ulaşan kara Kral Yolu ağı bulunur; yollar ayrı katmandan açılır. Son isteğin tamamı [3D master promptunda](lore/3D_ATLAS_MASTER_PROMPTU.md) tutulur.
 
 **95 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi: toplam 137 tıklanabilir nokta.** Özgün haritadan eklenen 52 adın biri mevcut Fehar ile eşleşir; 51 ayrı yerleşim eklendi. Mevcut 44 yerleşimin noktası özgün çizimle karşılaştırılarak düzeltildi. Her harita noktası kendi bilgi kartına ve bölümleri dolu wiki sayfasına açılır.
 
@@ -15,10 +15,10 @@ Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkeyi seçme
 ## Atlasın içinde
 
 - Şehir kartlarında nüfus tahmini, yönetici, geçim kaynakları ve göreli idare/ticaret/ekonomi/savunma göstergeleri.
-- 155 karakter biyografisi; büyük şehirlerin lonca, askerî birlik, donanma ve dinî kurum kadroları. Başkentteki On İki Şövalye ayrı kişilerden oluşur.
-- 234 genel lore/kişi kaydı; konuya göre bölümler, kısa okuma kartları, tam lore, içindekiler ve sakin okuma modu.
-- 365 görsellik galeri: 197 yeni boya dokulu illüstrasyon, özgün yüklemeler ve 52 kaynak harita adı için özgün çizimden alınan kesitler. Görseller wiki içinden büyütülür.
-- Eski, yasak ve kayıp kitaplar için ayrı kitaplık; sekiz kısa kitap, çevrilebilir parşömen yaprakları.
+- 161 karakter biyografisi; büyük şehirlerin lonca, askerî birlik, donanma ve dinî kurum kadroları. Başkentteki On İki Şövalye ayrı kişilerden oluşur.
+- 246 genel lore/kişi kaydı; konuya göre bölümler, kısa okuma kartları, tam lore, içindekiler ve sakin okuma modu.
+- 371 görsellik galeri: 203 yeni boya dokulu illüstrasyon, özgün yüklemeler ve 52 kaynak harita adı için özgün çizimden alınan kesitler. Görseller wiki içinden büyütülür.
+- Eski, yasak ve kayıp kitaplar için ayrı kitaplık; 14 kısa kitap, çevrilebilir parşömen yaprakları.
 
 Portrelerin isim plakalı çerçevesi dövüş, büyü ve siyasi nüfuzun toplam etkisine göre işlenir. Yeni çizimlerde görünür fırça dokusu ve resimsel biçimler kullanılır. Üretim tercihleri [Görsel ve Anlatı Rehberinde](lore/GORSEL_VE_ANLATI_REHBERI.md), kapsam [master promptta](lore/URETIM_MASTER_PROMPTU.md), gerçek görsel envanteri [üretim kaydında](lore/GORSEL_URETIM_KAYDI.md) saklanır.
 

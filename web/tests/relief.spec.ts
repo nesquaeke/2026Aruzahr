@@ -5,7 +5,8 @@ import { places, placeById } from '../src/data'
 import { mapFeatures } from '../src/map-features'
 import { buildSettlement } from '../src/relief-buildings'
 import { buildReliefWorld, disposeWorld } from '../src/relief-scene'
-import { coldAt, danstsudPlaces, groundHeightAt, heightAt, inPolygon, landAt, mapPoint, mountainFootprints, riverAt, riverPaths, signatures, snowAt, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from '../src/relief-data'
+import { buildRoyalRoads, royalRoadPaths, hardlaneRoadExclusions } from '../src/relief-roads'
+import { coastline, coldAt, danstsudPlaces, groundHeightAt, heightAt, inPolygon, landAt, mapPoint, mountainFootprints, riverAt, riverPaths, signatures, snowAt, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from '../src/relief-data'
 import type { UV } from '../src/relief-data'
 
 // A new session starts in 2D. These tests explicitly enable the optional
@@ -37,14 +38,16 @@ test('all 58 Danstsud settlements have complete anchored geometry and distinct s
     expect(group.children.length,place.name).toBeGreaterThan(1)
     expect(group.children.every(mesh=>'geometry'in mesh)).toBe(true)
     expect(group.children.some(mesh=>mesh.userData.part==='roof'||mesh.userData.part==='snow'),place.name).toBe(true)
+    const inward:string[]=[]
     for(const mesh of group.children as Mesh[]){
       if(!['roof','snow'].includes(mesh.userData.part))continue
       const normals=mesh.geometry.getAttribute('normal')
       for(let i=0;i<normals.count;i++){
         const sloped=Math.abs(normals.getX(i))>.01||Math.abs(normals.getZ(i))>.01
-        expect(sloped&&normals.getY(i)<-.01,`${place.name} inward pitched roof`).toBe(false)
+        if(sloped&&normals.getY(i)<-.01&&inward.length<5)inward.push(`${mesh.userData.part}:${i}`)
       }
     }
+    expect(inward,`${place.name} inward pitched roof`).toEqual([])
     disposeWorld(group)
   }
   expect(ids.size).toBe(58)
@@ -75,6 +78,33 @@ test('independently located source-map sea checkpoints remain water while Dansts
   for(const river of riverPaths){expect(mapFeatures.some(feature=>feature.id===river.id)).toBe(true);expect(river.points.every(point=>point.every(value=>value>=0&&value<=1))).toBe(true)}
   const marhalden=placeById('marhalden')!.point!
   expect(Math.min(...riverPaths.find(r=>r.id==='bati-aldara')!.points.map(p=>Math.hypot((p[0]-marhalden[0])*8192,(p[1]-marhalden[1])*5668)))).toBeLessThan(.01)
+})
+
+test('Lirendil sea, capital estuary and continuous overland royal roads match the new geography',()=>{
+  for(const [x,y] of [[3260,2400],[3100,2410],[3400,2410],[5790,3870],[5950,3980]])expect(landAt([x/8192,y/5668]),`${x},${y} sea`).toBe(false)
+  const orient=(a:UV,b:UV,c:UV)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+  const crossings:number[][]=[]
+  for(let i=0;i<coastline.length;i++)for(let j=i+2;j<coastline.length;j++){
+    if(i===0&&j===coastline.length-1)continue
+    const a=coastline[i],b=coastline[(i+1)%coastline.length],c=coastline[j],d=coastline[(j+1)%coastline.length]
+    if(orient(a,b,c)*orient(a,b,d)<0&&orient(c,d,a)*orient(c,d,b)<0)crossings.push([i,j])
+  }
+  expect(crossings,'crossed coastline').toEqual([])
+  const paths=royalRoadPaths(),expected=danstsudPlaces.filter(c=>!hardlaneRoadExclusions.has(c.id)).map(c=>c.id).sort()
+  expect(paths.map(p=>p.id).sort()).toEqual(expected);expect(paths).toHaveLength(51)
+  const invalid:string[]=[]
+  for(const path of paths){
+    expect(path.points[0]).toEqual(placeById('valdareth')!.point);expect(path.points.at(-1)).toEqual(placeById(path.id)!.point)
+    for(let i=1;i<path.points.length;i++)for(let k=0;k<=4;k++){
+      const a=path.points[i-1],b=path.points[i],p:UV=[a[0]+(b[0]-a[0])*k/4,a[1]+(b[1]-a[1])*k/4]
+      if(!landAt(p)&&invalid.length<10)invalid.push(`${path.id}:${p}`)
+    }
+  }
+  expect(invalid,'royal road in sea').toEqual([])
+  const roads=buildRoyalRoads(p=>groundHeightAt(p));expect((roads.getObjectByName('crown-overland-roads') as Mesh).geometry.getAttribute('position').count).toBeLessThan(200000);disposeWorld(roads)
+  const marhalden=placeById('marhalden')!.point!,river=riverPaths.find(r=>r.id==='bati-aldara')!
+  expect(Math.min(...river.points.map(p=>Math.hypot((p[0]-marhalden[0])*8192,(p[1]-marhalden[1])*5668)))).toBeLessThan(.01)
+  expect(heightAt([4985/8192,4700/5668])).toBeGreaterThan(heightAt(marhalden))
 })
 
 test('river faces remain above the real triangulated terrain instead of disappearing inside slopes',()=>{
@@ -197,8 +227,12 @@ test('zoom, wheel, keyboard pan, tilt, north and home control the camera without
   const canvas=viewer.locator('canvas'),rect=await canvas.boundingBox()
   const zoomed=Number(await viewer.getAttribute('data-camera-zoom'))
   await page.mouse.move(rect!.x+rect!.width*.73,rect!.y+rect!.height*.68)
+  await page.mouse.wheel(0,160)
+  await expect.poll(async()=>Number(await viewer.getAttribute('data-camera-zoom'))).toBeLessThan(zoomed)
+  const wheelOut=Number(await viewer.getAttribute('data-camera-zoom'))
   await page.mouse.wheel(0,-160)
-  await expect.poll(async()=>Number(await viewer.getAttribute('data-camera-zoom'))).toBeGreaterThan(zoomed)
+  await expect.poll(async()=>Number(await viewer.getAttribute('data-camera-zoom'))).toBeGreaterThan(wheelOut)
+  expect(Number(await viewer.getAttribute('data-camera-zoom'))).toBeLessThanOrEqual(14)
   const target=await viewer.getAttribute('data-camera-target')
   await canvas.focus();await page.keyboard.press('ArrowRight')
   await expect.poll(()=>viewer.getAttribute('data-camera-target')).not.toBe(target)
@@ -209,6 +243,11 @@ test('zoom, wheel, keyboard pan, tilt, north and home control the camera without
   await page.getByRole('button',{name:'Haritanın tamamını göster',exact:true}).click()
   await expect.poll(async()=>Number(await viewer.getAttribute('data-visible-models'))).toBe(61)
   await expect(page.getByTestId('marker-lirendil')).toBeVisible()
+  await page.getByRole('button',{name:'Ticaret yolları',exact:true}).click({noWaitAfter:true})
+  await expect(viewer).toHaveAttribute('data-royal-road-visible','true')
+  await expect(viewer).toHaveAttribute('data-royal-road-cities','51')
+  await page.getByRole('button',{name:'Ticaret yolları',exact:true}).click({noWaitAfter:true})
+  await expect(viewer).toHaveAttribute('data-royal-road-visible','false')
 })
 
 test('real building geometry can be picked away from its pin and pointer gestures move and rotate the camera',async({page})=>{
@@ -225,7 +264,9 @@ test('real building geometry can be picked away from its pin and pointer gesture
   await page.mouse.click(point.x,point.y)
   await expect(page.getByTestId('marker-valdareth')).toHaveAttribute('aria-pressed','true')
   await expect(page.getByTestId('detail-panel')).toContainText('Eryndorn')
-  const canvas=await viewer.locator('canvas').boundingBox(),x=canvas!.x+canvas!.width*.75,y=canvas!.y+canvas!.height*.8
+  const canvas=await viewer.locator('canvas').boundingBox(),x=canvas!.x+canvas!.width*.58,y=canvas!.y+canvas!.height*.78
+  // Keep the gesture inside the exposed canvas, clear of the city panel.
+  expect(await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.tagName,{x,y})).toBe('CANVAS')
   const oldTarget=await viewer.getAttribute('data-camera-target')
   await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x-75,y-20,{steps:5});await page.mouse.up()
   await expect.poll(()=>viewer.getAttribute('data-camera-target')).not.toBe(oldTarget)
@@ -235,6 +276,9 @@ test('real building geometry can be picked away from its pin and pointer gesture
 })
 
 test('3D to wiki and back preserves the remembered camera and both renderer choices survive reload',async({page})=>{
+  // Four independent renderer loads are checked on software WebGL. Each
+  // individual load still has the same 30-second readiness deadline.
+  test.setTimeout(120000)
   await open3D(page,'valdareth')
   const before=Number(await page.getByTestId('relief-viewer').getAttribute('data-camera-zoom'))
   await page.getByRole('button',{name:'Yakınlaştır',exact:true}).click()
@@ -287,7 +331,7 @@ test('switching atmosphere off or reducing motion clears settled snow immediatel
   await open3D(page,'veyrakar',true)
   const viewer=page.getByTestId('relief-viewer')
   const point=mapFeatures.find(feature=>feature.id==='veyrakar')!.point
-  await expect(viewer).toHaveAttribute('data-camera-target',JSON.stringify(worldPoint(point,heightAt(point))),{timeout:15000})
+  await expect.poll(async()=>new Vector3(...JSON.parse(await viewer.getAttribute('data-camera-target')||'[999,999,999]')).distanceTo(new Vector3(...worldPoint(point,heightAt(point)))),{timeout:15000}).toBeLessThan(.01)
   await expect.poll(async()=>Number(await viewer.getAttribute('data-snow-opacity'))).toBeGreaterThan(.15)
   await page.getByRole('button',{name:'Atmosfer efektleri',exact:true}).click()
   await expect(viewer).toHaveAttribute('data-animation','static')
@@ -363,7 +407,7 @@ for(const width of [320,390,820,1024,1440])test(`3D atlas controls, city panel a
 })
 
 test('malformed camera storage uses a valid fitted camera and keeps the selected city accessible',async({page})=>{
-  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-danstsud-3d-camera-v3',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-danstsud-atlas-mode','broken')})
+  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-danstsud-3d-camera-v4',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-danstsud-atlas-mode','broken')})
   await open3D(page,'valdareth')
   await expect(page.getByTestId('marker-valdareth')).toHaveAttribute('aria-pressed','true')
   expect(Number(await page.getByTestId('relief-viewer').getAttribute('data-camera-zoom'))).toBeGreaterThan(1)

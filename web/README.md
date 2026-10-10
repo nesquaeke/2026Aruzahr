@@ -40,9 +40,11 @@ Yeni ziyaretçi özgün 2D atlasla başlar. “Danstsud 3D” aç/kapat düğmes
 
 Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel kent ayrı mimariye sahiptir; küçük yerler ev kümeleri ve yerel yapı varyasyonları kullanır. Modeller yakınlık eşiğiyle gizlenmez. Diğer ülkelerde model/yükselti oluşturulmaz; tüm 95 yerleşimin normal harita ve wiki erişimi korunur.
 
-3D harita sıfırdan oluşturulur: elle izlenen kıyı vektörleri, yeni kara/su altı tabanı, bağımsız deniz ve göl, programatik arazi pigmentleri. Özgün resim 3D zeminde görünmez veya doku olarak yüklenmez. Rydorn, Dorvenhall, Lowvale ve Karlan yükseltisi on bir kapalı kaynak dağ alanıyla sınırlıdır; kar Hardlane ve zirveleri kaplar. Orman, su ve kış katmanları; yerel kar/buhar; üstten/eğimli bakış ve kuzeye dönüş çalışır. Azaltılmış hareket animasyonları durdurur.
+3D harita sıfırdan oluşturulur: elle izlenen kıyı vektörleri, yeni kara/su altı tabanı, bağımsız deniz ve göl, programatik arazi pigmentleri. Özgün resim 3D zeminde görünmez veya doku olarak yüklenmez. Rydorn, Dorvenhall, Lowvale ve Karlan yükseltisi Marhalden terasları dahil on iki kapalı kaynak dağ alanıyla sınırlıdır; kar Hardlane ve zirveleri kaplar. Lirendil’in kuzeyi denizdir; Valdareth’in nehir ağzı ve limanı körfeze bağlıdır. Dokuz akarsu çizgisi ortak birleşim noktaları kullanır. Marhalden’de nehir dağ teraslarından iki kademeli şelaleyle iner; kaleler karşı kıyılardadır. Başkentin beş suru, yoğun mavi-mor çatılı mahalleleri, obsidyen kilisesi, hapishanesi ve gemili limanı; diğer kentlerin ayrı kurum yerleşkeleri vardır. Orman, su ve kış katmanları; yerel kar/buhar; üstten/eğimli bakış ve kuzeye dönüş çalışır. Azaltılmış hareket animasyonları durdurur.
 
-`relief-data.ts` kıyı/göl vektörleri, kara/su ve kar sorguları, kaynak dağ alanları, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` mat yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../lore/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../lore/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
+`relief-materials.ts` taş, kiremit, ahşap ve metal yüzey ayrıntılarını; `relief-forests.ts` yakın/uzak ayrıntılı orman kümelerini; `relief-roads.ts` kara üzerinde 51 yerleşimi bağlayan Kral Yolu ağını oluşturur.
+
+`relief-data.ts` kıyı/göl vektörleri, kara/su ve kar sorguları, kaynak dağ alanları, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` ayrıntılı yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../lore/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../lore/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
 
 ## Wiki, kadrolar ve görseller
 
@@ -62,6 +64,6 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-141 Playwright senaryosu vardır: önceki atlas/ansiklopedi için 117, isteğe bağlı Danstsud 3D için 24. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+142 Playwright senaryosu vardır: önceki atlas/ansiklopedi için 117, isteğe bağlı Danstsud 3D için 25. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
