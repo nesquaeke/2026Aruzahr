@@ -4,6 +4,8 @@ Yazarın özgün 8K haritasında gezilen Türkçe atlas, resimli wiki, karakter 
 
 ## Haritanın güncel kapsamı
 
+Harita 2D açılır. **Danstsud 3D** düğmesi isteğe bağlı kabartmayı açar/kapatır: yalnızca Danstsud’daki 58 yerleşim modellenir, deniz düz kalır ve özgün çizim her yakınlıkta korunur. [Güncel 3D kapsamı ve kontrolleri](lore/3D_ATLAS_TESLIMI.md).
+
 **95 yerleşim, 8 ülke, 3 Danstsud alt bölgesi ve 31 coğrafya/yol hedefi: toplam 137 tıklanabilir nokta.** Özgün haritadan eklenen 52 adın biri mevcut Fehar ile eşleşir; 51 ayrı yerleşim eklendi. Mevcut 44 yerleşimin noktası özgün çizimle karşılaştırılarak düzeltildi. Her harita noktası kendi bilgi kartına ve bölümleri dolu wiki sayfasına açılır.
 
 Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkeyi seçmek görüş alanındaki komşu şehirleri gizlemez. Uzak görünümde çakışan yazılar azalır, noktalar kalır; fareyle veya klavye odağıyla isim açılır. Ticaret yolları ayrı katmandadır ve güncel şehir merkezlerini izleyen şematik güzergâhlardır. Cevher Çizgisi yapılmamış proje olarak gösterilir.

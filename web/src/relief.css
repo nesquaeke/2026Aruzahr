@@ -18,3 +18,7 @@
 @media(max-width:980px){.atlas-presets{flex-wrap:wrap;row-gap:8px}.atlas-renderer-switch{margin-left:auto}.atlas-renderer-switch button{display:flex;min-height:42px;padding:7px 9px}.relief-controls{top:10px;left:10px;padding:3px;max-width:calc(100% - 66px);flex-wrap:wrap}.relief-controls button{flex:0 0 40px;min-width:40px;min-height:40px;padding:7px}.relief-controls button span{display:none}.relief-control-divider{display:none}.relief-home{right:10px;top:10px;width:40px;height:40px}.relief-caption{bottom:12px;left:12px}.relief-caption small{max-width:255px}}
 @media(max-width:480px){.atlas-renderer-switch{gap:2px;padding:3px;width:100%;justify-content:center}.atlas-renderer-switch button{display:flex;font-size:11px;padding:6px 12px;gap:6px;flex:1;justify-content:center}.relief-controls{gap:0}.relief-viewer~.relief-pins .pin-label{font-size:9px}.relief-caption>span{font-size:8px;letter-spacing:1px}}
 @media(prefers-reduced-motion:reduce){.atlas-renderer-switch button,.relief-controls button{transition:none}}
+.atlas-switch-state{font-size:9px;letter-spacing:.5px;padding:3px 5px;border-radius:4px;background:#ffffff0c;color:#adbfce}.atlas-renderer-switch button[aria-pressed=true] .atlas-switch-state{background:#17243122;color:#182a38}
+/* Keep the 22px button target while the symbol leaves village rooftops visible. */
+.relief-pins .city-pin:not(.subregion-pin) .pin-symbol{width:12px;height:12px;min-width:12px;font-size:7px}
+.relief-pins .city-pin.selected:not(.subregion-pin) .pin-symbol{width:14px;height:14px;min-width:14px;font-size:8px}

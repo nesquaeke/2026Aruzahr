@@ -1,76 +1,49 @@
-# Aruzahr — 3D kabartma atlas teslimi
+# Aruzahr — isteğe bağlı Danstsud 3D teslimi
 
-10 Ekim 2026. Kullanıcının önce master prompt, ardından haritaya bağlı 3D uygulama isteğinin karşılığıdır. [Master prompt](3D_ATLAS_MASTER_PROMPTU.md) uygulamadan önce yazılmıştır. Özgün çizim, şehir merkezleri ve mevcut lore korunur.
+10 Ekim 2026. Bu kayıt ve [güncel master prompt](3D_ATLAS_MASTER_PROMPTU.md), kullanıcının ilk 3D uygulamasına verdiği düzeltme isteğini karşılar. Önceki tüm dünya kabartması kaldırıldı; **3D kapsamı yalnızca Danstsud**, başlangıç görünümü 2D'dir.
 
-## Çalışan deneyim
+## Kullanım
 
-Yeni ziyaretçi gerçek Three.js/WebGL atlasını açar. Dağlar yükseltilmiş arazi ağı, ağaçlar örneklenmiş geometri, şehirler birleşik yapı modelleridir. Dünya yalnızca eğilmiş bir resim değildir. Uzakta kaynak çizim; yakınlaşınca yapıları okunabilir kılan sade, mat arazi rengi görünür. “Çizim” kontrolü her ölçekte özgün dokuya döner.
+“Danstsud 3D” düğmesindeki Aç/Kapat aynı yerde gerçek 3D görünümü açar veya kapatır. Danstsud'da seçilmiş yer korunur. Ana kamera Danstsud'u çerçeveler; başka ülke seçilince normal harita açılır. Önceki sürümün 3D tercihi/kamerası yeni görünümü otomatik başlatmaz. Kullanıcının yeni tercihi tarayıcıda hatırlanır.
 
-Tekerlek ve iki parmak yakınlaştırır; sürükleme taşır; sağ sürükleme yönü/eğimi değiştirir. Üstten/eğimli görünüm, kuzeye dönüş ve sıfırlama çalışır. Ok tuşları ile taşıma ve +/− kontrolleri vardır. Şehir noktası veya gerçek yapı geometrisi mevcut bilgi panelini açar; wikiye gidip dönünce seçilen yer ve kamera korunur. 2D/3D tercihi aynı tarayıcıda hatırlanır.
+Sürükleme taşır; tekerlek/iki parmak yakınlaştırır; sağ sürükleme eğimi ve yönü değiştirir. Üstten/eğimli bakış, kuzeye dönüş, kamera sıfırlama, ok tuşları ve +/− çalışır. Nokta veya gerçek bina geometrisi aynı mevcut bilgi panelini açar. Wikiye gidip dönünce geçerli kamera hatırlanır.
 
-Orman, su, kış ve özgün çizim ayrı kontrollerdir. Kar yüksek/soğuk alanlarda; buhar Ternhaven'de yereldir. Lakbar sıcak renk ve ölçülü sıcak ışıkla ayrılır. Atmosfer kapatıldığında parçacıklar temizlenir. Azaltılmış hareket, kamera geçişini anında yapar ve hareketli su/kar/buharı durdurur. Görünmeyen sekmede döngü durur; atlas kapatıldığında geometri, malzeme, doku ve olay dinleyicileri temizlenir.
+## Düzeltilen sorunlar
 
-3D motorunun dosyası indirilemez, WebGL açılamaz, başlangıç dokusu yüklenemez veya grafik bağlamı kaybolursa aynı yerin paneliyle 2D çizim atlası açılır. 2D görünüm ayrıca kullanıcı kontrolündedir.
+- **Denizdeki ve çizimde bulunmayan dağlar:** 14 geniş tahmini dağ omurgası, kara/kıyı yükseltisi ve suyu kabartan şehir tabanları kaldırıldı. Dokuz kapalı alan yalnızca Danstsud'daki dağ çizimlerine bağlıdır. Alan sınırında sıfır yükseklik tamponu gerçek üçgenlerin dışarı taşmasını önler. Deniz ve diğer ülkelerin kaynak yüzeyi düzdür.
+- **Eksik görünen şehirler:** Danstsud'un 58 yerleşimi ortak kayıttan modellenir. Büyük/küçük yerleşimlere uygulanan yakınlık eşikleri kaldırıldı. Görüş alanındaki modeller her yakınlıkta vardır; seçilmiş şehri kullanıcının yerleşim katmanını kapatması da gizlemez.
+- **Yakında kaybolan coğrafya:** kaynak doku yakınlaşınca tahmini sade biyom renkleriyle değiştirilmez. Kıyılar, tarlalar, özgün nehirler ve etiketler her ölçekte korunur. Tahmini deniz maskesi ve oval göl maketi de kaldırıldı.
+- **Yapı okunabilirliği:** eğimli çatılar, dışa bakan çatı yüzleri, kapı/pencereler, bacalar, sur dişleri ve küçük yerleşim yapı varyasyonları eklendi. Valdareth'te beş düzensiz sur arasında daha okunabilir ev/çatı siluetleri vardır.
+- **Genel görünümün yükü:** küçük yerleşimler görünür kalırken ek gölge çizimlerinden çıkarıldı. 1440 piksel üretim kontrolünde Danstsud genel görünümü 292 çizim çağrısıdır; dar şehir görünümleri 44–45 çağrıdır. Bunlar ölçülen sahnelerdir, cihazlar arası FPS vaadi değildir.
 
-## Haritaya bağlanan kapsam
+## Gerçek kapsam
 
-| İçerik | Uygulamadaki karşılık |
+| İçerik | Yeni uygulama |
 | --- | --- |
-| 95 yerleşim | Aynı kanonik kimlik ve UV merkezlerinde 95 ayrı 3D model grubu |
-| 137 hedef | 8 ülke, 95 yerleşim, 3 alt bölge ve 31 coğrafya/yol hedefinin ortak kayıtları |
-| 14 dağ omurgası | Karlan, Dorvenhall, Rydorn, Garmirk, Taş Klanları, Honud, Lakbar, Gurbin, Ariki ve Eldrascar |
-| 18 orman alanı | Kaynak çizimdeki kümelere bağlı yapraklı, iğne yapraklı ve sonbahar/kurak koru paletleri |
-| 4 nehir | Doğu Aldara, Batı Aldara, Serenith, Teyra; gerçek arazi üçgenlerinden örneklenen su şeritleri |
-| 8 bağımsız yapı | Thural Kalkanı, Thessar Açığı Feneri, Runeth Kuzeyi Harabeleri ve beş mevcut Lakbar yapısı |
-| 5 ticaret kaydı | Mevcut şehir duraklarıyla araziye oturan şematik hatlar; yapılmamış Cevher Çizgisi kesikli plan |
+| Yerleşimler | Danstsud'da 58 model; diğer 37 yerleşim normal 2D atlas/wiki içinde |
+| Dağ alanları | Rydorn'da iki, Dorvenhall'da iki; Karlan/Hardlane'de beş kapalı ayak izi |
+| Ormanlar | Danstsud'da 13 alan; 2.155 masaüstü / 1.250 dar görünüm ağacı |
+| Nehirler | Doğu Aldara, Batı Aldara, Serenith ve Teyra; gerçek üçgen yüzeyinden örneklenen ince şeritler |
+| Bağımsız yapılar | Thural Kalkanı, Thessar Açığı Feneri, Runeth Kuzeyi Harabeleri |
+| Ticaret | Mevcut Danstsud hatları; açık, tehlikeli ve planlanan durumları korunur |
+| Hava | Yerel soğuk/yükselti karı, Ternhaven buharı; orman/su/kış kontrolleri |
 
-Fehar/Frethar tek kayıttır. Kullanıcının önceki 31 yer adı ve altı konum düzeltmesi değiştirilmedi. Harita noktalarını seyrelten bir ülke filtresi eklenmedi; etiketler çakışmayı azaltır, noktalar seçilebilir kalır. Arama ve eski bağlantılar aynı kanonik kaydı açar.
+11 büyük/özel kentin mimarisi ayrıdır: Valdareth'in beş suru, kalesi, obsidyen mabedi ve feneri; Marhalden'in iki kale/köprü/atölyesi; Dorvenhall'in sınır kalesi; Elorwyn'in mabet/paladin avlusu; Theramis'in akademi ve araştırma kuleleri; Lirendil'in Çelik Kalkan salonu; Frostbay'in taş dairesi; Dranthol'un liman kalesi; Ternhaven'in sıcak su havuzu; Kaldmere'in barınakları; Vyssgard'ın depoları/iskeleleri. Diğer Danstsud yerlerinde ev kümeleri ve şapel, değirmen, ambar veya gözetleme silueti bulunur. Maket varyasyonları yeni kanonik bina sahibi veya lore iddiası değildir.
 
-## Mimari imzalar
+Atmosfer kapatıldığında veya hareket azaltıldığında parçacıklar temizlenir, su/hava hareketi durur. Görünmeyen sekmede döngü durur. Atlas kapatıldığında GPU kaynakları ve dinleyiciler temizlenir. Motor indirimi, WebGL, başlangıç dokusu veya grafik bağlamı başarısızsa aynı seçili yerle 2D atlas açılır.
 
-| Şehir | 3D maket |
-| --- | --- |
-| Valdareth | Beş düzensiz sur kuşağı, kraliyet kalesi, obsidyen mabedi, mavi-mor çatılar, eski fener, liman savunması ve 105 küçük ev |
-| Marhalden | İki kale, geçit köprüsü, döküm/maden atölyeleri |
-| Dorvenhall | Sınır kalesi, mavi-mor çatı, gözetleme kuleleri |
-| Elorwyn | Mabet, paladin avlusu, çan kuleleri ve lordluk kalesi |
-| Theramis | Akademi/arşiv, beş araştırma kulesi ve çalışma avlusu |
-| Lirendil | Çelik Kalkan salonu, talim avlusu ve iskeleler |
-| Frostbay | Eski taş daire ve düzensiz kıyı barınakları |
-| Dranthol | Liman kalesi ve fener |
-| Ternhaven | Sıcak su havuzu ve küçük evler |
-| Kaldmere | Ahşap barınak ve küçük iskele |
-| Vyssgard | Yıpranmış depo/iskele düzeni |
+## Kaynak sınırı
 
-Diğer yerleşimler kendi ülkesinin kumtaşı/kubbe, ahşap/uzun ev, koyu taş veya kayalık kale paletini kullanır. Yeni hanedan, bina sahibi ya da gizli olay uydurulmadı. Yapı planları maket yorumudur; illüstrasyon portreleri ve güç çerçeveleri değişmedi.
+8192 × 5668 `Aruzahr 8k (1).jpg` değişmedi. SHA-256: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`. 2048/4096 piksel dokular mekanik türevlerdir. Tüm şehir merkezleri mevcut kanonik UV noktalarından gelir. Fehar/Frethar tek kaydı ve önceki altı şehir düzeltmesi korunur.
 
-## Kaynak ve yorum sınırı
+Özgün çizim bir yükseklik ölçümü veya mimari plan değildir. Dağ ayak izleri ve zirve biçimleri çizim üzerinden elle sınırlandırılmış gösterim yorumudur; gerçek metreyle ölçülmüş arazi iddia edilmez. Nehir ve orman katmanları düzenlenebilir görsel izlerdir. Kaynak kıyılarının yerine tahmini kara çokgenleri kullanılmaz. Başka ülkelerde 3D arazi veya şehir oluşturulmaz. Halka açık lore, karakter illüstrasyonları, kart çerçeveleri ve özel DM paketi değiştirilmez.
 
-8192 × 5668 kaynak `Aruzahr 8k (1).jpg` değiştirilmedi. SHA-256: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`. 2048 ve 4096 piksel WebP dokular, mekanik küçültme türevleridir; yeni harita resmi üretilmedi.
+## Doğrulama
 
-Çizim bir yükseklik ölçümü veya mimari plan değildir. Kıyı çokgenleri, dağ omurgaları, orman sınırları ve nehir izleri **kaynak çizime dayalı, düzenlenebilir görsel yorumdur**. Kabartma okunabilirlik için abartılır; Karlan'ın lore'daki 13.000 metresi ekrandaki dünya birimine eşitlenmez. Yakın yüzeyin renkleri yorumdur. Kıyı ve nehir sınırlarında bu ağın görsel çözünürlüğü geçerlidir. Şehir merkezleri ortak kanonik kayıtlardan gelir; ayrı bir 3D şehir listesi kullanılmaz.
+**24 Danstsud 3D senaryosu ve 17 ilgili eski atlas/gizlilik senaryosu geçti.** Son mimari değişikliklerden sonra üç ilgili model/yüzey/tıklama senaryosu yeniden geçti. Şehir işaretleri inceltildikten sonra piksel hizalama, 58 şehir tıklaması ve beş ekran genişliğiyle ilgili yedi senaryo da yeniden geçti. Tam 141 senaryoluk arşiv bu görevde yeniden koşulmadı.
 
-Kış görünümü bir atlas tercihi, kampanya tarihi değildir. Eryndorn hâlâ tahtta, dönem darbe öncesidir. Mevcut wiki, kitaplar, karakterler, galeri ve özel DM paketinin sınırı korunur.
+Yeni kontroller: 2D başlangıç ve ihtiyaç halinde motor yükleme; aç/kapat; 58 ayrı modelin tam çatı geometrisi ve kanonik merkezi; kaynak deniz noktalarında sıfır yükseklik; diğer ülkelerde sıfır yükselti; masaüstü/dar gerçek arazi üçgenlerinin kapalı dağ alanları içinde kalması; her şehirde yüzey üstündeki model tabanı; nehir yüzeylerinin arazi üstünde kalması; bağımsız piksel projeksiyonu; 58 noktanın kendi paneli ve görünür modeli; gerçek kale geometrisine tıklama; kamera/katman/wiki/takma ad/yol akışı; yerel hava/azaltılmış hareket; motor indirimi ve grafik bağlamı sorunları; başka ülkeye çıkış; bozuk kamera kaydı; 320, 390, 820, 1024 ve 1440 piksel yerleşimleri.
 
-## Düzenlenebilir uygulama
+`npm run build` ve `git diff --check` başarılı. Özgün harita özeti değişmedi. Yerel **üretim derlemesinde 20 görünüm** kontrol edildi: genel Danstsud, 11 özel kent, Fehar, Telvai, Karlan/Frostmere ve dört dar ekran. JavaScript/konsol hatası, yatay taşma veya kapalı kalan model tespit edilmedi.
 
-- `web/src/relief-data.ts`: kaynak piksel → dünya dönüşümü, kıyı/su alanları, yükselti omurgaları, şehir zemini, iklim, orman ve nehir kayıtları.
-- `web/src/relief-buildings.ts`: mimari tip, birleşik model, ülke paleti ve aynı harita kimliğiyle tıklama.
-- `web/src/relief-scene.ts`: arazi ağı, gerçek yüzey örnekleyicisi, ağaçlar, su, rota ve yerel hava.
-- `web/src/Atlas3D.tsx`: kamera, etiket projeksiyonu, geometri seçimi, ayrıntı seviyesi ve kaynak temizliği.
-- `web/src/relief.css`: görünüm seçimi ve masaüstü/mobil kontroller.
-- `web/scripts/build-map.mjs`: mevcut Deep Zoom katmanlarıyla birlikte iki 3D doku türevi; üretim sürümü 2.
-
-## Bütçe ve doğrulama
-
-Masaüstü arazi ağı 40.247, dar görünümdeki ağ 18.032 köşedir. Oluşturulan ağaç sayısı sırasıyla 2.173 ve 1.260'tır. Ağaçlar ortak geometri örnekleridir; yapı parçaları malzemeye göre birleştirilir. Yakınlık ve görüş alanı model görünürlüğünü belirler. Dar sahnede gölge kapalı, parçacık sayısı 180 ve piksel oranı en çok 1,25'tir; masaüstünde 340 parçacık ve en çok 1,7 kullanılır. Yakın yüksek doku dar sahnede yüklenmez. Bunlar uygulama bütçeleridir, her cihazda aynı FPS vaadi değildir.
-
-**22 yeni 3D senaryo ve 17 mevcut atlas senaryosu doğrulandı.** 3D kapsamı: tüm 95 modelin ortak merkeze bağlılığı; gerçek kabartma; nehir yüzlerinin gerçek arazinin üstünde kalması; bağımsız piksel → kamera projeksiyonu; 95 noktanın paneli; gerçek kale geometrisine tıklama; sürükleme/döndürme/yakınlaştırma; wiki-kamera dönüşü; arama ve eski adlar; katmanlar; iklim; hareketsiz kamerada atmosferin kapanması; 320/390/820/1024/1440 px kontrolleri; bozuk depolama; indirilemeyen motor; WebGL yokluğu ve gerçek bağlam kaybı.
-
-Eski 16 kontrol: özgün görüntü piksellerinde 31 ad + altı düzeltilmiş merkezin simge hizası; rota seçimi ve yapılmamış proje; wiki/portre bağlantıları; Büyük Kırılma; galeri/bestiary; şehir kartları; kamera dönüşü; Fehar eşleştirmesi; mobil ve azaltılmış hareket. Ek 17. senaryo, son derlemede DM içerik sınırını ve geliştirme sunucusunun ham lore dosyalarını engellediğini doğruladı. Bütün 139 kayıtlı senaryo bu görevde yeniden koşulmadı.
-
-3D'nin nihai tam koşusunda 20 senaryo geçti; bir ek atmosfer testinin, bir dağ bölgesini şehir yakınlaştırmasıyla aynı değerde varsayan beklentisi düzeltildi. Kamera gerçek hedefte durduktan sonra atmosferi kapatan aynı senaryo ayrı koşuda geçti. Son malzeme düzenlemesinde su/kış/çizim ve sabit kamerada atmosfer kontrolleri tekrar geçti. Motor indirme hatası eklendikten sonra yeni ziyaretçi, wiki-kamera dönüşü, WebGL yokluğu ve indirme hatası senaryolarının dördü de geçti. Bu kayıttaki 22 benzersiz senaryo, tam ve hedefli koşuların birleşimidir.
-
-TypeScript/Vite üretim derlemesi ve `git diff --check` geçti. Derlenmiş sitede dünya, Valdareth, Marhalden, Veyrakar, Dorvenhall, Theramis ve Honud; beş ekran genişliğinde Valdareth/Marhalden; ayrıca kar, buhar ve Lakbar görünümleriyle toplam **20 görünüm** incelendi. Yatay taşma, gizli 2D dönüş kontrolü veya beklenmeyen tarayıcı hatası görülmedi. Ekran kayıtları `/workspace/artifacts/relief/` içindedir; Valdareth, Marhalden, Karlan, telefon ve Lakbar ayrıca gözle kontrol edildi. Gözlenen sahneler yaklaşık 10–63 çizim çağrısı ve 82 bin–278 bin üçgen aralığındadır; cihaz FPS ölçümü değildir.
-
-Özel DM ZIP dosyası Git'e eklenmedi; `src`, `public` ve `dist` içinde özel paket yolu bulunmadı. Bu kayıt çalışan uygulama ve depo değişikliklerini anlatır; haricî bir barındırma hizmetinde canlı yayın yapıldığını ifade etmez.
+Çalışma alanı kanıtları `/workspace/artifacts/danstsud-3d/` altında: `source-footprints.png` kaynak/ayak izi karşılaştırması; `final-*.png` son üretim görünümleri; `production.json` sahne ölçümleri; `tests-first.log`, `tests-model-final.log`, `tests-label-final.log`, `tests-2d.log`, `tests-privacy.log` koşu sonuçları. Bunlar web sitesine veya özel DM paketine eklenmez.

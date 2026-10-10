@@ -9,8 +9,8 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:5173',
     // Existing SVG/Deep Zoom checks explicitly exercise the preserved drawing
-    // renderer. relief.spec.ts overrides this with a fresh 3D default session.
-    storageState: { cookies: [], origins: [{ origin: 'http://127.0.0.1:5173', localStorage: [{ name: 'aruzahr-atlas-mode', value: '2d' }] }] },
+    // renderer. relief.spec.ts explicitly enables the optional Danstsud 3D mode.
+    storageState: { cookies: [], origins: [{ origin: 'http://127.0.0.1:5173', localStorage: [{ name: 'aruzahr-danstsud-atlas-mode', value: '2d' }] }] },
     viewport: { width: 1440, height: 1000 },
     headless: true,
     screenshot: 'only-on-failure',

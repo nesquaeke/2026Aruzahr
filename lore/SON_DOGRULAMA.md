@@ -75,3 +75,17 @@ Kapsam: gerçek geometri ve 95 merkez; özgün piksel konumlarının bağımsız
 Son TypeScript/Vite üretim derlemesi ve `git diff --check` geçti. Derlenmiş uygulamada toplam **20 görünüm** incelendi: yedi dünya/şehir/dağ görünümü; beş genişlikte Valdareth ve Marhalden; ayrıca aktif kar, buhar ve Lakbar. Yatay taşma, kayıp dönüş kontrolü veya beklenmeyen tarayıcı hatası çıkmadı. Seçili ekranlar gözle de incelendi. Dar sahnede 18.032 arazi köşesi / 1.260 ağaç; masaüstünde 40.247 köşe / 2.173 ağaç vardır. Bunlar geometri bütçesi ve gözlenen sahne sayılarıdır; FPS garantisi değildir.
 
 8K kaynak dosyanın SHA-256 değeri korunur: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`. İki WebP doku türevi üretildi; `npm run assets` önbelleği ve üretim sürümü 2 doğrulandı. Özel DM paket yolu kaynak/public/dist taramasında bulunmadı. Kapsam, dosya karşılıkları ve yorum sınırları `3D_ATLAS_TESLIMI.md` içindedir. Haricî canlı yayın bu doğrulamanın kapsamı değildir.
+
+## 10 Ekim 2026 — yalnızca Danstsud, isteğe bağlı 3D düzeltmesi
+
+Kullanıcının yeni talebi önceki tüm dünya 3D kapsamını daraltır. Başlangıç 2D; Danstsud 3D aç/kapat düğmesi; 58 Danstsud modeli; çizime bağlı dokuz kapalı dağ alanı. Tahmini kıyı/dağ şeritleri, suyu yükselten şehir tabanları, yakınlık yüzünden gizlenen modeller ve yakın yüzeydeki sade biyom geçişi kaldırıldı.
+
+- `npm run build`: başarılı.
+- `tests/relief.spec.ts`: 24/24 geçti (2,9 dakika). Son mimari düzenlemelerden sonra model, gerçek üçgen sınırları ve gerçek bina tıklamasıyla ilgili 3/3 senaryo tekrar geçti (41,1 saniye); bu koşuda dışa bakan çatı yüzleri ve yüzey üstündeki tüm model tabanları da kontrol edildi.
+- Son 3D işaret düzenlemesinden sonra kaynak piksel hizalama, 58 şehir tıklaması/model görünürlüğü ve beş ekran genişliğiyle ilgili 7/7 senaryo yeniden geçti (2,3 dakika).
+- `experience.spec.ts`, `atlas-refresh.spec.ts`, `pin-alignment.spec.ts`: 16/16 geçti (1,6 dakika). Eski 2D kamera, rota, kart/wiki, mobil okuma ve kanonik nokta hizalamaları korundu.
+- `atlas.spec.ts` yayımlanan içerik/geliştirme sunucusu gizlilik kontrolü: 1/1 geçti.
+- Yerel üretim derlemesi: 20 görünüm, JavaScript/konsol hatası ve taşma yok. 11 özel kent, genel görünüm, Fehar/Telvai, Karlan/Frostmere ve 320–1024 piksel dar görünümler incelendi.
+- Kaynak harita SHA-256 değişmedi: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`.
+
+Toplam arşiv 141 senaryodur; tamamı bu düzeltmede tekrar koşulmadı. Eski tüm dünya 3D kayıtları tarihçedir; güncel uygulama ve sınırlar [Danstsud 3D teslim kaydındadır](3D_ATLAS_TESLIMI.md). Üretim görüntüleri ve koşu kayıtları `/workspace/artifacts/danstsud-3d/` altındadır.

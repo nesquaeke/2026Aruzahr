@@ -5,17 +5,18 @@ import { places, placeById } from '../src/data'
 import { mapFeatures } from '../src/map-features'
 import { buildSettlement } from '../src/relief-buildings'
 import { buildReliefWorld, disposeWorld } from '../src/relief-scene'
-import { coldAt, heightAt, mapPoint, riverPaths, signatures, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from '../src/relief-data'
+import { coldAt, danstsudPlaces, heightAt, inPolygon, mapPoint, mountainFootprints, riverPaths, signatures, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from '../src/relief-data'
 import type { UV } from '../src/relief-data'
 
-// The original-map suite uses 2D explicitly. These checks start with a new user
-// session and exercise the actual default WebGL renderer, without mocking it.
+// A new session starts in 2D. These tests explicitly enable the optional
+// Danstsud renderer and exercise real WebGL, including its fallback paths.
 test.use({ storageState: { cookies: [], origins: [] } })
 test.setTimeout(60000)
 
 async function open3D(page:Page,id='',motion=false) {
   await page.emulateMedia({reducedMotion:motion?'no-preference':'reduce'})
   await page.goto(`/#/atlas${id?`/${id}`:''}`)
+  if(await page.getByTestId('toggle-3d').getAttribute('aria-pressed')==='false')await page.getByTestId('toggle-3d').click()
   await expect(page.getByTestId('relief-viewer')).toHaveAttribute('data-ready','true',{timeout:30000})
   await page.waitForFunction(()=>{const el=document.querySelector<HTMLElement>('[data-testid=relief-viewer]');return el?.dataset.cameraProjection&&Number(el.dataset.drawCalls)>0})
 }
@@ -25,18 +26,28 @@ async function projected(page:Page,point:[number,number,number]) {
   return {x:data.rect.x+(value.x*.5+.5)*data.rect.width,y:data.rect.y+(-value.y*.5+.5)*data.rect.height}
 }
 
-test('every canonical settlement has its own anchored geometry and the signature buildings are distinct',()=>{
+test('all 58 Danstsud settlements have complete anchored geometry and distinct signature buildings',()=>{
   expect(places).toHaveLength(95)
   const ids=new Set<string>()
-  for(const place of places){
+  for(const place of danstsudPlaces){
     expect(place.point).not.toBeNull()
     const group=buildSettlement({...place,point:place.point!});ids.add(group.userData.targetId)
     expect(group.position.x,place.name).toBeCloseTo((place.point![0]-.5)*WORLD_WIDTH,8)
     expect(group.position.z,place.name).toBeCloseTo((place.point![1]-.5)*WORLD_DEPTH,8)
     expect(group.children.length,place.name).toBeGreaterThan(1)
     expect(group.children.every(mesh=>'geometry'in mesh)).toBe(true)
+    expect(group.children.some(mesh=>mesh.userData.part==='roof'||mesh.userData.part==='snow'),place.name).toBe(true)
+    for(const mesh of group.children as Mesh[]){
+      if(!['roof','snow'].includes(mesh.userData.part))continue
+      const normals=mesh.geometry.getAttribute('normal')
+      for(let i=0;i<normals.count;i++){
+        const sloped=Math.abs(normals.getX(i))>.01||Math.abs(normals.getZ(i))>.01
+        expect(sloped&&normals.getY(i)<-.01,`${place.name} inward pitched roof`).toBe(false)
+      }
+    }
+    disposeWorld(group)
   }
-  expect(ids.size).toBe(95)
+  expect(ids.size).toBe(58)
   expect(signatures.valdareth.type).toBe('capital')
   const capital=buildSettlement({...placeById('valdareth')!,point:placeById('valdareth')!.point!})
   expect(capital.userData.features).toContain('Beş sur kuşağı')
@@ -47,11 +58,12 @@ test('every canonical settlement has its own anchored geometry and the signature
   expect(ids.has('fehar')).toBe(true);expect(ids.has('frethar')).toBe(false)
 })
 
-test('known seas stay flat, mountains rise and volcanic heat is distinct from cold regions',()=>{
-  for(const point of [[.42,.43],[.43,.60],[.97,.55]] as UV[])expect(heightAt(point)).toBe(0)
-  expect(heightAt([.555,.765])).toBeGreaterThan(2)
+test('source-map sea points and other countries remain flat while traced Danstsud peaks rise',()=>{
+  for(const [x,y] of [[3200,3350],[4000,3650],[5300,2975],[6240,2800],[7450,2980],[4600,3830],[3500,4500],[4350,4850],[8150,4480],[6110,3060],[6450,2990]])expect(heightAt([x/8192,y/5668]),`${x},${y}`).toBe(0)
+  expect(heightAt([4530/8192,4130/5668])).toBeGreaterThan(2)
   expect(coldAt([.555,.765])).toBeGreaterThan(.5)
   expect(coldAt(placeById('valdareth')!.point!)).toBe(0)
+  for(const place of places.filter(place=>place.region!=='danstsud'))expect(heightAt(place.point!),place.name).toBe(0)
   expect(coldAt([.49,.19],5)).toBe(0)
   for(const place of places)expect(Number.isFinite(heightAt(place.point!)),place.id).toBe(true)
   for(const river of riverPaths){expect(mapFeatures.some(feature=>feature.id===river.id)).toBe(true);expect(river.points.every(point=>point.every(value=>value>=0&&value<=1))).toBe(true)}
@@ -72,24 +84,63 @@ test('river faces remain above the real triangulated terrain instead of disappea
       }
       expect(clearance,river.name).toBeGreaterThan(0)
     }
-  }finally{disposeWorld(world.root);world.landMask.dispose()}
+  }finally{disposeWorld(world.root)}
 })
 
-test('a new visitor sees real relief geometry, all city targets, a fitted world and preserved drawing choice',async({page})=>{
+test('a new visitor starts in 2D; Danstsud 3D explicitly switches on and off with complete city coverage',async({page})=>{
   const errors:string[]=[];page.on('pageerror',error=>errors.push(String(error)))
-  await open3D(page)
+  const requests:string[]=[];page.on('request',request=>requests.push(request.url()))
+  await page.goto('/#/atlas')
+  await expect(page.getByTestId('atlas-viewer')).toBeVisible()
+  await expect(page.getByTestId('toggle-3d')).toHaveAttribute('aria-pressed','false')
+  expect(requests.some(url=>url.includes('/src/Atlas3D.tsx'))).toBe(false)
+  await page.getByTestId('toggle-3d').click()
   const viewer=page.getByTestId('relief-viewer')
-  expect(Number(await viewer.getAttribute('data-vertices'))).toBeGreaterThan(30000)
-  await expect(viewer).toHaveAttribute('data-city-count','95')
+  await expect(viewer).toHaveAttribute('data-ready','true',{timeout:30000})
+  await expect(viewer).toHaveAttribute('data-scope','danstsud')
+  await expect(viewer).toHaveAttribute('data-city-count','58')
+  await expect.poll(async()=>Number(await viewer.getAttribute('data-visible-models'))).toBe(61)
+  expect(Number(await viewer.getAttribute('data-vertices'))).toBeGreaterThan(170000)
   expect(Number(await viewer.getAttribute('data-forest-count'))).toBeGreaterThan(1500)
-  expect(Number(await viewer.getAttribute('data-triangles'))).toBeGreaterThan(50000)
-  await expect(page.getByRole('button',{name:'3D kabartma',exact:true})).toHaveAttribute('aria-pressed','true')
-  await expect(page.locator('.relief-pins .city-pin:not(.subregion-pin):not(.is-hidden)')).toHaveCount(95)
-  await expect(page.getByTestId('zoom-level')).toHaveText('100%')
-  await expect(page.getByTestId('marker-xotar')).toBeVisible()
+  await expect(page.locator('.relief-pins .city-pin:not(.subregion-pin)')).toHaveCount(58)
+  await expect(page.getByTestId('marker-xotar')).toHaveCount(0)
   await expect(page.getByTestId('marker-danstsud')).toBeVisible()
+  await page.getByTestId('toggle-3d').click()
+  await expect(page.getByTestId('atlas-viewer')).toBeVisible()
+  await expect(page.getByTestId('relief-viewer')).toHaveCount(0)
+  await expect(page.getByTestId('toggle-3d')).toHaveAttribute('aria-pressed','false')
   expect(errors).toEqual([])
 })
+
+// Independent inspection of the actual triangle mesh catches the old coastal
+// foundation bug and interpolation spilling past a closed mountain footprint.
+test('the rendered terrain has no raised triangle outside traced mountain footprints, in either quality tier',()=>{
+  for(const mobile of [false,true]) {
+    const world=buildReliefWorld(new Texture(),mobile)
+    try {
+      expect(world.cities.map(group=>group.userData.targetId).sort()).toEqual(danstsudPlaces.map(place=>place.id).sort())
+      expect(world.root.getObjectByName('lakbar-warm-light')).toBeUndefined()
+      for(const group of world.cities){
+        const place=placeById(group.userData.targetId)!
+        expect(group.position.y-world.sampleHeight(place.point!),`${place.name} model foundation`).toBeGreaterThanOrEqual(.024)
+      }
+      const positions=world.terrain.geometry.getAttribute('position'),index=world.terrain.geometry.getIndex()!
+      let raised=0
+      for(let i=0;i<index.count;i+=3){
+        const vertices=[0,1,2].map(n=>new Vector3().fromBufferAttribute(positions,index.getX(i+n)))
+        if(vertices.every(vertex=>vertex.y===0))continue
+        raised++
+        // All vertices, edge midpoints and the centroid must remain inside a
+        // source mountain footprint, including zero-height boundary vertices.
+        const samples=[...vertices,...vertices.map((p,n)=>p.clone().add(vertices[(n+1)%3]).multiplyScalar(.5)),vertices.reduce((sum,p)=>sum.add(p),new Vector3()).divideScalar(3)]
+        for(const sample of samples)expect(mountainFootprints.some(area=>inPolygon(mapPoint(sample.x,sample.z),area.polygon)),`${mobile?'mobile':'desktop'} raised face outside source outline`).toBe(true)
+      }
+      expect(raised).toBeGreaterThan(200)
+      for(const [x,y] of [[6110,3060],[6450,2990],[4000,3650],[4600,3830],[4350,4850]])expect(world.sampleHeight([x/8192,y/5668])).toBe(0)
+    }finally{disposeWorld(world.root)}
+  }
+})
+
 
 test('original pixel anchors project to the same 3D point instead of shifting cities',async({page})=>{
   await open3D(page)
@@ -103,18 +154,19 @@ test('original pixel anchors project to the same 3D point instead of shifting ci
   }
 })
 
-test('all 95 city pins select their own existing panel in 3D',async({page})=>{
+test('all 58 city pins select their existing panel and their actual model stays visible',async({page})=>{
   test.setTimeout(180000)
   await open3D(page)
-  for(const place of places){
+  for(const place of danstsudPlaces){
     await page.evaluate(id=>{location.hash=`/atlas/${id}`},place.id)
     const pin=page.getByTestId(`marker-${place.id}`)
     await expect(pin,place.name).toHaveAttribute('aria-pressed','true')
     await expect(pin,place.name).toBeVisible()
+    await expect.poll(async()=>JSON.parse(await page.getByTestId('relief-viewer').getAttribute('data-visible-city-ids')||'[]'),place.name).toContain(place.id)
     await pin.click()
     await expect(page.getByTestId('detail-panel').getByRole('heading',{name:place.name,exact:true})).toBeVisible()
   }
-  await expect(page.locator('.relief-pins .city-pin:not(.subregion-pin)')).toHaveCount(95)
+  await expect(page.locator('.relief-pins .city-pin:not(.subregion-pin)')).toHaveCount(58)
 })
 
 test('zoom, wheel, keyboard pan, tilt, north and home control the camera without losing the map',async({page})=>{
@@ -136,8 +188,8 @@ test('zoom, wheel, keyboard pan, tilt, north and home control the camera without
   await page.getByRole('button',{name:'Kuzeye dön',exact:true}).click()
   await expect(page.getByRole('button',{name:'Eğimli görünüm',exact:true})).toHaveAttribute('aria-pressed','true')
   await page.getByRole('button',{name:'Haritanın tamamını göster',exact:true}).click()
-  await expect(page.getByTestId('zoom-level')).toHaveText('100%')
-  await expect(page.getByTestId('marker-xotar')).toBeVisible()
+  await expect.poll(async()=>Number(await viewer.getAttribute('data-visible-models'))).toBe(61)
+  await expect(page.getByTestId('marker-lirendil')).toBeVisible()
 })
 
 test('real building geometry can be picked away from its pin and pointer gestures move and rotate the camera',async({page})=>{
@@ -178,22 +230,22 @@ test('3D to wiki and back preserves the remembered camera and both renderer choi
   await expect(page.getByTestId('atlas-viewer')).toBeVisible()
   await expect(page.getByTestId('marker-valdareth')).toBeVisible({timeout:15000})
   await page.reload();await expect(page.getByRole('button',{name:'2D harita',exact:true})).toHaveAttribute('aria-pressed','true')
-  await page.getByRole('button',{name:'3D kabartma',exact:true}).click()
+  await page.getByRole('button',{name:'Danstsud 3D',exact:true}).click()
   await expect(page.getByTestId('relief-viewer')).toHaveAttribute('data-ready','true')
   await expect(page.getByTestId('marker-valdareth')).toHaveAttribute('aria-pressed','true')
   await page.reload();await expect(page.getByTestId('relief-viewer')).toHaveAttribute('data-ready','true')
 })
 
-test('forest, water, winter and original drawing controls change the actual scene layers',async({page})=>{
+test('forest, water and winter controls change layers while the original map remains at every zoom',async({page})=>{
   await open3D(page,'frostmere-golu')
   const viewer=page.getByTestId('relief-viewer')
   await expect(viewer).toHaveAttribute('data-forest-visible','true')
   await page.getByRole('button',{name:'3D ormanlar',exact:true}).click();await expect(viewer).toHaveAttribute('data-forest-visible','false')
   await page.getByRole('button',{name:'3D su yüzeyleri',exact:true}).click();await expect(viewer).toHaveAttribute('data-water-visible','false')
   await page.getByRole('button',{name:'Kış görünümü',exact:true}).click();await expect(viewer).toHaveAttribute('data-winter','true')
-  await expect(viewer).toHaveAttribute('data-surface','painted')
-  await page.getByRole('button',{name:'Özgün çizim dokusu',exact:true}).click();await expect(viewer).toHaveAttribute('data-surface','drawing')
-  await page.getByRole('button',{name:'Özgün çizim dokusu',exact:true}).click();await expect(viewer).toHaveAttribute('data-surface','painted')
+  await expect(viewer).toHaveAttribute('data-surface','original-map')
+  await page.getByRole('button',{name:'Yakınlaştır',exact:true}).click()
+  await expect(viewer).toHaveAttribute('data-surface','original-map')
 })
 
 test('cold areas receive local snow, warm cities do not, hot springs have steam and reduced motion stops weather',async({page})=>{
@@ -248,6 +300,7 @@ test('missing WebGL falls back to the working 2D atlas with the same selected pl
     HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){if(type==='webgl2'||type==='webgl')return null;return original.apply(this,[type,...args] as Parameters<typeof original>)} as typeof original
   })
   await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/#/atlas/valdareth')
+  await page.getByTestId('toggle-3d').click()
   await expect(page.getByRole('button',{name:'2D harita',exact:true})).toHaveAttribute('aria-pressed','true',{timeout:15000})
   await expect(page.getByTestId('marker-valdareth')).toBeVisible({timeout:15000})
   await expect(page.getByTestId('detail-panel')).toContainText('Valdareth')
@@ -258,6 +311,7 @@ test('missing WebGL falls back to the working 2D atlas with the same selected pl
 test('a failed 3D engine download opens the existing drawing atlas instead of breaking the page',async({page})=>{
   await page.route('**/src/Atlas3D.tsx*',route=>route.abort())
   await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/#/atlas/valdareth')
+  await page.getByTestId('toggle-3d').click()
   await expect(page.getByRole('button',{name:'2D harita',exact:true})).toHaveAttribute('aria-pressed','true',{timeout:15000})
   await expect(page.getByTestId('marker-valdareth')).toBeVisible({timeout:15000})
   await expect(page.getByTestId('detail-panel')).toContainText('Valdareth')
@@ -275,7 +329,7 @@ for(const width of [320,390,820,1024,1440])test(`3D atlas controls, city panel a
   await page.setViewportSize({width,height:900});await open3D(page,'valdareth')
   const viewer=page.getByTestId('relief-viewer')
   await expect(page.getByTestId('marker-valdareth')).toBeVisible()
-  await expect(page.getByRole('button',{name:'3D kabartma',exact:true})).toBeVisible()
+  await expect(page.getByRole('button',{name:'Danstsud 3D',exact:true})).toBeVisible()
   await expect(page.getByRole('button',{name:'2D harita',exact:true})).toBeVisible()
   const controls=await page.locator('.relief-controls button,.relief-home').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().toJSON()))
   for(const rect of controls){expect(rect.x).toBeGreaterThanOrEqual(0);expect(rect.right).toBeLessThanOrEqual(width);expect(rect.width).toBeGreaterThanOrEqual(35)}
@@ -290,8 +344,21 @@ for(const width of [320,390,820,1024,1440])test(`3D atlas controls, city panel a
 })
 
 test('malformed camera storage uses a valid fitted camera and keeps the selected city accessible',async({page})=>{
-  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-3d-camera',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-atlas-mode','broken')})
+  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-danstsud-3d-camera-v2',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-danstsud-atlas-mode','broken')})
   await open3D(page,'valdareth')
   await expect(page.getByTestId('marker-valdareth')).toHaveAttribute('aria-pressed','true')
   expect(Number(await page.getByTestId('relief-viewer').getAttribute('data-camera-zoom'))).toBeGreaterThan(1)
+})
+
+
+test('selecting another kingdom leaves optional Danstsud 3D and keeps its original map panel',async({page})=>{
+  await open3D(page,'valdareth')
+  await page.evaluate(()=>{location.hash='/atlas/xotar'})
+  await expect(page.getByTestId('atlas-viewer')).toBeVisible()
+  await expect(page.getByTestId('toggle-3d')).toHaveAttribute('aria-pressed','false')
+  await expect(page.getByTestId('detail-panel').getByRole('heading',{name:'Xotar',exact:true})).toBeVisible()
+  await page.getByTestId('toggle-3d').click()
+  await expect(page.getByTestId('relief-viewer')).toHaveAttribute('data-ready','true')
+  await expect(page.getByTestId('marker-xotar')).toHaveCount(0)
+  await expect(page.getByTestId('marker-lirendil')).toBeVisible()
 })
