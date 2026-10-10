@@ -64,7 +64,9 @@ export const institutionRosters: InstitutionRoster[] = [
       "doran-kest",
       "odrissa-vey",
       "nolen-dur",
-      "ensel-drunn"
+      "ensel-drunn",
+      "erhan-telis",
+      "sela-orven"
     ]
   },
   {
@@ -92,7 +94,8 @@ export const institutionRosters: InstitutionRoster[] = [
       "erisa-thale",
       "vadren-hol",
       "liora-gent",
-      "heskar-vale"
+      "heskar-vale",
+      "neral-thes"
     ]
   },
   {
@@ -113,10 +116,7 @@ export const institutionRosters: InstitutionRoster[] = [
     "city": "marhalden",
     "memberIds": [
       "savren-urn",
-      "elva-korrin",
-      "tervik-hann",
-      "nesra-dolm",
-      "karven-oll"
+      "elva-korrin"
     ]
   },
   {
@@ -159,7 +159,9 @@ export const institutionRosters: InstitutionRoster[] = [
       "dovek-raal",
       "mera-sorn",
       "selvi-arn",
-      "teren-moll"
+      "teren-moll",
+      "ivena-sarell",
+      "sella-vorn"
     ]
   },
   {
@@ -194,6 +196,12 @@ export const institutionRosters: InstitutionRoster[] = [
       "vaelcor",
       "lethan-orve"
     ]
+  },
+  {
+    "id": "marhalden-uc-muhur",
+    "name": "Marhalden Üç Mühür Meclisi",
+    "city": "marhalden",
+    "memberIds": ["edran-korr", "vessa-thol", "tervik-hann", "nesra-dolm", "karven-oll", "mereth-vann"]
   }
 ]
 

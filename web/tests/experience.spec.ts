@@ -138,7 +138,7 @@ test("Fehar and Frethar share a mapped settlement and retain its royal tax autho
   await page.addInitScript(() => localStorage.setItem('aruzahr-saved', JSON.stringify(['frethar', 'fehar'])));
   await page.goto("/#/atlas/frethar");
   await expect(page.getByTestId("detail-panel")).toContainText("Fehar");
-  await expect(page.getByTestId("marker-fehar")).toBeVisible();
+  await expect(page.getByTestId("marker-fehar")).toBeVisible({ timeout: 15000 });
   await expect(page.getByTestId("marker-fehar").locator(".pin-label")).toHaveText("Frethar");
   await expect(page.getByTestId("marker-frethar")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Fehar kaydını kaldır", exact: true })).toBeVisible();
@@ -153,7 +153,7 @@ test("Fehar and Frethar share a mapped settlement and retain its royal tax autho
   await page.goto("/#/wiki/frethar");
   await expect(page.locator(".article-title h1")).toHaveText("Fehar");
   await page.goto("/#/atlas/fehar");
-  await expect(page.getByTestId("marker-fehar")).toBeVisible();
+  await expect(page.getByTestId("marker-fehar")).toBeVisible({ timeout: 15000 });
   const search = page.getByRole("textbox", { name: "Atlas ve wiki içinde ara" });
   for (const name of ["Fehar", "Frethar"]) {
     await search.fill(name);

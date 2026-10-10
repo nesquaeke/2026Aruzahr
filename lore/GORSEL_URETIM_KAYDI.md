@@ -23,3 +23,12 @@ Portreler altılı, üç sütun ve iki satırlı üretim levhalarından ayrı We
 `portrait-manifest.ts` yeni portreleri ve eski kimlikten yeni portreye takma adları; `painted-art-manifest.ts` ve `painted-details-manifest.ts` şehir, ülke, canlı ve birlik tablolarını; `mapped-art-manifest.ts` harita yakın planlarını tutar. `media.ts` aynı seçimleri kişi kartı, şehir kadrosu, wiki kapağı ve büyütme galerisine uygular.
 
 İşlemeli güç çerçevesi resme gömülmez. `character-card-profiles.ts` dövüş, büyü ve siyasi nüfuzu birlikte yorumlayan Olağan/Seçkin/Kudretli/Yüce sınıfları sağlar. Lysandra, Ashara ve Kaptan Roddic’in açıklanmamış rollerine veya güçlerine yeni kimlik atanmaz.
+
+
+## 10 Ekim 2026 — kitap yazarları
+
+Altı yeni portre: Ivena Sarell, Mereth Vann, Sela Orven, Neral Thes, Erhan Telis ve Sella Vorn. `image_gen` ile tek 3×2 üretim levhasında birbirinden farklı yaş, ifade, iş kıyafeti, ışık ve renklerle üretildi. Görünür yağlıboya/guaj fırça izleri ve seçilmiş net kenarlar kullanılır; fotoğraf, plastik yüz veya 3D render görünümü istenmedi. Portreler görsel olarak incelendi.
+
+1254×1254 levhadan altı panel 5 px kenar payıyla mekanik olarak ayrılıp 408–409×617 WebP çıktısı alındı. Sharp yalnız kesit ve dosya dönüştürmede kullanıldı; çizim yeniden boyanmadı. Her kişinin ayrı görüntüsü `writer-art-manifest.ts` ile kişi, wiki ve galeriye bağlanır. İsim ve güç çerçevesi resme gömülmez; altı yazar Olağan çerçeve taşır.
+
+Güncel manifest: **371 görsel, 203 boya dokulu illüstrasyon**. Önceki 365 görsel korunur. Üretim levhasının ve özgün çıktının yerel çalışma arşivi ayrıca saklandı; siteye yalnız altı ayrı portre girdi.

@@ -12,7 +12,7 @@ const animalIds = new Set(['tac-kecisi', 'kar-kartali', 'cig-kuzgunu', 'orvak', 
 const normalize = (text: string) => text.toLocaleLowerCase('tr').normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/ı/g, 'i')
 const category = (art: Artwork): Filter => art.portrait ? 'portrait' : art.category === 'fauna' || animalIds.has(art.id.replace(/-painted$/, '')) ? 'fauna' : art.id.includes('-map') || art.origin === 'map' ? 'map' : 'landscape'
 function relatedTarget(art: Artwork) {
-  const character = characters.find(person => portraitFor(person.portrait)?.id === art.id)
+  const character = characters.find(person => person.portrait === art.id || portraitFor(person.portrait)?.id === art.id)
   if (character) return { id: character.id, label: 'Karakteri tanı' }
   const id = art.relatedId || art.id.replace(/-painted$/, '').replace(/^region-/, '')
   return placeById(id) || articleById(id) || regionById(id) ? { id, label: 'Wiki sayfasını aç' } : undefined

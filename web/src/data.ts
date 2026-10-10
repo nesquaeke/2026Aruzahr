@@ -14,6 +14,10 @@ import { bookArticles } from './lore/books'
 import { newFaunaArticles } from './lore/world-fauna'
 import { mapCorrections, newlyMappedPlaces, mapAuditSource, mapSettlementAliases } from './map-corrections'
 import { newDanstsudInstitutions } from './lore/danstsud-roster'
+import { civicSections, cityGuides, civicSource } from './lore/civic-guides'
+import { institutionOperations } from './lore/institution-operations'
+import { characterLifeSections } from './lore/character-life'
+import { speciesExpansion } from './lore/species-guides'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; scene?: boolean; table?: { columns: string[]; rows: string[][] } }
@@ -176,8 +180,8 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place
   return { ...place,
     summary: place.summary || additions[0]?.paragraphs[0].split(/(?<=[.!?])\s+/).slice(0,2).join(' '),
     subtitle: place.subtitle || additions[0]?.title,
-    sections: [...(place.sections || []), ...additions],
-    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(correction ? [mapAuditSource] : []), ...(additions.length ? [livingWorldSource] : [])],
+    sections: [...(place.sections || []), ...additions, ...civicSections(place.id)],
+    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(correction ? [mapAuditSource] : []), ...(additions.length ? [livingWorldSource] : []), ...(cityGuides[place.id] ? [civicSource] : [])],
     related: [...new Set([...(place.related || []), ...(place.region !== 'danstsud' ? [place.region] : []), ...furtherReading])],
   }
 })
@@ -185,7 +189,12 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place
 export const subregions: Subregion[] = danstsudSubregions
 export type MappedPlace = Place & { point: [number, number] }
 export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions]
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions].map(article => {
+  const operations = institutionOperations[article.id];
+  const biography = characterLifeSections(article.id);
+  const additions = [...(operations ? [{ title: 'Yetki, destek ve hesap verme', paragraphs: [operations.mandate, operations.chain, operations.support, operations.accountability] }] : []), ...biography, ...(speciesExpansion[article.id] || [])];
+  return additions.length ? { ...article, sections: [...article.sections, ...additions], sources: [...article.sources, civicSource] } : article;
+})
 const routeAliases: Record<string, string> = { ...mapSettlementAliases, marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
 export const canonicalId = (id: string) => routeAliases[id] || id
 export const regionById = (id: string) => regions.find(r => r.id === id)

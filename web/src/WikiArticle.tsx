@@ -40,6 +40,9 @@ import { characterById } from "./lore/characters";
 import HistoryExperience from "./HistoryExperience";
 import ReadingProgress from './ReadingProgress';
 import CharacterCard from './CharacterCard';
+import CharacterAbilities from './CharacterAbilities';
+import { CityGuide, InstitutionOperations, RelatedBooks, SpeciesGuide } from './LivingGuides';
+import { cityGuides } from './lore/civic-guides';
 import { worldBooks } from './lore/books';
 import { institutionRosters } from './lore/danstsud-roster';
 import InstitutionRoster, { CityInstitutions, membersOf } from './InstitutionRoster';
@@ -223,6 +226,7 @@ export default function WikiArticle({
     .split(/\s+/).length;
   const readTime = Math.max(1, Math.round(wordCount / 180));
   const book = worldBooks.find(value => value.id === id);
+  const relatedBookCount = worldBooks.filter(value => value.authorId === id || value.placeId === id || value.id === id).length;
   const chapterTopics = sections.map(chapterTopic);
   const availableTopics = (Object.keys(chapterTopicLabels) as ChapterTopic[]).filter(value => chapterTopics.includes(value));
   const visibleCount = topic === 'all' ? sections.length : chapterTopics.filter(value => value === topic).length;
@@ -332,7 +336,7 @@ export default function WikiArticle({
             Haritaya dön
           </button>
           <button onClick={() => navigate("/wiki")}>Ansiklopedi</button>
-          {book && <button onClick={() => navigate('/books')}>Kitaplık</button>}
+          {book && <button onClick={() => navigate(`/books/${book.id}`)}>Kitaplık</button>}
           {context && (
             <button onClick={() => navigate(`/wiki/${context.id}`)}>
               {context.name}
@@ -389,7 +393,7 @@ export default function WikiArticle({
               historyArticle.subtitle}
           </p>
         </div>
-        {portrait && !profile && !book && <button className="hero-portrait-button" aria-label={`${name} portresini büyüt`} onClick={() => openArtwork(portrait.id)}><CharacterCard id={character?.id} src={portrait.src} name={name} role={character?.role} eager /></button>}
+        {portrait && !profile && (!book || character) && <button className="hero-portrait-button" aria-label={`${name} portresini büyüt`} onClick={() => openArtwork(portrait.id)}><CharacterCard id={character?.id} src={portrait.src} name={name} role={character?.role} eager /></button>}
         <div className="article-cover-actions"><button className="article-read-shortcut" onClick={() => goToSection(0)}><Feather size={15} />Okumaya başla<ArrowRight size={16} /></button><button className="cover-gallery-button" onClick={() => setImageIndex(0)}>Görselleri aç <span>{gallery.length}</span></button></div>
       </div>
       {profile && (
@@ -433,7 +437,9 @@ export default function WikiArticle({
         </div>
       )}
       {character && <div className="character-passport" data-testid="character-passport"><div><span>Rol</span><strong>{character.role}</strong></div><div><span>Bağlılık</span><strong>{character.affiliation}</strong></div><div><span>İlgili yer</span><button onClick={() => navigate(`/wiki/${character.city}`)}>{locationById(character.city)?.name || character.city}<ArrowRight size={14} /></button></div><div className="character-traits">{character.traits.map(trait => <span key={trait}>{trait}</span>)}</div></div>}
-      <nav className="article-local-navigation" aria-label="Wiki keşif alanları"><button onClick={() => goToSection(0)}><Feather size={15} />Hikâye<span>{sections.length}</span></button>{profile?.people?.length ? <button onClick={() => document.querySelector('.wiki-article .people-section')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block:'start' })}><Users size={15} />Yüzler<span>{profile.people.length}</span></button> : null}<button onClick={() => setImageIndex(0)}><Sparkles size={15} />Galeri<span>{gallery.length}</span></button>{book && <button onClick={() => navigate('/books')}><BookOpen size={15} />Kitaplık<ArrowRight size={14} /></button>}</nav>
+      {character && <CharacterAbilities id={character.id} />}
+      <SpeciesGuide id={id} />
+      <nav className="article-local-navigation" aria-label="Wiki keşif alanları">{cityGuides[id] && <button onClick={() => document.querySelector('.wiki-article .living-guide')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><Castle size={15} />Yaşam</button>}<button onClick={() => goToSection(0)}><Feather size={15} />Hikâye<span>{sections.length}</span></button>{profile?.people?.length ? <button onClick={() => document.querySelector('.wiki-article .people-section')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block:'start' })}><Users size={15} />Yüzler<span>{profile.people.length}</span></button> : null}<button onClick={() => setImageIndex(0)}><Sparkles size={15} />Galeri<span>{gallery.length}</span></button>{!book && relatedBookCount > 0 && <button onClick={() => document.querySelector('.wiki-article .related-volumes')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><BookOpen size={15} />Kitaplar<span>{relatedBookCount}</span></button>}{book && <button onClick={() => navigate(`/books/${book.id}`)}><BookOpen size={15} />Kitaplık<ArrowRight size={14} /></button>}</nav>
       {history && <HistoryExperience jump={goToSection} />}
       {context?.id === "danstsud" && (
         <p className="article-period">
@@ -454,6 +460,9 @@ export default function WikiArticle({
       ) : (
         <p className="visual-intro">{summary}</p>
       )}
+      <CityGuide id={id} />
+      <InstitutionOperations id={id} />
+      <RelatedBooks id={id} navigate={navigate} />
       <CityInstitutions rosters={cityInstitutions} navigate={navigate} />
       {institutionRoster && <InstitutionRoster roster={institutionRoster} navigate={navigate} openPortrait={openArtwork} />}
       {profile?.people?.length ? (

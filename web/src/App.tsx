@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
-import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Waves, X } from 'lucide-react'
+import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Users, Waves, X } from 'lucide-react'
 import type { AtlasHandle } from './Atlas'
 import { articleById, canonicalId, historyArticle, locationById, loreArticles, loreKindLabels, mapLocations, normalize, places, regionById, regions, subregionById } from './data'
 import { featureById, mapFeatures, featureLabels } from './map-features'
@@ -14,6 +14,7 @@ const icons = { xotar: Flame, murgul: Trees, honud: Snowflake, danstsud: Castle,
 const Atlas = lazy(() => import('./Atlas'))
 const GalleryHub = lazy(() => import('./GalleryHub'))
 const Bookshelf = lazy(() => import('./Bookshelf'))
+const CharactersHub = lazy(() => import('./CharactersHub'))
 const readRoute = () => window.location.hash.slice(1) || '/atlas'
 const decodeId = (value: string) => { try { return canonicalId(decodeURIComponent(value)) } catch { return canonicalId(value) } }
 const allIds = new Set([...regions, ...mapLocations, ...loreArticles, ...mapFeatures, historyArticle].map(entry => entry.id))
@@ -51,6 +52,7 @@ export default function App() {
   const wiki = route.startsWith('/wiki')
   const gallery = route.startsWith('/gallery')
   const books = route.startsWith('/books')
+  const people = route.startsWith('/characters')
   const isAtlas = route.startsWith('/atlas')
   const articleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
   const selectedRegion = regionById(selected || '')
@@ -71,8 +73,10 @@ export default function App() {
   useEffect(() => { const handler = () => { const next = readRoute(); setRoute(next); if (!next.startsWith('/atlas')) setFocusMode(false) }; window.addEventListener('hashchange', handler); return () => window.removeEventListener('hashchange', handler) }, [])
   useEffect(() => {
     if (route.startsWith('/atlas')) lastMapRoute.current = route
-    document.getElementById('main-content')?.scrollTo({ top: 0 })
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    if (!route.startsWith('/books/')) {
+      document.getElementById('main-content')?.scrollTo({ top: 0 })
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
   }, [route])
   useEffect(() => {
     if (selectedFeature?.kind === 'route') setRoutes(true)
@@ -148,8 +152,9 @@ export default function App() {
   const navigation = [
     { href: '/atlas', label: 'Atlas', Icon: Map, active: isAtlas },
     { href: '/wiki', label: 'Ansiklopedi', Icon: BookOpen, active: wiki && !isHistory },
+    { href: '/characters', label: 'Karakterler', Icon: Users, active: people },
     { href: '/gallery', label: 'Galeri', Icon: ImageIcon, active: gallery },
-    { href: '/books', label: 'Kitaplık', Icon: Library, active: books },
+    { href: '/books', label: 'Kitaplar', Icon: Library, active: books },
     { href: '/wiki/buyuk-kirilma', label: 'Büyük Kırılma', Icon: Globe2, active: isHistory },
   ]
   const activeView = navigation.find(item => item.active)?.label || 'Atlas'
@@ -185,7 +190,7 @@ export default function App() {
     </aside>
 
     <main id="main-content" className={`main-content ${isAtlas ? 'atlas-main' : gallery ? 'gallery-main' : books ? 'books-main' : ''}`} tabIndex={-1}>
-      {gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} /></Suspense> : !wiki ? <>
+      {people ? <Suspense fallback={<div className="collection-loading" role="status">Karakterler açılıyor…</div>}><CharactersHub navigate={navigate} /></Suspense> : gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} route={route} /></Suspense> : !wiki ? <>
         <div className="page-heading atlas-arrival"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>YAŞAYAN ATLAS</span></div><h1>Bir dünya. <em>Binlerce hikâye.</em></h1></div><div className="atlas-stats"><div><Globe2 size={19} /><strong>8</strong><span>BÖLGE</span></div><span className="stat-separator" /><div><MapPin size={19} /><strong>{places.length}</strong><span>YERLEŞİM</span></div></div></div>
         <div className="atlas-presets" aria-label="Hızlı keşif"><span>KEŞFET</span><button onClick={() => { setQuery(''); setRoutes(false); select('hardlane') }}><Snowflake size={15} />Hardlane</button><button onClick={() => { setQuery(''); setRoutes(false); select('valdareth') }}><Crown size={15} />Başkent</button><button onClick={() => { setQuery(''); setRoutes(true); select('kemige-basan-yol') }}><Map size={15} />Yolları keşfet</button><button onClick={() => { setQuery(''); setRoutes(false); resetMap() }}><Globe2 size={15} />Bütün dünya</button></div>
         <section className={`map-shell ${focusMode ? 'focus-mode' : ''}`} aria-label="İnteraktif atlas">

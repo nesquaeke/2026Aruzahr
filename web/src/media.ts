@@ -1,6 +1,7 @@
 import { newPortraitArtworks, paintedPortraitAliases } from './portrait-manifest'
 import { paintedSceneArtworks, paintedSceneAliases } from './painted-art-manifest'
 import { mappedSettlementArtworks, mappedSettlementAliases } from './mapped-art-manifest'
+import { writerArtworks } from './writer-art-manifest'
 
 export type Artwork = { id: string; src: string; title: string; caption: string; origin: 'author' | 'generated' | 'map' | 'adapted'; portrait?: boolean; painted?: boolean; category?: 'fauna' | 'landscape' | 'portrait' | 'scene'; relatedId?: string }
 const picture = (id: string, title: string, caption: string, origin: Artwork['origin'] = 'generated', portrait = false): Artwork => ({ id, src: `/illustrations/${id}.webp`, title, caption, origin, portrait })
@@ -34,9 +35,9 @@ const sceneArt = [
   picture('kethra-map', 'Kethra yerleşim haritası', 'Rydorn Sırtı ve liman çevresi', 'author'), picture('kethra-liman', 'Kethra limanı', 'Gece yükleri ve soğuk iskeleler', 'author'), picture('denizkizi-meyhanesi', 'Denizkızı Meyhanesi', 'Liman kentinin sıcak iç mekânı', 'author'), picture('kanca-meyhanesi', 'Kanca Meyhanesi', 'Yolcuların ve liman insanlarının masaları', 'author'), picture('lirendil-map', 'Lirendil yerleşim haritası', 'Yazarın ayrıntılı şehir çizimi', 'author'), picture('celikkalkan-map', 'ÇelikKalkan yerleşkesi', 'Lonca avlusu ve savunma düzeni', 'author'), picture('celikkalkan-yemek', 'ÇelikKalkan yemekhanesi', 'Lonca yaşamının ortak masası', 'author'), picture('demirci-ocagi', 'Lirendil demirci ocağı', 'Ateş, örs ve kılıç işçiliği', 'author'), picture('lirendil-sokak', 'Lirendil sokakları', 'Dağ gölgesindeki taş cepheler', 'author'), picture('myrran-map', 'Myrran yerleşim haritası', 'İskele çevresindeki küçük yerleşim', 'author'), picture('valdareth-zindan', 'Valdareth büyük hapishanesi', 'Taş koridorlar ve şehir muhafızları', 'author'),
 ]
 export const artworks: Record<string, Artwork> = Object.fromEntries([
-  ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks,
+  ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks,
 ].map(a => [a.id, a]))
-const portraitAliases: Record<string, string> = { 'bryndon-kiyi-defteri': 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases }
+const portraitAliases: Record<string, string> = { 'bryndon-kiyi-defteri': paintedPortraitAliases.bryndon || 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases }
 export const portraitFor = (id: string) => { const item = artworks[portraitAliases[id] || id]; return item?.portrait ? item : undefined }
 const readingCovers: Record<string, string> = { 'danstsud-ekmek-ve-vergi':'pilorn', 'hardlane-bir-kis':'frostbay', 'karlan-iscilik-ve-gecit':'marhalden', 'danstsud-makam-ve-itiraz':'valdareth' }
 export const artworkFor = (id: string) => artworks[portraitAliases[id] || id]
@@ -51,6 +52,6 @@ const galleries: Record<string, string[]> = {
 }
 export function galleryFor(id: string, region: string, cover: string): Artwork[] {
   const primary = primaryArtwork(id) || Object.values(artworks).find(a => a.src === cover) || countryArt[region]
-  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
+  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
   return list.filter((item, i) => list.findIndex(a => a.id === item.id) === i)
 }
