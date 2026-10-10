@@ -1,7 +1,7 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { forwardRef, lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Users, Waves, X } from 'lucide-react'
-import type { AtlasHandle } from './Atlas'
+import type { AtlasHandle, AtlasProps } from './Atlas'
 import { articleById, canonicalId, historyArticle, locationById, loreArticles, loreKindLabels, mapLocations, normalize, places, regionById, regions, subregionById } from './data'
 import { featureById, mapFeatures, featureLabels } from './map-features'
 import DiscoveryCard from './DiscoveryCard'
@@ -12,6 +12,11 @@ import type { JourneyId } from './Journeys'
 
 const icons = { xotar: Flame, murgul: Trees, honud: Snowflake, danstsud: Castle, garmirk: Mountain, ariki: Waves, gurbin: Compass, lakbar: Flame }
 const Atlas = lazy(() => import('./Atlas'))
+const UnavailableAtlas = forwardRef<AtlasHandle, AtlasProps & { onUnavailable: () => void }>(function UnavailableAtlas({ onUnavailable }, _ref) {
+  useEffect(() => { onUnavailable() }, [onUnavailable])
+  return <div className="map-loading" role="status">Çizim haritası açılıyor…</div>
+})
+const Atlas3D = lazy(() => import('./Atlas3D').catch(() => ({ default: UnavailableAtlas })))
 const GalleryHub = lazy(() => import('./GalleryHub'))
 const Bookshelf = lazy(() => import('./Bookshelf'))
 const CharactersHub = lazy(() => import('./CharactersHub'))
@@ -20,6 +25,9 @@ const decodeId = (value: string) => { try { return canonicalId(decodeURIComponen
 const allIds = new Set([...regions, ...mapLocations, ...loreArticles, ...mapFeatures, historyArticle].map(entry => entry.id))
 function readSaved(): string[] {
   try { const value = JSON.parse(localStorage.getItem('aruzahr-saved') || '[]'); return Array.isArray(value) ? [...new Set(value.filter((id): id is string => typeof id === 'string').map(canonicalId).filter(id => allIds.has(id)))] : [] } catch { return [] }
+}
+function readAtlasMode(): '2d' | '3d' {
+  try { return localStorage.getItem('aruzahr-atlas-mode') === '2d' ? '2d' : '3d' } catch { return '3d' }
 }
 function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -39,6 +47,7 @@ export default function App() {
   const [routes, setRoutes] = useState(false)
   const [focusMode, setFocusMode] = useState(false)
   const [zoom, setZoom] = useState(100)
+  const [atlasMode, setAtlasMode] = useState(readAtlasMode)
   const [toast, setToast] = useState('')
   const [journey, setJourney] = useState<JourneyId | null>(null)
   const sidebar = useRef<HTMLElement>(null)
@@ -84,6 +93,7 @@ export default function App() {
   }, [selectedFeature])
 
   useEffect(() => { try { localStorage.setItem('aruzahr-saved', JSON.stringify(saved)) } catch { /* Private browser storage is optional. */ } }, [saved])
+  useEffect(() => { try { localStorage.setItem('aruzahr-atlas-mode', atlasMode) } catch { /* View preference is optional. */ } }, [atlasMode])
   useEffect(() => { if (!toast) return; const timeout = window.setTimeout(() => setToast(''), 3500); return () => window.clearTimeout(timeout) }, [toast])
   useEffect(() => {
     const drawer = sidebar.current
@@ -192,13 +202,13 @@ export default function App() {
     <main id="main-content" className={`main-content ${isAtlas ? 'atlas-main' : gallery ? 'gallery-main' : books ? 'books-main' : ''}`} tabIndex={-1}>
       {people ? <Suspense fallback={<div className="collection-loading" role="status">Karakterler açılıyor…</div>}><CharactersHub navigate={navigate} /></Suspense> : gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} route={route} /></Suspense> : !wiki ? <>
         <div className="page-heading atlas-arrival"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>YAŞAYAN ATLAS</span></div><h1>Bir dünya. <em>Binlerce hikâye.</em></h1></div><div className="atlas-stats"><div><Globe2 size={19} /><strong>8</strong><span>BÖLGE</span></div><span className="stat-separator" /><div><MapPin size={19} /><strong>{places.length}</strong><span>YERLEŞİM</span></div></div></div>
-        <div className="atlas-presets" aria-label="Hızlı keşif"><span>KEŞFET</span><button onClick={() => { setQuery(''); setRoutes(false); select('hardlane') }}><Snowflake size={15} />Hardlane</button><button onClick={() => { setQuery(''); setRoutes(false); select('valdareth') }}><Crown size={15} />Başkent</button><button onClick={() => { setQuery(''); setRoutes(true); select('kemige-basan-yol') }}><Map size={15} />Yolları keşfet</button><button onClick={() => { setQuery(''); setRoutes(false); resetMap() }}><Globe2 size={15} />Bütün dünya</button></div>
+        <div className="atlas-presets" aria-label="Hızlı keşif"><span>KEŞFET</span><button onClick={() => { setQuery(''); setRoutes(false); select('hardlane') }}><Snowflake size={15} />Hardlane</button><button onClick={() => { setQuery(''); setRoutes(false); select('valdareth') }}><Crown size={15} />Başkent</button><button onClick={() => { setQuery(''); setRoutes(true); select('kemige-basan-yol') }}><Map size={15} />Yolları keşfet</button><button onClick={() => { setQuery(''); setRoutes(false); resetMap() }}><Globe2 size={15} />Bütün dünya</button><div className="atlas-renderer-switch" role="group" aria-label="Harita görünümü"><button aria-pressed={atlasMode === '3d'} onClick={() => setAtlasMode('3d')}><Mountain size={15} />3D kabartma</button><button aria-pressed={atlasMode === '2d'} onClick={() => setAtlasMode('2d')}><Map size={15} />2D harita</button></div></div>
         <section className={`map-shell ${focusMode ? 'focus-mode' : ''}`} aria-label="İnteraktif atlas">
           <div className="map-toolbar"><span className="map-toolbar-title"><Compass size={18} /><strong>VALHUNAR</strong><span className="map-version">KEŞİF ATLASI</span></span><div className="map-toolbar-actions"><button className={cities ? 'toggled' : ''} aria-label="Yerleşimler" title={cities ? "Yerleşimleri gizle" : "Yerleşimleri göster"} aria-pressed={cities} onClick={() => setCities(!cities)}><Layers size={15} /><span>Yerleşimler</span></button><button className={geography ? 'toggled' : ''} aria-label="Coğrafya" title={geography ? "Coğrafya işaretlerini gizle" : "Deniz, nehir, dağ ve yapı noktalarını göster"} aria-pressed={geography} onClick={() => setGeography(!geography)}><Waves size={15} /><span>Coğrafya</span></button><button className={routes ? 'toggled' : ''} aria-label="Ticaret yolları" title={routes ? "Ticaret yollarını gizle" : "Bir ticaret hattı seç"} aria-pressed={routes} onClick={() => setRoutes(!routes)}><Map size={15} /><span>Ticaret yolları</span></button><button className={effects && !reducedMotion ? 'toggled' : ''} aria-pressed={effects && !reducedMotion} aria-label="Atmosfer efektleri" title={reducedMotion ? "Hareketi azalt tercihi etkin" : "Bölgenin atmosferini aç veya kapat"} disabled={reducedMotion} onClick={() => setEffects(!effects)}><Sparkles size={15} /><span>Atmosfer</span></button><span className="toolbar-divider" /><button aria-label={focusMode ? 'Odak modundan çık' : 'Odak moduna geç'} title={focusMode ? "Atlas görünümüne dön" : "Haritayı genişlet"} aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? <Minimize2 size={17} /> : <Maximize2 size={17} />}</button></div></div>
           {routes && <nav className="route-picker" aria-label="Ticaret rotası seç"><span>Bir hat seç</span>{mapFeatures.filter(f => f.kind === 'route').map(f => <button key={f.id} aria-pressed={selected === f.id} onClick={() => { setQuery(''); select(f.id) }}><i className={f.status === 'planned' ? 'planned' : f.status === 'dangerous' ? 'dangerous' : ''} />{f.name}{f.status === 'planned' && <small>Yapılmadı</small>}</button>)}</nav>}
           {journey && <JourneyNavigator id={journey} selected={selected} onSelect={id => { setQuery(''); select(id) }} onClose={() => setJourney(null)} />}
           <div className={`map-layout ${detailRegion && selectedName ? 'has-detail' : ''}`}><div className="map-stage">
-            <Suspense fallback={<div className="map-loading" role="status">Atlas açılıyor…</div>}><Atlas ref={atlas} selected={selected} onSelect={select} query={query} showCities={cities} showGeography={geography} showRoutes={routes} effects={effects} reducedMotion={reducedMotion} onZoom={setZoom} /></Suspense>
+            <Suspense fallback={<div className="map-loading" role="status">Atlas açılıyor…</div>}>{atlasMode === '3d' ? <Atlas3D ref={atlas} selected={selected} onSelect={select} query={query} showCities={cities} showGeography={geography} showRoutes={routes} effects={effects} reducedMotion={reducedMotion} onZoom={setZoom} onUnavailable={() => { setAtlasMode('2d'); setToast('Bu cihazda çizim haritası açıldı. Yerler ve wiki bağlantıları kullanılabilir.') }} /> : <Atlas ref={atlas} selected={selected} onSelect={select} query={query} showCities={cities} showGeography={geography} showRoutes={routes} effects={effects} reducedMotion={reducedMotion} onZoom={setZoom} />}</Suspense>
             {!detailRegion && !cities && !query && zoom < 150 && <div className="map-welcome"><span className="eyebrow"><i /> KEŞFİN BURADA BAŞLIYOR</span><h2>Bilinmeyene doğru.</h2><p>Bir bölgeye dokun. Hikâyesine adım at.</p><button onClick={() => select('danstsud')}>İlk yolculuğuna başla <ArrowRight size={15} /></button></div>}
             <div className="zoom-controls">
               <button aria-label="Yakınlaştır" onClick={() => atlas.current?.zoom(1.5)}><Plus size={17} /></button><span data-testid="zoom-level">{zoom}%</span>

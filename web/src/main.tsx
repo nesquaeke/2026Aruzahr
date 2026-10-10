@@ -17,5 +17,6 @@ import './atlas-refresh.css'
 import './remaster.css'
 import './character-cards.css'
 import './modern.css'
+import './relief.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>)

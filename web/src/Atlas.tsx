@@ -6,12 +6,12 @@ import { locationById, mapLocations, normalize, regions, regionById, placeById, 
 import { featureById, featureLabels, mapFeatures } from './map-features'
 
 export type AtlasHandle = { zoom: (factor: number) => void; home: () => void }
-type Props = {
+export type AtlasProps = {
   selected: string | null; onSelect: (id: string) => void; query: string;
   showCities: boolean; showGeography: boolean; showRoutes: boolean; effects: boolean; reducedMotion: boolean; onZoom: (value: number) => void;
 }
 
-export default forwardRef<AtlasHandle, Props>(function Atlas({ selected, onSelect, query, showCities, showGeography, showRoutes, effects, reducedMotion, onZoom }, ref) {
+export default forwardRef<AtlasHandle, AtlasProps>(function Atlas({ selected, onSelect, query, showCities, showGeography, showRoutes, effects, reducedMotion, onZoom }, ref) {
   const element = useRef<HTMLDivElement>(null)
   const viewer = useRef<OpenSeadragon.Viewer | null>(null)
   const markers = useRef<Map<string, HTMLButtonElement>>(new Map())

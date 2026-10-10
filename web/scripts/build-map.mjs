@@ -7,7 +7,7 @@ import path from 'node:path'
 const source = fileURLToPath(new URL('../../Aruzahr 8k (1).jpg', import.meta.url))
 const output = fileURLToPath(new URL('../public/atlas/', import.meta.url))
 const checksum = createHash('sha256').update(await readFile(source)).digest('hex')
-const version = 1
+const version = 2
 const crops = {
   xotar: [0, 0, 3000, 1650],
   murgul: [0, 1170, 2700, 1650],
@@ -23,6 +23,7 @@ try {
   await access(path.join(output, 'aruzahr.dzi'))
   await access(path.join(output, 'aruzahr_files/13/0_0.jpeg'))
   for (const key of Object.keys(crops)) await access(path.join(output, `${key}.webp`))
+  for (const size of [2048, 4096]) await access(path.join(output, `relief-${size}.webp`))
   if (previous.checksum === checksum && previous.version === version) {
     console.log('Verified map assets are current; reusing the tile pyramid.')
     process.exit(0)
@@ -38,5 +39,9 @@ await sharp(source)
 for (const [key, [left, top, width, height]] of Object.entries(crops)) {
   await sharp(source).extract({ left, top, width, height }).resize(960).webp({ quality: 85 }).toFile(path.join(output, `${key}.webp`))
 }
+// Mechanical texture derivatives; the author's original drawing is untouched.
+for (const size of [2048, 4096]) {
+  await sharp(source).resize(size).webp({ quality: 88 }).toFile(path.join(output, `relief-${size}.webp`))
+}
 await writeFile(path.join(output, '.generated.json'), JSON.stringify({ checksum, version, width: 8192, height: 5668 }))
-console.log('Original 8192 × 5668 map prepared: local zoom tiles and eight region covers.')
+console.log('Original 8192 × 5668 map prepared: local zoom tiles, eight region covers and two relief textures.')

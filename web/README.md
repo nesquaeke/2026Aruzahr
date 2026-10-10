@@ -1,6 +1,6 @@
 # Aruzahr — uygulama notları
 
-React 19, TypeScript, Vite ve OpenSeadragon ile Türkçe interaktif atlas. Node.js 22.12 veya üzeri gerekir; mevcut bulut ortamında Node.js 24.19.0 kullanılır.
+React 19, TypeScript, Vite, Three.js ve OpenSeadragon ile Türkçe interaktif atlas. Node.js 22.12 veya üzeri gerekir; mevcut bulut ortamında Node.js 24.19.0 kullanılır.
 
 ## Kurulum ve çalıştırma
 
@@ -15,7 +15,7 @@ npm run dev -- --host 127.0.0.1 --open
 
 Bulut çalışma dizini `/workspace/2026Aruzahr/web`; npm önbelleği için `npm --cache /workspace/.cache/npm ci --no-audit --no-fund` kullanılabilir. Sunucu 5173 portunda çalışır. Süreçler yeni ortamda yeniden başlatılır.
 
-`npm run assets`, depo kökündeki `Aruzahr 8k (1).jpg` dosyasından Deep Zoom katmanlarını üretir. Özgün çizimi değiştirmez; SHA-256 eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
+`npm run assets`, depo kökündeki `Aruzahr 8k (1).jpg` dosyasından Deep Zoom katmanlarını ve 3D atlasın 2048/4096 piksel WebP dokularını üretir. Özgün çizimi değiştirmez; SHA-256 ve üretim sürümü eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
 
 ```bash
 npm run build
@@ -33,6 +33,18 @@ Tarayıcı testleri varsayılan olarak `/usr/bin/chromium` kullanır. Farklı ma
 `Atlas.tsx` görüş alanındaki yerleşim noktalarını ülke seçimi veya uzak yakınlık yüzünden gizlemez. Çakışan yazılar azalırken 44 piksel etkileşim alanlı noktalar korunur. Ekran dışı noktalar klavye sırasına girmez. Coğrafya başlangıçta açık, yollar kapalıdır; seçilen rota kendi duraklarına odaklanır. Cevher Çizgisi tamamlanmamış proje olarak ayrı gösterilir. Güncel şehir koordinatları yol çizgilerinin de kaynağıdır.
 
 Arama alternatif yazımları tanır; `Frethar`, `Galmire`, `Korthen`, `Tora` ve `Serenth` aynı kanonik kayıtlara gider. Tam ad/koordinat envanteri ve belirsizlikler [harita denetiminde](../lore/HARITA_KONUM_DENETIMI.md) saklanır. Harita kamerası sessionStorage, yer imleri localStorage içinde tutulur.
+
+## 3D kabartma atlas
+
+Yeni ziyaretçi `Atlas3D.tsx` içindeki gerçek WebGL görünümünü açar. “2D harita” özgün Deep Zoom görünümüne döner; seçim bu tarayıcıda hatırlanır. Motor yüklenemez veya GPU bağlamı kaybolursa aynı yerin paneliyle 2D atlas açılır. Şehir, ülke, coğrafya ve wiki kimlikleri iki görünümde ortaktır.
+
+Tekerlek / iki parmak yakınlaştırır; sürükleme taşır; sağ sürükleme eğimi ve yönü değiştirir. Üstten/eğimli görünüm, kuzeye dön ve kamera sıfırlama kontrolleri vardır. Odaklanmış haritada ok tuşları taşır, +/− yakınlaştırır. Yakında gerçek şehir/orman geometrisi ve sade boyalı yüzey açılır; “Çizim” her ölçekte özgün kaynak dokusunu gösterir. Orman, su ve kış ayrı katmanlardır. Atmosfer kapatılabilir; azaltılmış hareket tercihi kamera geçişini anında yapar, kar/buhar ve su animasyonunu durdurur.
+
+`relief-data.ts` düzenlenebilir kıyı yorumlarını, dağ omurgalarını, orman alanlarını, dört nehir izini ve mimari imzaları tutar. `relief-buildings.ts` bütün 95 yerleşimi kendi mevcut noktasında maket olarak kurar; 11 büyük/özel şehir ayrı mimariye sahiptir. `relief-scene.ts` gerçek yükselti ağını, örneklenmiş ağaçları, su yüzeyini ve hava katmanını üretir. Yapı modelleri de kendi paneline tıklanabilir.
+
+Kıyı, yükselti, bitki alanı ve bina planı kaynak çizimden yapılan **görsel yorumdur**; metreyle ölçülmüş arazi veya gerçek ölçekli şehir planı değildir. Yerleşim merkezleri taşınmaz. Ekrandaki kar tercihi kampanya tarihini değiştirmez; yapılmamış Cevher Çizgisi plan olarak kalır. Ayrıntılı kapsam [3D master promptunda](../lore/3D_ATLAS_MASTER_PROMPTU.md), uygulama ve doğrulama [3D atlas teslim kaydında](../lore/3D_ATLAS_TESLIMI.md) bulunur.
+
+Three.js ayrı bir istek üzerine yüklenen parça olarak derlenir. Mobilde daha düşük arazi çözünürlüğü, ağaç/parçacık sayısı ve piksel oranı kullanılır; gölgeler kapalıdır. Masaüstünde ilk doku 2048 pikseldir; yakınlaşınca GPU destekliyorsa 4096 piksel sürüm yüklenir. Sekme görünmüyorken çizim döngüsü durur; görünüm kapatıldığında GPU kaynakları temizlenir.
 
 ## Wiki, kadrolar ve görseller
 
@@ -52,6 +64,6 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-117 Playwright senaryosu harita katmanlarını, yerleşimlerin pin → panel → wiki geçişini, alternatif adları ve eski yer imlerini, özgün görüntü piksellerine göre simge hizasını, genel lore bağlantılarını, görselleri, kurum kadrolarını, galeri/kitaplık, mobil gezinme, klavye odağı ve azaltılmış hareketi denetler. Önceki sürümde 82 senaryo ve 30 üretim görünümü doğrulandı; sonraki konum düzeltmesinde 11 ilgili senaryo ve derleme geçti. Güncel yaşayan ansiklopedi ve Fehar eşleştirmesinin koşuları [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+139 Playwright senaryosu vardır: önceki atlas/ansiklopedi için 117, yeni 3D görünüm için 22. Eski SVG/Deep Zoom testleri açıkça 2D görünümünde; `relief.spec.ts` yeni ziyaretçi varsayılanı olan gerçek WebGL görünümünde çalışır. 3D tesliminde 22 yeni ve 17 ilgili eski senaryo doğrulandı; 139 senaryonun tamamı bu görevde yeniden koşulmadı. Kapsam ve koşu ayrıntıları [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
