@@ -1,63 +1,62 @@
-# Aruzahr — Danstsud 3D düzeltme master promptu
+# Aruzahr — Sıfırdan Danstsud 3D Haritası Master Promptu
 
-10 Ekim 2026. Kullanıcının son kararı önceki tüm dünya kabartması kapsamının yerini alır: **3D açılıp kapatılacak; şimdilik yalnızca Danstsud modellenecek.** Çizimde bulunmayan dağlar, deniz içindeki kabartmalar ve görünmeyen şehir modelleri düzeltilecek.
+Son yönlendirme: 10 Ekim 2026. Bu metin önceki, özgün resme kabartma ekleyen yaklaşımın yerini alır.
 
-## Görünüm ve kapsam
+## Görev
 
-Yeni ziyaretçi özgün 2D atlasla başlasın. “Danstsud 3D” düğmesi aynı yerde açma ve kapatma işlemini yapsın; açık/kapalı durumu görünür ve erişilebilir olsun. Bilinen Danstsud seçimi iki görünüm arasında korunsun. 3D ana görünümü Danstsud'u çerçevelesin; başka ülkeye gidildiğinde o ülkenin normal atlası açılsın. Önceki tüm dünya 3D tercih ve kamera kayıtları yeni görünümü kendiliğinden başlatmasın.
+Danstsud için sıfırdan, gezilebilir ve stilize bir üç boyutlu harita oluştur. Mevcut 8K Aruzahr haritası **yalnızca coğrafi referanstır**. Bu resmi bir düzleme kaplamak, yükseltmek veya üzerindeki çizilmiş şehirlerin yanına modeller koymak görevi karşılamaz. 3D açıldığında kullanıcı yeni çizilmiş kara ve denizleri, gerçek hacimli dağları ve yerleşimleri görmelidir. Özgün resmin yazıları, kareli zemini, şehir çizimleri, gemi süsleri ve kâğıt dokusu yeni haritada bulunmaz.
 
-Danstsud'daki 58 yerleşim, üç alt bölge, mevcut coğrafya ve yollar ortak kanonik kayıtlardan gelsin. Diğer 37 yerleşimin 2D noktaları ve wiki erişimi korunsun. Diğer ülkelerde 3D şehir, dağ, orman veya volkan ışığı oluşturma.
+İlk kapsam yalnızca Danstsud’dur. Normal dünya atlası 2D olarak korunur. Başlangıç görünümü 2D olur; kullanıcı 3D’yi açıkça açabilir ve kapatabilir. Başka krallığa gidilince dünya atlasına dönülür. Her iki görünüm aynı yer adlarını, kimlikleri, bilgi panellerini ve wiki bağlantılarını kullanır.
 
-## Kaynak çizime bağlı arazi
+## Coğrafyayı yeniden çiz
 
-8192 × 5668 `Aruzahr 8k (1).jpg` değişmeden kalsın. Mekanik doku türevleri kullanılabilir. Haritanın kıyıları, şehir merkezleri ve yönü yakınlaştırmayla değişmesin. Kaynak dokuyu yakınlaşınca tahmini düz biyom renkleriyle değiştirme.
+1. Özgün haritayı koordinatlı parçalar halinde incele. Danstsud kıyılarını, girintileri, Rydorn uzantısını, Hardlane kıyılarını, gölleri ve önemli akarsuları ayrı vektör verisi olarak çiz. Tahmini geniş bir çokgenle denizleri kara yapma.
+2. Bu veriden yeni bir arazi yüzeyi üret. Karalar deniz seviyesinden yükselsin; kıyılarda kıyı şeridi ve deniz tabanına iniş görülsün. Deniz kendi yüzeyi ve rengiyle ayrı olsun. Göller kara dokusunun üstüne mavi çizgi olarak boyanmasın; su havzaları olarak görünsün.
+3. Yüzeyin renklerini sıfırdan oluştur: ovada soluk yeşiller ve tarım tonları, dağda taş ve toprak, Hardlane’de soğuk gri-mavi ile beyaz. Mat yüzeyler, ölçülü ışık, doğal renk farklılıkları kullan. Fotoğraf dokusu, parlak plastik ve özgün atlas resmi kullanma.
+4. Özgün haritadaki beyaz bölgeleri kar alanı olarak yeniden yorumla. Kar yalnızca parçacık değildir: yerde, yüksek yamaçlarda ve uygun ağaç tepelerinde de görünür. Kış düğmesi mevsimlik örtüyü genişletebilir; kalıcı yüksek dağ karını kaldırmaz.
 
-Karlan, Rydorn ve Dorvenhall çevresindeki dağ çizimleri koordinatlı kırpımlarla incelensin. Her yükselti alanı kapalı ve dar bir ayak iziyle sınırlansın. Tek uzun çizgi etrafında bütün kıyıyı yükselten geniş Gauss şeritleri kullanma. Ayrı zirveler yalnızca bu kapalı alanlarda yükselsin; sınır tamponu sayesinde gerçek arazi üçgenleri dışarı taşmasın.
+## Dağlar, akarsular ve ormanlar
 
-Deniz düz kalsın. Şehir zemini suyu yükselten yeni adalar oluşturmasın; şehir altında düzleştirme gerekiyorsa yalnızca mevcut yüksekliği azaltsın. Ölçülmemiş kıyı çokgenleri üzerinden kara yükseltisi üretme. Kaynak çizim dışındaki ülke alanları düz kaynak yüzeyi olarak kalsın.
+Dağları yalnızca kaynakta dağ olan kara alanlarına yerleştir. Rydorn, Dorvenhall çevresi ve Karlan sırası farklı yükseltiler ve okunabilir sırtlar taşısın. Deniz içinde dağ, yerleşimin altında rastgele sivri tepe veya bütün haritaya yayılan gürültü çıkmasın. Zirveler yalnız koni değildir: taş yüzeyleri, yan sırtları, geçitleri ve karlı üst bölümleri olan arazi geometrisidir. Görsel yükselti bir maket ölçeğidir, metre ölçümü gibi sunulmaz.
 
-Bu çizim bir arazi ölçümü değildir. Dağ yüksekliği gösterim ölçeği, kapalı ayak izleri çizim yorumu olarak belgelenebilir; metre hassasiyetinde ölçüm iddia etme. Karlan'ın lore'daki yüksekliğini değiştirme.
+Nehirleri kaynakta izlenen güzergâhlara bağlı kalarak kur. Doğu/Batı Aldara, Serenith, Teyra ve Frostmere aynı coğrafi düzende yer alsın. Su kıyılarında ve nehir yataklarında ağaç çıkmasın. Suyun hareketi hafif ve okunaklı olsun; animasyonlar kapatılabilsin.
 
-## Eksiksiz yerleşim modelleri
+Ormanları sabit bir rastgelelik tohumu ile, doğal kümeler ve açıklıklar halinde dağıt. Yeni açılışta bütün orman değişmesin. Ağaçlar yalnızca karaya yerleşsin; şehir merkezlerini, suyu, çıplak zirveleri ve yolları işgal etmesin. Soğuk bölgelerde iğne yapraklılar, daha ılıman ovada geniş yapraklı kümeler kullan. Ağaçları düz resim işaretleri olarak çizme; gövde ve taç hacmi bulunmalı.
 
-58 yerleşimin her birinde kendi kimliğine bağlı, gerçek yapı geometrisi bulunsun. Yerleşimlere yakınlaştırılmadan da maketler görünsün. Yakınlık eşiği seçilmiş şehrin modelini gizlemesin; görünürlük yalnızca görüş alanı ve kullanıcının yerleşim katmanı seçimine bağlı olsun.
+## Şehirleri modelle
 
-Maketler mat taş, ahşap, mavi-mor çatı ve ölçülü metal detayları kullansın. Eğimli çatı, kapı, pencere, baca, küçük meydan ve savunma ayrıntılarıyla okunabilir olsun. Küçük yerler yalnızca tek kutu olmasın; ev kümeleri ve gösterim amaçlı şapel, ambar, değirmen veya gözetleme yapısı kullanılsın. Bu maket varyasyonları yeni kanonik bina adı veya sahibi değildir.
+Danstsud’un mevcut 58 yerleşiminin her birine, ortak kanonik koordinatındaki karaya oturan üç boyutlu bir model koy. Lore bulunmayan küçük yerlerin noktasını veya modelini atlama; bu iş için lore uydurma. Çizilmiş şehir resimleri yeni zemine aktarılmasın. Yapılar hacimli, çatılı ve seçilebilir olsun. Yakınlaşınca gerçekten görünen şehir dokusu oluşsun; uzaklaşınca karışıklığı azaltan isim ve işaret düzeni kullan.
 
-Büyük/özel şehirlerin mimarisi ayrışsın:
+Başlıca şehirler birbirinden ayrılmalı:
 
-| Yer | Korunacak mimari özellik |
-| --- | --- |
-| Valdareth | Beş düzensiz sur, iç kraliyet kalesi, obsidyen kilise, eski fener, liman savunması, çok sayıda ev ve mavi-mor çatılar |
-| Marhalden | Ayrı kıyılarda iki kale, köprü ve maden/döküm atölyeleri |
-| Dorvenhall | Sınır kalesi, gözetleme kuleleri ve mavi-mor çatı karakteri |
-| Elorwyn | Mabet, paladin avlusu, çan kuleleri ve lordluk kalesi |
-| Theramis | Akademi/arşiv ve araştırma kuleleri |
-| Lirendil | Çelik Kalkan salonu, talim avlusu ve iskele |
-| Frostbay | Eski taş daire ve düzensiz kıyı evleri |
-| Dranthol | Liman kalesi ve deniz feneri |
-| Ternhaven | Sıcak su havuzu ve küçük yerleşim |
-| Kaldmere | Ahşap barınaklar ve sade iskele |
-| Vyssgard | Yıpranmış depolar ve kıyı iskeleleri |
+- **Valdareth:** düzensiz büyümüş beş iç duvar, yoğun mahalleler, iç kale ve kraliyet sarayı, siyah obsidyen kilise, eski deniz feneri, limanı koruyan duvar; mavi-mor çatı vurguları.
+- **Marhalden:** Aldara’nın iki yakasında iki kale, köprü, güçlü duvarlar, ocaklar ve maden işlikleri; geçit şehri.
+- **Dorvenhall:** yüksek taş kale, yamaca yayılmış yerleşim ve sınır gözetleme yapıları.
+- **Elorwyn:** tapınak, paladin/ruhban yerleşkesi ve korunaklı mahalleler.
+- **Theramis:** büyü akademisi, farklı kuleler, arşiv ve eğitim avluları.
+- **Lirendil:** Çelikkalkan yerleşkesi, eğitim avlusu ve liman/ticaret dokusu.
+- **Frostbay:** eski taş kalıntılar ile yeni, mütevazı yapıların karışımı.
+- **Dranthol:** kale, düzenli garnizon, deniz feneri ve korunaklı liman.
+- **Ternhaven:** sıcak su çevresinde daha açık yerleşim.
+- **Kaldmere:** yoğun, düşük barakalar ve küçük iskele.
+- **Vyssgard:** düzensiz depolar, ahşap iskeleler ve sıkışık liman yerleşimi.
 
-Thural Kalkanı, Thessar Açığı Feneri ve Runeth Kuzeyi Harabeleri kendi mevcut hedeflerinde yer alsın. Yapıya veya noktasına tıklamak aynı bilgi panelini açsın. Fehar/Frethar tek kaydı ve önceden doğrulanmış şehir piksel merkezleri değişmesin.
+Küçük yerleşimler tekrarlanan tek bir küp olmasın: çatılı ev grupları, gözetleme kulesi, değirmen, küçük tapınak veya depo gibi uygun farklarla oluşturulsun. Binaların ayrıntılı planları görsel yorumdur; yeni kanon diye sunulmaz.
 
-## Çevre ve kullanım
+## Kullanım
 
-Orman kümeleri yalnızca Danstsud'un çizimdeki ağaç alanlarına otursun. Şehirlerin merkezlerini ve yüksek zirveleri kapatmasın. Dört nehir izi kaynak çizim üzerinde okunabilir ve düşük kontrastlı olsun; gerçek üçgen yüzeyinden örneklenerek arazi içine gömülmesin. Frostmere buz görünümü göl alanında kalsın. Mevcut ticaret hatları şematik statüsünü korusun; Cevher Çizgisi tamamlanmış yol gibi çizilmesin.
+Yakınlaşma, sürükleme, eğimli/üstten görünüm, kuzeye dönme ve kamerayı sıfırlama çalışsın. Bir yerin modeline veya işaretine basınca doğru bilgi paneli açılsın; buradan mevcut wikiye gidilsin. Wiki dönüşünde kamera korunsun. Arama ve katman kontrolleri çalışsın. Harita renkleri ve ölçülü gölgeler birbiriyle uyumlu olsun; isim kalabalığı coğrafyayı örtmesin.
 
-Yakınlaşma, taşıma, sağ sürüklemeyle eğim/yön değiştirme, üstten bakış, kuzeye dönüş ve Danstsud kamera sıfırlama çalışsın. Wikiye gidip dönünce geçerli kamera hatırlansın. Kar soğuk/yüksek alanda, buhar Ternhaven'de yerel olsun. Atmosfer düğmesi ve azaltılmış hareket tercihi animasyonu durdurabilsin.
+3D kapatıldığında normal 2D atlas hemen kullanılabilsin. WebGL desteklenmiyorsa veya GPU bağlantısı kesilirse açıklamayla 2D’ye dön. Küçük ekranlarda daha düşük geometri ve ağaç sayısı kullan; gezinmeyi ağırlaştıracak gereksiz nesneler üretme. Hareket azaltma ayarına uy; kapalı sekmede animasyonu durdur; çıkışta GPU kaynaklarını temizle.
 
-Dar ekranlarda bütün kontroller ve aç/kapat düğmesi sığsın. 3D motoru yalnızca istenince indirilsin. WebGL, motor indirimi, başlangıç dokusu veya grafik bağlamı başarısızsa aynı seçili yerle 2D atlas açılsın. Çıkışta GPU kaynakları ve dinleyiciler temizlensin.
+## Teslim ölçütleri
 
-## Kabul kontrolleri
+- 3D motoru özgün harita resmini yüklemiyor veya arazi dokusu olarak kullanmıyor; yeni yüzey programatik olarak oluşturuluyor.
+- Kara/su ayrımı, kıyı girintileri ve önemli su havzaları görsel olarak kaynakla karşılaştırılıyor. Deniz üzerindeki denetim noktalarında kara, dağ veya orman bulunmuyor.
+- 58 yerleşimin tamamının kanonik koordinatı, modeli, kara üzerinde temeli ve çalışan seçimi doğrulanıyor.
+- Dağlar, ormanlar ve kar yalnızca uygun coğrafi alanlarda bulunuyor. Nehirlerin ve gölün suyu yeni yüzeyde okunuyor.
+- Üstten ve eğimli görünüm, farklı yakınlaştırmalar, bütün önemli şehirler ve telefon boyutları tarayıcıda gerçekten kontrol ediliyor.
+- 2D atlas, wiki, arama, erişilebilir kontroller ve özel DM içeriğinin gizliliği korunuyor. Yapı derlemesi ve ilgili etkileşim testleri geçiyor.
+- Kaynak 8K dosya değiştirilmeden kalıyor. Sonuç ve sınırlar belgeleniyor; yapılan şey gerçek ölçekli şehir simülasyonu veya tam CK3 oyunu diye sunulmuyor.
 
-- Yeni oturum 2D; 3D düğmesinin iki kez kullanılması açma ve kapatma işlemini tamamlar.
-- 58 model aynı kanonik merkezdedir; hepsinin paneli ve gerçek model görünürlüğü tek tek denenir.
-- Bağımsız kaynak piksel noktaları kamera projeksiyonuyla karşılaştırılır.
-- Kaynakta deniz olan noktalar düz; diğer ülke alanlarında yükselti ve model yoktur.
-- Masaüstü ve mobil gerçek arazi üçgenleri kapalı dağ ayak izleri dışına taşmaz.
-- Gerçek bina geometrisine tıklama, kamera hareketi, katmanlar, wiki dönüşü, takma adlar ve yollar çalışır.
-- Bağlam kaybı, motor indirimi sorunu, azaltılmış hareket ve 320–1440 piksel ekranlar kontrol edilir.
-- Özgün çizim ile yükselti sınırlarının karşılaştırma görüntüsü ve son şehir görüntüleri gözle incelenir.
-- Derleme ve ilgili eski 2D atlas testleri geçer. Lore, özel DM içeriği ve illüstrasyon kuralları korunur.
+Bu prompt bir öneri listesi değildir. Önce coğrafi veriyi çıkar, sonra yeni haritayı üret, modelleri yerleştir, gerçek tarayıcı görüntülerini incele, hataları düzelt ve çalışan sürümü teslim et.

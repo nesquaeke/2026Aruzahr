@@ -15,7 +15,7 @@ npm run dev -- --host 127.0.0.1 --open
 
 Bulut çalışma dizini `/workspace/2026Aruzahr/web`; npm önbelleği için `npm --cache /workspace/.cache/npm ci --no-audit --no-fund` kullanılabilir. Sunucu 5173 portunda çalışır. Süreçler yeni ortamda yeniden başlatılır.
 
-`npm run assets`, depo kökündeki `Aruzahr 8k (1).jpg` dosyasından Deep Zoom katmanlarını ve 3D atlasın 2048/4096 piksel WebP dokularını üretir. Özgün çizimi değiştirmez; SHA-256 ve üretim sürümü eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
+`npm run assets`, depo kökündeki `Aruzahr 8k (1).jpg` dosyasından 2D Deep Zoom katmanlarını ve sekiz ülke kapağını üretir. 3D harita kaynak resim dokusu kullanmaz. Özgün çizimi değiştirmez; SHA-256 ve üretim sürümü eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
 
 ```bash
 npm run build
@@ -40,9 +40,9 @@ Yeni ziyaretçi özgün 2D atlasla başlar. “Danstsud 3D” aç/kapat düğmes
 
 Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel kent ayrı mimariye sahiptir; küçük yerler ev kümeleri ve yerel yapı varyasyonları kullanır. Modeller yakınlık eşiğiyle gizlenmez. Diğer ülkelerde model/yükselti oluşturulmaz; tüm 95 yerleşimin normal harita ve wiki erişimi korunur.
 
-Özgün çizim her yakınlıkta görünür. Rydorn, Dorvenhall ve Karlan kabartmaları dokuz dar, kapalı dağ ayak iziyle sınırlıdır; geniş tahmini dağ şeritleri ve suyu yükselten şehir tabanları kaldırılmıştır. Deniz düz kalır. Orman, su ve kış katmanları; yerel kar/buhar; üstten/eğimli bakış ve kuzeye dönüş çalışır. Azaltılmış hareket animasyonları durdurur.
+3D harita sıfırdan oluşturulur: elle izlenen kıyı vektörleri, yeni kara/su altı tabanı, bağımsız deniz ve göl, programatik arazi pigmentleri. Özgün resim 3D zeminde görünmez veya doku olarak yüklenmez. Rydorn, Dorvenhall, Lowvale ve Karlan yükseltisi on bir kapalı kaynak dağ alanıyla sınırlıdır; kar Hardlane ve zirveleri kaplar. Orman, su ve kış katmanları; yerel kar/buhar; üstten/eğimli bakış ve kuzeye dönüş çalışır. Azaltılmış hareket animasyonları durdurur.
 
-`relief-data.ts` kaynak ayak izleri, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` mat yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../lore/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../lore/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
+`relief-data.ts` kıyı/göl vektörleri, kara/su ve kar sorguları, kaynak dağ alanları, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` mat yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../lore/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../lore/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
 
 ## Wiki, kadrolar ve görseller
 

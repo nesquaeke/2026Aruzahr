@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { MapControls } from 'three/addons/controls/MapControls.js'
-import { Compass, Layers3, LoaderCircle, Mountain, RotateCcw, Snowflake, Trees, Waves } from 'lucide-react'
+import { Compass, Layers3, LoaderCircle, Mountain, RotateCcw, Snowflake, Trees, Waves, X } from 'lucide-react'
 import type { AtlasHandle, AtlasProps } from './Atlas'
 import { locationById, normalize, placeById, regions, regionById, subregionById } from './data'
 import { featureById, featureLabels } from './map-features'
@@ -9,13 +9,13 @@ import { coldAt, DANSTSUD_VIEW, heightAt, inDanstsudView, mapPoint, reliefTarget
 import { buildReliefWorld, disposeWorld } from './relief-scene'
 
 type Runtime = { home: () => void; zoom: (factor: number) => void; tilt: (flat: boolean) => void; north: () => void; refresh: (focus?: boolean) => void }
-type Props = AtlasProps & { onUnavailable: () => void }
-const cameraKey = 'aruzahr-danstsud-3d-camera-v2'
+type Props = AtlasProps & { onUnavailable: () => void; onExit: () => void }
+const cameraKey = 'aruzahr-danstsud-3d-camera-v3'
 const allEntries = [...regions.filter(region=>region.id==='danstsud'), ...reliefTargets]
 
 export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
   const host=useRef<HTMLDivElement>(null),pins=useRef<HTMLDivElement>(null),tooltip=useRef<HTMLDivElement>(null)
-  const latest=useRef(props),runtime=useRef<Runtime|null>(null)
+  const latest=useRef(props),runtime=useRef<Runtime|null>(null),previousSelected=useRef(props.selected)
   const [ready,setReady]=useState(false),[flat,setFlat]=useState(false),[forest,setForest]=useState(true),[water,setWater]=useState(true),[winter,setWinter]=useState(false),[weatherLabel,setWeatherLabel]=useState('')
   const layers=useRef({forest,water,winter});layers.current={forest,water,winter};latest.current=props
   useImperativeHandle(ref,()=>({home:()=>runtime.current?.home(),zoom:factor=>runtime.current?.zoom(factor)}),[])
@@ -24,7 +24,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     const element=host.current,overlay=pins.current
     if(!element||!overlay)return
     let disposed=false,unavailable=false,frame=0,saveTimer=0,lastRender=0,lastTick=performance.now(),dirty=true,project=true
-    let lastWeather='',highTextureRequested=false
+    let lastWeather=''
     const mobile=element.clientWidth<620
     let renderer:THREE.WebGLRenderer
     try {
@@ -37,7 +37,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     const canvas=renderer.domElement;canvas.tabIndex=0
     canvas.setAttribute('aria-label','Danstsud 3D haritası. Sürükleyerek taşı, tekerlekle yakınlaştır, sağ sürükleyerek eğ. Ok tuşları haritayı taşır.')
     element.append(canvas)
-    element.dataset.ready='false';element.dataset.source='original-map';element.dataset.scope='danstsud';element.dataset.quality=mobile?'mobile':'desktop'
+    element.dataset.ready='false';element.dataset.source='rebuilt-geography';element.dataset.scope='danstsud';element.dataset.quality=mobile?'mobile':'desktop'
     const scene=new THREE.Scene();scene.background=new THREE.Color('#101925')
     const camera=new THREE.OrthographicCamera(-60,60,42,-42,.1,380)
     camera.position.set(0,92,78)
@@ -206,10 +206,10 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       element!.dataset.weather=wantsWeather?steam?'steam':'snow':'none'
       element!.dataset.snowOpacity=String(world.weatherMaterial.uniforms.uOpacity.value)
       world.winter.value=layers.current.winter?1:0;world.ice.visible=layers.current.winter
-      element!.dataset.surface='original-map'
+      element!.dataset.surface='procedural-terrain'
       world.forests.group.visible=layers.current.forest;world.forests.trunk.visible=true
       element!.dataset.forestVisible=String(world.forests.group.visible);element!.dataset.waterVisible=String(layers.current.water);element!.dataset.winter=String(layers.current.winter)
-      world.waters.visible=layers.current.water
+      world.waters.visible=layers.current.water;world.oceanMaterial.uniforms.uDetail.value=layers.current.water?1:0
       let visibleModels=0
       const visibleCityIds:string[]=[]
       for(const group of [...world.cities,...world.monuments]){
@@ -232,10 +232,6 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       scene.fog=p.effects?new THREE.FogExp2('#233442',.0015):null
       controls.enableDamping=!p.reducedMotion
       element!.dataset.animation=p.reducedMotion?'reduced':p.effects?'active':'static'
-      if(!highTextureRequested&&!mobile&&camera.zoom>1.8&&renderer.capabilities.maxTextureSize>=4096){
-        highTextureRequested=true
-        new THREE.TextureLoader().load('/atlas/relief-4096.webp',texture=>{if(disposed){texture.dispose();return}texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());world!.terrainMaterial.map?.dispose();world!.terrainMaterial.map=texture;world!.terrainMaterial.needsUpdate=true;element!.dataset.textureWidth='4096';changed()},undefined,()=>{/* The working preview texture stays available. */})
-      }
     }
     function tick(now:number){
       frame=0;if(disposed||document.hidden)return
@@ -248,7 +244,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
         dirty=true;project=true
       }
       controls.update()
-      const x=THREE.MathUtils.clamp(controls.target.x,-WORLD_WIDTH/2,WORLD_WIDTH/2),z=THREE.MathUtils.clamp(controls.target.z,-WORLD_DEPTH/2,WORLD_DEPTH/2)
+      const centre=worldPoint(DANSTSUD_VIEW.point),x=THREE.MathUtils.clamp(controls.target.x,centre[0]-DANSTSUD_VIEW.width/2,centre[0]+DANSTSUD_VIEW.width/2),z=THREE.MathUtils.clamp(controls.target.z,centre[2]-DANSTSUD_VIEW.depth/2,centre[2]+DANSTSUD_VIEW.depth/2)
       if(x!==controls.target.x||z!==controls.target.z){camera.position.x+=x-controls.target.x;camera.position.z+=z-controls.target.z;controls.target.x=x;controls.target.z=z;controls.update();project=true;dirty=true}
       updateLayers(dt)
       const animated=world&&latest.current.effects&&!latest.current.reducedMotion
@@ -262,19 +258,17 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     }
     runtime.current={home,zoom:factor=>{tween=null;camera.zoom=THREE.MathUtils.clamp(camera.zoom*factor,.8,14);camera.updateProjectionMatrix();controls.update();changed()},tilt,north,refresh:(focus=false)=>{if(focus&&world)focusSelected();if(latest.current.reducedMotion)finishTween();changed()}}
     resize()
-    new THREE.TextureLoader().load('/atlas/relief-2048.webp',texture=>{
-      if(disposed){texture.dispose();return}
-      texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy())
-      try {world=buildReliefWorld(texture,mobile);scene.add(world.root);makeMarkers()}catch{texture.dispose();fail();return}
+    try {world=buildReliefWorld(mobile);scene.add(world.root);makeMarkers()}catch{fail()}
+    if(world){
       element.dataset.vertices=String(world.vertices);element.dataset.cityCount=String(world.cities.length);element.dataset.forestCount=String(world.forests.group.userData.count)
-      element.dataset.textureWidth='2048';element.dataset.ready='true';setReady(true)
+      element.dataset.textureWidth='0';element.dataset.ready='true';setReady(true)
       let restored=false
       try{
         const saved=JSON.parse(sessionStorage.getItem(cameraKey)||'null')
         if(saved&&saved.selected===latest.current.selected&&[saved.target,saved.position].every((values:unknown)=>Array.isArray(values)&&values.length===3&&values.every((v:unknown)=>typeof v==='number'&&Number.isFinite(v)&&Math.abs(v)<400))&&Number.isFinite(saved.zoom)&&saved.zoom>=.8&&saved.zoom<=14&&inDanstsudView(mapPoint(saved.target[0],saved.target[2]))){controls.target.fromArray(saved.target);camera.position.fromArray(saved.position);camera.zoom=saved.zoom;camera.updateProjectionMatrix();controls.update();restored=true;setFlat(camera.position.clone().sub(controls.target).normalize().y>.98)}
       }catch{/* Invalid remembered views are ignored. */}
-      if(!restored)focusSelected();changed()
-    },undefined,fail)
+      if(!restored){focusSelected();finishTween()}changed()
+    }
     return()=>{
       disposed=true;remember();window.clearTimeout(saveTimer);cancelAnimationFrame(frame);observer.disconnect();runtime.current=null
       document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',contextLost);canvas.removeEventListener('keydown',keyboard)
@@ -285,14 +279,19 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     }
   },[])
 
-  useEffect(()=>{runtime.current?.refresh(true)},[props.selected])
+  useEffect(()=>{
+    if(previousSelected.current===props.selected)return
+    previousSelected.current=props.selected
+    runtime.current?.refresh(true)
+  },[props.selected])
   useEffect(()=>{runtime.current?.refresh()},[props.query,props.showCities,props.showGeography,props.showRoutes,props.effects,props.reducedMotion,forest,water,winter])
   const selectedPlace=placeById(props.selected||''),signature=signatures[props.selected||'']
   return <>
     <div className="relief-viewer" ref={host} data-testid="relief-viewer" />
     <div className="relief-pins" ref={pins} aria-label="Danstsud 3D atlas yerleri" />
     <div className="relief-tooltip" ref={tooltip} hidden />
-    {!ready&&<div className="map-loading" role="status"><LoaderCircle className="spin" size={25}/><span>Kabartma atlas hazırlanıyor…</span></div>}
+    {!ready&&<div className="map-loading" role="status"><LoaderCircle className="spin" size={25}/><span>Danstsud haritası oluşturuluyor…</span></div>}
+    <button className="relief-exit" aria-label="3D görünümü kapat" onClick={props.onExit}><X size={16}/><span>2D’ye dön</span></button>
     <div className="relief-controls" aria-label="3D atlas kontrolleri">
       <button aria-label={flat?'Eğimli görünüm':'Üstten görünüm'} aria-pressed={flat} onClick={()=>runtime.current?.tilt(!flat)}><Layers3 size={16}/><span>{flat?'Üstten':'Eğimli'}</span></button>
       <button aria-label="Kuzeye dön" onClick={()=>runtime.current?.north()}><Compass size={17}/><span>Kuzey</span></button>

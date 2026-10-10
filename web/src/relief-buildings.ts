@@ -110,7 +110,7 @@ export function buildSettlement(place: MappedPlace) {
   if(type==='capital') {
     builder.features=['Beş sur kuşağı','Kraliyet kalesi','Obsidyen mabedi','Eski deniz feneri','Liman savunması']
     for(const [index,radius] of [1.65,1.38,1.1,.8,.5].entries()) {
-      builder.wall(radius,.11+index*.04,36,'stone',1,.085)
+      builder.wall(radius,.11+index*.04,42,'stone',1,.12)
       for(let t=0;t<4;t++) {const a=t*Math.PI/2+.2;builder.tower(Math.sin(a)*radius,Math.cos(a)*radius,.06,.23+index*.055)}
     }
     builder.castle(-.19,-.16,.6)
@@ -123,7 +123,7 @@ export function buildSettlement(place: MappedPlace) {
     builder.box(-1.61,.8,.07,.27,.75,'stone',0,-.3)
     builder.pier(-1.75,1.1,.65,-.3)
     let homes=0
-    for(let i=0;i<600&&homes<105;i++) {const a=i*2.399,r=.62+random()*.96;if([.8,1.1,1.38,1.65].some(wall=>Math.abs(r-wall)<.055))continue;builder.house(Math.sin(a)*r,Math.cos(a)*r,.1+random()*.065,false,a,r>1.3?'wood':'roof');homes++}
+    for(let i=0;i<1300&&homes<220;i++) {const a=i*2.399,r=.62+random()*.96;if([.8,1.1,1.38,1.65].some(wall=>Math.abs(r-wall)<.055))continue;builder.house(Math.sin(a)*r,Math.cos(a)*r,.068+random()*.047,false,a,r>1.3?'wood':'roof');homes++}
   } else if(type==='twincastle') {
     builder.features=['Kıyının iki tarafında kale','Geçit köprüsü','Maden ve döküm atölyeleri']
     builder.castle(-.7,-.18,.72);builder.castle(.73,.3,.58)
@@ -209,6 +209,15 @@ export function buildSettlement(place: MappedPlace) {
     else if(place.major&&place.region!=='murgul'){builder.castle(0,-.08,.43)}
     else if(place.region==='murgul'&&place.major){builder.box(0,0,.4,.32,.6,'wood');builder.roof(0,0,.47,.32,.32)}
   }
+  // A major settlement is a town around its institutions, not a lone castle.
+  // Distinct dense outskirts stay inside the coastal land apron at map scale.
+  if(signature && !['capital','huts','warehouses','springs'].includes(type!)) {
+    const count=type==='guild'?34:type==='highcastle'?44:type==='ruins'?22:30
+    for(let i=0;i<count;i++){
+      const angle=i*2.399+random()*.3,r=(type==='highcastle'?1.03:1.05)+random()*.38
+      builder.house(Math.sin(angle)*r,Math.cos(angle)*r,.095+random()*.05,cold,angle,(!cold&&i%7===0)?'wood':cold?'snow':'roof')
+    }
+  }
   const group=builder.finish(palette,place.id)
   group.userData.modelScale=signature?.scale || (place.major?1.25:1)
   // Distant hamlets keep their full silhouettes without paying for dozens
@@ -226,7 +235,7 @@ export function buildLandmark(feature: MapFeature) {
     builder.box(-.62,0,.85,.25,.1);builder.box(.62,0,.85,.25,.1)
     builder.tower(-.15,0,.095,.5);builder.tower(.15,0,.095,.5)
   } else if(kind.includes('feneri')) {
-    builder.features=['Deniz feneri'];builder.cylinder(0,0,.1,.8);builder.cylinder(0,0,.14,.1,'gold',.76);builder.roof(0,0,.18,.16,.86)
+    builder.features=['Deniz feneri'];builder.cylinder(0,0,.18,1.14,'stone',-1.1,.14,12);builder.cylinder(0,0,.1,.8);builder.cylinder(0,0,.14,.1,'gold',.76);builder.roof(0,0,.18,.16,.86)
   } else if(kind.includes('harabeleri')) {
     builder.features=['Ayakta kalan duvar parçaları']
     for(let i=0;i<6;i++)builder.box((i%3-.8)*.2,(Math.floor(i/3)-.5)*.35,.13,.18+(i%3)*.08,.12,'stone',0,i*.3)
