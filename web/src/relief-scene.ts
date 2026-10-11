@@ -1,11 +1,12 @@
 import * as THREE from 'three'
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js'
 import { placeById } from './data'
 import { mapFeatures } from './map-features'
 import { buildLandmark, buildSettlement } from './relief-buildings'
 import { createForest } from './relief-forests'
-import { buildRoyalRoads, royalRoadPaths } from './relief-roads'
+import { buildRoyalRoads, buildLocalRoads, localRoadPaths, royalRoadPaths } from './relief-roads'
 import { surfaceNoiseGLSL } from './relief-materials'
+import { terrainSurface } from './relief-terrain-material'
+import { buildFarms } from './relief-farms'
 import { coldAt, danstsudPlaces, DANSTSUD_VIEW, GEOGRAPHY_BOUNDS, groundHeightAt, heightAt, lakeOutline, landAt, mapPoint, mountainHeightAt, pixels, riverAt, riverPaths, seededRandom, shoreDistance, signatures, smoothstep, snowAt, terrainNoise, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from './relief-data'
 import type { UV } from './relief-data'
 
@@ -41,13 +42,28 @@ function ribbon(path: UV[],width: number,surface:(point:UV)=>number) {
     }
     if(i)for(let j=0;j<across;j++){const a=(i-1)*(across+1)+j,b=i*(across+1)+j;indices.push(a,a+1,b,a+1,b+1,b)}
   }
+  // A narrow river can cross a terrain triangle boundary even when both end
+  // samples are clear. Subdivide only those faces whose chord cuts into rock.
+  type WaterVertex=[number,number,number,number,number]
+  const detailed:number[]=[],detailedUV:number[]=[],detailedIndex:number[]=[]
+  const vertex=(i:number):WaterVertex=>[vertices[i*3],vertices[i*3+1],vertices[i*3+2],uvs[i*2],uvs[i*2+1]]
+  const middle=(a:WaterVertex,b:WaterVertex):WaterVertex=>{const x=(a[0]+b[0])/2,z=(a[2]+b[2])/2;return [x,surface(mapPoint(x,z))+.115,z,(a[3]+b[3])/2,(a[4]+b[4])/2]}
+  function face(a:WaterVertex,b:WaterVertex,c:WaterVertex,depth:number){
+    const x=(a[0]+b[0]+c[0])/3,z=(a[2]+b[2]+c[2])/3
+    const clearance=(a[1]+b[1]+c[1])/3-surface(mapPoint(x,z))
+    if(clearance<.05&&depth<5){const ab=middle(a,b),bc=middle(b,c),ca=middle(c,a);face(a,ab,ca,depth+1);face(ab,b,bc,depth+1);face(ca,bc,c,depth+1);face(ab,bc,ca,depth+1);return}
+    for(const p of [a,b,c]){detailedIndex.push(detailed.length/3);detailed.push(p[0],p[1],p[2]);detailedUV.push(p[3],p[4])}
+  }
+  for(let i=0;i<indices.length;i+=3)face(vertex(indices[i]),vertex(indices[i+1]),vertex(indices[i+2]),0)
   const geometry=new THREE.BufferGeometry()
-  geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2))
-  geometry.setIndex(indices);geometry.computeVertexNormals()
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(detailed,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(detailedUV,2))
+  geometry.setIndex(detailedIndex);geometry.computeVertexNormals()
   return geometry
 }
 
 export function buildReliefWorld(mobile: boolean) {
+  const buildTimings:Record<string,number>={},begin=performance.now();let checkpoint=begin
+  const measured=(name:string)=>{const now=performance.now();buildTimings[name]=Math.round(now-checkpoint);checkpoint=now}
   const root=new THREE.Group();root.name='danstsud-new-geography'
   const cols=mobile?420:800,rows=Math.round(cols*DANSTSUD_VIEW.depth/DANSTSUD_VIEW.width)
   const terrainGeometry=new THREE.PlaneGeometry(DANSTSUD_VIEW.width,DANSTSUD_VIEW.depth,cols,rows)
@@ -81,30 +97,9 @@ export function buildReliefWorld(mobile: boolean) {
     return fx+fy<=1?a+(d-a)*fx+(b-a)*fy:c+(b-c)*(1-fx)+(d-c)*(1-fy)
   }
   const winter={value:0}
-  const terrainMaterial=new THREE.MeshStandardMaterial({vertexColors:true,roughness:1,metalness:0})
-  terrainMaterial.onBeforeCompile=shader=>{
-    shader.uniforms.uWinter=winter
-    shader.vertexShader='attribute float aSnow; attribute float aCold; varying float vSnow; varying float vCold; varying vec3 vGround; varying vec3 vGroundNormal;\n'+shader.vertexShader
-    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvSnow=aSnow;vCold=aCold;vGround=position;vGroundNormal=normal;')
-    shader.fragmentShader=`uniform float uWinter; varying float vSnow; varying float vCold; varying vec3 vGround; varying vec3 vGroundNormal;
-`+surfaceNoiseGLSL+shader.fragmentShader
-    shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
-      float field=atlasFbm(vGround.xz*2.4),grain=atlasNoise(vGround.xz*65.);
-      float strata=atlasFbm(vec2(vGround.x*5.+vGround.z*2.,vGround.y*13.));
-      float slope=1.-clamp(normalize(vGroundNormal).y,0.,1.);
-      float rockAmount=max(smoothstep(.42,1.8,vGround.y),smoothstep(.12,.52,slope));
-      float snowAmount=clamp(vSnow+uWinter*vCold*.42,0.,.98)*(1.-smoothstep(.2,.72,slope)*.82);
-      float exposedStone=(.6+strata*.53+grain*.08);
-      diffuseColor.rgb*=.66+field*.52+grain*.09;
-      diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.22,.245,.24)*exposedStone,rockAmount*.62);
-      float drift=atlasFbm(vec2(vGround.x*8.+vGround.z*.7,vGround.z*1.3));
-      vec3 snowPigment=mix(vec3(.53,.62,.67),vec3(.8,.84,.83),.38+drift*.62);
-      diffuseColor.rgb=mix(diffuseColor.rgb,snowPigment,snowAmount);
-      float terrainBump=mix((field*.006+grain*.0012),(strata*.03+grain*.004),rockAmount)*(1.-snowAmount*.7);`)
-    shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>','#include <normal_fragment_maps>\nnormal=atlasBump(-vViewPosition,normal,terrainBump);')
-    shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(.94,.73,snowAmount);')
-  }
-  terrainMaterial.customProgramCacheKey=()=> 'natural-danstsud-v5'
+  measured('heightfield')
+  const terrainMaterial=terrainSurface(terrainGeometry,cols,rows,mobile,winter)
+  measured('surfaceMaps')
   const terrain=new THREE.Mesh(terrainGeometry,terrainMaterial);terrain.name='terrain';terrain.receiveShadow=true;terrain.castShadow=!mobile;root.add(terrain)
 
   // A genuine sea surface above the submerged seabed. Its pigment, waves and
@@ -161,7 +156,9 @@ export function buildReliefWorld(mobile: boolean) {
     const mesh=new THREE.Mesh(geometry,material);mesh.name='aldara-cascade';mesh.userData.targetId='bati-aldara';falls.add(mesh);flows.push(material)
   }
   waters.add(falls);root.add(waters)
+  measured('water')
   const forests=createForest(mobile,p=>Math.max(0,sampleHeight(p)));root.add(forests.group)
+  measured('forest')
   const cities=danstsudPlaces.map(place=>buildSettlement({...place,point:place.point!},sampleHeight))
   const monuments=mapFeatures.filter(feature=>feature.region==='danstsud').map(buildLandmark).filter((group):group is THREE.Group=>Boolean(group))
   for(const city of [...cities,...monuments]){
@@ -169,41 +166,13 @@ export function buildReliefWorld(mobile: boolean) {
     city.position.y=Math.max(heightAt(point),sampleHeight(point))+.025
     root.add(city)
   }
+  measured('settlements')
 
-  // Small fields give the fertile capital plain a purpose and a sense of scale.
-  // They use the same land/water exclusions as trees, never cover settlements.
-  const fields=new THREE.Group();fields.name='valdareth-fields'
-  const fieldRandom=seededRandom('valdareth-fertile-plain')
-  const fieldPalette=['#828661','#6f7950','#958a62','#748258']
-  const patches:THREE.BufferGeometry[][]=[[],[],[],[]]
-  for(let i=0;i<320;i++){
-    const point=pixels([[5500+fieldRandom()*1500,3800+fieldRandom()*1500]])[0]
-    if(!landAt(point)||riverAt(point,.7)||mountainHeightAt(point)>.05||shoreDistance(point)<.8)continue
-    if(danstsudPlaces.some(p=>Math.hypot((point[0]-p.point![0])*WORLD_WIDTH,(point[1]-p.point![1])*WORLD_DEPTH)<(signatures[p.id]?.radius||.6)+.65))continue
-    const [x,,z]=worldPoint(point),w=.35+fieldRandom()*.8,d=.3+fieldRandom()*.6,y=sampleHeight(point)+.018
-    const geometry=new THREE.PlaneGeometry(w,d,2,2);geometry.rotateX(-Math.PI/2)
-    geometry.rotateY(.2);geometry.translate(x,y,z)
-    const pp=geometry.getAttribute('position');for(let j=0;j<pp.count;j++)pp.setY(j,sampleHeight(mapPoint(pp.getX(j),pp.getZ(j)))+.018);geometry.computeVertexNormals();patches[i%4].push(geometry)
-  }
-  patches.forEach((pieces,index)=>{
-    if(!pieces.length)return
-    const merged=mergeGeometries(pieces);pieces.forEach(g=>g.dispose());if(!merged)return
-    const material=new THREE.MeshStandardMaterial({color:fieldPalette[index],roughness:1,polygonOffset:true,polygonOffsetFactor:-1})
-    material.onBeforeCompile=shader=>{
-      shader.vertexShader='varying vec2 vField;\n'+shader.vertexShader
-      shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvField=position.xz;')
-      shader.fragmentShader='varying vec2 vField;\n'+surfaceNoiseGLSL+shader.fragmentShader
-      shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
-        float furrow=sin(vField.x*110.+vField.y*25.)*.5+.5;
-        diffuseColor.rgb*=.66+atlasFbm(vField*9.)*.32+furrow*.11;`)
-    }
-    material.customProgramCacheKey=()=> 'furrowed-fields-v1'
-    const field=new THREE.Mesh(merged,material);field.receiveShadow=true;fields.add(field)
-  })
-  root.add(fields)
+  const fields=buildFarms(sampleHeight,mobile);root.add(fields)
+  measured('farmland')
   const routes=new THREE.Group();routes.name='trade-routes'
   for(const feature of mapFeatures.filter(feature=>feature.region==='danstsud'&&feature.kind==='route')) {
-    const paths=feature.id==='kralin-yolu'?royalRoadPaths().filter(path=>['lirendil','marhalden'].includes(path.id)).map(path=>path.points):feature.stops?[feature.stops.map(id=>placeById(id)?.point).filter((p):p is UV=>Boolean(p))]:feature.paths||[]
+    const paths=feature.status==='planned'?feature.stops?[feature.stops.map(id=>placeById(id)?.point).filter((p):p is UV=>Boolean(p))]:feature.paths||[]:feature.id==='kemige-basan-yol'?localRoadPaths().filter(path=>feature.stops?.includes(path.id)).map(path=>path.points):royalRoadPaths().filter(path=>(feature.id==='kralin-yolu'?['lirendil','marhalden']:feature.stops||[]).includes(path.id)).map(path=>path.points)
     const group=new THREE.Group();group.name=`route:${feature.id}`;group.userData.targetId=feature.id
     for(const path of paths) {
       const curve=new THREE.CurvePath<THREE.Vector3>()
@@ -217,6 +186,8 @@ export function buildReliefWorld(mobile: boolean) {
   }
   root.add(routes)
   const royalRoads=buildRoyalRoads(sampleHeight);root.add(royalRoads)
+  const localRoads=buildLocalRoads(sampleHeight);root.add(localRoads)
+  measured('roads')
   const ring=new THREE.Mesh(new THREE.RingGeometry(.26,.34,48),new THREE.MeshBasicMaterial({color:'#ffe0a5',transparent:true,opacity:.8,side:THREE.DoubleSide,depthWrite:false}))
   ring.geometry.rotateX(-Math.PI/2);ring.visible=false;ring.renderOrder=4;root.add(ring)
 
@@ -233,7 +204,8 @@ export function buildReliefWorld(mobile: boolean) {
     fragmentShader:`uniform float uOpacity,uSteam;varying float vFade;void main(){float d=length(gl_PointCoord-.5);float a=(1.0-smoothstep(.15,.5,d))*uOpacity*vFade;gl_FragColor=vec4(mix(vec3(.9,.97,1.0),vec3(.77,.85,.84),uSteam),a);}`,
   })
   const weather=new THREE.Points(weatherGeometry,weatherMaterial);weather.frustumCulled=false;weather.name='local-snow-and-steam';root.add(weather)
-  return {root,terrain,terrainMaterial,sampleHeight,winter,ocean,oceanMaterial,waters,flows,ice,forests,cities,monuments,routes,royalRoads,ring,weather,weatherMaterial,columns:cols,rows,vertices:positions.count}
+  root.userData.buildTimings=buildTimings;root.userData.buildMs=Math.round(performance.now()-begin)
+  return {root,terrain,terrainMaterial,sampleHeight,winter,ocean,oceanMaterial,waters,flows,ice,forests,cities,monuments,fields,routes,royalRoads,localRoads,ring,weather,weatherMaterial,columns:cols,rows,vertices:positions.count}
 }
 
 export function disposeWorld(root: THREE.Object3D) {
@@ -243,7 +215,7 @@ export function disposeWorld(root: THREE.Object3D) {
     if(drawable.geometry)geometries.add(drawable.geometry)
     if(drawable.material)for(const material of Array.isArray(drawable.material)?drawable.material:[drawable.material]){
       materials.add(material)
-      if('map' in material&&material.map instanceof THREE.Texture)textures.add(material.map)
+      for(const key of ['map','normalMap','roughnessMap','alphaMap','bumpMap','aoMap']){const texture=(material as unknown as Record<string,unknown>)[key];if(texture instanceof THREE.Texture)textures.add(texture)}
     }
   })
   geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose())

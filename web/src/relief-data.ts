@@ -33,8 +33,8 @@ export const danstsudPlaces = places.filter(place => place.region === 'danstsud'
 export const reliefTargets = [...mapLocations.filter(entry => entry.region === 'danstsud'), ...mapFeatures.filter(entry => entry.region === 'danstsud')]
 // Original pixels remain the coordinate system; the source bitmap is never
 // used by this renderer. The scene is a new, cropped Danstsud geography.
-export const GEOGRAPHY_BOUNDS = {left:2800,top:2100,right:8192,bottom:5668}
-export const DANSTSUD_VIEW = { point: pixels([[5496, 3884]])[0], width: 5392 / MAP_WIDTH * WORLD_WIDTH, depth: 3568 / MAP_HEIGHT * WORLD_DEPTH }
+export const GEOGRAPHY_BOUNDS = {left:2800,top:2350,right:8192,bottom:5668}
+export const DANSTSUD_VIEW = { point: pixels([[5496, 4009]])[0], width: 5392 / MAP_WIDTH * WORLD_WIDTH, depth: 3318 / MAP_HEIGHT * WORLD_DEPTH }
 export const inDanstsudView = ([u,v]: UV) => u >= 2800 / MAP_WIDTH && v >= 2100 / MAP_HEIGHT && u <= 1 && v <= 1
 
 // Coastline manually traced on coordinate-labelled crops of the 8K reference.
@@ -90,15 +90,21 @@ export function terrainNoise(x:number,z:number) {
 }
 
 type Peak = { x: number; y: number; rx: number; ry: number; height: number }
-type Mountain = { id: string; polygon: UV[]; peaks: Peak[]; boundary:UV[]; bounds: [number,number,number,number] }
-function mountain(id: string, outline: UV[], peaks: number[][]): Mountain {
+type Mountain = { id: string; polygon: UV[]; peaks: Peak[]; boundary:UV[]; bounds: [number,number,number,number]; spine?:UV[]; width?:number; crest?:number }
+function mountain(id: string, outline: UV[], peaks: number[][],spine?:UV[],width?:number,crest?:number): Mountain {
   const polygon=pixels(outline),xs=polygon.map(p=>p[0]),ys=polygon.map(p=>p[1])
-  return {id,polygon,boundary:[...polygon,polygon[0]],bounds:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],peaks:peaks.map(([x,y,rx,ry,height])=>({x,y,rx,ry,height}))}
+  return {id,polygon,boundary:[...polygon,polygon[0]],bounds:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],peaks:peaks.map(([x,y,rx,ry,height])=>({x,y,rx,ry,height})),spine:spine?pixels(spine):undefined,width,crest}
 }
 // Footprints and individual summits traced over coordinate-labelled source
 // crops. Heights are display scale, never inferred metres. A closed footprint
 // plus a zero-height buffer prevents the terrain grid spilling into water.
 export const mountainFootprints: Mountain[] = [
+  // Continuous ranges fill the four corridors marked by the author. Summit
+  // footprints below add local peaks, not isolated islands of elevation.
+  mountain('rydorn-continuous',[[3250,2760],[3450,2720],[3730,2760],[3950,2820],[4210,2950],[4450,2990],[4780,3140],[5170,3280],[5420,3400],[5450,3550],[5270,3560],[5000,3510],[4630,3380],[4390,3320],[4140,3220],[3870,3180],[3610,3140],[3410,3010],[3260,2910]],[],[[3390,2840],[3590,2930],[3800,3000],[4010,3090],[4230,3160],[4440,3170],[4620,3260],[4830,3300],[5100,3390],[5330,3480]],2.8,2.7),
+  mountain('dorvenhall-continuous',[[5760,3310],[5990,3270],[6220,3250],[6400,3270],[6570,3250],[6750,3300],[6900,3390],[6910,3570],[6680,3590],[6440,3550],[6170,3600],[5910,3580],[5750,3490]],[],[[5880,3400],[6120,3420],[6310,3370],[6530,3390],[6780,3440]],2.55,3.2),
+  mountain('lowvale-continuous',[[6880,3330],[7150,3300],[7360,3310],[7530,3280],[7720,3300],[7930,3320],[8110,3340],[8140,3510],[8000,3580],[7810,3550],[7600,3600],[7410,3560],[7200,3550],[6970,3560],[6850,3460]],[],[[7000,3385],[7190,3420],[7430,3420],[7670,3430],[7900,3450],[8080,3470]],2.5,2.9),
+  mountain('karlan-continuous',[[4320,4040],[4540,3950],[4780,4030],[4990,4210],[5140,4400],[5200,4690],[5140,4890],[5220,5140],[5370,5350],[5500,5590],[5480,5668],[4810,5668],[4750,5300],[4690,5110],[4680,4850],[4470,4510],[4320,4350],[4260,4230]],[],[[4520,4130],[4740,4330],[4870,4530],[4890,4760],[4930,4960],[5140,5200],[5260,5420],[5350,5650]],4.0,4.8),
   mountain('rydorn-west',[[3295,2810],[3400,2785],[3520,2860],[3610,2865],[3755,2980],[3895,2970],[3990,3060],[3980,3140],[3810,3150],[3690,3100],[3530,2995],[3360,2935],[3295,2885]],[[3435,2845,125,100,1.25],[3690,2980,130,110,1.05],[3890,3050,100,95,.8]]),
   mountain('rydorn-east',[[4260,3100],[4380,3025],[4470,3070],[4540,3200],[4650,3190],[4770,3240],[4880,3270],[5010,3300],[5110,3275],[5200,3350],[5240,3410],[5375,3420],[5440,3500],[5390,3560],[5260,3535],[5160,3470],[5000,3500],[4890,3420],[4780,3370],[4570,3340],[4390,3270],[4290,3220]],[[4430,3140,130,130,1.45],[4610,3260,105,100,.85],[4810,3290,100,90,.85],[5110,3370,135,130,1.2],[5360,3480,105,100,.7]]),
   mountain('dorvenhall-west',[[5770,3365],[5870,3315],[5985,3380],[6090,3350],[6170,3415],[6195,3510],[6080,3565],[5940,3550],[5790,3520]],[[5880,3390,120,140,1.85],[6090,3435,100,120,1.45]]),
@@ -117,6 +123,9 @@ export function mountainHeightAt(point: UV,land=landAt(point)) {
   if(!land)return 0
   const x=point[0]*MAP_WIDTH,y=point[1]*MAP_HEIGHT
   let height=0
+  const [wx,,wz]=worldPoint(point)
+  const ridgeNoise=1-Math.abs(valueNoise(wx*1.65+13,wz*1.65)*2-1)
+  const fineRidge=1-Math.abs(valueNoise(wx*4.1-9,wz*4.1+7)*2-1)
   for(const area of mountainFootprints) {
     const [left,top,right,bottom]=area.bounds
     if(point[0]<=left||point[0]>=right||point[1]<=top||point[1]>=bottom||!inPolygon(point,area.polygon))continue
@@ -124,12 +133,17 @@ export function mountainHeightAt(point: UV,land=landAt(point)) {
     // raised vertex is separated from the outline; interpolation stays inside.
     const edge=lineDistance(point,area.boundary)*MAP_WIDTH/WORLD_WIDTH
     if(edge<24)continue
+    if(area.spine){
+      const d=lineDistance(point,area.spine),rise=Math.pow(1-smoothstep(.1,area.width!,d),.8)
+      const massif=.8+valueNoise(wx*.43+7,wz*.43)*.2
+      const talus=(.62+ridgeNoise*.28+fineRidge*.1)*massif
+      height=Math.max(height,area.crest!*rise*talus*smoothstep(24,105,edge))
+    }
     for(const peak of area.peaks) {
       const distance=Math.hypot((x-peak.x)/peak.rx,(y-peak.y)/peak.ry)
       if(distance>=1.65)continue
       const shape=Math.pow(Math.max(0,1-distance/1.65),1.5)
       const angle=Math.atan2(y-peak.y,x-peak.x)
-      const [wx,,wz]=worldPoint(point)
       const erosion=1-Math.abs(valueNoise(wx*2.7+13,wz*2.7)*2-1)
       const ridges=(.8+.2*Math.cos(angle*5+distance*2))*(.82+.28*erosion)+Math.sin(angle*9+distance*6)*.045
       height=Math.max(height,peak.height*shape*ridges*smoothstep(24,50,edge))
@@ -148,9 +162,9 @@ export function mountainHeightAt(point: UV,land=landAt(point)) {
     // The mountain river has a descending bed with a visible rocky step north
     // of town. It is not flattened to sea level with the lowland tributaries.
     const west=riverPaths.find(r=>r.id==='bati-aldara')!,d=lineDistance(point,west.points)
-    const profile=y<4800?1.14:y<4820?.77:y<4890?.77:y<4910?.34:.34
-    height=height*smoothstep(.16,.62,d)+profile*(1-smoothstep(.16,.62,d))
-    return height*smoothstep(0,24,lineDistance(point,marhalden.boundary)*MAP_WIDTH/WORLD_WIDTH)
+    const profile=Math.max(.12,2.3-Math.max(0,(y-4700)/200)*.5-smoothstep(4795,4820,y)*.7-smoothstep(4880,4910,y)*.8)
+    height=height*smoothstep(.16,.65,d)+profile*(1-smoothstep(.16,.65,d))
+    return height
   }
   return height*smoothstep(.12,.55,waterClearance)
 }
@@ -171,7 +185,9 @@ export function snowAt(point:UV,elevation=heightAt(point),land=landAt(point)) {
   if(!land)return 0
   const [x,y]=[point[0]*MAP_WIDTH,point[1]*MAP_HEIGHT]
   const hardlane=(1-smoothstep(4710,4900,x))*smoothstep(3900,4090,y)
-  return Math.max(hardlane*.94,smoothstep(1.35,2.8,elevation))
+  // Northern lowland snow and alpine snow are separate. The temperate belts
+  // retain exposed rock; they are not an unbroken white wall at modest height.
+  return Math.max(hardlane*.94,smoothstep(2.25,4.15,elevation))
 }
 export function coldAt(point: UV, elevation=heightAt(point)) {
   if(!inDanstsudView(point))return 0
@@ -184,13 +200,13 @@ export function coldAt(point: UV, elevation=heightAt(point)) {
 export const signatures: Record<string, {type:string;label:string;radius:number;scale:number}> = {
   valdareth:{type:'capital',label:'Beş sur · saray · obsidyen kilise · Derinkilit · nehir limanı',radius:3.8,scale:1.65},
   marhalden:{type:'twincastle',label:'Dağ terasları · iki kale · Mühür Köprüsü · Aldara şelalesi',radius:2.5,scale:1.5},
-  dorvenhall:{type:'highcastle',label:'Dağ platosu · dökümhaneler · atölyeler · korucu kalesi',radius:2.4,scale:1.5},
-  elorwyn:{type:'temple',label:'Geniş meydanlar · paladin yerleşkesi · ruhban okulları',radius:2.3,scale:1.45},
-  theramis:{type:'academy',label:'Kuvars sütunlar · mavi akademiler · çeşmeler · arşiv',radius:2.3,scale:1.5},
-  lirendil:{type:'guild',label:'Büyük kütüphane · deniz feneri · Çelikkalkan · kervan',radius:2.2,scale:1.4},
-  frostbay:{type:'ruins',label:'Eski taş daireler · düzensiz kıyı yerleşimi',radius:1.5,scale:1.3},
-  dranthol:{type:'portfort',label:'Liman kalesi · deniz feneri',radius:1.4,scale:1.3},
-  ternhaven:{type:'springs',label:'Sıcak su havuzu · ocak evleri',radius:1.2,scale:1.2},
+  dorvenhall:{type:'highcastle',label:'Dağ platosu · dökümhaneler · atölyeler · korucu kalesi',radius:2.6,scale:1.55},
+  elorwyn:{type:'temple',label:'Geniş meydanlar · paladin yerleşkesi · ruhban okulları',radius:3.05,scale:1.5},
+  theramis:{type:'academy',label:'Kuvars sütunlar · mavi akademiler · çeşmeler · arşiv',radius:3.2,scale:1.55},
+  lirendil:{type:'guild',label:'Anıtsal fener · büyük kütüphane · liman mahalleleri · kervan',radius:2.6,scale:1.55},
+  frostbay:{type:'ruins',label:'Kadim çatısız salonlar · yamalı barakalar · eski liman',radius:2.15,scale:1.45},
+  dranthol:{type:'portfort',label:'Liman kalesi · garnizon mahalleleri · deniz feneri',radius:1.9,scale:1.4},
+  ternhaven:{type:'springs',label:'Yıpranmış ocak evleri · eski sokaklar · sıcak su',radius:1.75,scale:1.3},
   kaldmere:{type:'huts',label:'Ahşap barınaklar · küçük iskele',radius:.9,scale:1.1},
   vyssgard:{type:'warehouses',label:'Yıpranmış depolar · kıyı iskeleleri',radius:1.2,scale:1.2},
 }

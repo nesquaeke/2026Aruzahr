@@ -35,6 +35,8 @@ export function masonryMaterial(color:string,kind:string) {
       float surfaceHeight=uKind<.5?grain*.0012+weather*.002-mortar*.0018:uKind<1.5?grain*.0006-tileJoint*.0013:uKind<2.5?woodgrain*.0012:grain*.0006;`)
     shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>','#include <normal_fragment_maps>\nnormal=atlasBump(-vViewPosition,normal,surfaceHeight);')
   }
-  material.customProgramCacheKey=()=>`masonry-detail-5:${kind}`
+  // The source is identical for every finish; uKind is a material uniform.
+  // Sharing this program avoids compiling the same large shader seven times.
+  material.customProgramCacheKey=()=> 'masonry-detail-6'
   return material
 }

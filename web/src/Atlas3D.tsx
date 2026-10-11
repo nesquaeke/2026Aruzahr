@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { MapControls } from 'three/addons/controls/MapControls.js'
-import { Compass, Layers3, LoaderCircle, Mountain, RotateCcw, Snowflake, Trees, Waves, X } from 'lucide-react'
+import { Compass, Layers3, LoaderCircle, Mountain, RotateCcw, Route, Snowflake, Trees, Waves, X } from 'lucide-react'
 import type { AtlasHandle, AtlasProps } from './Atlas'
 import { locationById, normalize, placeById, regions, regionById, subregionById } from './data'
 import { featureById, featureLabels } from './map-features'
@@ -10,20 +10,20 @@ import { buildReliefWorld, disposeWorld } from './relief-scene'
 
 type Runtime = { home: () => void; zoom: (factor: number) => void; tilt: (flat: boolean) => void; north: () => void; refresh: (focus?: boolean) => void }
 type Props = AtlasProps & { onUnavailable: () => void; onExit: () => void }
-const cameraKey = 'aruzahr-danstsud-3d-camera-v4'
+const cameraKey = 'aruzahr-danstsud-3d-camera-v5'
 const allEntries = [...regions.filter(region=>region.id==='danstsud'), ...reliefTargets]
 
 export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
   const host=useRef<HTMLDivElement>(null),pins=useRef<HTMLDivElement>(null),tooltip=useRef<HTMLDivElement>(null)
   const latest=useRef(props),runtime=useRef<Runtime|null>(null),previousSelected=useRef(props.selected)
-  const [ready,setReady]=useState(false),[flat,setFlat]=useState(false),[forest,setForest]=useState(true),[water,setWater]=useState(true),[winter,setWinter]=useState(false),[weatherLabel,setWeatherLabel]=useState('')
-  const layers=useRef({forest,water,winter});layers.current={forest,water,winter};latest.current=props
+  const [ready,setReady]=useState(false),[flat,setFlat]=useState(false),[forest,setForest]=useState(true),[water,setWater]=useState(true),[winter,setWinter]=useState(false),[roads,setRoads]=useState(true),[weatherLabel,setWeatherLabel]=useState('')
+  const layers=useRef({forest,water,winter,roads});layers.current={forest,water,winter,roads};latest.current=props
   useImperativeHandle(ref,()=>({home:()=>runtime.current?.home(),zoom:factor=>runtime.current?.zoom(factor)}),[])
 
   useEffect(()=>{
     const element=host.current,overlay=pins.current
     if(!element||!overlay)return
-    let disposed=false,unavailable=false,frame=0,saveTimer=0,lastRender=0,lastTick=performance.now(),dirty=true,project=true
+    let disposed=false,unavailable=false,frame=0,saveTimer=0,lastRender=0,renderCost=0,lastTick=performance.now(),dirty=true,project=true
     let lastWeather=''
     const mobile=element.clientWidth<620
     let renderer:THREE.WebGLRenderer
@@ -78,7 +78,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     }
     function home(){
       const zoom=Math.min((camera.right-camera.left)/(DANSTSUD_VIEW.width*1.12),baseHeight/(DANSTSUD_VIEW.depth*.85+5))
-      moveTo(new THREE.Vector3(...worldPoint(DANSTSUD_VIEW.point)),Math.max(.8,zoom),new THREE.Vector3(0,104,64));setFlat(false)
+      moveTo(new THREE.Vector3(...worldPoint(DANSTSUD_VIEW.point)),Math.max(.8,zoom),new THREE.Vector3(0,96,75));setFlat(false)
     }
     function focusSelected(){
       const selected=latest.current.selected
@@ -91,7 +91,10 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       const width=box?box[2]*WORLD_WIDTH:WORLD_WIDTH*.09
       const depth=box?box[3]*WORLD_DEPTH:WORLD_DEPTH*.075
       const zoom=Math.min((camera.right-camera.left)/(width*1.25),baseHeight/(depth*.9+5))
-      moveTo(target,Math.max(1.2,Math.min(box?7.8:10.5,zoom)))
+      // The southern ridge otherwise obscures the floor of Marhalden's gorge.
+      const eye=selected==='marhalden'?new THREE.Vector3(0,122,35):undefined
+      if(eye)setFlat(false)
+      moveTo(target,Math.max(1.2,Math.min(box?7.8:10.5,zoom)),eye)
     }
     function north(){const eye=camera.position.clone().sub(controls.target);moveTo(controls.target.clone(),camera.zoom,new THREE.Vector3(0,eye.y,Math.hypot(eye.x,eye.z)));setFlat(eye.y/eye.length()>.98)}
     function tilt(top:boolean){const r=camera.position.distanceTo(controls.target),angle=top?.065:.56;moveTo(controls.target.clone(),camera.zoom,new THREE.Vector3(0,r*Math.cos(angle),r*Math.sin(angle)));setFlat(top)}
@@ -172,6 +175,8 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
         button.style.left=`${x}px`;button.style.top=`${y}px`;button.style.zIndex=chosen?'30':region?'7':'6'
         button.classList.toggle('is-hidden',!visible);button.classList.toggle('selected',chosen);button.classList.toggle('route-stop',Boolean(route?.stops?.includes(entry.id)))
         button.classList.toggle('relief-distant',!chosen&&!region&&!subregion&&(!('major'in entry)||!entry.major)&&camera.zoom<2.5)
+        button.classList.toggle('relief-major','major'in entry&&Boolean(entry.major))
+        button.classList.toggle('relief-geography-distant',Boolean(feature)&&!chosen&&camera.zoom<3.1)
         button.setAttribute('aria-pressed',String(chosen));button.setAttribute('aria-hidden',String(!visible));button.tabIndex=visible?0:-1
         if(visible)candidates.push({id:entry.id,button,x,y,priority:chosen?100:region?90:'major'in entry&&entry.major?80:subregion?70:feature?40:50})
       }
@@ -227,9 +232,10 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       element!.dataset.visibleModels=String(visibleModels);element!.dataset.visibleCityIds=JSON.stringify(visibleCityIds)
       world.routes.visible=p.showRoutes
       const selectedRoute=featureById(p.selected||'')?.kind==='route'?p.selected:null
-      world.royalRoads.visible=p.showRoutes&&(!selectedRoute||selectedRoute==='kralin-yolu')
+      world.royalRoads.visible=layers.current.roads;world.localRoads.visible=layers.current.roads
       element!.dataset.royalRoadVisible=String(world.royalRoads.visible)
       element!.dataset.royalRoadCities=String(world.royalRoads.userData.connectedCityIds.length)
+      element!.dataset.localRoadCities=String(world.localRoads.userData.connectedCityIds.length)
       for(const group of world.routes.children){const feature=featureById(group.userData.targetId)!;group.visible=selectedRoute?feature.id===selectedRoute:feature.status!=='planned'}
       if(selection?.point){world.ring.visible=true;world.ring.position.set(...worldPoint(selection.point,heightAt(selection.point)+.13));const size='box'in selection&&regions.some(r=>r.id===selection.id)?2:1;world.ring.scale.setScalar(size)}else world.ring.visible=false
       const span=Math.max(6,Math.min(65,baseHeight/camera.zoom));sun.position.set(controls.target.x-26,controls.target.y+46,controls.target.z+22);sun.target.position.copy(controls.target)
@@ -259,18 +265,31 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       updateLayers(dt)
       const animated=world&&latest.current.effects&&!latest.current.reducedMotion
       if(animated){const time=now/1000;for(const flow of world!.flows)flow.uniforms.uTime.value=time;world!.weatherMaterial.uniforms.uTime.value=time}
-      if(world&&(dirty||animated)&&now-lastRender>=(dirty?15:mobile?50:33)){
-        camera.updateMatrixWorld();renderer.render(scene,camera);lastRender=now
+      // Measure from the end of rendering. On a slow GPU, an old RAF stamp
+      // otherwise causes continuous catch-up frames that starve user input.
+      const interval=Math.max(mobile?50:33,renderCost*.65)
+      if(world&&(dirty||animated)&&performance.now()-lastRender>=(dirty?15:interval)){
+        const renderStart=performance.now();camera.updateMatrixWorld();renderer.render(scene,camera)
+        lastRender=performance.now();renderCost=lastRender-renderStart
         element!.dataset.drawCalls=String(renderer.info.render.calls);element!.dataset.triangles=String(renderer.info.render.triangles)
         if(project){projectMarkers();project=false}dirty=false
       }
       if(tween||dirty||animated)schedule()
     }
-    runtime.current={home,zoom:factor=>{tween=null;camera.zoom=THREE.MathUtils.clamp(camera.zoom*factor,.8,14);camera.updateProjectionMatrix();controls.update();changed()},tilt,north,refresh:(focus=false)=>{if(focus&&world)focusSelected();if(latest.current.reducedMotion)finishTween();changed()}}
+    runtime.current={home,zoom:factor=>{tween=null;camera.zoom=THREE.MathUtils.clamp(camera.zoom*factor,.8,14);camera.updateProjectionMatrix();controls.update();changed()},tilt,north,refresh:(focus=false)=>{
+      if(focus&&world)focusSelected()
+      if(latest.current.reducedMotion)finishTween()
+      // Apply layer state immediately. Reduced-motion views can be idle, and
+      // waiting for a queued GPU frame leaves a clicked control out of sync.
+      if(!focus)updateLayers(0)
+      changed()
+    }}
     resize()
-    try {world=buildReliefWorld(mobile);scene.add(world.root);makeMarkers()}catch{fail()}
+    try {world=buildReliefWorld(mobile);scene.add(world.root);makeMarkers()}catch(error){console.error('Danstsud 3D geometry build failed',error);fail()}
     if(world){
       element.dataset.vertices=String(world.vertices);element.dataset.cityCount=String(world.cities.length);element.dataset.forestCount=String(world.forests.group.userData.count)
+      element.dataset.fieldCount=String(world.fields.userData.count);element.dataset.surfaceMaps=JSON.stringify(world.terrainMaterial.userData.surfaceMaps)
+      element.dataset.modelHouses=JSON.stringify(Object.fromEntries(world.cities.map(c=>[c.userData.targetId,c.userData.modelHouses])))
       element.dataset.textureWidth='0';element.dataset.ready='true';setReady(true)
       let restored=false
       try{
@@ -294,7 +313,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
     previousSelected.current=props.selected
     runtime.current?.refresh(true)
   },[props.selected])
-  useEffect(()=>{runtime.current?.refresh()},[props.query,props.showCities,props.showGeography,props.showRoutes,props.effects,props.reducedMotion,forest,water,winter])
+  useEffect(()=>{runtime.current?.refresh()},[props.query,props.showCities,props.showGeography,props.showRoutes,props.effects,props.reducedMotion,forest,water,winter,roads])
   const selectedPlace=placeById(props.selected||''),signature=signatures[props.selected||'']
   return <>
     <div className="relief-viewer" ref={host} data-testid="relief-viewer" />
@@ -308,6 +327,7 @@ export default forwardRef<AtlasHandle, Props>(function Atlas3D(props,ref) {
       <span className="relief-control-divider"/>
       <button aria-label="3D ormanlar" aria-pressed={forest} onClick={()=>setForest(!forest)}><Trees size={16}/><span>Orman</span></button>
       <button aria-label="3D su yüzeyleri" aria-pressed={water} onClick={()=>setWater(!water)}><Waves size={16}/><span>Su</span></button>
+      <button aria-label="Yerleşim yolları" aria-pressed={roads} onClick={()=>setRoads(!roads)}><Route size={16}/><span>Yollar</span></button>
       <button aria-label="Kış görünümü" aria-pressed={winter} onClick={()=>setWinter(!winter)}><Snowflake size={16}/><span>Kış</span></button>
     </div>
     {ready&&<div className="relief-caption"><span><Mountain size={14}/> DANSTSUD · 3D {weatherLabel&&<em>· {weatherLabel}</em>}</span>{signature&&<small>{signature.label}</small>}{!selectedPlace&&!props.selected&&<small>Sürükle · yakınlaş · sağ sürüklemeyle eğ</small>}</div>}

@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
-import { Matrix4, Mesh, Vector3 } from 'three'
+import { DataTexture, Matrix4, Mesh, Vector3 } from 'three'
 import { places, placeById } from '../src/data'
 import { mapFeatures } from '../src/map-features'
 import { buildSettlement } from '../src/relief-buildings'
 import { buildReliefWorld, disposeWorld } from '../src/relief-scene'
-import { buildRoyalRoads, royalRoadPaths, hardlaneRoadExclusions } from '../src/relief-roads'
+import { buildRoyalRoads, localRoadPaths, royalRoadPaths, hardlaneRoadExclusions } from '../src/relief-roads'
+import { farmlandParcels, inFarmland } from '../src/relief-farms'
 import { coastline, coldAt, danstsudPlaces, groundHeightAt, heightAt, inPolygon, landAt, mapPoint, mountainFootprints, riverAt, riverPaths, signatures, snowAt, WORLD_DEPTH, WORLD_WIDTH, worldPoint } from '../src/relief-data'
 import type { UV } from '../src/relief-data'
 
@@ -78,6 +79,20 @@ test('independently located source-map sea checkpoints remain water while Dansts
   for(const river of riverPaths){expect(mapFeatures.some(feature=>feature.id===river.id)).toBe(true);expect(river.points.every(point=>point.every(value=>value>=0&&value<=1))).toBe(true)}
   const marhalden=placeById('marhalden')!.point!
   expect(Math.min(...riverPaths.find(r=>r.id==='bati-aldara')!.points.map(p=>Math.hypot((p[0]-marhalden[0])*8192,(p[1]-marhalden[1])*5668)))).toBeLessThan(.01)
+})
+
+test('marked mountain gaps are filled, Lirendil has a monumental city and farmland forms coherent dry parcels',()=>{
+  // Points lie in the formerly empty parts of the author's four marked bands.
+  for(const [x,y]of [[4000,3110],[4230,3160],[6000,3400],[6450,3410],[7430,3420],[7800,3450],[4780,4780],[4980,5100],[5170,5380],[5320,5510]])expect(heightAt([x/8192,y/5668]),`marked ridge gap ${x},${y}`).toBeGreaterThan(1)
+  for(const [id,minimum]of [['lirendil',70],['frostbay',50],['ternhaven',30]] as const){const place=placeById(id)!,city=buildSettlement({...place,point:place.point!});expect(city.userData.modelHouses,id).toBeGreaterThan(minimum);expect(city.userData.modelStreets,id).toBeGreaterThan(1);if(id==='lirendil')expect(city.userData.features).toContain('Anıtsal üç katlı fener');disposeWorld(city)}
+  const parcels=farmlandParcels()
+  expect(parcels.filter(p=>Math.hypot(p.center[0]*8192-5730,p.center[1]*5668-4200)<190).length,'contiguous fertile plain cluster').toBeGreaterThan(3)
+  for(const parcel of parcels){
+    expect(parcel.polygon.length).toBeGreaterThanOrEqual(3)
+    for(let i=0;i<parcel.polygon.length;i++)for(const t of [0,.25,.5,.75]){const a=parcel.polygon[i],b=parcel.polygon[(i+1)%parcel.polygon.length],p:UV=[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];expect(landAt(p),`${parcel.id} farmland in water`).toBe(true);expect(riverAt(p,.2),`${parcel.id} farmland in river`).toBe(false)}
+  }
+  expect(localRoadPaths().map(p=>p.id).sort()).toEqual([...hardlaneRoadExclusions,'marhalden'].sort())
+  for(const path of localRoadPaths()){expect(path.points[0]).toEqual(placeById('frostbay')!.point);expect(path.points.at(-1)).toEqual(placeById(path.id)!.point);for(let i=1;i<path.points.length;i++)for(const t of [.25,.5,.75]){const a=path.points[i-1],b=path.points[i];expect(landAt([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]),`${path.id} path in sea`).toBe(true)}}
 })
 
 test('Lirendil sea, capital estuary and continuous overland royal roads match the new geography',()=>{
@@ -182,8 +197,11 @@ test('fresh rendered land has no mountain triangles in the sea and all cities an
       expect(invalid,`${mobile?'mobile':'desktop'} mountain triangles outside source outline`).toEqual([])
       expect(raised).toBeGreaterThan(200)
       for(const [x,y] of [[6110,3060],[6450,2990],[4000,3650],[4600,3830],[4350,4850]])expect(world.sampleHeight([x/8192,y/5668])).toBeLessThan(0)
-      for(const [x,y,z] of world.forests.group.userData.anchors as number[][]){const point=mapPoint(x,z);expect(landAt(point),'tree in sea/lake').toBe(true);expect(riverAt(point,.15),'tree in river').toBe(false);expect(y-world.sampleHeight(point)).toBeGreaterThan(0)}
-      expect(world.terrainMaterial.map).toBeNull()
+      for(const [x,y,z] of world.forests.group.userData.anchors as number[][]){const point=mapPoint(x,z);expect(landAt(point),'tree in sea/lake').toBe(true);expect(riverAt(point,.15),'tree in river').toBe(false);expect(inFarmland(point),'tree in farmland').toBe(false);expect(y-world.sampleHeight(point)).toBeGreaterThan(0)}
+      expect(world.terrainMaterial.map).toBeInstanceOf(DataTexture)
+      expect(world.terrainMaterial.normalMap).toBeInstanceOf(DataTexture)
+      expect(world.terrainMaterial.roughnessMap).toBeInstanceOf(DataTexture)
+      expect(world.terrainMaterial.userData.surfaceMaps.source).toBe('procedural-heightfield')
       expect(world.root.getObjectByName('ocean')).toBeDefined()
       expect(world.terrain.geometry.getAttribute('color')).toBeDefined()
     }finally{disposeWorld(world.root)}
@@ -219,6 +237,10 @@ test('all 58 city pins select their existing panel and their actual model stays 
 })
 
 test('zoom, wheel, keyboard pan, tilt, north and home control the camera without losing the map',async({page})=>{
+  // This scenario renders several complete camera changes on software WebGL.
+  // Keep each control assertion bounded; allow time for the entire sequence.
+  test.setTimeout(120000)
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(String(error)));page.on('console',message=>{if(message.type()==='error')errors.push(message.text())})
   await open3D(page,'valdareth')
   const viewer=page.getByTestId('relief-viewer')
   const before=Number(await viewer.getAttribute('data-camera-zoom'))
@@ -247,7 +269,12 @@ test('zoom, wheel, keyboard pan, tilt, north and home control the camera without
   await expect(viewer).toHaveAttribute('data-royal-road-visible','true')
   await expect(viewer).toHaveAttribute('data-royal-road-cities','51')
   await page.getByRole('button',{name:'Ticaret yolları',exact:true}).click({noWaitAfter:true})
+  await expect(viewer).toHaveAttribute('data-royal-road-visible','true')
+  await page.getByRole('button',{name:'Yerleşim yolları',exact:true}).click()
   await expect(viewer).toHaveAttribute('data-royal-road-visible','false')
+  await page.getByRole('button',{name:'Yerleşim yolları',exact:true}).click()
+  await expect(viewer).toHaveAttribute('data-royal-road-visible','true')
+  expect(errors).toEqual([])
 })
 
 test('real building geometry can be picked away from its pin and pointer gestures move and rotate the camera',async({page})=>{
@@ -407,7 +434,7 @@ for(const width of [320,390,820,1024,1440])test(`3D atlas controls, city panel a
 })
 
 test('malformed camera storage uses a valid fitted camera and keeps the selected city accessible',async({page})=>{
-  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-danstsud-3d-camera-v4',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-danstsud-atlas-mode','broken')})
+  await page.addInitScript(()=>{sessionStorage.setItem('aruzahr-danstsud-3d-camera-v5',JSON.stringify({selected:'valdareth',target:[999999,0,null],position:[],zoom:-2}));localStorage.setItem('aruzahr-danstsud-atlas-mode','broken')})
   await open3D(page,'valdareth')
   await expect(page.getByTestId('marker-valdareth')).toHaveAttribute('aria-pressed','true')
   expect(Number(await page.getByTestId('relief-viewer').getAttribute('data-camera-zoom'))).toBeGreaterThan(1)

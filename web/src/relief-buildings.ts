@@ -21,6 +21,8 @@ function paletteFor(region: string): Palette {
 class Mason {
   pieces: Record<Finish, THREE.BufferGeometry[]> = {stone:[],dark:[],roof:[],wood:[],gold:[],water:[],snow:[]}
   features: string[] = []
+  houseCount=0
+  streetCount=0
   anchor: number|null=null
   constructor(public lift:(x:number,z:number)=>number=()=>0){}
   at(x:number,z:number,draw:()=>void){const saved=this.anchor;this.anchor=saved??this.lift(x,z);draw();this.anchor=saved}
@@ -41,7 +43,44 @@ class Mason {
   fountain(x:number,z:number,r=.22){this.cylinder(x,z,r,.055,'stone');this.cylinder(x,z,r*.85,.015,'water',.06);this.column(x,z,r*.1,.25,.07);this.cylinder(x,z,r*.5,.03,'stone',.26,r*.6,24);this.cylinder(x,z,r*.42,.015,'water',.294)}
   banner(x:number,z:number,h=.44){this.cylinder(x,z,.007,h,'gold');this.box(x+.041,z,.082,.12,.006,'roof',h-.15);this.box(x+.041,z-.004,.013,.08,.004,'gold',h-.13)}
   lighthouse(x:number,z:number,h=1.3,r=.13){this.at(x,z,()=>{this.cylinder(x,z,r*1.45,.13,'stone');this.cylinder(x,z,r,h,'stone',.1,r*.68,24);for(let i=0;i<4;i++){this.cylinder(x,z,r*(1-i*.05),.035,'stone',.3+i*h*.18);this.box(x,z+r*.7,.026,.075,.008,'dark',.4+i*h*.18)}this.cylinder(x,z,r*1.15,.065,'stone',h);this.cylinder(x,z,r*.8,.12,'gold',h+.065,r*.8,20);this.roof(x,z,r*1.2,.12,h+.185,'roof',24)})}
-  bridge(x:number,z:number,w=.9,d=.18,y=.15){this.at(x,z,()=>{this.box(x,z,w,.06,d,'stone',y+.18);for(const side of [-1,1])this.box(x,z+side*d*.49,w,.055,.026,'stone',y+.24);for(const dx of [-w*.35,0,w*.35])this.arch(x+dx,z,w*.32,.24,d,y-.055)})}
+  monumentalLighthouse(x:number,z:number){this.at(x,z,()=>{
+    for(let step=0;step<5;step++)this.box(x,z,.67-step*.04,.045,.67-step*.04,'stone',step*.045)
+    this.box(x,z,.46,1.0,.46,'stone',.22);this.box(x,z,.55,.085,.55,'stone',1.22)
+    for(const side of [-1,1])for(let level=0;level<4;level++){
+      this.arch(x+side*.234,z,.075,.12,.012,.35+level*.2,Math.PI/2)
+      this.box(x+side*.237,z,.009,.08,.047,'dark',.36+level*.2)
+      this.box(x,z+side*.237,.047,.08,.009,'dark',.36+level*.2)
+    }
+    for(const dx of [-1,1])for(const dz of [-1,1])this.column(x+dx*.22,z+dz*.22,.018,.2,1.3)
+    this.cylinder(x,z,.22,.63,'stone',1.3,.2,8);this.cylinder(x,z,.257,.075,'stone',1.93,.257,8)
+    for(let i=0;i<8;i++){const a=i*Math.PI/4;this.column(x+Math.sin(a)*.165,z+Math.cos(a)*.165,.016,.3,2.01)}
+    this.cylinder(x,z,.084,.13,'dark',2.02);this.cylinder(x,z,.075,.075,'gold',2.15)
+    this.roof(x,z,.23,.17,2.32,'stone',16);this.cylinder(x,z,.012,.12,'gold',2.49)
+    for(const side of [-1,1])this.box(x+side*.31,z,.035,.12,.74,'stone',.13)
+  })}
+  lane(points:[number,number][],width=.075,finish:Finish='stone'){
+    const vertices:number[]=[]
+    for(let i=1;i<points.length;i++){
+      const [ax,az]=points[i-1],[bx,bz]=points[i],length=Math.hypot(bx-ax,bz-az),steps=Math.max(1,Math.ceil(length/.09)),dx=-(bz-az)/length*width/2,dz=(bx-ax)/length*width/2
+      for(let n=0;n<steps;n++){const t=n/steps,u=(n+1)/steps,x=ax+(bx-ax)*t,z=az+(bz-az)*t,nx=ax+(bx-ax)*u,nz=az+(bz-az)*u
+        for(const [px,pz]of [[x+dx,z+dz],[nx+dx,nz+dz],[x-dx,z-dz],[nx+dx,nz+dz],[nx-dx,nz-dz],[x-dx,z-dz]])vertices.push(px,this.lift(px,pz)+.017,pz)
+      }
+    }
+    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals();this.pieces[finish].push(geometry);this.streetCount++
+  }
+  bridge(x:number,z:number,w=.9,d=.18,y=.15,angle=0){
+    const saved=this.anchor,cos=Math.cos(angle),sin=Math.sin(angle)
+    const deck=Math.max(this.lift(x,z)+y+.18,this.lift(x-w*.5*cos,z+w*.5*sin),this.lift(x+w*.5*cos,z-w*.5*sin))
+    this.anchor=deck
+    this.box(x,z,w,.06,d,'stone',0,angle)
+    for(const side of [-1,1])this.box(x+side*d*.49*sin,z+side*d*.49*cos,w,.055,.026,'stone',.06,angle)
+    for(const dx of [-w*.35,0,w*.35]){
+      const px=x+dx*cos,pz=z-dx*sin,ground=this.lift(px,pz)
+      this.box(px,pz,.035,Math.max(.08,deck-ground),d*.75,'stone',ground-deck,angle)
+      this.arch(px,pz,w*.32,.24,d,-.235,angle)
+    }
+    this.anchor=saved
+  }
 
   place(geometry: THREE.BufferGeometry, finish: Finish, x: number, y: number, z: number, angle = 0) {
     // Buildings use vertex normals and solid pigments; every piece must have
@@ -68,17 +107,25 @@ class Mason {
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals()
     this.place(geometry,finish,x,y,z,angle)
   }
-  house(x:number,z:number,size:number,cold=false,angle=0,roofFinish:Finish=cold?'snow':'roof') {
+  house(x:number,z:number,size:number,cold=false,angle=0,roofFinish:Finish=cold?'snow':'roof',floors=1,worn=false) {
     const saved=this.anchor;this.anchor=this.lift(x,z)
-    const tall=size*.85,depth=size*.85
+    this.houseCount++
+    const tall=size*.85*(1+(floors-1)*.55),depth=size*.85
     this.box(x,z,size,tall,depth,'stone',0,angle)
     this.gable(x,z,size*1.14,depth*1.12,size*.46,tall,roofFinish,angle)
     this.box(x,z,size*1.03,size*.045,depth*1.03,'wood',tall*.67,angle)
     const detail=(dx:number,w:number,h:number,y:number)=>this.box(x+dx*Math.cos(angle)+depth*.505*Math.sin(angle),z-dx*Math.sin(angle)+depth*.505*Math.cos(angle),w,h,size*.02,'dark',y,angle)
     detail(0,size*.18,tall*.48,0)
     for(const dx of [-size*.3,size*.3])detail(dx,size*.13,tall*.22,tall*.43)
+    for(const dx of [-size*.43,size*.43])this.box(x+dx*Math.cos(angle)+depth*.513*Math.sin(angle),z-dx*Math.sin(angle)+depth*.513*Math.cos(angle),size*.035,tall,size*.025,'wood',0,angle)
+    if(floors>1)for(const dx of [-size*.3,size*.3])detail(dx,size*.13,tall*.15,tall*.73)
     this.box(x+size*.24*Math.cos(angle),z-size*.24*Math.sin(angle),size*.085,size*.43,size*.09,'stone',tall*.93,angle)
     this.box(x,z,size*1.03,.06,depth*1.03,'stone',-.055,angle)
+    if(worn){
+      const patch=new THREE.PlaneGeometry(size*.28,size*.34);patch.rotateX(-Math.PI/2);patch.rotateZ(.55)
+      this.place(patch,'wood',x-size*.24*Math.cos(angle),tall+size*.25,z+size*.13,angle)
+      this.box(x+size*.4*Math.cos(angle),z-size*.4*Math.sin(angle),size*.025,tall*.85,size*.035,'dark',0,angle)
+    }
     this.anchor=saved
   }
   tower(x: number,z: number,r: number,h: number,roof: Finish='roof') {
@@ -135,7 +182,7 @@ class Mason {
   }
   finish(palette: Palette,targetId: string) {
     const group=new THREE.Group()
-    group.userData={targetId, features:this.features}
+    group.userData={targetId, features:this.features,modelHouses:this.houseCount,modelStreets:this.streetCount}
     for(const [kind,pieces] of Object.entries(this.pieces) as [Finish,THREE.BufferGeometry[]][]) {
       if(!pieces.length) continue
       const geometry=mergeGeometries(pieces)
@@ -193,8 +240,12 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     builder.features=['Kıyının iki tarafında kale','Geçit köprüsü','Maden ve döküm atölyeleri','Dağ terasları','Aldara şelalesi','Köprübaşı kuleleri']
     palette.stone='#939b9b';palette.roof='#506971';palette.dark='#343c41'
     builder.castle(-.72,-.22,.72);builder.castle(.73,.28,.65)
-    builder.bridge(0,0,1.05,.22,.29)
-    for(const x of [-.44,.44])builder.tower(x,.12,.082,.69,'roof')
+    // Cross the straight reach just above the westward bend. Its perpendicular
+    // is derived from the source segment (4930,4870) -> (4900,4930).
+    builder.bridge(.20,-.39,1.05,.22,.29,Math.atan2(30,60))
+    builder.tower(-.30,-.14,.07,.48,'roof');builder.tower(.70,-.64,.07,.48,'roof')
+    builder.lane([[-.72,-.22],[-.48,-.25],[-.27,-.155]],.095)
+    builder.lane([[.73,.28],[.86,-.06],[.70,-.60]],.095)
     for(let i=0;i<52;i++){const bank=i%2?-1:1,x=bank*(.45+random()*.85),z=-1.1+random()*2.25;if(dry(x,z))builder.house(x,z,.11+random()*.06,true,random()*.25)}
     for(const bank of [-1,1])for(let t=0;t<5;t++){const z=-1.1+t*.5;builder.box(bank*1.21,z,.08,.24,.54,'stone',-.15);if(t%2===0)builder.tower(bank*1.27,z,.065,.5,'snow')}
     for(let i=0;i<5;i++){const x=-.8+i*.39;builder.hall(x,1.26,.23,.34,.22,'wood');builder.cylinder(x,1.26,.035,.46,'dark')}
@@ -221,11 +272,14 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     builder.at(0,-.68,()=>{builder.cylinder(0,-.68,.19,.3,'stone',.39,.19,24);builder.place(new THREE.SphereGeometry(.2,24,12,0,Math.PI*2,0,Math.PI/2),'roof',0,.7,-.68)})
     for(let i=0;i<12;i++){const a=i*Math.PI/6;builder.house(Math.sin(a)*1.38,Math.cos(a)*1.38,.13,false,0)}
   } else if(type==='guild') {
-    builder.features=['Çelik Kalkan salonu','Talim avlusu','Kent kıyısındaki iskeleler','Büyük kütüphane','Büyük deniz feneri','Kervan avlusu']
-    builder.hall(-.28,-.38,.83,.84,.48);builder.hall(-.28,-.38,.98,.32,.37)
+    builder.features=['Çelik Kalkan salonu','Talim avlusu','Kent kıyısındaki iskeleler','Büyük kütüphane','Büyük deniz feneri','Kervan avlusu','Anıtsal üç katlı fener','Kütüphane galerileri','Çarşı sokakları']
+    builder.hall(-.28,-.38,.91,.96,.54);builder.hall(-.28,-.38,1.1,.32,.39)
+    for(let n=0;n<8;n++)builder.column(-.72+n*.13,.13,.022,.22)
+    builder.arch(-.28,.135,.22,.32,.032);builder.fountain(-.23,.3,.12)
     for(const x of [-.68,.13])builder.tower(x,-.4,.075,.79)
     builder.hall(.71,.18,.4,.7,.29);builder.box(.71,.68,.55,.025,.32,'stone');builder.banner(.45,.49)
-    builder.lighthouse(-.36,-1.53,1.9,.13)
+    builder.monumentalLighthouse(-.36,-1.51)
+    builder.lane([[-.36,-1.27],[-.36,-.94],[-.72,-.8],[-1.02,-.28],[-1.1,.6]],.13)
     for(const x of [-.73,-.4,-.1])builder.pier(x,-1.94,.5)
     for(let i=0;i<21;i++){const a=i*2.399,x=Math.sin(a)*(.68+random()*.48),z=.15+Math.cos(a)*(.56+random()*.43);if((Math.abs(x+.28)<.48&&z<.07)||Math.abs(x-.71)<.23&&Math.abs(z-.18)<.4||!dry(x,z))continue;builder.house(x,z,.12+random()*.03,false,a)}
     for(let n=0;n<5;n++)builder.at(-.2+n*.19,.82,()=>{const x=-.2+n*.19;builder.box(x,.82,.09,.055,.17,'wood');builder.gable(x,.82,.1,.18,.06,.055,'snow');for(const dx of [-.05,.05])for(const dz of [-.045,.045])builder.place(new THREE.CylinderGeometry(.022,.022,.012,16).rotateZ(Math.PI/2),'dark',x+dx,.02,.82+dz)})
@@ -239,11 +293,16 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     for(let i=0;i<33;i++){const a=i*2.399,r=.42+random()*.9,x=Math.sin(a)*r,z=Math.cos(a)*r;if(Math.abs(x)<.35&&z<0||!dry(x,z))continue;builder.house(x,z,.09+random()*.05,false,a)}
   } else if(type==='ruins') {
     builder.features=['Eski taş daire','Ayakta kalan idari yapılar','Düzensiz kıyı barınakları','Kadim büyük harabeler','Kırık kemerler']
-    palette.stone='#a4b5b1';palette.wood='#76857d';palette.roof='#647c80'
+    palette.stone='#8d9a97';palette.wood='#5b635c';palette.roof='#505e62'
     builder.at(0,-.35,()=>{builder.box(0,-.35,.91,.13,.73,'stone',-.06);for(const side of [-1,1]){builder.box(side*.45,-.35,.09,.78,.73);for(let n=0;n<4;n++)builder.arch(side*.45,-.63+n*.18,.13,.32,.09,.38,Math.PI/2)}builder.box(0,-.71,.95,.67,.09);builder.gable(-.26,-.41,.35,.48,.14,.77,'snow')})
     for(let i=0;i<9;i++){const a=i*Math.PI/6;builder.column(Math.sin(a)*1.07,Math.cos(a)*1.07,.06,.43+(i%4)*.19)}
     builder.arch(-.74,.27,.42,.78,.15);builder.arch(.65,.64,.35,.56,.13);builder.lighthouse(-1.11,-.01,.6,.07)
-    for(let i=0;i<39;i++){const a=i*2.399,r=.42+random()*.85,x=Math.sin(a)*r,z=.2+Math.cos(a)*r;if(dry(x,z)&&!(Math.abs(x)<.55&&z<0))builder.house(x,z,.09+random()*.045,cold,a,'snow')}
+    for(const [x,z]of [[.94,-.74],[-.89,.68]])builder.at(x,z,()=>{
+      builder.box(x,z,.47,.065,.54,'stone',-.02)
+      for(let n=0;n<5;n++){builder.box(x-.2+n*.1,z-.26,.08,.15+(n%3)*.095,.035);builder.column(x-.2+n*.1,z+.25,.023,.21+(n%2)*.14)}
+      builder.box(x-.24,z,.04,.29,.5);builder.arch(x+.18,z,.16,.33,.055,0,Math.PI/2)
+    })
+    for(let i=0;i<39;i++){const a=i*2.399,r=.42+random()*.85,x=Math.sin(a)*r,z=.2+Math.cos(a)*r;if(dry(x,z)&&!(Math.abs(x)<.55&&z<0))builder.house(x,z,.09+random()*.045,cold,a,i%4===0?'snow':'wood',1,true)}
     builder.pier(-1.1,.62,.76)
   } else if(type==='portfort') {
     builder.features=['Liman kalesi','Kıyı feneri','Korunan iskele','Düzenli garnizon sokakları']
@@ -252,11 +311,12 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     for(const side of [-1,1])for(let n=0;n<5;n++)builder.house(side*.43,.02+n*.22,.13,true)
     builder.hall(.81,.38,.25,.59,.21,'snow');builder.pier(-1,.17,.9,Math.PI/2);builder.pier(-1,.48,.7,Math.PI/2)
   } else if(type==='springs') {
-    builder.features=['Sıcak su havuzu','Ocak evleri','Kıyı iskelesi','Düzenli yerel sokaklar']
+    builder.features=['Sıcak su havuzu','Ocak evleri','Kıyı iskelesi','Düzenli yerel sokaklar','Yıpranmış eski mahalleler']
+    palette.stone='#8c9690';palette.wood='#63665b';palette.roof='#5c625b'
     builder.fountain(0,0,.3)
-    for(const side of [-1,1])for(let n=0;n<5;n++)builder.house(side*.53,-.6+n*.3,.16,true)
-    builder.hall(0,-.73,.36,.29,.28,'snow');builder.pier(-.89,.35,.65,Math.PI/2)
-    for(let i=0;i<8;i++)builder.house((i%4-1.5)*.31,.76+Math.floor(i/4)*.28,.125,true)
+    for(const side of [-1,1])for(let n=0;n<5;n++)builder.house(side*.53,-.6+n*.3,.16,true,0,n%3===0?'snow':'wood',1,true)
+    builder.hall(0,-.73,.36,.29,.28,'wood');builder.pier(-.89,.35,.65,Math.PI/2)
+    for(let i=0;i<8;i++)builder.house((i%4-1.5)*.31,.76+Math.floor(i/4)*.28,.125,true,0,'wood',1,true)
   } else if(type==='huts'||type==='warehouses') {
     builder.features=type==='huts'?['Ahşap barınaklar','Küçük iskele']:['Yıpranmış depolar','Kıyı iskeleleri','Kırık eski duvarlar']
     palette.stone='#88948c';palette.wood='#718077'
@@ -264,12 +324,12 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     builder.pier(-.9,.44,.77,Math.PI/2)
     if(type==='warehouses'){for(let n=0;n<3;n++)builder.hall(-.57+n*.43,.78,.31,.46,.22,'wood');builder.pier(-.91,.77,.87,Math.PI/2);builder.arch(.45,-.6,.35,.5,.13);builder.box(.52,-.49,.45,.19,.075,'stone',0,.3)}
   } else {
-    const size=place.major?.95:.4
+    const size=place.major?1.1:.61
     builder.features=[place.major?'Yerleşim merkezi':'Evler · küçük meydan · yerel yapı']
-    const count=place.major?18:7+Math.floor(random()*4)
+    const count=place.major?34:19+Math.floor(random()*11)
     for(let i=0;i<count;i++){
       const a=i*2.399,r=size*(.25+random()*.65)
-      builder.house(Math.sin(a)*r,Math.cos(a)*r,place.major?.19:.11+random()*.05,cold,a)
+      const x=Math.sin(a)*r,z=Math.cos(a)*r;if(dry(x,z))builder.house(x,z,place.major?.17:.075+random()*.035,cold,a,cold?'snow':'roof',i%7===0?2:1)
     }
     if(!place.major) {
       const variant=Math.floor(random()*4)
@@ -283,6 +343,32 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
     else if(place.major&&place.region!=='murgul'){builder.castle(0,-.08,.43)}
     else if(place.region==='murgul'&&place.major){builder.box(0,0,.4,.32,.6,'wood');builder.roof(0,0,.47,.32,.32)}
   }
+  // Districts grow around the institutions rather than leaving a few houses
+  // around one oversized roof. The same seed gives stable street blocks.
+  if(type&&type!=='capital'){
+    const extents=type==='guild'?[1.52,1.48]:type==='academy'||type==='temple'?[1.86,1.8]:type==='highcastle'?[1.48,1.43]:type==='twincastle'?[1.32,1.27]:type==='ruins'?[1.43,1.3]:[1.13,1.2]
+    const spacing=type==='academy'||type==='temple'?.18:.155,worn=['ruins','springs','huts','warehouses'].includes(type)
+    for(let ix=-Math.floor(extents[0]/spacing);ix<=Math.floor(extents[0]/spacing);ix++)for(let iz=-Math.floor(extents[1]/spacing);iz<=Math.floor(extents[1]/spacing);iz++){
+      const x=ix*spacing+(random()-.5)*.025,z=iz*spacing+(random()-.5)*.025
+      if(!dry(x,z)||Math.abs(x)<.065||Math.abs(z-.43)<.06)continue
+      if(type==='guild'&&((x>-.93&&x<.35&&z<.35)||(x>.36&&z>-.23&&z<.69)||(z>.73&&z<1.02&&Math.abs(x)<.58)||z<-.64))continue
+      if(['academy','temple'].includes(type)&&(Math.abs(x)<1.25&&Math.abs(z)<1.2||Math.hypot(x,z)>2.05))continue
+      if(type==='twincastle'&&(Math.abs(x)<.46||Math.abs(x+.72)<.46&&Math.abs(z+.22)<.39||Math.abs(x-.73)<.43&&Math.abs(z-.28)<.37))continue
+      if(type==='highcastle'&&(Math.abs(x)<.99&&Math.abs(z)<.95)||type==='ruins'&&(Math.abs(x)<.59&&z<.1||Math.abs(x-.94)<.28&&z<-.4||Math.abs(x+.89)<.28&&z>.37))continue
+      if(['springs','portfort'].includes(type)&&Math.abs(x)<.77&&Math.abs(z)<.86)continue
+      if(random()<.25)continue
+      builder.house(x,z,.085+random()*.04,cold,Math.sin(z*2.)*.1,worn?(cold&&ix%4===0?'snow':'wood'):cold?'snow':'roof',!worn&&random()>.65?2:1,worn)
+    }
+    if(type==='twincastle')for(const side of [-1,1])builder.lane([[side*.47,-1.21],[side*.63,-.6],[side*.52,0],[side*.82,.63],[side*.95,1.32]],.09,'wood')
+    else {
+      builder.lane([[0,-extents[1]],[0,.24],[.19,.43],[0,extents[1]]],worn?.065:.11,worn?'wood':'stone')
+      builder.lane([[-extents[0],.43],[-.6,.38],[0,.43],[.7,.51],[extents[0],.43]],worn?.065:.1,worn?'wood':'stone')
+      if(['guild','highcastle','academy','temple'].includes(type))for(const side of [-1,1])builder.lane([[side*1.3,-.86],[side*1.31,.4],[side*1.38,1.3]],.07)
+    }
+  }else if(type==='capital'){
+    builder.lane([[-1.7,.4],[-.85,.37],[0,.34],[.83,.31],[1.72,.34]],.1)
+    for(const side of [-1,1])builder.lane([[side*.23,.7],[side*.54,1.03],[side*.98,1.68]],.07)
+  }else builder.lane([[-.54,.13],[0,0],[.55,-.1]],.055,'wood')
   const group=builder.finish(palette,place.id)
   group.userData.modelScale=signature?.scale || (place.major?1.25:1)
   // Distant hamlets keep their full silhouettes without paying for dozens
@@ -291,6 +377,13 @@ export function buildSettlement(place: MappedPlace,surface?: (point:UV)=>number)
   group.name=`settlement:${place.id}`
   group.position.set(...worldPoint(place.point,baseline))
   return group
+}
+
+export function buildFarmstead(point:UV,surface:(p:UV)=>number,mill:boolean){
+  const origin=worldPoint(point),baseline=surface(point),builder=new Mason((x,z)=>surface(mapPoint(origin[0]+x,origin[2]+z))-baseline)
+  builder.house(0,0,.14,false,0,'wood');builder.hall(.19,.1,.13,.22,.11,'wood')
+  if(mill){builder.cylinder(-.17,.03,.055,.3);builder.roof(-.17,.03,.08,.1,.3,'wood',8);for(const a of [.5,.5+Math.PI/2])builder.place(new THREE.BoxGeometry(.29,.025,.015).rotateZ(a),'wood',-.17,.31,-.035)}
+  const group=builder.finish({...base,stone:'#9f957b',wood:'#7f7054'},'farmstead');group.position.set(origin[0],baseline+.027,origin[2]);group.name=mill?'rural-windmill':'rural-barn';return group
 }
 
 export function buildLandmark(feature: MapFeature) {
