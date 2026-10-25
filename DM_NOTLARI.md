@@ -1,13 +1,16 @@
-# DM notları — Marhalden–Hardlane
+# DM notları — On Kış Kararı
 
-Beş görevin tam metinleri, karşılaşma önerileri ve olası sonuçları şifreli pakettedir. Şifre yalnızca sohbetten verilmiştir.
+On Kış Kararı'nın **10 görevi ve 30 sahnesi**, görsel eşleştirmeleri, karşılaşmaları ve karar yankıları şifreli pakettedir. Önceki beş görevlik Yük ve Söz de aynı ZIP içinde korunur. Şifre değişmedi; yalnızca sohbetten verilmiştir.
 
 1. [DM paketini aç](web/public/DM-Paketini-Ac.html), ardından GitHub'da sağ üstteki **Download raw file** düğmesiyle HTML dosyasını indir.
 2. İndirdiğin HTML dosyasını tarayıcıda aç. Sohbette verilen şifreyi girip **Şifreyi aç ve ZIP’i indir** düğmesine bas.
-3. ZIP'i aç. `Marhalden-Hardlane-DM.md` okunabilir tam metindir. `Marhalden-Hardlane-DM.json` dosyasını sitede **Yayın Masası → Görevler → DM paketi aç** ile yükleyebilirsin.
+3. ZIP'i aç. **`On-Kis-Karari-DM.json`** dosyasını güncel sitede **Yayın Masası → Görevler → DM paketi aç** ile yükle. Okunabilir tam kitapçık `On-Kis-Karari-DM.md` dosyasıdır.
+4. Görevi ve sahneyi seç. **Sahneyi hazırla** arka planı ve kişileri perde arkasında yerleştirir; kontrol ettikten sonra **Oyunculara göster** ile aç. Oyuncuların kararını ve tamamlanma durumunu aynı rehberde kaydet.
 
 Yerel site zaten açıksa doğrudan `http://localhost:5173/DM-Paketini-Ac.html` adresini kullanabilirsin. Güncel sürüm gerekir.
 
-Paket içeriği: **Son Sıcak Tas**, **Nöbetin Payı**, **Koşumun Bedeli**, **Kırık Kanat Sırası**, **Yapılmamış Yolun Aletleri**. Oyuncu karakterleri ve seviyeleri önceden belirlenmemiştir. Seçimlerin sonuçları olasılık olarak yazılmıştır.
+Yeni yolculuk sırası: **Son İlaç → Köprünün İki Tarafı → Aç Çocuk → Masum Canavar → Bir Kişiye Karşı Bir Mahalle → Hainin Kızı → Son Kayık → İyi Kalpli Nekromant → Kralın Yalanı → Sizi Kurtaran Düşman**. Bir erzak sevki ve tekrar karşılaşılan insanlar görevleri bağlar. 3–5 oturum için öneri planı kitapçığın başındadır; görevler kısaltılabilir. Parti ve seviyeleri önceden belirlenmemiştir.
+
+Eski `Marhalden-Hardlane-DM.json/md` dosyaları ayrı bir mini kampanyadır. Yeni on görevlik rehberi görmek için ZIP'teki **On-Kis-Karari-DM.json** dosyasını seç; eski dosyayı yeniden yüklemek yeni rehberi açmaz.
 
 [Ayrıntılı indirme ve şifreleme açıklaması](lore/DM_PAKETI_INDIRME.md).

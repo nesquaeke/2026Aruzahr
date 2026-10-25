@@ -2,6 +2,7 @@ import { newPortraitArtworks, paintedPortraitAliases } from './portrait-manifest
 import { paintedSceneArtworks, paintedSceneAliases } from './painted-art-manifest'
 import { mappedSettlementArtworks, mappedSettlementAliases } from './mapped-art-manifest'
 import { writerArtworks } from './writer-art-manifest'
+import { winterArtworks, winterAliases } from './winter-art-manifest'
 
 export type Artwork = { id: string; src: string; title: string; caption: string; origin: 'author' | 'generated' | 'map' | 'adapted'; portrait?: boolean; painted?: boolean; category?: 'fauna' | 'landscape' | 'portrait' | 'scene'; relatedId?: string }
 const picture = (id: string, title: string, caption: string, origin: Artwork['origin'] = 'generated', portrait = false): Artwork => ({ id, src: `/illustrations/${id}.webp`, title, caption, origin, portrait })
@@ -40,9 +41,9 @@ const sessionArtworks: Artwork[] = [
   ...[['sela-varn', 'Sela Varn'], ['deren-olm', 'Deren Olm'], ['aysra-tann', 'Aysra Tann'], ['ovel-sarn', 'Ovel Sarn']].map(([id, name]): Artwork => ({ id: `session-${id}`, src: `/illustrations/session-${id}.webp`, title: name, caption: 'Yük ve Söz · yeni kamusal karakter tasviri', origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: id })),
 ]
 export const artworks: Record<string, Artwork> = Object.fromEntries([
-  ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks,
+  ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks,
 ].map(a => [a.id, a]))
-const portraitAliases: Record<string, string> = { 'bryndon-kiyi-defteri': paintedPortraitAliases.bryndon || 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases, 'sela-varn': 'session-sela-varn', 'deren-olm': 'session-deren-olm', 'aysra-tann': 'session-aysra-tann', 'ovel-sarn': 'session-ovel-sarn', 'marhalden-aktarma-avlusu': 'session-marhalden-avlu', 'frostbay-kirik-kanat-yuk-evi': 'session-frostbay-kirik-kanat' }
+const portraitAliases: Record<string, string> = { ...winterAliases, 'bryndon-kiyi-defteri': paintedPortraitAliases.bryndon || 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases, 'sela-varn': 'session-sela-varn', 'deren-olm': 'session-deren-olm', 'aysra-tann': 'session-aysra-tann', 'ovel-sarn': 'session-ovel-sarn', 'marhalden-aktarma-avlusu': 'session-marhalden-avlu', 'frostbay-kirik-kanat-yuk-evi': 'session-frostbay-kirik-kanat' }
 export const portraitFor = (id: string) => { const item = artworks[portraitAliases[id] || id]; return item?.portrait ? item : undefined }
 const readingCovers: Record<string, string> = { 'danstsud-ekmek-ve-vergi':'pilorn', 'hardlane-bir-kis':'frostbay', 'karlan-iscilik-ve-gecit':'marhalden', 'danstsud-makam-ve-itiraz':'valdareth' }
 export const artworkFor = (id: string) => artworks[portraitAliases[id] || id]
@@ -57,6 +58,6 @@ const galleries: Record<string, string[]> = {
 }
 export function galleryFor(id: string, region: string, cover: string): Artwork[] {
   const primary = primaryArtwork(id) || Object.values(artworks).find(a => a.src === cover) || countryArt[region]
-  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
+  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
   return list.filter((item, i) => list.findIndex(a => a.id === item.id) === i)
 }

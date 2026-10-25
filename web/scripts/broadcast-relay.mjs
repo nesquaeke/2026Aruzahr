@@ -40,6 +40,8 @@ export function publicBroadcastState(value) {
   if (source.version !== 1) badRequest('Yayın sürümü desteklenmiyor.')
   if (!['map', 'scene'].includes(source.mode)) badRequest('Yayın görünümü tanınmıyor.')
   for (const field of ['blackout', 'cameraLane', 'showNames']) if (typeof source[field] !== 'boolean') badRequest(`${field} doğru veya yanlış olmalı.`)
+  if (source.intermission !== undefined && typeof source.intermission !== 'boolean') badRequest('Ara durumu geçersiz.')
+  if (source.breakMessage !== undefined) text(source.breakMessage, 160, 'Ara mesajı', true)
   text(source.title, 240, 'Yayın başlığı', true)
   finite(source.sceneZoom, 1, 4, 'Sahne yakınlaştırması')
   const actors = array(source.actors, 40, 'Sahne öğeleri').flatMap(value => {
@@ -93,7 +95,7 @@ export function publicBroadcastState(value) {
   return {
     version: 1, mode: source.mode, scene: asset(source.scene), sceneZoom: source.sceneZoom,
     actors, tokens, strokes, camera, customAssets: [], roll,
-    blackout: source.blackout, title: source.title, cameraLane: source.cameraLane, showNames: source.showNames,
+    intermission: source.intermission || false, breakMessage: source.breakMessage || '', blackout: source.blackout, title: source.title, cameraLane: source.cameraLane, showNames: source.showNames,
   }
 }
 

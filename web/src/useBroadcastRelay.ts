@@ -16,7 +16,7 @@ export function publicRelayState(state: BroadcastState): BroadcastState {
   return validateBroadcastState({
     version: state.version, mode: state.mode, scene: state.scene, sceneZoom: state.sceneZoom,
     actors: state.actors.filter(actor => !actor.hidden), tokens: state.tokens, strokes: state.strokes,
-    camera: state.camera, customAssets: [], roll: state.roll, blackout: state.blackout,
+    camera: state.camera, customAssets: [], roll: state.roll, intermission: state.intermission || false, breakMessage: state.breakMessage || '', blackout: state.blackout,
     title: state.title, cameraLane: state.cameraLane, showNames: state.showNames,
   })
 }

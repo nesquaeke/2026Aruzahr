@@ -4,7 +4,7 @@ Sohbetteki bulut dosya yollarına erişilemiyorsa [şifreli paket dosyasını](.
 
 Alternatif: güncel depoyu indir, yerel siteyi başlat ve `http://localhost:5173/DM-Paketini-Ac.html` adresine git.
 
-ZIP içindeki `Marhalden-Hardlane-DM.md` tam görevleri okumak içindir. `Marhalden-Hardlane-DM.json`, **Yayın Masası → Görevler → DM paketi aç** ile içe aktarılır.
+ZIP içindeki `On-Kis-Karari-DM.md` yeni on görevi okumak içindir. `On-Kis-Karari-DM.json`, **Yayın Masası → Görevler → DM paketi aç** ile içe aktarılır. Bu sürümde 30 sahne, görsel hazırlama, karar ve ilerleme takibi vardır. Önceki beşli `Marhalden-Hardlane-DM.json/md` de ZIP içinde ayrıca korunur. Paket şifresi değişmemiştir.
 
 GitHub'daki HTML yalnızca AES-256-GCM ile şifrelenmiş paketi içerir. Anahtar PBKDF2-SHA256 ve rastgele tuz ile 600.000 turda türetilir. Şifre depoya eklenmez; şifre çözümü cihazda yapılır, ağ isteği gönderilmez. Bu dosya otomatik olarak oyuncu sahnesine veya görsel kütüphanesine eklenmez. Şifreyi oyuncularla paylaşma.
 

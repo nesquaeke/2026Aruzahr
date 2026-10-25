@@ -14,7 +14,7 @@ import { articleById, locationById, regionById, loreArticles, historyArticle } f
 import { portraitFor } from '../src/media';
 
 test('every identified character has six bounded editable abilities without assigning identity to unknown portraits', () => {
-  expect(characters).toHaveLength(165);
+  expect(characters).toHaveLength(173);
   expect(Object.keys(characterAbilities).sort()).toEqual(characters.map(person => person.id).sort());
   for (const person of characters) {
     const scores = characterAbilities[person.id];
@@ -99,8 +99,8 @@ test('the character directory shows the full roster, filters by place and reads 
   await page.goto('/#/characters');
   await expect(page.getByTestId('characters-hub')).toBeVisible();
   await expect(page.locator('.character-directory-entry')).toHaveCount(24);
-  await page.getByRole('button', { name: 'Bütün 165 kişiyi göster', exact: true }).click();
-  await expect(page.locator('.character-directory-entry')).toHaveCount(165);
+  await page.getByRole('button', { name: 'Bütün 173 kişiyi göster', exact: true }).click();
+  await expect(page.locator('.character-directory-entry')).toHaveCount(173);
   await page.getByRole('combobox', { name: 'Karakterin şehri' }).selectOption('marhalden');
   const local = characters.filter(person => person.city === 'marhalden');
   await expect(page.locator('.character-directory-entry')).toHaveCount(local.length);

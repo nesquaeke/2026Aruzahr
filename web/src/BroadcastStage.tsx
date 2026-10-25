@@ -1,6 +1,7 @@
 import { useRef, useState, type PointerEvent } from 'react'
 import { Grip, Maximize2, X } from 'lucide-react'
 import BroadcastMap from './BroadcastMap'
+import BroadcastBreak from './BroadcastBreak'
 import type { MapCamera, MapStroke, MapToken } from './BroadcastMap'
 import type { BroadcastAsset } from './BroadcastLibrary'
 import { BroadcastDiceDisplay } from './BroadcastDice'
@@ -60,6 +61,7 @@ export default function BroadcastStage({ state, readOnly = false, tool = 'pan', 
       {!readOnly && <><span className="broadcast-actor-grip" aria-hidden="true"><Grip size={12} /></span><button className="broadcast-actor-remove" aria-label={`${actor.name} sahneden kaldır`} onPointerDown={event => event.stopPropagation()} onClick={() => remove(actor.id)}><X size={13} /></button><button className="broadcast-actor-resize" aria-label={`${actor.name} boyutlandır`} onPointerDown={event => begin(event, actor, 'resize')} onPointerMove={drag} onPointerUp={() => { move.current = null }} onPointerCancel={() => { move.current = null }}><Maximize2 size={13} /></button></>}
     </div>)}</div>
     <BroadcastDiceDisplay roll={state.roll} />
-    {state.blackout && <div className={`broadcast-curtain ${readOnly ? '' : 'operator-curtain'}`} data-testid="broadcast-curtain"><span>ARUZAHR</span><p>Bir sonraki sahneye hazırlanıyoruz.</p>{!readOnly && <button onClick={() => onChange?.({ blackout: false })}>Perdeyi aç</button>}</div>}
+    {state.intermission && <BroadcastBreak message={state.breakMessage || ''} />}
+    {state.blackout && !state.intermission && <div className={`broadcast-curtain ${readOnly ? '' : 'operator-curtain'}`} data-testid="broadcast-curtain"><span>ARUZAHR</span><p>Bir sonraki sahneye hazırlanıyoruz.</p>{!readOnly && <button onClick={() => onChange?.({ blackout: false })}>Perdeyi aç</button>}</div>}
   </div>
 }

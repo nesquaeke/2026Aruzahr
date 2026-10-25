@@ -1,6 +1,6 @@
 import { forwardRef, lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
-import { ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Users, Waves, X } from 'lucide-react'
+import { RotateCcw, ArrowRight, BookOpen, Bookmark, Castle, Check, ChevronRight, Compass, Crown, Flame, Globe2, Image as ImageIcon, Keyboard, Layers, Library, Map, MapPin, Maximize2, Menu, Minimize2, Mountain, Plus, Minus, Search, Snowflake, Sparkles, Trees, Users, Waves, X } from 'lucide-react'
 import type { AtlasHandle, AtlasProps } from './Atlas'
 import { articleById, canonicalId, historyArticle, locationById, loreArticles, loreKindLabels, mapLocations, normalize, places, regionById, regions, subregionById } from './data'
 import { featureById, mapFeatures, featureLabels } from './map-features'
@@ -175,6 +175,7 @@ export default function App() {
     { href: '/gallery', label: 'Galeri', Icon: ImageIcon, active: gallery },
     { href: '/books', label: 'Kitaplar', Icon: Library, active: books },
     { href: '/broadcast', label: 'Yayın Masası', Icon: Maximize2, active: false },
+    { href: '/broadcast/reset', label: 'Verileri sıfırla', Icon: RotateCcw, active: false },
     { href: '/wiki/buyuk-kirilma', label: 'Büyük Kırılma', Icon: Globe2, active: isHistory },
   ]
   const activeView = navigation.find(item => item.active)?.label || 'Atlas'

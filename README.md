@@ -17,7 +17,7 @@ Yerleşim ve coğrafya katmanları başlangıçta açıktır. Bir ülkeyi seçme
 ## Atlasın içinde
 
 - Şehir kartlarında nüfus tahmini, yönetici, geçim kaynakları ve göreli idare/ticaret/ekonomi/savunma göstergeleri.
-- 165 karakter biyografisi; büyük şehirlerin lonca, askerî birlik, donanma ve dinî kurum kadroları ile Yük ve Söz'ün dört yeni sivil kişisi. Başkentteki On İki Şövalye ayrı kişilerden oluşur.
+- 173 karakter biyografisi; büyük şehirlerin lonca, askerî birlik, donanma ve dinî kurum kadroları ile Yük ve Söz/On Kış Kararı'nın yeni kişileri. Başkentteki On İki Şövalye ayrı kişilerden oluşur.
 - 246 genel lore/kişi kaydı; konuya göre bölümler, kısa okuma kartları, tam lore, içindekiler ve sakin okuma modu.
 - 371 görsellik galeri: 203 yeni boya dokulu illüstrasyon, özgün yüklemeler ve 52 kaynak harita adı için özgün çizimden alınan kesitler. Görseller wiki içinden büyütülür.
 - Eski, yasak ve kayıp kitaplar için ayrı kitaplık; 14 kısa kitap, çevrilebilir parşömen yaprakları.
@@ -50,3 +50,5 @@ Honud, Danstsud ve Garmirk kullanıcı tarafından belirlenen yazımlardır. Dan
 Danstsud'un yeni otorite zincirleri [şehirler ve kadrolar belgesinde](lore/danstsud/SEHIRLER_VE_KADROLAR.md), diğer ülkelerin karakterleri ve canlıları [dünya kadroları belgesinde](lore/DUNYA_KADROLARI_VE_CANLILAR.md) bulunur. Ayrıntılı çalışma belgeleri [lore/danstsud/](lore/danstsud/) dizinindedir.
 
 Görev sırları, DM notları ve Broken Oath uygulamaya dahil edilmez. Statik barındırmaya yalnızca `web/dist/` yükle; ham yazar belgeleri uygulamanın dışında kalır.
+
+Yayın güncellemesi: [On Kış Kararı kullanım rehberi](lore/ON_KIS_KARARI_KULLANIM.md) — 10 görev/30 sahne, görselli DM yönetmeni, animasyonlu ara ekranı, tüm yerel verileri sıfırlama ve 4K OBS yerleşimi. [DM notları ve şifreli indirme](DM_NOTLARI.md).

@@ -117,7 +117,8 @@ test('ayrı yayın penceresi yalnızca sahneyi gösterir; arka plan, çoklu port
   await expect(live.getByRole('textbox')).toHaveCount(0)
   await expect(live.getByTestId('broadcast-workspace')).toHaveCount(0)
   await expect(live.getByTestId('broadcast-dm-notes')).toHaveCount(0)
-  await expect(live.getByRole('button')).toHaveCount(0)
+  await expect(live.getByRole('button', { name: 'Tam ekran · F', exact: true })).toHaveCount(1)
+  await expect(live.locator('.broadcast-stage button')).toHaveCount(0)
 
   await chooseScene(page, 'valdareth', 'Valdareth')
   await expect(live.getByTestId('broadcast-scene').getByRole('img')).toHaveAttribute('alt', 'Valdareth')

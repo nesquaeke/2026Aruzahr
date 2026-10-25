@@ -30,6 +30,8 @@ export type BroadcastState = {
   camera: MapCamera | null
   customAssets: BroadcastAsset[]
   roll: BroadcastRoll | null
+  intermission?: boolean
+  breakMessage?: string
   blackout: boolean
   title: string
   cameraLane: boolean
@@ -175,7 +177,7 @@ export function newBroadcastState(): BroadcastState {
   if (!scene) throw new Error('Yayın için başlangıç sahnesi bulunamadı.')
   return {
     version: 1, mode: 'map', scene: { ...scene }, sceneZoom: 1, actors: [], tokens: [], strokes: [], camera: null, customAssets: [], roll: null,
-    blackout: false, title: 'Marhalden’den Hardlane’e', cameraLane: false, showNames: true,
+    intermission: false, breakMessage: '', blackout: false, title: 'Marhalden’den Hardlane’e', cameraLane: false, showNames: true,
   }
 }
 
@@ -195,6 +197,7 @@ export function validateBroadcastState(input: unknown): BroadcastState {
     strokes: uniqueIds(list(source.strokes, 'Harita çizimleri', 500).map(stroke), 'Harita çizimleri'),
     camera: cameraSource ? { x: number(cameraSource.x, 'Kamera yatay konumu', -1, 2), y: number(cameraSource.y, 'Kamera dikey konumu', -1, 2), zoom: number(cameraSource.zoom, 'Harita yakınlaştırması', 0.5, 100) } : null,
     customAssets: uniqueIds(list(source.customAssets, 'Yerel görseller', 100).map(value => asset(value, 'Yerel görsel')), 'Yerel görseller'),
+    intermission: source.intermission === undefined ? false : boolean(source.intermission, 'Ara ekranı'), breakMessage: source.breakMessage === undefined ? '' : text(source.breakMessage, 'Ara mesajı', 160, true),
     roll: roll(source.roll), blackout: boolean(source.blackout, 'Karartma'), title: text(source.title, 'Yayın başlığı', 240, true),
     cameraLane: boolean(source.cameraLane, 'Kamera alanı'), showNames: boolean(source.showNames, 'Ad etiketleri'),
   }
