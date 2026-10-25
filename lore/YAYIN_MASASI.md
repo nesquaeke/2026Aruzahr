@@ -24,6 +24,8 @@ Tam görev sırları, sahnelerin çözüm yolları, karşılaşma önerileri ve 
 
 Bir görevin notunu değiştirip başka göreve geçtiğinde değişiklik o görevde kalır. **Defteri indir**, düzenlediğin özel paketi veya serbest notunu ayrı dosyaya kaydeder; bu indirme yayına ya da sahne yedeğine eklenmez.
 
+Sohbetin dosya bağlantısı indirilemiyorsa [şifreli GitHub teslim dosyasını](DM_PAKETI_INDIRME.md) kullan. Şifre yalnızca sohbetten verilir; görevlerin açık metni GitHub'a eklenmez.
+
 ## Kayıt ve taşıma
 
 Sahne, çizimler, taşlar, yüklediğin görseller ve son zar bu tarayıcıda otomatik saklanır. Oturum panelinde **Şimdi kaydet**, **Oturum yedeğini indir** ve **Oturum yedeği aç** bulunur. Yedek, yerel portreleri de içerir; başka bilgisayara taşınabilir. DM defteri ve özel görev paketi oturum yedeğine dahil değildir; kendi özel dosyanı ayrıca koru.
