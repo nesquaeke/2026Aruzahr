@@ -9,6 +9,11 @@ export const abilities: { key: AbilityKey; name: string; use: string }[] = [
  {key:'WIS',name:'Bilgelik',use:'Algı ve muhakeme'}, {key:'CHA',name:'Karizma',use:'İfade ve ikna'},
 ]
 export const characterAbilities: Record<string, AbilityScores> = {
+  // Yük ve Söz: siviller için düzenlenebilir oyun taslağı; güç rütbesi değildir.
+  'sela-varn': [9, 11, 11, 14, 13, 12],
+  'deren-olm': [13, 10, 13, 11, 14, 11],
+  'aysra-tann': [12, 14, 12, 12, 15, 10],
+  'ovel-sarn': [11, 12, 12, 13, 14, 14],
   'eryndorn': [10, 11, 10, 18, 14, 18],
   'alisande': [9, 12, 12, 15, 16, 17],
   'ilyenne': [9, 12, 11, 15, 12, 14],

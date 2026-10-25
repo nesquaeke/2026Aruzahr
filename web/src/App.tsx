@@ -174,6 +174,7 @@ export default function App() {
     { href: '/characters', label: 'Karakterler', Icon: Users, active: people },
     { href: '/gallery', label: 'Galeri', Icon: ImageIcon, active: gallery },
     { href: '/books', label: 'Kitaplar', Icon: Library, active: books },
+    { href: '/broadcast', label: 'Yayın Masası', Icon: Maximize2, active: false },
     { href: '/wiki/buyuk-kirilma', label: 'Büyük Kırılma', Icon: Globe2, active: isHistory },
   ]
   const activeView = navigation.find(item => item.active)?.label || 'Atlas'

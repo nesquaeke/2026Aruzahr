@@ -52,7 +52,7 @@ Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel k
 
 `presentation.ts`, `mapped-place-dossiers.ts` ve `world-dossiers.ts` şehir kartlarını birleştirir: nüfus, yönetim, iklim, geçim ve göreli güçler. Yeni nüfuslar kurgusal tahmin olarak not edilir. Özgün Frostbay/Dranthol sayıları korunur.
 
-`lore/characters.ts`, Danstsud, dünya ve yazar kadro modülleriyle 161 karakteri sunar. `CharactersHub.tsx` isim, görev, ülke, şehir ve kurum filtrelerini birleştirir; `character-abilities.ts` bütün kişilerin düzenlenebilir altı D&D niteliğini, ortak `CharacterAbilities.tsx` ise kart ve wiki gösterimini sağlar. Sayılar oyun taslağıdır; birleşik güç çerçevesi ayrı tutulur. `InstitutionRoster.tsx` şehirleri askerî/dinî/akademik kurumlara, kurumları portreli üyelere bağlar. On İki Şövalye kadrosunda tam 12 farklı kişi bulunur. `CharacterCard.tsx` ve `character-card-profiles.ts` birleşik dövüş/büyü/siyasi nüfuza göre dört çerçeve sınıfını uygular; açıklanmamış portreler sınıflandırılmaz.
+`lore/characters.ts`, Danstsud, dünya ve yazar kadro modülleriyle 165 karakteri sunar. `CharactersHub.tsx` isim, görev, ülke, şehir ve kurum filtrelerini birleştirir; `character-abilities.ts` bütün kişilerin düzenlenebilir altı D&D niteliğini, ortak `CharacterAbilities.tsx` ise kart ve wiki gösterimini sağlar. Sayılar oyun taslağıdır; birleşik güç çerçevesi ayrı tutulur. `InstitutionRoster.tsx` şehirleri askerî/dinî/akademik kurumlara, kurumları portreli üyelere bağlar. On İki Şövalye kadrosunda tam 12 farklı kişi bulunur. `CharacterCard.tsx` ve `character-card-profiles.ts` birleşik dövüş/büyü/siyasi nüfuza göre dört çerçeve sınıfını uygular; açıklanmamış portreler sınıflandırılmaz.
 
 `WikiArticle.tsx` şehir pasaportu, merak kartları, kurumlar, portreler ve galeriden sonra konuya göre seçilebilen lore bölümlerini sunar. Kartlar, tam okuma, sakin okuma, bölüm adımları, gerçek kaydırma ilerlemesi ve içindekiler aynı metne erişir. Büyük Kırılma mevcut 16 bölümlük genel tarih anlatısını ve karşılaştırmalı tarih deneyimini korur.
 
@@ -66,6 +66,15 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-143 Playwright senaryosu vardır: önceki atlas/ansiklopedi için 117, isteğe bağlı Danstsud 3D için 26. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel liste 170 Playwright senaryosu içerir; 26’sı Yayın Masası içindir. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
+
+
+## D&D Yayın Masası
+
+`/#/broadcast` yönetimi, `/#/broadcast/live` yalnızca yayına giden 16:9 sahneyi gösterir. `BroadcastWorkspace.tsx` sahne/parti/özel defteri, `BroadcastStage.tsx` taşınabilir görsel katmanlarını, `BroadcastMap.tsx` kaynak UV koordinatındaki çizim/taşları yönetir. `BroadcastDice.tsx` animasyon ve WebAudio, `broadcast-dice-engine.ts` reddetme örneklemeli güvenli zar üretimi, `broadcast-state.ts` IndexedDB ve taşınabilir JSON yedeklerini sağlar.
+
+`useBroadcastRelay.ts` aynı tarayıcıdaki BroadcastChannel yoluna ek olarak yerel OBS profiline ulaşır. `scripts/broadcast-relay.mjs` Vite dev/preview üzerinde yalnızca kamusal sahneyi bellekte aktarır; DM defteri, kullanılmayan yüklemeler ve gizlenmiş katmanlar yayımlanmaz. Doğrudan statik barındırmada bu yerel bağlantı yoktur; aynı tarayıcı penceresini OBS yakalayabilir. Gizli görev paketi repo ve uygulama çıktısının dışındadır; kullanıcı dosya seçerek sadece yönetim defterine yükler.
+
+Kullanım: [Yayın Masası rehberi](../lore/YAYIN_MASASI.md). Windows başlatıcısı `Yayini-Baslat.cmd`, bash başlatıcısı `Yayini-Baslat.sh` köktedir.

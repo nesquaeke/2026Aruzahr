@@ -4,6 +4,7 @@ import { danstsudExpansionArticles, karlanExpansionArticles } from './lore/danst
 import { hardlaneArticles } from './lore/hardlane'
 import { hardlaneLawArticles } from './lore/hardlane-laws'
 import { hardlaneCoastArticles } from './lore/hardlane-coasts'
+import { hardlaneSessionArticles } from './lore/hardlane-session'
 import { bryndonArticles } from './lore/bryndon'
 import { taxVillages, visualPeopleArticles } from './presentation'
 import { atlasRouteArticles, atlasGeographyArticles } from './map-features'
@@ -189,7 +190,7 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place
 export const subregions: Subregion[] = danstsudSubregions
 export type MappedPlace = Place & { point: [number, number] }
 export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions].map(article => {
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...hardlaneSessionArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...newDanstsudInstitutions].map(article => {
   const operations = institutionOperations[article.id];
   const biography = characterLifeSections(article.id);
   const additions = [...(operations ? [{ title: 'Yetki, destek ve hesap verme', paragraphs: [operations.mandate, operations.chain, operations.support, operations.accountability] }] : []), ...biography, ...(speciesExpansion[article.id] || [])];
