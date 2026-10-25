@@ -1686,7 +1686,7 @@ export function DicePanel() {
   )
 }
 export function MapPanel() {
-  const { p, change, draft, live, notify } = useStudio(),
+  const { p, change, draft, live, notify, perform } = useStudio(),
     [name, setName] = useState(''),
     [first, setFirst] = useState(''),
     [second, setSecond] = useState('')
@@ -1704,11 +1704,18 @@ export function MapPanel() {
       <button onClick={() => draft({ mode: 'map' })}>
         Haritayı hazırlığa aç
       </button>
+      {p.draft.mode === 'map' && (
+        <button onClick={() => perform('close-map')}>
+          Haritayı kapat · sahneye dön
+        </button>
+      )}
       <Field label="Şehre odaklan">
         <select
           defaultValue=""
           onChange={(e) => {
             const city = placeById(e.target.value)
+            e.currentTarget.value = ''
+            e.currentTarget.blur()
             if (city?.point)
               draft({
                 mode: 'map',

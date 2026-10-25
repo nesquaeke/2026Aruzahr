@@ -34,6 +34,8 @@ Görev panelinde adımları sırayla yürüt, kontrol maddelerini işaretle, ger
 
 Görev sonuçları otomatik olarak wiki kanonuna yazılmaz. DM paketi ve kampanya kaydı, uygulamanın halka açık lore verilerinden ayrıdır.
 
+Görevdeki **1–2–3** düğmeleri aynı görevin anlatım adımlarıdır. Örneğin Son İlaç; varış, araştırma ve karar olarak ilerler. Bazı adımlar aynı arka planı/portreleri kullanır; olay ve kontrol metni değişir. **Sahneyi hazırla** sonrasında resim/portrelerin hazırlandığını belirten bildirim görünür; hazırlıktaki ara/perde kaldırılır. **Oyunculara göster** ayrı canlı yayın komutudur.
+
 ## Kişiler, katmanlar ve ipuçları
 
 **Kişi** panelinde parti, NPC/dost ve düşman/canlı listeleri vardır. Gerçek ad ile oyuncuların bildiği adı ayırabilirsin. **Kimlik oyunculara açık** kapalıysa sahneye bilinen ad taşınır. Konuşma tavrı, amaç, ilişki, not, can ve zırh özel kayıttır.
@@ -49,6 +51,8 @@ Araç çubuğu: gezinme, kalem, ok, silgi, dikkat halkası ve yer işareti. Kale
 **Harita** panelinden şehir odağı, kamera yer imi, özel/açık işaret, yol etabı, etap sırası, tamamlanan etap sayısı ve taş kilitleri yönetilir. Yeni yer işareti önce özeldir. Dikkat halkası altı saniye görünür. Haritada gezinmek izleyici kamerasını taşımaz; ilgili canlı düğmesini kullan veya sahneyi yayına al.
 
 Kilometre ölçeği başlangıçta tanımsızdır. Gerçek bir evren ölçeğin varsa haritanın **8192 piksel yatay genişliğinin kaç kilometre** olduğunu gir, sonra iki işaret seç. Sonuç kuş uçuşudur; dağ geçidi yürüyüş süresi değildir. Yer imleri kamera/ölçek bilgisini taşır.
+
+Haritadan çıkmak için **Haritayı kapat · sahneye dön**, araç çubuğundaki **Haritayı kapat · Esc** veya **Esc** kullan. Şehir seçimi tek seferlik odaklanmadır; seçimden sonra liste kapanıp odağı bırakır. Yeniden gezinmek için seçim listesini açık tutman gerekmez. Haritadan çıkmak canlı görüntüyü değiştirmez.
 
 ## Savaş ve zar
 

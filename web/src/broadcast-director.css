@@ -13,3 +13,5 @@
 @media(max-width:820px){.dm-roadmap{grid-template-columns:1fr 1fr}.broadcast-break-controls{padding-top:10px}.broadcast-break-controls input{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.broadcast-break-map,.broadcast-break-mist,.broadcast-break-grain{animation:none;will-change:auto}}
 .dm-route-picker{margin:12px 0 22px;border:1px solid #b1c4ab24;border-radius:6px;padding:10px;background:#0c192080}.dm-route-picker>summary{color:#c7b48b;cursor:pointer;font-size:12px}.dm-route-picker .dm-roadmap{margin:12px 0 0}.dm-stage-actions{position:sticky;top:-23px;z-index:12;background:#10181ef5;padding:10px 0 14px;margin-bottom:6px;backdrop-filter:blur(12px)}
+
+.dm-action-help{padding:12px 14px;margin:12px 0;background:#13272b;border:1px solid #718b7d44;border-radius:8px;font-size:12px;line-height:1.7;color:#bac8bf}.dm-action-help p{margin:0 0 8px}.dm-action-help p:last-child{margin-bottom:0}.dm-action-help strong{color:#e1d4b3}.dm-prepared-status{padding:10px;border-left:3px solid #a9c59e;background:#243e32;color:#e5f0df}

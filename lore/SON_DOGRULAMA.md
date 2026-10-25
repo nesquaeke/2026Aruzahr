@@ -223,3 +223,14 @@ Derlenmiş uygulamanın 4197 üretim önizlemesinde gerçek On Kış Kararı JSO
 Şifreli HTML'nin yanlış şifreyi reddettiği ve doğru şifreyle verdiği ZIP'in özel kaynak ZIP'le bayt düzeyinde aynı olduğu Chromium'da sınandı. Parola değişmedi ve depo taramasında bulunmadı. ZIP'te eski beşli paket korunur; yeni sürümde Taren'in erken sahnelerdeki bilinen adları ve stüdyo kılavuzu bulunur. Toplam altı dosyadır. Açık özel DM JSON/Markdown, kaynak veya uygulama varlıklarına kopyalanmadı. Yeni kampanya yedeği bilinçli olarak özel verileri içeren, kullanıcıya indirilen ayrı bir dosyadır; canlı protokol ve eski kamusal yedek bu bilgileri içermez.
 
 `git diff --check`, `bash -n Yayini-Baslat.sh` ve `bash -n Yayini-Uzaktan-Baslat.sh` geçti. Yeni hazır 12 WAV dosyası proje için prosedürel olarak üretildi; dış kayıt veya müzik kullanılmadı. Yeni illüstrasyon üretildiği iddia edilmez. Gerçek OBS masaüstü ve Windows başlatıcısı bu Linux ortamında çalıştırılmadı. OBS WebSocket 5 kimlik doğrulaması/sahne geçişi taklit protokol sunucusunda, görüntü ve tek ses sahipliği gerçek ayrı Chromium profillerinde sınandı. Telefon/oylama erişilebilir ağ/sunucu ister; Twitch entegrasyonu veya otomatik internet barındırması değildir. GitHub kaynak güncellemesi haricî canlı site dağıtımı olarak sunulmaz.
+
+
+## 25 Ekim 2026 — haritadan çıkış ve görev düğmelerinin anlaşılması
+
+Yayın Masası haritasına açık kapatma düğmeleri ve Esc ile sahneye dönüş eklendi. Şehre odaklanma seçimi sonrasında liste boş duruma döner ve odağı bırakır; aynı yeri yeniden seçmek mümkündür ve fare tekerleği odaktaki listeden yeni şehir seçmez. Harita incelemesi görev sahnesinin başlığını değiştirmez. Görevden haritaya geçiş, eski sahnenin hazır işaretini kaldırır.
+
+Aynı arka planı kullanan adımların ayrı olay/araştırma/karar aşamaları olduğu rehberde açıklanır. Hazırlama sonrasında görünür durum bildirimi vardır. Hazırlıkta kalmış ara ekranı yeni resmi örtebiliyordu; hazırlama artık ara/perdeyi kapatır. Canlıya geçiş ayrı komut olarak kalır. Görev görselleri ve lore değiştirilmedi.
+
+İlk iki yeni senaryodan biri otomatik kaydın 700 ms gecikmesini beklemeden kamera değerini okuyup hata verdi; test kayıt oluşmasını bekleyecek biçimde düzeltildi. Son hedefli koşu **9/9 geçti, 1,2 dakika** (`map-exit-regression.log`): seçim odağı/tekrarı, gerçek pan/zoom sonrası kameranın geri sıçramaması, düğme/Esc ile çıkış, aynı resimli üç adımın açıklaması, hazırlıkta aranın kaldırılması ve özel metnin canlıya çıkmaması; eski rehber/ara/sıfırlama ve harita/işaret uyumluluğu. Yeni dosya iki farklı senaryo ekler; arşiv toplamı 215'tir. Önceki geniş doğrulama bu küçük düzeltme için baştan tekrarlanmadı.
+
+Son kaynakla üretim derlemesi başarılıdır (`map-exit-build-final.log`). İki yeni senaryo telefon genişliğinde hazırlık bildirimi kontrolü eklenerek **2/2, 14,7 saniye** tekrar geçti (`map-exit-final.log`); önceki dokuzun alt kümesidir. `git diff --check` temizdir.

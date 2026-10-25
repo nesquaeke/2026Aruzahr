@@ -66,7 +66,7 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-Güncel arşiv 213 senaryo içerir; yeni stüdyo için 36 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel arşiv 215 senaryo içerir; yeni stüdyo için 38 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
 

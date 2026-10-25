@@ -662,6 +662,7 @@ export default function StudioWorkspace() {
       actors,
       roll: null,
       blackout: false,
+      intermission: false,
       studio: { ...p.draft.studio!, reveal: undefined, roll: undefined },
     })
     change((p) => ({
@@ -670,6 +671,9 @@ export default function StudioWorkspace() {
       activeScene: 'dm:' + (questId || 'quest') + ':' + cue.id,
       covers: {},
     }))
+    notify(
+      'Sahne hazırlığa yerleştirildi. Oyunculara göstermek için “Oyunculara göster” düğmesine bas.',
+    )
     return true
   }
   function importQuestScenes() {
@@ -854,6 +858,15 @@ export default function StudioWorkspace() {
       })
       return
     }
+    if (action === 'close-map') {
+      if (p.draft.mode !== 'map') return
+      draft({ mode: 'scene' })
+      setTool('pan')
+      notify(
+        'Harita kapandı. Hazırlıktaki sahneye döndün; canlı görüntü değişmedi.',
+      )
+      return
+    }
     if (action === 'map') {
       draft({ mode: 'map' })
       return
@@ -967,6 +980,8 @@ export default function StudioWorkspace() {
     const key = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setPalette(false)
+        if (!document.querySelector('[role="dialog"]'))
+          commandRef.current('close-map')
         return
       }
       if (
@@ -1642,6 +1657,11 @@ export default function StudioWorkspace() {
                   Sahne
                 </button>
               </div>
+              {p.draft.mode === 'map' && (
+                <button onClick={() => perform('close-map')}>
+                  Haritayı kapat · Esc
+                </button>
+              )}
               {(['pan', 'pen', 'arrow', 'erase', 'ping', 'mark'] as const).map(
                 (id, i) => (
                   <button
@@ -1878,7 +1898,6 @@ export default function StudioWorkspace() {
                               y: city.point[1],
                               zoom: 6,
                             },
-                            title: city.name,
                           })
                       }}
                       onMessage={notify}
