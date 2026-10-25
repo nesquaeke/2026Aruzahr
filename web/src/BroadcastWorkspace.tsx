@@ -187,7 +187,7 @@ export default function BroadcastWorkspace({ readOnly = false }: { readOnly?: bo
     setPanel('session')
     try {await saveQueue.current.catch(()=>{});const clean=newBroadcastState();stateRef.current=clean;setState(clean);publish();
       await fetch('/__aruzahr-broadcast/state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(publicRelayState(clean))}).catch(()=>{})
-      await clearAruzahrData();window.location.hash='/broadcast';window.location.reload()
+      await clearAruzahrData();window.location.hash='/broadcast/classic';window.location.reload()
     } catch(e) {resetting.current=false;setResetBusy(false);setMessage((e as Error).message)}
   }
   function changeToken(id: string, patch: Partial<MapToken>) { update({ tokens: stateRef.current.tokens.map(t => t.id === id ? { ...t, ...patch } : t) }) }

@@ -66,17 +66,40 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-Güncel liste 177 Playwright senaryosu içerir; 32’si Yayın Masası içindir. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel arşiv 213 senaryo içerir; yeni stüdyo için 36 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
 
 
 ## D&D Yayın Masası
 
-`/#/broadcast` yönetimi, `/#/broadcast/live` yalnızca yayına giden 16:9 sahneyi gösterir. `BroadcastWorkspace.tsx` sahne/parti/özel defteri, `BroadcastStage.tsx` taşınabilir görsel katmanlarını, `BroadcastMap.tsx` kaynak UV koordinatındaki çizim/taşları yönetir. `BroadcastDice.tsx` animasyon ve WebAudio, `broadcast-dice-engine.ts` reddetme örneklemeli güvenli zar üretimi, `broadcast-state.ts` IndexedDB ve taşınabilir JSON yedeklerini sağlar.
+`/#/broadcast` yeni stüdyodur; `/#/broadcast/classic` önceki arayüzü korur. `/#/broadcast/live` yalnızca yayına giden 16:9 sahneyi gösterir. `BroadcastWorkspace.tsx` sahne/parti/özel defteri, `BroadcastStage.tsx` taşınabilir görsel katmanlarını, `BroadcastMap.tsx` kaynak UV koordinatındaki çizim/taşları yönetir. `BroadcastDice.tsx` animasyon ve WebAudio, `broadcast-dice-engine.ts` reddetme örneklemeli güvenli zar üretimi, `broadcast-state.ts` IndexedDB ve taşınabilir JSON yedeklerini sağlar.
 
 `useBroadcastRelay.ts` aynı tarayıcıdaki BroadcastChannel yoluna ek olarak yerel OBS profiline ulaşır. `scripts/broadcast-relay.mjs` Vite dev/preview üzerinde yalnızca kamusal sahneyi bellekte aktarır; DM defteri, kullanılmayan yüklemeler ve gizlenmiş katmanlar yayımlanmaz. Doğrudan statik barındırmada bu yerel bağlantı yoktur; aynı tarayıcı penceresini OBS yakalayabilir. Gizli görev paketi repo ve uygulama çıktısının dışındadır; kullanıcı dosya seçerek sadece yönetim defterine yükler.
 
 Kullanım: [Yayın Masası rehberi](../lore/YAYIN_MASASI.md). Windows başlatıcısı `Yayini-Baslat.cmd`, bash başlatıcısı `Yayini-Baslat.sh` köktedir.
 
 `BroadcastQuestDirector.tsx` sürüm 1 metin ve sürüm 2 sahneli DM paketlerini ayrı yerel depoda yönetir. `dm-guide.ts` şemayı doğrular, ilerleme/kararları özel defter yedeğine ekler. `BroadcastBreak.tsx` kanonik kamera ve taşlara dokunmadan görsel ara döngüsü sunar. `broadcast-reset.ts` yalnız Aruzahr anahtarlarını ve yayın IndexedDB kaydını temizler. Yeni içerik ve kullanım: [On Kış Kararı](../lore/ON_KIS_KARARI_KULLANIM.md).
+
+
+### Yeni stüdyo mimarisi
+
+`src/studio/StudioWorkspace.tsx` özel kampanyayı, bağımsız hazırlık/canlı durumlarını, sahne arşivini ve kontrol sahipliğini yönetir. `StudioPanels.tsx` kişi, harita, savaş, zar, ses, defter ve yayın araçlarını sunar. `StudioOutput.tsx` ana ve katman çıktılarıdır; `StudioRemote.tsx` eşleştirilmiş telefon/bağlantı tabanlı oylamadır. `studio.css` yeniden boyutlanan masa, telefon düzeni ve 4K katman tipografisini içerir.
+
+`model.ts` sürüm 3 özel kampanya şemasını doğrular; ayrı `aruzahr-studio-v3` IndexedDB'si, eski yayın DB'sini yükseltmez. `package.ts` görsel/sesleri SHA-256 ile tekilleştirip kampanyaya gömer; eksik veya değişmiş varlığı reddeder. Yeni **özel** kampanya dosyası DM metni, gerçek kimlikler ve ilerlemeyi içerir. Bu, eski **kamusal** sahne yedeğinden ayrı sözleşmedir. Birleştirmede çakışan kişi/sahne/görev kimlikleri, çıkışlar ve karar bağları korunur; mevcut canlı ve etkin savaş değiştirilmez.
+
+`media.ts` ve `redaction.ts`, yalnız seçilen kamusal resimleri hazırlayıp kapatılan ipucu piksellerini yeni rastera işler. Kaynak karakter dosya adları yerine içerik özetiyle adlandırılmış röle yolları kullanılır. `protocol.mjs` sunucu ve tarayıcının paylaştığı izinli alan şemasıdır; özel kişi kayıtları, zırh ve DM notları bu şemada yoktur. `dice.ts` sınırlı zar grameridir; ifade çalıştırmak için `eval` kullanılmaz.
+
+`connection.ts` tek yönetici, kontrol dönemi ve artan kare sırasını kullanır. `scripts/studio-relay.mjs` Vite dev/preview'a sahiplik, yalnız yayımlanmış varlık önbelleği, telefon komutları, oylama ve tek izleyici ses kiralamasını ekler. Eski `/state` yazımı yeni masa aktifken kabul edilmez. Röle bellektedir; ana masa sunucu yeniden açılınca mevcut canlıyı ve gerekli resim/sesleri yeniden gönderir. Özel kampanya sunucuya aktarılmaz.
+
+`StudioAudio.tsx` üç yerel ses kanalını ve autoplay durumunu yönetir. `scripts/build-studio-audio.py`, sürümlenen `public/audio/` dosyalarını deterministik olarak üretir. Bunlar proje için sentezlenen ses dokularıdır; haricî örnek kayıt/müzik içermez. Kullanıcının kendi ses yüklemeleri ve izin/kaynak alanı da vardır. `obs.ts`, isteğe bağlı OBS WebSocket 5 kimlik doğrulaması ve sahne istekleridir; OBS şifresi kalıcı depoya girmez.
+
+Ana çıkışa ek olarak `/#/broadcast/output/map`, `portraits`, `dice`, `initiative`, `break` yolları vardır. Portre/zar/inisiyatif gerçek alfa arka plan taşır; yalnız ana çıktı ses sahipliği alır. Ana masa loopback adresinden yönetilir. Telefon için kökteki `Yayini-Uzaktan-Baslat.cmd/.sh` 0.0.0.0 üzerinde dinler. Telefon/oylama için erişilebilir ağ gerekir; Twitch entegrasyonu veya otomatik internet barındırması yoktur.
+
+Yeni kontrolleri çalıştırmak için:
+
+```bash
+npx playwright test tests/studio-*.spec.ts --workers=1
+```
+
+Tam kullanım, başlatma, özel dosya sözleşmesi ve kayıt sınırları: [Yayın Stüdyosu kılavuzu](../lore/YAYIN_STUDYOSU_KULLANIM.md). İstenen kapsam: [master prompt](../lore/YAYIN_STUDYOSU_MASTER_PROMPTU.md).

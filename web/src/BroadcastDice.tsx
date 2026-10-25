@@ -220,3 +220,5 @@ export function BroadcastDiceDisplay({ roll }: { roll: BroadcastRoll | null }) {
     <div className="bd-stage-result" role="status" aria-live="polite" aria-atomic="true"><span className="bd-stage-formula">{rollFormula(roll)}</span><strong className="bd-stage-total">{rolling ? '…' : roll.total}</strong><span className="bd-stage-breakdown">{rolling ? 'Zarlar dönüyor…' : `${breakdown(roll)}${roll.count > 1 || roll.modifier ? ` = ${roll.total}` : ''}`}</span>{resultKind && !rolling && <span className={`bd-natural is-${resultKind}`}>{resultKind === 'critical' ? 'Doğal 20' : 'Doğal 1'}</span>}</div>
   </div>
 }
+
+export { Die as StudioDie }

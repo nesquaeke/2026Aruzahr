@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import type { DragEvent, KeyboardEvent, PointerEvent } from 'react'
 import OpenSeadragon from 'openseadragon'
 import { Crosshair, Home, LoaderCircle, MapPinned, Minus, Plus, RotateCcw, Trash2, X } from 'lucide-react'
+import type { StudioMark } from './studio/types'
 import { correctedMapPixels } from './map-corrections'
 import './broadcast-map.css'
 
@@ -14,6 +15,8 @@ export type MapToken = {
   y: number
   kind: 'party' | 'ally' | 'enemy'
   size: number
+  locked?: boolean
+  group?: string
 }
 
 export type MapStroke = {
@@ -30,13 +33,16 @@ export type BroadcastMapProps = {
   tokens: MapToken[]
   strokes: MapStroke[]
   camera: MapCamera | null
-  tool: 'pan' | 'pen' | 'arrow' | 'erase'
+  tool: 'pan' | 'pen' | 'arrow' | 'erase' | 'ping' | 'mark'
   brushColor: string
   brushWidth: number
   readOnly?: boolean
   onTokensChange: (tokens: MapToken[]) => void
   onStrokesChange: (strokes: MapStroke[]) => void
   onCameraChange: (camera: MapCamera) => void
+  markers?: StudioMark[]
+  highlightId?: string
+  onMapPoint?: (x:number,y:number,kind:'ping'|'mark')=>void
   onAssetDrop?: (asset: { id: string; name: string; src: string; kind: string }, x: number, y: number) => void
 }
 
@@ -215,6 +221,7 @@ export default function BroadcastMap(props: BroadcastMapProps) {
     if (!source?.inside) return
     event.preventDefault()
     event.stopPropagation()
+    if(tool==='ping'||tool==='mark'){props.onMapPoint?.(source.point[0],source.point[1],tool);return}
     event.currentTarget.setPointerCapture(event.pointerId)
     root.current?.focus({ preventScroll: true })
     setSelected(null)
@@ -229,7 +236,7 @@ export default function BroadcastMap(props: BroadcastMapProps) {
   }
 
   function beginToken(event: PointerEvent<HTMLButtonElement>, token: MapToken) {
-    if (readOnly || event.button !== 0 || gesture.current) return
+    if (readOnly || token.locked || event.button !== 0 || gesture.current) return
     const source = sourcePoint(event.clientX, event.clientY)
     if (!source) return
     event.preventDefault()
@@ -249,7 +256,7 @@ export default function BroadcastMap(props: BroadcastMapProps) {
     event.preventDefault()
     if (active.kind === 'erase') { eraseAt(source.point); return }
     if (active.kind === 'token') {
-      const next = latest.current.tokens.map(token => token.id === active.id ? { ...token, x: clamp(source.point[0] + active.offset[0]), y: clamp(source.point[1] + active.offset[1]) } : token)
+      const next = latest.current.tokens.map(token => !token.locked&&(token.id===active.id || token.group&&token.group===latest.current.tokens.find(t=>t.id===active.id)?.group) ? { ...token, x: clamp(token.x+source.point[0]+active.offset[0]-latest.current.tokens.find(t=>t.id===active.id)!.x), y: clamp(token.y+source.point[1]+active.offset[1]-latest.current.tokens.find(t=>t.id===active.id)!.y) } : token)
       latest.current = { ...latest.current, tokens: next }
       props.onTokensChange(next)
       return
@@ -280,7 +287,7 @@ export default function BroadcastMap(props: BroadcastMapProps) {
   }
 
   function keyboard(event: KeyboardEvent<HTMLDivElement>) {
-    if (readOnly || !selected || (event.target instanceof HTMLInputElement) || (event.target instanceof HTMLTextAreaElement)) return
+    if (readOnly || latest.current.tokens.find(t=>t.id===selected)?.locked || !selected || (event.target instanceof HTMLInputElement) || (event.target instanceof HTMLTextAreaElement)) return
     if (event.key === 'Escape') { setSelected(null); return }
     if (event.key === 'Delete' || event.key === 'Backspace') { event.preventDefault(); removeSelected(); return }
     const directions: Record<string, [number, number]> = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }
@@ -330,8 +337,9 @@ export default function BroadcastMap(props: BroadcastMapProps) {
           {drawnStrokes.map(stroke => <path key={stroke.id} d={strokePath(stroke)} fill="none" stroke={stroke.color} strokeWidth={stroke.width} strokeLinecap="round" strokeLinejoin="round" markerEnd={stroke.kind === 'arrow' && stroke.points.length > 1 ? `url(#${arrowId})` : undefined} />)}
         </svg>
       </div>
+      <div className="studio-map-marks">{props.markers?.map(mark=><MapMark key={mark.id} mark={mark} left={projection.left+mark.x*projection.width} top={projection.top+mark.y*projection.height}/>)}</div>
       <div className="bm-token-layer">
-        {tokens.map(token => <button key={token.id} type="button" className={`bm-token bm-token-${token.kind}${selected === token.id ? ' bm-token-selected' : ''}`} data-testid={`map-token-${token.id}`} style={{ left: projection.left + token.x * projection.width, top: projection.top + token.y * projection.height, width: clamp(token.size, 24, 160), height: clamp(token.size, 24, 160) }} disabled={readOnly} aria-label={`${token.name} · ${token.kind === 'party' ? 'Oyuncu' : token.kind === 'ally' ? 'Müttefik' : 'Düşman'} simgesi`} aria-pressed={!readOnly ? selected === token.id : undefined} title={readOnly ? token.name : `${token.name} · Taşımak için sürükle`} onPointerDown={event => beginToken(event, token)} onClick={() => { if (!readOnly) setSelected(token.id) }}>
+        {tokens.map(token => <button key={token.id} type="button" className={`bm-token ${props.highlightId===token.id?'studio-token-active':''} bm-token-${token.kind}${selected === token.id ? ' bm-token-selected' : ''}`} data-testid={`map-token-${token.id}`} style={{ left: projection.left + token.x * projection.width, top: projection.top + token.y * projection.height, width: clamp(token.size, 24, 160), height: clamp(token.size, 24, 160) }} disabled={readOnly} aria-label={`${token.name} · ${token.kind === 'party' ? 'Oyuncu' : token.kind === 'ally' ? 'Müttefik' : 'Düşman'} simgesi`} aria-pressed={!readOnly ? selected === token.id : undefined} title={readOnly ? token.name : `${token.name} · Taşımak için sürükle`} onPointerDown={event => beginToken(event, token)} onClick={() => { if (!readOnly) setSelected(token.id) }}>
           <span className="bm-token-initials">{token.name.split(/\s+/).slice(0, 2).map(word => word[0]).join('').toLocaleUpperCase('tr-TR')}</span>
           {token.src && <img src={token.src} alt="" draggable={false} onError={event => { event.currentTarget.style.display = 'none' }} />}
           <span className="bm-token-name">{token.name}</span>
@@ -352,8 +360,10 @@ export default function BroadcastMap(props: BroadcastMapProps) {
         <button type="button" aria-label="Haritanın tamamını göster" title="Haritanın tamamı" disabled={!ready} onClick={() => viewer.current?.viewport.goHome(window.matchMedia('(prefers-reduced-motion: reduce)').matches)}><Home size={16} /></button>
         <button type="button" aria-label="Marhalden'e odaklan" title="Marhalden'e odaklan" disabled={!ready} onClick={focusMarhalden}><Crosshair size={16} /></button>
       </div>
-      <div className="bm-map-hint">{selectedToken ? 'Ok tuşları: taşı · Shift: hızlı · Delete: kaldır' : tool === 'pan' ? 'Sürükle: gezin · Tekerlek: yakınlaştır' : tool === 'pen' ? 'Harita üzerine çiz' : tool === 'arrow' ? 'Ok çizmek için sürükle' : 'Çizimleri silmek için üzerlerinden geç'}</div>
+      <div className="bm-map-hint">{selectedToken ? 'Ok tuşları: taşı · Shift: hızlı · Delete: kaldır' : tool === 'pan' ? 'Sürükle: gezin · Tekerlek: yakınlaştır' : tool === 'pen' ? 'Harita üzerine çiz' : tool === 'arrow' ? 'Ok çizmek için sürükle' : tool==='ping'?'Dikkat halkası için tıkla':tool==='mark'?'Yer imi için tıkla':'Çizimleri silmek için üzerlerinden geç'}</div>
       {dragOver && <div className="bm-drop-hint"><Plus size={19} /> Haritaya bırak</div>}
     </>}
   </div>
 }
+
+function MapMark({mark,left,top}:{mark:StudioMark;left:number;top:number}){const [now,setNow]=useState(Date.now);useEffect(()=>{if(!mark.expires)return;const t=setTimeout(()=>setNow(Date.now()),Math.max(0,mark.expires-Date.now()));return()=>clearTimeout(t)},[mark.expires]);if(mark.expires&&now>=mark.expires)return null;return <span className={`studio-map-mark ${mark.kind} ${mark.hidden?'private':''}`} style={{left,top,color:mark.color}}><i/>{mark.label}</span>}

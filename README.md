@@ -4,7 +4,7 @@ Yazarın özgün 8K haritasında gezilen Türkçe atlas, resimli wiki, karakter 
 
 ## Haritanın güncel kapsamı
 
-**D&D Yayın Masası:** menüden sahne arka planları, sürüklenebilir portreler, çizilebilir 8K harita, parti/dost/düşman taşları ve sesli animasyonlu zar açılır. Ayrı yayın penceresi OBS için temiz görüntü verir; özel DM defteri yönetim ekranında kalır. Windows'ta `Yayini-Baslat.cmd`, macOS/Linux'ta `bash Yayini-Baslat.sh` yerel masayı açar. [Kullanım ve oturum rehberi](lore/YAYIN_MASASI.md).
+**D&D Yayın Stüdyosu:** bağımsız hazırlık/canlı görüntü, kayıtlı sahneler, görselli görev yönetmeni, özel kişi kartları, çizilebilir 8K harita, savaş sırası, ifadeli zar, üç ses kanalı, geri sayımlı ara ekranı ve bütün kampanyayı taşıyan özel yedek. OBS için ana sahne ve ayrı şeffaf katman adresleri; aynı ağdan telefon kumandası ve isteğe bağlı oylama bulunur. Windows'ta `Yayini-Baslat.cmd`, macOS/Linux'ta `bash Yayini-Baslat.sh` yerel masayı açar. Telefon için `Yayini-Uzaktan-Baslat` başlatıcılarını kullan. [Güncel kullanım kılavuzu](lore/YAYIN_STUDYOSU_KULLANIM.md) · [uygulama master promptu](lore/YAYIN_STUDYOSU_MASTER_PROMPTU.md).
 
 Harita 2D açılır. **Danstsud 3D** düğmesi sıfırdan oluşturulan 3D haritayı açar/kapatır: yeni kara/deniz yüzeyleri, dağlar, kar, ormanlar ve 58 yerleşim modeli vardır. 8K çizim yalnızca coğrafi referanstır; 3D zeminde gösterilmez. [Güncel 3D kapsamı ve görsel önizlemeler](lore/3D_ATLAS_TESLIMI.md). Lirendil’in kuzeyindeki deniz, Valdareth’in nehir ağzı ve Marhalden’in iki kaleli dağ/şelale düzeni yeniden işlendi. İşaretlenen dört kuşakta kesintisiz dağlar, anıtsal Lirendil feneri, genişleyen kent mahalleleri, yıpranmış Hardlane yapıları ve bitişik tarım parselleri bulunur. 51 yerleşime ulaşan Kral Yolu ve Hardlane patikaları başlangıçta görünür; “Yollar” düğmesi bunları, “Ticaret yolları” ise güzergâh vurgularını yönetir. Son isteğin tamamı [3D master promptunda](lore/3D_ATLAS_MASTER_PROMPTU.md) tutulur.
 
@@ -51,4 +51,4 @@ Danstsud'un yeni otorite zincirleri [şehirler ve kadrolar belgesinde](lore/dans
 
 Görev sırları, DM notları ve Broken Oath uygulamaya dahil edilmez. Statik barındırmaya yalnızca `web/dist/` yükle; ham yazar belgeleri uygulamanın dışında kalır.
 
-Yayın güncellemesi: [On Kış Kararı kullanım rehberi](lore/ON_KIS_KARARI_KULLANIM.md) — 10 görev/30 sahne, görselli DM yönetmeni, animasyonlu ara ekranı, tüm yerel verileri sıfırlama ve 4K OBS yerleşimi. [DM notları ve şifreli indirme](DM_NOTLARI.md).
+Yayın güncellemesi: `/#/broadcast` yeni stüdyo, `/#/broadcast/classic` önceki masa, `/#/broadcast/live` OBS ana görüntüsüdür. [Ekran görüntüleri ve tamamlanan kapsam](lore/YAYIN_STUDYOSU_TESLIMI.md). [On Kış Kararı](lore/ON_KIS_KARARI_KULLANIM.md) 10 görev/30 sahne sunar. [DM notları ve şifreli indirme](DM_NOTLARI.md); paketin şifresi değişmedi. Yeni özel kampanya yedeği DM metni ve ilerlemesini de içerir; oyuncularla paylaşılmamalıdır.

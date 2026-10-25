@@ -1,3 +1,5 @@
+import { attachStudio } from './studio-relay.mjs'
+import { publicStudio } from '../src/studio/protocol.mjs'
 const PREFIX = '/__aruzahr-broadcast'
 const MAX_BODY = 30 * 1024 * 1024
 const PRESENCE_MS = 10_000
@@ -22,6 +24,8 @@ function text(value, max, label, empty = false) {
   if (typeof value !== 'string' || value.length > max || !empty && !value.trim() || /[\u0000-\u001f\u007f]/.test(value)) badRequest(`${label} geçerli bir metin olmalı.`)
 }
 function image(value) {
+  if (typeof value === 'string' && /^\/__aruzahr-broadcast\/asset\/[a-f0-9]{64}$/.test(value)) return value
+
   // The browser's full validator additionally checks the actual catalogue and
   // raster signatures before displaying the received state.
   if (typeof value !== 'string' || value.length > 12 * 1024 * 1024 || !( /^\/illustrations\/[a-z\d][a-z\d_.-]*\.(webp|png|jpe?g)$/i.test(value) && !value.includes('..') || /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+={0,2}$/.test(value))) badRequest('Görsel yalnızca yerel bir çizim veya desteklenen raster verisi olabilir.')
@@ -48,20 +52,24 @@ export function publicBroadcastState(value) {
     const entry = object(value, 'Sahne öğesi')
     if (typeof entry.hidden !== 'boolean') badRequest('Sahne öğesi görünürlüğü geçersiz.')
     if (entry.hidden) return []
-    const actor = pick(entry, ['id', 'name', 'src', 'assetId', 'kind', 'x', 'y', 'w', 'h', 'hidden', 'tier'], 'Sahne öğesi')
+    const actor = pick(entry, ['id', 'name', 'src', 'assetId', 'kind', 'x', 'y', 'w', 'h', 'hidden', 'tier', 'locked', 'group'], 'Sahne öğesi')
     text(actor.id, 160, 'Sahne öğesi kimliği'); text(actor.name, 160, 'Sahne öğesi adı'); image(actor.src)
     if (!['portrait', 'image'].includes(actor.kind)) badRequest('Sahne öğesi türü geçersiz.')
     finite(actor.x, 0, 100, 'Sahne konumu'); finite(actor.y, 0, 100, 'Sahne konumu')
     finite(actor.w, 2, 100, 'Sahne genişliği'); finite(actor.h, 2, 100, 'Sahne yüksekliği')
+    if(entry.locked!==undefined){if(typeof entry.locked!=='boolean')badRequest('Kilit geçersiz.');actor.locked=entry.locked}
+    if(entry.group!==undefined){text(entry.group,160,'Grup');actor.group=entry.group}
     if (actor.assetId !== undefined) text(actor.assetId, 160, 'Görsel kimliği')
     if (actor.tier !== undefined && !['ordinary', 'distinguished', 'powerful', 'supreme'].includes(actor.tier)) badRequest('Çerçeve türü geçersiz.')
     return [actor]
   })
   const tokens = array(source.tokens, 200, 'Harita simgeleri').map(value => {
-    const token = pick(value, ['id', 'name', 'src', 'assetId', 'x', 'y', 'kind', 'size'], 'Harita simgesi')
+    const token = pick(value, ['id', 'name', 'src', 'assetId', 'x', 'y', 'kind', 'size', 'locked', 'group'], 'Harita simgesi')
     text(token.id, 160, 'Simge kimliği'); text(token.name, 160, 'Simge adı')
     if (!['party', 'ally', 'enemy'].includes(token.kind)) badRequest('Simge türü geçersiz.')
     finite(token.x, 0, 1, 'Simge konumu'); finite(token.y, 0, 1, 'Simge konumu'); finite(token.size, 24, 160, 'Simge boyutu')
+    if(token.locked!==undefined&&typeof token.locked!=='boolean')badRequest('Kilit geçersiz.')
+    if(token.group!==undefined)text(token.group,160,'Grup')
     if (token.src !== undefined && token.src !== '') image(token.src)
     if (token.assetId !== undefined) text(token.assetId, 160, 'Simge görsel kimliği')
     return token
@@ -93,6 +101,7 @@ export function publicBroadcastState(value) {
     finite(roll.at, 0, 8_640_000_000_000_000, 'Atış zamanı')
   }
   return {
+    ...(source.studio === undefined ? {} : {studio:publicStudio(source.studio,src=>{image(src);return src})}),
     version: 1, mode: source.mode, scene: asset(source.scene), sceneZoom: source.sceneZoom,
     actors, tokens, strokes, camera, customAssets: [], roll,
     intermission: source.intermission || false, breakMessage: source.breakMessage || '', blackout: source.blackout, title: source.title, cameraLane: source.cameraLane, showNames: source.showNames,
@@ -161,6 +170,7 @@ export function broadcastRelayPlugin() {
   function attach(server) {
     const httpServer = server.httpServer
     let stopped = false
+    const studio = attachStudio(server, {validate:publicBroadcastState,publish:state=>{latestFrame=frame('state',state);controllerSeen=Date.now();for(const client of clients)send(client,'state',latestFrame);announcePresence()}})
     const timer = setInterval(() => {
       announcePresence()
       for (const client of clients) {
@@ -173,6 +183,7 @@ export function broadcastRelayPlugin() {
       if (stopped) return
       stopped = true
       clearInterval(timer)
+      studio.close()
       for (const client of clients) { remove(client); client.res.destroy() }
       latestFrame = null; controllerSeen = 0; reportedOnline = false
       cleanups.delete(cleanup)
@@ -210,6 +221,7 @@ export function broadcastRelayPlugin() {
       try {
         const input = await readJson(req)
         if (path === `${PREFIX}/state`) {
+          if(studio.active()){json(res,409,{error:'Yeni yönetmen masası etkin. Önce oradaki kontrolü bırak.'});return}
           latestFrame = frame('state', publicBroadcastState(input))
           for (const client of clients) send(client, 'state', latestFrame)
         } else object(input, 'Bağlantı işareti')

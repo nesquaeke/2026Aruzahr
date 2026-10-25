@@ -4,8 +4,8 @@ const secret='PRIVATE-ROADMAP-1129'
 const step=(id:string,title:string)=>({id,title,summary:secret+' güncel olay',readAloud:'Kamusal okunacak metin',actions:['DM eylemi'],checks:['DC 12'],choices:[{label:'Seçim',result:secret+' sonuç',echo:secret+' yankı'}],backgroundId:'winter-ilac',portraitIds:['sena-erven','miren-aska'],publicTitle:'Marhalden · Revir'})
 const pack={version:2,title:'Deneme kampanyası',quests:[{id:'test-a',title:'Görev A',body:secret+' not',location:'marhalden',objective:'Bir karar ver',people:['Sena: yardım ister'],steps:[step('a1','Varış'),step('a2','Karar')]},{id:'test-b',title:'Görev B',body:secret+' diğer not',steps:[step('b1','Yeni yer')]}]}
 async function panel(page:any,name:string){await page.getByRole('navigation',{name:'Yönetim panelleri'}).getByRole('button',{name,exact:true}).click()}
-async function boot(page:any){await page.goto('/#/broadcast');await expect(page.getByTestId('broadcast-workspace')).toBeVisible()}
-async function importPack(page:any){await panel(page,'Görevler');await page.getByTestId('broadcast-import-dm').setInputFiles({name:'dm.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(pack))});await expect(page.getByText(secret+' güncel olay',{exact:true})).toBeVisible()}
+async function boot(page:any){await page.goto('/#/broadcast/classic');await expect(page.getByTestId('broadcast-workspace')).toBeVisible()}
+async function importPack(page:any){await panel(page,'Görevler');await page.getByTestId('broadcast-import-dm').setInputFiles({name:'dm.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(pack))});await expect(page.locator('.dm-now p').filter({hasText:secret+' güncel olay'})).toBeVisible()}
 test('yapılandırılmış rehber sahneyi perde arkasında kurar, yalnız görselleri gösterir; karar ve adımlar yedekle korunur',async({page})=>{
  await boot(page);await importPack(page)
  const live=await page.context().newPage();await live.goto('/#/broadcast/live');await expect(live.getByTestId('broadcast-live')).toBeVisible()

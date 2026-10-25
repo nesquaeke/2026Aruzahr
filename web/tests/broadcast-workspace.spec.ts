@@ -24,7 +24,7 @@ async function boot(page: Page, mode: BroadcastState['mode'] = 'scene') {
     state.mode = initialMode
     await saveBroadcast(state)
   }, mode)
-  await page.goto('/#/broadcast')
+  await page.goto('/#/broadcast/classic')
   await expect(page.getByTestId('broadcast-workspace')).toBeVisible()
   if (mode === 'map') await expect(page.getByRole('button', { name: 'Haritayı yakınlaştır', exact: true })).toBeEnabled()
 }

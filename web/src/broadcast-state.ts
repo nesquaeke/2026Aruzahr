@@ -4,6 +4,8 @@ import type { BroadcastRoll } from './BroadcastDice'
 import type { PowerTier } from './character-card-profiles'
 import { DICE_SIDES } from './broadcast-dice-engine'
 import { artworks } from './media'
+import { publicStudio } from './studio/protocol.mjs'
+import type { StudioPublic } from './studio/types'
 
 export type StageActor = {
   id: string
@@ -16,10 +18,13 @@ export type StageActor = {
   w: number
   h: number
   hidden: boolean
+  locked?: boolean
+  group?: string
   tier?: PowerTier
 }
 
 export type BroadcastState = {
+  studio?: StudioPublic
   version: 1
   mode: 'map' | 'scene'
   scene: BroadcastAsset
@@ -88,6 +93,7 @@ function matchesImageSignature(bytes: Uint8Array, mime: string) {
 
 function imageSource(value: unknown, label: string): string {
   if (typeof value !== 'string' || value.length > Math.ceil(MAX_IMAGE_BYTES / 3) * 4 + 64) invalid(`${label} desteklenen boyutta bir görsel olmalı.`)
+  if (/^\/__aruzahr-broadcast\/asset\/[a-f0-9]{64}$/.test(value)) return value
   if (/^\/illustrations\/[a-z\d][a-z\d_.-]*\.(webp|png|jpe?g)$/i.test(value) && !value.includes('..') && knownImages.has(value)) return value
   const match = /^data:(image\/(?:png|jpeg|webp|gif));base64,([A-Za-z0-9+/]+={0,2})$/.exec(value)
   if (!match || match[2].length % 4 !== 0) invalid(`${label} yalnızca bilinen yerel çizim veya PNG, JPEG, WebP, GIF verisi olabilir.`)
@@ -119,7 +125,7 @@ function actor(value: unknown): StageActor {
     kind: option(source.kind, ['portrait', 'image'] as const, 'Sahne öğesi türü'),
     x: number(source.x, 'Sahne yatay konumu', 0, 100), y: number(source.y, 'Sahne dikey konumu', 0, 100),
     w: number(source.w, 'Sahne öğesi genişliği', 2, 100), h: number(source.h, 'Sahne öğesi yüksekliği', 2, 100),
-    hidden: boolean(source.hidden, 'Sahne öğesi görünürlüğü'), ...(assetId ? { assetId } : {}), ...(tier ? { tier } : {}),
+    hidden: boolean(source.hidden, 'Sahne öğesi görünürlüğü'), ...(source.locked === undefined ? {} : {locked: boolean(source.locked,'Kilit')}), ...(source.group === undefined ? {} : {group:text(source.group,'Grup')}), ...(assetId ? { assetId } : {}), ...(tier ? { tier } : {}),
   }
 }
 
@@ -131,7 +137,7 @@ function token(value: unknown): MapToken {
     id: text(source.id, 'Harita simgesi kimliği'), name: text(source.name, 'Harita simgesi adı'),
     kind: option(source.kind, ['party', 'ally', 'enemy'] as const, 'Harita simgesi türü'),
     x: number(source.x, 'Harita yatay konumu', 0, 1), y: number(source.y, 'Harita dikey konumu', 0, 1), size: number(source.size, 'Harita simgesi boyutu', 24, 160),
-    ...(src ? { src } : {}), ...(assetId ? { assetId } : {}),
+    ...(src ? { src } : {}), ...(assetId ? { assetId } : {}), ...(source.locked === undefined ? {} : {locked:boolean(source.locked,'Kilit')}), ...(source.group === undefined ? {} : {group:text(source.group,'Grup')}),
   }
 }
 
@@ -190,6 +196,7 @@ export function validateBroadcastState(input: unknown): BroadcastState {
   if (source.version !== 1) invalid('Dosya sürümü desteklenmiyor.')
   const cameraSource = source.camera === null ? null : record(source.camera, 'Harita kamerası')
   return {
+    ...(source.studio === undefined ? {} : {studio:publicStudio(source.studio,src=>imageSource(src,'Yayın katmanı'))}),
     version: 1, mode: option(source.mode, ['map', 'scene'] as const, 'Yayın görünümü'), scene: asset(source.scene, 'Arka plan'),
     sceneZoom: number(source.sceneZoom, 'Sahne yakınlaştırması', 1, 4),
     actors: uniqueIds(list(source.actors, 'Sahne öğeleri', 40).map(actor), 'Sahne öğeleri'),

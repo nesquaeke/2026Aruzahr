@@ -140,7 +140,7 @@ test('OBS ayrı profilde gerçek yönetim sahnesini ve aynı çoklu zar sonucunu
       const { newBroadcastState, saveBroadcast } = await import(modulePath)
       await saveBroadcast({ ...newBroadcastState(), mode: 'scene' })
     })
-    await operator.goto('/#/broadcast')
+    await operator.goto('/#/broadcast/classic')
     await expect(operator.getByTestId('broadcast-workspace')).toBeVisible()
     await obs.goto('/#/broadcast/live')
     await expect(obs.getByTestId('broadcast-live')).toBeVisible()
