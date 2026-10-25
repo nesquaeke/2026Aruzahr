@@ -48,6 +48,8 @@ import {
 import type { BroadcastState, StageActor } from '../broadcast-state'
 import {
   parseDMPack,
+  parseProgress,
+  readSavedDMProgress,
   readPrivatePack,
   downloadPrivateNotes,
   type DMScene,
@@ -294,13 +296,14 @@ export default function StudioWorkspace() {
         'Karar özel hatırlatmaya dönüştü. Defter panelinden sonraki sahnelere bağlayabilirsin.',
       )
     }
+    if (connection.state.owner) onDM()
     window.addEventListener('studio-dm-change', onDM)
     window.addEventListener('studio-fact', fact)
     return () => {
       window.removeEventListener('studio-dm-change', onDM)
       window.removeEventListener('studio-fact', fact)
     }
-  }, [change])
+  }, [change, connection.state.owner])
   useEffect(() => () => obsClient.current.disconnect(), [])
   useEffect(() => {
     const until = project?.program.studio?.break?.until
@@ -772,7 +775,12 @@ export default function StudioWorkspace() {
         localStorage.setItem('aruzahr-director-pack', JSON.stringify(pack))
         localStorage.setItem(
           'aruzahr-director-progress',
-          JSON.stringify(pack.progress || {}),
+          JSON.stringify(
+            parseProgress(
+              pack.progress || readSavedDMProgress(pack.quests),
+              pack.quests,
+            ),
+          ),
         )
         localStorage.setItem(
           'aruzahr-director-notes',

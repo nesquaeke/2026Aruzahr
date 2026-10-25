@@ -4,6 +4,12 @@ Kaynak: kullanıcının 8 Ekim 2026 sohbetinde verdiği görseller, Lord Aldor G
 
 Kullanıcının açıklaması: **“kimseyi sadece referans olarak”**. Gönderilen resimler karakter kimliği, kıyafet kanonu veya evrendeki bir olayın tasviri olarak kullanılmayacak. Aldor ve Sindar örnekleri de anlatım referansıdır; içlerindeki adlar Aruzahr dünyasına aktarılmayacak.
 
+## 25 Ekim 2026 — son yayın görseli tercihi
+
+Kullanıcı mevcut yayın resimlerini çocukça, kaba ve tam ekranda düşük kaliteli buldu. “Pixel art yapacaksın az kaldı” ifadesi pixel art talebi değildir; açıklama sorusuna **“Yağlıboya: karanlık, ciddi, yüksek ayrıntı”** yanıtını verdi. Öncelik ciddi yetişkin dark fantasy, ölçülü renkler, yıpranmış malzeme, okunabilir insan anatomisi ve ince, görünür yağlıboya işçiliğidir. Fotoğraf/3D render yasağı sürer. Parlak turuncu-mavi çocuk kitabı görünümü ve iri mozaik gibi fırça blokları kullanılmaz.
+
+Yayın sahneleri ayrı geniş resimler olarak üretilir; toplu görselin küçük hücrelerinden kesilmez. Kaynak çözünürlüğü dürüstçe kaydedilir; büyütülmüş bir dosya yerel 4K üretim diye tanıtılmaz. Anlatı yazımı DM'nin doğrudan okuyup yürütebileceği giriş, kişi tanıtımı, amaç, konuşma, sahne akışı ve geçiş içerir. Gizli karşılaşma bilgileri yalnız özel pakette kalır.
+
 ## Görsel dil
 
 Hedef, gerçek bir ressamın elinden çıkmış fantastik bir tablo hissidir. Kullanıcının “sulu boya gibi ama suluboya da değil, çok net” tarifini şöyle uygula: renk geçişleri yumuşak ve boyanmış görünürken yüz, eller, siluet ve önemli nesneler açıkça okunmalı. Yağlıboya ve guajı çağrıştıran dolgun boya katmanları, seçilmiş kenarlarda belirginlik ve görünür fırça izleri bu dengeyi sağlar.

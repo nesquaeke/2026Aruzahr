@@ -14,3 +14,5 @@
 Sahnelerdeki konum türleri ve coğrafi ana biçimler mevcut kamusal lore’u izler; avlu yerleşimi, ışık, eşya konumları ve yapı cepheleri görsel yorumdur. Dört sivilin tasvirleri bu oturumun yeni kamusal karakter yazımına dayanır; eski kaynak belgeden alınmış portreler olarak sunulmaz. Görsellerde görev çözümü veya gizli kişi bilgisi bulunmaz.
 
 Çerçeve, isim plakası ve yazı resimlere işlenmedi. Bunlar arayüz tarafından eklenir; portrelerin kendisi güç rütbesi belirtmez. Her sivil kendi yeni üretilmiş portresini kullanır; başka kişilerin yüzleri bu adlara atanmaz.
+
+25 Ekim yayın sahnelerinin son yeniden üretimi ve gerçek kaynak boyutları [yeni baskı kaydında](ON_KIS_KARARI_YENI_BASKI.md) bulunur. Bu belgedeki önceki altı Yük ve Söz çizimi ayrı mini kampanyanın üretim kaydıdır.

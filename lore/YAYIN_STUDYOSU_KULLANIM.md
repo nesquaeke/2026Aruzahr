@@ -28,6 +28,13 @@ Sol sütunda sahne arama, favori, sıralama, çoğaltma, çöp kutusu ve geri ge
 
 ## Görev ve defter
 
+Yeni **On Kış Kararı · Oynatım Kitabı** dosyasını yükledikten sonra **Geniş DM okuma masasını aç** düğmesini kullan. Önce “Bölümü buradan başlat” alanındaki geliş yolunu, amacı ve kişileri oku. Açılış anlatımından sonra üç sahneye geç. Her sahnenin okunacak metni, sırayla yapılacakları, konuşmaları ve sonraki geçişi ayrı gösterilir. Zarlar ve ek teknik notlar açılır bölümdedir. Esc, geniş okuma masasını kapatır.
+
+İlk bölümde ayrıca **Giriş manzarasını hazırla / Girişi oyunculara göster** düğmeleri vardır. Tanışma ve sevk sözleşmesi, revirdeki üç adımdan önce oynanır. Yeni JSON'u aynı görev kimlikleriyle açmak mevcut adım, karar ve tamamlanma kayıtlarını korur; dosyanın içinde açık bir ilerleme kaydı varsa o kullanılır. Tam defter dosyanı ayrıca indirebilirsin.
+
+Yeni resimler sitenin içindedir. Önce güncel siteyi çalıştır, ardından güncel şifreli paketin JSON'unu aç. Önceki kayıtlardaki canlı görüntü kendiliğinden değiştirilmez; yeni resmi hazırlayıp yayına al. **Görev sahnelerini içe al** mevcut görev kartlarını yeni içerikle günceller. ZIP'teki `On-Kis-Karari-Oynatim-Kitabi.html`, internetsiz okunabilen özel metin sürümüdür.
+
+
 Görev panelinde adımları sırayla yürüt, kontrol maddelerini işaretle, gerekirse sahneyi atla veya sırayı değiştir. Alternatif çıkışlar rehberde görünür. Kararı kaydet ve **Hatırlatmaya dönüştür** ile sonraki oturumlarda yeniden karşına çıkar.
 
 **Defter** panelindeki hatırlatmayı sahnelere veya görev kimliğine bağlayabilirsin. Bu kayıtlar yalnız DM'ye görünür. Olay, karar, söz, teslim ve ilişki notlarının ayrı bir **oyunculara açık cümle** alanı vardır. Özet düğmesi özel özeti tüm kayıtlardan, oyuncu özetini yalnız açık cümlelerden çıkarır. Her iki metni düzenleyip ayrı Markdown dosyası indirebilirsin. Açık özeti ara ekranına koymak ayrı komuttur.

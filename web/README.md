@@ -66,7 +66,7 @@ Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/Y
 
 ## Test kapsamı ve yayın
 
-Güncel arşiv 215 senaryo içerir; yeni stüdyo için 38 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel arşiv 219 senaryo içerir; yayın stüdyosu ve oynatım kitabı için 42 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
 
@@ -103,3 +103,5 @@ npx playwright test tests/studio-*.spec.ts --workers=1
 ```
 
 Tam kullanım, başlatma, özel dosya sözleşmesi ve kayıt sınırları: [Yayın Stüdyosu kılavuzu](../lore/YAYIN_STUDYOSU_KULLANIM.md). İstenen kapsam: [master prompt](../lore/YAYIN_STUDYOSU_MASTER_PROMPTU.md).
+
+`DMRunbook.tsx`, isteğe bağlı bölüm başlangıcı ve sahne oynatım alanlarını gösterir. `BroadcastQuestDirector.tsx` aynı özel içeriği geniş, klavyeyle kapanan bir okuma masasına taşıyabilir. Eski sürüm 1/2 dosyalar korunur; yeni alanlar sürüm 2 üzerinde isteğe bağlıdır. Aynı görev kimlikleri yeniden içe aktarılırken mevcut ilerleme/kararlar korunur; dosyadaki açık ilerleme önceliklidir. Gerçek macera metni kaynak koda gömülmez.

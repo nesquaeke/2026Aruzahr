@@ -234,3 +234,25 @@ Aynı arka planı kullanan adımların ayrı olay/araştırma/karar aşamaları 
 İlk iki yeni senaryodan biri otomatik kaydın 700 ms gecikmesini beklemeden kamera değerini okuyup hata verdi; test kayıt oluşmasını bekleyecek biçimde düzeltildi. Son hedefli koşu **9/9 geçti, 1,2 dakika** (`map-exit-regression.log`): seçim odağı/tekrarı, gerçek pan/zoom sonrası kameranın geri sıçramaması, düğme/Esc ile çıkış, aynı resimli üç adımın açıklaması, hazırlıkta aranın kaldırılması ve özel metnin canlıya çıkmaması; eski rehber/ara/sıfırlama ve harita/işaret uyumluluğu. Yeni dosya iki farklı senaryo ekler; arşiv toplamı 215'tir. Önceki geniş doğrulama bu küçük düzeltme için baştan tekrarlanmadı.
 
 Son kaynakla üretim derlemesi başarılıdır (`map-exit-build-final.log`). İki yeni senaryo telefon genişliğinde hazırlık bildirimi kontrolü eklenerek **2/2, 14,7 saniye** tekrar geçti (`map-exit-final.log`); önceki dokuzun alt kümesidir. `git diff --check` temizdir.
+
+
+## 25 Ekim 2026 — karanlık yağlıboyalar ve Oynatım Kitabı
+
+Kullanıcının son netleştirmesi **“Yağlıboya: karanlık, ciddi, yüksek ayrıntı”** oldu. Pixel art talebi yoktur. On Kış Kararı'nın 12 geniş sahnesi ve sekiz portresi sıfırdan, 20 ayrı üretimle değiştirildi. Kaynaklar geniş sahnelerde 1672×940/941, portrelerde 1086×1448 pikseldir. Toplu resimden kesilmedi; büyütme, kırpma veya keskinleştirme uygulanmadı. PNG → kayıpsız WebP dönüşümünde **20/20 resmin ham piksel eşitliği** doğrulandı (`artifacts/runbook/lossless-check.log`). 4K yayın düzeni 4K kaynak resim diye sunulmaz. Kimlikler/yollar korunur; galeriye 20 ayrı yeni kayıt eklenmiş sayılmaz. [Dosyalar ve ölçüler](ON_KIS_KARARI_YENI_BASKI.md).
+
+Özel Oynatım Kitabı yaklaşık 9.700 kelimelik okuma sürümüdür: on bölümde önceki bağlam, geliş yolu, amaç, kişiler/istekleri/ilk karşılaşmaları; 30 sahnede başlangıç, okunacak söz, sıralı olaylar, diyaloglar, sorular ve sonraki geçiş yazıldı. Mekanik kontroller/karar yankıları korunur. Geniş DM okuma masası klavye odağı/Esc/telefon düzeniyle açılır. İlk bölümün giriş görseli ayrı hazırlanıp yayına alınabilir. Aynı kitabın güncel JSON'u mevcut adımı/kararları/tamamlanmayı korur; dosyadaki açık ilerleme önceliklidir. Eski v1/v2 paketleri açılır.
+
+Şifreli paket güncel JSON/Markdown yanında bölüm bağlantılı çevrimdışı özel HTML kitap içerir; eski beşli macera korunur. ZIP toplam **yedi dosyadır**. Parola aynı kalır ve depoya yazılmaz. Açık özel metinler, JSON ve çevrimdışı kitap yalnız özel çalışma klasöründedir. Yeni yüklemede ayrıca siteyi güncellemek ve yeni paketin JSON'unu açmak gerekir; mevcut yerel dosya kendiliğinden yeniden yazılmaz.
+
+Doğrulama:
+
+- `npm run build`: TypeScript/Vite üretim çıktısı başarılı (`runbook-build-release.log`). Mevcut büyük paket uyarısı sürer; bağımlılık sürümleri değişmedi.
+- İlk birleşik koşu **27 başarılı / 1 başarısızdı** (`runbook-tests.log`): IndexedDB kaydını gecikmeli kayıttan önce okuyan beklenti yakalandı. Kayıt beklemesi düzeltildi; ayrıca yönetici sahipliği kazanıldığında özel paket durumunun ilk kez eşitlenmesi sağlandı.
+- Son birleşik koşu **35/35 geçti, 3,3 dakika** (`runbook-tests-final.log`): yeni kitap doğrulama/okuma masası/açılış/ilerleme koruması/20 görsel; stüdyo, paket, haritadan çıkış ve önceki yayın rehberi/ara/sıfırlama akışları. Aynı testler tekrar sayılmadı.
+- Kişi dizini/nitelikler ve açık kaynak-varlıklarda özel görev içeriğinin bulunmaması **3/3 geçti, 3,6 saniye** (`runbook-roster-privacy.log`). Bu üç senaryo önceki 35'in dışında; bu çalışmada toplam **38 farklı ilgili senaryo** geçti.
+- Gerçek özel JSON, üretim önizlemesi 4197 üzerinde açıldı. Bölüm girişi ve **30/30 adım** hazırlanıp ayrı izleyici profiline yayımlandı; arka planlar, portreler ve yönetim canlı önizlemesi yüklendi. Giriş ve özel özetler izleyicide yoktu; 30 sahnede oynatım alanları görüldü. Ana görüntü ve ek çıktılar 3840×2160 olarak kontrol edildi; üç ayrı katman çıktısının gerçek alfa arka planı doğrulandı. 390 px görünümde yatay taşma ve JavaScript hatası bulunmadı (`artifacts/runbook/production.json`).
+- Şifreli HTML yanlış parolayı reddetti; doğru parolayla indirilen ZIP özel kaynak ZIP'le bayt düzeyinde eşleşti. ZIP iç bütünlüğü ve güncel JSON eşleşmesi de kontrol edildi. Kaynak/dist taramasında açık özel kitap veya parola bulunmadı.
+
+Geniş özel okuma masası ve yönetim görünümü gözle incelendi. [Masaüstü](onizlemeler/yayin-studyosu.png) ve [telefon](onizlemeler/yayin-studyosu-telefon.png) ekranları güncellendi; depoya özel metin içeren okuma masası ekranı konmadı. Çalışma alanı kanıtları `artifacts/runbook/` içindedir; halka açık teslim belgesi özel anlatımı içermez.
+
+Güncel arşiv **219 senaryo** içerir; tamamı veya ağır 3D senaryoları yeniden çalıştırılmadı. Coğrafya ve şehir modelleri bu çalışmada değişmedi. Gerçek OBS masaüstü/Windows başlatıcısı bu Linux ortamında çalıştırılmadı; üretim çıktıları ayrı Chromium profillerinde incelendi. GitHub güncellemesi haricî site dağıtımının doğrulandığı anlamına gelmez.

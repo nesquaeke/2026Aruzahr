@@ -16,3 +16,5 @@ Eski `Marhalden-Hardlane-DM.json/md` dosyaları ayrı bir mini kampanyadır. Yen
 [Ayrıntılı indirme ve şifreleme açıklaması](lore/DM_PAKETI_INDIRME.md).
 
 Yeni stüdyoda **Görev sahnelerini içe al** ile 30 sahneyi sol kütüphaneye aktarabilirsin. ZIP içinde [güncel yayın stüdyosu kılavuzu](lore/YAYIN_STUDYOSU_KULLANIM.md) da bulunur. Yeni **özel kampanya paketi** bütün yerel görseller/seslerle birlikte DM metni ve ilerlemeyi taşır; bu yedek şifreli değildir ve oyunculara verilmez. GitHub’daki DM indirme sayfasının şifresi değişmedi.
+
+**Güncel baskı:** yaklaşık 9.700 kelimelik Oynatım Kitabı; 10 bölüm başlangıcı, kişi rehberleri ve 30 sahne için okunacak anlatım, konuşma, eylem ve geçiş içerir. Sitede **Geniş DM okuma masasını aç** düğmesiyle okunur. Yeni JSON'u yüklemek aynı görevlerdeki ilerleme/kararları korur. ZIP'te ayrıca `On-Kis-Karari-Oynatim-Kitabi.html` adlı çevrimdışı özel okuma sürümü bulunur. Yeni yağlıboya sahneleri görmek için siteyi de güncelle.

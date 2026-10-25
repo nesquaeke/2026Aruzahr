@@ -52,3 +52,5 @@ Danstsud'un yeni otorite zincirleri [şehirler ve kadrolar belgesinde](lore/dans
 Görev sırları, DM notları ve Broken Oath uygulamaya dahil edilmez. Statik barındırmaya yalnızca `web/dist/` yükle; ham yazar belgeleri uygulamanın dışında kalır.
 
 Yayın güncellemesi: `/#/broadcast` yeni stüdyo, `/#/broadcast/classic` önceki masa, `/#/broadcast/live` OBS ana görüntüsüdür. [Ekran görüntüleri ve tamamlanan kapsam](lore/YAYIN_STUDYOSU_TESLIMI.md). [On Kış Kararı](lore/ON_KIS_KARARI_KULLANIM.md) 10 görev/30 sahne sunar. [DM notları ve şifreli indirme](DM_NOTLARI.md); paketin şifresi değişmedi. Yeni özel kampanya yedeği DM metni ve ilerlemesini de içerir; oyuncularla paylaşılmamalıdır.
+
+Son görsel/anlatım baskısı: [20 bağımsız karanlık yağlıboya ve DM Oynatım Kitabı](lore/ON_KIS_KARARI_YENI_BASKI.md). Yeni anlatımı görmek için güncel şifreli paketin JSON’unu açıp **Geniş DM okuma masasını aç** düğmesini kullan.
