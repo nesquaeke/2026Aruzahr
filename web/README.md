@@ -62,11 +62,11 @@ Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel k
 
 `LivingGuides.tsx` 15 önemli şehrin gündelik işini, 15 kurum çevresinin yetki/destek/denetimini, ilgili kitapları ve türlerin kısa ekoloji özetini sunar. Ayrıntılar tam lore ve aramada da bulunur. `character-life.ts` 33 önemli kişiye yeni olay, hedef, sınır ve karşılaşma ekler; oyuncu geçmişleri değiştirilmez. Orvelin yük ve soğukta çalışma sayıları kurgu saha taslağı olarak belirtilir.
 
-Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/YASAYAN_ANSIKLOPEDI_TESLIMI.md) kaydedilir. Altı maceranın oyuncuya açık girişleri kitaplarda, çözümleri ayrı yerel DM paketindedir. Özel paket Git deposunun ve uygulamanın dışındadır; statik barındırmaya kopyalanmaz.
+Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/YASAYAN_ANSIKLOPEDI_TESLIMI.md) kaydedilir. Altı maceranın oyuncuya açık girişleri kitaplarda, çözümleri ayrı yerel DM paketindedir. Bu önceki özel hazırlık paketleri yerel kalır. Sonraki On Kış Kararı senaryosu ise kullanıcının açık isteğiyle şifresiz olarak yönetim masasında hazırdır.
 
 ## Test kapsamı ve yayın
 
-Güncel arşiv 219 senaryo içerir; yayın stüdyosu ve oynatım kitabı için 42 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, yeni testler varsayılan stüdyoyu sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel arşiv 230 senaryo içerir; yayın stüdyosu, oynatım kitabı, hazır kampanya ve sade akış için 53 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, gelişmiş stüdyo testleri açıkça o görünüme geçer; sade akış testleri yeni varsayılanı ayrıca sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
 
@@ -75,7 +75,7 @@ Güncel arşiv 219 senaryo içerir; yayın stüdyosu ve oynatım kitabı için 4
 
 `/#/broadcast` yeni stüdyodur; `/#/broadcast/classic` önceki arayüzü korur. `/#/broadcast/live` yalnızca yayına giden 16:9 sahneyi gösterir. `BroadcastWorkspace.tsx` sahne/parti/özel defteri, `BroadcastStage.tsx` taşınabilir görsel katmanlarını, `BroadcastMap.tsx` kaynak UV koordinatındaki çizim/taşları yönetir. `BroadcastDice.tsx` animasyon ve WebAudio, `broadcast-dice-engine.ts` reddetme örneklemeli güvenli zar üretimi, `broadcast-state.ts` IndexedDB ve taşınabilir JSON yedeklerini sağlar.
 
-`useBroadcastRelay.ts` aynı tarayıcıdaki BroadcastChannel yoluna ek olarak yerel OBS profiline ulaşır. `scripts/broadcast-relay.mjs` Vite dev/preview üzerinde yalnızca kamusal sahneyi bellekte aktarır; DM defteri, kullanılmayan yüklemeler ve gizlenmiş katmanlar yayımlanmaz. Doğrudan statik barındırmada bu yerel bağlantı yoktur; aynı tarayıcı penceresini OBS yakalayabilir. Gizli görev paketi repo ve uygulama çıktısının dışındadır; kullanıcı dosya seçerek sadece yönetim defterine yükler.
+`useBroadcastRelay.ts` aynı tarayıcıdaki BroadcastChannel yoluna ek olarak yerel OBS profiline ulaşır. `scripts/broadcast-relay.mjs` Vite dev/preview üzerinde yalnızca kamusal sahneyi bellekte aktarır; DM defteri, kullanılmayan yüklemeler ve gizlenmiş katmanlar yayımlanmaz. Doğrudan statik barındırmada bu yerel bağlantı yoktur; aynı tarayıcı penceresini OBS yakalayabilir. On Kış Kararı, kullanıcının son talebiyle şifresiz ve hazır yüklü gelir; yönetim ekranı yerleşik senaryoyu ihtiyaç olduğunda yükler. Kullanıcıya ait özel dosyalar yönetim defterinde kalır.
 
 Kullanım: [Yayın Masası rehberi](../lore/YAYIN_MASASI.md). Windows başlatıcısı `Yayini-Baslat.cmd`, bash başlatıcısı `Yayini-Baslat.sh` köktedir.
 
@@ -105,3 +105,5 @@ npx playwright test tests/studio-*.spec.ts --workers=1
 Tam kullanım, başlatma, özel dosya sözleşmesi ve kayıt sınırları: [Yayın Stüdyosu kılavuzu](../lore/YAYIN_STUDYOSU_KULLANIM.md). İstenen kapsam: [master prompt](../lore/YAYIN_STUDYOSU_MASTER_PROMPTU.md).
 
 `DMRunbook.tsx`, isteğe bağlı bölüm başlangıcı ve sahne oynatım alanlarını gösterir. `BroadcastQuestDirector.tsx` aynı özel içeriği geniş, klavyeyle kapanan bir okuma masasına taşıyabilir. Eski sürüm 1/2 dosyalar korunur; yeni alanlar sürüm 2 üzerinde isteğe bağlıdır. Aynı görev kimlikleri yeniden içe aktarılırken mevcut ilerleme/kararlar korunur; dosyadaki açık ilerleme önceliklidir. Gerçek macera metni kaynak koda gömülmez.
+
+`StoryFlow.tsx` varsayılan sade yönetim görünümüdür. `builtin-campaign.ts` kayıtlı proje geri yüklendikten ve sahiplik alındıktan sonra hazır hikâyeyi açar; başka kampanyayı veya düzenlenmiş metni ezmez. Hazır senaryo `public/dm/` altında şifresizdir ve yalnız yönetim ekranı tarafından istenir. `scripts/build-dm-downloads.mjs`, JSON’dan Markdown/çevrimdışı kitap/yol haritası ve deterministik beş dosyalı ZIP üretir. Canlı/telefon iletisine DM metni ya da kişisel not eklenmez. [Kısa kullanım](../lore/SADE_HIKAYE_MASASI.md).

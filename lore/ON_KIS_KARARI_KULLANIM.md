@@ -4,18 +4,16 @@ Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış 
 
 ## İlk kullanım
 
-1. Depoyu güncelle, yerel sunucuyu yeniden başlat. Eski uygulama sürümü yapılandırılmış sürüm 2 paketi okuyamaz.
-2. [DM notları](../DM_NOTLARI.md) sayfasındaki şifreli dosyayı yeniden indir. Sohbetteki aynı şifreyi kullan.
-3. ZIP'ten **On-Kis-Karari-DM.json** dosyasını çıkarıp **Yayın Masası → Görevler → DM paketi aç** ile yükle. Önceki beşli JSON yeni kampanya değildir.
-4. Yol haritasından görev, ardından sahne seç. **Şimdi ne oluyor?** DM özetidir. **Oyunculara oku** masa anlatısıdır. **DM olarak yap** somut eylemlerdir. Kişiler, kontroller ve koşullu sonuçlar ayrı kartlardadır.
-5. **Hangi görsel?** alanı resmi ve kişi adını gösterir. **Sahneyi hazırla** perdeyi kapatır, arka plan ve ilgili portreleri yerleştirir, eski portre ve zarı kaldırır. Parti taşları ve çizimler korunur. **Oyunculara göster** ile perdeyi aç.
-6. Kararı yaz, görevi tamamlandı işaretle. **Defteri indir** özel görevleri, notları, sahne ilerlemesini ve kararları ayrı yedekler. Bu bilgiler sahne yedeğinde veya yayın bağlantısında yoktur.
+1. Güncel siteyi başlatıp **Yayın Masası**na gir. Hikâye hazır açılır; şifre veya dosya yükleme gerekmez.
+2. Sade akıştan başlangıç ya da kaldığın sahneyi seç. **Nerede / ne zaman / amaç** ve kullanılacak görseller aynı ekrandadır.
+3. Anlatımı oku; **Bu sahneyi göster** ile seçili arka plan ve portreleri oyuncu ekranına gönder. Yalnız ileri/geri gitmek canlı görüntüyü değiştirmez.
+4. Kararı not edip sıradaki adıma geç. Ayrıntılı zar/karşılaşma notları gerektiğinde açılır.
 
-Eski sürüm 1 paketleri korunur; metinleri açılır bölüm kartlarında okunur ve düzenlenebilir. Otomatik görsel düğmeleri yeni sürüm 2 pakettedir. Yeni paket açmak önceki özel defteri değiştirir; önce indirme düğmesiyle yedeğini al.
+[Kısa kullanım rehberi](SADE_HIKAYE_MASASI.md). İndirme isteğe bağlıdır: [şifresiz dosyalar](../DM_NOTLARI.md). Kendi paketlerin ve önceki düzenlemelerin otomatik değiştirilmez. Gelişmiş masada v1/v2 dosyaları ve kapsamlı yayın araçları korunur.
 
 ## Yeni içerik
 
-10 görev, 30 adımlı sahne; **8 yeni kişi portresi ve 12 yeni sahne resmi**. Sena Erven, Miren Aska, Bera Hald, Iven Rusk, Elda Sorren, Neris Vel, Maeron Vesk ve Taren Olt genel karakter dizininde bulunur. Kamusal biyografiler gizli görev rollerini ve gelecekteki sonuçları açıklamaz. Görseller görsel kütüphanesine ve galeriye kayıtlıdır. İn, küçük köprü ve kamp için kesin yeni atlas koordinatı uydurulmaz.
+10 görev, 30 adımlı sahne; **8 kişi portresi ve 20 sahne resmi**. Sena Erven, Miren Aska, Bera Hald, Iven Rusk, Elda Sorren, Neris Vel, Maeron Vesk ve Taren Olt genel karakter dizininde bulunur. Kamusal biyografiler gizli görev rollerini ve gelecekteki sonuçları açıklamaz. Görseller görsel kütüphanesine ve galeriye kayıtlıdır. İn, küçük köprü ve kamp için kesin yeni atlas koordinatı uydurulmaz.
 
 Yol Marhalden, Harven, Mavric, Frostbay, Ternhaven ve Dranthol bağlantılarını kullanır. Kral Yolu Marhalden'de biter; Cevher Çizgisi yapılmamıştır. Yolculuk günleri ara sahnelerle atlanabilir. Parti bileşimi ve seviyesi bilinmediği için kontroller ve karşılaşma profilleri düzenlenebilir öneridir. Bütün üçüncü yollar kapatılmaz; oyuncular yaratıcı bir çözüm bulursa başarıları gizli bir cezayla geri alınmaz.
 
@@ -41,7 +39,7 @@ Kaynağa sağ tık → **Dönüştür → Ekrana sığdır**. Masaüstü monitö
 
 **Oturum → Yeni oturum başlat** sahneyi, taşları, çizimleri, zarı ve yerel görselleri temizler; özel DM defterini korur.
 
-**Oturum → Bu cihazdaki tüm Aruzahr verilerini sıfırla** özel paket, ilerleme, kararlar, notlar, portreler, kitap işaretleri ve tercihleri de siler. **SIFIRLA** yazmadan çalışmaz. Önce sahne ve DM yedeğini indirme düğmeleri vardır. Ana menüdeki **Verileri sıfırla** aynı Oturum paneline götürür. Kaynak wiki, çizimler, GitHub dosyaları ve başka uygulamaların kayıtları silinmez. Aynı cihazda farklı originler (`localhost` ve `127.0.0.1` gibi) ayrı depolamadır; işlem yalnız açık origin için geçerlidir.
+**Gelişmiş masa → Yayın → Bu cihazdaki tüm Aruzahr verilerini sıfırla** özel paket, ilerleme, kararlar, notlar, portreler, kitap işaretleri ve tercihleri de siler. **SIFIRLA** yazmadan çalışmaz. Önce sahne ve DM yedeğini indirme düğmeleri vardır. Ana menüdeki **Verileri sıfırla** aynı Yayın paneline götürür. Yerleşik hikâye sonraki açılışta başlangıç haliyle yeniden gelir; kişisel notlar ve kararlar geri gelmez. Kaynak wiki, çizimler, GitHub dosyaları ve başka uygulamaların kayıtları silinmez. Aynı cihazda farklı originler (`localhost` ve `127.0.0.1` gibi) ayrı depolamadır; işlem yalnız açık origin için geçerlidir.
 
 ## Yayın önizlemeleri
 

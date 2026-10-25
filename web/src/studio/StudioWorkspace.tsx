@@ -35,6 +35,8 @@ import {
 import BroadcastStage, { type BroadcastTool } from '../BroadcastStage'
 import { broadcastAssets, type BroadcastAsset } from '../BroadcastLibrary'
 import BroadcastQuestDirector from '../BroadcastQuestDirector'
+import StoryFlow from './StoryFlow'
+import { ensureBuiltinCampaign } from '../builtin-campaign'
 import { characters } from '../lore/characters'
 import { powerFor } from '../character-card-profiles'
 import { placeById } from '../data'
@@ -110,9 +112,29 @@ const panels = [
   ['broadcast', 'Yayın', Settings],
 ] as const
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v))
+const storyFrameKey = (state: BroadcastState) =>
+  JSON.stringify([
+    state.studio?.revision,
+    state.studio?.takenAt,
+    state.title,
+    state.mode,
+    state.blackout,
+    state.intermission,
+  ])
 export default function StudioWorkspace() {
   const [project, setProject] = useState<StudioProject | null>(null),
     [fatal, setFatal] = useState(''),
+    [layout, setLayout] = useState<'story' | 'advanced'>(() => {
+      if (location.hash.endsWith('/reset')) return 'advanced'
+      try {
+        return localStorage.getItem('aruzahr-studio-layout') === 'advanced'
+          ? 'advanced'
+          : 'story'
+      } catch {
+        return 'story'
+      }
+    }),
+    [campaignReady, setCampaignReady] = useState(false),
     [panel, setPanel] = useState(
       location.hash.endsWith('/reset') ? 'broadcast' : 'quests',
     ),
@@ -242,6 +264,32 @@ export default function StudioWorkspace() {
       cancelled = true
     }
   }, [])
+  useEffect(() => {
+    if (!project || !connection.state.owner || campaignReady) return
+    let cancelled = false
+    // Restore the saved project first; only its owner may seed an absent book.
+    ensureBuiltinCampaign()
+      .then(() => {
+        if (cancelled) return
+        change((p) => ({ ...p, dmStorage: privateDMStorage() }))
+        setDMRevision((v) => v + 1)
+        setCampaignReady(true)
+      })
+      .catch((e) => {
+        if (cancelled) return
+        notify('Hazır hikâye açılamadı: ' + (e as Error).message)
+        setCampaignReady(true)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [!!project, connection.state.owner, campaignReady, change, notify])
+  function chooseLayout(value: 'story' | 'advanced') {
+    setLayout(value)
+    try {
+      localStorage.setItem('aruzahr-studio-layout', value)
+    } catch {}
+  }
   useEffect(() => {
     if (!project || !connection.state.owner || resetting.current) return
     setSaved('Kaydediliyor')
@@ -625,6 +673,10 @@ export default function StudioWorkspace() {
     }
   }
   function prepareDM(cue: DMScene, questId?: string) {
+    if (!current.current || !ownerRef.current || resetting.current) {
+      notify('Bu sahneyi hazırlamak için yönetimi bu pencereye al.')
+      return false
+    }
     const p = current.current!,
       background = broadcastAssets.find((a) => a.id === cue.backgroundId)
     if (
@@ -1179,7 +1231,7 @@ export default function StudioWorkspace() {
   return (
     <StudioContext.Provider value={actions}>
       <main
-        className={`studio-workspace view-${p.view}`}
+        className={`studio-workspace view-${p.view} ${layout === 'story' ? 'story-layout' : ''}`}
         data-testid="studio-workspace"
         style={
           {
@@ -1197,7 +1249,10 @@ export default function StudioWorkspace() {
             <ArrowLeft size={18} />
           </a>
           <div className="studio-logo">
-            ARUZAHR<small>YÖNETMEN MASASI</small>
+            ARUZAHR
+            <small>
+              {layout === 'story' ? 'HİKÂYE MASASI' : 'YÖNETMEN MASASI'}
+            </small>
           </div>
           <div className="studio-project-name">
             <input
@@ -1225,11 +1280,21 @@ export default function StudioWorkspace() {
                 : 'Yayın rölesi bekleniyor')}
           </span>
           <small className="studio-save">{saved}</small>
-          <button onClick={() => setPalette(true)}>
-            <Search size={16} />
-            <span>Komutlar</span>
-            <kbd>Ctrl K</kbd>
+          <button
+            onClick={() =>
+              chooseLayout(layout === 'story' ? 'advanced' : 'story')
+            }
+          >
+            <BookOpen size={15} />
+            {layout === 'story' ? 'Gelişmiş masaya geç' : 'Sade hikâyeye dön'}
           </button>
+          {layout === 'advanced' && (
+            <button onClick={() => setPalette(true)}>
+              <Search size={16} />
+              <span>Komutlar</span>
+              <kbd>Ctrl K</kbd>
+            </button>
+          )}
           <button onClick={exportProject} title="Özel kampanya paketini indir">
             <Save size={17} />
           </button>
@@ -1265,413 +1330,477 @@ export default function StudioWorkspace() {
             <button onClick={exportProject}>Bu kaydın yedeğini indir</button>
           </div>
         )}
-        <div
-          className="studio-main-grid"
-          inert={!connection.state.owner || resetting.current || busy}
-        >
-          <aside className="studio-scenes">
-            <div className="studio-rail-heading">
-              <span className="studio-eyebrow">OTURUM AKIŞI</span>
-              <h2>
-                Sahneler <small>{p.scenes.length}</small>
-              </h2>
-              <button
-                aria-label="Yeni sahne oluştur"
-                onClick={() => {
-                  const clean = {
-                    ...newBroadcastState(),
-                    customAssets: p.imageAssets,
-                    studio: defaults(),
-                  }
-                  const card = sceneCard(clean, 'Yeni sahne')
-                  change((p) => ({
-                    ...p,
-                    scenes: [...p.scenes, card],
-                    draft: clean,
-                    activeScene: card.id,
-                    covers: {},
-                  }))
+        {layout === 'story' ? (
+          <div
+            className="story-host"
+            inert={!connection.state.owner || resetting.current}
+          >
+            {campaignReady ? (
+              <StoryFlow
+                key={dmRevision}
+                onPrepare={prepareDM}
+                onShow={async (cue, questId) => {
+                  if (
+                    taking.current ||
+                    !connection.state.owner ||
+                    !connection.state.online ||
+                    !prepareDM(cue, questId)
+                  )
+                    return null
+                  const old = storyFrameKey(current.current!.program)
+                  await take()
+                  const key = storyFrameKey(current.current!.program)
+                  return old === key ? null : key
                 }}
-              >
-                <Plus size={17} />
-              </button>
-            </div>
-            <input
-              className="studio-scene-search"
-              aria-label="Kayıtlı sahnelerde ara"
-              placeholder="Bölüm veya sahne ara…"
-              value={sceneQuery}
-              onChange={(e) => setSceneQuery(e.target.value)}
-            />
-            <div className="studio-scene-list">
-              {!p.scenes.length && (
-                <div className="studio-empty-scenes">
-                  <Clapperboard size={32} />
-                  <strong>İlk sahneni kaydet</strong>
-                  <p>
-                    Bir arka plan ve kişiler seç. Düzeni kaydet; sonra tek
-                    tıklamayla hazırlığa al.
-                  </p>
-                  <button onClick={saveScene}>Bu hazırlığı kaydet</button>
-                  <button onClick={importQuestScenes}>
-                    DM paketinden sahneleri al
-                  </button>
-                </div>
-              )}
-              {sceneMatches.map((s, i) => (
-                <article
-                  className={`studio-scene-card ${p.activeScene === s.id ? 'selected' : ''}`}
-                  key={s.id}
-                  draggable
-                  onDragStart={(e) =>
-                    e.dataTransfer.setData('text/x-studio-scene', s.id)
-                  }
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => {
-                    e.preventDefault()
-                    const id = e.dataTransfer.getData('text/x-studio-scene')
-                    change((p) => {
-                      const source = p.scenes.find((s) => s.id === id)
-                      if (!source || id === s.id) return p
-                      const list = p.scenes.filter((s) => s.id !== id)
-                      list.splice(
-                        list.findIndex((c) => c.id === s.id),
-                        0,
-                        source,
-                      )
-                      return { ...p, scenes: list }
+                onMessage={notify}
+                onMap={(id) => {
+                  const city = placeById(id)
+                  if (city?.point) {
+                    draft({
+                      mode: 'map',
+                      camera: { x: city.point[0], y: city.point[1], zoom: 6 },
                     })
+                    notify(
+                      'Konum haritada hazır. Haritayı yayına vermek veya çizmek için gelişmiş masaya geç.',
+                    )
+                    setPanel('map')
+                    chooseLayout('advanced')
+                  }
+                }}
+                preview={<BroadcastStage state={p.program} readOnly />}
+                liveTitle={p.program.title}
+                liveKey={storyFrameKey(p.program)}
+                busy={busy}
+                connected={connection.state.owner && connection.state.online}
+                acknowledged={
+                  !!p.program.studio?.takenAt &&
+                  connection.state.ackTakenAt === p.program.studio.takenAt
+                }
+                intermission={!!p.program.intermission}
+                onBreak={() => perform('break')}
+                onRoll={() => perform('roll-d20')}
+                onAdvanced={() => chooseLayout('advanced')}
+              />
+            ) : (
+              <div className="broadcast-loading">Hikâye kitabı açılıyor…</div>
+            )}
+          </div>
+        ) : (
+          <div
+            className="studio-main-grid"
+            inert={!connection.state.owner || resetting.current || busy}
+          >
+            <aside className="studio-scenes">
+              <div className="studio-rail-heading">
+                <span className="studio-eyebrow">OTURUM AKIŞI</span>
+                <h2>
+                  Sahneler <small>{p.scenes.length}</small>
+                </h2>
+                <button
+                  aria-label="Yeni sahne oluştur"
+                  onClick={() => {
+                    const clean = {
+                      ...newBroadcastState(),
+                      customAssets: p.imageAssets,
+                      studio: defaults(),
+                    }
+                    const card = sceneCard(clean, 'Yeni sahne')
+                    change((p) => ({
+                      ...p,
+                      scenes: [...p.scenes, card],
+                      draft: clean,
+                      activeScene: card.id,
+                      covers: {},
+                    }))
                   }}
                 >
-                  <button
-                    className="studio-scene-open"
-                    onClick={() => loadScene(s.id)}
-                  >
-                    <div className="studio-scene-thumb">
-                      <img
-                        src={localImage(s.state.scene.src, p.mediaVault)}
-                        alt=""
-                        loading="lazy"
-                      />
-                      <span>
-                        {s.status === 'played'
-                          ? 'OYNANDI'
-                          : s.status === 'skipped'
-                            ? 'ATLANDI'
-                            : s.status === 'prepared'
-                              ? 'HAZIR'
-                              : 'YENİ'}
-                      </span>
-                    </div>
-                    <small>{s.tag || 'OTURUM SAHNESİ'}</small>
-                    <strong>{s.name}</strong>
-                  </button>
-                  <div className="studio-scene-actions">
-                    <button
-                      aria-label={`${s.name} önceye taşı`}
-                      onClick={() =>
-                        change((p) => {
-                          const rows = [...p.scenes],
-                            j = rows.findIndex((c) => c.id === s.id)
-                          if (j > 0)
-                            [rows[j - 1], rows[j]] = [rows[j], rows[j - 1]]
-                          return { ...p, scenes: rows }
-                        })
-                      }
-                    >
-                      ↑
-                    </button>
-                    <button
-                      aria-label={`${s.name} sonraya taşı`}
-                      onClick={() =>
-                        change((p) => {
-                          const rows = [...p.scenes],
-                            j = rows.findIndex((c) => c.id === s.id)
-                          if (j < rows.length - 1)
-                            [rows[j + 1], rows[j]] = [rows[j], rows[j + 1]]
-                          return { ...p, scenes: rows }
-                        })
-                      }
-                    >
-                      ↓
-                    </button>
-                    <button
-                      aria-label={`${s.name} favori`}
-                      onClick={() =>
-                        change((p) => ({
-                          ...p,
-                          scenes: p.scenes.map((c) =>
-                            c.id === s.id ? { ...c, favorite: !c.favorite } : c,
-                          ),
-                        }))
-                      }
-                    >
-                      {s.favorite ? '★' : '☆'}
-                    </button>
-                    <button
-                      aria-label={`${s.name} çoğalt`}
-                      onClick={() =>
-                        change((p) => ({
-                          ...p,
-                          scenes: [
-                            ...p.scenes,
-                            {
-                              ...s,
-                              id: freshId('scene'),
-                              name: s.name + ' · kopya',
-                              status: 'new',
-                            },
-                          ],
-                        }))
-                      }
-                    >
-                      <Copy size={12} />
-                    </button>
-                    <button
-                      aria-label={`${s.name} atla`}
-                      onClick={() =>
-                        change((p) => ({
-                          ...p,
-                          scenes: p.scenes.map((c) =>
-                            c.id === s.id
-                              ? {
-                                  ...c,
-                                  status:
-                                    c.status === 'skipped' ? 'new' : 'skipped',
-                                }
-                              : c,
-                          ),
-                        }))
-                      }
-                    >
-                      ↷
-                    </button>
-                    <button
-                      aria-label={`${s.name} sil`}
-                      onClick={() =>
-                        change((p) => ({
-                          ...p,
-                          trash: [s, ...p.trash].slice(0, 30),
-                          scenes: p.scenes.filter((c) => c.id !== s.id),
-                        }))
-                      }
-                    >
-                      <Trash2 size={12} />
-                    </button>
-                    <button
-                      aria-label={`${s.name} sabitle`}
-                      onClick={() =>
-                        change((p) => ({
-                          ...p,
-                          quick: [
-                            ...new Set([...p.quick, 'scene:' + s.id]),
-                          ].slice(-24),
-                        }))
-                      }
-                    >
-                      ＋
+                  <Plus size={17} />
+                </button>
+              </div>
+              <input
+                className="studio-scene-search"
+                aria-label="Kayıtlı sahnelerde ara"
+                placeholder="Bölüm veya sahne ara…"
+                value={sceneQuery}
+                onChange={(e) => setSceneQuery(e.target.value)}
+              />
+              <div className="studio-scene-list">
+                {!p.scenes.length && (
+                  <div className="studio-empty-scenes">
+                    <Clapperboard size={32} />
+                    <strong>İlk sahneni kaydet</strong>
+                    <p>
+                      Bir arka plan ve kişiler seç. Düzeni kaydet; sonra tek
+                      tıklamayla hazırlığa al.
+                    </p>
+                    <button onClick={saveScene}>Bu hazırlığı kaydet</button>
+                    <button onClick={importQuestScenes}>
+                      DM paketinden sahneleri al
                     </button>
                   </div>
-                </article>
-              ))}
-            </div>
-            <div className="studio-rail-footer">
-              <button onClick={importQuestScenes}>
-                <BookOpen size={14} />
-                Görev sahnelerini içe al
-              </button>
-              <button
-                onClick={() => {
-                  setShowQuick((v) => !v)
-                }}
-              >
-                <Sparkles size={14} />
-                Hızlı yayın paneli
-              </button>
-              <details>
-                <summary>Silinen sahneler · {p.trash.length}</summary>
-                {p.trash.map((s) => (
-                  <button
+                )}
+                {sceneMatches.map((s, i) => (
+                  <article
+                    className={`studio-scene-card ${p.activeScene === s.id ? 'selected' : ''}`}
                     key={s.id}
-                    onClick={() =>
-                      change((p) => ({
-                        ...p,
-                        scenes: [...p.scenes, s],
-                        trash: p.trash.filter((c) => c.id !== s.id),
-                      }))
+                    draggable
+                    onDragStart={(e) =>
+                      e.dataTransfer.setData('text/x-studio-scene', s.id)
                     }
-                  >
-                    {s.name} · geri al
-                  </button>
-                ))}
-              </details>
-              <a
-                href="#/broadcast/classic"
-                onClick={() => void connection.release()}
-              >
-                Klasik masa ↗
-              </a>
-            </div>
-          </aside>
-          <div
-            className="studio-resizer left"
-            role="separator"
-            aria-label="Sol panel genişliği"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
-                change((p) => ({
-                  ...p,
-                  leftWidth: clamp(
-                    p.leftWidth + (e.key === 'ArrowRight' ? 10 : -10),
-                    200,
-                    400,
-                  ),
-                }))
-            }}
-            onPointerDown={(e) => {
-              e.currentTarget.setPointerCapture(e.pointerId)
-            }}
-            onPointerMove={(e) => {
-              if (e.currentTarget.hasPointerCapture(e.pointerId))
-                change((p) => ({ ...p, leftWidth: clamp(e.clientX, 200, 400) }))
-            }}
-          />
-          <section className="studio-center">
-            <div className="studio-main-actions">
-              <div className="studio-view-switch">
-                {[
-                  ['narration', 'Anlatım'],
-                  ['combat', 'Savaş'],
-                  ['preparation', 'Hazırlık'],
-                ].map(([id, label]) => (
-                  <button
-                    key={id}
-                    aria-pressed={p.view === id}
-                    onClick={() => {
-                      change((p) => ({ ...p, view: id as typeof p.view }))
-                      setPanel(
-                        id === 'combat'
-                          ? 'combat'
-                          : id === 'preparation'
-                            ? 'scene'
-                            : 'quests',
-                      )
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => {
+                      e.preventDefault()
+                      const id = e.dataTransfer.getData('text/x-studio-scene')
+                      change((p) => {
+                        const source = p.scenes.find((s) => s.id === id)
+                        if (!source || id === s.id) return p
+                        const list = p.scenes.filter((s) => s.id !== id)
+                        list.splice(
+                          list.findIndex((c) => c.id === s.id),
+                          0,
+                          source,
+                        )
+                        return { ...p, scenes: list }
+                      })
                     }}
                   >
-                    {label}
-                  </button>
+                    <button
+                      className="studio-scene-open"
+                      onClick={() => loadScene(s.id)}
+                    >
+                      <div className="studio-scene-thumb">
+                        <img
+                          src={localImage(s.state.scene.src, p.mediaVault)}
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span>
+                          {s.status === 'played'
+                            ? 'OYNANDI'
+                            : s.status === 'skipped'
+                              ? 'ATLANDI'
+                              : s.status === 'prepared'
+                                ? 'HAZIR'
+                                : 'YENİ'}
+                        </span>
+                      </div>
+                      <small>{s.tag || 'OTURUM SAHNESİ'}</small>
+                      <strong>{s.name}</strong>
+                    </button>
+                    <div className="studio-scene-actions">
+                      <button
+                        aria-label={`${s.name} önceye taşı`}
+                        onClick={() =>
+                          change((p) => {
+                            const rows = [...p.scenes],
+                              j = rows.findIndex((c) => c.id === s.id)
+                            if (j > 0)
+                              [rows[j - 1], rows[j]] = [rows[j], rows[j - 1]]
+                            return { ...p, scenes: rows }
+                          })
+                        }
+                      >
+                        ↑
+                      </button>
+                      <button
+                        aria-label={`${s.name} sonraya taşı`}
+                        onClick={() =>
+                          change((p) => {
+                            const rows = [...p.scenes],
+                              j = rows.findIndex((c) => c.id === s.id)
+                            if (j < rows.length - 1)
+                              [rows[j + 1], rows[j]] = [rows[j], rows[j + 1]]
+                            return { ...p, scenes: rows }
+                          })
+                        }
+                      >
+                        ↓
+                      </button>
+                      <button
+                        aria-label={`${s.name} favori`}
+                        onClick={() =>
+                          change((p) => ({
+                            ...p,
+                            scenes: p.scenes.map((c) =>
+                              c.id === s.id
+                                ? { ...c, favorite: !c.favorite }
+                                : c,
+                            ),
+                          }))
+                        }
+                      >
+                        {s.favorite ? '★' : '☆'}
+                      </button>
+                      <button
+                        aria-label={`${s.name} çoğalt`}
+                        onClick={() =>
+                          change((p) => ({
+                            ...p,
+                            scenes: [
+                              ...p.scenes,
+                              {
+                                ...s,
+                                id: freshId('scene'),
+                                name: s.name + ' · kopya',
+                                status: 'new',
+                              },
+                            ],
+                          }))
+                        }
+                      >
+                        <Copy size={12} />
+                      </button>
+                      <button
+                        aria-label={`${s.name} atla`}
+                        onClick={() =>
+                          change((p) => ({
+                            ...p,
+                            scenes: p.scenes.map((c) =>
+                              c.id === s.id
+                                ? {
+                                    ...c,
+                                    status:
+                                      c.status === 'skipped'
+                                        ? 'new'
+                                        : 'skipped',
+                                  }
+                                : c,
+                            ),
+                          }))
+                        }
+                      >
+                        ↷
+                      </button>
+                      <button
+                        aria-label={`${s.name} sil`}
+                        onClick={() =>
+                          change((p) => ({
+                            ...p,
+                            trash: [s, ...p.trash].slice(0, 30),
+                            scenes: p.scenes.filter((c) => c.id !== s.id),
+                          }))
+                        }
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                      <button
+                        aria-label={`${s.name} sabitle`}
+                        onClick={() =>
+                          change((p) => ({
+                            ...p,
+                            quick: [
+                              ...new Set([...p.quick, 'scene:' + s.id]),
+                            ].slice(-24),
+                          }))
+                        }
+                      >
+                        ＋
+                      </button>
+                    </div>
+                  </article>
                 ))}
               </div>
-              <select
-                aria-label="Sahne geçişi"
-                value={p.draft.studio!.transition}
-                onChange={(e) =>
-                  extras({
-                    transition: e.target.value as StudioPublic['transition'],
-                  })
-                }
-              >
-                <option value="cut">Kesme</option>
-                <option value="fade">Yumuşak geçiş</option>
-                <option value="dip">Kararıp açılma</option>
-              </select>
-              <button
-                className="studio-take"
-                data-testid="studio-take"
-                disabled={busy || !connection.state.online}
-                onClick={() => void take()}
-              >
-                <Radio size={17} />
-                {busy ? 'Hazırlanıyor…' : 'Yayına al'}
-              </button>
-            </div>
-            <div className="studio-preview-heading">
-              <span>
-                <i />
-                HAZIRLIK
-              </span>
-              <strong>{activeCard?.name || p.draft.title}</strong>
-              <small>
-                {dirty ? 'Değişiklikler henüz yayında değil' : 'Kayıt hazır'}
-              </small>
-            </div>
-            <div className="studio-preview" data-testid="studio-preview">
-              <BroadcastStage
-                state={p.draft}
-                tool={tool}
-                color={color}
-                width={brush}
-                onChange={draft}
-                selectedIds={p.selectedActors}
-                onSelect={(id, multi) =>
+              <div className="studio-rail-footer">
+                <button onClick={importQuestScenes}>
+                  <BookOpen size={14} />
+                  Görev sahnelerini içe al
+                </button>
+                <button
+                  onClick={() => {
+                    setShowQuick((v) => !v)
+                  }}
+                >
+                  <Sparkles size={14} />
+                  Hızlı yayın paneli
+                </button>
+                <details>
+                  <summary>Silinen sahneler · {p.trash.length}</summary>
+                  {p.trash.map((s) => (
+                    <button
+                      key={s.id}
+                      onClick={() =>
+                        change((p) => ({
+                          ...p,
+                          scenes: [...p.scenes, s],
+                          trash: p.trash.filter((c) => c.id !== s.id),
+                        }))
+                      }
+                    >
+                      {s.name} · geri al
+                    </button>
+                  ))}
+                </details>
+                <a
+                  href="#/broadcast/classic"
+                  onClick={() => void connection.release()}
+                >
+                  Klasik masa ↗
+                </a>
+              </div>
+            </aside>
+            <div
+              className="studio-resizer left"
+              role="separator"
+              aria-label="Sol panel genişliği"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
                   change((p) => ({
                     ...p,
-                    selectedActors: multi
-                      ? p.selectedActors.includes(id)
-                        ? p.selectedActors.filter((a) => a !== id)
-                        : [...p.selectedActors, id]
-                      : p.selectedActors.includes(id)
-                        ? p.selectedActors
-                        : [id],
+                    leftWidth: clamp(
+                      p.leftWidth + (e.key === 'ArrowRight' ? 10 : -10),
+                      200,
+                      400,
+                    ),
                   }))
-                }
-                covers={p.covers}
-                markers={p.mapMarkers}
-                onMapPoint={mapPoint}
-                onAssetDrop={(asset, x, y) => {
-                  if (p.draft.mode === 'map') {
-                    const c = addPerson(asset, 'ally')
-                    draft({
-                      tokens: [
-                        ...current.current!.draft.tokens,
-                        {
-                          id: c.id,
-                          name: c.knownName,
-                          src: c.src,
-                          x,
-                          y,
-                          kind: c.kind,
-                          size: 48,
-                        },
-                      ],
+              }}
+              onPointerDown={(e) => {
+                e.currentTarget.setPointerCapture(e.pointerId)
+              }}
+              onPointerMove={(e) => {
+                if (e.currentTarget.hasPointerCapture(e.pointerId))
+                  change((p) => ({
+                    ...p,
+                    leftWidth: clamp(e.clientX, 200, 400),
+                  }))
+              }}
+            />
+            <section className="studio-center">
+              <div className="studio-main-actions">
+                <div className="studio-view-switch">
+                  {[
+                    ['narration', 'Anlatım'],
+                    ['combat', 'Savaş'],
+                    ['preparation', 'Hazırlık'],
+                  ].map(([id, label]) => (
+                    <button
+                      key={id}
+                      aria-pressed={p.view === id}
+                      onClick={() => {
+                        change((p) => ({ ...p, view: id as typeof p.view }))
+                        setPanel(
+                          id === 'combat'
+                            ? 'combat'
+                            : id === 'preparation'
+                              ? 'scene'
+                              : 'quests',
+                        )
+                      }}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                <select
+                  aria-label="Sahne geçişi"
+                  value={p.draft.studio!.transition}
+                  onChange={(e) =>
+                    extras({
+                      transition: e.target.value as StudioPublic['transition'],
                     })
-                  } else
-                    addAsset(
-                      asset,
-                      asset.kind === 'scene'
-                        ? 'background'
-                        : asset.kind === 'portrait'
-                          ? 'portrait'
-                          : 'image',
-                    )
-                }}
-              />
-            </div>
-            <div className="studio-tools">
-              <div className="studio-mode-toggle">
-                <button
-                  aria-pressed={p.draft.mode === 'map'}
-                  onClick={() => draft({ mode: 'map' })}
+                  }
                 >
-                  <MapIcon size={15} />
-                  Harita
-                </button>
+                  <option value="cut">Kesme</option>
+                  <option value="fade">Yumuşak geçiş</option>
+                  <option value="dip">Kararıp açılma</option>
+                </select>
                 <button
-                  aria-pressed={p.draft.mode === 'scene'}
-                  onClick={() => draft({ mode: 'scene' })}
+                  className="studio-take"
+                  data-testid="studio-take"
+                  disabled={busy || !connection.state.online}
+                  onClick={() => void take()}
                 >
-                  <ImageIcon size={15} />
-                  Sahne
+                  <Radio size={17} />
+                  {busy ? 'Hazırlanıyor…' : 'Yayına al'}
                 </button>
               </div>
-              {p.draft.mode === 'map' && (
-                <button onClick={() => perform('close-map')}>
-                  Haritayı kapat · Esc
-                </button>
-              )}
-              {(['pan', 'pen', 'arrow', 'erase', 'ping', 'mark'] as const).map(
-                (id, i) => (
+              <div className="studio-preview-heading">
+                <span>
+                  <i />
+                  HAZIRLIK
+                </span>
+                <strong>{activeCard?.name || p.draft.title}</strong>
+                <small>
+                  {dirty ? 'Değişiklikler henüz yayında değil' : 'Kayıt hazır'}
+                </small>
+              </div>
+              <div className="studio-preview" data-testid="studio-preview">
+                <BroadcastStage
+                  state={p.draft}
+                  tool={tool}
+                  color={color}
+                  width={brush}
+                  onChange={draft}
+                  selectedIds={p.selectedActors}
+                  onSelect={(id, multi) =>
+                    change((p) => ({
+                      ...p,
+                      selectedActors: multi
+                        ? p.selectedActors.includes(id)
+                          ? p.selectedActors.filter((a) => a !== id)
+                          : [...p.selectedActors, id]
+                        : p.selectedActors.includes(id)
+                          ? p.selectedActors
+                          : [id],
+                    }))
+                  }
+                  covers={p.covers}
+                  markers={p.mapMarkers}
+                  onMapPoint={mapPoint}
+                  onAssetDrop={(asset, x, y) => {
+                    if (p.draft.mode === 'map') {
+                      const c = addPerson(asset, 'ally')
+                      draft({
+                        tokens: [
+                          ...current.current!.draft.tokens,
+                          {
+                            id: c.id,
+                            name: c.knownName,
+                            src: c.src,
+                            x,
+                            y,
+                            kind: c.kind,
+                            size: 48,
+                          },
+                        ],
+                      })
+                    } else
+                      addAsset(
+                        asset,
+                        asset.kind === 'scene'
+                          ? 'background'
+                          : asset.kind === 'portrait'
+                            ? 'portrait'
+                            : 'image',
+                      )
+                  }}
+                />
+              </div>
+              <div className="studio-tools">
+                <div className="studio-mode-toggle">
+                  <button
+                    aria-pressed={p.draft.mode === 'map'}
+                    onClick={() => draft({ mode: 'map' })}
+                  >
+                    <MapIcon size={15} />
+                    Harita
+                  </button>
+                  <button
+                    aria-pressed={p.draft.mode === 'scene'}
+                    onClick={() => draft({ mode: 'scene' })}
+                  >
+                    <ImageIcon size={15} />
+                    Sahne
+                  </button>
+                </div>
+                {p.draft.mode === 'map' && (
+                  <button onClick={() => perform('close-map')}>
+                    Haritayı kapat · Esc
+                  </button>
+                )}
+                {(
+                  ['pan', 'pen', 'arrow', 'erase', 'ping', 'mark'] as const
+                ).map((id, i) => (
                   <button
                     key={id}
                     aria-label={
@@ -1690,252 +1819,258 @@ export default function StudioWorkspace() {
                   >
                     {['↔', '✎', '↗', '⌫', '◎', '⚑'][i]}
                   </button>
-                ),
-              )}
-              <input
-                type="color"
-                aria-label="Çizim rengi"
-                value={color}
-                onChange={(e) => setColor(e.target.value)}
-              />
-              <input
-                type="range"
-                aria-label="Çizgi kalınlığı"
-                min="2"
-                max="40"
-                value={brush}
-                onChange={(e) => setBrush(+e.target.value)}
-              />
-              <button onClick={undo} title="Son düzenlemeyi geri al">
-                <RotateCcw size={15} />
-              </button>
-              <button onClick={saveScene}>
-                <Save size={15} />
-                Sahneyi kaydet
-              </button>
-              <button
-                onClick={() =>
-                  draft({ studio: { ...p.draft.studio!, reveal: undefined } })
-                }
-              >
-                Görseli kapat
-              </button>
-            </div>
-            <div className="studio-program-strip">
-              <div className="studio-live-preview">
-                <BroadcastStage
-                  state={localStage(p.program, p.mediaVault)}
-                  readOnly
+                ))}
+                <input
+                  type="color"
+                  aria-label="Çizim rengi"
+                  value={color}
+                  onChange={(e) => setColor(e.target.value)}
                 />
+                <input
+                  type="range"
+                  aria-label="Çizgi kalınlığı"
+                  min="2"
+                  max="40"
+                  value={brush}
+                  onChange={(e) => setBrush(+e.target.value)}
+                />
+                <button onClick={undo} title="Son düzenlemeyi geri al">
+                  <RotateCcw size={15} />
+                </button>
+                <button onClick={saveScene}>
+                  <Save size={15} />
+                  Sahneyi kaydet
+                </button>
+                <button
+                  onClick={() =>
+                    draft({ studio: { ...p.draft.studio!, reveal: undefined } })
+                  }
+                >
+                  Görseli kapat
+                </button>
               </div>
-              <div>
-                <span className="studio-eyebrow live">
-                  {connection.state.error
-                    ? 'GÖNDERİMİ KONTROL ET'
-                    : p.program.studio!.takenAt > connection.state.ack
-                      ? 'YAYINA GÖNDERİLİYOR'
-                      : 'YAYINDA'}
-                </span>
-                <h3 data-testid="studio-program-title">{p.program.title}</h3>
-                <p>
-                  {p.program.intermission
-                    ? 'Ara ekranı açık'
-                    : p.program.mode === 'map'
-                      ? 'İzleyici haritayı görüyor'
-                      : 'İzleyici sahneyi görüyor'}
-                </p>
-                <div className="st-two">
-                  <button onClick={() => perform('break')}>
-                    <Pause size={14} />
-                    {p.program.intermission ? 'Moladan dön' : 'Acil ara'}
-                  </button>
-                  <button onClick={() => perform('mute')}>
-                    {p.program.studio?.audio?.muted ? (
-                      <VolumeX size={14} />
-                    ) : (
-                      <Volume2 size={14} />
-                    )}
-                    Sessiz / sesli
-                  </button>
+              <div className="studio-program-strip">
+                <div className="studio-live-preview">
+                  <BroadcastStage
+                    state={localStage(p.program, p.mediaVault)}
+                    readOnly
+                  />
                 </div>
-                <div className="st-two">
-                  <button
-                    disabled={!p.previous}
-                    onClick={() => perform('previous-program')}
-                  >
-                    Önceki yayın
-                  </button>
-                  <button
-                    onClick={() => {
-                      draft({
-                        ...localStage(p.program, p.mediaVault),
-                        studio: { ...p.program.studio!, reveal: undefined },
-                      })
-                      notify('Canlı görüntü hazırlığa kopyalandı.')
-                    }}
-                  >
-                    Yayını hazırlığa kopyala
-                  </button>
-                  <button
-                    onClick={() => {
-                      draft(localStage(p.program, p.mediaVault))
-                      change((p) => ({ ...p, covers: {} }))
-                    }}
-                  >
-                    Hazırlığı iptal et
-                  </button>
-                </div>
-              </div>
-            </div>
-            {p.facts
-              .filter(
-                (f) =>
-                  f.enabled &&
-                  (f.sceneIds.includes(p.activeScene) ||
-                    (!f.sceneIds.length && !f.questIds.length)),
-              )
-              .map((f) => (
-                <div className="studio-fact" key={f.id}>
-                  <BookOpen size={16} />
-                  <div>
-                    <strong>{f.label}</strong>
-                    <p>{f.value}</p>
+                <div>
+                  <span className="studio-eyebrow live">
+                    {connection.state.error
+                      ? 'GÖNDERİMİ KONTROL ET'
+                      : p.program.studio!.takenAt > connection.state.ack
+                        ? 'YAYINA GÖNDERİLİYOR'
+                        : 'YAYINDA'}
+                  </span>
+                  <h3 data-testid="studio-program-title">{p.program.title}</h3>
+                  <p>
+                    {p.program.intermission
+                      ? 'Ara ekranı açık'
+                      : p.program.mode === 'map'
+                        ? 'İzleyici haritayı görüyor'
+                        : 'İzleyici sahneyi görüyor'}
+                  </p>
+                  <div className="st-two">
+                    <button onClick={() => perform('break')}>
+                      <Pause size={14} />
+                      {p.program.intermission ? 'Moladan dön' : 'Acil ara'}
+                    </button>
+                    <button onClick={() => perform('mute')}>
+                      {p.program.studio?.audio?.muted ? (
+                        <VolumeX size={14} />
+                      ) : (
+                        <Volume2 size={14} />
+                      )}
+                      Sessiz / sesli
+                    </button>
                   </div>
-                  <small>Yalnız DM</small>
+                  <div className="st-two">
+                    <button
+                      disabled={!p.previous}
+                      onClick={() => perform('previous-program')}
+                    >
+                      Önceki yayın
+                    </button>
+                    <button
+                      onClick={() => {
+                        draft({
+                          ...localStage(p.program, p.mediaVault),
+                          studio: { ...p.program.studio!, reveal: undefined },
+                        })
+                        notify('Canlı görüntü hazırlığa kopyalandı.')
+                      }}
+                    >
+                      Yayını hazırlığa kopyala
+                    </button>
+                    <button
+                      onClick={() => {
+                        draft(localStage(p.program, p.mediaVault))
+                        change((p) => ({ ...p, covers: {} }))
+                      }}
+                    >
+                      Hazırlığı iptal et
+                    </button>
+                  </div>
                 </div>
-              ))}
-            {showQuick && (
-              <div className="studio-quick-grid">
-                {p.quick.map((id) => (
-                  <button key={id} onClick={() => perform(id)}>
-                    {id.startsWith('scene:')
-                      ? p.scenes.find((s) => s.id === id.slice(6))?.name ||
-                        'Sahne'
-                      : (
-                          {
-                            take: 'Yayına al',
-                            break: 'Ara / devam',
-                            mute: 'Sessiz / sesli',
-                            map: 'Haritayı hazırla',
-                            'roll-d20': 'd20 at',
-                            next: 'Sonraki adım',
-                            previous: 'Önceki adım',
-                          } as Record<string, string>
-                        )[id] || id}
+              </div>
+              {p.facts
+                .filter(
+                  (f) =>
+                    f.enabled &&
+                    (f.sceneIds.includes(p.activeScene) ||
+                      (!f.sceneIds.length && !f.questIds.length)),
+                )
+                .map((f) => (
+                  <div className="studio-fact" key={f.id}>
+                    <BookOpen size={16} />
+                    <div>
+                      <strong>{f.label}</strong>
+                      <p>{f.value}</p>
+                    </div>
+                    <small>Yalnız DM</small>
+                  </div>
+                ))}
+              {showQuick && (
+                <div className="studio-quick-grid">
+                  {p.quick.map((id) => (
+                    <button key={id} onClick={() => perform(id)}>
+                      {id.startsWith('scene:')
+                        ? p.scenes.find((s) => s.id === id.slice(6))?.name ||
+                          'Sahne'
+                        : (
+                            {
+                              take: 'Yayına al',
+                              break: 'Ara / devam',
+                              mute: 'Sessiz / sesli',
+                              map: 'Haritayı hazırla',
+                              'roll-d20': 'd20 at',
+                              next: 'Sonraki adım',
+                              previous: 'Önceki adım',
+                            } as Record<string, string>
+                          )[id] || id}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <details className="studio-help">
+                <summary>İlk kullanım</summary>
+                <ol>
+                  <li>
+                    Görsel ve kişileri hazırlıkta düzenle. Sahneyi kaydet.
+                  </li>
+                  <li>Yayına al düğmesiyle canlı görüntüyü değiştir.</li>
+                  <li>
+                    Görev paketini aç; sahneleri soldaki akışa aktarabilirsin.
+                  </li>
+                  <li>
+                    Ses kaynağını ve OBS ölçülerini Yayın panelinden ayarla.
+                  </li>
+                  <li>
+                    Özel kampanya yedeği; görev, görsel, ses, karar ve
+                    ilerlemeyi birlikte taşır.
+                  </li>
+                </ol>
+              </details>
+            </section>
+            <div
+              className="studio-resizer right"
+              role="separator"
+              aria-label="Sağ panel genişliği"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
+                  change((p) => ({
+                    ...p,
+                    rightWidth: clamp(
+                      p.rightWidth + (e.key === 'ArrowLeft' ? 10 : -10),
+                      320,
+                      650,
+                    ),
+                  }))
+              }}
+              onPointerDown={(e) =>
+                e.currentTarget.setPointerCapture(e.pointerId)
+              }
+              onPointerMove={(e) => {
+                if (e.currentTarget.hasPointerCapture(e.pointerId))
+                  change((p) => ({
+                    ...p,
+                    rightWidth: clamp(innerWidth - e.clientX, 320, 650),
+                  }))
+              }}
+            />
+            <aside className="studio-inspector">
+              <nav className="studio-panel-tabs" aria-label="Studio araçları">
+                {panels.map(([id, label, Icon]) => (
+                  <button
+                    key={id}
+                    aria-pressed={panel === id}
+                    onClick={() => setPanel(id)}
+                  >
+                    <Icon size={16} />
+                    <span>{label}</span>
                   </button>
                 ))}
+              </nav>
+              <div className="studio-panel-body">
+                {panels.map(([id]) => (
+                  <section
+                    key={id}
+                    className={`studio-panel panel-${id}`}
+                    hidden={panel !== id}
+                  >
+                    {id === 'quests' ? (
+                      campaignReady ? (
+                        <BroadcastQuestDirector
+                          key={dmRevision}
+                          onPrepare={prepareDM}
+                          onReveal={() => void take()}
+                          onMap={(id) => {
+                            const city = placeById(id)
+                            if (city?.point)
+                              draft({
+                                mode: 'map',
+                                camera: {
+                                  x: city.point[0],
+                                  y: city.point[1],
+                                  zoom: 6,
+                                },
+                              })
+                          }}
+                          onMessage={notify}
+                          facts={p.facts}
+                          studioMode
+                        />
+                      ) : (
+                        <p>Hikâye kitabı açılıyor…</p>
+                      )
+                    ) : id === 'scene' ? (
+                      <ScenePanel />
+                    ) : id === 'library' ? (
+                      <LibraryPanel />
+                    ) : id === 'people' ? (
+                      <PeoplePanel />
+                    ) : id === 'map' ? (
+                      <MapPanel />
+                    ) : id === 'combat' ? (
+                      <CombatPanel />
+                    ) : id === 'dice' ? (
+                      <DicePanel />
+                    ) : id === 'sound' ? (
+                      <SoundPanel />
+                    ) : id === 'journal' ? (
+                      <JournalPanel />
+                    ) : (
+                      <BroadcastPanel />
+                    )}
+                  </section>
+                ))}
               </div>
-            )}
-            <details className="studio-help">
-              <summary>İlk kullanım</summary>
-              <ol>
-                <li>Görsel ve kişileri hazırlıkta düzenle. Sahneyi kaydet.</li>
-                <li>Yayına al düğmesiyle canlı görüntüyü değiştir.</li>
-                <li>
-                  Görev paketini aç; sahneleri soldaki akışa aktarabilirsin.
-                </li>
-                <li>
-                  Ses kaynağını ve OBS ölçülerini Yayın panelinden ayarla.
-                </li>
-                <li>
-                  Özel kampanya yedeği; görev, görsel, ses, karar ve ilerlemeyi
-                  birlikte taşır.
-                </li>
-              </ol>
-            </details>
-          </section>
-          <div
-            className="studio-resizer right"
-            role="separator"
-            aria-label="Sağ panel genişliği"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
-                change((p) => ({
-                  ...p,
-                  rightWidth: clamp(
-                    p.rightWidth + (e.key === 'ArrowLeft' ? 10 : -10),
-                    320,
-                    650,
-                  ),
-                }))
-            }}
-            onPointerDown={(e) =>
-              e.currentTarget.setPointerCapture(e.pointerId)
-            }
-            onPointerMove={(e) => {
-              if (e.currentTarget.hasPointerCapture(e.pointerId))
-                change((p) => ({
-                  ...p,
-                  rightWidth: clamp(innerWidth - e.clientX, 320, 650),
-                }))
-            }}
-          />
-          <aside className="studio-inspector">
-            <nav className="studio-panel-tabs" aria-label="Studio araçları">
-              {panels.map(([id, label, Icon]) => (
-                <button
-                  key={id}
-                  aria-pressed={panel === id}
-                  onClick={() => setPanel(id)}
-                >
-                  <Icon size={16} />
-                  <span>{label}</span>
-                </button>
-              ))}
-            </nav>
-            <div className="studio-panel-body">
-              {panels.map(([id]) => (
-                <section
-                  key={id}
-                  className={`studio-panel panel-${id}`}
-                  hidden={panel !== id}
-                >
-                  {id === 'quests' ? (
-                    <BroadcastQuestDirector
-                      key={dmRevision}
-                      onPrepare={prepareDM}
-                      onReveal={() => void take()}
-                      onMap={(id) => {
-                        const city = placeById(id)
-                        if (city?.point)
-                          draft({
-                            mode: 'map',
-                            camera: {
-                              x: city.point[0],
-                              y: city.point[1],
-                              zoom: 6,
-                            },
-                          })
-                      }}
-                      onMessage={notify}
-                      facts={p.facts}
-                      studioMode
-                    />
-                  ) : id === 'scene' ? (
-                    <ScenePanel />
-                  ) : id === 'library' ? (
-                    <LibraryPanel />
-                  ) : id === 'people' ? (
-                    <PeoplePanel />
-                  ) : id === 'map' ? (
-                    <MapPanel />
-                  ) : id === 'combat' ? (
-                    <CombatPanel />
-                  ) : id === 'dice' ? (
-                    <DicePanel />
-                  ) : id === 'sound' ? (
-                    <SoundPanel />
-                  ) : id === 'journal' ? (
-                    <JournalPanel />
-                  ) : (
-                    <BroadcastPanel />
-                  )}
-                </section>
-              ))}
-            </div>
-          </aside>
-        </div>
+            </aside>
+          </div>
+        )}
         <StudioAudio
           state={p.program}
           role="operator"

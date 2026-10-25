@@ -84,6 +84,7 @@ test('özel kampanya paketi resim, ses, karar ve DM ilerlemesini temiz profilde 
   await fresh
     .getByRole('button', { name: 'Kontrolü bu pencereye al', exact: true })
     .click()
+  await fresh.getByRole('button', { name: 'Gelişmiş masaya geç', exact: true }).click()
   await expect(fresh.getByTestId('studio-take')).toBeEnabled()
   await panel(fresh, 'Yayın')
   await fresh.locator('.panel-broadcast input[type=file]').setInputFiles(path)

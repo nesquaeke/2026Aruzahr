@@ -2,6 +2,8 @@
 
 25 Ekim 2026. Kullanıcı mevcut yayın resimlerini çocukça ve tam ekranda düşük kaliteli buldu. Netleştirmede **“Yağlıboya: karanlık, ciddi, yüksek ayrıntı”** seçildi; pixel art talebi yoktur.
 
+> Sonraki kullanım güncellemesi: hikâye artık şifresiz, hazır yüklü ve sade adımlarla açılır. Sekiz ek sahne resmi eklendi. [Güncel kullanım](SADE_HIKAYE_MASASI.md). Aşağıdaki kayıt önceki 20 resmin yeniden üretimini belgeler.
+
 ## Görseller
 
 **12 geniş sahne ve 8 portre sıfırdan, ayrı ayrı üretildi.** Tek bir toplu resmin hücrelerinden kesilmedi. Gri/kurşun/toprak tonları, sınırlı sıcak ışık, yıpranmış malzeme ve yağlıboya işçiliği kullanılır. Kaynak PNG’ler çalışma alanında korunur; siteye boyutlandırma, kırpma veya keskinleştirme yapılmadan kayıpsız WebP olarak verilir.

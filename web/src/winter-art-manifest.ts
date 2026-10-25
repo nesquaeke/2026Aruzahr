@@ -2,6 +2,20 @@ import type { Artwork } from './media'
 export const winterPeople = [['sena-erven','Sena Erven'],['miren-aska','Miren Aska'],['bera-hald','Bera Hald'],['iven-rusk','Iven Rusk'],['elda-sorren','Elda Sorren'],['neris-vel','Neris Vel'],['maeron-vesk','Yüzbaşı Maeron Vesk'],['taren-olt','Taren Olt']]
 const sceneRows = [['ilac','Marhalden · İki yatak','marhalden'],['kopru','Batı geçidindeki yük köprüsü','marhalden'],['ekmek','Harven · Küçük fırın','harven'],['varkul','Mavric · Varkul ini','mavric'],['uyku','Frostbay · Eski taş salon','frostbay'],['baba','Frostbay · Kıyı odası','frostbay'],['kayik','Frostbay · Fırtına kıyısı','frostbay'],['bahce','Ternhaven · Sıcak su bahçesi','ternhaven'],['ambar','Dranthol · İkmal avlusu','dranthol'],['kul','Kömürcü evlerinin kalıntıları','dranthol'],['marhalden','Marhalden · Aldara ve iki kale','marhalden'],['kamp','Hardlane · Akşam kampı','hardlane']]
 export const winterArtworks: Artwork[] = [
+ ...[
+  ['yuk-avlusu', 'Marhalden · Yük avlusu', 'marhalden'],
+  ['buzlu-galeri', 'Marhalden · Eski sıcak su galerisi', 'marhalden'],
+  ['un-ambari', 'Harven · Fırının arka kapısı', 'harven'],
+  ['odun-yolu', 'Mavric · Kapalı odun yolu', 'mavric'],
+  ['su-kapisi', 'Frostbay · Eski su kapısı', 'frostbay'],
+  ['iskele', 'Frostbay · Alçak iskele', 'frostbay'],
+  ['ocak-bahcesi', 'Ternhaven · Bahçe kayıt odası', 'ternhaven'],
+  ['iki-depo', 'Dranthol · İki depo', 'dranthol'],
+ ].map(([id, title, relatedId]): Artwork => ({
+  id: `winter-${id}`, src: `/illustrations/winter-${id}.webp`, title,
+  caption: 'On Kış Kararı · sahne akışı için bağımsız üretilmiş karanlık, ayrıntılı yağlıboya; koşullu sonuçları göstermez',
+  relatedId, origin: 'generated', painted: true, category: 'scene',
+ })),
  ...sceneRows.map(([id,title,relatedId]):Artwork=>({id:`winter-${id}`,src:`/illustrations/winter-${id}.webp`,title,caption:'On Kış Kararı · bağımsız geniş kadrajlı karanlık yağlıboya, 25 Ekim yeniden üretimi; görev sonucu veya kesin harita noktası değildir',relatedId,origin:'generated',painted:true,category:'scene'})),
  ...winterPeople.map(([id,name]):Artwork=>({id:`winter-${id}`,src:`/illustrations/winter-${id}.webp`,title:name,caption:'On Kış Kararı · karanlık yağlıboya kişi portresi, 25 Ekim yeniden üretimi',relatedId:id,origin:'generated',painted:true,portrait:true,category:'portrait'}))
 ]

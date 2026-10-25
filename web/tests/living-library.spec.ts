@@ -81,12 +81,22 @@ test('all important cities and institution rosters have operating guides and sea
   for (const id of ['gil','jeremiah','volomiyr','lysandra']) expect(characterLife[id], id).toBeUndefined();
 });
 
-test('no private DM solution marker or preparation is shipped through app sources or public assets', () => {
+test('authorized ready campaign is separate from wiki; user-private markers and preparation files stay out', () => {
   function paths(root: string): string[] { return readdirSync(root, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? paths(resolve(root, entry.name)) : [resolve(root, entry.name)]); }
   const files = [...paths(resolve('src')), ...paths(resolve('public'))];
   expect(files.filter(file => /DM_HAZIRLIK|private-aruzahr/.test(file))).toEqual([]);
   for (const file of files.filter(file => /\.(tsx?|m?js|json|md|html|css)$/.test(file))) {
     expect(readFileSync(file, 'utf8'), file).not.toContain('ARUZAHR_DM_PRIVATE__');
+  }
+  // The user explicitly requested this supplied book unencrypted in the site.
+  // That authorization does not expose personal notes or turn outcomes into wiki canon.
+  const ready = JSON.parse(readFileSync(resolve('public/dm/On-Kis-Karari-DM.json'), 'utf8'));
+  expect(ready.quests).toHaveLength(10);
+  expect(ready.quests.flatMap((q: any) => q.steps)).toHaveLength(30);
+  const prose = ready.quests[0].steps[0].readAloud;
+  for (const file of paths(resolve('src/lore')).filter(file => /\.tsx?$/.test(file))) {
+    expect(readFileSync(file, 'utf8'), file).not.toContain(prose);
+    expect(readFileSync(file, 'utf8'), file).not.toContain('Ravel Dorr');
   }
   for (const book of worldBooks.filter(book => book.id === 'kitap-uc-agirlik')) {
     expect(book.excerpt.join(' ')).not.toContain('Karven bunu satışın kenar notuna');

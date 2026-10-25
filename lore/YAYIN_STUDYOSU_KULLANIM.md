@@ -2,10 +2,12 @@
 
 Güncel yönetim masası `http://127.0.0.1:5173/#/broadcast` adresindedir. Önceki arayüz `/#/broadcast/classic` altında korunur. OBS'nin ana adresi değişmedi: **`http://127.0.0.1:5173/#/broadcast/live`**.
 
+Varsayılan sade akış için [kısa rehberi](SADE_HIKAYE_MASASI.md) kullan. Bu sayfa gelişmiş araçların ayrıntılarıdır.
+
 ## İlk oturum
 
 1. Güncel depoyu indirip çıkar. Windows'ta `Yayini-Baslat.cmd`; macOS/Linux'ta `bash Yayini-Baslat.sh` çalıştır. Node 22.12+ gerekir. Terminali açık tut.
-2. **Görev** panelinden şifreli teslimden çıkardığın `On-Kis-Karari-DM.json` dosyasını aç. Eski beşli paket de çalışır. Paket sıradan bir metin sayfası olarak kalmaz: görev adımları, okunacak sözler, kontroller, görseller ve karar alanları ayrılır.
+2. Yeni varsayılan **Sade Hikâye Masası**nda On Kış Kararı hazır gelir. Aşağıdaki ayrıntılı araçlar için **Gelişmiş masaya geç** düğmesini kullan. **Görev** panelinde kendi `On-Kis-Karari-DM.json` dosyanı da açabilirsin. Eski beşli paket de çalışır. Paket sıradan bir metin sayfası olarak kalmaz: görev adımları, okunacak sözler, kontroller, görseller ve karar alanları ayrılır.
 3. Sol taraftaki **Görev sahnelerini içe al** ile paketin sahnelerini kayıtlı sahnelere ekle. On Kış Kararı 10 görev ve 30 sahne içerir. Bu işlem yayın görüntüsünü değiştirmez.
 4. Bir sahneyi veya görev adımını **hazırla**. Orta bölümde kadrajı, portreleri ve başlığı kontrol et. Hazırlıkta yaptığın değişiklikler izleyiciye gitmez.
 5. **Yayına al** düğmesiyle göster. Altındaki canlı önizleme ve bağlantı durumu, gönderimin onayını gösterir. OBS kaynağında aynı görüntü açılır.
@@ -32,7 +34,7 @@ Yeni **On Kış Kararı · Oynatım Kitabı** dosyasını yükledikten sonra **G
 
 İlk bölümde ayrıca **Giriş manzarasını hazırla / Girişi oyunculara göster** düğmeleri vardır. Tanışma ve sevk sözleşmesi, revirdeki üç adımdan önce oynanır. Yeni JSON'u aynı görev kimlikleriyle açmak mevcut adım, karar ve tamamlanma kayıtlarını korur; dosyanın içinde açık bir ilerleme kaydı varsa o kullanılır. Tam defter dosyanı ayrıca indirebilirsin.
 
-Yeni resimler sitenin içindedir. Önce güncel siteyi çalıştır, ardından güncel şifreli paketin JSON'unu aç. Önceki kayıtlardaki canlı görüntü kendiliğinden değiştirilmez; yeni resmi hazırlayıp yayına al. **Görev sahnelerini içe al** mevcut görev kartlarını yeni içerikle günceller. ZIP'teki `On-Kis-Karari-Oynatim-Kitabi.html`, internetsiz okunabilen özel metin sürümüdür.
+Yeni resimler sitenin içindedir. Güncel siteyle hazır hikâye doğrudan açılır; kendi paketlerin için dosya seçimi korunur. Önceki kayıtlardaki canlı görüntü kendiliğinden değiştirilmez; yeni resmi hazırlayıp yayına al. **Görev sahnelerini içe al** mevcut görev kartlarını yeni içerikle günceller. ZIP'teki `On-Kis-Karari-Oynatim-Kitabi.html`, internetsiz okunabilen özel metin sürümüdür.
 
 
 Görev panelinde adımları sırayla yürüt, kontrol maddelerini işaretle, gerekirse sahneyi atla veya sırayı değiştir. Alternatif çıkışlar rehberde görünür. Kararı kaydet ve **Hatırlatmaya dönüştür** ile sonraki oturumlarda yeniden karşına çıkar.
@@ -112,7 +114,7 @@ Oylama başlığını/seçeneklerini yazıp aç ve bağlantıyı paylaş. Sonuç
 
 **Ctrl+K** komut menüsü; varsayılan **Alt+Enter** yayına al, **Alt+B** ara, **Alt+M** sessizlik, **Alt+N/P** adım, **Ctrl+Z** geri al. Metin alanına yazarken çalışmaz. **Yayın → Klavye ve hızlı panel** alanında değiştir; sık kullanılan komut/sahneleri sabitle.
 
-**Özel kampanya paketi** JSON biçiminde hazırlık/canlı/önceki sahneyi, kayıtlı sahneleri, yerel görseller/sesleri, özel kişi bilgilerini, maskeleri, savaşı, zar geçmişini, defteri, DM dosyasını ve ilerlemeyi içerir. Bu dosya şifreli değildir; DM yedeği olarak sakla. GitHub'daki şifreli DM indirme sayfasıyla aynı dosya türü değildir.
+**Özel kampanya paketi** JSON biçiminde hazırlık/canlı/önceki sahneyi, kayıtlı sahneleri, yerel görseller/sesleri, özel kişi bilgilerini, maskeleri, savaşı, zar geçmişini, defteri, DM dosyasını ve ilerlemeyi içerir. Bu dosya şifreli değildir; DM yedeği olarak sakla. Şifresiz sunulan yerleşik hikâyenin indirme dosyasıyla aynı dosya türü değildir.
 
 İçe aktarırken önizlemede sayıları kontrol et. **Kampanyaya ekle** gelen sahne/kişi/medya/notları birleştirir, çakışan kimlikleri ayırır; mevcut canlı görüntüyü ve etkin savaşı korur. **Bu kampanyayı aç** dosyadaki kampanyayı bütün durumuyla geri yükler. Yedeğini önce indirebilirsin. Eski sürüm 1 yayın yedeği hazırlığa alınır; eski sürüm 1/2 DM paketleri görev paneline yüklenir. Eksik varlık veya bozuk bütünlük mevcut kampanyayı silmeden reddedilir.
 

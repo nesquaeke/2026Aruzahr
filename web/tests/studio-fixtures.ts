@@ -29,6 +29,8 @@ export async function bootStudio(
       'aruzahr-director-progress',
     ])
       localStorage.removeItem(k)
+    // These suites exercise the retained advanced production desk.
+    localStorage.setItem('aruzahr-studio-layout', 'advanced')
   }, fixture)
   await page.goto('/#/broadcast')
   await expect(page.getByTestId('studio-workspace')).toBeVisible()

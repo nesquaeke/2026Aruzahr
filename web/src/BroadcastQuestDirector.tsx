@@ -285,11 +285,12 @@ export default function BroadcastQuestDirector({
       </label>
       <a
         className="dm-package-link"
-        href="/DM-Paketini-Ac.html"
+        href="/dm/On-Kis-Karari-DM.json"
+        download="On-Kis-Karari-DM.json"
         target="_blank"
         rel="noopener"
       >
-        On Kış Kararı · 10 görevlik paketi indir ↗
+        On Kış Kararı · şifresiz hikâye dosyasını indir ↗
       </a>
       {pack && (
         <>
@@ -359,9 +360,8 @@ export default function BroadcastQuestDirector({
           <BookOpen size={25} />
           <h3>Yeni kampanyayı aç</h3>
           <p>
-            On Kış Kararı paketi; 10 görev, 30 sahne, görsel hazırlama düğmeleri
-            ve karar takibi içerir. ZIP içindeki JSON’u yukarıdan yükle. Şifre
-            sohbette.
+            Hazır On Kış Kararı hikâyesi otomatik açılır. Kendi maceran için
+            yukarıdan bir JSON veya not dosyası seçebilirsin.
           </p>
         </div>
       )}
@@ -389,7 +389,7 @@ export default function BroadcastQuestDirector({
           {!quest.briefing && pack?.title.startsWith('On Kış Kararı') && (
             <p className="dm-book-upgrade">
               Bu dosya önceki kısa anlatım sürümü. Girişleri, kişi rehberini ve
-              30 sahnenin oynatımını görmek için güncel şifreli paketteki JSON’u
+              30 sahnenin oynatımını görmek için hazır hikâyenin güncel JSON’unu
               aç. Aynı görevlerin ilerlemesi ve kararları korunur.
             </p>
           )}

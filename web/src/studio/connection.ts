@@ -47,6 +47,7 @@ export function useStudioConnection(
       online: false,
       error: 'Bağlanıyor…',
       ack: 0,
+      ackTakenAt: 0,
       audio: false,
     }),
     [nonce, setNonce] = useState(0)
@@ -96,7 +97,7 @@ export function useStudioConnection(
             JSON.stringify({ id: id.current, at: Date.now() }),
           )
         } catch {}
-        status({ owner: true, online: true, error: '' })
+        status({ owner: true, online: true, error: '', ackTakenAt: 0 })
         void drain()
       } catch (e) {
         denied = [403, 409].includes((e as any).status)
@@ -154,13 +155,19 @@ export function useStudioConnection(
           }
         }
         await api('frame', { epoch: epoch.current, state: frame }, key.current)
-        status({ owner: true, online: true, error: '', ack: Date.now() })
+        status({
+          owner: true,
+          online: true,
+          error: '',
+          ack: Date.now(),
+          ackTakenAt: frame.studio.takenAt,
+        })
       } catch (e) {
         const code = (e as any).status
         status({
           error: (e as Error).message,
           online: false,
-          ...(code === 409 ? { owner: false } : {}),
+          ...(code === 409 ? { owner: false, ackTakenAt: 0 } : {}),
         })
         if (code === 409) {
           key.current = ''
@@ -197,6 +204,7 @@ export function useStudioConnection(
         )
         if (result.epoch !== epoch.current) {
           key.current = ''
+          status({ ackTakenAt: 0 })
           void claim()
           return
         }
@@ -219,7 +227,7 @@ export function useStudioConnection(
             .then((r) => r.json())
             .catch(() => ({ online: true }))
           denied = !!result.online
-          status({ owner: false })
+          status({ owner: false, ackTakenAt: 0 })
         }
       } finally {
         heartbeatBusy = false
@@ -239,6 +247,7 @@ export function useStudioConnection(
             status({
               owner: false,
               online: false,
+              ackTakenAt: 0,
               error: 'Kontrol diğer yönetim penceresine geçti.',
             })
           }
@@ -288,6 +297,7 @@ export function useStudioConnection(
         ...s,
         owner: false,
         online: false,
+        ackTakenAt: 0,
         error: 'Kontrol bırakıldı.',
       }))
     },

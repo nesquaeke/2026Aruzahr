@@ -1,3 +1,9 @@
+export type DMQuickGuide = {
+  where: string
+  time: string
+  goal: string
+  next: string
+}
 export type DMBriefing = {
   previous: string
   arrival: string
@@ -23,6 +29,7 @@ export type DMRunbook = {
   questions: { question: string; answer: string }[]
 }
 export type DMScene = {
+  quick?: DMQuickGuide
   runbook?: DMRunbook
   id: string
   title: string
@@ -38,6 +45,7 @@ export type DMScene = {
   exits?: { label: string; sceneId: string }[]
 }
 export type DMQuest = {
+  quick?: DMQuickGuide
   briefing?: DMBriefing
   id: string
   title: string
@@ -118,6 +126,15 @@ function runbook(v: unknown): DMRunbook {
     })),
   }
 }
+function quick(v: unknown): DMQuickGuide {
+  if (!obj(v)) throw new Error('Kısa hikâye rehberi geçersiz.')
+  return {
+    where: field(v, 'where', 600),
+    time: field(v, 'time', 600),
+    goal: field(v, 'goal', 1200),
+    next: field(v, 'next', 1200),
+  }
+}
 export function parseDMPack(value: unknown): DMPack {
   if (
     !obj(value) ||
@@ -141,6 +158,7 @@ export function parseDMPack(value: unknown): DMPack {
       throw new Error('DM görev kaydı geçersiz.')
     ids.add(q.id)
     const result: DMQuest = { id: q.id, title: q.title, body: q.body }
+    if (q.quick !== undefined) result.quick = quick(q.quick)
     if (q.briefing !== undefined) result.briefing = briefing(q.briefing)
     if (txt(q.location, 160)) result.location = q.location
     if (txt(q.objective, 2000)) result.objective = q.objective
@@ -175,6 +193,7 @@ export function parseDMPack(value: unknown): DMPack {
           return { label: c.label, result: c.result, echo: c.echo }
         })
         return {
+          ...(step.quick === undefined ? {} : { quick: quick(step.quick) }),
           ...(step.runbook === undefined
             ? {}
             : { runbook: runbook(step.runbook) }),
