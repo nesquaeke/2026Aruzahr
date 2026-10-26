@@ -4,7 +4,7 @@ React 19, TypeScript, Vite, Three.js ve OpenSeadragon ile Türkçe interaktif at
 
 ## Kurulum ve çalıştırma
 
-Depo kökündeki `BASLAT.bat` veya `bash baslat.sh` yerel kurulumu yapar. Elle çalıştırmak için:
+[Başlatıcılar](../baslat/README.md) yerel kurulumu yapar; Windows’ta `baslat/BASLAT.bat`, macOS/Linux’ta `bash baslat/baslat.sh` kullan. Elle çalıştırmak için:
 
 ```bash
 cd web
@@ -15,7 +15,7 @@ npm run dev -- --host 127.0.0.1 --open
 
 Bulut çalışma dizini `/workspace/2026Aruzahr/web`; npm önbelleği için `npm --cache /workspace/.cache/npm ci --no-audit --no-fund` kullanılabilir. Sunucu 5173 portunda çalışır. Süreçler yeni ortamda yeniden başlatılır.
 
-`npm run assets`, depo kökündeki `Aruzahr 8k (1).jpg` dosyasından 2D Deep Zoom katmanlarını ve sekiz ülke kapağını üretir. 3D harita kaynak resim dokusu kullanmaz. Özgün çizimi değiştirmez; SHA-256 ve üretim sürümü eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
+`npm run assets`, `kaynaklar/haritalar/Aruzahr 8k (1).jpg` dosyasından 2D Deep Zoom katmanlarını ve sekiz ülke kapağını üretir. 3D harita kaynak resim dokusu kullanmaz. Özgün çizimi değiştirmez; SHA-256 ve üretim sürümü eşleştiğinde mevcut katmanları yeniden kullanır. Hazır illüstrasyonlar `public/illustrations/` içinde sürümlenir; yeni kurulumda görsel üretmek gerekmez.
 
 ```bash
 npm run build
@@ -34,7 +34,7 @@ Tarayıcı testleri varsayılan olarak `/usr/bin/chromium` kullanır. Farklı ma
 
 `Atlas.tsx` görüş alanındaki yerleşim noktalarını ülke seçimi veya uzak yakınlık yüzünden gizlemez. Çakışan yazılar azalırken 44 piksel etkileşim alanlı noktalar korunur. Ekran dışı noktalar klavye sırasına girmez. Coğrafya başlangıçta açık, yollar kapalıdır; seçilen rota kendi duraklarına odaklanır. Cevher Çizgisi tamamlanmamış proje olarak ayrı gösterilir. Güncel şehir koordinatları yol çizgilerinin de kaynağıdır.
 
-Arama alternatif yazımları tanır; `Frethar`, `Galmire`, `Korthen`, `Tora` ve `Serenth` aynı kanonik kayıtlara gider. Tam ad/koordinat envanteri ve belirsizlikler [harita denetiminde](../lore/HARITA_KONUM_DENETIMI.md) saklanır. Harita kamerası sessionStorage, yer imleri localStorage içinde tutulur.
+Arama alternatif yazımları tanır; `Frethar`, `Galmire`, `Korthen`, `Tora` ve `Serenth` aynı kanonik kayıtlara gider. Tam ad/koordinat envanteri ve belirsizlikler [harita denetiminde](../docs/gelistirme/HARITA_KONUM_DENETIMI.md) saklanır. Harita kamerası sessionStorage, yer imleri localStorage içinde tutulur.
 
 ## İsteğe bağlı Danstsud 3D
 
@@ -46,7 +46,7 @@ Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel k
 
 `relief-materials.ts` taş, kiremit, ahşap ve metal yüzeylerini; `relief-terrain-material.ts` yeni yükseklik alanından pigment/normal/pürüzlülük doku haritalarını üretir. Bunlar kaynak harita resminden türetilmez. `relief-foliage.ts` küçük yaprak/iğne yüzey dokularını, `relief-forests.ts` gövdeli ve yakın/uzak ayrıntılı orman kümelerini; `relief-farms.ts` su, şehir ve dağlardan dışlanan komşu tarım parsellerini oluşturur. Ormanlar tarla ve yol koridorlarından da dışlanır. `relief-roads.ts` 51 kraliyet bağlantısını ve Frostbay–Marhalden dahil sekiz yerel Hardlane bağlantısını karada hesaplar; köşeler kıyı kontrolüyle yuvarlanır. Her iki fiziksel ağ başlangıçta görünür; ticaret vurguları bağımsızdır. Yönlendirme ızgarasının başlangıcı, görsel kamera/kıyı kırpmasından bağımsızdır.
 
-`relief-data.ts` kıyı/göl vektörleri, kara/su ve kar sorguları, kaynak dağ alanları, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` ayrıntılı yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../lore/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../lore/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
+`relief-data.ts` kıyı/göl vektörleri, kara/su ve kar sorguları, kaynak dağ alanları, zirveler, orman/nehir kayıtları ve mimari imzaları tutar. `relief-buildings.ts` ayrıntılı yapı geometrilerini, `relief-scene.ts` gerçek yüzeyi ve çevre katmanlarını, `Atlas3D.tsx` kamera/seçim/kaynak yönetimini kurar. Çizim bir yükseklik ölçümü değildir; kabartma ve yapı planları gösterim amaçlı yorumdur. [Güncel master prompt](../docs/tasarim/3D_ATLAS_MASTER_PROMPTU.md) ve [teslim kaydı](../docs/arsiv/3D_ATLAS_TESLIMI.md) kapsamı açıklar.
 
 ## Wiki, kadrolar ve görseller
 
@@ -58,15 +58,15 @@ Danstsud'un 58 yerleşimi kendi kanonik noktasında modeldir. 11 büyük/özel k
 
 `Bookshelf.tsx` ile `lore/books.ts` 14 kitabı eski/yasak/kayıp rafları, araştırma/yolculuk/tanıklık türleri ve metin aramasıyla sunar. Her seçki 400–900 sözcük ve üç-dört yapraktır. Bölüm seçimi, yazı boyutu, yer imi, yazar/şehir/harita bağlantıları ve kalıcı `#/books/id?leaf=2` URL vardır. `GalleryHub.tsx` bütün 371 görseli kategori, arama ve özgün arşiv filtresiyle gösterir. Büyütülmüş galeri ok tuşları ve Escape ile kullanılabilir; görselin ilgili wiki sayfası açılabilir.
 
-`media.ts`, portre ve boyalı görsel manifestleriyle kaynakları birleştirir. 203 boya dokulu illüstrasyon ve 52 kaynak harita adı için özgün çizimden kesit bulunur. Birincil kapaklar/portreler yeni resimsel sürümleri seçer; önceki görseller arşivde korunur. Görsellerin kaynak ve gerçek üretim sayıları [görsel kaydında](../lore/GORSEL_URETIM_KAYDI.md), tarz [kalıcı yaratıcı rehberde](../lore/GORSEL_VE_ANLATI_REHBERI.md) açıklanır.
+`media.ts`, portre ve boyalı görsel manifestleriyle kaynakları birleştirir. 203 boya dokulu illüstrasyon ve 52 kaynak harita adı için özgün çizimden kesit bulunur. Birincil kapaklar/portreler yeni resimsel sürümleri seçer; önceki görseller arşivde korunur. Görsellerin kaynak ve gerçek üretim sayıları [görsel kaydında](../docs/gelistirme/GORSEL_URETIM_KAYDI.md), tarz [kalıcı yaratıcı rehberde](../docs/tasarim/GORSEL_VE_ANLATI_REHBERI.md) açıklanır.
 
 `LivingGuides.tsx` 15 önemli şehrin gündelik işini, 15 kurum çevresinin yetki/destek/denetimini, ilgili kitapları ve türlerin kısa ekoloji özetini sunar. Ayrıntılar tam lore ve aramada da bulunur. `character-life.ts` 33 önemli kişiye yeni olay, hedef, sınır ve karşılaşma ekler; oyuncu geçmişleri değiştirilmez. Orvelin yük ve soğukta çalışma sayıları kurgu saha taslağı olarak belirtilir.
 
-Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../lore/YASAYAN_ANSIKLOPEDI_TESLIMI.md) kaydedilir. Altı maceranın oyuncuya açık girişleri kitaplarda, çözümleri ayrı yerel DM paketindedir. Bu önceki özel hazırlık paketleri yerel kalır. Sonraki On Kış Kararı senaryosu ise kullanıcının açık isteğiyle şifresiz olarak yönetim masasında hazırdır.
+Yeni içerik ve kanon karşılığı [yaşayan ansiklopedi tesliminde](../docs/arsiv/YASAYAN_ANSIKLOPEDI_TESLIMI.md) kaydedilir. Altı maceranın oyuncuya açık girişleri kitaplarda, çözümleri ayrı yerel DM paketindedir. Bu önceki özel hazırlık paketleri yerel kalır. Sonraki On Kış Kararı senaryosu ise kullanıcının açık isteğiyle şifresiz olarak yönetim masasında hazırdır.
 
 ## Test kapsamı ve yayın
 
-Güncel arşiv 230 senaryo içerir; yayın stüdyosu, oynatım kitabı, hazır kampanya ve sade akış için 53 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, gelişmiş stüdyo testleri açıkça o görünüme geçer; sade akış testleri yeni varsayılanı ayrıca sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../lore/SON_DOGRULAMA.md) bulunur.
+Güncel arşiv 230 senaryo içerir; yayın stüdyosu, oynatım kitabı, hazır kampanya ve sade akış için 53 senaryo eklenmiştir. Eski yayın kullanım senaryoları korunan `/#/broadcast/classic` yolunu, gelişmiş stüdyo testleri açıkça o görünüme geçer; sade akış testleri yeni varsayılanı ayrıca sınar. Mevcut atlas, ansiklopedi ve isteğe bağlı Danstsud 3D kontrolleri korunur. Eski SVG/Deep Zoom testleri 2D görünümünde; `relief.spec.ts` 3D’yi açıkça etkinleştirerek gerçek WebGL ile sınar. Koşulan senaryolar ve sonuçlar [son doğrulama kaydında](../docs/gelistirme/SON_DOGRULAMA.md) bulunur.
 
 `npm run build` yalnızca `dist/` içine statik uygulamayı üretir. Ham DOCX/PDF belgeleri otomatik içe aktarılmaz; görev sırları, gizli karakter bilgileri ve Broken Oath yayımlanmaz. Geliştirme sunucusu dosya erişimi de `web/` ile sınırlıdır. Statik barındırmaya yalnızca `dist/` verilir. Bağımlılıklar, harita katmanları, derleme ve test çıktıları Git tarafından yok sayılır. Fontlar yereldir; dış font veya harita servisi gerekmez.
 
@@ -77,9 +77,9 @@ Güncel arşiv 230 senaryo içerir; yayın stüdyosu, oynatım kitabı, hazır k
 
 `useBroadcastRelay.ts` aynı tarayıcıdaki BroadcastChannel yoluna ek olarak yerel OBS profiline ulaşır. `scripts/broadcast-relay.mjs` Vite dev/preview üzerinde yalnızca kamusal sahneyi bellekte aktarır; DM defteri, kullanılmayan yüklemeler ve gizlenmiş katmanlar yayımlanmaz. Doğrudan statik barındırmada bu yerel bağlantı yoktur; aynı tarayıcı penceresini OBS yakalayabilir. On Kış Kararı, kullanıcının son talebiyle şifresiz ve hazır yüklü gelir; yönetim ekranı yerleşik senaryoyu ihtiyaç olduğunda yükler. Kullanıcıya ait özel dosyalar yönetim defterinde kalır.
 
-Kullanım: [Yayın Masası rehberi](../lore/YAYIN_MASASI.md). Windows başlatıcısı `Yayini-Baslat.cmd`, bash başlatıcısı `Yayini-Baslat.sh` köktedir.
+Kullanım: [Yayın Masası rehberi](../docs/kullanim/YAYIN_MASASI.md). Windows başlatıcısı `baslat/Yayini-Baslat.cmd`, bash başlatıcısı `baslat/Yayini-Baslat.sh` baslat/ klasöründedir.
 
-`BroadcastQuestDirector.tsx` sürüm 1 metin ve sürüm 2 sahneli DM paketlerini ayrı yerel depoda yönetir. `dm-guide.ts` şemayı doğrular, ilerleme/kararları özel defter yedeğine ekler. `BroadcastBreak.tsx` kanonik kamera ve taşlara dokunmadan görsel ara döngüsü sunar. `broadcast-reset.ts` yalnız Aruzahr anahtarlarını ve yayın IndexedDB kaydını temizler. Yeni içerik ve kullanım: [On Kış Kararı](../lore/ON_KIS_KARARI_KULLANIM.md).
+`BroadcastQuestDirector.tsx` sürüm 1 metin ve sürüm 2 sahneli DM paketlerini ayrı yerel depoda yönetir. `dm-guide.ts` şemayı doğrular, ilerleme/kararları özel defter yedeğine ekler. `BroadcastBreak.tsx` kanonik kamera ve taşlara dokunmadan görsel ara döngüsü sunar. `broadcast-reset.ts` yalnız Aruzahr anahtarlarını ve yayın IndexedDB kaydını temizler. Yeni içerik ve kullanım: [On Kış Kararı](../docs/kullanim/ON_KIS_KARARI_KULLANIM.md).
 
 
 ### Yeni stüdyo mimarisi
@@ -94,7 +94,7 @@ Kullanım: [Yayın Masası rehberi](../lore/YAYIN_MASASI.md). Windows başlatıc
 
 `StudioAudio.tsx` üç yerel ses kanalını ve autoplay durumunu yönetir. `scripts/build-studio-audio.py`, sürümlenen `public/audio/` dosyalarını deterministik olarak üretir. Bunlar proje için sentezlenen ses dokularıdır; haricî örnek kayıt/müzik içermez. Kullanıcının kendi ses yüklemeleri ve izin/kaynak alanı da vardır. `obs.ts`, isteğe bağlı OBS WebSocket 5 kimlik doğrulaması ve sahne istekleridir; OBS şifresi kalıcı depoya girmez.
 
-Ana çıkışa ek olarak `/#/broadcast/output/map`, `portraits`, `dice`, `initiative`, `break` yolları vardır. Portre/zar/inisiyatif gerçek alfa arka plan taşır; yalnız ana çıktı ses sahipliği alır. Ana masa loopback adresinden yönetilir. Telefon için kökteki `Yayini-Uzaktan-Baslat.cmd/.sh` 0.0.0.0 üzerinde dinler. Telefon/oylama için erişilebilir ağ gerekir; Twitch entegrasyonu veya otomatik internet barındırması yoktur.
+Ana çıkışa ek olarak `/#/broadcast/output/map`, `portraits`, `dice`, `initiative`, `break` yolları vardır. Portre/zar/inisiyatif gerçek alfa arka plan taşır; yalnız ana çıktı ses sahipliği alır. Ana masa loopback adresinden yönetilir. Telefon için `baslat/Yayini-Uzaktan-Baslat.cmd/.sh` 0.0.0.0 üzerinde dinler. Telefon/oylama için erişilebilir ağ gerekir; Twitch entegrasyonu veya otomatik internet barındırması yoktur.
 
 Yeni kontrolleri çalıştırmak için:
 
@@ -102,8 +102,8 @@ Yeni kontrolleri çalıştırmak için:
 npx playwright test tests/studio-*.spec.ts --workers=1
 ```
 
-Tam kullanım, başlatma, özel dosya sözleşmesi ve kayıt sınırları: [Yayın Stüdyosu kılavuzu](../lore/YAYIN_STUDYOSU_KULLANIM.md). İstenen kapsam: [master prompt](../lore/YAYIN_STUDYOSU_MASTER_PROMPTU.md).
+Tam kullanım, başlatma, özel dosya sözleşmesi ve kayıt sınırları: [Yayın Stüdyosu kılavuzu](../docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md). İstenen kapsam: [master prompt](../docs/tasarim/YAYIN_STUDYOSU_MASTER_PROMPTU.md).
 
 `DMRunbook.tsx`, isteğe bağlı bölüm başlangıcı ve sahne oynatım alanlarını gösterir. `BroadcastQuestDirector.tsx` aynı özel içeriği geniş, klavyeyle kapanan bir okuma masasına taşıyabilir. Eski sürüm 1/2 dosyalar korunur; yeni alanlar sürüm 2 üzerinde isteğe bağlıdır. Aynı görev kimlikleri yeniden içe aktarılırken mevcut ilerleme/kararlar korunur; dosyadaki açık ilerleme önceliklidir. Gerçek macera metni kaynak koda gömülmez.
 
-`StoryFlow.tsx` varsayılan sade yönetim görünümüdür. `builtin-campaign.ts` kayıtlı proje geri yüklendikten ve sahiplik alındıktan sonra hazır hikâyeyi açar; başka kampanyayı veya düzenlenmiş metni ezmez. Hazır senaryo `public/dm/` altında şifresizdir ve yalnız yönetim ekranı tarafından istenir. `scripts/build-dm-downloads.mjs`, JSON’dan Markdown/çevrimdışı kitap/yol haritası ve deterministik beş dosyalı ZIP üretir. Canlı/telefon iletisine DM metni ya da kişisel not eklenmez. [Kısa kullanım](../lore/SADE_HIKAYE_MASASI.md).
+`StoryFlow.tsx` varsayılan sade yönetim görünümüdür. `builtin-campaign.ts` kayıtlı proje geri yüklendikten ve sahiplik alındıktan sonra hazır hikâyeyi açar; başka kampanyayı veya düzenlenmiş metni ezmez. Hazır senaryo `public/dm/` altında şifresizdir ve yalnız yönetim ekranı tarafından istenir. `scripts/build-dm-downloads.mjs`, JSON’dan Markdown/çevrimdışı kitap/yol haritası ve deterministik beş dosyalı ZIP üretir. Canlı/telefon iletisine DM metni ya da kişisel not eklenmez. [Kısa kullanım](../docs/kullanim/SADE_HIKAYE_MASASI.md).

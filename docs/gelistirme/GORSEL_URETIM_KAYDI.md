@@ -1,6 +1,6 @@
 # Görsel üretim ve kaynak kaydı
 
-9 Ekim 2026. Kullanıcının istediği çizim dili: fotoğraf görünümü yerine yağlıboya ve guajı çağrıştıran, görünür fırça izli, yumuşak renkli ve okunaklı biçimli fantastik illüstrasyon. [Kalıcı rehber](GORSEL_VE_ANLATI_REHBERI.md) ve [üretim yönlendirmesi](URETIM_MASTER_PROMPTU.md) esas alındı.
+9 Ekim 2026. Kullanıcının istediği çizim dili: fotoğraf görünümü yerine yağlıboya ve guajı çağrıştıran, görünür fırça izli, yumuşak renkli ve okunaklı biçimli fantastik illüstrasyon. [Kalıcı rehber](../tasarim/GORSEL_VE_ANLATI_REHBERI.md) ve [üretim yönlendirmesi](../tasarim/URETIM_MASTER_PROMPTU.md) esas alındı.
 
 ## Arşiv
 

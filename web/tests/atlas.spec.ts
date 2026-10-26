@@ -280,8 +280,8 @@ test('published artifacts omit DM secrets and development server blocks raw lore
     }
   }
   inspect('dist')
-  for (const name of ['Valhunar.pdf', 'Main questler.docx', 'ANA HİKÂYE DOKÜMANI.docx']) {
-    const response = await request.get(`/@fs/workspace/2026Aruzahr/${encodeURIComponent(name)}`)
+  for (const name of ['kaynaklar/evren/Valhunar.pdf', 'kaynaklar/maceralar/Main questler.docx', 'kaynaklar/arsiv/broken-oath/ANA HİKÂYE DOKÜMANI.docx']) {
+    const response = await request.get(`/@fs/workspace/2026Aruzahr/${name.split('/').map(encodeURIComponent).join('/')}`)
     expect(response.status()).toBe(403)
     expect(response.headers()['content-type'] || '').not.toMatch(/pdf|officedocument/)
   }

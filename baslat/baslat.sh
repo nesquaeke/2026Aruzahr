@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -eu
-cd "$(dirname "$0")/web"
+cd "$(dirname "$0")/../web"
 if ! command -v node >/dev/null 2>&1; then
   printf '%s\n' 'Node.js 22.12 veya daha yeni bir sürüm gerekiyor.' 'https://nodejs.org/en/download adresinden Node.js LTS sürümünü kur.'
   exit 1

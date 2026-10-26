@@ -1,6 +1,6 @@
 # Aruzahr — Danstsud 3D coğrafya, mimari ve Kral Yolu
 
-11 Ekim 2026 remaster. Kullanıcının son düzeltmesi doğrultusunda [master prompt](3D_ATLAS_MASTER_PROMPTU.md) önce yazıldı, ardından eski resme kabartma ekleyen uygulama değiştirildi. **3D görünüm yeni bir coğrafi sahnedir; özgün harita resmi zemin veya doku olarak kullanılmaz.** İlk kapsam Danstsud, başlangıç görünümü 2D’dir.
+11 Ekim 2026 remaster. Kullanıcının son düzeltmesi doğrultusunda [master prompt](../tasarim/3D_ATLAS_MASTER_PROMPTU.md) önce yazıldı, ardından eski resme kabartma ekleyen uygulama değiştirildi. **3D görünüm yeni bir coğrafi sahnedir; özgün harita resmi zemin veya doku olarak kullanılmaz.** İlk kapsam Danstsud, başlangıç görünümü 2D’dir.
 
 ## Yeni harita
 
@@ -26,27 +26,27 @@ Marhalden seçilince kamera daha yukarıdan bakar; güney sırtının vadi taban
 
 Danstsud geneli: birbirine bağlanan dağlar, doğal ormanlar ve tarım/yol düzeni.
 
-![Danstsud remaster genel görünüm](onizlemeler/danstsud-3d.png)
+![Danstsud remaster genel görünüm](../gorseller/danstsud-3d.png)
 
 Lirendil: anıtsal fener, kütüphane ve genişleyen mahalleler.
 
-![Lirendil 3D önizlemesi](onizlemeler/lirendil-3d.png)
+![Lirendil 3D önizlemesi](../gorseller/lirendil-3d.png)
 
 Valdareth: beş sur, mavi-mor mahalleler, kraliyet kalesi, obsidyen kilise ve denize açılan liman.
 
-![Valdareth 3D önizlemesi](onizlemeler/valdareth-3d.png)
+![Valdareth 3D önizlemesi](../gorseller/valdareth-3d.png)
 
 Marhalden: iki yakadaki kaleler, köprü, teraslar ve dağdan inen Aldara.
 
-![Marhalden 3D önizlemesi](onizlemeler/marhalden-3d.png)
+![Marhalden 3D önizlemesi](../gorseller/marhalden-3d.png)
 
 Frostbay: büyük çatısız harabeler ve yamalı kıyı barınakları.
 
-![Frostbay 3D önizlemesi](onizlemeler/frostbay-3d.png)
+![Frostbay 3D önizlemesi](../gorseller/frostbay-3d.png)
 
 Ternhaven: düzenini koruyan, yıpranmış Hardlane yerleşimi.
 
-![Ternhaven 3D önizlemesi](onizlemeler/ternhaven-3d.png)
+![Ternhaven 3D önizlemesi](../gorseller/ternhaven-3d.png)
 
 ## Kaynak ve sınırlar
 
@@ -56,6 +56,6 @@ Kıyı/dağ verisi kaynak çizimin yorumudur; kaynakta binalarla örtülen kıy�
 
 ## Doğrulama
 
-Bu sürümün güncel koşu sonuçları [son doğrulama kaydına](SON_DOGRULAMA.md) yazılır. Kontroller yeni kara/su ayrımını, kaynak resmi yüklemeyen motoru, 58 modelin konumunu ve seçimini, arazi üzerinde model temellerini, sudan dışlanan ağaçları, kaynak dağ alanlarında kalan yüksek üçgenleri, nehir görünürlüğünü ve 2D/wiki/kamera akışlarını kapsar.
+Bu sürümün güncel koşu sonuçları [son doğrulama kaydına](../gelistirme/SON_DOGRULAMA.md) yazılır. Kontroller yeni kara/su ayrımını, kaynak resmi yüklemeyen motoru, 58 modelin konumunu ve seçimini, arazi üzerinde model temellerini, sudan dışlanan ağaçları, kaynak dağ alanlarında kalan yüksek üçgenleri, nehir görünürlüğünü ve 2D/wiki/kamera akışlarını kapsar.
 
-Bu remasterın çalışma alanı görsel kanıtları `/workspace/artifacts/danstsud-remaster/` altında tutulur. Önceki sürümler `danstsud-refined/` ve `danstsud-rebuilt/` içindedir. `coast-reference-audit.png` yalnızca kaynak/kıyı incelemesidir; sitenin zemini değildir. Güncel koşu sonuçları ve ara düzeltmeler [son doğrulama kaydında](SON_DOGRULAMA.md) belirtilir. Geometri ve yapı sayıları sahne ölçüleridir; AAA/CK3 eşdeğerliği veya cihazlar arası FPS garantisi değildir.
+Bu remasterın çalışma alanı görsel kanıtları `/workspace/artifacts/danstsud-remaster/` altında tutulur. Önceki sürümler `danstsud-refined/` ve `danstsud-rebuilt/` içindedir. `coast-reference-audit.png` yalnızca kaynak/kıyı incelemesidir; sitenin zemini değildir. Güncel koşu sonuçları ve ara düzeltmeler [son doğrulama kaydında](../gelistirme/SON_DOGRULAMA.md) belirtilir. Geometri ve yapı sayıları sahne ölçüleridir; AAA/CK3 eşdeğerliği veya cihazlar arası FPS garantisi değildir.

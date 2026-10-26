@@ -2,7 +2,7 @@
 chcp 65001 >nul
 setlocal
 title Aruzahr - Valhunar Atlası
-cd /d "%~dp0web"
+cd /d "%~dp0..\web"
 where node >nul 2>nul
 if errorlevel 1 goto :missingnode
 node -e "const [major, minor] = process.versions.node.split('.').map(Number); if (major < 22 || (major === 22 && minor < 12)) process.exit(1);"

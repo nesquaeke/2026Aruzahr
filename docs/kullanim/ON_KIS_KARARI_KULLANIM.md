@@ -1,6 +1,6 @@
 # On Kış Kararı — yeni oturum rehberi
 
-Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış yeni alternatif macera taslağıdır. Mevcut kanonda oynanmış olay sayılmaz. Darbe öncesinde geçer; Eryndorn tahtta kalır. Yeni kaynak, 25 Ekim 2026 yazar çalışmasıdır. [Önce yazılan master prompt](YAYIN_VE_ON_GOREV_MASTER_PROMPTU.md).
+Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış yeni alternatif macera taslağıdır. Mevcut kanonda oynanmış olay sayılmaz. Darbe öncesinde geçer; Eryndorn tahtta kalır. Yeni kaynak, 25 Ekim 2026 yazar çalışmasıdır. [Önce yazılan master prompt](../tasarim/YAYIN_VE_ON_GOREV_MASTER_PROMPTU.md).
 
 ## İlk kullanım
 
@@ -9,7 +9,7 @@ Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış 
 3. Anlatımı oku; **Bu sahneyi göster** ile seçili arka plan ve portreleri oyuncu ekranına gönder. Yalnız ileri/geri gitmek canlı görüntüyü değiştirmez.
 4. Kararı not edip sıradaki adıma geç. Ayrıntılı zar/karşılaşma notları gerektiğinde açılır.
 
-[Kısa kullanım rehberi](SADE_HIKAYE_MASASI.md). İndirme isteğe bağlıdır: [şifresiz dosyalar](../DM_NOTLARI.md). Kendi paketlerin ve önceki düzenlemelerin otomatik değiştirilmez. Gelişmiş masada v1/v2 dosyaları ve kapsamlı yayın araçları korunur.
+[Kısa kullanım rehberi](SADE_HIKAYE_MASASI.md). İndirme isteğe bağlıdır: [şifresiz dosyalar](../../DM_NOTLARI.md). Kendi paketlerin ve önceki düzenlemelerin otomatik değiştirilmez. Gelişmiş masada v1/v2 dosyaları ve kapsamlı yayın araçları korunur.
 
 ## Yeni içerik
 
@@ -45,8 +45,8 @@ Kaynağa sağ tık → **Dönüştür → Ekrana sığdır**. Masaüstü monitö
 
 Temiz oyuncu sahnesi, 4K tarayıcı kaynağından küçültülmüş önizleme:
 
-![On Kış Kararı sahnesi](onizlemeler/on-kis-karari-sahne.webp)
+![On Kış Kararı sahnesi](../gorseller/on-kis-karari-sahne.webp)
 
 Ara ekranı; yavaş harita/sis/kar hareketi bu durağan görüntüde görünmez:
 
-![Sakin ara ekranı](onizlemeler/on-kis-karari-ara.webp)
+![Sakin ara ekranı](../gorseller/on-kis-karari-ara.webp)

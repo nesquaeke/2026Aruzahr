@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 setlocal
-pushd "%~dp0web"
+pushd "%~dp0..\web"
 node -e "const [a,b]=process.versions.node.split('.').map(Number);if(a<22||(a===22&&b<12))process.exit(1)" >nul 2>&1
 if errorlevel 1 (
   echo Node.js 22.12 veya daha yenisini kurup bu dosyayi tekrar ac.

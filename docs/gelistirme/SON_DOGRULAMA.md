@@ -88,7 +88,7 @@ Kullanıcının yeni talebi önceki tüm dünya 3D kapsamını daraltır. Başla
 - Yerel üretim derlemesi: 20 görünüm, JavaScript/konsol hatası ve taşma yok. 11 özel kent, genel görünüm, Fehar/Telvai, Karlan/Frostmere ve 320–1024 piksel dar görünümler incelendi.
 - Kaynak harita SHA-256 değişmedi: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`.
 
-Toplam arşiv 141 senaryodur; tamamı bu düzeltmede tekrar koşulmadı. Eski tüm dünya 3D kayıtları tarihçedir; güncel uygulama ve sınırlar [Danstsud 3D teslim kaydındadır](3D_ATLAS_TESLIMI.md). Üretim görüntüleri ve koşu kayıtları `/workspace/artifacts/danstsud-3d/` altındadır.
+Toplam arşiv 141 senaryodur; tamamı bu düzeltmede tekrar koşulmadı. Eski tüm dünya 3D kayıtları tarihçedir; güncel uygulama ve sınırlar [Danstsud 3D teslim kaydındadır](../arsiv/3D_ATLAS_TESLIMI.md). Üretim görüntüleri ve koşu kayıtları `/workspace/artifacts/danstsud-3d/` altındadır.
 
 ## 10 Ekim 2026 — kaynak resmi kullanmadan sıfırdan Danstsud haritası
 
@@ -100,7 +100,7 @@ Son 3D koşusu: **`tests/relief.spec.ts` 24/24 geçti, tek worker ile 5,1 dakika
 
 `npm run assets` üretim sürümü 3 ile doğrulandı; yalnızca eski üretilmiş `relief-2048.webp` / `relief-4096.webp` türevleri temizlenir. 2D yakınlaştırma katmanları korunur. `npm run build` ve `git diff --check` başarılıdır. Özgün 8K dosyanın SHA-256 özeti değişmedi: `c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8`.
 
-Güncel kapsam [teslim kaydında](3D_ATLAS_TESLIMI.md), çalışma alanı kanıtları `/workspace/artifacts/danstsud-rebuilt/` altında bulunur. Önceki resim üzerine kabartma ekleyen teslimler tarihçedir; yeni 3D görünüm özgün çizimi zemin olarak göstermez. Tam 141 senaryoluk arşiv yeniden çalıştırılmadı.
+Güncel kapsam [teslim kaydında](../arsiv/3D_ATLAS_TESLIMI.md), çalışma alanı kanıtları `/workspace/artifacts/danstsud-rebuilt/` altında bulunur. Önceki resim üzerine kabartma ekleyen teslimler tarihçedir; yeni 3D görünüm özgün çizimi zemin olarak göstermez. Tam 141 senaryoluk arşiv yeniden çalıştırılmadı.
 
 Son üretim çıktısı için gizlilik senaryosu ayrıca **1/1 geçti** (1,3 saniye). Son yerel üretim derlemesiyle **23 görünüm** incelendi: Danstsud geneli, 11 özel kent, Fehar/Telvai, Karlan/Frostmere, Lowvale’de Rymar/Eldwen/Lysmar ve 320/390/820/1024 piksel görünümler. JavaScript/konsol hatası, yatay taşma veya seçilen şehrin modelinin kaybolması tespit edilmedi. Genel sahnede 58 yerleşim modeli, 245.503 arazi köşesi, 4.970 ağaç ve 298 çizim çağrısı ölçüldü; dar görünüm 77.976 köşe ve 2.883 ağaç kullanır. Bunlar denetlenen sahnenin ölçümleridir, cihazlar arası FPS vaadi değildir. `production.json`, `final-*.png`, `tests-release.log`, `tests-regression-and-intermediate.log`, `tests-privacy-release.log` ve `build-release.log` çalışma alanı kanıtlarıdır. GitHub’a kaynak kod yüklemek canlı site dağıtımının doğrulandığı anlamına gelmez.
 
@@ -134,7 +134,7 @@ Arşiv toplamı 142 senaryodur; bu görevde arşivin tamamı tekrar çalıştır
 
 ## 11 Ekim 2026 — işaretli dağ kuşakları, kent dokusu ve 3D remaster
 
-Son isteğin ayrıntıları uygulamadan önce [3D master promptuna](3D_ATLAS_MASTER_PROMPTU.md) eklendi. Rydorn, Dorvenhall, Lowvale ve Karlan'ın işaretli boşlukları dört kesintisiz sırt alanıyla tamamlandı; on iki yerel zirve alanı korunur. Ilıman kuşaklarda açık kaya, Karlan/Hardlane'de eğime bağlı kar bulunur. Yeni yükseklik alanından pigment, normal ve pürüzlülük haritaları üretilir. Özgün 8K çizim 3D doku değildir.
+Son isteğin ayrıntıları uygulamadan önce [3D master promptuna](../tasarim/3D_ATLAS_MASTER_PROMPTU.md) eklendi. Rydorn, Dorvenhall, Lowvale ve Karlan'ın işaretli boşlukları dört kesintisiz sırt alanıyla tamamlandı; on iki yerel zirve alanı korunur. Ilıman kuşaklarda açık kaya, Karlan/Hardlane'de eğime bağlı kar bulunur. Yeni yükseklik alanından pigment, normal ve pürüzlülük haritaları üretilir. Özgün 8K çizim 3D doku değildir.
 
 58 yerleşim kanonik noktalarında kalır. Büyük kentlere mesken mahalleleri ve sokaklar; Lirendil'e kare alt gövdeli, galerili/çokgen üst katlı anıtsal fener eklendi. Frostbay harabeleri ve Ternhaven'in eski ocak evleri yıpratıldı. Marhalden köprüsü, kaynak nehir kesimine dik yerleştirildi; ayakları araziye iner ve iki bankaya sokaklarla bağlanır. Vadiyi seçince daha yukarıdan bakılır. Başkentin beş suru ve yoğun mavi-mor çatıları korunur.
 
@@ -155,7 +155,7 @@ Son isteğin ayrıntıları uygulamadan önce [3D master promptuna](3D_ATLAS_MAS
 
 İlk tanı sırasında görsel kuzey kırpmasının yönlendirme ızgarasını kaydırarak Velthar bağlantısını bozduğu bulundu. Yol ızgarasının başlangıcı kamera kırpmasından bağımsız, sabit kaynak koordinatına döndürüldü. Yeni dağlarda bir Doğu Aldara yüzünün kaya içine girmesi de yakalandı; nehir üçgenleri yalnız gerekli yerlerde bölünerek gerçek arazi yüzeyini izler. Ara koşular ve başarısız tekrarlar kanıt dizininde saklanır; bunlar son başarılı koşularla karıştırılmaz.
 
-Son üretim sürümü tek tarayıcıyla **26 görünümde** incelendi (`production-release.log`, `production.json`): genel harita, 21 şehir/coğrafya yakın planı ve 320/390/820/1024 piksel Valdareth görünümleri. JavaScript/konsol hatası, yatay taşma veya seçili şehir modelinin kaybolması bulunmadı. Marhalden'in köprüsü/vadisi, Lirendil'in feneri, Frostbay harabeleri, genel harita ve telefon görünümü görsel olarak incelendi. Altı güncel PNG [teslim belgesinde](3D_ATLAS_TESLIMI.md) bulunur. Bu 26 görünüm, 26 Playwright senaryosunun tek tam başarılı koşusu anlamına gelmez.
+Son üretim sürümü tek tarayıcıyla **26 görünümde** incelendi (`production-release.log`, `production.json`): genel harita, 21 şehir/coğrafya yakın planı ve 320/390/820/1024 piksel Valdareth görünümleri. JavaScript/konsol hatası, yatay taşma veya seçili şehir modelinin kaybolması bulunmadı. Marhalden'in köprüsü/vadisi, Lirendil'in feneri, Frostbay harabeleri, genel harita ve telefon görünümü görsel olarak incelendi. Altı güncel PNG [teslim belgesinde](../arsiv/3D_ATLAS_TESLIMI.md) bulunur. Bu 26 görünüm, 26 Playwright senaryosunun tek tam başarılı koşusu anlamına gelmez.
 
 Sahne ölçüleri: masaüstünde **394.893 arazi köşesi / 8.699 ağaç**, dar görünümde **109.039 köşe / 4.175 ağaç**; iki kalitede **209 tarım parseli**. Yeni arazi yüzey haritaları sırasıyla **1536×945** ve **768×472** pikseldir. Genel görünümde 58 yerleşim ve üç anıt, toplam 61 model görünür. Bunlar sahne ölçüleridir; cihazlar arası FPS veya CK3/AAA kalite garantisi değildir. `git diff --check` başarılıdır.
 
@@ -176,7 +176,7 @@ Doğrulanan sonuçlar:
 - Görevler arasında özel notların korunması ve serbest notun ayrı dosyaya indirilmesi eklendikten sonra ilgili özel DM ayrımı senaryosu **1/1 geçti, 18,7 saniye** (`tests-final-dm.log`). Düzenlenen özel paket/serbest metin yayın iletisine, genel sahne yedeğine veya izleyici DOM'una taşınmaz. Bu senaryo da 26'lık kümenin alt kümesidir.
 - Mevcut atlas/wiki/galeri/yol/pin hizası: `experience.spec.ts`, `atlas-refresh.spec.ts`, `pin-alignment.spec.ts` **16/16 geçti, 1,5 dakika** (`tests-atlas-regression.log`).
 - Tam 165 kişi için altı nitelik/portre eşleşmesi, kaynak-varlıklarda özel DM işareti bulunmaması ve dizin/wiki aynı değerleri gösterimi: **3/3 geçti, 3,6 saniye** (`tests-roster-privacy.log`). Eski sabit 161 beklentisi dört yeni kişi için 165'e güncellendi; bilinmeyen arşiv portrelerine kimlik veya nitelik atanmaz.
-- Üretim önizlemesi ayrı sunucuda incelendi (`production-final.log`, `production.json`): yeni Aktarma Avlusu ve iki yeni portre, ayrı profilde 1920×1080 temiz OBS sahnesi, özgün haritada yuvarlak portre/rota, 390 px görünüm. JavaScript/konsol hatası veya yatay taşma bulunmadı. Uzun kütüphane kaydırılırken sahne yerinde kalır. Özel görev dosyası üretim sunucusundan okunamadı. Üç güncel görüntü [Yayın Masası rehberinde](YAYIN_MASASI.md) bulunur.
+- Üretim önizlemesi ayrı sunucuda incelendi (`production-final.log`, `production.json`): yeni Aktarma Avlusu ve iki yeni portre, ayrı profilde 1920×1080 temiz OBS sahnesi, özgün haritada yuvarlak portre/rota, 390 px görünüm. JavaScript/konsol hatası veya yatay taşma bulunmadı. Uzun kütüphane kaydırılırken sahne yerinde kalır. Özel görev dosyası üretim sunucusundan okunamadı. Üç güncel görüntü [Yayın Masası rehberinde](../kullanim/YAYIN_MASASI.md) bulunur.
 - `bash -n Yayini-Baslat.sh` ve `git diff --check` başarılıdır. Windows `.cmd` dosyası Linux ortamında çalıştırılmadı; kullandığı npm/atlas/sunucu komutları doğrulandı.
 
 Ara koşular saklanır: ilk birleşik yayın koşusu 23/23 geçti (`tests-complete-first.log`); SSE eklenirken çalışan geliştirme sunucusunun yeniden yüklenmesiyle bir form taslağı sıfırlanması gözlenen sonraki 25'lik koşu **24 başarılı / 1 başarısızdır** (`tests-release.log`). Kaynak güncellemeleri durdurulduktan sonraki 26'lık koşu bütünüyle geçti. Bu ara başarısızlık gizlenmez veya son başarılı koşu diye sayılmaz.
@@ -197,7 +197,7 @@ Ara koşular saklanır: ilk birleşik yayın koşusu 23/23 geçti (`tests-comple
 
 ## 25 Ekim 2026 — hazırlık/canlı yayın stüdyosu
 
-Kullanıcının bütün yayın geliştirme kapsamını istemesiyle `/#/broadcast` yeni stüdyoya geçti. Önceki masa `/#/broadcast/classic` altında korunur. Sözleşme [stüdyo master promptunda](YAYIN_STUDYOSU_MASTER_PROMPTU.md), kullanım [kılavuzda](YAYIN_STUDYOSU_KULLANIM.md), tamamlanan özellikler ve kamuya uygun ekran görüntüleri [teslim belgesinde](YAYIN_STUDYOSU_TESLIMI.md) bulunur.
+Kullanıcının bütün yayın geliştirme kapsamını istemesiyle `/#/broadcast` yeni stüdyoya geçti. Önceki masa `/#/broadcast/classic` altında korunur. Sözleşme [stüdyo master promptunda](../tasarim/YAYIN_STUDYOSU_MASTER_PROMPTU.md), kullanım [kılavuzda](../kullanim/YAYIN_STUDYOSU_KULLANIM.md), tamamlanan özellikler ve kamuya uygun ekran görüntüleri [teslim belgesinde](../arsiv/YAYIN_STUDYOSU_TESLIMI.md) bulunur.
 
 ### Koşuların gerçek sonuçları
 
@@ -238,7 +238,7 @@ Son kaynakla üretim derlemesi başarılıdır (`map-exit-build-final.log`). İk
 
 ## 25 Ekim 2026 — karanlık yağlıboyalar ve Oynatım Kitabı
 
-Kullanıcının son netleştirmesi **“Yağlıboya: karanlık, ciddi, yüksek ayrıntı”** oldu. Pixel art talebi yoktur. On Kış Kararı'nın 12 geniş sahnesi ve sekiz portresi sıfırdan, 20 ayrı üretimle değiştirildi. Kaynaklar geniş sahnelerde 1672×940/941, portrelerde 1086×1448 pikseldir. Toplu resimden kesilmedi; büyütme, kırpma veya keskinleştirme uygulanmadı. PNG → kayıpsız WebP dönüşümünde **20/20 resmin ham piksel eşitliği** doğrulandı (`artifacts/runbook/lossless-check.log`). 4K yayın düzeni 4K kaynak resim diye sunulmaz. Kimlikler/yollar korunur; galeriye 20 ayrı yeni kayıt eklenmiş sayılmaz. [Dosyalar ve ölçüler](ON_KIS_KARARI_YENI_BASKI.md).
+Kullanıcının son netleştirmesi **“Yağlıboya: karanlık, ciddi, yüksek ayrıntı”** oldu. Pixel art talebi yoktur. On Kış Kararı'nın 12 geniş sahnesi ve sekiz portresi sıfırdan, 20 ayrı üretimle değiştirildi. Kaynaklar geniş sahnelerde 1672×940/941, portrelerde 1086×1448 pikseldir. Toplu resimden kesilmedi; büyütme, kırpma veya keskinleştirme uygulanmadı. PNG → kayıpsız WebP dönüşümünde **20/20 resmin ham piksel eşitliği** doğrulandı (`artifacts/runbook/lossless-check.log`). 4K yayın düzeni 4K kaynak resim diye sunulmaz. Kimlikler/yollar korunur; galeriye 20 ayrı yeni kayıt eklenmiş sayılmaz. [Dosyalar ve ölçüler](../arsiv/ON_KIS_KARARI_YENI_BASKI.md).
 
 Özel Oynatım Kitabı yaklaşık 9.700 kelimelik okuma sürümüdür: on bölümde önceki bağlam, geliş yolu, amaç, kişiler/istekleri/ilk karşılaşmaları; 30 sahnede başlangıç, okunacak söz, sıralı olaylar, diyaloglar, sorular ve sonraki geçiş yazıldı. Mekanik kontroller/karar yankıları korunur. Geniş DM okuma masası klavye odağı/Esc/telefon düzeniyle açılır. İlk bölümün giriş görseli ayrı hazırlanıp yayına alınabilir. Aynı kitabın güncel JSON'u mevcut adımı/kararları/tamamlanmayı korur; dosyadaki açık ilerleme önceliklidir. Eski v1/v2 paketleri açılır.
 
@@ -253,7 +253,7 @@ Doğrulama:
 - Gerçek özel JSON, üretim önizlemesi 4197 üzerinde açıldı. Bölüm girişi ve **30/30 adım** hazırlanıp ayrı izleyici profiline yayımlandı; arka planlar, portreler ve yönetim canlı önizlemesi yüklendi. Giriş ve özel özetler izleyicide yoktu; 30 sahnede oynatım alanları görüldü. Ana görüntü ve ek çıktılar 3840×2160 olarak kontrol edildi; üç ayrı katman çıktısının gerçek alfa arka planı doğrulandı. 390 px görünümde yatay taşma ve JavaScript hatası bulunmadı (`artifacts/runbook/production.json`).
 - Şifreli HTML yanlış parolayı reddetti; doğru parolayla indirilen ZIP özel kaynak ZIP'le bayt düzeyinde eşleşti. ZIP iç bütünlüğü ve güncel JSON eşleşmesi de kontrol edildi. Kaynak/dist taramasında açık özel kitap veya parola bulunmadı.
 
-Geniş özel okuma masası ve yönetim görünümü gözle incelendi. [Masaüstü](onizlemeler/yayin-studyosu.png) ve [telefon](onizlemeler/yayin-studyosu-telefon.png) ekranları güncellendi; depoya özel metin içeren okuma masası ekranı konmadı. Çalışma alanı kanıtları `artifacts/runbook/` içindedir; halka açık teslim belgesi özel anlatımı içermez.
+Geniş özel okuma masası ve yönetim görünümü gözle incelendi. [Masaüstü](../gorseller/yayin-studyosu.png) ve [telefon](../gorseller/yayin-studyosu-telefon.png) ekranları güncellendi; depoya özel metin içeren okuma masası ekranı konmadı. Çalışma alanı kanıtları `artifacts/runbook/` içindedir; halka açık teslim belgesi özel anlatımı içermez.
 
 Güncel arşiv **219 senaryo** içerir; tamamı veya ağır 3D senaryoları yeniden çalıştırılmadı. Coğrafya ve şehir modelleri bu çalışmada değişmedi. Gerçek OBS masaüstü/Windows başlatıcısı bu Linux ortamında çalıştırılmadı; üretim çıktıları ayrı Chromium profillerinde incelendi. GitHub güncellemesi haricî site dağıtımının doğrulandığı anlamına gelmez.
 
@@ -282,6 +282,19 @@ Koşuların birleşiminde **50 farklı ilgili senaryo** geçti: 35 eski yayın/s
 
 Son derlenmiş sürüm 4197 üzerinde sıfır depolu yönetim profiliyle açıldı: ilk görünüm sade, kitap şifresiz hazırdı. **10 bölüm girişi + 30 görev adımı = 40 sahne** hazırlanıp ayrı 3840×2160 izleyici profiline gönderildi. Arka plan ve portreler yüklendi; yalnız okumak canlı kareyi değiştirmedi; her gösterimde gerçek ACK sonrasında durum “yayında” oldu. Alt+N → Alt+Enter adımı da doğru sahneyi hazırlayıp gösterdi. 390 px ve 3840 px yönetim görünümlerinde yatay taşma yoktu. Parolasız indirme gerçek ZIP'le bayt düzeyinde aynıydı. İzleyici hazır DM JSON'u için **0 istek**, JavaScript hatası **0** (`artifacts/simple-story/production.json`, `production-final.log`).
 
-Masaüstü, telefon ve yeni tablolar gözle incelendi. Üç güncel görüntü [kısa rehberde](SADE_HIKAYE_MASASI.md). Bu görüntüler hazır, yayımlanmasına izin verilen hikâyeyi gösterir; kullanıcıya ait özel not içermez. `git diff --check`, etkin belge bağlantıları ve eski parolanın depo dışında kalması kontrol edildi. Gerçek OBS masaüstü/Windows başlatıcısı bu Linux ortamında çalıştırılmadı. GitHub kaynak güncellemesi haricî site dağıtımının doğrulandığı anlamına gelmez.
+Masaüstü, telefon ve yeni tablolar gözle incelendi. Üç güncel görüntü [kısa rehberde](../kullanim/SADE_HIKAYE_MASASI.md). Bu görüntüler hazır, yayımlanmasına izin verilen hikâyeyi gösterir; kullanıcıya ait özel not içermez. `git diff --check`, etkin belge bağlantıları ve eski parolanın depo dışında kalması kontrol edildi. Gerçek OBS masaüstü/Windows başlatıcısı bu Linux ortamında çalıştırılmadı. GitHub kaynak güncellemesi haricî site dağıtımının doğrulandığı anlamına gelmez.
 
 Teslim öncesi Markdown satır sonu boşlukları üretim betiğinde temizlendi. Son üretim derlemesi tekrar geçti; beş ZIP dosyasının tamamı kaynakla ve yeni ZIP’in tarayıcıdan indirilen baytlarıyla eşleşti (`artifacts/simple-story/download-final.log`). Bu paket biçim düzeltmesi için hikâye akışı yeniden değiştirilmedi.
+
+
+## 26 Ekim 2026 — GitHub dosya düzeni
+
+Kökteki özgün kaynaklar `kaynaklar/`, yedi başlatıcı `baslat/`, kullanım/tasarım/teknik/sürüm kayıtları `docs/` altında toplandı. Danstsud yazar metinleri `lore/danstsud/` içinde kaldı. Uygulama `web/` dizinindedir; web görselleri ve hazır DM dosyalarının adresleri değişmedi. README kısaltıldı ve görev odaklı giriş tablosu eklendi. Her ana bölüm için dizin sayfası oluşturuldu. Eski dosya konumları `docs/gelistirme/DEPO_DUZENI.md` içinde açıklanır.
+
+145 taşımanın 102'si özgün kaynak dosyasıdır; hepsinin SHA-256 özeti önceki konumuyla eşleşti. Dosya adı/içeriği korunur; Broken Oath ve boş `aaa` yüklemesi silinmeden kaynak arşivine ayrıldı. 212 göreli belge bağlantısı geçerli bulundu (`artifacts/repo-organization/verification.json`). Git bağlantı/yaratıcı rehber yolları ve 2D harita üretim betiği yeni konuma göre güncellendi.
+
+Dört Bash başlatıcısı sözdizimi ve `/tmp` çalışma klasöründen yalıtılmış Node/npm komut taklitleriyle kontrol edildi; gerçek bağımlılık kurulumu veya yeni sunucu bu denemede çalıştırılmadı. Üç Windows dosyası tırnaklı `..\web` yolları ve CRLF için statik kontrol edildi (`launchers.json`); Windows/Finder masaüstü bu Linux ortamında çalıştırılmadı.
+
+`npm run assets` yeni `kaynaklar/haritalar/Aruzahr 8k (1).jpg` kaynağından 8192×5668 atlas katmanlarını ve kapakları başarıyla üretti (`assets.log`). `npm run build` TypeScript/Vite çıktısı başarılıdır (`build.log`); mevcut büyük paket uyarısı sürer. İlk üç senaryoluk koşu iki başarılı/bir başarısızdı: eski `/@fs/.../Valhunar.pdf` yolu artık bulunmadığı için SPA HTML yanıtı 200 döndü. Gizlilik kontrolü gerçek yeni PDF/DOCX konumlarına taşındı; bu dosyaların üçü de 403 ile engellenir. Son ilgili koşu **3/3, 11,1 saniye** geçti (`tests-final.log`): özgün harita/ülke/wiki/geri dönüş, derlemede ham kaynak ve eski görev sırlarının bulunmaması + yeni kaynak yollarının engellenmesi, varsayılan sade hikâye/ayrı oyuncu çıktısı. Ara ve hedefli kontrol logları saklanır.
+
+230 senaryoluk tüm arşiv ve değişmeyen 3D katmanı bu dosya düzenleme çalışması için yeniden çalıştırılmadı. Bağımlılık sürümleri, karakter/lore verileri ve kullanıcı kayıt biçimi değiştirilmedi. `git diff --check` ve dosya bütünlüğü kontrolleri geçti. Kanıt dizini `artifacts/repo-organization/` içindedir.

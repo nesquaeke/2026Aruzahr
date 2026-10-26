@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile, access, rm } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
-const source = fileURLToPath(new URL('../../Aruzahr 8k (1).jpg', import.meta.url))
+const source = fileURLToPath(new URL('../../kaynaklar/haritalar/Aruzahr 8k (1).jpg', import.meta.url))
 const output = fileURLToPath(new URL('../public/atlas/', import.meta.url))
 const checksum = createHash('sha256').update(await readFile(source)).digest('hex')
 const version = 3

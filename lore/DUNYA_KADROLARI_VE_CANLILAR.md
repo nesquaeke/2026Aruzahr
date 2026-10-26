@@ -93,7 +93,7 @@ Her tür üç bölümde beden, duyu, davranış, besin, habitat, uyumun bedeli v
 
 ## Portre ve canlı üretimi
 
-[Görsel ve Anlatı Rehberi](GORSEL_VE_ANLATI_REHBERI.md) uygulanır. Dünya portreleri için İngilizce yaş, beden, yüz, kıyafet, eşya, ışık ve palet tarifleri `portraitBriefs` içinde; türlerin dört/altı ayak ve kanat anatomisi, biçimi, beslenme sahnesi ve habitatı `faunaBriefs` içinde tutulur. Bunlar tek başına stil yerine geçmez; yağlıboya ve guaj hissi, görünür fırça, yumuşak renk geçişi ve seçilmiş net kenarlarla birleştirilir. Fotogerçekçilik, cilalı cilt ve 3D render hedeflenmez.
+[Görsel ve Anlatı Rehberi](../docs/tasarim/GORSEL_VE_ANLATI_REHBERI.md) uygulanır. Dünya portreleri için İngilizce yaş, beden, yüz, kıyafet, eşya, ışık ve palet tarifleri `portraitBriefs` içinde; türlerin dört/altı ayak ve kanat anatomisi, biçimi, beslenme sahnesi ve habitatı `faunaBriefs` içinde tutulur. Bunlar tek başına stil yerine geçmez; yağlıboya ve guaj hissi, görünür fırça, yumuşak renk geçişi ve seçilmiş net kenarlarla birleştirilir. Fotogerçekçilik, cilalı cilt ve 3D render hedeflenmez.
 
 Kart gücü yeni kişilerin halka açık savaş, büyü ve siyasi etkisinin editoryal birleşimidir. Olağan, Seçkin ve Kudretli sınıfları kullanılır; yeni yerel kişileri ülke ölçeğinde Yüce hükümdarlar saydırmak için işlemeli çerçeve verilmez. Çerçeve portreden ayrı kalır.
 

@@ -11,4 +11,4 @@
 
 Kendi hikâyen veya önceki düzenlemelerin varsa otomatik değiştirilmez. Gelişmiş masada dosya açma ve kampanya yedekleri kullanılabilir. Yerleşik senaryo şifresizdir; senin eklediğin notlar ve kararlar otomatik olarak oyuncu ekranına gönderilmez.
 
-Kısa kullanım: [Sade Hikâye Masası](lore/SADE_HIKAYE_MASASI.md). Ayrıntılı araçlar: [Gelişmiş Yayın Stüdyosu](lore/YAYIN_STUDYOSU_KULLANIM.md).
+Kısa kullanım: [Sade Hikâye Masası](docs/kullanim/SADE_HIKAYE_MASASI.md). Ayrıntılı araçlar: [Gelişmiş Yayın Stüdyosu](docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md).

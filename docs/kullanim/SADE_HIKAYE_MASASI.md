@@ -31,7 +31,7 @@ Yeni sekiz tablo araştırma ve yolculuk adımlarına bağlıdır; hiçbirini k�
 
 ## Kayıt, indirme ve OBS
 
-Konum ve kararlar tarayıcıda otomatik kaydedilir. Kendi paketlerin ve düzenlediğin metinler otomatik olarak varsayılan hikâyeyle değiştirilmez. Başlangıç dosyalarını ayrıca almak için [şifresiz indirmeleri](../DM_NOTLARI.md) kullan. Kişisel kampanyanı taşımak için gelişmiş masadan **Özel kampanya paketini indir**.
+Konum ve kararlar tarayıcıda otomatik kaydedilir. Kendi paketlerin ve düzenlediğin metinler otomatik olarak varsayılan hikâyeyle değiştirilmez. Başlangıç dosyalarını ayrıca almak için [şifresiz indirmeleri](../../DM_NOTLARI.md) kullan. Kişisel kampanyanı taşımak için gelişmiş masadan **Özel kampanya paketini indir**.
 
 OBS adresi değişmedi: **`http://127.0.0.1:5173/#/broadcast/live`**. Yayın ve yönetim pencereleri açık kalmalıdır. Oyunculara hikâyenin DM metni, kararlar veya sonraki sahneler gönderilmez; yalnız açıkça gösterdiğin görsel yayınlanır. Hazır senaryo kullanıcının talebiyle şifresizdir; indirme dosyası senin sonradan yazdığın kişisel notları içermez.
 
@@ -39,8 +39,8 @@ Bütün kayıtları silmek için gelişmiş masada **Yayın** sekmesinin en alt�
 
 ## Ekran önizlemeleri
 
-![Sade hikâye masası](onizlemeler/sade-hikaye-masasi.png)
+![Sade hikâye masası](../gorseller/sade-hikaye-masasi.png)
 
-[Telefon görünümü](onizlemeler/sade-hikaye-telefon.png) · [Temiz 4K oyuncu ekranı](onizlemeler/sade-hikaye-yayin-4k.png).
+[Telefon görünümü](../gorseller/sade-hikaye-telefon.png) · [Temiz 4K oyuncu ekranı](../gorseller/sade-hikaye-yayin-4k.png).
 
-Doğrulama: 50 farklı ilgili senaryo koşuların birleşiminde geçti; üretim sürümünde 10 bölüm girişi ve 30 sahne ayrı izleyici profilinde açıldı. [Koşular ve sınırlar](SON_DOGRULAMA.md).
+Doğrulama: 50 farklı ilgili senaryo koşuların birleşiminde geçti; üretim sürümünde 10 bölüm girişi ve 30 sahne ayrı izleyici profilinde açıldı. [Koşular ve sınırlar](../gelistirme/SON_DOGRULAMA.md).

@@ -1,6 +1,6 @@
 # Yaşayan ansiklopedi — 10 Ekim 2026
 
-Çalışma talimatı: [kullanıcının yüklediği master promptun eksiksiz kopyası](EVREN_VE_ANSIKLOPEDI_MASTER_PROMPTU.md). Görsel yaklaşım: [kalıcı yaratıcı rehber](GORSEL_VE_ANLATI_REHBERI.md). Bu kayıt kaynak belgeden gelen lore ile yeni yazımı ayırır.
+Çalışma talimatı: [kullanıcının yüklediği master promptun eksiksiz kopyası](../tasarim/EVREN_VE_ANSIKLOPEDI_MASTER_PROMPTU.md). Görsel yaklaşım: [kalıcı yaratıcı rehber](../tasarim/GORSEL_VE_ANLATI_REHBERI.md). Bu kayıt kaynak belgeden gelen lore ile yeni yazımı ayırır.
 
 ## Kullanılabilir içerik
 

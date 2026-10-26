@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd -- "$(dirname -- "${BASH_SOURCE[0]}")/web"
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../web"
 if ! node -e "const [a,b]=process.versions.node.split('.').map(Number);if(a<22||(a===22&&b<12))process.exit(1)" >/dev/null 2>&1; then
   echo 'Node.js 22.12 veya daha yenisini kurup tekrar çalıştır.' >&2
   exit 1

@@ -8,7 +8,7 @@ Güncel varsayılan masa artık hazırlık/canlı ayrımı olan stüdyodur. [Yen
 
 ## İlk oturum için
 
-1. Windows'ta depo kökündeki `Yayini-Baslat.cmd` dosyasını aç; macOS/Linux'ta `bash Yayini-Baslat.sh` çalıştır. Eksik bağımlılıkları ve atlası hazırlar, yönetim masasını tarayıcıda açar. Node 22.12 veya daha yenisi gerekir. Elle başlatmak için `web/` içinde `npm ci`, ilk kurulumda `npm run assets`, ardından `npm run dev` kullan. `index.html` dosyasını çift tıklamak yerine bu sunucuyu kullan.
+1. Windows'ta `baslat/Yayini-Baslat.cmd` dosyasını aç; macOS/Linux'ta `bash baslat/Yayini-Baslat.sh` çalıştır. Eksik bağımlılıkları ve atlası hazırlar, yönetim masasını tarayıcıda açar. Node 22.12 veya daha yenisi gerekir. Elle başlatmak için `web/` içinde `npm ci`, ilk kurulumda `npm run assets`, ardından `npm run dev` kullan. `index.html` dosyasını çift tıklamak yerine bu sunucuyu kullan.
 2. **Yayın Masası → Yayın penceresi** ile temiz sahneyi ayrı pencerede aç. OBS’de pencere yakalamaya bu pencereyi seç. Kameraları OBS’den ekle. İstersen **Kamera alanı** ile solda kameralara ayrılmış bir şerit bırak.
 3. Görsel kütüphanesinde şehri veya önemli mekânı ara; **arka plan yap**. Karakterler sekmesinden birden çok portreyi sahneye ekle. Portreyi sürükle; sağ alt köşesinden büyüt/küçült. Bir görselin göz düğmesi onu ayrı, büyütülebilen bir katman olarak açar. Sahne başlığını ve arka plan yakınlığını değiştirebilirsin.
 4. **Parti** panelinde isim ve portre seç, haritaya ekle. Kendi resimlerini yükleyebilir, baş harfli taş da kullanabilirsin. Parti, dost ve düşman taşlarının renkleri ayrıdır. Karakter portresini doğrudan haritaya bırakmak da taş oluşturur. Taşların boyutu ekranda sabit, konumu özgün 8K haritada sabittir.
@@ -22,7 +22,7 @@ OBS'de doğrudan **Tarayıcı Kaynağı** kullanacaksan Oturum → **OBS adresin
 
 Marhalden’den Hardlane’e giden tek bir yük sözleşmesi beş kısa macerayı bağlar. Kamusal görev kancaları **Görevler** panelindedir. Yeni kişiler Sela Varn, Deren Olm, Aysra Tann ve Ovel Sarn; yeni yerel mekânlar mevcut şehirlerin içinde yer alır. Şehirlerin kanonik noktaları değişmez.
 
-Kısa oyuncu anlatısı ve kanon kaydı: [Marhalden–Hardlane: Yük ve Söz](danstsud/MARHALDEN_HARDLANE_YUK_VE_SOZ.md). İki yeni boyanmış mekân ve dört portre için [görsel kaydı](YAYIN_GORSELLERI.md).
+Kısa oyuncu anlatısı ve kanon kaydı: [Marhalden–Hardlane: Yük ve Söz](../../lore/danstsud/MARHALDEN_HARDLANE_YUK_VE_SOZ.md). İki yeni boyanmış mekân ve dört portre için [görsel kaydı](../arsiv/YAYIN_GORSELLERI.md).
 
 Tam görev sırları, sahnelerin çözüm yolları, karşılaşma önerileri ve gecikmeli sonuçlar kamusal uygulamaya eklenmez. Ayrı verilen **Marhalden-Hardlane-DM.json** dosyasını Görevler → **DM paketi aç** ile içe aktar. Görev kartına basınca özel metni DM defterinde açılır. Markdown veya metin notu da yükleyebilirsin. Paketteki sonuçlar oynanmış olaylar değildir; seçimden sonra kullanılabilecek olasılıklardır. Oyuncu seviyesi ve parti bileşimi verilmediği için karşılaşmalar ayarlanabilir yazılmıştır.
 
@@ -46,12 +46,12 @@ Bu masa özgün 2D atlası kullanır. Normal atlasın 2D/3D düğmesi, wiki, gal
 
 Örnek yönetim düzeni: iki yeni karakter portresi, yeni Aktarma Avlusu tablosu ve OBS kamera alanı. Yerleştirilen kişiler örnek sahne düzenidir; kampanyada yaşanmış olay sayılmaz.
 
-![Yayın yönetim masası](onizlemeler/yayin-masasi.png)
+![Yayın yönetim masası](../gorseller/yayin-masasi.png)
 
 Yayına giden temiz 16:9 görüntü:
 
-![OBS sahnesi](onizlemeler/yayin-sahnesi.png)
+![OBS sahnesi](../gorseller/yayin-sahnesi.png)
 
 Özgün harita üzerinde yuvarlak taşlar ve rota çizimi:
 
-![Yayın haritası](onizlemeler/yayin-haritasi.png)
+![Yayın haritası](../gorseller/yayin-haritasi.png)

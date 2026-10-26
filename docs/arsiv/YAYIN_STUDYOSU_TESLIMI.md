@@ -1,8 +1,8 @@
 # Yayın stüdyosu — 25 Ekim 2026
 
-Yeni masa `/#/broadcast`, temiz OBS görüntüsü `/#/broadcast/live` adresindedir. Önceki masa `/#/broadcast/classic` altında korunur. [Kullanım kılavuzu](YAYIN_STUDYOSU_KULLANIM.md) ve [tam master prompt](YAYIN_STUDYOSU_MASTER_PROMPTU.md) depodadır.
+Yeni masa `/#/broadcast`, temiz OBS görüntüsü `/#/broadcast/live` adresindedir. Önceki masa `/#/broadcast/classic` altında korunur. [Kullanım kılavuzu](../kullanim/YAYIN_STUDYOSU_KULLANIM.md) ve [tam master prompt](../tasarim/YAYIN_STUDYOSU_MASTER_PROMPTU.md) depodadır.
 
-![1920×1080 yayın yönetmen masası](onizlemeler/yayin-studyosu.png)
+![1920×1080 yayın yönetmen masası](../gorseller/yayin-studyosu.png)
 
 ## Tamamlanan kapsam
 
@@ -35,12 +35,12 @@ Mevcut lore, kanonik harita noktaları, 3D atlas ve elle boyanmış görsel kole
 - Şifreli indirmede yanlış şifre reddedildi; doğru şifreyle indirilen ZIP, özel kaynak ZIP ile bayt düzeyinde aynıydı. Parola değişmedi ve depoya yazılmadı. ZIP altı dosya içerir; eski beşli macera korunur ve güncel stüdyo kılavuzu eklenmiştir.
 - `git diff --check`, başlatıcıların bash sözdizimi ve depo parola taraması temizdir.
 
-Ara koşular ve düzeltmeler [doğrulama günlüğünde](SON_DOGRULAMA.md) açıklanır. Çalışma alanı kanıtları `/workspace/artifacts/studio/` ve ilgili `studio-*.log` dosyalarındadır. Özel DM ekran görüntüleri depoya eklenmedi; buradaki ekran görüntüsünde özel not paneli kapalıdır.
+Ara koşular ve düzeltmeler [doğrulama günlüğünde](../gelistirme/SON_DOGRULAMA.md) açıklanır. Çalışma alanı kanıtları `/workspace/artifacts/studio/` ve ilgili `studio-*.log` dosyalarındadır. Özel DM ekran görüntüleri depoya eklenmedi; buradaki ekran görüntüsünde özel not paneli kapalıdır.
 
 ## Kullanım sınırları
 
 Gerçek OBS masaüstü ve Windows bu Linux ortamında çalıştırılmadı. OBS WebSocket 5 kimlik doğrulaması/sahne istekleri taklit protokol sunucusuyla; yayın görüntüsü ve ses sahipliği ayrı tarayıcı profilleriyle sınandı.
 
-Telefon aynı ağa erişim ister. Oylama için katılımcıların sunucuya ulaşabilmesi gerekir; kendiliğinden internet yayını veya Twitch sohbeti entegrasyonu yoktur. Yeni kampanya yedeği **özel ve şifresizdir**; şifreli DM teslim dosyasından farklıdır. Ağ, OBS, yedekleme ve kayıt sınırları [kılavuzda](YAYIN_STUDYOSU_KULLANIM.md) açıklanır.
+Telefon aynı ağa erişim ister. Oylama için katılımcıların sunucuya ulaşabilmesi gerekir; kendiliğinden internet yayını veya Twitch sohbeti entegrasyonu yoktur. Yeni kampanya yedeği **özel ve şifresizdir**; şifreli DM teslim dosyasından farklıdır. Ağ, OBS, yedekleme ve kayıt sınırları [kılavuzda](../kullanim/YAYIN_STUDYOSU_KULLANIM.md) açıklanır.
 
-![390 px yayın araçları](onizlemeler/yayin-studyosu-telefon.png)
+![390 px yayın araçları](../gorseller/yayin-studyosu-telefon.png)

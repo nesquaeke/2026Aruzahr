@@ -1,6 +1,6 @@
 # Yayın sahneleri ve yeni sivil portreler
 
-24 Ekim 2026 üretimi. Bu altı bağımsız illüstrasyon, [görsel rehberin](GORSEL_VE_ANLATI_REHBERI.md) yağlıboya/guaj, görünür fırça ve okunabilir biçim tercihiyle yeni üretildi. Fotoğraf veya 3D render kullanılmadı. `image_gen` çıktıları görsel olarak incelendi; kayıpsız kaynak PNG’ler çalışma alanında tutuldu, web sürümleri boyut değiştirilmeden WebP biçimine dönüştürüldü.
+24 Ekim 2026 üretimi. Bu altı bağımsız illüstrasyon, [görsel rehberin](../tasarim/GORSEL_VE_ANLATI_REHBERI.md) yağlıboya/guaj, görünür fırça ve okunabilir biçim tercihiyle yeni üretildi. Fotoğraf veya 3D render kullanılmadı. `image_gen` çıktıları görsel olarak incelendi; kayıpsız kaynak PNG’ler çalışma alanında tutuldu, web sürümleri boyut değiştirilmeden WebP biçimine dönüştürüldü.
 
 | Varlık | Boyut | Kamusal kullanım |
 | --- | --- | --- |
