@@ -75,13 +75,13 @@ function buildLibrary(): LibraryEntry[] {
   // marked as a portrait cannot become an invented character identity.
   const extraScenes = Object.values(artworks)
     .map(art => artworkFor(art.id) || art)
-    .filter(art => !art.portrait && art.category !== 'fauna')
+    .filter(art => !art.portrait)
     .sort((a, b) => a.title.localeCompare(b.title, 'tr'))
   for (const art of extraScenes) {
     if (usedScenes.has(art.src)) continue
     usedScenes.add(art.src)
     const context = sceneContext(art)
-    const detail = art.origin === 'map' || art.id.includes('-map') ? 'Yerleşim çizimi' : 'Mekân ve dünya sahnesi'
+    const detail = art.category === 'fauna' ? 'Canlı çizimi' : art.origin === 'map' || art.id.includes('-map') ? 'Yerleşim çizimi' : 'Mekân ve dünya sahnesi'
     entries.push({
       asset: { id: art.id, name: art.title, src: art.src, kind: 'scene', locationId: context.locationId },
       detail,

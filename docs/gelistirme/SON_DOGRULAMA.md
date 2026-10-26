@@ -298,3 +298,12 @@ Dört Bash başlatıcısı sözdizimi ve `/tmp` çalışma klasöründen yalıt�
 `npm run assets` yeni `kaynaklar/haritalar/Aruzahr 8k (1).jpg` kaynağından 8192×5668 atlas katmanlarını ve kapakları başarıyla üretti (`assets.log`). `npm run build` TypeScript/Vite çıktısı başarılıdır (`build.log`); mevcut büyük paket uyarısı sürer. İlk üç senaryoluk koşu iki başarılı/bir başarısızdı: eski `/@fs/.../Valhunar.pdf` yolu artık bulunmadığı için SPA HTML yanıtı 200 döndü. Gizlilik kontrolü gerçek yeni PDF/DOCX konumlarına taşındı; bu dosyaların üçü de 403 ile engellenir. Son ilgili koşu **3/3, 11,1 saniye** geçti (`tests-final.log`): özgün harita/ülke/wiki/geri dönüş, derlemede ham kaynak ve eski görev sırlarının bulunmaması + yeni kaynak yollarının engellenmesi, varsayılan sade hikâye/ayrı oyuncu çıktısı. Ara ve hedefli kontrol logları saklanır.
 
 230 senaryoluk tüm arşiv ve değişmeyen 3D katmanı bu dosya düzenleme çalışması için yeniden çalıştırılmadı. Bağımlılık sürümleri, karakter/lore verileri ve kullanıcı kayıt biçimi değiştirilmedi. `git diff --check` ve dosya bütünlüğü kontrolleri geçti. Kanıt dizini `artifacts/repo-organization/` içindedir.
+
+
+## 26 Ekim 2026 — On Kış Kararı’nın oynanabilir genişletmesi
+
+[İçerik, görsel ve kayıt geçişi açıklaması](ON_KIS_DERINLESTIRME.md). Güncel kapsam: üç oyuncu, 1. seviye başlangıç; 10 görev, 61 sahne, 12 karşılaşma/çevre kartı, 31 konuşma kartı, 12 ek bağımsız illüstrasyon. Yerleşik hikâye güncellenirken kişisel metin, ek sahne, sıra, not ve karar korunur; eski 30 sahnenin ilerlemesi kimliği üzerinden taşınır. Şifresiz indirme artık altı dosyadır ve ilk oturum rehberi içerir.
+
+İlgili 61 farklı Playwright senaryosu birleşik koşularda geçti: ilk 19/19; sonraki grup 39/40, ardından önceki Ravel-gizlilik varsayımını düzelten test ve iki yeni senaryo 3/3. Son anlatım temizliği ve kısa rehber bağlantısından sonra dokuz hikâye/karşılaşma testi yeniden 9/9 geçti. Bu, tek kesintisiz tam depo testi iddiası değildir. Üretim tarayıcısında 71 bölüm/sahne geçişi ayrı oyuncu profiliyle tamamlandı; bütün resimler yüklendi, özel anlatım yayın durumunda bulunmadı, oyuncu DM dosyasını istemedi, ZIP kaynakla eşleşti. 390 ve 3840 px görünümlerde taşma ve sayfa hatası yoktu.
+
+Kaynak boyutları on yeni manzarada 1672 × 941, portre ve canlı çiziminde 1086 × 1448. Kayıpsız format dönüşümünde çözünürlük/ham pikseller korundu; yerel 4K üretim diye sunulmaz. Gerçek OBS/Windows ve gerçek oyun masası denenmedi. Vite mevcut büyük parça uyarısını veriyor.

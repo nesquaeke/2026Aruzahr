@@ -1,0 +1,189 @@
+.dm-play {
+  margin: 26px 0;
+  color: #bcc4b9;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.dm-play h3,
+.dm-play h4 {
+  color: #ded6c5;
+  line-height: 1.4;
+}
+.dm-play p {
+  margin: 9px 0 15px;
+}
+.dm-play-tempo {
+  border-top: 1px solid #d6c9a625;
+  padding-top: 18px;
+}
+.dm-play-tempo > span,
+.dm-encounter header > span {
+  font: 10px var(--sans);
+  letter-spacing: 1.3px;
+  color: #b6a27a;
+}
+.dm-play-tempo > p {
+  color: #9da99e;
+  font-size: 12px;
+}
+.dm-encounter {
+  padding: 19px 22px;
+  margin: 20px 0;
+  background: #a67e4210;
+  border: 1px solid #ba975f3b;
+  border-radius: 7px;
+}
+.dm-encounter h3 {
+  margin: 6px 0 15px;
+  font: 26px var(--serif);
+}
+.dm-encounter-goal {
+  color: #dfd0b4;
+}
+.dm-encounter dl {
+  margin: 14px 0;
+}
+.dm-encounter dt {
+  margin-top: 14px;
+  font-weight: 500;
+  color: #cfc5ad;
+}
+.dm-encounter dd {
+  margin: 4px 0 0;
+}
+.dm-play details {
+  margin-top: 13px;
+  border-color: #d1bd8b26;
+  background: #ffffff02;
+}
+.dm-play summary {
+  font-size: 12px;
+  color: #d0b98f;
+}
+.dm-play li {
+  padding-left: 5px;
+  margin-bottom: 9px;
+}
+.dm-encounter figure {
+  margin: 18px 0;
+}
+.dm-encounter figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+.dm-encounter figcaption {
+  font-size: 10px;
+  color: #929f92;
+}
+.dm-enemy {
+  border: 1px solid #b8a77c2e;
+  padding: 16px;
+  margin: 17px 0;
+  border-radius: 5px;
+}
+.dm-enemy h4 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+.dm-enemy-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 10px;
+  color: #acb59f;
+}
+.dm-enemy-stats b {
+  font-size: 14px;
+  color: #e6d5ae;
+  margin-left: 5px;
+}
+.dm-enemy p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.dm-encounter-scale {
+  color: #9ca797;
+  font-size: 11px;
+  border-top: 1px solid #b2a07822;
+  padding-top: 13px;
+}
+.dm-voices > article {
+  border-top: 1px solid #bba97b25;
+  padding: 15px 0;
+}
+.dm-voices h4 {
+  font: 24px var(--serif);
+  margin: 0 0 9px;
+}
+.dm-voice-direction {
+  font-size: 11px;
+  color: #94a394;
+}
+.dm-voices article > div > strong {
+  font-size: 11px;
+  color: #c0b798;
+}
+.dm-voices blockquote {
+  white-space: pre-line;
+  margin: 8px 0 19px;
+  padding-left: 15px;
+  border-left: 1px solid #b29b634d;
+  font: 20px/1.7 var(--serif);
+  color: #d7d7c6;
+}
+.dm-play-end {
+  margin-top: 18px;
+  padding: 15px 18px;
+  border-left: 2px solid #8a9c7150;
+  background: #8a9c7108;
+}
+.dm-play-end > strong {
+  font-size: 12px;
+  color: #b7c0a7;
+}
+.dm-play-end > p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.dm-paths button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 9px;
+  font-size: 12px;
+}
+.story-scene-duration {
+  font: 11px var(--sans);
+  color: #99a48f;
+  margin: 9px 0 0;
+}
+.story-chapter nav {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+.story-chapter nav button {
+  flex: none;
+}
+@media (max-width: 760px) {
+  .dm-encounter {
+    padding: 15px;
+  }
+  .dm-play {
+    font-size: 12px;
+  }
+  .dm-voices blockquote {
+    font-size: 20px;
+  }
+}
+
+.story-session-guide {
+  display: block;
+  margin: 10px 12px;
+  color: #c1b28e;
+  font-size: 11px;
+  line-height: 1.6;
+  text-underline-offset: 4px;
+}

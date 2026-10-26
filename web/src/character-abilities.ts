@@ -10,7 +10,7 @@ export const abilities: { key: AbilityKey; name: string; use: string }[] = [
 ]
 export const characterAbilities: Record<string, AbilityScores> = {
   // Yük ve Söz: siviller için düzenlenebilir oyun taslağı; güç rütbesi değildir.
-  'sena-erven':[12,15,13,11,14,11], 'miren-aska':[10,13,11,12,14,13], 'bera-hald':[13,11,13,11,14,12], 'iven-rusk':[11,14,12,12,13,11], 'elda-sorren':[8,10,11,16,15,12], 'neris-vel':[9,11,12,16,13,12], 'maeron-vesk':[13,11,14,13,11,13], 'taren-olt':[14,13,13,10,12,11],
+  'ravel-dorr':[9,11,12,15,16,10], 'sena-erven':[12,15,13,11,14,11], 'miren-aska':[10,13,11,12,14,13], 'bera-hald':[13,11,13,11,14,12], 'iven-rusk':[11,14,12,12,13,11], 'elda-sorren':[8,10,11,16,15,12], 'neris-vel':[9,11,12,16,13,12], 'maeron-vesk':[13,11,14,13,11,13], 'taren-olt':[14,13,13,10,12,11],
   'sela-varn': [9, 11, 11, 14, 13, 12],
   'deren-olm': [13, 10, 13, 11, 14, 11],
   'aysra-tann': [12, 14, 12, 12, 15, 10],

@@ -4,7 +4,7 @@ Yerel adres: **`http://127.0.0.1:5173/#/broadcast`**. Siteyi güncelledikten son
 
 ## Oyun sırasında
 
-1. Soldan **bölümü**, üstteki adımlardan **Giriş / 1 / 2 / 3** seç. İlk giriş Marhalden yük avlusunda tanışma ve iş sözleşmesidir; ilk tedavi sahnesi ertesi sabah başlar.
+1. Soldan **bölümü**, üstteki adımlardan **Giriş** ve numaralı sahneler seç. İlk bölüm yedi, kalan bölümler altışar sahnedir. Avluda bir akşam oynandıktan sonra ertesi sabah revire geçilir.
 2. **Nerede / ne zaman / amaç** alanını kontrol et. Kısa olay açıklaması, oyunculara okunacak anlatım ve sırayla yapacakların aynı sayfadadır.
 3. Sağdaki manzara ve portreler o adımda kullanılacak görsellerdir. Resme basıp yönetim ekranında büyütebilirsin; bu tek başına yayına gitmez. Portreleri istersen kapat.
 4. **Bu sahneyi göster** seçili resmi ve portreleri oyunculara verir. Yalnızca **Sonraki adım** veya bölüm seçmek canlı görüntüyü değiştirmez. “Bu sahne yayında” durumu gönderilen görseli belirtir; ayrı canlı önizlemeyi de açabilirsin.
@@ -14,7 +14,7 @@ Zarlar, karşılaşmalar ve olası sonuçlar ihtiyaç olduğunda açılır. **Ar
 
 ## Hazır görsel sırası
 
-Yeni sekiz tablo araştırma ve yolculuk adımlarına bağlıdır; hiçbirini kütüphanede araman gerekmez.
+Yeni tablolar araştırma ve yolculuk adımlarına bağlıdır; hiçbirini kütüphanede araman gerekmez.
 
 | Bölüm / adım | Gösterilecek manzara |
 |---|---|
@@ -27,7 +27,7 @@ Yeni sekiz tablo araştırma ve yolculuk adımlarına bağlıdır; hiçbirini k�
 | İyi Kalpli Nekromant · Görüşme | Ternhaven sıcak su bahçesi |
 | Kralın Yalanı · Doğrulama | Dranthol’un iki deposu |
 
-Önceki 12 sahne ve sekiz portre korunur; toplam **20 sahne resmi + sekiz portre** bu macerada kullanılabilir. Yeni tablolar karanlık, ciddi, ayrıntılı yağlıboyadır. Tek tek üretilir, toplu resimden kırpılmaz. Kaynak çözünürlüğü 4K diye sunulmaz.
+Önceki 12 sahne ve sekiz portre korunur; toplam **30 sahne resmi + dokuz portre + bir canlı çizimi** bu macerada kullanılabilir. Yeni tablolar karanlık, ciddi, ayrıntılı yağlıboyadır. Tek tek üretilir, toplu resimden kırpılmaz. Kaynak çözünürlüğü 4K diye sunulmaz.
 
 ## Kayıt, indirme ve OBS
 
@@ -41,6 +41,17 @@ Bütün kayıtları silmek için gelişmiş masada **Yayın** sekmesinin en alt�
 
 ![Sade hikâye masası](../gorseller/sade-hikaye-masasi.png)
 
-[Telefon görünümü](../gorseller/sade-hikaye-telefon.png) · [Temiz 4K oyuncu ekranı](../gorseller/sade-hikaye-yayin-4k.png).
+[Karşılaşma kartı](../gorseller/karsilasma-karti.png) · [Telefon görünümü](../gorseller/sade-hikaye-telefon.png) · [Temiz 4K oyuncu ekranı](../gorseller/sade-hikaye-yayin-4k.png).
 
-Doğrulama: 50 farklı ilgili senaryo koşuların birleşiminde geçti; üretim sürümünde 10 bölüm girişi ve 30 sahne ayrı izleyici profilinde açıldı. [Koşular ve sınırlar](../gelistirme/SON_DOGRULAMA.md).
+Önceki 30 sahneli sürümün doğrulama kaydı ve güncel genişletmenin sonuçları teknik kayıtta ayrı tutulur. [Koşular ve sınırlar](../gelistirme/SON_DOGRULAMA.md).
+
+
+## 26 Ekim · Karşılaşmalar ve konuşmalar
+
+Hazır hikâye artık **10 bölüm / 61 sahne**. **Masada süre**, **bu sahne ne zaman biter**, **oyuncular duraksarsa** alanları geçişi yönetir. Konuşmalar, soruya göre açılan kısa cevaplar ve oyuncuya okunacak tasvirler olarak ayrıdır.
+
+**Karşılaşma** kartında amacı ve başlangıcı görürsün; turlar, Zırh/Can/saldırı, düşmanın davranışı, bırakma koşulu ve dövüş dışı yollar tek açılır alandadır. Üç oyuncu ve 1. seviye başlangıç esas alınır. İlk galeri bir tek Galeri Kıskacı içerir; bütün macera boyunca 1. seviyede kalmak zorunda değilsiniz.
+
+Alternatif yol düğmeleri yalnız okuduğun sahneyi değiştirir. Canlı görüntü için yine **Bu sahneyi göster** gerekir. Canlı çizimleri de gelişmiş masanın görsel kütüphanesinden manzara olarak gösterilebilir.
+
+[İlk oturum rehberi](../../web/public/dm/ILK-OTURUM.md), yedi adımı ve hangi resmin ne zaman gösterileceğini tek yerde toplar. Güncelleme önceki sağlanan metni tanıyarak genişletir; senin değiştirdiğin anlatımı, görselleri, serbest notları ve kararları korur. Eski adım numarası aynı sahnenin yeni yerine taşınır. Sıfırlama yapman gerekmez.

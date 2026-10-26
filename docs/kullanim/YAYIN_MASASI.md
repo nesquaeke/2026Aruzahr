@@ -2,7 +2,7 @@
 
 Güncel varsayılan masa artık hazırlık/canlı ayrımı olan stüdyodur. [Yeni kullanım kılavuzunu](YAYIN_STUDYOSU_KULLANIM.md) kullan. Bu belgedeki önceki arayüz `/#/broadcast/classic` altında korunur; ana OBS adresi `/#/broadcast/live` olarak kalır.
 
-**25 Ekim güncellemesi:** [On Kış Kararı rehberi](ON_KIS_KARARI_KULLANIM.md), 10 görev/30 sahne, görsel hazırlama, karar takibi, ara ekranı, tam sıfırlama ve 4K OBS ayarlarını açıklar. Önceki beşli Yük ve Söz ayrı paket olarak korunmuştur.
+**25 Ekim güncellemesi:** [On Kış Kararı rehberi](ON_KIS_KARARI_KULLANIM.md), 10 görev/61 sahne, görsel hazırlama, karar takibi, ara ekranı, tam sıfırlama ve 4K OBS ayarlarını açıklar. Önceki beşli Yük ve Söz ayrı paket olarak korunmuştur.
 
 24 Ekim 2026. Atlasın yanında, yerel D&D yayını için ayrı bir yönetim masası bulunur. Menüde **Yayın Masası** seçilir. Parti önceden doldurulmaz; kendi oyuncularını, fotoğraflarını ve isimlerini ekleyebilirsin.
 

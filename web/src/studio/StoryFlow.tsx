@@ -23,6 +23,7 @@ import {
   type DMScene,
 } from '../dm-guide'
 import './story-flow.css'
+import DMPlayCard from '../DMPlayCard'
 
 const read = (key: string) => {
   try {
@@ -132,6 +133,13 @@ export default function StoryFlow({
   const questIndex = pack?.quests.findIndex((q) => q.id === quest?.id) || 0
   const index = quest ? progress.steps[quest.id] || 0 : 0
   const step = opening && quest ? openingCue(quest) : quest?.steps?.[index]
+  useEffect(() => {
+    scroll.current
+      ?.querySelector(
+        '[aria-label="Bu bölümün adımları"] [aria-current="step"]',
+      )
+      ?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+  }, [quest?.id, index, opening])
   const background = step && assetFor(step.backgroundId)
   const people =
     step?.portraitIds.map((id) => assetFor(id)).filter(Boolean) || []
@@ -400,6 +408,14 @@ export default function StoryFlow({
         <p className="story-route-note">
           Bölüm seçmek yayını değiştirmez. Hazır olduğunda sahneyi göster.
         </p>
+        <a
+          className="story-session-guide"
+          href="dm/ILK-OTURUM.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          İlk oturumun kısa rehberi ↗
+        </a>
       </aside>
       <section className="story-scroll" ref={scroll}>
         <div className="story-sheet" key={step.id}>
@@ -432,7 +448,9 @@ export default function StoryFlow({
           <div className="story-step-heading">
             <div>
               <span>
-                {opening ? 'ÖNCE BUNU OYNAT' : `ŞİMDİ · ${index + 1}. ADIM`}
+                {opening
+                  ? 'ÖNCE BUNU OYNAT'
+                  : `ŞİMDİ · ${index + 1} / ${quest.steps?.length} ADIM`}
               </span>
               <h2>{opening ? 'Hikâyeyi buradan başlat' : step.title}</h2>
             </div>
@@ -499,6 +517,16 @@ export default function StoryFlow({
                     </article>
                   ))}
                 </section>
+              )}
+              {!opening && step.play && (
+                <DMPlayCard
+                  value={step.play}
+                  onGo={(id) => {
+                    const target = quest.steps?.findIndex((s) => s.id === id)
+                    if (target !== undefined && target >= 0)
+                      go(questIndex, target)
+                  }}
+                />
               )}
               {opening && source && (
                 <details className="story-detail">

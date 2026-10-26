@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { QuestBriefing, SceneRunbook } from './DMRunbook'
+import DMPlayCard from './DMPlayCard'
 import {
   BookOpen,
   FileUp,
@@ -389,7 +390,7 @@ export default function BroadcastQuestDirector({
           {!quest.briefing && pack?.title.startsWith('On Kış Kararı') && (
             <p className="dm-book-upgrade">
               Bu dosya önceki kısa anlatım sürümü. Girişleri, kişi rehberini ve
-              30 sahnenin oynatımını görmek için hazır hikâyenin güncel JSON’unu
+              genişletilmiş sahnelerin oynatımını görmek için hazır hikâyenin güncel JSON’unu
               aç. Aynı görevlerin ilerlemesi ve kararları korunur.
             </p>
           )}
@@ -502,6 +503,7 @@ export default function BroadcastQuestDirector({
                   </ol>
                 </>
               )}
+              {step.play && <DMPlayCard value={step.play} onGo={id => { const target = quest.steps?.findIndex(s => s.id === id); if (target !== undefined && target >= 0) changeStep(target) }} />}
               <details className="dm-book-visuals" open={!step.runbook}>
                 <summary>Bu sahnede gösterilecek görseller</summary>
                 <div className="dm-cues">

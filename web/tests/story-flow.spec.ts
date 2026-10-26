@@ -48,14 +48,14 @@ test('hazır hikâye şifresiz açılır; bölüm, zaman, amaç ve görseller te
   ).toBe(pack.quests[0].quick.next)
   await page.getByRole('button', { name: 'Sonraki adım', exact: true }).click()
   await expect(
-    page.getByRole('heading', { name: 'Varış · İki yatak', exact: true }),
+    page.getByRole('heading', { name: pack.quests[0].steps[0].title, exact: true }),
   ).toBeVisible()
   await expect(page.locator('.story-speech blockquote')).toHaveText(
     pack.quests[0].steps[0].readAloud,
   )
   await expect(page.locator('.story-visual img')).toHaveAttribute(
     'src',
-    /winter-ilac/,
+    /winter-ocak-gecesi/,
   )
   await expect(page.locator('.story-people>article img')).toHaveCount(
     pack.quests[0].steps[0].portraitIds.length,

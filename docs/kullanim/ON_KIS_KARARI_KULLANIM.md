@@ -1,6 +1,6 @@
 # On Kış Kararı — yeni oturum rehberi
 
-Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış yeni alternatif macera taslağıdır. Mevcut kanonda oynanmış olay sayılmaz. Darbe öncesinde geçer; Eryndorn tahtta kalır. Yeni kaynak, 25 Ekim 2026 yazar çalışmasıdır. [Önce yazılan master prompt](../tasarim/YAYIN_VE_ON_GOREV_MASTER_PROMPTU.md).
+Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış yeni alternatif macera taslağıdır. Mevcut kanonda oynanmış olay sayılmaz. Darbe öncesinde geçer; Eryndorn tahtta kalır. Yeni kaynak, 25–26 Ekim 2026 yazar çalışmasıdır. Güncel baskı üç oyuncu, 1. seviye başlangıç için 61 sahne içerir. [İlk oturum rehberi](../../web/public/dm/ILK-OTURUM.md), yedi başlangıç sahnesini ve gösterilecek resimleri sırayla verir. [Önce yazılan master prompt](../tasarim/YAYIN_VE_ON_GOREV_MASTER_PROMPTU.md).
 
 ## İlk kullanım
 

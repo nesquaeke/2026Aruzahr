@@ -28,7 +28,43 @@ export type DMRunbook = {
   next: string
   questions: { question: string; answer: string }[]
 }
+export type DMEncounter = {
+  name: string
+  kind: 'combat' | 'hazard' | 'pursuit'
+  trigger: string
+  goal: string
+  space: string
+  rounds: string[]
+  exits: string[]
+  failure: string
+  scale: string
+  artId?: string
+  units: {
+    name: string
+    count: number
+    ac: number
+    hp: number
+    speed: string
+    attack: string
+    tactics: string
+    morale: string
+  }[]
+}
+export type DMPlay = {
+  duration: string
+  pressure: string
+  continueWhen: string
+  ifIdle: string
+  dialogue: {
+    speaker: string
+    direction: string
+    exchanges: { cue: string; line: string }[]
+  }[]
+  paths: { label: string; to: string }[]
+  encounter?: DMEncounter
+}
 export type DMScene = {
+  play?: DMPlay
   quick?: DMQuickGuide
   runbook?: DMRunbook
   id: string
@@ -64,6 +100,7 @@ export type DMProgress = {
 }
 export type DMPack = {
   version: 1 | 2
+  edition?: string
   title: string
   quests: DMQuest[]
   progress?: DMProgress
@@ -135,6 +172,65 @@ function quick(v: unknown): DMQuickGuide {
     next: field(v, 'next', 1200),
   }
 }
+function play(v: unknown): DMPlay {
+  if (!obj(v)) throw new Error('Sahne oynatım kartı geçersiz.')
+  const out: DMPlay = {
+    duration: field(v, 'duration', 160),
+    pressure: field(v, 'pressure', 1600),
+    continueWhen: field(v, 'continueWhen', 1200),
+    ifIdle: field(v, 'ifIdle', 1200),
+    dialogue: list(v.dialogue, 6).map((d) => ({
+      speaker: field(d, 'speaker', 160),
+      direction: field(d, 'direction', 1000),
+      exchanges: list(d.exchanges, 5).map((e) => ({
+        cue: field(e, 'cue', 400),
+        line: field(e, 'line', 1600),
+      })),
+    })),
+    paths: list(v.paths, 4).map((p) => ({
+      label: field(p, 'label', 200),
+      to: field(p, 'to', 160),
+    })),
+  }
+  if (v.encounter !== undefined) {
+    const e = v.encounter
+    if (
+      !obj(e) ||
+      !['combat', 'hazard', 'pursuit'].includes(String(e.kind)) ||
+      !texts(e.rounds, 8) ||
+      !texts(e.exits, 6)
+    )
+      throw new Error('Karşılaşma kartı geçersiz.')
+    const bounded = (n: unknown, max: number) => {
+      if (!Number.isInteger(n) || Number(n) < 1 || Number(n) > max)
+        throw new Error('Karşılaşma sayısı geçersiz.')
+      return Number(n)
+    }
+    out.encounter = {
+      name: field(e, 'name', 200),
+      kind: e.kind as DMEncounter['kind'],
+      trigger: field(e, 'trigger', 2000),
+      goal: field(e, 'goal', 1200),
+      space: field(e, 'space', 2500),
+      rounds: e.rounds,
+      exits: e.exits,
+      failure: field(e, 'failure', 2000),
+      scale: field(e, 'scale', 1800),
+      ...(e.artId === undefined ? {} : { artId: field(e, 'artId', 160) }),
+      units: list(e.units, 6).map((u) => ({
+        name: field(u, 'name', 160),
+        count: bounded(u.count, 20),
+        ac: bounded(u.ac, 30),
+        hp: bounded(u.hp, 1000),
+        speed: field(u, 'speed', 200),
+        attack: field(u, 'attack', 1000),
+        tactics: field(u, 'tactics', 1600),
+        morale: field(u, 'morale', 1200),
+      })),
+    }
+  }
+  return out
+}
 export function parseDMPack(value: unknown): DMPack {
   if (
     !obj(value) ||
@@ -164,7 +260,7 @@ export function parseDMPack(value: unknown): DMPack {
     if (txt(q.objective, 2000)) result.objective = q.objective
     if (texts(q.people)) result.people = q.people
     if (q.steps !== undefined) {
-      if (!Array.isArray(q.steps) || !q.steps.length || q.steps.length > 12)
+      if (!Array.isArray(q.steps) || !q.steps.length || q.steps.length > 24)
         throw new Error('Görev sahneleri geçersiz.')
       result.steps = q.steps.map((step) => {
         if (
@@ -193,6 +289,7 @@ export function parseDMPack(value: unknown): DMPack {
           return { label: c.label, result: c.result, echo: c.echo }
         })
         return {
+          ...(step.play === undefined ? {} : { play: play(step.play) }),
           ...(step.quick === undefined ? {} : { quick: quick(step.quick) }),
           ...(step.runbook === undefined
             ? {}
@@ -238,6 +335,17 @@ export function parseDMPack(value: unknown): DMPack {
     version: value.version as 1 | 2,
     title: value.title,
     quests,
+  }
+  if (value.edition !== undefined) {
+    if (!txt(value.edition, 100)) throw new Error('Hikâye baskısı geçersiz.')
+    pack.edition = value.edition
+  }
+  for (const q of quests) {
+    const sceneIds = new Set(q.steps?.map((s) => s.id) || [])
+    for (const s of q.steps || [])
+      for (const p of s.play?.paths || [])
+        if (!sceneIds.has(p.to))
+          throw new Error('Sahne bağlantısının hedefi bulunamadı.')
   }
   if (obj(value.progress)) pack.progress = parseProgress(value.progress, quests)
   return pack

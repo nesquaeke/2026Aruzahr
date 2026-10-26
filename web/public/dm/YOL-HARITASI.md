@@ -6,9 +6,9 @@ Bölümler bir yük sözleşmesiyle bağlanır. Aşağıdaki sıra bir yönetim 
 
 **Yer:** Marhalden • doğu yük avlusu ve dış revir
 
-**Zaman:** İlk gün tanışma, ertesi sabah hastalık
+**Zaman:** Bir akşam ve onu izleyen sabah; galeri gidiş-dönüşü oyun içinde yaklaşık üç saat
 
-**Yapılacak:** İki arabayı batıya götürmek için anlaş; Sena ve Arin’in tedavisine karar ver.
+**Yapılacak:** Birlikte ilk işi yap, insanları tanı, ilacı ara ve tedavi planını kendi kararlarınla kur.
 
 **Devam:** Kervanla batı çıkışına ve Aldara yük köprüsüne geç.
 

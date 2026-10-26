@@ -8,7 +8,7 @@ Varsayılan sade akış için [kısa rehberi](SADE_HIKAYE_MASASI.md) kullan. Bu 
 
 1. Güncel depoyu indirip çıkar. Windows'ta `baslat/Yayini-Baslat.cmd`; macOS/Linux'ta `bash baslat/Yayini-Baslat.sh` çalıştır. Node 22.12+ gerekir. Terminali açık tut.
 2. Yeni varsayılan **Sade Hikâye Masası**nda On Kış Kararı hazır gelir. Aşağıdaki ayrıntılı araçlar için **Gelişmiş masaya geç** düğmesini kullan. **Görev** panelinde kendi `On-Kis-Karari-DM.json` dosyanı da açabilirsin. Eski beşli paket de çalışır. Paket sıradan bir metin sayfası olarak kalmaz: görev adımları, okunacak sözler, kontroller, görseller ve karar alanları ayrılır.
-3. Sol taraftaki **Görev sahnelerini içe al** ile paketin sahnelerini kayıtlı sahnelere ekle. On Kış Kararı 10 görev ve 30 sahne içerir. Bu işlem yayın görüntüsünü değiştirmez.
+3. Sol taraftaki **Görev sahnelerini içe al** ile paketin sahnelerini kayıtlı sahnelere ekle. On Kış Kararı 10 görev ve 61 sahne içerir. Bu işlem yayın görüntüsünü değiştirmez.
 4. Bir sahneyi veya görev adımını **hazırla**. Orta bölümde kadrajı, portreleri ve başlığı kontrol et. Hazırlıkta yaptığın değişiklikler izleyiciye gitmez.
 5. **Yayına al** düğmesiyle göster. Altındaki canlı önizleme ve bağlantı durumu, gönderimin onayını gösterir. OBS kaynağında aynı görüntü açılır.
 6. Oturum sonunda **Özel kampanya paketini indir** ile dosya yedeği al. Otomatik yerel kayıt da vardır; taşınabilir yedek başka bilgisayara geçmek içindir.

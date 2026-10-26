@@ -27,7 +27,7 @@ async function blank(page: any) {
   })
 }
 
-test('hazır hikâye şifresiz yüklenir; on bölüm ve otuz kısa sahne rehberi vardır', async ({
+test('hazır hikâye şifresiz yüklenir; on bölüm ve altmış bir oynanabilir sahne rehberi vardır', async ({
   page,
 }) => {
   await blank(page)
@@ -41,16 +41,17 @@ test('hazır hikâye şifresiz yüklenir; on bölüm ve otuz kısa sahne rehberi
   }, modulePath)
   expect(result.installed).toBe(true)
   expect(result.pack.quests).toHaveLength(10)
-  expect(result.pack.quests.flatMap((q: any) => q.steps)).toHaveLength(30)
+  expect(result.pack.quests.flatMap((q: any) => q.steps)).toHaveLength(61)
   for (const q of result.pack.quests) {
     for (const guide of [q.quick, ...q.steps.map((s: any) => s.quick)])
       for (const key of ['where', 'time', 'goal', 'next'])
         expect(guide[key].length).toBeGreaterThan(5)
   }
   expect(result.pack.quests[0].briefing.backgroundId).toBe('winter-yuk-avlusu')
-  expect(result.pack.quests[0].steps[1].backgroundId).toBe(
-    'winter-buzlu-galeri',
-  )
+  expect(
+    result.pack.quests[0].steps.find((s: any) => s.id === 'son-ilac-2')
+      .backgroundId,
+  ).toBe('winter-buzlu-galeri')
   expect(result.stored).toEqual(result.pack)
   await page.goto('/DM-Paketini-Ac.html')
   await expect(
@@ -103,9 +104,12 @@ test('eski on görev yeni görsellerle zenginleşir; düzenlenen metin ve kararl
   })
   old.quests[0].body = 'KULLANICI DEĞİŞTİRDİĞİ METİN'
   old.quests[0].briefing.backgroundId = 'winter-marhalden'
-  old.quests[0].steps[1].backgroundId = 'winter-ilac'
-  old.quests[0].steps[1].readAloud = 'BENİM KONUŞMAM'
-  old.quests[2].steps[1].backgroundId = 'winter-ekmek'
+  old.quests[0].steps.find((s: any) => s.id === 'son-ilac-2').backgroundId =
+    'winter-ilac'
+  old.quests[0].steps.find((s: any) => s.id === 'son-ilac-2').readAloud =
+    'BENİM KONUŞMAM'
+  old.quests[2].steps.find((s: any) => s.id === 'ac-cocuk-2').backgroundId =
+    'winter-ekmek'
   old.quests[3].steps[0].backgroundId = 'user-custom-art'
   const progress = {
     quest: 'ac-cocuk',
@@ -134,13 +138,18 @@ test('eski on görev yeni görsellerle zenginleşir; düzenlenen metin ve kararl
   )
   expect(result.result.updated).toBe(true)
   expect(result.result.pack.quests[0].body).toBe(old.quests[0].body)
-  expect(result.result.pack.quests[0].steps[1].readAloud).toBe('BENİM KONUŞMAM')
-  expect(result.result.pack.quests[0].steps[1].backgroundId).toBe(
-    'winter-buzlu-galeri',
-  )
-  expect(result.result.pack.quests[2].steps[1].backgroundId).toBe(
-    'winter-un-ambari',
-  )
+  expect(
+    result.result.pack.quests[0].steps.find((s: any) => s.id === 'son-ilac-2')
+      .readAloud,
+  ).toBe('BENİM KONUŞMAM')
+  expect(
+    result.result.pack.quests[0].steps.find((s: any) => s.id === 'son-ilac-2')
+      .backgroundId,
+  ).toBe('winter-buzlu-galeri')
+  expect(
+    result.result.pack.quests[2].steps.find((s: any) => s.id === 'ac-cocuk-2')
+      .backgroundId,
+  ).toBe('winter-un-ambari')
   expect(result.result.pack.quests[3].steps[0].backgroundId).toBe(
     'user-custom-art',
   )

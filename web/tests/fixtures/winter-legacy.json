@@ -1,0 +1,833 @@
+{
+  "version": 2,
+  "title": "On Kış Kararı · Oynatım Kitabı",
+  "quests": [
+    {
+      "id": "son-ilac",
+      "title": "Son İlaç",
+      "body": "Kişisel eski not: son-ilac",
+      "steps": [
+        {
+          "id": "son-ilac-1",
+          "title": "Varış · İki yatak",
+          "summary": "Dün birlikte yük taşıdığınız Sena, kervanın çıkacağı sabah çöker. Revire getirildiğinde diğer yatakta küçük Arin vardır.",
+          "readAloud": "Revirin kapısı iki yatağı da aynı anda gösteriyor. Dün katırın yükünü birlikte düzelttiğiniz Sena, soldaki örtüyü titreyen elleriyle tutuyor. Sağda bir çocuk nefes alırken sayar gibi duraksıyor. Annesinin yorgun elinin altında, küçük bir şişe var. Hekim sizi içeri alıp kapıyı kapatıyor. “Önce ne bildiğimizi konuşalım. Sonra kimin bekleyebileceğine karar verirsiniz.”",
+          "actions": [
+            "Önce Sena ile önceki gündeki ortak işi kısa oynat; onu önceden en yakın arkadaş ilan etme.",
+            "Miren’in çocuğunun adını ve ilacın ona ayrıldığını saklama.",
+            "Altı oyun saati kaldığını ve kervanın şu an beklediğini açıkla."
+          ],
+          "checks": [
+            "Tıp DC 12: ikisinde de aynı kurgusal tuz ateşi; yarım doz ikisini iyileştirmez. Bu bilgi hekimden konuşarak da alınabilir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-ilac",
+          "portraitIds": [
+            "sena-erven",
+            "miren-aska"
+          ],
+          "publicTitle": "Marhalden · Batı sevki"
+        },
+        {
+          "id": "son-ilac-2",
+          "title": "Araştırma · Üç saatlik iniş",
+          "summary": "Hekim, eski sıcak su galerilerinde yetişen köklerden ikinci ilaç yapabilir; kök getirmek tehlikeli, şişe çalmak ise mümkündür.",
+          "readAloud": "Hekim eski bir merdiven çizimini masaya yayıyor. Kâğıdın kenarı su lekesinden incelmiş. “İkinci ilaç için kök lazım. Eskiden sıcak su galerilerinden toplardık. Merdiven sağlam mı, bilmiyorum.” Avlunun çanı bir kez çalıyor. Yola çıkmanız gereken saat geçmiş; aşağıda ise başka bir saat işlemeye başlayacak.",
+          "actions": [
+            "Üç saat gidiş-geliş, bir saat hazırlama ve iki saat yedek süre tanı.",
+            "Galeride çöken basamak, buharlı görüş ve iki mağara leşçisi kullan; savaş şart değil.",
+            "Kervan gecikirse ücretin bir bölümünü ve taşınan kuru odunu barınmaya harcat; oyuncular bedeli bilsin."
+          ],
+          "checks": [
+            "Grup Atletizm veya Hayatta Kalma DC 13; iki başarı kökü getirir. Başarısızlık ölüm değil, ek süre ve bir ekipmanın kaybıdır.",
+            "Yaratık için düşük seviyede iki giant rat, daha güçlü partide iki wolf mekaniği kullanılabilir; görünüm yerel mağara canlısıdır."
+          ],
+          "choices": [],
+          "backgroundId": "winter-buzlu-galeri",
+          "portraitIds": [
+            "sena-erven",
+            "miren-aska"
+          ],
+          "publicTitle": "Marhalden · Batı sevki"
+        },
+        {
+          "id": "son-ilac-3",
+          "title": "Karar · Şişe kimin?",
+          "summary": "Elinizde yalnız mevcut şişe veya yetiştirebildiğiniz ikinci tedavi vardır. Son kararı kaydet.",
+          "readAloud": "Revirde konuşmalar azalmış. Ocaktaki küçük tencereyi, çocuğun nefesini ve dışarıdaki tekerlek sesini birbirinden ayırabiliyorsunuz. Miren şişeyi kaldırmıyor; yalnız elini biraz çekiyor. “Benden ne istediğinizi açık söyleyin.” Sena yatağında doğrulmaya çalışıyor, başaramıyor. Bu kez hekim de sizin yerinize cevap vermiyor.",
+          "actions": [
+            "Miren’in rızası olmadan ilacı alan kişiyi yardım yapmış diye tanımlama.",
+            "Sena veya Arin’in ölümü otomatik olmasın: tedavisiz kalan ağırlaşır, sonraki oturumda bakım veya yeni ilaç aranabilir.",
+            "Kimin ne verdiğini ve kervanın kaç saat geciktiğini karar alanına yaz."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Miren’in ayrılmış ilacını korumak",
+              "result": "Arin tedavi edilir; Sena yola çıkamaz. Onun yerine ücretli bir yolcu bulmak ya da rotayı izsiz yürümek gerekir.",
+              "echo": "Sena iyileşirse bunu partinin onu terk etmesi olarak değil, verilen zor karar olarak konuşur; ona ne söz verdiklerini hatırla."
+            },
+            {
+              "label": "İlacı Sena’ya vermek",
+              "result": "Sena ayılır. Miren’in ailesi bakım ve yeni ilaç masrafıyla kalır; tepki sözleriyle ve davranışıyla belirlenir.",
+              "echo": "Frostbay’de Miren’in yakınının yardım istemesi mümkündür. Yaşananı saklamak güveni, açıkça telafi etmek ilişkiyi etkiler."
+            },
+            {
+              "label": "Yeni tedaviyi yetiştirmek",
+              "result": "İkisi de tedavi olur; harcanan zaman ve kayıp erzak kervanda gerçektir. Başarıyı boşa çıkaracak gizli ölüm ekleme.",
+              "echo": "Harven alıcısı eksik odunu sorar. Ailenin minneti yeni talep değil, küçük bir konaklama desteği olabilir."
+            }
+          ],
+          "backgroundId": "winter-ilac",
+          "portraitIds": [
+            "sena-erven",
+            "miren-aska"
+          ],
+          "publicTitle": "Marhalden · Batı sevki"
+        }
+      ]
+    },
+    {
+      "id": "koprunun-iki-tarafi",
+      "title": "Köprünün İki Tarafı",
+      "body": "Kişisel eski not: koprunun-iki-tarafi",
+      "steps": [
+        {
+          "id": "koprunun-iki-tarafi-1",
+          "title": "Varış · Yirmi kişi geride",
+          "summary": "İlk büyük kaçış sahnesi. Nehirdeki yük köprüsüne yirmi sivil daha ulaşmaya çalışır; geride iz sürücüler görünür.",
+          "readAloud": "Köprünün halatları rüzgârla aynı sesi çıkarmıyor; yük bindikçe daha kalın bir inilti yükseliyor. Batı kıyısında bir kızak takılmış, arkasında insanlar birikmiş. Deren sizden gözünü kaçırmadan halatı gösteriyor. Yukarıdaki silahlılar yürümeyi bırakıp koşmaya başlıyor.",
+          "actions": [
+            "Kağıda veya harita çizimine iki kıyı ve yaklaşan grubu koy.",
+            "Dört turda siviller, üç turda ilk takipçi ulaşır; her tur bir etkili yardım tahliyeyi bir tur hızlandırır.",
+            "Bir turu plan konuşmasına değil gerçek bir eyleme bağla."
+          ],
+          "checks": [
+            "Atletizm DC 12 bir kızağı geçirir; İkna DC 12 sırayı düzenler. Zarı her sivil için tekrar atma."
+          ],
+          "choices": [],
+          "backgroundId": "winter-kopru",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Marhalden · Batı sevki",
+          "publicNames": {
+            "taren-olt": "Yabancı asker"
+          }
+        },
+        {
+          "id": "koprunun-iki-tarafi-2",
+          "title": "Çatışma · Bir tur kazan",
+          "summary": "Köprü yıkılmadan son insanları geçirmek mümkündür; bunun için yük, güvenlik veya yaralanma riski alınır.",
+          "readAloud": "Bir araba genişliğindeki geçitte artık her hareket başka birini bekletiyor. Bir adam takipçilerin yanından ayrılıp köprü direğine yöneliyor; halata uzanan eli bir an duruyor. Karanlık pelerininin altındaki yüzü seçebiliyorsunuz. “Biraz daha tutun,” diyor. Sonra geldiği yöne dönüyor.",
+          "actions": [
+            "Taren’in yardımını görünür yap ama hemen kahraman ilan etme.",
+            "Yük arabasını barikat yapmak iki tur kazandırır; taşınan arpanın dörtte biri nehre gidebilir.",
+            "Düşmanı öldürmek dışında ateş, kaygan zemin, tehditle geri çevirme veya halat tuzağı kabul et."
+          ],
+          "checks": [
+            "Düşük seviyede 3 bandit; güçlü partide bandit captain ve 3 bandit. Kalanlar sivil avlamak yerine yükü almak istediklerinden pazarlık yapabilir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-kopru",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Marhalden · Batı sevki",
+          "publicNames": {
+            "taren-olt": "Yabancı asker"
+          }
+        },
+        {
+          "id": "koprunun-iki-tarafi-3",
+          "title": "Karar · Son halat",
+          "summary": "Ya köprü kesilecek ya da bir geri çekilme savunması oynanacak. Taren batı kıyısında kaybolur.",
+          "readAloud": "Son kızak tahtalara vurduğunda köprü bir kez daha sallanıyor. Deren size bakıyor; bıçağı sizin elinizdeyse kararınızı bekliyor. Karşı kıyıda kimin kaldığını görebiliyorsunuz. Nehir, söylenenlerin hiçbirini duymuyormuş gibi aşağı akıyor.",
+          "actions": [
+            "Gerideki insanların kurtarılma ihtimalini tamamen silme; nehir kıyısında sonraki arama sahnesi açılabilir.",
+            "Kalan sivil sayısını, terk edilen yükü ve Taren’in görülen yüzünü kaydet.",
+            "Köprü yıkıldıysa dönüşte aynı köprüyü sağlam kullanma; kayık veya tamir gereksinimi devam eder."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Hemen kesmek",
+              "result": "Takip durur; geçemeyen siviller diğer kıyıda saklanmaya çalışır. Yakalanma, kaçış ve yardım olasılıklarını oynat.",
+              "echo": "Kurtulan bir aile neden kesildiğini sorabilir. Tanıklıkları partinin sonraki yardımını da kapsar."
+            },
+            {
+              "label": "Herkes için tutmak",
+              "result": "Son siviller geçer; parti arka muhafız sahnesinde risk alır. Kazanılırsa başarı tamdır.",
+              "echo": "Deren, Harven’de yiyecek veya iş gücü bulmaya yardım eder. Kaybedilen yükün hesabı yine verilir."
+            },
+            {
+              "label": "Yükü bırakıp zaman kazanmak",
+              "result": "Siviller kurtulur; yağmacılar yükle oyalanır. Kervanın sonraki erzak payı azalır.",
+              "echo": "Dokuzuncu görevde tahıl açığı konuşulurken bu çuvallar gerçek bir açıklama oluşturur."
+            }
+          ],
+          "backgroundId": "winter-kopru",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Marhalden · Batı sevki",
+          "publicNames": {
+            "taren-olt": "Yabancı asker"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ac-cocuk",
+      "title": "Aç Çocuk",
+      "body": "Kişisel eski not: ac-cocuk",
+      "steps": [
+        {
+          "id": "ac-cocuk-1",
+          "title": "Varış · Tek somun",
+          "summary": "Lio ekmekle yakalanır. Bera bileğini tutmaktadır; kapıda muhafız görünür.",
+          "readAloud": "Bera çocuğun bileğini bırakıyor ama kapının önünden çekilmiyor. “Konuşalım,” diyor, “ama kimse bu somunu sanki yoktan olmuş gibi saymasın.” Çocuğun yüzündeki un, soğukta çatlamış dudağını daha beyaz gösteriyor. Dışarıdaki küçük kız kapının açılmasını bekliyor.",
+          "actions": [
+            "Bera’nın çocuğa zarar vermeden onu tuttuğunu belirt.",
+            "Lio’nun kardeşi için çaldığını araştırılabilir ama hileli olmayan bir gerçek yap.",
+            "Köprüdeki kayıp babayı önceki karar kaydına göre bağla."
+          ],
+          "checks": [
+            "Sezgi DC 10: ikisi de gerçek bir ihtiyaç anlatıyor. Başarısızlık oyuncuların konuşmasını veya incelemesini engellemez."
+          ],
+          "choices": [],
+          "backgroundId": "winter-ekmek",
+          "portraitIds": [
+            "bera-hald"
+          ],
+          "publicTitle": "Harven · Yol üstünde"
+        },
+        {
+          "id": "ac-cocuk-2",
+          "title": "Araştırma · Un nereye gidiyor?",
+          "summary": "Fırıncının kaybı yalnız çocuklardan kaynaklanmaz; gece çuvalları çeken bir yetişkin satıcı da vardır.",
+          "readAloud": "Fırının arkasındaki karda küçük ayak izleri bir yere kadar gidiyor. Daha ileride sürüklenen bir çuvalın izi var; onu aç bir çocuğun taşıyamayacağı belli. Bera kapıya yaslanmış duruyor. Bu kez sesi daha alçak: “Bunu bana ilk söyleyen siz olmadınız. Gösterirseniz inanırım.”",
+          "actions": [
+            "Bir sahnelik takip veya esnaf görüşmesi sun.",
+            "Unu çalan satıcı altı hanelik alacak yüzünden çaldığını söyler; bu çocuğun fiilini yok etmez.",
+            "Oyuncular isterse kervan payını telafiye verebilir, fakat sonraki durakta eksik teslim açıkça görünür."
+          ],
+          "checks": [
+            "Araştırma veya Hayatta Kalma DC 12 satıcıya götürür. Yakalamak zorunlu dövüş değildir; iki witness da kanıt olabilir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-un-ambari",
+          "portraitIds": [
+            "bera-hald"
+          ],
+          "publicTitle": "Harven · Yol üstünde"
+        },
+        {
+          "id": "ac-cocuk-3",
+          "title": "Karar · Kimin ekmeği",
+          "summary": "Bera’nın zararı ve iki çocuğun barınması için açık bir anlaşma gerekir.",
+          "readAloud": "Tezgâha bir somun daha konuyor. Şimdi tartılan yalnız ekmek değil: yarının unu, iki çocuğun gece nerede uyuyacağı ve bir yetişkinin verdiği söz. Bera defteri açıyor. “Kimin neyi üstlendiğini yazalım,” diyor. “Hepiniz gittikten sonra da okunabilsin.”",
+          "actions": [
+            "Ceza otomatik işkence değildir; yerel nöbetçi tazminat ve güvenilir yetişkin tanıklığını dinler.",
+            "Çocukları borç karşılığı zorla çalıştırmayı tek çözüm yapma.",
+            "Rızalı, yaşa uygun yardım, yetişkin bakım ağı ve ödeme seçeneklerini açık tut."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Bedeli ödeyip bakım bulmak",
+              "result": "Bera karşılığını alır; Deren’in komşusu çocukları geçici misafir eder. Yardımın devam süresini konuşun.",
+              "echo": "Kervan dönerken Lio babasını aramak için sözünüzü hatırlatır; yetişkin bakımını çocuk üstlenmez."
+            },
+            {
+              "label": "Yalnız çocuğu kaçırmak",
+              "result": "Çocuk ceza görmez ama Bera’nın kaybı sürer. Muhafızın şüphesi ve borç açık kalır.",
+              "echo": "Harven’de bir sonraki alışverişte güvence istenir. Bu bütün kasabanın düşman olması değildir."
+            },
+            {
+              "label": "Hırsızlığı araştırıp telafi etmek",
+              "result": "Kayıp çuvalların bir bölümü döner; çocukların açlığı için ayrıca çözüm kurulur.",
+              "echo": "Bera yol için ekmek ayırabilir. Fırıncı kurtarıldı diye tüm yoksulluk bitmez."
+            }
+          ],
+          "backgroundId": "winter-ekmek",
+          "portraitIds": [
+            "bera-hald"
+          ],
+          "publicTitle": "Harven · Yol üstünde"
+        }
+      ]
+    },
+    {
+      "id": "masum-canavar",
+      "title": "Masum Canavar",
+      "body": "Kişisel eski not: masum-canavar",
+      "steps": [
+        {
+          "id": "masum-canavar-1",
+          "title": "Varış · Kapanan odun yolu",
+          "summary": "Mavric’te iki hane son kuru odunu yakmaktadır. Annenin varlığı güvenli odun hattını kesmiştir.",
+          "readAloud": "Yolun girişindeki uyarı bezi rüzgârda dönüyor. Karın üzerinde iki büyük pençe izi, aralarında ise daha küçük ve düzensiz bir iz var. Devrilmiş odun kızağının yanında kanlı bir av değil, kopmuş bir tuzak teli görüyorsunuz. Ormanın içinden kükreme gelmiyor. Yalnız uzun bir soluk sesi.",
+          "actions": [
+            "Ödülü kraliyet hazinesi gibi gösterme.",
+            "Saldırı izlerini incelet; ölen insan yok, yaralı bir avcı ve kayıp keçi var.",
+            "Partinin hedefi yalnız öldürme emri değil, güvenli erişimdir."
+          ],
+          "checks": [
+            "Doğa DC 12: Varkul çiftleşme dönemi dışında grup yaşamaz; iki iz yavruyu düşündürür."
+          ],
+          "choices": [],
+          "backgroundId": "winter-odun-yolu",
+          "portraitIds": [],
+          "publicTitle": "Mavric · Orman eşiği"
+        },
+        {
+          "id": "masum-canavar-2",
+          "title": "Keşif · İnin ağzı",
+          "summary": "Anne yaralı yavrusunu korur; saldırı ilkeleri ve geri çekilme işaretleri görünürdür.",
+          "readAloud": "İnin ağzında gördüğünüz ilk şey hayvanın dişleri değil, arkasına sakladığı küçük gövde oluyor. Yavru ayağına basamıyor. Anne sizi gördüğünde saldırmak yerine yana kayıyor; sizinle yavrunun arasını kapatıyor. Pençelerinin altındaki kar kayaya kadar sıyrılmış.",
+          "actions": [
+            "Mesafeyi koruyan partiye ilk saldırıyı yaptırma.",
+            "Tuzak telini ve avcı kokusunu incelet.",
+            "Alternatif bir in eski odun yolundan yarım gün yukarıda; taşımak için uyutma, güvenli yem hattı veya avcı rehberliği gerekebilir."
+          ],
+          "checks": [
+            "Hayvanlarla İlişkiler DC 14 güvenli mesafeyi korur; Speak with Animals istekleri anlaşılır kılar, hemen evcilleştirmez.",
+            "Çatışmada sabre-toothed tiger profili önerilir; düşük seviyede yalnız kaçış/uzaklaştırma oynat. Yavrular savaş ödülü değildir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-varkul",
+          "portraitIds": [],
+          "publicTitle": "Mavric · Orman eşiği"
+        },
+        {
+          "id": "masum-canavar-3",
+          "title": "Karar · Odun ve yuva",
+          "summary": "Haneler kısa vadeli yakacak, anne ise rahatsız edilmeyen alan ister.",
+          "readAloud": "Aysra odun payını ölçmek için iki boş kızak getirmiş. Tepedeki in artık bildiğiniz bir yer; aşağıdaki evlerin yakacağı da ortada. “Ne yapacağımıza karar verelim,” diyor. “Ama herkes sizin seçtiğiniz yolun neye mal olacağını bilsin.”",
+          "actions": [
+            "Öldürme, güvenli taşıma ve geçici odun paylaşımının somut maliyetini anlat.",
+            "Tuzak kuranın sorumluluğunu bütün halka yayma.",
+            "Parti annenin yerini herkese açıklamak zorunda değildir; kapalı yol işareti yeterli olabilir."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Anneyi öldürmek",
+              "result": "Odun yolu açılır; yavruların bakımı için ayrıca sorumluluk veya terk kararı doğar.",
+              "echo": "Avcı bir yavruyu satmak ister; parti ilk kararının devamını görür."
+            },
+            {
+              "label": "Yeni in ve güvenli hat",
+              "result": "Yarım günlük emek ve yem harcanır; insanlarla hayvanın alanı ayrılır.",
+              "echo": "Yolcu taşıyıcılar bu işaretleri kullanır. Bir avcı işareti kaldırırsa ayrı bir çatışma çıkar."
+            },
+            {
+              "label": "Geçici odun desteği",
+              "result": "Hayvan kendi hareket süresinde ayrılana dek güvenli bekleyiş kurulur; kervanın payı azalabilir.",
+              "echo": "Haneler bahar emeği veya koşum onarımıyla karşılık vermeyi teklif edebilir; zorunlu ödül değildir."
+            }
+          ],
+          "backgroundId": "winter-varkul",
+          "portraitIds": [],
+          "publicTitle": "Mavric · Orman eşiği"
+        }
+      ]
+    },
+    {
+      "id": "bir-kisi-bir-mahalle",
+      "title": "Bir Kişiye Karşı Bir Mahalle",
+      "body": "Kişisel eski not: bir-kisi-bir-mahalle",
+      "steps": [
+        {
+          "id": "bir-kisi-bir-mahalle-1",
+          "title": "Varış · Duvar terliyor",
+          "summary": "Eski Yük Evi’nin altından buzlu su yükselir; ahşap ekler ve eski taş kanatlar farklı hızda kayar.",
+          "readAloud": "Taşın içinden gelen ses bir çatlama kadar kısa değil. Sanki ağır bir kapı, duvarın altında yavaşça sürükleniyor. Elda elini taşa koyuyor. “Biri uyanık kalırsa değil,” diyor, “biri uyursa tutabilir. Ama önce neden açıldığını görmek istiyorum.”",
+          "actions": [
+            "Ölüm veya kurban ritüeli gerektirmeyen, fakat ağır rıza sorunu olan bir uyku önerisi sun.",
+            "Elda’yı her şeyi bilen otorite sayma; mekanizmayı araştırmayı kendisi önerir.",
+            "Tahliye seçeneğini baştan anlat: ev ve erzak kaybı, can kaybının kesinliği değil."
+          ],
+          "checks": [
+            "Arcana DC 13: büyü zihni çapa yapabilir; süre tahmini belirsizdir. Zorla uygulama büyü hukukuna aykırıdır."
+          ],
+          "choices": [],
+          "backgroundId": "winter-uyku",
+          "portraitIds": [
+            "elda-sorren"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        },
+        {
+          "id": "bir-kisi-bir-mahalle-2",
+          "title": "Keşif · Eski su kapısı",
+          "summary": "Koruma çatlağının altında eski su kanalı sıkışmıştır; tamir uykuyu gereksiz kılabilir ama dar su yoluna girmek risklidir.",
+          "readAloud": "Merdivenin son iki basamağı suyun altında. Işığı eğince paslı bir çark ve çarkın altına sıkışmış yığma taşlar görünür oluyor. Buraya ev yapılırken suyun eski çıkışı daraltılmış. Yukarıdan Ovel’in sesi geliyor: “İp gerilirse çekeyim mi, yoksa işaret mi bekleyeyim?”",
+          "actions": [
+            "Üç odalı keşif: buzlu iniş, kaymış çark, çıkış kanalı.",
+            "İp ve bir işçiyi dışarıda bırakma gibi hazırlıkları başarıya dönüştür.",
+            "İki saatlik yükselen su sayacı kullan; uzun dinlenme alanı yok."
+          ],
+          "checks": [
+            "Atletizm DC 13 çarkı çevirir; Araştırma veya araç yeterliği DC 13 güvenli kilidi bulur. İki başarıdan biri eksikse kısa süreli gönüllü nöbet büyüsü gerekir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-su-kapisi",
+          "portraitIds": [
+            "elda-sorren"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        },
+        {
+          "id": "bir-kisi-bir-mahalle-3",
+          "title": "Karar · Çapa kim olacak",
+          "summary": "Bir çapa, fiziksel tamir veya tahliye seçilir; kişiyi zorla yatırmak gerçek bir ihlaldir.",
+          "readAloud": "Elda kuru bir kâğıda üç yol çiziyor. Birinde yatan bir insan, diğerinde açılan bir su kapısı, sonuncusunda taşınan bir ev var. “Size en kolay görüneni değil, ne bildiğimizi anlatacağım,” diyor. Üst kattakiler cevap bekliyor; hiçbirinin bu çizgilerin dışında bir evi yok.",
+          "actions": [
+            "Gönüllüye neyin bilindiğini ve neyin belirsiz olduğunu anlat.",
+            "Bir oyuncu gönüllü olursa karakteri oyundan aylarca çıkarmadan önce kapsamı masada konuş.",
+            "Tamir başarılıysa gizli bir bedelle geri alma."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Gönüllü çapa",
+              "result": "Rızalı bir yetişkin uyur; bakım, süreyi kısaltacak araştırma ve geri dönme sözü gerekir.",
+              "echo": "Uyanma çalışması sonraki araştırma kancasıdır. Bakım veren hane gerçekten destek ister."
+            },
+            {
+              "label": "Su kapısını onarmak",
+              "result": "Maddi tehlike ve zaman göze alınır; başarıda mahalle ve insanlar korunur.",
+              "echo": "Bryndon bu tekniğin eski iklimle ilişkisini sorar; araştırma yeni macera açabilir."
+            },
+            {
+              "label": "Tahliye etmek",
+              "result": "Canlar kurtulur; birkaç ev ve erzak zarar görür. Frostbay’in barınma sıkıntısı artar.",
+              "echo": "Dördüncü görevde yardım gören haneler yer açabilir. Bu bir önceki iyiliğin somut karşılığıdır."
+            }
+          ],
+          "backgroundId": "winter-uyku",
+          "portraitIds": [
+            "elda-sorren"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        }
+      ]
+    },
+    {
+      "id": "hainin-kizi",
+      "title": "Hainin Kızı",
+      "body": "Kişisel eski not: hainin-kizi",
+      "steps": [
+        {
+          "id": "hainin-kizi-1",
+          "title": "Varış · Aynı rota",
+          "summary": "Bir yakalama isteği gelir: Iven’in çizimindeki darbe izi, köprüde bulunan rota kağıdıyla eşleşir.",
+          "readAloud": "Odada yakacak az olduğu için duvara en yakın sandalye boş bırakılmış. Iven kâğıdı masaya koyuyor. “Köprüde insanlar olduğunu biliyordum,” diyor. Sonra çenesini kaldırıp size bakıyor. Cümlesini kızının hastalığıyla bitirmiyor; o açıklama henüz masanın altında bekliyor.",
+          "actions": [
+            "Oyuncuların önceki köprü kayıplarını hatırla; hiç kayıp yoksa bunun şansı onun eylemini silmez.",
+            "Nela’nın ayrı konuşmak isteyebileceğini belirt.",
+            "Yakalama belgesini nihai hüküm gibi sunma; Frostbay idaresi tanıklık dinleyebilir."
+          ],
+          "checks": [
+            "Araştırma DC 12 çizimin köprü planıyla aynı elden olduğunu gösterir; Iven zaten itiraf edebilir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-baba",
+          "portraitIds": [
+            "iven-rusk"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        },
+        {
+          "id": "hainin-kizi-2",
+          "title": "Yüzleşme · Tedavi ve sorumluluk",
+          "summary": "Nela paranın nereden geldiğini sonradan öğrenmiştir. Tedaviye bir hafta daha ihtiyaç vardır.",
+          "readAloud": "Nela bardağı iki eliyle tutuyor. Babası bir şey söyleyecek gibi olduğunda başını ona çeviriyor. “Bir kez de ben anlatayım.” Sesini yükseltmiyor. Dışarıdaki dalga, odanın tahtalarında aynı ritmi tekrar ediyor; konuşmanın içinde bir yere yetişmek isteyen tek kişi babası değil.",
+          "actions": [
+            "Kızla pazarlık değil, kendi isteğini söyleyeceği bir görüşme oynat.",
+            "Iven’in alıcısını söylemesi gelecekteki saldırıyı engelleyebilir.",
+            "Tedavi masrafını denetimli iş, bağış veya ikmal payıyla karşılamak mümkün; suçu gizlemeyi gerektirmez."
+          ],
+          "checks": [
+            "İkna DC 13 veya güvenilir iki tanık: tedavi ve gözetimli teslim anlaşması. Başarısızlık görüşmeyi bitirmez; ek güvence istenir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-baba",
+          "portraitIds": [
+            "iven-rusk"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        },
+        {
+          "id": "hainin-kizi-3",
+          "title": "Karar · Kim teslim oluyor",
+          "summary": "Iven’in adalete erişimiyle Nela’nın tedavisini ayrı sorumluluklar olarak kaydet.",
+          "readAloud": "Kâtip boş bir kâğıt açıyor. “İfade başka, kızın bakımı başka,” diyor. Iven ilk kez bu iki şeyin aynı cümlede ayrılabildiğini duyuyor gibi bakıyor. Nela sizin yüzünüze dönüyor. “Yarın gelecek olan şifacıya ne söyleyeceğim?”",
+          "actions": [
+            "Halkın zararını, mağdur tanıklığını ve Nela’nın güvenliğini karar notunda ayrı tut.",
+            "Kaçırma seçeneğinde kayıp bilgiyi ve yeni rota ihtiyacını açıkla.",
+            "Tüm idareyi tek yozlaşmış blok gibi oynatma; bir katip güvenceyi yazabilir."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Tedavi güvencesiyle teslim",
+              "result": "Iven gözetim altında ifade verir; Nela sivil bakımda kalır. Hüküm ayrı süreçtir.",
+              "echo": "Köprüde zarar görenler ifadeye gelir. Parti adaletin sonucuna tanık olabilir."
+            },
+            {
+              "label": "Kaçmasına yardım",
+              "result": "Iven ve Nela uzaklaşır; takipçiler ve rota alıcısı serbest kalabilir.",
+              "echo": "Bir sevk görevlisi partiden neden bilgi saklandığını sorar; kızın iyileşmesi suçun izini silmez."
+            },
+            {
+              "label": "Alıcıya karşı tanıklık",
+              "result": "Iven bilgi verir; bağış veya geçici koruma karşılığında teslim şartları görüşülür.",
+              "echo": "Dokuzuncu görevde sahte sevklerin izi için bir kanıt elde edilir; kralın suçu kanıtlanmış olmaz."
+            }
+          ],
+          "backgroundId": "winter-baba",
+          "portraitIds": [
+            "iven-rusk"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında"
+        }
+      ]
+    },
+    {
+      "id": "son-kayik",
+      "title": "Son Kayık",
+      "body": "Kişisel eski not: son-kayik",
+      "steps": [
+        {
+          "id": "son-kayik-1",
+          "title": "Varış · Altı kişi",
+          "summary": "Frostbay dışındaki kıyı yolunu fırtına kabarması keser. Bir kayık ve altı kişi kıyıda kalmıştır.",
+          "readAloud": "İskele kazığından gelen ses artık rüzgâr değil. Yaşlı şifacı kayığın bordasına basıp dengesini ölçüyor. “Beş yetişkin yükü,” diyor. Yaralı adam kılıç kemerini çözüp tahtaya bırakıyor; sonra size bakıyor. Köprüde gördüğünüz kaş izi aynı yerde.",
+          "actions": [
+            "Beş yetişkin yükü ile beş kişi sayısını ayır: çocukların ve eşyaların ağırlığını konuş.",
+            "Dört tur sonra iskele ayrılır; dışarıda ikinci kayık görünmüyor.",
+            "Yaş, unvan veya yararlılık sırasına göre otomatik seçim yapma."
+          ],
+          "checks": [
+            "Doğa DC 12 veya denizcilik: akıntı yaklaşık on dakika sonra döner; hemen ikinci sefer tehlikelidir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-kayik",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında",
+          "publicNames": {
+            "taren-olt": "Yaralı asker"
+          }
+        },
+        {
+          "id": "son-kayik-2",
+          "title": "Kurtarma · Yükü değiştir",
+          "summary": "Zırh ve erzak bırakılırsa alan açılır; halat veya yüzdürme düzeneği ek güvenlik sağlayabilir.",
+          "readAloud": "Halat suya değer değmez sertleşiyor. Birinizin eli kazığa, diğerinin eli kayığın bordasına gidiyor. Küçük çocukların biri sessizce ayakkabılarını çıkarıp kucağına alıyor; ne yapmaya hazırlandığınızı anlamış. Taren zırhını itiyor. “Bunu taşımak zorunda değiliz.”",
+          "actions": [
+            "Oyuncuların ip, büyü, yüzme ve yüzer kap önerilerini tart.",
+            "Makul hazırlıkla herkesi kurtarmak mümkündür; bunu engellemek için yeni kişi ekleme.",
+            "Tam yüklü seferde açık risk: bir grup kontrolü ve kayık su alırsa ikinci eylem gerekir."
+          ],
+          "checks": [
+            "Grup Atletizm/Hayatta Kalma DC 13: üç eylemde iki başarı güvenli hat kurar. Başarısızlık bir kişinin ipte kalmasıdır; kurtarma devam eder."
+          ],
+          "choices": [],
+          "backgroundId": "winter-iskele",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında",
+          "publicNames": {
+            "taren-olt": "Yaralı asker"
+          }
+        },
+        {
+          "id": "son-kayik-3",
+          "title": "Karar · Dönüş sözü",
+          "summary": "Kurtarılan kişileri, bırakılan malları ve geride kalan biri varsa dönüş planını kaydet.",
+          "readAloud": "Kayığın burnu karşı kıyının taşına değiyor. Arkada ne bıraktığınızı saymak için bir anınız var: eşya, bir söz, belki dönüşü bekleyen biri. Aven nefesini toparlayıp kimin hâlâ öteki tarafta olduğunu soruyor. Kimse yalnız sayıyla cevap vermiyor.",
+          "actions": [
+            "Birinin gönüllü kalması varsa ne bildiğini ve nerede saklanacağını söyle.",
+            "Bir ölüm olacaksa sahnenin açık tehlikesinden gelsin; gizli kader cezasından değil.",
+            "Taren’in yardımı onu geçmişten aklamaz; son görev bununla yüzleşecek."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Herkesi riskli tek seferde taşımak",
+              "result": "Ekipman ve hazırlığa göre kurtarma kontrollerini oynat; başarıda herkes yaşar.",
+              "echo": "Taren ve şifacı son bölümde bu yardımı tanıklık olarak anlatır; hüküm yerine geçmez."
+            },
+            {
+              "label": "Gönüllü bekçi ve ikinci sefer",
+              "result": "Bir yetişkin güvenli yüksek noktada bekler; geri dönüş süresi ve sözü somuttur.",
+              "echo": "Tutulan veya tutulmayan dönüş sözü sonraki güveni etkiler."
+            },
+            {
+              "label": "Büyü veya geçici sal",
+              "result": "Kaynak ve eşya harcanır, insan seçmek gerekmeyebilir.",
+              "echo": "Kaybedilen tohum ve ekipman Ternhaven’de yardım talebine dönüşebilir; başarıyı cezalandırma."
+            }
+          ],
+          "backgroundId": "winter-kayik",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Frostbay · Eski taşların altında",
+          "publicNames": {
+            "taren-olt": "Yaralı asker"
+          }
+        }
+      ]
+    },
+    {
+      "id": "iyi-kalpli-nekromant",
+      "title": "İyi Kalpli Nekromant",
+      "body": "Kişisel eski not: iyi-kalpli-nekromant",
+      "steps": [
+        {
+          "id": "iyi-kalpli-nekromant-1",
+          "title": "Varış · Sessiz çalışanlar",
+          "summary": "Sıcak suyla ısıtılan küçük sebze bahçesinde üç iskelet çalışır. İşçiler aç kalmamak için onları durdurmamıştır.",
+          "readAloud": "Çapanın taşa vurduğu ses aynı, onu tutan el başka. Üç beden sırayla küçük tarhlarda çalışıyor. Neris defteri kapatıp kapıdaki ailelere bakıyor. “İçeri gelin,” diyor. “Burada ne yaptığımı görmeden birbirimizle konuşamayacağız.”",
+          "actions": [
+            "Ternhaven’in kendi tarımını dev bir tahıl ülkesine çevirme; bu birkaç hanenin kışlık sebzesidir.",
+            "Ölülerin ruhları otomatik hapiste değildir; bunu büyü incelemesiyle açıklığa kavuştur.",
+            "Asıl itiraz beden, mezar ve rızadır; büyü zararsız denince yok olmaz."
+          ],
+          "checks": [
+            "Arcana veya Din DC 12: burada beden canlandırılıyor, ruhla konuşma yapılmıyor. Mezar izni ise ayrı kanıttır."
+          ],
+          "choices": [],
+          "backgroundId": "winter-bahce",
+          "portraitIds": [
+            "neris-vel"
+          ],
+          "publicTitle": "Ternhaven · Sıcak su kıyısı"
+        },
+        {
+          "id": "iyi-kalpli-nekromant-2",
+          "title": "Görüşme · Kimin rızası",
+          "summary": "Neris izin aldığı defteri açar; iki bedenin kimliği karıştırılmıştır. Yanlış düzeltilebilir ama iş gücü açığı kalır.",
+          "readAloud": "Defterin sayfasında birbirine benzeyen iki mezar işareti çizilmiş. İsimlerden biri yanlış bedene bağlanmış. Neris gözlüğünü çıkarıp parmaklarını kâğıdın üzerinde tutuyor. Kapıdaki kadın bu kez bağırmıyor. “Hangisi?” diye soruyor. Soru bahçedeki bütün işlerden daha ağır duruyor.",
+          "actions": [
+            "Bir ailenin rızasını diğerine genelleme.",
+            "Neris’in yetkisini ve hukuk riskini açıkla; yalnızca iyi niyet ruhsat sayılmaz.",
+            "Yaşayanlarla vardiya, kervan erzağı ve hasadın paylaşılması alternatiflerini hesapla."
+          ],
+          "checks": [
+            "İkna DC 13 geçici bakım anlaşmasına yardımcı olur; ailenin hayır deme hakkını zarla yok etme."
+          ],
+          "choices": [],
+          "backgroundId": "winter-ocak-bahcesi",
+          "portraitIds": [
+            "neris-vel"
+          ],
+          "publicTitle": "Ternhaven · Sıcak su kıyısı"
+        },
+        {
+          "id": "iyi-kalpli-nekromant-3",
+          "title": "Karar · Bahçe kimin emeği",
+          "summary": "Yasal başvuru, bedenleri teslim ve iş gücü planını birlikte belirle.",
+          "readAloud": "Sıcak su akmaya devam ediyor; durmuş çapanın yerini henüz biri almamış. Masada gömü kayıtları, boş tohum keseleri ve yeni bir vardiya çizelgesi var. Kimin bedenini kimin izniyle kullanacağınızın yanında, yarın toprağı kimin işleyeceği de yazılmayı bekliyor.",
+          "actions": [
+            "Rızasız bedenleri geri vermeyi aç bırakma tehdidine bağlama.",
+            "Kervanın yardımını gönüllü ve miktarı belli bir kaynak yap.",
+            "Seçilen anlaşma Theramis veya Ternhaven’de otomatik yeni kanun olmaz; yerel başvuru olarak kalır."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Bütün uygulamayı durdurmak",
+              "result": "Bedenler ailelere verilir; yaşayan işçiler ve erzak yardımı bulunmazsa hasat küçülür.",
+              "echo": "Bir aile teşekkür eder, bahçe sahipleri işçi ister. İki tepki aynı anda gerçektir."
+            },
+            {
+              "label": "Rızalı ve denetimli geçici düzen",
+              "result": "İzinsiz bedenler çıkarılır, kalanlar için açık kayıt ve yasal inceleme başlar.",
+              "echo": "Büyü denetçisi kayıtları ister. Neris’in uygulamayı saklamak yerine açıklaması önemli olur."
+            },
+            {
+              "label": "Yaşayan emek ve paylı hasat",
+              "result": "Parti kaynak veya bağlantı sağlar; aileler bedenlerini geri alır ve yeni iş düzeni denenir.",
+              "echo": "Kervan dönüşünde başarısı iş gücü ve verilen sözlere bağlıdır; kendiliğinden ütopya oluşmaz."
+            }
+          ],
+          "backgroundId": "winter-bahce",
+          "portraitIds": [
+            "neris-vel"
+          ],
+          "publicTitle": "Ternhaven · Sıcak su kıyısı"
+        }
+      ]
+    },
+    {
+      "id": "kralin-yalani",
+      "title": "Kralın Yalanı",
+      "body": "Kişisel eski not: kralin-yalani",
+      "steps": [
+        {
+          "id": "kralin-yalani-1",
+          "title": "Varış · Mühürlü teklif",
+          "summary": "Maeron, Yara’yı öldürmek için değil yakalamak için para önerir; silahlı direnç olursa ölüm izni ima eder.",
+          "readAloud": "Maeron belgeyi parmağıyla size doğru itiyor. “Yakalama,” diyor; sonra sessizliği uzatıyor. “Direnirlerse adamlarımız tehlikeye atılmayacak.” Mührün balmumu yeni, kâğıdın üzerindeki yetki çizgisi ise beklediğinizden daha dar. Avludaki haneler konuşmayı duymayacak kadar uzakta tutulmuş.",
+          "actions": [
+            "Ödül 80 altın; görev savaş ilanı değildir.",
+            "Belgeyi okumayı veya komutana sormayı engelleme.",
+            "Oyunculara başlıkta kral yalan söylüyor diye kesin bilgi verme; bu şüpheyle gelen görevin adıdır."
+          ],
+          "checks": [
+            "Tarih/Hukuk veya Araştırma DC 12: mühür yerel ikmal yetkisini gösterir; kraliyet tarafından şahsi ölüm emri değildir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-ambar",
+          "portraitIds": [
+            "maeron-vesk"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        },
+        {
+          "id": "kralin-yalani-2",
+          "title": "Doğrulama · İki depo",
+          "summary": "Yara tahılı gerçekten dağıtır; bir depo işçisi de baskında gerçekten yaralanmıştır. Defterde fazla tutulmuş pay görünür.",
+          "readAloud": "Yara’nın dağıttığı çuvallar açılmış; tahıl gerçekten pişiyor. Yan odada bir depo işçisinin kolu sarılı. Bir aile çorbasını alıp giderken adam gözlerini kapatıyor. Yara defteri görünce bir an susuyor. Aynı yiyecek iki farklı hikâyenin ortasında duruyor.",
+          "actions": [
+            "Iven’in verdiği bilgi varsa sahte sevk aracıyla bağlantıyı kanıt olarak kullan; yoksa bağımsız depo defteri bulunsun.",
+            "Maeron’un asker payı gerçekten gerekli; tuttuğu fazlalık ve kayırma ayrı konudur.",
+            "Haneler ile silahlı liderin aynı kişi olmadığını açık tut."
+          ],
+          "checks": [
+            "Araştırma DC 13 iki defteri karşılaştırır. İki bağımsız tanık yeterli alternatif kanıttır. Tek zar başarısız diye bütün gerçek kapanmaz."
+          ],
+          "choices": [],
+          "backgroundId": "winter-iki-depo",
+          "portraitIds": [
+            "maeron-vesk"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        },
+        {
+          "id": "kralin-yalani-3",
+          "title": "Karar · Kimin emri",
+          "summary": "Bir tarafı öldürmeden kanıtla komutana gitmek mümkündür; bu seçenek de zaman, güvenlik ve açık tanıklık ister.",
+          "readAloud": "Komutanın masasında iki defter ve bir kanlı bez var. Garran sayfalara değil, konuşmayı kimin üstlendiğine bakıyor. “Erzağı nereye yazdınız?” diye soruyor. Ardından yaralı işçiye dönüyor. İkinci soru biraz daha yavaş geliyor: “Size ne oldu?”",
+          "actions": [
+            "Oyuncuların önceki yük kaybı varsa hesapta göster; Maeron bütün suçu onlara atamasın.",
+            "Yara’nın yaralanan depocuya karşı sorumluluğunu unutma.",
+            "Erzak payı, teslim ve soruşturmayı ayrı kararlara böl."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Emri sorgulamadan uygulamak",
+              "result": "Yara yakalanır; aç haneler için dağıtım kanalı kurulmadıysa ihtiyaç sürer.",
+              "echo": "Maeron güç kazanır ama komutan delilleri sonradan da duyabilir. Parti kendi tanıklığıyla yüzleşir."
+            },
+            {
+              "label": "Yara’ya sınırsız destek",
+              "result": "Tahıl hanelere gider; silahlı depo baskını ve garnizon açığı yeni çatışma yaratabilir.",
+              "echo": "Depocunun ailesi hesap sorar; yardım edilen haneler onun incinmesini istememiştir."
+            },
+            {
+              "label": "Kanıt ve denetimli teslim",
+              "result": "Komutan iki tarafı dinler; geçici açık pay, Yara’nın gözetimli ifadesi ve Maeron’un kayıt denetimi görüşülür.",
+              "echo": "Son görevde adalet için kurulan bu yöntem Taren’in duruşmasına örnek olabilir; otomatik af sağlamaz."
+            }
+          ],
+          "backgroundId": "winter-ambar",
+          "portraitIds": [
+            "maeron-vesk"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        }
+      ]
+    },
+    {
+      "id": "sizi-kurtaran-dusman",
+      "title": "Sizi Kurtaran Düşman",
+      "body": "Kişisel eski not: sizi-kurtaran-dusman",
+      "steps": [
+        {
+          "id": "sizi-kurtaran-dusman-1",
+          "title": "Varış · Tanınan yüz",
+          "summary": "Teslimden sonra bir yolcu Taren’i eski kömürcü yerleşimine çağırır; aynı yüzü bir yangından hatırlamıştır.",
+          "readAloud": "Karın altından çıkan siyah çizgiler yol değil, eski duvarların temeli. Dava bir noktada durup kapının nasıl açıldığını eliyle gösteriyor. Taren aynı harekete bakamıyor. Rüzgâr, artık çatısı olmayan bir evin içinden geçiyor. Burada kimin sözünün önce duyulacağını siz seçebilirsiniz.",
+          "actions": [
+            "Bir önceki görevden sonra hemen tuzak saldırı başlatma; konuşulacak alan ver.",
+            "Taren kaçmayı değil dinlenmeyi ister ama korktuğu görülür.",
+            "Geçmiş bilgi yalnız tek söylenti değildir; yanan kapının demirini ve ikinci tanığı araştırmak mümkün."
+          ],
+          "checks": [
+            "Sezgi DC 12: Dava öfkeli ama gördüğüyle duymadığını ayırıyor. Bu otomatik mahkûmiyet zarı değildir."
+          ],
+          "choices": [],
+          "backgroundId": "winter-kul",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        },
+        {
+          "id": "sizi-kurtaran-dusman-2",
+          "title": "Tanıklık · İki gerçek",
+          "summary": "Taren ateşi yaktığını kabul eder; içeride kimse yok sanmıştır. Dava kapının dışarıdan kapatıldığını söyler.",
+          "readAloud": "Taren konuşmaya başlayınca bir savunma cümlesi kuruyor, sonra yarıda bırakıyor. “Kapıyı tuttum,” diyor. Dava başını kaldırıyor. “İçeriden vurduklarında da mı?” İkiniz arasında değil, iki hatıranın arasında duruyorsunuz. Soracağınız sonraki soru bir kılıç darbesinden daha fazla şey belirleyebilir.",
+          "actions": [
+            "Taren’in hangi kapıyı kapattığını ve geri dönebilip dönemeyeceğini netleştir.",
+            "Kurtardığı insanları savunma tanığı olarak dinle; mağdurun sesini kesmelerine izin verme.",
+            "Oyunculara araştırma, yetkiliye teslim, gözetimli onarım veya kaçırma seçeneklerini açık bırak."
+          ],
+          "checks": [
+            "Araştırma DC 13 eski çıkış izini bulur; tanıkla konuşma aynı bilgiyi verebilir. Yanlış hatıra twist’iyle Dava’yı geçersiz kılma."
+          ],
+          "choices": [],
+          "backgroundId": "winter-kul",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        },
+        {
+          "id": "sizi-kurtaran-dusman-3",
+          "title": "Karar · Borç ve hesap",
+          "summary": "Taren’in özgürlüğü, mağdurun güvenliği ve gerçeğin kaydı için somut bir sonuca varılır.",
+          "readAloud": "Şehir tarafında akşam çanı duyuluyor. Taren’in bugün nereye gideceği, Dava’nın o yolda güvende olup olmayacağı ve neyin yazıya geçirileceği hâlâ masada. Sizi kurtarmış birine borcunuz olabilir. Yanınızdaki kişinin kaybını kimin taşıyacağını ise o borç tek başına söylemiyor.",
+          "actions": [
+            "Mağdurdan affetmesini istemeyi görev başarı koşulu yapma.",
+            "Mahkemeye teslimde tanıklık ve güvenli ulaşımı da planla.",
+            "Kampanyayı iyi/kötü puanıyla bitirme. Her oyuncudan kime ne söz verdiğini sor ve sonraki oturuma iki açık iz bırak."
+          ],
+          "checks": [],
+          "choices": [
+            {
+              "label": "Yetkiliye tanıklıkla teslim",
+              "result": "Bugünkü yardımlar ve geçmiş suç birlikte dosyalanır; ceza anlık linç değildir.",
+              "echo": "Kurtarılanlar duruşmaya gelir. Dava dinlendiğini veya dinlenmediğini açıkça söyler."
+            },
+            {
+              "label": "Gözetimli onarım anlaşması",
+              "result": "Mağdurların rızası varsa yapı onarımı, ücret payı ve gözetim konuşulur; rıza yoksa bunu zorla uygulatma.",
+              "echo": "Taren’in işi sürdürüp sürdürmediği ve mağdur güvenliği bir sonraki kısa seferde görülür."
+            },
+            {
+              "label": "Kaçmasına yardım etmek",
+              "result": "Parti borcunu böyle öder; mağdurun adalete erişimini kısıtladığını da kabul eder.",
+              "echo": "Taren başka yerde yardım edebilir, ancak Dava ve tanıklarla kurulan güven bozulabilir; bedel ahlaki etiket değil ilişkidir."
+            }
+          ],
+          "backgroundId": "winter-kul",
+          "portraitIds": [
+            "taren-olt"
+          ],
+          "publicTitle": "Dranthol · Son teslim"
+        }
+      ]
+    }
+  ]
+}

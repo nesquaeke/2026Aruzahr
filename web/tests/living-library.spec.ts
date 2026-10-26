@@ -14,7 +14,7 @@ import { articleById, locationById, regionById, loreArticles, historyArticle } f
 import { portraitFor } from '../src/media';
 
 test('every identified character has six bounded editable abilities without assigning identity to unknown portraits', () => {
-  expect(characters).toHaveLength(173);
+  expect(characters).toHaveLength(174);
   expect(Object.keys(characterAbilities).sort()).toEqual(characters.map(person => person.id).sort());
   for (const person of characters) {
     const scores = characterAbilities[person.id];
@@ -92,11 +92,11 @@ test('authorized ready campaign is separate from wiki; user-private markers and 
   // That authorization does not expose personal notes or turn outcomes into wiki canon.
   const ready = JSON.parse(readFileSync(resolve('public/dm/On-Kis-Karari-DM.json'), 'utf8'));
   expect(ready.quests).toHaveLength(10);
-  expect(ready.quests.flatMap((q: any) => q.steps)).toHaveLength(30);
+  expect(ready.quests.flatMap((q: any) => q.steps)).toHaveLength(61);
   const prose = ready.quests[0].steps[0].readAloud;
   for (const file of paths(resolve('src/lore')).filter(file => /\.tsx?$/.test(file))) {
     expect(readFileSync(file, 'utf8'), file).not.toContain(prose);
-    expect(readFileSync(file, 'utf8'), file).not.toContain('Ravel Dorr');
+    expect(readFileSync(file, 'utf8'), file).not.toContain(ready.quests[0].steps.find((step: any) => step.id === 'son-ilac-3').choices[0].result);
   }
   for (const book of worldBooks.filter(book => book.id === 'kitap-uc-agirlik')) {
     expect(book.excerpt.join(' ')).not.toContain('Karven bunu satışın kenar notuna');
@@ -109,8 +109,8 @@ test('the character directory shows the full roster, filters by place and reads 
   await page.goto('/#/characters');
   await expect(page.getByTestId('characters-hub')).toBeVisible();
   await expect(page.locator('.character-directory-entry')).toHaveCount(24);
-  await page.getByRole('button', { name: 'Bütün 173 kişiyi göster', exact: true }).click();
-  await expect(page.locator('.character-directory-entry')).toHaveCount(173);
+  await page.getByRole('button', { name: 'Bütün 174 kişiyi göster', exact: true }).click();
+  await expect(page.locator('.character-directory-entry')).toHaveCount(174);
   await page.getByRole('combobox', { name: 'Karakterin şehri' }).selectOption('marhalden');
   const local = characters.filter(person => person.city === 'marhalden');
   await expect(page.locator('.character-directory-entry')).toHaveCount(local.length);
