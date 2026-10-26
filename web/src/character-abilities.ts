@@ -9,6 +9,15 @@ export const abilities: { key: AbilityKey; name: string; use: string }[] = [
  {key:'WIS',name:'Bilgelik',use:'Algı ve muhakeme'}, {key:'CHA',name:'Karizma',use:'İfade ve ikna'},
 ]
 export const characterAbilities: Record<string, AbilityScores> = {
+  // Yaşayan yolculuk: sivil mesleklerden türetilmiş, düzenlenebilir taslaklar.
+  'eren-keld': [13, 11, 14, 14, 15, 9],
+  'ekin-sar': [10, 14, 11, 14, 12, 11],
+  'kesra-venn': [9, 12, 11, 15, 14, 13],
+  'haldor-pell': [13, 9, 13, 12, 14, 13],
+  'veyra-senn': [11, 15, 13, 12, 15, 10],
+  'orsa-dren': [9, 12, 12, 14, 17, 13],
+  'dalen-marr': [13, 12, 13, 14, 13, 12],
+  'ressa-korr': [10, 12, 12, 15, 15, 12],
   // Yük ve Söz: siviller için düzenlenebilir oyun taslağı; güç rütbesi değildir.
   'ravel-dorr':[9,11,12,15,16,10], 'sena-erven':[12,15,13,11,14,11], 'miren-aska':[10,13,11,12,14,13], 'bera-hald':[13,11,13,11,14,12], 'iven-rusk':[11,14,12,12,13,11], 'elda-sorren':[8,10,11,16,15,12], 'neris-vel':[9,11,12,16,13,12], 'maeron-vesk':[13,11,14,13,11,13], 'taren-olt':[14,13,13,10,12,11],
   'sela-varn': [9, 11, 11, 14, 13, 12],

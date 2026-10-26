@@ -307,3 +307,12 @@ Dört Bash başlatıcısı sözdizimi ve `/tmp` çalışma klasöründen yalıt�
 İlgili 61 farklı Playwright senaryosu birleşik koşularda geçti: ilk 19/19; sonraki grup 39/40, ardından önceki Ravel-gizlilik varsayımını düzelten test ve iki yeni senaryo 3/3. Son anlatım temizliği ve kısa rehber bağlantısından sonra dokuz hikâye/karşılaşma testi yeniden 9/9 geçti. Bu, tek kesintisiz tam depo testi iddiası değildir. Üretim tarayıcısında 71 bölüm/sahne geçişi ayrı oyuncu profiliyle tamamlandı; bütün resimler yüklendi, özel anlatım yayın durumunda bulunmadı, oyuncu DM dosyasını istemedi, ZIP kaynakla eşleşti. 390 ve 3840 px görünümlerde taşma ve sayfa hatası yoktu.
 
 Kaynak boyutları on yeni manzarada 1672 × 941, portre ve canlı çiziminde 1086 × 1448. Kayıpsız format dönüşümünde çözünürlük/ham pikseller korundu; yerel 4K üretim diye sunulmaz. Gerçek OBS/Windows ve gerçek oyun masası denenmedi. Vite mevcut büyük parça uyarısını veriyor.
+
+
+## 26 Ekim 2026 — Yaşayan Yolculuk
+
+[İçerik, kayıt geçişi, görsel ve test kaydı](YASAYAN_YOLCULUK_TESLIMI.md). 61 ana sahne korundu; 10 yan olay, 25 bağlama özel kişi kartı, sekiz kamusal kişi ve 12 bağımsız resim eklendi. Seçimlerin sonraki durakta hatırlatılması, pinli kişiler, özel oturum özeti ve olay görseli yayını doğrulandı. Eski 30 ve 61 sahnelik kayıtlar, kullanıcı metni, notu, kararı ve sırası korunarak güncelleniyor. İki kitabın birleştirilmesinde de olayların bağlantıları ve bağımsız notları korunuyor.
+
+İlgili 72 farklı senaryo birleşik koşularda geçti: 24/24 ve 46/46, ardından iki yeni birleştirme senaryosu dahil son 15/15. Üretim sürümünde 81 giriş, sahne ve yan olay geçişi ayrı izleyici profilinde denetlendi; bütün resimler yüklendi, özel metin yayında bulunmadı. Sekiz yeni kişinin kamusal wiki portreleri DM dosyasını istemedi. 390 px ve 4K tarayıcı görünümlerinde taşma veya sayfa hatası yoktu. ZIP’in altı dosyası CRC ve kaynak byte eşleşmesiyle kontrol edildi.
+
+Portre kaynakları 1086 × 1448, manzaralar 1672 × 941 boyutundadır. Kayıpsız dönüşümde ham pikseller korundu; tarayıcı çıkışının 4K olması kaynak resimleri 4K yapmaz. Gerçek OBS, Windows veya gerçek oyun masası denenmedi. Vite’ın mevcut büyük parça uyarısı sürüyor.

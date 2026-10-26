@@ -1,6 +1,6 @@
 # Hazır hikâye — On Kış Kararı
 
-**Şifre ve dosya yükleme gerekmez.** Güncel siteyi açıp **Yayın Masası**na gir. On Kış Kararı’nın 10 görevi ve 61 sahnesi başlangıç hikâyesiyle birlikte hazır gelir.
+**Şifre ve dosya yükleme gerekmez.** Güncel siteyi açıp **Yayın Masası**na gir. On Kış Kararı’nın 10 görevi, 61 ana sahnesi ve 10 isteğe bağlı yan olayı başlangıç hikâyesiyle birlikte hazır gelir.
 
 1. **Giriş** adımında Marhalden’deki yük avlusundan başla; kayıtlı ilerlemen varsa kaldığın yer görünür.
 2. Sahnede **nerede / ne zaman / amaç** bilgisine bak, okunacak kısa anlatımı ve kişileri takip et.
@@ -14,3 +14,5 @@ Kendi hikâyen veya önceki düzenlemelerin varsa otomatik değiştirilmez. Geli
 Kısa kullanım: [Sade Hikâye Masası](docs/kullanim/SADE_HIKAYE_MASASI.md). Ayrıntılı araçlar: [Gelişmiş Yayın Stüdyosu](docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md).
 
 İlk oyun için **üç oyuncu, 1. seviye** esas alındı. [İlk oturumun kısa rehberi](web/public/dm/ILK-OTURUM.md), avludaki tanışmadan tedavi kararına yedi sahneyi, gösterilecek resimleri ve ilk karşılaşmanın değerlerini sırayla verir.
+
+[Yan olaylar, kişi kartları ve özel oturum özeti](docs/kullanim/YASAYAN_YOLCULUK.md): yeni sekiz kişi ve portreleri; seçtiğin yolun sonraki durakta hatırlatılması.

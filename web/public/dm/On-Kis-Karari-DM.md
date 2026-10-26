@@ -248,11 +248,11 @@ Sonraki geçiş: Grup kökü arayacaksa bakım kapısına geç. Aramayacaksa Rav
 ## 1.3. Kapının gerisindeki ıslık
 
 Nerede: Marhalden • eski bakım kapısı
-Ne zaman: Revir görüşmesinden sonra
+Ne zaman: Yaklaşık 06.45–07.00; revir görüşmesinden sonra
 Amaç: Galeriye girecek malzemeyi bul, Eren’den su yolunu öğren ve içeride kalanı hesaba kat.
 Sonra: Işık, ip ve dönüş yolu kararlaştırılınca merdivenden in. Gereçsiz girmek de mümkündür; sonradan yok saymak yerine görüş ve hareket riskini açık anlat.
 
-Gösterilecek sahne: Marhalden · eski bakım kapısı · Görsel: winter-buzlu-galeri · Portreler: yok
+Gösterilecek sahne: Marhalden · eski bakım kapısı · Görsel: winter-buzlu-galeri · Portreler: eren-keld
 
 ### Oyunculara oku
 
@@ -278,7 +278,7 @@ Bakım merdiveni ana iniştir. Yan menfez su yükselirse dönüş olabilir, faka
 
 **Sorumluluğu somutlaştır**
 
-Eren yukarıda kalıp su bırakılmasını geciktirmeyi teklif eder. Bir oyuncu da kalabilir; bunun keşif kadrosunu azalttığını açık söyle. Eren grubu satmaz; genç adam hata yapmıştır.
+Eren yukarıda kalıp su bırakılmasını geciktirmeyi teklif eder. Bir oyuncu da kalabilir; bunun keşif kadrosunu azalttığını açık söyle. Eren grubu satmaz; bakım ustası hata yapmıştır.
 
 > Eren: Çocuk çıkınca önce bana kızın. Şimdi aşağı gidin.
 
@@ -286,7 +286,7 @@ Eren yukarıda kalıp su bırakılmasını geciktirmeyi teklif eder. Bir oyuncu 
 
 Süre: 10–20 dk
 
-Hazırlık yaklaşık 15 dakika sürer. Eren’in suyu tutabilmesi sınırsız değildir; ilk çan bir saat sonra gelir.
+Önerilen akışta hazırlık 06.45–07.00 arası yaklaşık 15 dakika sürer. İlk savak çanı 08.30, ikinci çan 08.50’dedir. Eren bu tarifeli bırakımı bilir ve yukarıda uyarıyı iletir; sınırsız su tutma gücü yoktur. Masa başında geçen dakika otomatik olarak oyun içi dakika sayılmaz.
 
 **Sahne ne zaman biter?** Grup kimin ışığı, kimin ipi taşıdığını ve yükselen suya nasıl karşılık vereceğini kararlaştırdığında.
 
@@ -317,11 +317,11 @@ Sonraki geçiş: Işık, ip ve dönüş yolu kararlaştırılınca merdivenden i
 ## 1.4. Sıcak duvarların altı
 
 Nerede: Marhalden • eski sıcak su galerisi
-Ne zaman: İnişin ilk yarım saati
+Ne zaman: Yaklaşık 07.00–08.00; iniş ve Ekin’e ulaşma
 Amaç: Yaralı çırağa ulaş; yuvası bozulan kıskacın önünden güvenli bir hat aç.
 Sonra: Kıskaç uzaklaştırılıp Ekin’e ulaşılınca üç canlı kök için alt sarnıca geç. Ekin’i yukarı yollayacak bir plan da kurulabilir.
 
-Gösterilecek sahne: Marhalden · eski sıcak su galerisi · Görsel: winter-buzlu-galeri · Portreler: yok
+Gösterilecek sahne: Marhalden · eski sıcak su galerisi · Görsel: winter-buzlu-galeri · Portreler: ekin-sar
 
 ### Oyunculara oku
 
@@ -369,7 +369,7 @@ Bir saldırı turunda tek yaratık vardır. Gürültüyle sonsuz yeni düşman e
 
 1. İlk tur kıskaç en yakın hareketli nesneye yönelir. Ekin henüz hedef değildir.
 2. İkinci tur fener/yiyecek yana atılmışsa oraya yönelir; bu, kurtarma eylemi için boşluk açar.
-3. Üçüncü tur ilk çan duyulur. Grup geri çekilirse hayvan onu oyuğundan uzağa kovalamaz.
+3. Üçüncü tur yukarıdaki borudan kısa bir titreşim gelir; bu savak çanı değildir. İlk çanı ancak oyun saati 08.30’a geldiyse duyur. Grup geri çekilirse hayvan onu oyuğundan uzağa kovalamaz.
 
 **1 × Galeri Kıskacı — Zırh 12, Can 9, Hız 6 m; tırmanma 6 m**
 
@@ -414,7 +414,7 @@ Sonraki geçiş: Kıskaç uzaklaştırılıp Ekin’e ulaşılınca üç canlı 
 ## 1.5. Kökün tuttuğu taş
 
 Nerede: Marhalden • alt termal sarnıç
-Ne zaman: Yaklaşık 08.30–09.00
+Ne zaman: Yaklaşık 08.00–08.50; ilk çan 08.30’da
 Amaç: Üç canlı kök parçasını al; su bırakılmadan ana yola veya yan menfeze dön.
 Sonra: Örnekler beze sarılıp dönüş yolu seçildiğinde menfez çıkışına geç. Kök alınamadıysa oyuncuların başka çözümünü dinle; aynı kontrolü sonuç değişene kadar tekrarlatma.
 
@@ -448,23 +448,23 @@ Birinci yükselişte kırık basamak kapanır. İkinci yükselişte feneri zemin
 
 Süre: 15–25 dk
 
-Birinci çandan sonra yaklaşık 20 oyun içi dakika vardır. Oyuncular karar üretirken gerçek zaman tutup bağırma; eylem başına suyu ilerlet.
+İlk savak çanı oyun saati 08.30’da, ikincisi 08.50’de çalar. Çan henüz çalmadıysa sırf karşılaşma kartı açılsın diye suyu erkenden yükseltme. İlk çandan sonra yaklaşık 20 oyun içi dakika vardır; ikinci çanda alçak ana basamak kapanır, yukarı menfez kullanılabilir. Oyuncular düşünürken gerçek zaman tutup bağırma; yaptıkları işlerin süresini anlat.
 
 **Sahne ne zaman biter?** Örnek kutusu kapandığında veya grup açıkça aramayı bıraktığında. “Başarılı iki zar” yerine gerçek işleri say.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Kökün bir yaprağı suyun üstünde, öteki eski boruya dolanmış duruyor. Sağlam duvar halkasını yeniden göster ve örnek kutusuyla ipi kimin taşıdığını sor. Su henüz bırakılmadıysa acele ettiren yeni bir ses ekleme.
 
 ### Karşılaşma · Yükselen sıcak su
 
 **Amaç:** Kökleri ve birbirini kuru çıkışa ulaştırmak.
 
-**Başlangıç:** İlk çanla su yükselmeye başlar; kartı kök toplanırken kullan.
+**Başlangıç:** Oyun saati 08.30’a gelip ilk çan çaldığında su yavaşça yükselmeye başlar. Grup kökleri daha erken alıp çıktıysa bu tehlike oynanmaz.
 
 **Alan:** İki duvar halkası, kırık basamak, 3 m ötede kök ve arkada dar ama yukarı eğimli menfez. Ana rota alçakta; alternatif rota baştan görülebilir.
 
 1. Bir eylem: ip bağlamak, örnek kesmek, birini çekmek veya çıkışa yürümek. Yardım eden karakter aynı riski tekrar zarla sınamaz.
 2. İlk kötü sonuçta bir parça gereç düşer veya karakter 1d4 sıcak su hasarı alır; köklerin tamamı kaybolmaz.
-3. Üçüncü anlamlı gecikmede ana basamak kapanır; menfeze çıkış devam eder.
+3. Üçüncü anlamlı gecikmede su ana basamağa yaklaşır. Alçak basamak ancak 08.50’deki ikinci çanla kapanır; yukarı menfeze çıkış devam eder. Her kısa eylemi kendiliğinden yirmi dakika sayma.
 
 **Dövüş dışındaki yollar:**
 
@@ -488,11 +488,11 @@ Sonraki geçiş: Örnekler beze sarılıp dönüş yolu seçildiğinde menfez ç
 ## 1.6. Demir kapağın öbür yanı
 
 Nerede: Marhalden • yan menfez ve bakım çıkışı
-Ne zaman: Kök toplandıktan sonra
+Ne zaman: Kök toplandıktan sonra yaklaşık 45 dakikalık dönüş; ikinci çandan önce veya sonra
 Amaç: Yaralı çırağı ve örneği, suyun kapattığı inişten farklı bir hatla yukarı çıkar.
 Sonra: Revirde bir saatlik hazırlığı, hastaların durumunu ve kervan gecikmesini birlikte oynat; sonra son tedaviye geç.
 
-Gösterilecek sahne: Marhalden · yan menfez ve bakım çıkışı · Görsel: winter-buzlu-galeri · Portreler: yok
+Gösterilecek sahne: Marhalden · yan menfez ve bakım çıkışı · Görsel: winter-buzlu-galeri · Portreler: eren-keld
 
 ### Oyunculara oku
 
@@ -528,7 +528,7 @@ Dönüş normalde 45 dakika. Kök ıslak bezde kaldığı sürece bozulmaz; her 
 
 **Sahne ne zaman biter?** Kökler Ravel’in eline geçtiğinde ve sevkin yeni çıkış saati konuşulduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Menfezin üst kapağından dışarının soğuğu geliyor; kenardaki eski tutamağın iki ele yetecek kadar geniş olduğunu göster. Ekin yanlarındaysa ağırlığını hangi ayağına verebildiğini söyler. Grup kurduğu askıyı kullanabilir veya başka çıkış seçebilir.
 
 ### Eren
 
@@ -597,7 +597,7 @@ Tedavi edildi diye hastalar aynı dakika ayağa kalkmaz. Kısa rahatlama ve deva
 
 **Sahne ne zaman biter?** Tedavinin kime uygulandığı, bakımın kimde kaldığı ve kervanın yeni düzeni belli olduğunda. Seçimi ahlaki puanla duyurma.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Ravel temiz iki kâseyi masaya koyup durur. Getirilen malzemeyi ve elde kalan şişeyi tek tek göster; Miren kendi ayırttığı dozun nerede olduğunu sorar. Sonraki adımı oyuncuların söyledikleri plana göre konuş.
 
 ### Miren Aska
 
@@ -651,6 +651,137 @@ Sonraki yankı: Miren’in ailesi kaybın hesabını sorabilir. Arin’in bakım
 
 Sonraki geçiş: Batı kapısından yük köprüsüne ilerle. Kök için kullanılan ip ve kayışlar arabada; köprü sahnesindeki ilk kurtarmada oyunculara bunları hatırlat.
 
+## Kişi rehberi — DM için
+
+### Eren Keld — Eski su yollarının bakım ustası; galerinin dış kapağını tanır.
+
+**Görünüş:** Yamalı iş ceketinin bir kolu ötekinden koyudur. Aletini bırakırken eliyle yerini yoklar; kalabalık masada bile keskin ucunu kendine çevirir.
+
+**İstediği:** Ekin’in bir işi anladığını, yalnız cesaretle atılmadığını görmek. Kapı kilitlerini başkası açmış gibi göstererek bakım masrafını saklayan ustabaşına da kızgın.
+
+**Bildiği:** Sabah çalışacak galeri hattını, dönüş kapağını ve çırakların niçin kestirme kullandığını bilir. Bütün dağın güvenli olduğunu söylemez; o gün bakmadığı yer için söz vermez.
+
+**Nasıl konuşur?** Ağır ve kısa konuşur. Biri işin zorluğunu küçümsediğinde bağırmak yerine aleti eline uzatır.
+
+**Portre:** eren-keld
+
+**Ekin’i niye tek başına gönderiyorsun?**
+
+> Tek başına gitmesini söylemedim. Çıkınca önce onu dinleyeceğim; sonra kendimi haklı çıkarırım.
+
+**Bu kapak bizi geri çıkarır mı?**
+
+> Menteşesini gördüm. Gerisindeki taşı bugün görmedim. İpi bağlarken ikisini aynı şey sanmayın.
+
+### Ekin Sar — Eren’in yetiştirdiği on dokuz yaşındaki bakım çırağı.
+
+**Görünüş:** İş önlüğünün düğümleri aceleyle atılmıştır. Parmaklarında kireç vardır; yeni bir şeyi anlatırken eliyle boru ayrımlarını çizer.
+
+**İstediği:** Her kolay işi kendisine bırakmalarını istemiyor. Bir sonraki bakım listesinde kendi adının bulunmasını önemsiyor.
+
+**Bildiği:** Kökün bulunduğu sol hattı ve Eren’in daha önce aldığı işe yaramayan kuru örneği bilir. Ayağını burkunca ne kadar yol yürüyebileceğini abartabilir.
+
+**Nasıl konuşur?** Yaralıyken alaycıdır, rahatlayınca sözü uzatır. Kendisiyle çocuk gibi konuşulmasını sevmez.
+
+**Portre:** ekin-sar
+
+**Bunu daha önce yaptın mı?**
+
+> O kadarını değil. Siz de ilk işinizde ustanın arkasında durmuşsunuzdur herhalde.
+
+**Sana güvenebilir miyiz?**
+
+> Bildiğim boruyu gösteririm. Görmediğim yere de “gelin” demem. Şu ayağıma bakıp ikisini karıştırmayın.
+
+### Kesra Venn — Aktarma işlerinde nüsha ve sevk sırasını tutan kâtip.
+
+**Görünüş:** Kalemi kaldırırken başparmağındaki mürekkep çizgisini yünün kuru yerine siler. Defterinin kapak arasına küçük bez parçaları sıkıştırılmıştır.
+
+**İstediği:** Bir masrafı görünmez kılmadan sevki bitirmek. Sela’nın iyi niyetle verdiği her sözü, işi yapacak kişinin de duyduğundan emin olmak.
+
+**Bildiği:** Bir sevk imzasının geçit izni olmadığını açıkça bilir. İşçi nöbetinin ve ödenen avansın kopyasını çıkarabilir; lordluk vergisini değiştiremez.
+
+**Nasıl konuşur?** Sakin, ayrıntı soran bir ses. İtirazı duyunca hemen savunmaya geçmez, hangi satırın değişeceğini sorar.
+
+**Portre:** kesra-venn
+
+**Bunu kâğıda geçirmek şart mı?**
+
+> Sabah başka biri nöbette olacak. Ona beni buldurmak yerine ne yaptığımızı yazalım.
+
+**Sela bizi geçireceğini söyledi.**
+
+> Yükü teslim alacak kişiyi söyledi. Kapıda hangi belge istendiğini ayrıca öğrenelim; ikinize birden yanlış söz vermeyeyim.
+
+## İsteğe bağlı olay · Kazanın arkasındaki duman
+
+**Ne zaman açılır?** Son İlaç · Ocak başında boş bir yer
+
+**Masada:** 10–20 dk
+
+İlk akşam sofrada, gece dinlenmesinden önce. Ekin henüz galeride mahsur değildir. Oyuncular tanışmayı uzatmak isterse kullan; doğrudan geceyi kapatmak isterlerse olay zorunlu değildir.
+
+**Görsel:** living-isci-sofrasi
+
+**Portreler:** eren-keld, ekin-sar, kesra-venn
+
+### Oyunculara oku
+
+> İlk kepçe dağıtılırken duman masanın üzerine inmeye başlıyor. Bir işçi önce kapağı kaldırıyor, sonra kaşını koluna bastırıyor. Kazanın altında bir şey yanmıyor; duman, taş duvarla sac borunun birleştiği yerden geri geliyor.
+>
+> Eren taburesini iterken genç çırak çoktan kazanın öbür kulpuna uzanmış. “Dolu,” diyor Eren. “Önce ayağını nereye koyduğuna bak.” Kâtip Kesra defterini sofradan alıyor. Kimsenin yemeği henüz dökülmedi.
+
+### Sırayla oynat
+
+**Sofrayı oyunculara bırak**
+
+Eren sac borunun oynamış olduğunu gösterir. Kazan iki kişiyle güvenle yere alınabilir; biri masayı boşaltıp bir geçiş açabilir. Kimin hangi işi yaptığını sor. Hazırlıklı, makul taşıma planında zar isteme.
+
+> Eren: Kulpu çekme. Bezle tut, ben ötekini tutayım.
+
+**Çırağı tanı**
+
+Ekin yanlış takozu uzattığını kendisi fark eder. Fırsat verilirse doğru parçayı getirir; kendi hatasına rağmen ona iş verilmesini önemser. Oyuncularla burada kurulan küçük bağ, sabah kayıp olduğu öğrenilince hatırlanabilir.
+
+> Ekin: Bunu buraya koyarsak boru yukarıda durur. Az öncekinin neresi yanlış, onu da gösterin.
+
+**Masrafı görünür tut**
+
+Kesra kuru takozların ortak bakım stoğundan olduğunu söyler. Tamir, dışarıda yeniden ısıtma veya soğuk yemek seçeneklerinin hepsi mümkündür. Hekimlik malzemesi veya ilerideki tek şişe bu olayın ödülü değildir.
+
+> Kesra: İki takozu buraya kullandık diye yazıyorum. Yarın biri depoda aradığında sizden istemesinler.
+
+### Kontroller
+
+- Dikkatsizce sıcak sacı çıplak elle kavrama tehlikesini önce söyle. Israr edilirse Çeviklik DC 10; başarısızlık en çok 1 ateş hasarı ve kazanı bırakma, bütün sofranın yanması değil.
+- Doğru destek, bez ve iki kişi kullanılırsa test isteme. Tamiratı karşılayabilen uygun bir büyü gerçek sonucunu verir.
+
+### Kararlar ve yankıları
+
+**Boruyu sabitle, sofrayı içeride sürdür**
+
+Kazan güvenle alınır; uygun takozla baca yükseltilir. Eren son kontrolü yapar, çırak yeniden yerleştirir. Oyuncuların yaptığı katkıyı adıyla kaydet.
+
+**İleride:** Eren sabah bu işbirliğini hatırlar; galeri hazırlığında aynı kişinin ip veya kapak planını daha dikkatle dinler. Tehlikeli hattı sırf güven oluştu diye güvenli saymaz.
+
+**Yemeği rüzgârdan korunan avluya taşı**
+
+Sofra ve kazan açık havadaki duvar dibine taşınır. Sıcak yemek sürer; Ekin eksik örtüleri dağıtır, Kesra bakım ihtiyacını sabaha yazar.
+
+**İleride:** Kesra kapıya bir bakım notu bırakır; sabah ekipmanı almaya gelen oyuncular, kapı görevlisinin bu notu ciddiye alıp almadığını sorabilir.
+
+**Ateşi söndür; eldeki yemeği paylaş**
+
+Isıtmayı durdurmak kabul edilir. Hazır yemek güvenle dağıtılır, boruya birinin yanlışlıkla ateş yakmaması için görünür işaret konur. Parti dostluk satın almış sayılmaz.
+
+**İleride:** Ravel sabah “dün ocağı kullandınız mı?” diye sorarsa gerçek cevap verilir. Duman tuz ateşinin sebebi ilan edilmez; Sena’nın önceki öksürüğü ayrı kalır.
+
+**Ne zaman geri döner?** Son İlaç · Kapının gerisindeki ıslık
+
+Bu olay oynandıysa Eren ve Ekin’le akşam kimin ne yaptığını bir cümleyle hatırlat. Onları zaten yakın dost sayma. Yapılan bakım veya bırakılan not hâlâ yerindeyse göster.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
+
 # 2. Köprünün İki Tarafı
 
 Nerede: Marhalden’in batısı • Batı Aldara yük köprüsü
@@ -662,7 +793,7 @@ Sonra: Deren’in rehberliğiyle Harven’de Bera’nın fırınına git.
 
 Marhalden’deki bakım ve tedavi işinden sonra kervan batı çıkışına gelir. Sena gelmişse arabada, kalmışsa Ravel’in bakımındadır. Önceki sonucu değiştirmeden sevki sürdür.
 
-Kervan batı yük izinde dar bir köprüye yaklaşır. Karşıdan kaçan siviller aynı geçidi kullanmak zorundadır.
+Kervan batı yük izinde dar bir köprüye yaklaşır. Karşıdan kaçan siviller aynı geçidi kullanmak zorundadır. Başlangıç sayımı yirmi sivildir: on iki kişi batıda, sekiz kişi doğu ucunda veya orta açıklıktadır. Deren, parti, sürücüler ve tahsildarlar bu yirmiye dahil değildir.
 
 Kafileyi ve kendi yükünü geçirirken takipçilerin zamanını hesaplamak.
 
@@ -707,13 +838,13 @@ Gösterilecek sahne: Batı Aldara · köprü başı · Görsel: winter-kopru · 
 
 > Köprüye yaklaştığınızda kaç kişinin geride kaldığını saymak kolay olmuyor. İnsanlar çocuklarını, torbalarını ve birbirlerinin isimlerini sayıyor. Yan yatmış arabanın sahibi, yükün altından bir ayakkabı arıyor; tekerleğin yanına basınca tahta esniyor.
 >
-> Kıyıdaki adam ipini indiriyor. Kollarının ikisi de dirseğe kadar ıslak. “Deren Olm,” diyor. “İsimleri sonra öğreniriz. Şu tekerlek düzelirse yarısı geçecek.” Size yer göstermek için çekilirken, yukarıdaki atlılardan biri kuru bir boru sesi çıkarıyor.
+> Kıyıdaki adam ipini indiriyor. Kollarının ikisi de dirseğe kadar ıslak. “Deren Olm,” diyor. “On iki kişi bu tarafta. Sekizi kaldı. Şu tekerlek düzelirse yol açılacak.” Size yer göstermek için çekilirken, yukarıdaki atlılardan biri kuru bir boru sesi çıkarıyor.
 
 ### Sırayla oynat
 
 **Haritayı basit kur**
 
-Doğu: yaklaşan atlılar ve siviller. Orta: yan araba. Batı: iki sağlam direk ve kuru yükselti. İpi, yükü ve kurtarılacakları ayrı nesneler olarak yerleştir.
+Doğu: yaklaşan atlılar ve sekiz sivilin geçişi beklediği uç. Orta: sekizlinin bir bölümünü oyalayan yan araba. Batı: daha önce geçmiş on iki sivil, iki sağlam direk ve kuru yükselti. Doğudaki sekiz ile arabadakileri iki ayrı grup olarak yeniden toplama. Deren yirmi kişilik kafilenin dışında yardımcıdır. İpi, yükü ve kurtarılacakları ayrı nesneler olarak yerleştir.
 
 > Deren: Şu direk tutar. Korkuluk süs niyetine, ona güvenmeyin.
 
@@ -735,7 +866,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular iki kıyıyı ve ilk hedeflerini tarif edebildiğinde.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Deren ıslak ipi yere bırakmadan boş ucunu size uzatır. Korkuluğun gevşek tahtasıyla sağlam batı direğini birlikte göster; arabanın sabitlenmesi, sekiz kişinin yönlendirilmesi veya atlılarla konuşma işlerinden hangisine döneceklerini sor.
 
 ### Deren Olm
 
@@ -853,7 +984,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Geçiş için kısa bir güvenlik aralığı oluştuğunda; bütün düşmanları öldürme hedefi koyma.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Tahsildar mührünü kaldırırken tarihin üstüne başparmağı denk gelir. Oyuncular mührü görmek, ücretin dayanağını sormak veya siviller için geçiş istemek üzere konuşabilir. Beklemeleri tek başına saldırıyı başlatmaz.
 
 ### Karşılaşma · Köprü başındaki tahsildarlar
 
@@ -996,7 +1127,7 @@ Gösterilecek sahne: Batı Aldara · kuru kıyı · Görsel: winter-kopru · Por
 
 **Somut durumu yaz**
 
-Yirmi kişiden kaçının geçtiğini yapılan eylemlerle belirle. Başarıyla kurtarılanları geri silme. Kalan varsa nerede ve ne durumda olduklarını görünür kıl.
+Başlangıçtaki on iki güvenli kişi ile sonradan doğudan geçenleri topla; toplam yirmi sivildir. Doğuda veya orta açıklıkta kalanları sekizden düşerek yaz. Başarıyla kurtarılanları geri silme. Halattan alınan adam da bu sekizden biridir; fazladan yirmi birinci kişi değildir. Deren, parti ve Taren ayrı sayılır.
 
 > Deren: İsmini bilmiyorsanız üstündekini söyleyin. Kırmızı paltolu yaşlıyı gördünüz mü?
 
@@ -1018,7 +1149,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Deren elindeki sayım çubuğunda aynı çentiğe iki kez dokunduğunu fark edip durur. Kıyılardaki gerçek kişileri yeniden işaretle; bir oyuncu insanları, biri çuvalları, biri sağlam kalan bağları sayabilir.
 
 ### Sela Varn
 
@@ -1082,7 +1213,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Kimin nerede kaldığı, köprünün durumu ve kervanın gidişi belli olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Deren bıçağı sapı size dönük tutar; kesmeye başlamaz. Hangi bağın neyi taşıdığını ve doğuda kim kaldığını bir kere daha göster. Sela arabanın takozunu kaldırmadan önce kararlarını bekler.
 
 ### Oyuncular sorarsa
 
@@ -1110,6 +1241,117 @@ Geride kalanların durumunu açıkça sonuçlandır; nerede sığınabilecekleri
 Sonraki yankı: Bir kurtulan daha sonra partiyi bulabilir. Sonuçları yalnız intikam monoloğuna indirme.
 
 Sonraki geçiş: Deren’in rehberliğinde Harven’e geç. Kaybolan çuvallar, yaralılar ve elde kalan halat aynı defterde yolculuğa devam eder.
+
+## Kişi rehberi — DM için
+
+### Deren Olm — Harven odun ve yük sayıcısı; sivil tanık.
+
+**Görünüş:** Kısa kırçıl sakallı, ağır kahverengi ceketli. Çentikli çubuğun karşı iki parçasını yan yana koymadan anlaşmayı bitmiş saymaz.
+
+**İstediği:** Kaçanların adını ve yükünü birbirine karıştırmadan geçirmek. Kayıp bir mal için yaşayan birini yalancı ilan etmekten sakınır.
+
+**Bildiği:** Harven’in kuru odun işaretini, yük sırasını ve sığınak çevresini bilir. Askerî emir veya vergi muafiyeti veremez.
+
+**Nasıl konuşur?** Alçak, sabırlı bir ses. Birinin sözüne itiraz ederken suçlamak yerine elindeki karşı çentiği uzatır.
+
+**Portre:** deren-olm
+
+**Bu adamın dediği doğru mu?**
+
+> Ben yükü gördüm. Parasının ödendiğini görmedim. Orasını bana söyletmeyin.
+
+**Herkes geçti mi?**
+
+> İsimleri bir kere daha okuyacağım. Ben okurken siz yüzlere bakın; eksik olanı kâğıt her zaman söylemez.
+
+### Haldor Pell — Harven hanelerinin odun alıcısı ve ortak yük tartıcısı.
+
+**Görünüş:** İşaret ipini kemerinden çözmeden pazarlığa oturmaz. Kütüğün kesik ucuna bakmak için dizini yere koymaktan çekinmez.
+
+**İstediği:** Bu haftaki fırın ve hane teslimlerini zarar etmeden çıkarmak. Kötü bir yükte kendi payından vazgeçebilir ama bunu her teslimin usulü yapmak istemez.
+
+**Bildiği:** Hangi odunun yeni kesildiğini ve hangisinin sundurmada beklediğini ayırır. Paketlerin hepsini bizzat hazırlamadığı için ilk savunması her zaman doğru çıkmaz.
+
+**Nasıl konuşur?** Pazarda hızlı, hesap sorulunca daha yavaş. Bildiği şeyi göstererek anlatır; sıkışınca konuyu taşımacının masrafına çekebilir.
+
+**Portre:** haldor-pell
+
+**Bizi kandırıyor musun?**
+
+> Şu sırayı ben bağlamadım. Parasını ben istiyorum, o ayrı. Açıp bakalım; çıkanın arkasında dururum.
+
+**Neden kuru odun getirmedin?**
+
+> Getirdim. Üste dizdiğim kuru, altta kalan yaş. Baştan söylemeliydim; fırına yetiştireyim derken söylemedim.
+
+## İsteğe bağlı olay · Kapının arkasında kalan yük
+
+**Ne zaman açılır?** Köprünün İki Tarafı · Son bağ
+
+**Masada:** 10–15 dk
+
+Köprü kararının sonucu belli olduktan ve acil takip tehlikesinden çıkıldıktan sonra. Köprü hâlâ ateş altındaysa bu olayı açma. Harven’e yaklaşan küçük yol sığınağında durulur; tamamlanmış yeni bir Kral Yolu kolu değildir.
+
+**Görsel:** living-gecit-siginagi
+
+**Portreler:** deren-olm, haldor-pell
+
+### Oyunculara oku
+
+> Sığınağın çatısından ince bir su çizgisi akıyor. Deren kapıyı itince alt kısmı yerinde kalıyor, üst kısmı bir karış açılıyor. İçeride bir yük keçisi, yana kaymış iki sandığın arasında dönmeye çalışıyor. Boynundaki çan her hareketinde kapıya vuruyor.
+>
+> Haldor kapının açıklığından elini uzatıyor, yetişemiyor. “Benim sandıklar,” diyor. “Keçi onların değil. Kim bıraktıysa ipini de düğümlemiş.”
+
+### Sırayla oynat
+
+**Durumu göster**
+
+Kapı yere oturmuş, sandıklar iç tarafta önünü kesmiştir. İçerisi zindan değildir: yan duvarda sökülebilir iki tahta ve çatıda geniş bir bakım açıklığı vardır. Keçinin sahibi dışarıdaki diğer yolcular arasından bulunabilir; hayvanı partinin malı yapma.
+
+> Deren: Biriniz içeri girecekse şurayı tutayım. Kapıyı birden çekmeyin, üstü elinizde kalır.
+
+**Haldor’un payını sor**
+
+Haldor sandıkları atacaklarsa hangi odunun zarar göreceğini bilmek ister. Oyuncular ona boşaltma işi verirse gerçekten yardım eder. Hayvanı kurtarmaya itiraz etmesi zorunlu bir kötülük sahnesi değildir.
+
+> Haldor: Sandığı açarım. Yolu doldurmayın yeter; sonra ben tek tek toplarım.
+
+**Sığınağı nasıl bırakıyorsunuz?**
+
+Keçi çıkarıldıktan sonra kapı açık kalacaksa duvara bir işaret veya geçici bağ konabilir. Barınağın tümünü onarmak oyuncuların borcu değildir. Yapılmayan işi not et; arkadan gelenleri habersiz aynı tehlikeye atma.
+
+> Deren: İçeri girecek bir sonraki adam şu köşeyi görsün. Bir dal sıkıştırsak yeter.
+
+### Kontroller
+
+- Bakım açıklığından iple kontrollü iniş zar istemez. Desteksiz dar kirişten geçmek Çeviklik DC 10; başarısızlık geri tutunma ve zaman kaybıdır.
+- Hayvan İdaresi DC 10 keçiyi tek başına sakinleştirmeyi hızlandırır; sahibi ve yem varsa bu test gerekmez.
+
+### Kararlar ve yankıları
+
+**Sandıkları boşaltıp kapıyı içerden aç**
+
+Haldor yükünü dışarı alır; bir kişi keçiyi sakin tutarken diğeri kapı önünü temizler. Yükün eksilen veya bozulan kısmını ayrıca sayın.
+
+**İleride:** Harven’de Haldor bu yükü yeniden dizecektir. Parti onun yardım ettiğini gördüyse odun tartışmasında bunu hatırlat; iyi bir hareket bütün fiyatlarının doğru olduğunu kanıtlamaz.
+
+**Yan tahtayı sök; kapıya yük bindirme**
+
+Sahibinin izniyle keçi yandaki açıklıktan çıkarılır. Deren geçici tahtayı tutar; kesilen parçanın yerine ne konduğu kaydedilir.
+
+**İleride:** Harven’de Deren sığınağa gönderilecek iki tahta için taşıyıcı arayabilir. Bu bir takip imkânıdır; parti reddederse gizli ceza verilmez.
+
+**Yolu işaretle ve işi yerel taşıyıcılara devret**
+
+Hayvanın sahibiyle konuşulup kimin geri geleceği belirlenir; su ve yem erişimi sağlanır. Oyuncular çalışmaya kalmak zorunda değildir. Keçiyi kapıda bırakıp ölümünü varsayma.
+
+**İleride:** Harven’de aynı sahip hayvanla gelirse nasıl çıkarıldığını anlatır. Parti neye söz verdiyse onu sor; yardım devrini kendiliğinden ihanet sayma.
+
+**Ne zaman geri döner?** Aç Çocuk · Fırın sönmeden
+
+Haldor veya Deren burada tanıtıldıysa fırın avlusunda yeniden ad vermeden tanıyabilirler. Sığınak için bırakılan söz varsa yalnız onu hatırlat; köprüdeki ölü/kayıp sonuçlarını yeniden yazma.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 3. Aç Çocuk
 
@@ -1197,7 +1439,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Lio tuttuğu somunu iki parçaya ayırmaya çalışır; Bera eliyle yalnız tezgâhın boş yerini gösterir. Oyunculara çocuğu, fırıncıyı veya ekmeğin hesabını kime soracaklarını seçebilecekleri kısa bir sessizlik ver.
 
 ### Bera Hald
 
@@ -1278,7 +1520,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Bera fırın kapağını aralayıp közün durumuna bakar. Açık çuvalın dikişi ile kesilmiş bağını yan yana koy; biri işi sürdürürken öteki eksik unu sayabilir. Soru sormak için bütün fırını durdurmaları gerekmez.
 
 ### Oyuncular sorarsa
 
@@ -1329,7 +1571,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Kapı önündeki un izi, çuvalın sürüklendiği yerde kalınlaşıyor. Oyunculara iz, bağ ipi ve görünen ambar girişini yeniden göster; sıradaki incelemeyi seçsinler. İzler kendi başına bir kişinin adını söylemez.
 
 **Alternatif sahneler:**
 
@@ -1384,7 +1626,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** En az bir kanıt korunmuş, Resk’le durum belirlenmiş ve siviller tehlikeden çıkmışsa.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Kireç ocağının önündeki açık alanı ve çuvalların taşınabildiği yan aralığı göster. Resk hâlâ oradaysa yükle çıkış arasında durur; kaçmışsa boşluğuna yeni bir düşman koyma. Parti önce konuşma mesafesini veya malı koruyacağı yeri seçebilir.
 
 ### Karşılaşma · Kireç ocağından kaçış
 
@@ -1476,7 +1718,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Bera eksik un için ayırdığı küçük kabı tezgâha koyar; Lio kendi aldığı ekmekten başka bildiğini söylemek için bekler. Oyuncular kimin gördüğü şeyi önce anlatacağını belirleyebilir; tek bir toplu suçlama isteme.
 
 ### Oyuncular sorarsa
 
@@ -1528,7 +1770,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Çocuğun güvenliği ve fırının bugünkü hesabı somut olarak kararlaştırıldığında.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Bera sarılacak ekmeğin yanına boş makbuzu bırakır. Alınacak ekmek, verilen söz ve o gece çocukların nerede kalacağı konularından hangisinin açık kaldığını sor. Yolculuğa çıkmak için hepsini büyük bir anlaşmaya dönüştürmek gerekmez.
 
 ### Oyuncular sorarsa
 
@@ -1556,6 +1798,137 @@ Tanıklar Lio’nun yaptığıyla Resk’in işini birbirine karıştırmadan an
 Sonraki yankı: Yol dönüşünde Lio’nun iş mi öğrendiği, ağır ceza mı aldığı sorulur. Sonucu yetkilinin ve verilen ifadenin niteliğine bağla.
 
 Sonraki geçiş: Makbuzla Mavric’e gidin. Ocakta kurtarılan ip/tahta, kaybolan çuval ve verilen bakım sözü defterde kalır.
+
+## Kişi rehberi — DM için
+
+### Haldor Pell — Harven hanelerinin odun alıcısı ve ortak yük tartıcısı.
+
+**Görünüş:** İşaret ipini kemerinden çözmeden pazarlığa oturmaz. Kütüğün kesik ucuna bakmak için dizini yere koymaktan çekinmez.
+
+**İstediği:** Bu haftaki fırın ve hane teslimlerini zarar etmeden çıkarmak. Kötü bir yükte kendi payından vazgeçebilir ama bunu her teslimin usulü yapmak istemez.
+
+**Bildiği:** Hangi odunun yeni kesildiğini ve hangisinin sundurmada beklediğini ayırır. Paketlerin hepsini bizzat hazırlamadığı için ilk savunması her zaman doğru çıkmaz.
+
+**Nasıl konuşur?** Pazarda hızlı, hesap sorulunca daha yavaş. Bildiği şeyi göstererek anlatır; sıkışınca konuyu taşımacının masrafına çekebilir.
+
+**Portre:** haldor-pell
+
+**Bizi kandırıyor musun?**
+
+> Şu sırayı ben bağlamadım. Parasını ben istiyorum, o ayrı. Açıp bakalım; çıkanın arkasında dururum.
+
+**Neden kuru odun getirmedin?**
+
+> Getirdim. Üste dizdiğim kuru, altta kalan yaş. Baştan söylemeliydim; fırına yetiştireyim derken söylemedim.
+
+### Bera Hald — Harven’in küçük fırınını kendi hesabına işleten esnaf.
+
+**Görünüş:** Kırlaşmış saçını bağlar; unlu önlüğüyle kapıya çıkar. Yeni bir masraf duyunca elindeki hamuru bırakıp iki elini de temizler.
+
+**İstediği:** Ertesi gün de ekmek çıkarabilmek. Lio ile Emi’ye yardım etmenin bütün un kaybını kendisine bırakmasını istemiyor.
+
+**Bildiği:** Eksik unun ne kadar ekmek ettiğini ve ocağın hangi odunla sönmeden kaldığını bilir. Kireç ocağındaki herkesin ne yaptığını görmedi.
+
+**Nasıl konuşur?** Yorgun ve doğrudan. Gerektiğinde öfkelenir ama her itiraza atasözüyle karşılık vermez.
+
+**Portre:** bera-hald
+
+**Bir somun sana ne kaybettirir?**
+
+> Tekini soruyorsan vereyim. Haftanın kaçıncısını soruyorsan defter burada.
+
+**Yardım edecek misin?**
+
+> Edeceğim kısmı söyleyeyim. Yapamayacağımı da yardım sayıp başıma yazmayın.
+
+### Deren Olm — Harven odun ve yük sayıcısı; sivil tanık.
+
+**Görünüş:** Kısa kırçıl sakallı, ağır kahverengi ceketli. Çentikli çubuğun karşı iki parçasını yan yana koymadan anlaşmayı bitmiş saymaz.
+
+**İstediği:** Kaçanların adını ve yükünü birbirine karıştırmadan geçirmek. Kayıp bir mal için yaşayan birini yalancı ilan etmekten sakınır.
+
+**Bildiği:** Harven’in kuru odun işaretini, yük sırasını ve sığınak çevresini bilir. Askerî emir veya vergi muafiyeti veremez.
+
+**Nasıl konuşur?** Alçak, sabırlı bir ses. Birinin sözüne itiraz ederken suçlamak yerine elindeki karşı çentiği uzatır.
+
+**Portre:** deren-olm
+
+**Bu adamın dediği doğru mu?**
+
+> Ben yükü gördüm. Parasının ödendiğini görmedim. Orasını bana söyletmeyin.
+
+**Herkes geçti mi?**
+
+> İsimleri bir kere daha okuyacağım. Ben okurken siz yüzlere bakın; eksik olanı kâğıt her zaman söylemez.
+
+## İsteğe bağlı olay · Alt sıradaki yaş odun
+
+**Ne zaman açılır?** Aç Çocuk · Fırın sönmeden
+
+**Masada:** 10–20 dk
+
+Bera’nın gerçek işini oynatmaya vakit ayrılacaksa, un araştırmasının öncesi veya sonrasında. Bu olay Lio’nun yaptığı hırsızlığı başka birine yüklemez. Haldor köprü sığınağında görülmediyse burada adını söyler.
+
+**Görsel:** winter-ekmek
+
+**Portreler:** haldor-pell, bera-hald, deren-olm
+
+### Oyunculara oku
+
+> Fırının ağzında yeni atılan odun önce tıslıyor. Bera kapağı kapatıyor, sonra yeniden açıyor; ısı içeride durmuyor. Kapının önündeki Haldor, taşıdığı bağın üstünden kuru bir parça çekip gösteriyor. Bera ondan almıyor.
+>
+> “Üstünü gördüm,” diyor. Ayağıyla bağın altındaki koyu kabuğu çeviriyor. “Yarın da üstünü mü yakacağız?”
+
+### Sırayla oynat
+
+**Paketi incelet**
+
+Bağın üstü kuru, altı yakın zamanda kesilmiş odundur. Haldor ilk anda taşımacıya suç atsa da siparişin altına kendi işareti vardır. Burada büyülü algı gerektiren gizli mühür yok; iki parça açılınca fark görünür.
+
+> Haldor: Şunu testereyle ortadan açalım. Ben iyiyse iyi derim. Siz de aynı yere bakın.
+
+**Bir öğünlük ihtiyaçla haftalık işi ayır**
+
+Bera’nın bugün kullanacağı kuru yakacak, gelecek haftanın bütün ödemesinden ayrı konuşulur. Oyuncular işleri sırayla kurabilir: bu pişirimi bitir, teslimin niteliğini düzelt, sonraki sevki yaz.
+
+> Bera: Şu tepsiyi çıkarayım. Sonra para konuşurum. Tepsinin başında konuşursam hepsine razı olurum.
+
+**Karşılaştırmayı görünür yap**
+
+Bir kuru, bir yaş parçayı aynı uzunlukta açıp kesim yüzünü göster. Haldor haklı olduğu bir taşıma masrafını da söyleyebilir; bu, eksik teslimi yok etmez. Un araştırmasına döneceğiniz yeri açıkça belirt.
+
+> Bera: Yedirdiğim ekmeği sayabiliyorsunuz. Yaktığım oduna da bir kere böyle bakalım.
+
+### Kontroller
+
+- Kesim yüzünü açıp karşılaştırmak gerçek kanıt verir; sıradan gözlem için test isteme.
+- Doğa veya uygun araç DC 10 kurutma süresini yaklaşık değerlendirmeyi hızlandırır. Başarısız sonuç Haldor’u otomatik yalancı veya Bera’yı bilgisiz yapmaz.
+
+### Kararlar ve yankıları
+
+**Yaş odunu ayır; yalnız kuru kısmı teslim say**
+
+Kuru bölüm Bera’da kalır, yaş bölümün ne zaman kurutulacağı ve kime ait olduğu yazılır. Haldor gerçek taşımaya karşı ücret alabilir; kuru odun fiyatını bütün yüke uygulamaz.
+
+**İleride:** Mavric’te yeni yük bağlanırken kuru ve yaş işaretleri ayrı istenir. Önceki kavga kendiliğinden ticaret yasağına dönüşmez.
+
+**Eksik kuru kısmı başka stoktan tamamlat**
+
+Haldor kendi çevresindeki hazır kuru bağları getirir; Deren karşı çentiği tutar. Bulunmayan stok sırf seçim yapıldı diye ortaya çıkmaz; teslim saati açıkça söylenir.
+
+**İleride:** Mavric’e giden taşıyıcı, hangi kuru bağın Bera’nın yerine ayrıldığını bilir. Parti isterse bir sonraki yükte verilen sözün tutulduğunu kontrol eder.
+
+**Alımı ertele; bugünlük yakacağı ayrı çöz**
+
+Bera yalnız bir pişirimlik yakacak alır veya rızalı bir komşudan ödünç bulur. Haldor yüke geri sahip çıkar. Daha pahalı küçük alışın bedelini kimin karşıladığı kaydedilir.
+
+**İleride:** Partinin ödediği ya da üstlendiği bir pay varsa sonra sorulur; ödemedikleri halde onlara gizli borç yazılmaz. Haldor yeniden teklif sunabilir.
+
+**Ne zaman geri döner?** Masum Canavar · Soğuyan ocaklar
+
+Harven’de hangi odun anlaşması seçildiyse Mavric’te Aysra yalnız o teslim şartını duysun. Yapılmamış sözleşmeyi yapılmış sayma; fiyatı veya kuru/yaş işaretini bir cümleyle geri getir.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 4. Masum Canavar
 
@@ -1651,7 +2024,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Aysra koşumun demir bağını tezgâha bırakıp evlerden gelen odun sepetine bakar. Jor’un anlatısında kapanın nerede olduğunu sorabilecekleri veya yükü indirip izleri görmeye çıkabilecekleri bir aralık bırak.
 
 ### Aysra Tann
 
@@ -1711,7 +2084,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Küçük ayak izi büyük olanın aynı yanında tekrarlanıyor; kızak izi ise işaret direğine gidiyor. Bu iki hattı aynı bakışta göster. Oyuncular kampı, kapan telini veya hayvanların döndüğü sınırı inceleyebilir; ormana yeni bir konuşmacı getirme.
 
 ### Oyuncular sorarsa
 
@@ -1842,7 +2215,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Yavru ayağını çekince kapanın zinciri gerilir. Anne sesin geldiği tarafa dönüp yeniden yavrunun önüne geçer; mevcut sınırdan ileri atılmaz. Yiyecek bırakma, aracı deneme veya bu alana hiç girmeden başka yol seçme için düşünme alanı ver.
 
 ### Karşılaşma · Varkul’un savunma sınırı
 
@@ -1919,7 +2292,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Eğilmiş ağacın altında kızağın en geniş yerini göster. Bir oyuncu geçişi ölçebilir, biri dalları bağlayabilir, diğeri kapan yerlerini işaretleyebilir. Grup bu hattı kullanmamaya karar verdiyse aynı işi zorla yaptırma.
 
 ### Oyuncular sorarsa
 
@@ -1972,7 +2345,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Köyün bir sonraki yakacak seferinin somut planı ve teslim makbuzu hazır olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Aysra, ertesi yakacak seferinde kullanacağı kızağın ipini masaya koyar. Yeni yolun kimin bilgisiyle kullanılacağını veya kapanlar için ne söz verildiğini sorar. Odun gelmediyse dolu bir kızak anlatmak yerine hâlâ boş olan sepetin başında konuşur.
 
 ### Oyuncular sorarsa
 
@@ -2000,6 +2373,124 @@ Köylülerin yakacak ihtiyacı sürer. Partinin kanıtsız biçimde “tehlike y
 Sonraki yankı: Mavric başka avcı tutabilir; bunun sonucu yeni avcıların davranışına bağlıdır, otomatik bir felaket değildir.
 
 Sonraki geçiş: Frostbay’in kıyı yük evine ana teslimi sürdür. Orman kararını, malzeme kaybını ve kapan anlaşmasını deftere geçir.
+
+## Kişi rehberi — DM için
+
+### Veyra Senn — Mavric çevresinde kapan onaran ve odun izlerini gözeten izci.
+
+**Görünüş:** Elinden çıkmış tel halkaların birbirine vurmaması için bez sarar. Yürürken ayak basacağı yeri seçer; konuşacaksa durur.
+
+**İstediği:** Yeni odun yolunun ilk gününde birini yaralamamak. Kendi kurmadığı kapanların da kendisine sorulmasına öfkeli.
+
+**Bildiği:** Hangi telin av düzeneği, hangisinin yük emniyeti olduğunu izlerden anlayabilir. Varkul’un bütün davranışlarını bildiğini iddia etmez; gördüğü uyarıyı anlatır.
+
+**Nasıl konuşur?** Düz, yer yer kuru şakalı. Korkuyu küçümsemez; korkusunu başkasına ceza diye kesene sabrı azdır.
+
+**Portre:** veyra-senn
+
+**Her şeyi neden durduruyorsun?**
+
+> Şu tel koparsa odun önce bana gelir. Siz arkamdan “aceleydi” dersiniz. Önce yanından geçecek yer açalım.
+
+**Varkul’u sen mi buraya getirdin?**
+
+> Ben getirsem önce nereye koyacağımı bilirdim. Gördüğüm iz şu. Tahminim de şu; ikisini ayrı dinleyin.
+
+### Aysra Tann — Mavric Koşum Ocağı ustası; hanelerin iş konuşmalarına katılır.
+
+**Görünüş:** Geniş omuzlu, örgülü gri saçlı; mavi yününün üzerinde deri önlük taşır. Bizini masaya ucuyla kendine bakacak biçimde bırakır.
+
+**İstediği:** Yük ve hayvan yeniden yola çıkabilsin. Köydeki tek sağlam koşumu, müşterisi daha yüksek sesle konuştu diye tehlikeye atmak istemez.
+
+**Bildiği:** Eski kayışın yük taşıyıp taşımadığını eliyle anlayabilir. Hayvanın niçin tepindiğini bilmek için sırtındaki izi de görmesi gerekir.
+
+**Nasıl konuşur?** Konuşurken işi durdurmaz; biri yardım etmek isterse gerçekten yapılabilecek bir iş verir.
+
+**Portre:** aysra-tann
+
+**Yeni kayış yeter mi?**
+
+> Kayış yeni olur. Şu tahta aynı kaldığı sürece yük yine buraya basacak. Onu da kaldırıp bakalım.
+
+**Bize bedava yardım etmez misin?**
+
+> Şu yarım saati veririm. İpi veremem; yarınki adamın payı. Sizde varsa onunla yapalım.
+
+## İsteğe bağlı olay · Aşağıdaki el
+
+**Ne zaman açılır?** Masum Canavar · Yeni yolun ilk ağacı
+
+**Masada:** 15–20 dk
+
+Odun hattı için ana karar verildikten sonra, yükleri bağlarken oynat. Yeni açılan güvenli yolu bozma: olay, kullanılmayan eski hattın altındaki bir kaya çıkıntısındadır. Veyra yardım ister; oyalanmak istemeyen parti yerel işçilere haber verip yoluna devam edebilir.
+
+**Görsel:** winter-odun-yolu
+
+**Portreler:** veyra-senn, aysra-tann
+
+### Oyunculara oku
+
+> Yolun aşağısından önce bir tokmak sesi geliyor. Düzenli değil; iki vuruş, uzun bir ara, bir vuruş daha. Veyra bir çamın yanında durup size susmanızı işaret ediyor.
+>
+> Dört metre aşağıda, dar bir kaya çıkıntısında Aysra oturuyor. Ayaklarından biri kayan bir kütüğün altında; üstündeki dal hâlâ omzuna kar döküyor. Sizi görünce elindeki demir tokmağı indiriyor. “İpi atmayın,” diyor. “Önce nereye bağladığınızı göreyim.”
+>
+> Veyra elindeki aşınmış halatı açıyor. Ortasında, ıslanınca kararmış ince bir bölüm var.
+
+### Sırayla oynat
+
+**Önce neyin oynadığını göster**
+
+Aysra eski bir taşıma kayışını ölçerken alt basamağı çökmüştür. Yeni odun yolu sağlamdır. Çıkıntıdaki gevşek kütük ayağını sıkıştırır; herkes aynı noktaya inerse yük artar. Yukarıdaki sağlam çam, yanındaki kuru siper ve aşağıya uzanabilecek uzun dalı açıkça tarif et.
+
+> Veyra: Şu karanlık kısmı elinizle hissedin. Dışarıdan kalın görünüyor; içi gitmiş.
+
+**Üç kişiye ayrı iş aç**
+
+Birisi sağlam bağlama noktası ve ikinci emniyet hattını kurabilir; biri kütüğü uzun araçla kaldıraç yapabilir; biri Aysra’nın kayışını tutabilir. Plan mantıklıysa üç ayrı zorunlu zar isteme. Aysra bilinci açık bir ustadır; kendisine ne yapılacağını sorar ve kendi kayışını takabilir.
+
+> Aysra: Kütüğü kaldırınca beni çekmeyin. Önce ayağımı çevirmem gerekiyor.
+
+**Tehlikeyi tek hamlede dürüstçe işlet**
+
+Halat kontrol edilmeden bütün ağırlık verilirse lifler ses çıkarır; durup ikinci bağ eklemek için fırsat ver. Bu uyarıya rağmen sürerlerse zayıf ipe yüklenen karakter tek DC 10 Kuvvet/Çeviklik kurtarışı yapar; başarısızlıkta yalnız ona 1d4 çarpma ve alt çıkıntıya kayma uygulanır. Çıkıntı ölüm uçurumu değildir; yol açıktır, tekrar sonsuz hasar yoktur.
+
+**Kurtarmanın küçük karşılığını göster**
+
+Aysra çıktıktan sonra ayağı sarılır, yükünü bir süre başkası taşır. Veyra kullanılmayan yan hattı görünür bir bezle işaretler. Yitirilen araç varsa para teklif etmek, tamir etmek veya yalnız kişiyi kurtarmak masanın kararıdır; önceden kazanılmış odun yolu çözümü geçerliliğini korur.
+
+> Aysra: Şu kayışı alın. Bugün taşıdığından fazlasını yarın ona yüklemeyin.
+
+### Kontroller
+
+- İyi bir emniyet hattı ve kaldıraç planı kontrol istemeden işe yarayabilir. Tek bir kişi Hayatta Kalma veya uygun araç DC 10 ile sağlam bağlantıyı hızla seçebilir; başarısızlık çıkıntıyı çökertmez.
+- Uyarıdan sonra bütün ağırlığı zayıf ipe verirlerse yukarıdaki tek DC 10 kurtarış / 1d4 hasar uygulanır. Bu, üç 1. seviye karakter için kısa çevre tehlikesidir; savaş başlatma veya sınırsız ek hasar verme.
+- Ana olaylarda Aysra artık burada bulunamayacak durumdaysa onu geri getirme: yaralıyı yüzü gösterilmeyen yerel bir oduncu olarak oynat, Aysra portresini kapat. Kurtarma tekniği başka kişinin geçmişini devralmaz.
+
+### Kararlar ve yankıları
+
+**İkinci hat kur; kişiyi ve kayışı birlikte çıkar**
+
+Aysra güvenle yukarı çıkar. Plan için harcanan ip ve zaman açıktır; kütükte kalan ölçü tahtasını almak için yeniden tehlikeye girilmez. Veyra bu işte kimin ne tuttuğunu hatırlar.
+
+**İleride:** Frostbay’de yük boşaltılırken aynı emniyet düzeni önerilebilir. Önceki doğru hazırlık yeni bir gizli ip kopmasıyla iptal edilmez.
+
+**Yükü bırak; yalnız Aysra’yı kurtar**
+
+Kayış ve aletlerden bir kısmı aşağıda kalır; Aysra’nın canlı çıkması tam kurtarma başarısıdır. Kalan eşyayı sonra toplamak için yerel işçiye haber verilebilir.
+
+**İleride:** Frostbay’de yeni bir kayış gerekirse işçilik veya açıkça belirlenen küçük malzeme payı konuşulur; hastalık, su baskını veya gizli ceza üretilmez.
+
+**İşçilere haber ver; kurtarmayı Veyra’ya devret**
+
+İki yerel işçi ve sağlam ip gönderilir. Parti kendisinin yapmadığı kurtarma için ün kazanmaz; yerel insanların işi başarabileceği kabul edilir. Geçerli bir yardım planı kurulduysa Aysra sonradan keyfî biçimde ölmüş sayılmaz.
+
+**İleride:** Frostbay’de yardımın kimden geldiği doğru anlatılır. Aysra teşekkürünü işçilere yöneltebilir; bu partinin ana sevk anlaşmasını bozmaz.
+
+**Ne zaman geri döner?** Bir Kişiye Karşı Bir Mahalle · Taşın arasından gelen su
+
+Çıkıntı kurtarmasında verilen sözü ve kalan malzemeyi, yalnız olay oynandıysa hatırla. Seçilen yöntemin karşılığı ip, kayış veya doğru kişinin emeğini anmak olabilir; ana odun yolu sonucunu geri alma.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 5. Bir Kişiye Karşı Bir Mahalle
 
@@ -2087,7 +2578,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Ovel, ıslanan bir yükün üstündeki etiketi kuru tahtaya taşır. Oyunculara merdiven, arka avlu ve alt su kapısını yeniden göster; önce insanları mı, su hattını mı, kuru malı mı ele alacaklarını sor.
 
 ### Ovel Sarn
 
@@ -2149,7 +2640,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Vela sandığının kulpunu sandalyesinin yanına çevirir ve hangi parçayı kendisinin tutabileceğini gösterir. Dar kapının sökülebilen menteşesini fark etmelerine izin ver; planlarını duymadan yeni bir düşme olayı çıkarma.
 
 ### Oyuncular sorarsa
 
@@ -2200,7 +2691,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Çark kolu gerilince alt ızgaradaki kalas da aynı anda kıpırdar. Oyuncuların ikisi arasındaki mekanik bağı görmesini sağla. Üstten kaldıraç kurmakla alttan takozu itmek arasında bir iş bölümü yapabilirler.
 
 **Alternatif sahneler:**
 
@@ -2257,7 +2748,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Çark iki işini tamamladığında veya herkes bilinçli olarak geri çekildiğinde.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Su seviyesinin basamaktaki son çizgisine dön. Henüz çözülmemiş iş hangisiyse onu elle tutulur biçimde göster: çark kolu, takoz veya açık tutulacak çıkış. Tamamlanan bir işi sırf konuşma durdu diye yeniden bozma.
 
 ### Karşılaşma · Savak yılanı ve sıkışan su
 
@@ -2341,7 +2832,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Avluya çıkarılmış eşyaların arasında boş bir yatak çerçevesi durur. Ovel kendi tartı odasında kaç kişilik yer olduğunu söyler; Elda binaya dönmenin henüz güvenli olup olmadığını açıklar. Önce bu geceki barınağı konuşabilirler.
 
 ### Elda Sorren
 
@@ -2405,7 +2896,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Sakinlerin geceyi nerede geçireceği ve yapının kim tarafından izlendiği belli olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Ovel anahtarları aynı halkaya takmadan bekler. Hangi kapının kapanacağı ve ertesi sabah kimin yapıya bakacağı soruları açıkta durur. Su durduysa Elda gereksiz bir uyku büyüsü için yeniden gönüllü aramaz.
 
 ### Oyuncular sorarsa
 
@@ -2434,6 +2925,137 @@ Sonraki yankı: Gönüllünün yerine kimin geçeceği ve süre dolmadan yapın�
 
 Sonraki geçiş: Rota kopyasıyla Iven Rusk hakkındaki ifade görüşmesine geç; bu bir anlık idam emri değildir.
 
+## Kişi rehberi — DM için
+
+### Orsa Dren — Frostbay’in kıyı taşlarını ve değişen çıkışlarını bilen deniz kılavuzu.
+
+**Görünüş:** Yün yakasını kulağının bir yanına kadar kaldırır. Konuşurken göze değil suyun taşta bıraktığı çizgiye bakması ilgisizlik değildir.
+
+**İstediği:** Bu fırtınada kıyıyı bilen birinin sözü duyulsun. Kendisini bütün kayıplardan sorumlu tutmalarına izin vermeden elinden gelen yardımı yapmak.
+
+**Bildiği:** Fenerdeki bezin ve liman ağzındaki örtülü ışığın yerel kullanımını bilir. Deniz hakkında kesin saat vermez; rüzgâr dönünce önceki hesabını açıkça değiştirir.
+
+**Nasıl konuşur?** Kısık ama net. Gereksiz cesareti övmez; bir planın hangi adımında geri dönüleceğini sorar.
+
+**Portre:** orsa-dren
+
+**Birazdan durur mu?**
+
+> Durabilir. Ben beklerken şu su bir basamak daha çıktı. Planı şu anki basamağa göre kurun.
+
+**Bunu daha önce yaptın mı?**
+
+> Yaptım. Her seferinde bir yerini başka türlü yaptım. Bu sefer ışığı daha aşağıda tutacağım.
+
+### Elda Sorren — Theramis ruhsatlı koruma büyücüsü; eski kıyı yapısını inceler.
+
+**Görünüş:** Altmışlarında, siyah-gümüş örgülü saçlı. Yünündeki küçük kuvars tokaları parlatmaya uğraşmaz; ıslak taşta diz çökmeye uygundur.
+
+**İstediği:** Yapıyı koruyacak hesabı, içindeki insanlara ne yüklediğini saklamadan kurmak. Yanlış bildiğini itiraf edebileceği bir çalışma düzeni ister.
+
+**Bildiği:** Koruma büyüsü ve su basıncı hakkında eğitimlidir. Frostbay’deki her harabenin yapım tarihini veya niçin terk edildiğini bilmez.
+
+**Nasıl konuşur?** Düşünürken durur; sessizliğini kesin bilgi gibi satmaz. Soruyu anlamadıysa yeniden sordurur.
+
+**Portre:** elda-sorren
+
+**Bu eski işaret ne anlama geliyor?**
+
+> Taşın üstünde bir şekil var. Bir işaret olduğunu henüz göstermedik. Önce nereden koptuğuna bakalım.
+
+**Söz ver, çökmeyecek.**
+
+> Buna söz verirsem sizi burada tutmak için vermiş olurum. Hangi riski azaltabildiğimi söyleyeyim.
+
+### Ovel Sarn — Kırık Kanat taşıyıcılarının sözcüsü; yük evi ve ortak kızak işlerini koordine eder, bütün limanı yönetmez.
+
+**Görünüş:** Yamalanmış zeytin yeşili paltosu ve pas kırmızısı atkısı vardır. İncinmiş omzunu ağır yükün altına koymadan önce başkasından tutmasını ister.
+
+**İstediği:** Yük evini ve taşıyıcıların kazancını korurken yapılan kurtarmanın masrafını en zayıf işçiye bırakmamak.
+
+**Bildiği:** İç avludaki yükün kimlere ait olduğunu ve ortak iş sırasını bilir. Eski duvarların ilk yapım tarihini bilmez; yaprak izinin sahibini görmüş gibi konuşmaz.
+
+**Nasıl konuşur?** Konuşurken terazisinin boş kefesine dokunur. İşi paylaşmaya yatkındır, ama bir başkasının rızası yerine kendi onayını vermeye başladığında durup sorulması gerekir.
+
+**Portre:** ovel-sarn
+
+**Bu duvarı açabilir miyiz?**
+
+> Kendi yüküm olsa “açın” derdim. Öte tarafta başkasının sandığı var. Önce onu çıkaralım, sonra ne kadarını kaldıracağımıza bakalım.
+
+**Bir taştan ne çıkar?**
+
+> Bilmiyorum. Taşı isteyen birini bulursanız nereden aldığını bilsin. Ben kapının yanında unutulup başka taş diye atılmasını istemiyorum.
+
+## İsteğe bağlı olay · Taştaki ince damar
+
+**Ne zaman açılır?** Bir Kişiye Karşı Bir Mahalle · Hangi kapı kapanacak?
+
+**Masada:** 10–20 dk
+
+Yük evinin acil su ve barınma kararı çözüldükten sonra, pazara açılan yan duvar dibinde. İnsanlar hâlâ tahliye ediliyorsa bu keşif bekler. Aynı duvar daha önce çöktüyse sağlam parça enkazdan alınabilir; yapının geçmiş sonucunu tersine çevirme.
+
+**Görsel:** living-frostbay-pazar
+
+**Portreler:** orsa-dren, elda-sorren, ovel-sarn
+
+### Oyunculara oku
+
+> Pazarın arkasında bir taşçı, suyun gevşettiği derzi tahta sapla yokluyor. İnce bir plaka avucuna düşünce taşı ötekilerin üstüne koymuyor. İç yüzünde siyaha yakın bir iz var: ortasından dallanan, kenarı dişli bir yaprak.
+>
+> Orsa taşı ışığa çeviriyor. “Burada bunun ağacını gördüm diyemem.” Elda çantasını kapatıyor, taşı uzaktan görmekle yetinmiyor. Diz çöküp hangi yüzünden koptuğunu soruyor.
+
+### Sırayla oynat
+
+**Buluntuyu küçük tut**
+
+Yaklaşık avuç büyüklüğündeki tortul parçada yaprak izi seçilir. Bu tek başına Frostbay’in bütün eski iklimini veya Büyük Kırılma’nın nedenini açıklamaz. Elda üzerindeki olağan mineral ve bitki izlerini inceler; mutlaka büyülü bir tepki vermez.
+
+> Elda: Bu damarı önce çizelim. Bütün yaprağı gördüğümüzden bile henüz emin değilim.
+
+**Bağlamı korut**
+
+Taşın duvardaki yeri, yönü ve kopan karşı yüzü önemlidir. Bir oyuncu çizim çıkarabilir, biri duvarı inceleyebilir, diğeri taşçıyla konuşabilir. Ovel duvara zarar gelmesini istemez; bütün yapıyı sökmeye izin verilmiş sayılmaz.
+
+> Ovel: Bir taş aldık diye şu sırayı boş bırakmayalım. İçerisi hâlâ insanların yüküyle dolu.
+
+**Bir sonraki araştırma sorusunu seç**
+
+Orsa Ternhaven’deki sıcak su bahçelerinde geniş yaprak yetiştiğini bilir; aynı tür olduğunu bilmez. Kesin cevap yerine örnek, çizim veya araştırmacıya mektup götürmek bir takip işi olabilir.
+
+> Orsa: Orada benzerini görmüş olabilirim. Gördüğümü çizdiğinizle yan yana koydurun; sözüme bütün geçmişi yüklemeyin.
+
+### Kontroller
+
+- Dikkatli çizim ve yer kaydı için zar gerekmez. Doğa veya Araştırma DC 11, izin bir yaprak parçasına ait olduğunu değerlendirmeyi hızlandırır.
+- Örneği sağlam çıkarmak uygun taşçı aletiyle güvenli planda otomatik olabilir; acele zorlamak El Çabukluğu DC 10. Başarısızlık kenarın dökülmesidir, gizli lanet değil.
+
+### Kararlar ve yankıları
+
+**İzi ve duvardaki yerini kopyala, taşı yerinde koru**
+
+Elda bir yüzü sabitler; çizim veya sürtme kopyası alınır. Yöntem kırılgan izi bozacaksa önce kâğıtla gölge çizimi kullanılır.
+
+**İleride:** Ternhaven’de Neris veya Dalen çizime bakıp yalnız benzer yaprağı ve su çökeltisini yorumlayabilir. “Eski ormanı kanıtladık” diye otomatik hüküm verilmez.
+
+**İzin alıp küçük parçayı korumalı biçimde götür**
+
+Ovel ve yapıdaki haneler buluntunun çıkarılmasına razıysa parça bezli kutuya alınır; nereden alındığı yazılır, boş derz onarılır.
+
+**İleride:** Neris örneğin tortul katmanını incelemek için süre isteyebilir. Parça el değiştirecekse kimin elinde kaldığını kaydet; yolculuk sonunda kendiliğinden müzeye ışınlanmaz.
+
+**Acil işe dön; araştırmacıya yer tarifini bırak**
+
+Buluntu olduğu yerde korunur, ulaşılabilir bir not ve iki tanık belirlenir. Oyuncuların bütün gizemi takip etmesi şart değildir.
+
+**İleride:** Ternhaven’de konu açılırsa yer tarifinden söz edilir. Yerinde kimse kalmadıysa keşfin akıbeti bilinmiyor olabilir; sırf reddettiler diye yağmacılarla parçalatma.
+
+**Ne zaman geri döner?** İyi Kalpli Nekromant · Tuzlu yapraklar
+
+Bu keşif oynandıysa elde gerçekten çizim mi örnek mi yalnız yer tarifi mi olduğunu sor. Neris en fazla karşılaştırma yapar; bir yapraktan kıtanın tarihini çözmez. Oyuncular ilgilenmezse dosya açık bir araştırma sorusu olarak kalabilir.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
+
 # 6. Hainin Kızı
 
 Nerede: Frostbay • ifade masası ve Iven Rusk’ın evi
@@ -2445,17 +3067,17 @@ Sonra: Halat veya yol kontrolü için dış iskeleye git.
 
 Yük evindeki su olayı nasıl sonuçlandıysa öyle kalır. Rota kopyası veya baskın tanıklığı, Iven’in ifadesini istemek için somut gerekçedir.
 
-Kâğıdı okuyanlar Iven’in çizgi işaretlerini tanır. Görevli, evini tarif eder ve ifade için getirilmesini ister.
+Ovel, rota kopyalarını Frostbay gümrükhanesinin yanındaki garnizon nöbet masasına götürür. Nöbetbaşı Odran Vehl burada ifadeleri kendisi alır; Iven’e haber yollanmıştır ve ilk sahnede masanın dışında bekler.
 
 Köprü bilgisini kimin sattığını anlamak; Iven’in sorumluluğunu kızının tedavisinden ayırmak.
 
 ### Oyunculara oku
 
-> İfade görevlisinin masası, yük evinin geri kalanından daha sıcak değil. Bir deri kaplı dosyanın kenarı kabarmış; görevli düzleşsin diye üstüne kurşun ağırlık koyuyor. Size iki rota çizimi gösteriyor. Aynı kıvrımın yanında aynı yanlış işaret var.
+> Gümrükhanenin yanındaki nöbet odası yük evinden daha sıcak değil. Nöbetbaşı Odran Vehl, yazı masasının başında oturuyor. Bir deri kaplı dosyanın kenarı kabarmış; Odran düzleşsin diye üstüne kurşun ağırlık koyuyor. Size iki rota çizimi gösteriyor. Aynı kıvrımın yanında aynı yanlış işaret var.
 >
 > “Bunu kim çizdi?” diye soruyor. “Adını dosyaya koymadan önce size sorayım dedim.”
 >
-> Iven Rusk’ın adı söylendiğinde Ovel başını kaldırıyor. “Kızının ilacını almaya gitmişti,” diyor. Görevli kâğıtları üst üste koyuyor. “O zaman önce evine uğrayın. Buraya getirilecek sözü kendi ağzından duymak istiyorum.”
+> Iven Rusk’ın adı söylendiğinde Ovel başını kaldırıyor. “Kızının ilacını almaya gitmişti,” diyor. Odran kâğıtları üst üste koyuyor. “Haber yolladım. Gelirse sözünü kendi ağzından alacağız. Kızının bakımını önce düzenleyin.”
 
 ### Kim kimdir?
 
@@ -2463,7 +3085,7 @@ Köprü bilgisini kimin sattığını anlamak; Iven’in sorumluluğunu kızın�
 
 İstediği: Kızının tedavisini sürdürmek ve cezadan korktuğu için zaman kazanmak.
 
-İlk karşılaşma: Küçük kıyı odasının kapısını açar; rota kâğıdını görünce inkârı uzun sürmez.
+İlk karşılaşma: Nöbet odasının dışında bekler; rota kâğıdı gösterilince inkârı uzun sürmez. Ardından Nela’yla konuşmak için kendi kıyı odasına gidilir.
 
 > Bir kısmını biliyordum. Nehirde bekleteceklerini söylediler. Yolu verdim. Devamını sormadım.
 
@@ -2479,7 +3101,7 @@ Köprü bilgisini kimin sattığını anlamak; Iven’in sorumluluğunu kızın�
 
 ## 6.1. Aynı yanlış dönüş
 
-Nerede: Frostbay • ifade masası
+Nerede: Frostbay • gümrükhane yanındaki garnizon nöbet masası
 Ne zaman: Yük evindeki işten sonra
 Amaç: Satılan bilginin ne olduğunu anla; Iven’i dinlemeden hüküm verme.
 Sonra: Ambarın yanındaki izi incele; hemen eve gidenler de görüşme sahnesine geçebilir.
@@ -2490,7 +3112,7 @@ Gösterilecek sahne: Frostbay · ifade masası · Görsel: winter-baba · Portre
 
 > İki kâğıdı üst üste getirince kıvrımlar birbirine oturuyor. Birinde çamur lekesi var, ötekinde yağ. Yolun bittiği yerdeki küçük çizgi ikisinde de yanlış.
 >
-> Görevli, kaleminin arkasını o noktaya koyuyor. “Burada kafile durmuş,” diyor. “Siz durmadınız. Ne fark vardı?” Cevabı deftere yazarken kimseye bakmıyor.
+> Odran Vehl, kaleminin arkasını o noktaya koyuyor. “Burada kafile durmuş,” diyor. “Siz durmadınız. Ne fark vardı?” Cevabı deftere yazarken kimseye bakmıyor.
 >
 > Pencerenin dışında bir adam sizi bekliyor. Iven’in başını kaldırma biçimi, kapıyı açmaya geldiğini değil, ne duyduğunuzu anlamaya çalıştığını gösteriyor.
 
@@ -2498,7 +3120,7 @@ Gösterilecek sahne: Frostbay · ifade masası · Görsel: winter-baba · Portre
 
 **Kafilenin bedelini sor**
 
-Baskında kimin yaralandığı ve neyin kaybolduğu gerçek olaylardır. Parti köprüde yük kaybettiyse aynı işareti oradan da tanır.
+Baskında kimin yaralandığı ve neyin kaybolduğu gerçek olaylardır. Parti köprüde yük kaybettiyse aynı işareti oradan da tanır. Odran burada bir ifadenin muhatabıdır; oyunculara krallık çapında yakalama yetkisi vermez. Iven’le konuşmayı ve gördüklerini kayda getirmeyi ister.
 
 **Iven’e tek açık soru ver**
 
@@ -2518,7 +3140,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Odran iki rota kâğıdını yan yana bırakıp kalemi kapatır. Aynı yanlış işareti oyuncuların görebileceği yere çevirir; Iven’in kendi çizdiği kısmı göstermesini isteyebilirler. Cevap beklenirken kesin bir hüküm okunmaz.
 
 ### Iven Rusk
 
@@ -2585,7 +3207,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Ambar işçisi boş masayı silmek için uzanıp yerdeki kopyayı görünce durur. Tarih, miktar ve görünen aracı adı okunabilir; oyuncular belgeyi almak, tanığın güvenliğini konuşmak veya Iven’in evine yönelmek arasında seçim yapabilir.
 
 ### Oyuncular sorarsa
 
@@ -2640,7 +3262,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Nela bardağını masanın boş yanına çeker ve konuşanların oturabileceği yeri açar. Babasına sorulan soruyu kendisine de sormalarını ister. Tedavi kutusu ve borç kâğıdı iki ayrı nesne olarak görünür kalsın.
 
 ### Nela Rusk
 
@@ -2712,7 +3334,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Belge/tanıklar güvende ya da bilinçli bir uzlaşma yapılmışsa.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Kapının altından iki çift çizmenin gölgesi görünür; birisi anahtar deliğinden konuşmaya çalışır. Oyuncular kapıyı açmadan masa, merdiven ve arka pencereye kimin bakacağını belirleyebilir. Sessizlik tek başına saldırı emri değildir.
 
 ### Karşılaşma · Dar merdivendeki tahsilat
 
@@ -2776,25 +3398,25 @@ Gösterilecek sahne: Frostbay · Aven’in bakım odası · Görsel: winter-baba
 >
 > Aven uzanıp anahtarı almıyor. “Evde alınacak ne var?” diye soruyor. Iven, cevabı ilk defa düzgün sıraya koyuyor: ilaç kutusu, temiz örtü, ocağın yanındaki para.
 >
-> Bu kez hiçbiri büyük bir söz gibi gelmiyor. Yapılacak üç iş gibi.
+> Aven kapının yanındaki gündüz nöbetçisini çağırıyor. Nela ilaç kutusunun yerini ona kendi gösteriyor. Aven, kıyıya götüreceği bezleri toplarken nöbetçi hasırın yanına bir su bardağı koyuyor.
 
 ### Sırayla oynat
 
 **Kaynağı göster**
 
-Aven tedavinin ne kadarını ve kaç gün sağlayabileceğini söyler; sonsuz ücretsiz şifa sunmaz. Kimin ödeme/iş/erzak katkısı yapacağı kararlaştırılır.
+Önerilen masa hesabı: iki gün yatak, sıcak öğün, temiz bez ve günlük bakım için toplam 6 gümüş. Bu bütün hastalığı sihirle gideren bir ücret değildir; Nela’nın elindeki ilaçlar kendi hekim planıyla sürer. Erzak veya bez getirmek, bir vardiya işi yapmak ya da ödeme ertelemek mümkündür. Aven ilk bakımı para konuşulana kadar bekletmez; bu teklif önceden konuşularak değiştirilebilir.
 
-> Aven: Bugünü karşılarım. Yarın için şu listeyi birine vereceğiz.
+> Aven: İki gün burada kalabilirsin. Bezle yemek altı gümüş eder; para yoksa Ovel’le erzağı konuşuruz. İlacın kendi kutusunda kalacak.
 
 **İfadeyi güvenceye al**
 
-Iven’i teslim alan görevlinin adı ve yerini sorabilirler. Karşılığında Nela’nın ilaçlarını bağışlamayan bir anlaşma yazılır.
+Iven gönüllü gelirse Odran Vehl, gümrükhane yanındaki garnizon nöbet masasında belge ve tanıkları dinler. Gerekçeli geçici bir koruma/gözetim düzeni gerekiyorsa nerede kalacağını ve ertesi sabah gözden geçirmeyi açıkça konuşur; peşinen kesin hüküm vermez. Nela’nın ilaçları veya yatağı bu ifadenin karşılığı değildir.
 
 **Tekneyi haber ver**
 
-Aven dış iskeleden gelen bir halat isteğini gösterir. Sel ve rüzgâr daha önce duyulmuştur; sonraki olay sokakta aniden beliren başka bir bilmeceden doğmaz.
+Nela, Aven’in revirindeki gündüz nöbetçisine kendi bakım listesi ve ilaç kutusuyla teslim edilir; anne-baba yerine karar alan bir borç anlaşması yapılmaz, Nela düzeni kendisi duyar. Aven daha sonra kıyıdaki yaralılara bez ve ilaç götürür. Parti Odran’la ifadeyi tamamlarken Aven önlerinden iskeleye gider; fırtına kara bağlantısını o sırada keser. Nela revirde nöbetçinin yanında kalır ve tedavisi sürer.
 
-> Aven: Şu halatı iskeleye götürecektim. Birinizin eli boşsa…
+> Aven: Nöbetçi burada, listen de onda. Ben kıyıya bez götüreceğim. Şu halatı arkamdan getirir misiniz?
 
 ### Masada oynat
 
@@ -2804,9 +3426,13 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Gündüz nöbetçisi Nela’nın ilaç kutusuyla saat listesini aynı yere koyar. Anahtar, evden getirilecek örtü ve bakım katkısı için kimin ne yapacağını tek tek sorabilirler. Nela bu konuşmayı duyabileceği yerde kalır.
 
 ### Oyuncular sorarsa
+
+**Nela bakımdayken Aven iskeleye giderse kim ilgilenecek?**
+
+Revirin gündüz nöbetçisi; Aven çıkmadan önce ilaç kutusunu, saat listesini ve Nela’nın onayladığı yardım düzenini ona devreder. Aven’in kıyıda sıkışması Nela’nın tedavisini geriye dönük iptal etmez.
 
 ### Kontroller ve ek notlar
 
@@ -2817,7 +3443,7 @@ Sonraki geçiş: Bakım ve ifadenin koşulları açıkken son kararın kaydına 
 
 ## 6.6. İfadenin altında kalan ad
 
-Nerede: Frostbay • ifade masası
+Nerede: Frostbay • gümrükhane yanındaki garnizon nöbet masası
 Ne zaman: Bakım düzeni kurulduğunda
 Amaç: Iven’in verdiği zararla Nela’nın bakımını ayrı ayrı sonuçlandır.
 Sonra: Halatla dış iskeleye git. Fırtına konuşmalar sırasında artmıştır; artık ilk kopma sesi duyulur.
@@ -2826,7 +3452,7 @@ Gösterilecek sahne: Frostbay · ifade masası · Görsel: winter-baba · Portre
 
 ### Oyunculara oku
 
-> Görevli, Iven’in söylediğini yazarken bir yerde duruyor. “Bunu gördün mü, sana mı söylediler?” diye soruyor. Iven başını kaldırıp cümleyi değiştiriyor.
+> Odran, Iven’in söylediğini yazarken bir yerde duruyor. “Bunu gördün mü, sana mı söylediler?” diye soruyor. Iven başını kaldırıp cümleyi değiştiriyor.
 >
 > Nela’nın anahtarı artık aynı elde değil. Ovel kapının yanında bekliyor; elindeki bakım listesinin köşesi ıslanmış. Dışarıdan gelen rüzgâr, kâğıdı kaldırınca parmağıyla yeniden bastırıyor.
 >
@@ -2836,7 +3462,7 @@ Gösterilecek sahne: Frostbay · ifade masası · Görsel: winter-baba · Portre
 
 **İfade ile hükmü ayır**
 
-Görevli bilgiyi alır; bütün davayı orada iki cümleyle çözmez. Iven’in zararı ve Noll’un rolü ayrı yazılır.
+Odran Vehl ifadeyi, belgeyi ve tanık adlarını nöbet masasında kaydeder; bütün davayı orada iki cümleyle çözmez. Iven’in zararı ve Noll’un rolü ayrı yazılır. Gerekiyorsa geçici kalma/gözetim adresi belirlenir ve ertesi sabah yeniden görüşülür; Nela’nın bakımına dokunulmaz.
 
 **Kaçış seçilmişse uygula**
 
@@ -2854,7 +3480,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Iven’in nerede kalacağı, Nela’nın kimin bakımında olduğu ve ifadenin nereye gittiği belli olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Odran kaydın tarihini yazıp kalemi masaya bırakır. İfadenin kime verileceği ve ertesi sabah nerede görüşüleceği soruları açıktır. Iven kaçırılmışsa odada olmayan kişiye söz söyletme; eldeki tanık ve belgeyi kayda al.
 
 ### Oyuncular sorarsa
 
@@ -2883,6 +3509,141 @@ Sonraki yankı: İven’in kaçışı suçlamayı ortadan kaldırmaz. Kervanla z
 
 Sonraki geçiş: Halatla dış iskeleye git. Fırtına konuşmalar sırasında artmıştır; artık ilk kopma sesi duyulur.
 
+## Kişi rehberi — DM için
+
+### Iven Rusk — Frostbayli yol rehberi; Nela’nın babası.
+
+**Görünüş:** Kızıl sakallı, koyu yeşil paltolu. Rota kâğıtlarını katladığı yerler yağ ve tuzla koyulaşmıştır.
+
+**İstediği:** Nela’nın bakımının sürmesini ve kendisi hakkında söyleneceklerin kızına karşı kullanılmamasını ister. Bu istek rota kopyasıyla ilgili sorumluluğunu ortadan kaldırmaz.
+
+**Bildiği:** Kıyı yolunu ve sattığı bilgiyi bilir. Baskı altındayken alıcının kimliğini küçülterek anlatabilir; davranışını kanıtın yerine koyma.
+
+**Nasıl konuşur?** Normalde işi anlatarak rahatlar. Konu alıcıya gelince “biri” ve “onlar” diye konuşmaya başlar; somut isim sorulunca bekler.
+
+**Portre:** iven-rusk
+
+**Kızın her şeyi biliyor mu?**
+
+> Ben anlattım sandım. Şimdi yanındayken dinleyin de ne kadarını anlattığımı ben de duyayım.
+
+**Yardım için neden bunu yaptın?**
+
+> Başka çarem yoktu demem kolay. O gün sormadığım insanlar var. Yaptığımı değiştirmiyor.
+
+### Orsa Dren — Frostbay’in kıyı taşlarını ve değişen çıkışlarını bilen deniz kılavuzu.
+
+**Görünüş:** Yün yakasını kulağının bir yanına kadar kaldırır. Konuşurken göze değil suyun taşta bıraktığı çizgiye bakması ilgisizlik değildir.
+
+**İstediği:** Bu fırtınada kıyıyı bilen birinin sözü duyulsun. Kendisini bütün kayıplardan sorumlu tutmalarına izin vermeden elinden gelen yardımı yapmak.
+
+**Bildiği:** Fenerdeki bezin ve liman ağzındaki örtülü ışığın yerel kullanımını bilir. Deniz hakkında kesin saat vermez; rüzgâr dönünce önceki hesabını açıkça değiştirir.
+
+**Nasıl konuşur?** Kısık ama net. Gereksiz cesareti övmez; bir planın hangi adımında geri dönüleceğini sorar.
+
+**Portre:** orsa-dren
+
+**Birazdan durur mu?**
+
+> Durabilir. Ben beklerken şu su bir basamak daha çıktı. Planı şu anki basamağa göre kurun.
+
+**Bunu daha önce yaptın mı?**
+
+> Yaptım. Her seferinde bir yerini başka türlü yaptım. Bu sefer ışığı daha aşağıda tutacağım.
+
+### Haldor Pell — Harven hanelerinin odun alıcısı ve ortak yük tartıcısı.
+
+**Görünüş:** İşaret ipini kemerinden çözmeden pazarlığa oturmaz. Kütüğün kesik ucuna bakmak için dizini yere koymaktan çekinmez.
+
+**İstediği:** İş gördüğü bir ailenin dağılmasını ve yük işlerinin kesilmesini önlemek; bunun için hatırlamadığı ayrıntıyı tamamlamaya fazla yatkındır.
+
+**Bildiği:** Yük yollarını ve bazı karşılaşmaları bilir. Baskın saatinin kesin saatini veya Iven’in bütün hareketlerini bilmez; ona bu bilgiyi verdiğini varsayma.
+
+**Nasıl konuşur?** Sesini alçaltıp iyilik teklif eder gibi konuşur. Açığı gösterilince önce ayrıntıyı düzeltmeye, sonra gerçekten ne hatırladığını söylemeye çalışır.
+
+**Portre:** haldor-pell
+
+**O günü ve saati gerçekten hatırlıyor musun?**
+
+> Yüzünü hatırlıyorum. Gününü sormasaydınız o kadarını da sorgulamayacaktım.
+
+**Bunun yanlış olduğunu biliyorsun.**
+
+> Tamam. Saati yazmayalım. Ben yine de bir iyilik yapmış olurum sanmıştım.
+
+## İsteğe bağlı olay · Ödünç hatıra
+
+**Ne zaman açılır?** Hainin Kızı · Evin anahtarı
+
+**Masada:** 15–20 dk
+
+Nela’nın bakımı devredildikten ve Iven’in gerçek sorumluluğu konuşulduktan sonra oynat. Harven’den gelen Haldor, kendi yük hesaplarını kapatmak için Frostbay’dedir; önceki odun anlaşmasının sonucu değişmez. Silahlı baskın saati için iyi niyetle uydurulmuş bir tanıklık teklif eder. Bunu kabul etmek görevin şartı değildir.
+
+**Görsel:** winter-borc-odasi
+
+**Portreler:** iven-rusk, orsa-dren, haldor-pell
+
+### Oyunculara oku
+
+> Haldor kapıda şapkasını çıkarıyor. Elinde kuru bir kâğıt var; köşesi, fazla düzgün katlandığı için çatlamış. Iven’in yanına değil önce sizin yanınıza geliyor.
+>
+> “Köprüdeki baskının olduğu saatlerde,” diyor, “ben onu Güney İskelesi’nde gördüm desem... En azından saldıranlarla aynı yerde olmadığı yazılır.” Kâğıdı masaya koyuyor. Tarihin altındaki saat henüz boş.
+>
+> Orsa pencerenin önünden dönüyor. “Güney İskelesi o saatlerde kapalıydı,” diyor. Haldor’un eli şapkasının kenarında duruyor. “Kuzeydi belki.”
+>
+> Iven kâğıda dokunmuyor. “Kızımın adını buna yazmayın,” diyor.
+
+### Sırayla oynat
+
+**İyi niyetin içindeki açığı duyur**
+
+Haldor o saatlerde Iven’i gördüğünden emin değildir; belki kurtaracağı bir iş ve gelecekteki müşterisi için boşluğu doldurmayı teklif etmektedir. İskele karışıklığını oyunculara açıkça ver. Iven’in rota kopyasını vermiş olduğu mevcut gerçek silinmez; önerilen alibi yalnız baskına bizzat katılmış olma iddiasıyla ilgilidir.
+
+> Haldor: Birini yol üstünde görürsünüz. Yüzü aklınızda kalır, günü kalmaz. Benimki öyle bir şey.
+
+**Gördüğünü bildiğinden ayır**
+
+Haldor’dan hangi tekneyi, hangi lambayı ve ne taşıdığını anlatmasını iste. Orsa kendi bildiği kapanma saatini söyler; Iven’in geceyi nerede geçirdiğini otomatik olarak bildiğini iddia etmez. Doğru bir tanıklık çıkabilir veya belirsiz kalabilir. Amaç bir sorgu zarına insanın tüm karakterini bağlamak değildir.
+
+> Orsa: Hatırlamıyorsanız o saati boş bırakın. Boşluk yüzünden değil, sonradan doldurduğunuz için kavga çıkar.
+
+**Kâğıdın nasıl teslim edileceğini seç**
+
+Gerçekten görülen kısmı ayrı yazmak, tanıklıktan vazgeçmek veya bilerek yanlış alibiyi sunmak farklı tercihlerdir. Odran’ın masasına yalnız belge diye uzatılan şey de kaynağı sorulabilecek bir ifadedir. Nela’nın bakımı bu tercihe rehin alınmaz; Haldor tehdit veya ücretsiz af dağıtamaz.
+
+> Iven: Bana yardım edecekseniz gördüğünüzü söyleyin. Sonra hangi yalanı kime söylediğimi hatırlamak istemiyorum.
+
+### Kontroller
+
+- Haldor’un iskeleyi karıştırması ve saati boş bırakması zar gerektirmeden görünür. Onu konuşturmak için Zekâ/Sezgi DC 10 kullanılabilir; başarısızlık yanlış ifadenin doğru olduğunu ilan ettirmez.
+- Tanık, kesin bildiğini ve emin olmadığını ayrı yazabilir. Gerçek bir alibi bulurlarsa onu geçerli kabul et; Iven’in rota kopyasıyla ilgili bağımsız sorumluluğunu ayrıca değerlendir. Dövüş veya baskıyla itiraf şart değildir.
+
+### Kararlar ve yankıları
+
+**Yalnız kesin görüleni yaz; saati belirsiz bırak**
+
+Haldor gerçekten hatırladığı karşılaşmayı ve saat konusundaki kuşkusunu imzalar. Bu kusursuz alibi değildir; Iven’e ek bir suçu otomatik yüklemek için de kullanılamaz. Nela’nın bakım düzeni sürer.
+
+**İleride:** Kıyıda Orsa birinin “gördüm” demesinin neye dayandığını yeniden sorarsa, bu masadaki usul örnek verilebilir. Sözün sınırını bilmek, kurtarmada yardımı kesmek anlamına gelmez.
+
+**Alibi teklifini reddet; gerçek tanık aramayı sürdür**
+
+Boş kâğıt dosyaya suç delili gibi sokulmaz. Iven gerçek ifadesini verir; Haldor, kendi hatasını başkasının hatırasına çevirmeden geri çekilebilir. Gerçek tanık bulunması başka bir iş olarak açık kalır.
+
+**İleride:** Son Kayık’ın ardından Haldor’un geri adımı onunla ticareti tümden bitirmek zorunda bırakmaz. Yardım etmeye çalışmasıyla doğru tanık olması ayrı hatırlanır.
+
+**Yanlış olduğunu bile bile alibiyi kullan**
+
+Saati doldurup sunarlarsa hangi cümlenin kesin bilinmediğini DM notuna yaz. Bu kayıt her şeyi çözen sihirli belge değildir; Odran veya başka tanık çelişkiyi daha sonra sorabilir. Nela bunun faili sayılmaz.
+
+**İleride:** Kuru kıyıda tutanak sorulduğunda, Orsa kapalı iskele ayrıntısını yeniden dile getirebilir. Bir fırsat daha sun: düzeltme, açıklama veya yalanı sürdürme. Anlık toplu tutuklama ya da kurtarılanların yardımını kesme cezası ekleme.
+
+**Ne zaman geri döner?** Son Kayık · Kuru yerde altı isim
+
+Kurtarma bittikten sonra, yalnız bu olay oynandıysa alibide neyin gerçek neyin belirsiz yazıldığını hatırla. Orsa kendi gördüğünü söyler; Iven’in suçsuzluğu ya da yeni bir mahkûmiyet otomatik çıkmaz. Nela’nın bakımını ve kurtarmaya verilen desteği pazarlık bedeline dönüştürme.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
+
 # 7. Son Kayık
 
 Nerede: Frostbay • dış iskele ve güvenli kıyı
@@ -2892,9 +3653,9 @@ Sonra: Ek sevk kabul edildiyse uzun kıyı izleriyle Ternhaven’e git.
 
 ## Bölüm başlangıcı
 
-Iven’in ifadesi ve Nela’nın bakımı için verilen sözlerden sonra Aven’in halatı kıyıya götürülür. Fırtına yeni başlamaz; şehirdeki görüşmeler boyunca sertleşmiştir.
+Iven’in ifadesi ve Nela’nın bakımı için verilen sözlerden sonra Aven’in halatı kıyıya götürülür. Fırtına yeni başlamaz; şehirdeki görüşmeler boyunca sertleşmiştir. Nela gündüz nöbetçisine devredilmiştir. Aven bez ve ilaç götürmek için önden kıyıya giderken kara bağlantısı kesilir; Nela’nın bakımı revirde sürer.
 
-Fırtına, dış iskelenin kara bağlantısını keser. Kervan arabaları bu küçük iskelede değildir; önceki yükleri bir anda kaybolmaz.
+Fırtına, dış iskelenin kara bağlantısını keser. Kervan arabaları bu küçük iskelede değildir; önceki yükleri bir anda kaybolmaz. Yaralı kişi ancak Taren önceki sahnelerde serbest kalmış ve kafileyle gelmişse Taren’dir. Taren öldüyse, ayrıldıysa veya tutuluyorsa bu kişi yerel bir iskele işçisidir; sayısı ve taşıma ihtiyacı aynıdır, geçmişteki yardım ve suç Taren’den bu kişiye aktarılmaz.
 
 Altı sivili, eldeki kayığı ve halatları kullanarak güvenli kıyıya geçirmek.
 
@@ -2912,17 +3673,17 @@ Altı sivili, eldeki kayığı ve halatları kullanarak güvenli kıyıya geçir
 
 İstediği: Yaralıları ve çocukları güvenli çıkarmak.
 
-İlk karşılaşma: Taren’in kolunu sararken partiyi görür.
+İlk karşılaşma: Nela’yı gündüz nöbetçisine devredip kıyıya bez ve ilaç getirmiştir; kara bağlantısı koptuğunda iskelede kalır.
 
 > Ayağını basamayanı alırken halatı biri tutacak. Önce onu nasıl yapacağınızı söyleyin.
 
-**Yaralı asker / Taren — Köprüde yardım eden aynı adam.**
+**Yaralı yolcu / Taren varsa Taren — Taren gruptaysa yaralı refakatçi odur; değilse fırtınada yaralanmış yerel bir iskele işçisidir.**
 
 İstediği: Canlı çıkmak ve başkalarına yer açmak.
 
-İlk karşılaşma: Kaş izi ve sesiyle tanınır; zırhını iskeleye bırakır.
+İlk karşılaşma: Aven, iskelede bu kişinin kolunu sararken partiyi görür. Taren’in önceki konumu değiştirilmez.
 
-> Köprüdeki halatı hatırlıyor musunuz? Bunu da bağlayabiliriz.
+> Şu halatı bağlayabiliriz. Karşıdaki direk tutar; kayığı ona göre döndürün.
 
 İlk sahneye geçiş: Aven’in halatını götürürken kıyıyı ve teknenin durumunu göster. Altı insanı yalnız meslek etiketiyle sunmadan kısa bir temas kur.
 
@@ -2933,13 +3694,13 @@ Ne zaman: İfade görüşmesinden sonra, rüzgâr sertleşirken
 Amaç: Altı kişiyi, kayığın durumunu ve yardım araçlarını tanı.
 Sonra: Grup bir taşıma/halat planı önerince düğüm ve hazırlık sahnesine geç.
 
-Gösterilecek sahne: Frostbay · kopan dış iskele · Görsel: winter-kayik · Portreler: taren-olt
+Gösterilecek sahne: Frostbay · kopan dış iskele · Görsel: winter-kayik · Portreler: yok
 
 ### Oyunculara oku
 
 > İskeleden kıyıya basmak için kalan açıklık bir adım değil; su her çekildiğinde alttaki kazıkları görüyorsunuz. Kayık yanda duruyor ama bordasının bir yeri yeni katranla kapatılmış. Halat, kıyıdaki eski bir çıkrığın yanından geçiyor.
 >
-> Karşı taraftaki genç adam çocukları geriye topluyor. Aven size seslenirken bir eliyle yaşlı kadının paltosunu tutuyor. Yaralı askerin eldiveni yok; parmaklarını sırayla avucuna kapatıp açıyor.
+> Karşı taraftaki genç adam çocukları geriye topluyor. Aven size seslenirken bir eliyle yaşlı kadının paltosunu tutuyor. Yaralı yolcunun eldiveni yok; parmaklarını sırayla avucuna kapatıp açıyor.
 >
 > Altı kişiler. Sizin de kıyıda üç çift eliniz var.
 
@@ -2947,7 +3708,7 @@ Gösterilecek sahne: Frostbay · kopan dış iskele · Görsel: winter-kayik · 
 
 **İnsanlara birer hareket ver**
 
-Pera kardeşinin bağını düzeltir, Renn ipi yoklar, Olma ev anahtarını cebine koyar. Onları işe yararlılık sırasına koyan bir liste okuma.
+Pera kardeşinin bağını düzeltir, Renn ipi yoklar, Olma ev anahtarını cebine koyar. Onları işe yararlılık sırasına koyan bir liste okuma. Aven, Nela’yı nöbetçiye devrettiğini söyleyebilir. Yaralı kişi tanınıyorsa adını kullan; anonim iskele işçisine Taren’in portresini veya geçmiş suçunu verme.
 
 **Kayığı incelet**
 
@@ -2967,7 +3728,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Renn halatın ucunu kaldırıp sağlam iskele kazığını gösterir. Kıyıdaki çıkrık ve alçak kaya da görünür durumdadır. Oyuncular ilk seferi konuşabilir, kayığın yamasına bakabilir veya iki yaka arasında bir hat kurabilir.
 
 ### Aven
 
@@ -3011,7 +3772,7 @@ Gösterilecek sahne: Frostbay · kıyı çıkrığı · Görsel: winter-firtina-
 
 > Çıkrığın kolunu çevirdiğinizde önce yalnız pas sesi çıkıyor. Sonra makara yerinden oynuyor ve elinizdeki ip geriliyor. İskelede Renn aynı ipin ucunu kaldırıp size gösteriyor.
 >
-> Yaralı asker bir düğüm atıyor; bağlamadan önce ipi bir kez daha kontrol ediyor. Pera arkasından baktığı için elini yavaşlatıyor. “Bunu tut,” diyor. “Sıkma, sadece kaçmasın.”
+> Yaralı yolcu bir düğüm atıyor; bağlamadan önce ipi bir kez daha kontrol ediyor. Pera arkasından baktığı için elini yavaşlatıyor. “Bunu tut,” diyor. “Sıkma, sadece kaçmasın.”
 >
 > Kıyıdaki buz parçası dönüp teknenin yanına vuruyor. Katranlı yerden ince bir çizgi hâlinde su girmeye başlıyor.
 
@@ -3039,7 +3800,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Islak ip, çıkrık kolunun yanında kıvrılır. Hattın öteki ucundaki kişi bağlamadan önce işaret bekler. Düğümü, kayığın yamasını veya ilk taşınacak yükü seçmeleri için alan ver; kurulmuş bir bağı yeniden test istemeden kullan.
 
 ### Oyuncular sorarsa
 
@@ -3058,7 +3819,7 @@ Ne zaman: Hazırlık tamamlandığında
 Amaç: İlk seferi yap; iki kıyı arasında insanları sayarak hareket et.
 Sonra: Tekne kıyıya yaklaşırken iskelenin yeni çatırdamasını duyur. Hâlâ karşıda olanlar varsa ikinci tehlike devreye girer.
 
-Gösterilecek sahne: Frostbay · iskele ile kıyı arası · Görsel: winter-iskele · Portreler: taren-olt
+Gösterilecek sahne: Frostbay · iskele ile kıyı arası · Görsel: winter-iskele · Portreler: yok
 
 ### Oyunculara oku
 
@@ -3076,7 +3837,7 @@ Buz levhası ip açısıyla çözülebilir. Yama yapılmadıysa su boşaltmak da
 
 **İnsanların yardımını kullan**
 
-Renn kürek çeker, Olma teknedeki yükü yerleştirir, Aven birini oturtur. NPC’ler bütün çözümü üretmez ama taş gibi beklemez.
+Seçilen seferde kim varsa onun uygun katkısını kullan: Renn kürek çekebilir, Olma yükü yerleştirebilir, Aven birini oturtabilir. Henüz iskelede bekleyen kişiyi sırf bu örnek için tekneye taşımayın. Taren yoksa yaralı yolcu yerel işçi olarak aynı basit yardımları yapabilir; adı ve geçmişi Taren’e dönmez.
 
 **Her seferi say**
 
@@ -3090,7 +3851,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** İlk grup kıyıya alındığında ve kayığın dönüş için durumu belli olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Halatın suya değdiği yerde buz levhasının açısını yeniden göster. Oyuncular ipi biraz boşaltmayı, kıyıdan döndürmeyi veya teknede su boşaltacak kişiyi belirlemeyi deneyebilir. Kayık henüz hareket etmediyse tehlikeyi karşıya taşımadan hazırlıkta kal.
 
 ### Karşılaşma · Buz levhası ve dönen kayık
 
@@ -3179,13 +3940,13 @@ Ne zaman: İlk kurtarmadan sonra
 Amaç: Dönüş sözünü yerine getir veya yeni gerçek koşullara göre açık bir karar al.
 Sonra: Artık kim kıyıda, kim karşıda ve ne kayıp olduğuna göre kapanış sahnesine geç.
 
-Gösterilecek sahne: Frostbay · kıyı hattı · Görsel: winter-iskele · Portreler: taren-olt
+Gösterilecek sahne: Frostbay · kıyı hattı · Görsel: winter-iskele · Portreler: yok
 
 ### Oyunculara oku
 
 > Kıyıya çıkan ilk kişinin ayakları taşın üstünde ses çıkarmıyor. Biri ona örtü uzatıyor; öteki teknenin içine dolan suyu avuçluyor. Karşı taraftaki ışık sisin içinde bir görünüp bir kayboluyor.
 >
-> Taren kıyıdaysa yaralı ayağını taşa dayıyor. “Geri gidebilirim,” diyor. “Ama şu eli açmam biraz sürecek.” İskeledeyse aynı eliyle feneri yukarı kaldırıyor. Yardımın nereden gelmesini beklediği belli.
+> Yaralı yolcu kıyıdaysa incinen ayağını taşa dayıyor. “Geri gidebilirim,” diyor. “Ama şu eli açmam biraz sürecek.” İskeledeyse aynı eliyle feneri yukarı kaldırıyor. Yardımın nereden gelmesini beklediği belli.
 >
 > Bu kez tekne boş gidecek. Dönüşün neye mal olacağı da daha açık.
 
@@ -3211,11 +3972,11 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Geri dönüş yapılmış, başka yol uygulanmış veya açık bir gerekçeyle ertelenmişse.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Karşı kıyıdaki fener hâlâ görünüyorsa kimde olduğunu ve bekleyenlerin yerini söyle. Kıyıdan birinin ipi tutması, teknenin boş dönmesi veya başka bir hattın kullanılması seçeneklerini somutlaştır. Karşıda kimse kalmadıysa yeni bir kurtarma gerekçesi üretme.
 
-### Taren
+### Yaralı yolcu
 
-Bu kez adı biliniyorsa onunla çağrılır. Yardımını bir bağışlanma pazarlığı yapmaz.
+Taren kafiledeyse bu kişi Taren’dir; değilse aynı kısa işe dönük cevapları yerel iskele işçisi verir. Tanınan adı kullan, birinin geçmişini ötekine yükleme.
 
 **Ayağın o haldeyken neden gidiyorsun?**
 
@@ -3275,7 +4036,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Kurtulanların bakımı ve ek sevke devam edilip edilmeyeceği kararlaştırıldığında.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Kuru yere çıkarılan örtülerle boş kayığı yan yana göster. Kimler gerçekten kıyıdaysa onlardan biri kendi eşyasını arar; bu aralıkta isimleri ve dönüş için verilen sözleri sayabilirler. Ortada olmayan bir kişiyi kapanış için yeniden sahneye koyma.
 
 ### Oyuncular sorarsa
 
@@ -3303,6 +4064,117 @@ Kimin neden beklediği ve elindeki siper açıkça konuşulur. Geride kalmak oto
 Sonraki yankı: Ayrılanların birbirinden haberi ve verilen dönüş sözünün tutulması sonraki sahnede görülür.
 
 Sonraki geçiş: Ek sevk kabul edilirse uzun kıyı izlerinden Ternhaven’e yolculuğu ve dinlenmeyi anlat. Kral Yolu veya tamamlanmış Cevher Çizgisi icat etme.
+
+## Kişi rehberi — DM için
+
+### Orsa Dren — Frostbay’in kıyı taşlarını ve değişen çıkışlarını bilen deniz kılavuzu.
+
+**Görünüş:** Yün yakasını kulağının bir yanına kadar kaldırır. Konuşurken göze değil suyun taşta bıraktığı çizgiye bakması ilgisizlik değildir.
+
+**İstediği:** Bu fırtınada kıyıyı bilen birinin sözü duyulsun. Kendisini bütün kayıplardan sorumlu tutmalarına izin vermeden elinden gelen yardımı yapmak.
+
+**Bildiği:** Fenerdeki bezin ve liman ağzındaki örtülü ışığın yerel kullanımını bilir. Deniz hakkında kesin saat vermez; rüzgâr dönünce önceki hesabını açıkça değiştirir.
+
+**Nasıl konuşur?** Kısık ama net. Gereksiz cesareti övmez; bir planın hangi adımında geri dönüleceğini sorar.
+
+**Portre:** orsa-dren
+
+**Birazdan durur mu?**
+
+> Durabilir. Ben beklerken şu su bir basamak daha çıktı. Planı şu anki basamağa göre kurun.
+
+**Bunu daha önce yaptın mı?**
+
+> Yaptım. Her seferinde bir yerini başka türlü yaptım. Bu sefer ışığı daha aşağıda tutacağım.
+
+### Taren Olt — Koşullu kişi: yalnız önceki seçimlerde grupta kalmış veya kıyıda bulunuyorsa Taren Olt. Öldüyse, ayrıldıysa ya da gözaltındaysa bu sahnede yeniden görünmez; gerekiyorsa anonim yerel işçinin kendi kimliği korunur.
+
+**Görünüş:** Uzun koyu saçının bir yanı kısa kesilmiştir. Dinlenirken kapıyı görebildiği yere oturur; kaşındaki eski izi saklamaz.
+
+**İstediği:** Bugün yaptığı yardımın görülmesini ister ama geçmişini anlatınca bunun onu temize çıkarmayacağını bilir. Tanığa baskı yapılmasını kabul etmemesi rol yapma fırsatıdır; otomatik kahraman ilanı değildir.
+
+**Bildiği:** Taren gerçekten buradaysa köprüdeki olay ve kendi geçmişi hakkında bilgi sahibidir. Yoksa onun yüzünü, adını ve suç geçmişini kayıktaki yerel işçiye aktarma.
+
+**Nasıl konuşur?** Kısa cevaplar. Kendi eylemi sorulunca edilgen cümle kurarsa somutlaştır: “sen ne yaptın?”
+
+**Portre:** taren-olt
+
+**Bizi kurtardın, sana borçluyuz.**
+
+> O gün yardıma ihtiyacınız vardı. Bunu başkasına anlatacaklarınızın yerine koymayın.
+
+**Dava yalan mı söylüyor?**
+
+> Onu duymadan o cümleyi kurmayacağım. Benim anlatmadığım şeyler var.
+
+## İsteğe bağlı olay · Fenerin önündeki bez
+
+**Ne zaman açılır?** Son Kayık · Halatı kimin tuttuğu
+
+**Masada:** 10–15 dk
+
+İlk seferin hazırlığına paralel, kıyıdaki bir oyuncunun alabileceği kısa iş. Oyun içinde birkaç tur sürer; masada geçirilen süreyle deniz saati ilerletilmez. Aktif kurtarma başlamış ve kimse ayrılamıyorsa bu iş dayatılmaz.
+
+**Görsel:** winter-firtina-yarigi
+
+**Portreler:** orsa-dren
+
+### Oyunculara oku
+
+> Rüzgâr küçük kıyı ışığının bezini direğe dolamış. Alev yanıyor ama iç koydan yalnız ince bir çizgi görünüyor. Orsa iki elini çevresine siper edip baktığında çenesini kaldırıyor.
+>
+> “Dışarıdaki bu tarafı açık sanacak.” Arkasında kayık halatı geriliyor. Birinin suya inmesi gerekmiyor; örtülü ışığın başına erişmek için direk dibinde üç kuru basamak var.
+
+### Sırayla oynat
+
+**Oyuncular arasında iş böl**
+
+Bir kişi kayıkta, biri kıyı halatında, biri işarette kalabilir. Herkesin feneri tamir etmek için kurtarmayı terk etmesi gerekmez. Orsa kıyıda neyin görülebileceğini somutlaştırır.
+
+> Orsa: Kayığın gözünden bakın. Benim durduğum yerden görünmesi yetmez.
+
+**İki güvenli yöntem göster**
+
+Direkteki bezi kuru basamaktan uzun bir sırıkla açmak veya alçak güvenli noktada örtülü yedek ışık kurmak mümkündür. Rüzgâra açık en üst çıkıntıya tırmanmak zorunlu rota değildir.
+
+> Orsa: Direğe çıkacaksan ipi ben tutarım. Buradan yapacaksak şu örtüyü rüzgâra bırakmayalım.
+
+**Sinyali gerçekten dene**
+
+Bir kişi kayık bağlama yerinden bakıp yönü doğrular. Işık hangi yolu gösteriyorsa iki kişi aynı cümleyi tekrarlar. Düzeltilen ışık kıyıyı görünür kılar; aşırı yükü veya kırık tekneyi kendi başına güvenli yapmaz.
+
+> Orsa: Bir kere söndür. Şimdi aç. Tamam; geri gelen adamın göreceği kadar var.
+
+### Kontroller
+
+- Sağlam zeminden sırık ve sabit ışık yöntemi açıklanmışsa zar isteme. Düğümlü bezi hızlı çözmek El Çabukluğu DC 10 olabilir; başarısızlık bir tur gecikmedir.
+- Tehlikesi söylenmiş yüksek çıkıntıya yine de çıkılırsa Atletizm DC 11, ip ve destek avantaj verir. Bağlı karakterin başarısızlığı ipte kalma ve en çok 1d4 çarpma hasarıdır; doğrudan açık denize düşürme.
+
+### Kararlar ve yankıları
+
+**Bezi sırıkla çöz; direğe tırmanma**
+
+Güvenli basamak ve uygun sırık kullanılır. Düğümlenen bez kurtarılır; birinin kayık yönünden gördüğü doğrulanır.
+
+**İleride:** İlk seferdeki dönüşte Orsa düzeltilen ışığın konumunu söyler. Işık kaybolursa nedenini görünür rüzgâr veya konumla açıkla; başarıyı gizlice iptal etme.
+
+**Alçak ve korunaklı yedek ışık kur**
+
+Örtülü bir fener, kıyıdaki sağlam noktadan aynı hattı gösterir. Işığı tutacak kişi veya sabit bağ seçilir; birinin süresiz nöbeti otomatik yazılmaz.
+
+**İleride:** Ternhaven’e giden ek sevkte kullanılabilecek fener korunmuşsa Orsa geri ister veya emanet süresini uzatır. Kimin taşıdığı kaydedilir.
+
+**Tamiri bırak, kıyıdan açık el işaretleri kullan**
+
+Kıyıda kalacak kişi ve görülecek işaretler önceden anlaşılır. Görüş kapanırsa kayık güvenli hatta döner; görünmeyen bir el işareti çalışıyor sayılmaz.
+
+**İleride:** Ternhaven’de sel anlatılırken işaret veren kişinin adı hatırlanabilir. Fenerin yapılmaması yardımın değerini azaltmaz; ama kimsenin görmediği yeni güvenli ışık da var sayılmaz.
+
+**Ne zaman geri döner?** Son Kayık · Geri giden ışık
+
+Hazırlıkta seçilen ışık veya el işareti aynı yerden kullanılmalı. Kim kıyıda kaldı, hangi fener sabitlendi? Nela’nın çizim olayı oynandıysa yalnız doğrulanmış işaret bu plana eklenir.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 8. İyi Kalpli Nekromant
 
@@ -3392,7 +4264,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Mara elindeki isim plakasını çevirmeden tutar. Neris su hattını, Renn sebze sırasını gösterebilir. Oyuncular üretimin nasıl işlediğini veya plakadaki kişinin kaydını önce görmeyi seçebilir; bu seçim taraf tutma sayılmaz.
 
 ### Neris Vel
 
@@ -3464,7 +4336,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Beyazlaşan yaprağın hemen yanındaki sağlıklı yaprağı göster. İki suyun nerede birleştiği ve kapatma kolunun yeri göz önündedir. Bir kişi yaprağa bakarken bir başkası kuru geçitten hattı izleyebilir.
 
 ### Oyuncular sorarsa
 
@@ -3519,7 +4391,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Mara yanlış olduğunu söylediği imzanın altına kendi adını yazabileceği boş bir parça ister. Neris defterin aslını açık tutar. Oyuncular tanığı dinleme, kayıtları karşılaştırma veya Mera’nın incelemesini isteme yolunu seçebilir.
 
 ### Mera Sorn
 
@@ -3588,7 +4460,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Vana ve levha çözülmüş veya herkes güvenli biçimde dışarı çıkmışsa.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Sıcak hattın vanasını ve su içindeki kırık levhayı yeniden işaretle. Henüz biri çözülmediyse o işi ele alabilirler. İkisi de güvenle durdurulduysa sırf konuşma kesildi diye iskeletleri yeniden çalıştırma.
 
 ### Karşılaşma · Buhar hattındaki iki işçi
 
@@ -3670,7 +4542,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Renn günlük iş listesini masanın ortasına çevirir. Hangi yatağın ekileceği ve o işi kimin yapabileceği görünür olsun. Oyuncular bir vardiya önerebilir, ücreti sorabilir veya başka bir üretim düzenini tartışabilir.
 
 ### Oyuncular sorarsa
 
@@ -3720,7 +4592,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Üretim ve bedenlerin geleceği için uygulanabilir bir ilk adım atıldığında.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Tohum kesesi ile bakım listesi aynı masada durur. Teslim edilecek miktarı ve kimde kalacak kaydı yeniden göster; bir sonraki haberin kime geleceğini belirleyebilirler. Bahçe kapatıldıysa çalışan bir vardiya varmış gibi anlatma.
 
 ### Oyuncular sorarsa
 
@@ -3748,6 +4620,137 @@ Canlı vardiya, daraltılmış yataklar ve güvenli su kanalıyla sürdürülebi
 Sonraki yankı: Başarının ölçüsü nutuk değil sonraki hasadın miktarı ve ödenen çalışma ücretidir.
 
 Sonraki geçiş: Dinlenme ve kıyı yolculuğunu oynatıp Dranthol’daki son teslimi aç.
+
+## Kişi rehberi — DM için
+
+### Dalen Marr — Ternhaven sıcak su kanallarında çalışan savak ustası.
+
+**Görünüş:** Boruyu dinlerken iyi duyduğu tarafını yaklaştırır. Kısa tahta takozlarını uzunluğuna göre değil hangi vanaya uyduklarına göre dizer.
+
+**İstediği:** Bir onarımı, kendisi ayrıldıktan sonra da biri kullanabilsin. Yeni teknikleri sever; bakımını kimsenin bilmediği pahalı parçaları sevmez.
+
+**Bildiği:** Hangi hattın bahçeye, hangisinin ortak yıkama taşına gittiğini bilir. Neris’in büyü hesaplarını doğrulayamaz; vananın hangi basınçta vurduğunu gösterebilir.
+
+**Nasıl konuşur?** Bir işi anlatırken iki kısa adım verir, yapılmasını bekler, sonra üçüncüyü söyler. Az duymasını bilgisizliği gibi göreni açıkça düzeltir.
+
+**Portre:** dalen-marr
+
+**Şimdi hepsini kapatsak?**
+
+> Şunu kapatırız. Öteki hâlâ sıcak suyu tutuyor. İkisini birden kilitlersek bu çiviye güvenmiş oluruz; ben güvenmiyorum.
+
+**Büyüyle yapsak daha hızlı olmaz mı?**
+
+> Olur. Sonra bana nasıl kapatıldığını gösterin ki gece siz yokken ben açabileyim.
+
+### Neris Vel — Toprak ve sıcak su araştırmacısı; ruhsatı toprak uygulamaları içindir.
+
+**Görünüş:** Yosun rengi cübbesinde toprak ve tebeşir lekeleri vardır. Gözlüğünü okurken değil, cevabını tartarken çıkarır.
+
+**İstediği:** Bahçenin insanları beslediğini göstermek. Bu başarının ona bedenler üzerinde kendiliğinden bir hak vermediğini kabul etmekte zorlanabilir.
+
+**Bildiği:** Toprağın tuzunu ve sıcak su dağılımını ölçebilir. Başka bir büyü dalı için ruhsat sahibi olduğu varsayılmaz; izin kaydı gerçek bir inceleme konusudur.
+
+**Nasıl konuşur?** İlk cevabı teknik olur. İnsanların ne istediği sorulunca elindeki sayfaya bakmayı bırakması gerekir.
+
+**Portre:** neris-vel
+
+**Bedenleri kullanmayı kim kabul etti?**
+
+> Gösterdiğim kayıt şu. İsmin yanındaki boşluğu da görüyorsunuz. Benim tuttuğum sayfa, onların verdiği cevap değil.
+
+**Ürün azalırsa ne yapacağız?**
+
+> Ne kadar azalacağını önce ölçelim. “Aç kalırız” deyip herkesi benim istediğim işe razı edemem.
+
+### Mera Sorn — Ternhaven Ocak Meclisi sözcüsü.
+
+**Görünüş:** Bir masada otururken herkesin görebileceği yere geçer. Sözü bir karara bağlamadan önce işi yapacak kişiye ayrıca döner.
+
+**İstediği:** Kentin geçimini ve yerel rızayı birlikte tutmak. Dışarıdan gelen bir çözümün bütün bakım yükünü Ternhavenlilere bırakmasını istemez.
+
+**Bildiği:** Ortak işin kimlere paylaştırılabileceğini bilir. Tek başına bütün ailelerin onayı yerine geçmez, toprak ruhsatını da genişletemez.
+
+**Nasıl konuşur?** Toplantıyı toparlayan, günlük konuşma dili. Alevli nutukları kısa bir “yarın kim geliyor?” sorusuyla işe döndürür.
+
+**Portre:** mera-sorn
+
+**Kararı sen veremiyor musun?**
+
+> Duyururum. Gece nöbetine onları yazacaksam önce ne dediklerini duymam gerekiyor.
+
+**Yol bitse bütün bunlar düzelmez miydi?**
+
+> Yol olsa şu sebzeyi daha çabuk satardık. Şu vanayı yine birinin kapatması gerekecekti.
+
+## İsteğe bağlı olay · Gece nöbetinin takozu
+
+**Ne zaman açılır?** İyi Kalpli Nekromant · Bir yatağın yeniden ekilmesi
+
+**Masada:** 10–20 dk
+
+Bahçe ve bedenlerle ilgili ana karar verildikten sonra. Üretim kapandıysa yine ortak yıkama taşı hattının güvenliği için kullanılabilir. Yeni ana su baskını veya gizli büyü saldırısı değildir.
+
+**Görsel:** living-ternhaven-savak
+
+**Portreler:** dalen-marr, neris-vel, mera-sorn
+
+### Oyunculara oku
+
+> Dalen, kullanılmayan yedek vananın başında iki küçük tahta takozu yan yana koymuş. Birinin kenarı kararmış, öteki daha yeni. Vanayı yarım tur açınca alttan tek bir sert vuruş geliyor.
+>
+> “Gece buraya kim gelecek?” diye soruyor. Cevap için meclis sözcüsüne bakmıyor; sırayla size dönüyor. “Kendi eliyle bir kere kapatsın. Ben uyurken beni aramasın.”
+
+### Sırayla oynat
+
+**Bakımı anlaşılır kıl**
+
+Dalen bahçeye ve ortak kullanıma giden iki hattı gösterir. Mevcut ana bölümde hangi hat kapatıldıysa o karar korunur. Burada oyuncular hangi parçanın basınç tuttuğunu işaretleyebilir.
+
+> Dalen: Bunu çekince su duruyor. Şunu çekince yalnız sesi kesiliyor. İkisine aynı bez bağlamayın.
+
+**Birinin gerçekten denemesini iste**
+
+Söz verilen nöbetçi veya oyuncu vanayı Dalen’in gözetiminde açıp kapatır. Neris büyüyle onarım yapabiliyorsa işe yarar; sırf el işi sahnesi sürsün diye büyüyü etkisiz kılma. Onarım sonrasında kullanım bilgisi yine paylaşılabilir.
+
+> Neris: Şu kısmı ben tutabilirim. Ben gidince tutacak şeyi de konuşmamız gerekecek.
+
+**Vardiyayı ve emanet malzemeyi yaz**
+
+Mera, gönüllü olmayan bir kişiyi otomatik nöbetçi yapmaz. İhtiyaç için gereken parça, bir haftalık düzen veya çalışma kapatma seçenekleri açıktır. Küçük ücret ana sevkin ödeme defteriyle karıştırılmaz.
+
+> Mera: Adını yazmadan önce sorduk mu? Görev bitince onun da eve gideceği saati yazalım.
+
+### Kontroller
+
+- Dalen’in gözetiminde vanayı denemek zar istemez. Uygun araçla zaman ayıran tamirat otomatik olabilir.
+- Basınç indirilmeden pimi çekmenin tehlikesini önce göster. Israr edilirse Çeviklik DC 10; başarısızlık 1d4 sıcak su hasarı ve geri çekilme. Kapanmış hat tekrar tekrar görünmez hasar vermez.
+
+### Kararlar ve yankıları
+
+**Yedek parçayı onar ve nöbetçiye öğret**
+
+Doğru takoz veya uygun tamirle vana işler hâle gelir. Onarımı teslim alan kişi bir kere kullanır; hangi işaretin hangi hatta ait olduğu belirlenir.
+
+**İleride:** Dranthol’a küçük bir aksam siparişi veya Dalen’in ölçüsü götürülebilir. Bu, ana tahıl hesabındaki yirmi dört çuvaldan biri değildir.
+
+**Kalıcı parça gelene dek süreli vardiya kur**
+
+İş açıkça belli süreyle, rızalı kişiler arasında paylaşılır. Dalen gecenin hangi saatinde yedekleneceğini bilir. Kimsenin bütün ömrü nöbete bağlanmaz.
+
+**İleride:** Dranthol’da doğru parça bulunursa dönme veya gönderme sözü hatırlatılır. Söz verilmediyse partiye zorunlu kurye görevi yazılmaz.
+
+**Sorunlu hattı kapat; güvenli kullanımı küçült**
+
+Bahçe ya da ortak taşın hangisi etkileniyorsa Mera ve kullanıcılarıyla birlikte seçilir. Bir hattın kapanması kentin bütün sıcak suyunu yok etmez.
+
+**İleride:** Dranthol’a giden sebze gibi ek yüklerde gerçek azalma varsa teslim notu düzeltilir. Bir önceki bölümde kapanmış üretim tekrar açıkmış gibi hesaplanmaz.
+
+**Ne zaman geri döner?** Kralın Yalanı · Mühürlü masanın önünde
+
+Dalen’e verilmiş bir aksam siparişi veya geri gönderme sözü varsa ayrı küçük iş olarak göster. Ana tahıl sayısını değiştirme. Ternhaven’e dönülmeyecekse bir güvenilir taşıyıcı seçilebilir.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 9. Kralın Yalanı
 
@@ -3841,7 +4844,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Maeron teslim kâğıdının boş kalan miktar satırını gösterir. Oyuncular kendi yüklerinin hesabını önce kapatabilir veya kayıp sevkin belgelerini isteyebilir. İkisini tek borç gibi okumaz; Yara hakkında verilen işin kapsamı ayrıca sorulabilir.
 
 ### Maeron Vesk
 
@@ -3910,7 +4913,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Tartıcı yirmi dört çıkış ve on iki varış işaretini aynı masaya koyar. Dört ara çuval ile Yara’nın aldığı sekiz ayrı sayfada görülebilir. Oyuncular hangi sayının kimin tanıklığıyla doğrulandığını kendileri eşleştirebilir.
 
 ### Oyuncular sorarsa
 
@@ -3963,7 +4966,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Dağıtım kabının altındaki bez tahılla ağırlaşmıştır. Yara boş kabı bir yana alıp soruyu bekler. Oyuncular payın kaynağını, baskında yaralanan işçiyi veya dağıtımın tanıkla yapılmasını ayrı ayrı konuşabilir.
 
 ### Yara
 
@@ -4027,7 +5030,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** İşçinin durumu ve elde kalan kanıt belli olduğunda; sınırsız tur yangın döndürme.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** İçerideki işçi pencereye bir kere daha vurur; dış sürgü, su fıçısı ve evrakla giden kişinin yolu aynı anda görülebilir. Oyuncular hangi işe kimin uzanacağını seçsin. Gecikmenin sonucunu ancak gerçekten geçen turlarla ilerlet.
 
 ### Karşılaşma · Duman, sürgü ve teslim defteri
 
@@ -4109,7 +5112,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Garran üç belgenin aynı olayı anlatmadığını fark edip masada aralarında boşluk bırakır. Garnizon payı, sivil dağıtım ve yaralanma için ayrı birer ifade alınabilir. Oyuncular önce hangi iddiayı açıklayacaklarını seçebilir.
 
 ### Oyuncular sorarsa
 
@@ -4135,7 +5138,7 @@ Gösterilecek sahne: Dranthol · teslim kapısı · Görsel: winter-ambar · Por
 >
 > Sela kendi makbuzunu kuru yerine koyuyor. Arabanın kapağı kapatılıyor; size borç kalan para kesesi masanın üzerinde kısa bir ses çıkarıyor.
 >
-> Dışarı çıkarken kapının öte yanında bekleyen kadın Taren’e bakıyor. Önce yüzüne, sonra eline. “Sen,” diyor. Arkasını getirmiyor. Henüz.
+> Dışarı çıkarken kapının öte yanında bekleyen kadın arabanızın batı yolundan kalma çamuruna bakıyor. “Siz oradan geliyorsunuz,” diyor. Sonra gözlerini yüzlerinize kaldırıyor. “Taren Olt’u tanır mısınız?”
 
 ### Sırayla oynat
 
@@ -4161,7 +5164,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Ana ve ek sevkin hesabı kapanmış, Dava’yla konuşulup konuşulmayacağı seçilmişse.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Sela teslim makbuzunun kuru nüshasını ayırıp ödenecek hesabı gösterir. Oyuncular ücret, kayıp mal veya verilen sözlerden açık kalan birini kapatabilir. Dava konuşmak isterse bunun teslim ücretinin koşulu olmadığını belli et.
 
 ### Oyuncular sorarsa
 
@@ -4189,6 +5192,117 @@ Orijinalleri koruyup yerelde bir kopya bırak. Tahtın emri ile yerel ikmal suç
 Sonraki yankı: Eryndorn’un kişisel sorumluluğu sırf görev başlığı nedeniyle kesinleşmez; cevap, belgelerin içeriği ve muhatabına bağlıdır.
 
 Sonraki geçiş: Dava’ya ne olduğunu sorarak son bölümü aç. Taren önceki olaylarda öldü, kaçtı veya gözaltındaysa bunu değiştirip yeniden doğurma; tanıklık onsuz da alınabilir.
+
+## Kişi rehberi — DM için
+
+### Ressa Korr — Dranthol ambarlarında teslim, tartı farkı ve yıpranmış mührü kayda alan denetçi; soruşturma veya hüküm makamı değildir.
+
+**Görünüş:** Mühür parçalarını çıplak avucunda gezdirmez; bezin bir köşesini kıvırıp yanına saat ve yeri yazar. Üzerinde gösterişli makam işareti yoktur.
+
+**İstediği:** Bir suçlama daha yüksek makam istedi diye sağlamlaşmasın; bir görevli kendisini korumak istedi diye de kaybolmasın. İncelemenin sürmesi için parçaları ve tanıkları korumak.
+
+**Bildiği:** Eski mühürlerin hangi yerinden kırıldığını karşılaştırabilir. Bir mühürden kralın ne düşündüğünü çıkaramaz; kopyanın neyi kanıtladığını sınırlı söyler.
+
+**Nasıl konuşur?** Sert sözcük yerine kesin soru kullanır. “Kim söyledi?” ile “Sen gördün mü?” arasına bilinçli bir durak koyar.
+
+**Portre:** ressa-korr
+
+**Bu bizi haklı çıkarır mı?**
+
+> Henüz neyi iddia ettiğinizi söylemediniz. Önce onu yazın. Sonra bu parçanın o cümleye ne kadar yettiğine bakalım.
+
+**Parçayı size verirsek kaybolmaz mı?**
+
+> Aldığımı yazacağım. Bir nüsha sizde, biri ayrı masada kalsın. Ben de tek kâğıda güvenmiyorum.
+
+### Yüzbaşı Maeron Vesk — Dranthol’un sözleşmeli ikmal görevlisi; kale komutanı değildir.
+
+**Görünüş:** Tıknaz, kızıl kahverengi sakallı. Mavi gri ceketinin cebinde tartı listesi kıvrılmıştır; görüşme boyunca kenarını düzeltir.
+
+**İstediği:** Garnizonun beklediği miktarı teslim almak ve kendi hesabının eksik görünmesini engellemek. Rakamın arkasındaki işçiyi ikinci sıraya koyabilir.
+
+**Bildiği:** Teslim beklentisini ve depoya giren sayıyı bilir. Yara’nın dağıttığı her çuvalı görmedi; görev unvanı bunu görmüş yapmaz.
+
+**Nasıl konuşur?** Sayıyla başlar, itiraz duyunca aynı sayıyı daha yüksek sesle tekrarlayabilir. Somut karşı belge onu yavaşlatır.
+
+**Portre:** maeron-vesk
+
+**İnsanlar açken niye bekliyorsun?**
+
+> Askerin yarınki payını da ben imzalıyorum. Bunu söylemek ötekilerin açlığını çözmüyor; miktarı birlikte görelim.
+
+**Bu kralın emri mi?**
+
+> Bana gelen teslim emri bu. Bundan çıkardığım kararın hepsini kral söylemiş gibi yazmayacağım.
+
+## İsteğe bağlı olay · Balmumunun karşı parçası
+
+**Ne zaman açılır?** Kralın Yalanı · Aynı masada üç hesap
+
+**Masada:** 10–15 dk
+
+Yangın ve kurtarma sonrasında, açık hesap görüşmesinin hazırlığı sırasında. İşçi veya tanık hâlâ tehlikedeyse kanıt toplama bunun önüne geçmez. Bu parça bütün hırsızlığın failini tek başına göstermez.
+
+**Görsel:** winter-ambar
+
+**Portreler:** ressa-korr, maeron-vesk
+
+### Oyunculara oku
+
+> Ressa masaya gelen kâğıda bakmadan önce bezi seriyor. Yangın yerinden çıkarılan balmumu kırığı, temiz bezin üzerinde parlak ve biçimsiz görünüyor. Maeron kopyadaki mühre uzanıyor; Ressa kâğıdı çekmiyor, yalnız elinin önüne ikinci bezi koyuyor.
+>
+> “Onu alıp buna yapıştırmayalım,” diyor. “Önce hangisi nereden geldi, onu duymam gerekiyor.”
+
+### Sırayla oynat
+
+**Kaynağı oyuncular anlatsın**
+
+Balmumu kırığı gerçekten yangın yerinden alınmışsa hangi kişi, nereden ve ne zaman aldığını söyler. Oyuncular kanıt almamışsa Ressa kendi getirdiği parçanın sınırlı kaynağını anlatır; partiye sonradan kanıt bulmuş gibi övgü verilmez.
+
+> Ressa: Şimdi bana anlatın. Birazdan odaya başkası girecek; ona da aynı cümleyi kurabilelim.
+
+**Karşılaştırmanın sınırını göster**
+
+Balmumundaki baskının üç dişi ve ince çatlak çizgisi, nüshadaki mühür baskısına benzer. Ortada fiziksel olarak birbirine oturtulacak ikinci bir balmumu yarısı yoktur. Benzer kalıp izi, kimin çaldığını, kimin emir verdiğini veya kralın haberi olduğunu tek başına göstermez; kâğıdın hangi işlemde kullanıldığı ayrıca doğrulanır.
+
+> Maeron: Aynı mühürse benim söylediğim çıkıyor. — Ressa: Aynı mührü ne için söylediğinizi önce yazdık mı?
+
+**Emanetin kimde kalacağını seç**
+
+İmzalı teslim, iki tanıklı kopya veya parçanın koruyuculuğu seçenekleri vardır. Ressa’nın görevi Garran’ın yerini almak değildir. Oyuncular saklayacaksa tanıkların erişimini nasıl sağlayacağını konuşsun.
+
+> Ressa: Bende kalabilir. Sizde kalırsa da yerini bileyim. Yarın birinin cebinde ezilip yok olduğunda buna inceleme diyemeyiz.
+
+### Kontroller
+
+- Parçanın biçimini çizmek, kaynağını yazmak ve ikinci tanık almak zar istemez.
+- Araştırma DC 11, baskılardaki diş aralığı ve çatlak izinin benzerliğini değerlendirmeyi hızlandırır. Başarısız sonuç kanıtı tersine çevirmez; daha iyi ışık veya uygun uzman gerekir. Büyülü sorgu veya gerçek bir özelliğin meşru etkisini senaryo uğruna geri alma.
+
+### Kararlar ve yankıları
+
+**Parçayı imzalı teslimle denetçiye ver**
+
+Ressa saat, yer, bulan kişi ve aldığını iki nüshada yazar. Bir kopya partide, biri ayrı masada kalır. Başka suçların kanıtı da bu tek parçanın altında kaybolmaz.
+
+**İleride:** Dava’nın ifadesinde aynı teslim usulü önerilebilir; partinin başkasının sözüne neden dikkat ettiğini somut bir önceki davranışa bağlar.
+
+**Parçayı koru; tanıklı çizim ve ölçü bırak**
+
+Parti korumayı üstlenir, iki tanık çizimi ve kaynağı imzalar. Ressa inceleme gerektiğinde nasıl ulaşacağını öğrenir. Taşınırken kırılırsa kırığın ayrıca kaydı tutulur.
+
+**İleride:** Taren’in ifadesinde sahip olunan bir eşya varsa kimde saklandığı sorulur. Elinde tutmak suçlamayı kendi lehine düzenleme hakkı vermez.
+
+**Karşılaştırmayı taraflar önünde yap**
+
+Masada sırayla bakılır; kimsenin parçayı kâğıda sürüp yeni iz üretmesine izin verilmez. Görülen ortak özellik ve görülemeyen sonuç ayrı söylenir.
+
+**İleride:** Son bölümde Dava’nın herkese açık görüşme isteyip istemediği ayrıca sorulur. Önceki açık inceleme, onun bütün özel eşyasını teşhir etmeye rıza verdiği anlamına gelmez.
+
+**Ne zaman geri döner?** Sizi Kurtaran Düşman · Kapıda tanınan yüz
+
+Mühür olayında seçilen tanıklık ve emanet usulünü hatırla. Dava’ya aynı usul önerilebilir, dayatılmaz. Olay yaşanmadıysa partinin güvenilirliği için hayalî sicil yaratma.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.
 
 # 10. Sizi Kurtaran Düşman
 
@@ -4284,7 +5398,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Dava cevap beklerken kapının yolunu kapatmaz. Eski olayın nerede olduğunu veya kimden dinlenebileceğini sorabilirler. Taren oradaysa kendi yaptığını anlatması istenir; yoksa Dava tanıklığı ona seslenmeden verir.
 
 ### Taren Olt
 
@@ -4353,7 +5467,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Ocak taşının kurumlu yüzüyle onarılmış menteşeyi aynı bakışa getir. Dava hangi parçanın evden kaldığını gösterebilir. Oyuncular çevreyi incelemek, başka bir tanık aramak veya eldeki ifadeyi güvenli yere taşımak arasında seçebilir.
 
 ### Oyuncular sorarsa
 
@@ -4408,7 +5522,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Alrun gördüğü kafileyle ilgili cümlesini bitirip durur; görmediği iç odaları anlatmaya kalkmaz. Oyuncular Dava’nın bildiğiyle onun bildiğini ayrı kayda alabilir veya emin olmadığı ayrıntıyı tekrar sorabilir.
 
 ### Dava
 
@@ -4470,7 +5584,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Yol kıvrımındaki bekleyen atın dizgini gevşek değildir; binicisi kısa süre sonra ayrılabilecek biçimde bağlamıştır. Oyuncular açık konuşma, evrakı başka yoldan çıkarma veya tanıkları arkaya alma planını kurabilir. Bunu henüz başlamamış bir saldırı gibi oynatma.
 
 ### Oyuncular sorarsa
 
@@ -4521,7 +5635,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Tanıklarla belgenin durumu belli olduğunda; bütün eski çeteyi tek sahnede temizleme.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Yan işçi patikasıyla alçak taş duvarı yeniden göster. Hangi tanık ve belgenin hâlâ açıkta olduğunu söyle; güvenli yere ulaşmış olanı geri çekme. Oyuncular koruma, oyalama veya farklı çıkış için somut bir görev seçebilir.
 
 ### Karşılaşma · Tanık yolunda iki gözcü
 
@@ -4581,9 +5695,9 @@ Gösterilecek sahne: Dranthol · tanıkların güvenli görüşmesi · Görsel: 
 
 ### Oyunculara oku
 
-> Bu kez masanın üzerinde daha az eşya var. Bir ifade, Dava’nın menteşesi ve Taren’in bırakmışsa silahı. Dışarıdan gelen ses artık konuşmayı bastırmıyor.
+> Bu kez masanın üzerinde daha az eşya var. Bir ifade, Dava’nın menteşesi ve tanıkların getirdiği yol kâğıtları. Dışarıdan gelen ses artık konuşmayı bastırmıyor.
 >
-> Dava yorgunluğunu saklamıyor. Taren’in söyleyeceği şeyi dinleyecek kadar kalıyor ama ona bir rahatlama vermek için yüzünü değiştirmiyor. Siz konuşurken kâğıttaki bir ismi düzeltiyor.
+> Dava yorgunluğunu saklamıyor. Masadaki ifadeleri dinlerken elini menteşenin üstünde tutuyor; bir itirazı varsa kimin söylediğine bakmadan söz istiyor. Siz konuşurken kâğıttaki bir ismi düzeltiyor.
 >
 > Karar verildiğinde ilk değişen şey yarınki iş oluyor: kimin nerede yatacağı, kimin kapıya bakacağı, ifadeyi kimin götüreceği.
 
@@ -4611,7 +5725,7 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Sahne ne zaman biter?** Kimin nerede kalacağı, ifadeyi kimin alacağı ve yarın atılacak ilk adım belli olduğunda.
 
-**Oyuncular duraksarsa:** Bir NPC küçük, somut bir iş için yardım istesin. Kararı onların yerine vermeden yeniden sahnenin içine çağır.
+**Oyuncular duraksarsa:** Dava ifadenin götürüleceği yerin adını boş satırda bekletir. Oyuncular yarın kimin nerede olacağını, tanıkların kime haber vereceğini veya teslim sözünü konuşabilir. Taren sahnede yoksa onun adına cevap ya da hareket ekleme.
 
 ### Oyuncular sorarsa
 
@@ -4639,3 +5753,114 @@ Bu bir örtbas tercihiyse onu öyle kaydet. Dava’ya susması için ücret tekl
 Sonraki yankı: Taren’in ileride iyi davranması eski dosyayı kapatmaz; parti mağdurların sorularıyla yeniden karşılaşabilir.
 
 Sonraki geçiş: Bu yolculuğun hesabını kapat. Bir sonraki oturumu tanık koruma, sevk hesabı veya oyuncuların açtığı başka bir izden başlat.
+
+## Kişi rehberi — DM için
+
+### Taren Olt — Yol işlerinde silahlı refakatçi; geçmişte Bedrik Kor’un kaçakçı grubundaydı.
+
+**Görünüş:** Uzun koyu saçının bir yanı kısa kesilmiştir. Dinlenirken kapıyı görebildiği yere oturur; kaşındaki eski izi saklamaz.
+
+**İstediği:** Bugün yaptığı yardımın görülmesini ister ama geçmişini anlatınca bunun onu temize çıkarmayacağını bilir. Tanığa baskı yapılmasını kabul etmemesi rol yapma fırsatıdır; otomatik kahraman ilanı değildir.
+
+**Bildiği:** Eski kafilenin kimlerden oluştuğunu ve kömürcü evlerindeki kendi eylemini bilir. Başkasının emrini anlatması yaptığını ortadan kaldırmaz.
+
+**Nasıl konuşur?** Kısa cevaplar. Kendi eylemi sorulunca edilgen cümle kurarsa somutlaştır: “sen ne yaptın?”
+
+**Portre:** taren-olt
+
+**Bizi kurtardın, sana borçluyuz.**
+
+> O gün yardıma ihtiyacınız vardı. Bunu başkasına anlatacaklarınızın yerine koymayın.
+
+**Dava yalan mı söylüyor?**
+
+> Onu duymadan o cümleyi kurmayacağım. Benim anlatmadığım şeyler var.
+
+### Ressa Korr — Dranthol ambarlarında teslim, tartı farkı ve yıpranmış mührü kayda alan denetçi; soruşturma veya hüküm makamı değildir.
+
+**Görünüş:** Mühür parçalarını çıplak avucunda gezdirmez; bezin bir köşesini kıvırıp yanına saat ve yeri yazar. Üzerinde gösterişli makam işareti yoktur.
+
+**İstediği:** Bir suçlama daha yüksek makam istedi diye sağlamlaşmasın; bir görevli kendisini korumak istedi diye de kaybolmasın. İncelemenin sürmesi için parçaları ve tanıkları korumak.
+
+**Bildiği:** Eski mühürlerin hangi yerinden kırıldığını karşılaştırabilir. Bir mühürden kralın ne düşündüğünü çıkaramaz; kopyanın neyi kanıtladığını sınırlı söyler.
+
+**Nasıl konuşur?** Sert sözcük yerine kesin soru kullanır. “Kim söyledi?” ile “Sen gördün mü?” arasına bilinçli bir durak koyar.
+
+**Portre:** ressa-korr
+
+**Bu bizi haklı çıkarır mı?**
+
+> Henüz neyi iddia ettiğinizi söylemediniz. Önce onu yazın. Sonra bu parçanın o cümleye ne kadar yettiğine bakalım.
+
+**Parçayı size verirsek kaybolmaz mı?**
+
+> Aldığımı yazacağım. Bir nüsha sizde, biri ayrı masada kalsın. Ben de tek kâğıda güvenmiyorum.
+
+## İsteğe bağlı olay · Kapağı açılmamış kutu
+
+**Ne zaman açılır?** Sizi Kurtaran Düşman · Yarın nerede olacağı
+
+**Masada:** 10–20 dk
+
+Tanıklar güvenli yere çıktıktan ve son ana karar verildikten sonra. Dava hayatta ve görüşmeye razıysa oynat. Taren ölmüş, kaçmış veya gözaltındaysa eşya sahnesi onu geri getirmez; Dava isterse aynı işi onun yokluğunda yapar.
+
+**Görsel:** winter-kul-tanigi
+
+**Portreler:** yok
+
+### Oyunculara oku
+
+> Dava yağlanmış bezin düğümünü açıyor. Küçük bir dikiş kutusu, kapağı kenarından islenmiş hâliyle ortaya çıkıyor. Parmaklarını kilide götürüyor ama anahtarı çevirmiyor.
+>
+> “Bunu evden başkası çıkarmış,” diyor. “İçindekini kimse görmedi sanıyorum.” Kutuyu hemen size vermiyor. Masada kuru bir yer açmanızı bekliyor.
+
+### Sırayla oynat
+
+**Dava’nın ne istediğini öğren**
+
+Dava bir eşyayı geri almıştır; onu mutlaka delil diye açmak zorunda değildir. Kutuda birkaç düğme, yarım mektup ve yanmamış bir kumaş parçası vardır. Kaybolan insanların hayatına ait izler, suçun bütün emir zincirini açıklayan sihirli belge değildir.
+
+> Dava: Tanıklık ederim dedim. Evdeki her şeyi masaya dökerim demedim.
+
+**Taren varsa rolünü sınırlı tut**
+
+Dava isterse Taren kapağı veya bulunuş yerini tanıyıp tanımadığını söyler. İstemiyorsa odadan çıkar. Taren’in duygulanması tanığın rızasının veya önceki zararın yerine geçmez.
+
+> Taren: Benim bakmamı istemiyorsa bakmam. Ama nereden geldiğini sorarsa bildiğimi söyleyeceğim.
+
+**Eşya ile ifadeyi ayrı teslim et**
+
+Ressa bulunabiliyorsa yalnız Dava’nın rıza gösterdiği kısmı kaydeder. O bulunmuyorsa isim ve zaman yazan bir tarafsız tanık aynı küçük işi yapabilir. Mevcut ana yargı kararı kutu açılmadı diye çökmüş sayılmaz.
+
+> Ressa: Kapalı teslim aldım diye de yazabilirim. İçini görmediğim bir şeyi gördüm diye imzalamam yeter.
+
+### Kontroller
+
+- Makul koruma, rızalı tanıklık ve sağlam masada kutu açmak test istemez. Kilit sıkışmışsa uygun küçük aletle zaman ayırmak yeterlidir.
+- Oyuncular zorla açmayı seçerse bu önce Dava’nın duyacağı bir davranıştır. Başarılı El Çabukluğu testi rıza veya temize çıkma sağlamaz; sosyal sonucu açıkça oynat.
+
+### Kararlar ve yankıları
+
+**Dava yalnız açsın; yanında bekle**
+
+İsterse yardım isteyen biri kalır, diğerleri uzaklaşır. Kutudan çıkanların tamamı gruba açıklanmaz. Bir parça incelemeye verilirse Dava ayrıca seçer.
+
+**İleride:** Bir sonraki oturumda Dava gerçekten paylaştığı tek eşya veya bilgiyle geri dönebilir. Özel kalan içerik oyuncuların gizlice bildiği kanon gibi anlatılmaz.
+
+**Rızalı tanıkla aç; seçtiği parçayı kaydet**
+
+Dava kutuyu açar ve kayda girecek şeyi gösterir. Teslim edilen parçanın kimde kaldığı açıkça yazılır. Kutunun tamamı müsadere edilmiş sayılmaz.
+
+**İleride:** Dava, verdiği parçanın durumunu daha sonra sorabilir. Sorusu yeni bir tehdit veya ihanet bahanesi değil, alınmış somut sorumluluktur.
+
+**Kutuyu kapalı tut; korunacağı yeri belirle**
+
+Kutu mühürlenmek zorunda değildir; Dava’nın seçtiği güvenli yerde kapalı kalır. İfade, kutunun içeriğinden bağımsız görülen olaylara dayanır.
+
+**İleride:** Sonraki yolculuktan önce kutu geri istenebilir ya da Dava onu yanında taşır. Haberleşme yolu belirlendiyse bu yol kullanılır; DM kendi kendine kayıp eşya olayı yaratmak zorunda değildir.
+
+**Ne zaman geri döner?** Sizi Kurtaran Düşman · Yarın nerede olacağı
+
+Bu olay sonrası kapanışta yalnız Dava’nın rızayla paylaştığı bilgi ve emanet sözünü hatırlat. Taren’in ana dosyasını otomatik kapatma. Aynı sahnede tekrar gösteriliyorsa yeni olay gibi oynatma; seçilen sonucu bir cümleyle an.
+
+Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.

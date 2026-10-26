@@ -7,6 +7,7 @@ const jsonName = 'On-Kis-Karari-DM.json'
 const raw = await readFile(new URL(jsonName, dir), 'utf8')
 const pack = JSON.parse(raw)
 const sceneCount = pack.quests.reduce((n, q) => n + q.steps.length, 0)
+const eventCount = pack.quests.reduce((n, q) => n + (q.events?.length || 0), 0)
 if (
   pack.quests.length !== 10 ||
   pack.quests.some((q) => !q.steps.length || q.steps.length > 12) ||
@@ -26,6 +27,97 @@ const facts = (quick) =>
   `<dl><dt>Nerede?</dt><dd>${esc(quick.where)}</dd><dt>Ne zaman?</dt><dd>${esc(quick.time)}</dd><dt>Amacın ne?</dt><dd>${esc(quick.goal)}</dd><dt>Sonra?</dt><dd>${esc(quick.next)}</dd></dl>`
 const list = (values) =>
   `<ul>${values.map((v) => `<li>${esc(v)}</li>`).join('')}</ul>`
+const sceneName = (questId, sceneId) => {
+  const q = pack.quests.find((quest) => quest.id === questId)
+  const s = q?.steps.find((scene) => scene.id === sceneId)
+  return q && s ? `${q.title} · ${s.title}` : `${questId} · ${sceneId}`
+}
+const dossierHtml = (dossiers = []) =>
+  !dossiers.length
+    ? ''
+    : `<details class="dossiers"><summary>Kişi rehberi · DM için ${dossiers.length} kişi</summary>${dossiers.map((d) => `<section><h4>${esc(d.name)}</h4>${para(d.role)}<dl><dt>Görünüş</dt><dd>${esc(d.appearance)}</dd><dt>İstediği</dt><dd>${esc(d.wants)}</dd><dt>Bildiği</dt><dd>${esc(d.knows)}</dd><dt>Nasıl konuşur?</dt><dd>${esc(d.voice)}</dd></dl><p class="visual">Portre: ${esc(d.portraitId || 'yok')}</p>${d.lines.map((line) => `<strong>${esc(line.cue)}</strong>${quote(line.line)}`).join('')}</section>`).join('')}</details>`
+const eventHtml = (event, questId) =>
+  `<details class="side-event" id="${esc(event.id)}"><summary>İsteğe bağlı · ${esc(event.title)} · ${esc(event.duration)}</summary><p><strong>Ne zaman açılır?</strong> ${esc(sceneName(questId, event.at))}</p>${para(event.hook)}<div class="visual">Görsel: <strong>${esc(event.backgroundId)}</strong><br>Portreler: ${esc(event.castIds.join(', ') || 'yok')}</div><h4>Oyunculara oku</h4>${quote(event.readAloud)}<h4>Sırayla oynat</h4><ol>${event.beats.map((beat) => `<li><h5>${esc(beat.title)}</h5>${para(beat.text)}${beat.line ? quote(beat.line) : ''}</li>`).join('')}</ol>${event.checks.length ? `<h4>Kontroller</h4>${list(event.checks)}` : ''}<h4>Kararlar ve yankıları</h4>${event.choices.map((choice) => `<h5>${esc(choice.label)}</h5>${para(choice.result)}<p><strong>İleride:</strong> ${esc(choice.echo)}</p>`).join('')}<aside><strong>Ne zaman geri döner?</strong><p><a href="#${esc(event.followup.sceneId)}">${esc(sceneName(event.followup.questId, event.followup.sceneId))}</a></p>${para(event.followup.reminder)}</aside><p class="notice">Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.</p></details>`
+function dossierMarkdown(dossiers = []) {
+  if (!dossiers.length) return []
+  const lines = ['## Kişi rehberi — DM için', '']
+  for (const d of dossiers) {
+    lines.push(
+      `### ${d.name} — ${d.role}`,
+      '',
+      '**Görünüş:** ' + d.appearance,
+      '',
+      '**İstediği:** ' + d.wants,
+      '',
+      '**Bildiği:** ' + d.knows,
+      '',
+      '**Nasıl konuşur?** ' + d.voice,
+      '',
+      '**Portre:** ' + (d.portraitId || 'yok'),
+      '',
+    )
+    for (const line of d.lines)
+      lines.push('**' + line.cue + '**', '', '> ' + line.line, '')
+  }
+  return lines
+}
+function eventMarkdown(event, questId) {
+  const lines = [
+    '## İsteğe bağlı olay · ' + event.title,
+    '',
+    '**Ne zaman açılır?** ' + sceneName(questId, event.at),
+    '',
+    '**Masada:** ' + event.duration,
+    '',
+    event.hook,
+    '',
+    '**Görsel:** ' + event.backgroundId,
+    '',
+    '**Portreler:** ' + (event.castIds.join(', ') || 'yok'),
+    '',
+    '### Oyunculara oku',
+    '',
+    '> ' + event.readAloud.replaceAll('\n', '\n> '),
+    '',
+    '### Sırayla oynat',
+    '',
+  ]
+  for (const beat of event.beats)
+    lines.push(
+      '**' + beat.title + '**',
+      '',
+      beat.text,
+      '',
+      ...(beat.line ? ['> ' + beat.line, ''] : []),
+    )
+  if (event.checks.length)
+    lines.push(
+      '### Kontroller',
+      '',
+      ...event.checks.map((check) => '- ' + check),
+      '',
+    )
+  lines.push('### Kararlar ve yankıları', '')
+  for (const choice of event.choices)
+    lines.push(
+      '**' + choice.label + '**',
+      '',
+      choice.result,
+      '',
+      '**İleride:** ' + choice.echo,
+      '',
+    )
+  lines.push(
+    '**Ne zaman geri döner?** ' +
+      sceneName(event.followup.questId, event.followup.sceneId),
+    '',
+    event.followup.reminder,
+    '',
+    'Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş sayılmaz; kararını ve kendi notunu Yayın Masası’nda kaydet.',
+    '',
+  )
+  return lines
+}
 const playHtml = (p) =>
   !p
     ? ''
@@ -212,12 +304,31 @@ for (const [qi, q] of pack.quests.entries()) {
       `<section class="scene" id="${esc(s.id)}"><span class="eyebrow">SAHNE ${qi + 1}.${si + 1}</span><h3>${esc(s.title)}</h3>${facts(s.quick)}<div class="visual">Gösterilecek manzara: <strong>${esc(s.publicTitle)}</strong></div><h4>Oyunculara oku</h4>${quote(s.readAloud)}<h4>Sırayla oynat</h4><ol>${s.runbook.beats.map((beat) => `<li><h5>${esc(beat.title)}</h5>${para(beat.text)}${beat.line ? quote(beat.line) : ''}</li>`).join('')}</ol>${playHtml(s.play)}<details><summary>Oyuncular sorarsa</summary>${s.runbook.questions.map((qa) => `<h5>${esc(qa.question)}</h5>${para(qa.answer)}`).join('')}</details><details><summary>Zarlar ve ek notlar</summary><ul>${[...s.checks, ...s.actions].map((x) => `<li>${esc(x)}</li>`).join('')}</ul></details><details><summary>Kararlar ve sonraki yankıları</summary>${s.choices.map((c) => `<h5>${esc(c.label)}</h5>${para(c.result)}${para(c.echo)}`).join('')}</details><aside><strong>Buradan sonra</strong>${para(s.runbook.next)}</aside></section>`,
     )
   }
+  markdown.push(...dossierMarkdown(q.dossiers))
+  for (const event of q.events || []) {
+    markdown.push(...eventMarkdown(event, q.id))
+    route.push(
+      `**İsteğe bağlı:** ${event.title} (${event.duration})`,
+      '',
+      '**Açıldığı adım:** ' + sceneName(q.id, event.at),
+      '',
+      event.hook,
+      '',
+      `**Göster:** ${event.backgroundId} · Portreler: ${event.castIds.join(', ') || 'yok'}`,
+      '',
+      '**Geri dönüş:** ' +
+        sceneName(event.followup.questId, event.followup.sceneId),
+      '',
+      event.followup.reminder,
+      '',
+    )
+  }
   chapters.push(
-    `<article id="${esc(q.id)}"><span class="eyebrow">BÖLÜM ${qi + 1}</span><h2>${esc(q.title)}</h2>${facts(q.quick)}<details open><summary>Nasıl başlatırım?</summary>${para(b.previous)}${para(b.arrival)}${para(b.purpose)}${quote(b.opening)}<aside><strong>İlk sahneye geçiş</strong>${para(b.transition)}</aside></details><details><summary>Kim kimdir?</summary>${b.cast.map((c) => `<h4>${esc(c.name)}</h4>${para(c.role)}<p><strong>İstediği:</strong> ${esc(c.wants)}</p><p><strong>İlk karşılaşma:</strong> ${esc(c.meeting)}</p>${quote(c.line)}`).join('')}</details>${sceneHtml.join('')}<a class="top" href="#bas">Bölüm listesine dön ↑</a></article>`,
+    `<article id="${esc(q.id)}"><span class="eyebrow">BÖLÜM ${qi + 1}</span><h2>${esc(q.title)}</h2>${facts(q.quick)}<details open><summary>Nasıl başlatırım?</summary>${para(b.previous)}${para(b.arrival)}${para(b.purpose)}${quote(b.opening)}<aside><strong>İlk sahneye geçiş</strong>${para(b.transition)}</aside></details><details><summary>Kim kimdir?</summary>${b.cast.map((c) => `<h4>${esc(c.name)}</h4>${para(c.role)}<p><strong>İstediği:</strong> ${esc(c.wants)}</p><p><strong>İlk karşılaşma:</strong> ${esc(c.meeting)}</p>${quote(c.line)}`).join('')}</details>${sceneHtml.join('')}${dossierHtml(q.dossiers)}${q.events?.length ? '<h3>İsteğe bağlı olaylar</h3>' + q.events.map((event) => eventHtml(event, q.id)).join('') : ''}<a class="top" href="#bas">Bölüm listesine dön ↑</a></article>`,
   )
 }
-const html = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>On Kış Kararı — DM Oynatım Kitabı</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#131715;color:#e3ddcd;font:19px/1.8 Georgia,serif}main{max-width:930px;margin:auto;padding:56px 28px}h1,h2,h3,h4,h5{line-height:1.2;color:#f0e8d5}h1{font-size:clamp(2.4rem,6vw,4rem)}h2{font-size:2.6rem}h3{font-size:1.9rem}h4{font-size:1.25rem}h5{font-size:1.1rem;margin-bottom:8px}a{color:#d5b985}nav{display:grid;gap:8px;padding:24px;background:#1b211d}article{border-top:1px solid #4b513f;padding-top:56px;margin-top:56px}.eyebrow{font:12px/1.5 system-ui;letter-spacing:.2em;color:#b6bc9f}dl{display:grid;grid-template-columns:120px 1fr;gap:9px 20px;background:#20261e;padding:24px;font-size:17px}dt{color:#b7bf9f}dd{margin:0}blockquote{margin:22px 0;padding:20px 26px;border-left:3px solid #ad9568;background:#1d211d;white-space:pre-line}.scene{padding:40px 0;border-top:1px solid #353d32;margin-top:36px}.visual{font:14px/1.6 system-ui;color:#c9bb9e;padding:12px 0}details{margin:18px 0;border:1px solid #343e32;padding:18px}summary{cursor:pointer;color:#d8cbb2;font:600 16px/1.5 system-ui}aside{background:#253023;border-radius:4px;padding:20px;margin:24px 0}aside p{margin-bottom:0}.top{font:14px system-ui}li{padding-left:8px;margin-bottom:20px}p{white-space:pre-line}.notice{font:15px/1.7 system-ui;color:#babcae}@media(max-width:600px){main{padding:28px 18px}dl{grid-template-columns:1fr;gap:4px;padding:18px}dd{margin-bottom:14px}h2{font-size:2rem}}@media print{html{scroll-behavior:auto}body{background:white;color:#222;font-size:11pt}main{max-width:none;padding:0}h1,h2,h3,h4,h5{color:#111}nav,.top{display:none}article{break-before:page}dl,blockquote,aside{background:#f5f3eb}details{display:block}details>*{display:block}summary{font-weight:bold}.scene{break-inside:auto}}</style></head><body><main id="bas"><span class="eyebrow">ARUZAHR · HAZIR HİKÂYE</span><h1>On Kış Kararı</h1><p>Marhalden’den Hardlane’e giden bir yük sözleşmesi, on karar ve geri dönen insanlar.</p><p class="notice">Şifre gerekmez. Hikâye sitede hazırdır; bu kitap DM için çevrimdışı metin kopyasıdır. Manzaralar ve portreler güncel Yayın Masası’nda gösterilir. Kitap görev sırları içerir; oyunculara kitabı değil seçtiğin sahneyi göster.</p><nav aria-label="Bölümler">${pack.quests.map((q, i) => `<a href="#${esc(q.id)}">${i + 1}. ${esc(q.title)}</a>`).join('')}</nav>${chapters.join('')}</main></body></html>\n`
-const intro = `ON KIŞ KARARI — ŞİFRESİZ HAZIR HİKÂYE\n\nGüncel siteyi aç: Yayın Masası → Hikâyeyi yönet. On görev ve ${sceneCount} sahne hazır gelir; dosya yüklemene veya şifre girmene gerek yok.\n\nBu ZIP metin yedeğidir. Dosyalar:\n- On-Kis-Karari-DM.json: aynı hazır hikâyenin düzenlenebilir yedeği\n- On-Kis-Karari-DM.md: okunabilir tam metin\n- On-Kis-Karari-Oynatim-Kitabi.html: bölüm listeli çevrimdışı kitap\n- YOL-HARITASI.md: nerede / ne zaman / amaç / sonra özeti\n- ILK-OTURUM.md: ilk bölüm için kısa yönetim rehberi\n- ONCE-OKU.txt: bu açıklama\n\nYayın görselleri ve portreler sitenin içinde gelir, bu metin ZIP'ine kopyalanmaz. Kendi notların ve kararların ayrıca tarayıcıda kaydedilir. Bu hazır kitap yayımlanmıştır; kişisel kampanya yedeğin ve kendi DM notların kendiliğinden yayımlanmaz.\n`
+const html = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>On Kış Kararı — DM Oynatım Kitabı</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#131715;color:#e3ddcd;font:19px/1.8 Georgia,serif}main{max-width:930px;margin:auto;padding:56px 28px}h1,h2,h3,h4,h5{line-height:1.2;color:#f0e8d5}h1{font-size:clamp(2.4rem,6vw,4rem)}h2{font-size:2.6rem}h3{font-size:1.9rem}h4{font-size:1.25rem}h5{font-size:1.1rem;margin-bottom:8px}a{color:#d5b985}nav{display:grid;gap:8px;padding:24px;background:#1b211d}article{border-top:1px solid #4b513f;padding-top:56px;margin-top:56px}.eyebrow{font:12px/1.5 system-ui;letter-spacing:.2em;color:#b6bc9f}dl{display:grid;grid-template-columns:120px 1fr;gap:9px 20px;background:#20261e;padding:24px;font-size:17px}dt{color:#b7bf9f}dd{margin:0}blockquote{margin:22px 0;padding:20px 26px;border-left:3px solid #ad9568;background:#1d211d;white-space:pre-line}.scene{padding:40px 0;border-top:1px solid #353d32;margin-top:36px}.visual{font:14px/1.6 system-ui;color:#c9bb9e;padding:12px 0}details{margin:18px 0;border:1px solid #343e32;padding:18px}summary{cursor:pointer;color:#d8cbb2;font:600 16px/1.5 system-ui}aside{background:#253023;border-radius:4px;padding:20px;margin:24px 0}aside p{margin-bottom:0}.top{font:14px system-ui}li{padding-left:8px;margin-bottom:20px}p{white-space:pre-line}.notice{font:15px/1.7 system-ui;color:#babcae}@media(max-width:600px){main{padding:28px 18px}dl{grid-template-columns:1fr;gap:4px;padding:18px}dd{margin-bottom:14px}h2{font-size:2rem}}@media print{html{scroll-behavior:auto}body{background:white;color:#222;font-size:11pt}main{max-width:none;padding:0}h1,h2,h3,h4,h5{color:#111}nav,.top{display:none}article{break-before:page}dl,blockquote,aside{background:#f5f3eb}details{display:block}details>*{display:block}summary{font-weight:bold}.scene{break-inside:auto}}</style></head><body><main id="bas"><span class="eyebrow">ARUZAHR · HAZIR HİKÂYE</span><h1>On Kış Kararı</h1><p>Marhalden’den Hardlane’e giden bir yük sözleşmesi, on karar ve geri dönen insanlar.</p><p class="notice">10 bölüm · ${sceneCount} ana sahne · ${eventCount} isteğe bağlı olay. Yan olayların seçimleri Yayın Masası’nda özel olarak kaydedilir; sonraki durakta hatırlatılır.</p><p class="notice">Şifre gerekmez. Hikâye sitede hazırdır; bu kitap DM için çevrimdışı metin kopyasıdır. Manzaralar ve portreler güncel Yayın Masası’nda gösterilir. Kitap görev sırları içerir; oyunculara kitabı değil seçtiğin sahneyi göster.</p><nav aria-label="Bölümler">${pack.quests.map((q, i) => `<a href="#${esc(q.id)}">${i + 1}. ${esc(q.title)}</a>`).join('')}</nav>${chapters.join('')}</main></body></html>\n`
+const intro = `ON KIŞ KARARI — ŞİFRESİZ HAZIR HİKÂYE\n\nGüncel siteyi aç: Yayın Masası → Hikâyeyi yönet. On görev, ${sceneCount} ana sahne ve ${eventCount} isteğe bağlı olay hazır gelir; dosya yüklemene veya şifre girmene gerek yok.\n\nBu ZIP metin yedeğidir. Dosyalar:\n- On-Kis-Karari-DM.json: aynı hazır hikâyenin düzenlenebilir yedeği\n- On-Kis-Karari-DM.md: okunabilir tam metin\n- On-Kis-Karari-Oynatim-Kitabi.html: bölüm listeli çevrimdışı kitap\n- YOL-HARITASI.md: nerede / ne zaman / amaç / sonra özeti\n- ILK-OTURUM.md: ilk bölüm için kısa yönetim rehberi\n- ONCE-OKU.txt: bu açıklama\n\nYayın görselleri ve portreler sitenin içinde gelir, bu metin ZIP'ine kopyalanmaz. Kendi notların ve kararların ayrıca tarayıcıda kaydedilir. Bu hazır kitap yayımlanmıştır; kişisel kampanya yedeğin ve kendi DM notların kendiliğinden yayımlanmaz.\n`
 const firstSession = [
   '# İlk Oturum — Avludan Batı Kapısına',
   '',
@@ -276,6 +387,34 @@ firstSession.push(
   'Miren ve Sena’nın durumunu gösterip yükü Sela ile teslim tutanağına bağla. Batı Aldara köprüsündeki ilk sıra sayımı bir sonraki bölümün başlangıcıdır. Marhalden’in genel mülteci kapatma kararı yürürlükte; sevk belgesi herkese sınırsız geçiş hakkı vermez.',
   '',
 )
+if (pack.quests[0].events?.length) {
+  firstSession.push(
+    '## İstersen araya al — yan olay',
+    '',
+    'Yan olaylar ana görevin aciliyetini veya kurtarma süresini geçersiz kılmaz. Uygun sahnede teklif et; grup ilgilenmezse bir ceza eklemeden ana akışa dön. Olayda verilen söz, sonraki durakta karşılık bulabilir.',
+    '',
+  )
+  for (const event of pack.quests[0].events)
+    firstSession.push(
+      `**${event.title} — ${event.duration}**`,
+      '',
+      '**Açıldığı adım:** ' + sceneName(pack.quests[0].id, event.at),
+      '',
+      event.hook,
+      '',
+      '**Göster:** ' + event.backgroundId,
+      '',
+      '**Portreler:** ' + (event.castIds.join(', ') || 'yok'),
+      '',
+      '**İleride hatırlat:** ' +
+        sceneName(event.followup.questId, event.followup.sceneId),
+      '',
+      event.followup.reminder,
+      '',
+      'Tam konuşma, eylemler ve kararlar: indirilebilir oynatım kitabında ilgili bölümün sonundaki İsteğe bağlı olaylar kısmı.',
+      '',
+    )
+}
 const files = new Map([
   [jsonName, Buffer.from(raw)],
   [

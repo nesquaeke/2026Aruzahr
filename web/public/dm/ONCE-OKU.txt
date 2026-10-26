@@ -1,6 +1,6 @@
 ON KIŞ KARARI — ŞİFRESİZ HAZIR HİKÂYE
 
-Güncel siteyi aç: Yayın Masası → Hikâyeyi yönet. On görev ve 61 sahne hazır gelir; dosya yüklemene veya şifre girmene gerek yok.
+Güncel siteyi aç: Yayın Masası → Hikâyeyi yönet. On görev, 61 ana sahne ve 10 isteğe bağlı olay hazır gelir; dosya yüklemene veya şifre girmene gerek yok.
 
 Bu ZIP metin yedeğidir. Dosyalar:
 - On-Kis-Karari-DM.json: aynı hazır hikâyenin düzenlenebilir yedeği

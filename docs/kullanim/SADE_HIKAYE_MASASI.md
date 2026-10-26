@@ -27,7 +27,7 @@ Yeni tablolar araştırma ve yolculuk adımlarına bağlıdır; hiçbirini küt�
 | İyi Kalpli Nekromant · Görüşme | Ternhaven sıcak su bahçesi |
 | Kralın Yalanı · Doğrulama | Dranthol’un iki deposu |
 
-Önceki 12 sahne ve sekiz portre korunur; toplam **30 sahne resmi + dokuz portre + bir canlı çizimi** bu macerada kullanılabilir. Yeni tablolar karanlık, ciddi, ayrıntılı yağlıboyadır. Tek tek üretilir, toplu resimden kırpılmaz. Kaynak çözünürlüğü 4K diye sunulmaz.
+Önceki 12 sahne ve sekiz portre korunur; toplam **34 sahne resmi + 17 portre + bir canlı çizimi** bu macerada kullanılabilir. Yeni tablolar karanlık, ciddi, ayrıntılı yağlıboyadır. Tek tek üretilir, toplu resimden kırpılmaz. Kaynak çözünürlüğü 4K diye sunulmaz.
 
 ## Kayıt, indirme ve OBS
 
@@ -55,3 +55,8 @@ Hazır hikâye artık **10 bölüm / 61 sahne**. **Masada süre**, **bu sahne ne
 Alternatif yol düğmeleri yalnız okuduğun sahneyi değiştirir. Canlı görüntü için yine **Bu sahneyi göster** gerekir. Canlı çizimleri de gelişmiş masanın görsel kütüphanesinden manzara olarak gösterilebilir.
 
 [İlk oturum rehberi](../../web/public/dm/ILK-OTURUM.md), yedi adımı ve hangi resmin ne zaman gösterileceğini tek yerde toplar. Güncelleme önceki sağlanan metni tanıyarak genişletir; senin değiştirdiğin anlatımı, görselleri, serbest notları ve kararları korur. Eski adım numarası aynı sahnenin yeni yerine taşınır. Sıfırlama yapman gerekmez.
+
+
+## Yan olaylar ve kişiler
+
+10 isteğe bağlı olay, 25 bölüm-kişi rehberi ve sonraki duraklarda seçime göre açılan hatırlatmalar eklendi. Sağdaki **Kim kimdir?** alanından birini seçebilir, gerekirse sonraki bölümlerde de el altında tutabilirsin. Sol alttaki **Özel oturum özetini indir** yerel seçim ve notlarını kısa dosyada toplar. [Adım adım kullanım](YASAYAN_YOLCULUK.md).

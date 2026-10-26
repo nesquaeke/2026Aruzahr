@@ -7,6 +7,10 @@ import {
   type DMProgress,
 } from './dm-guide'
 import { legacyWinter } from './campaigns/legacy-winter'
+import {
+  expandedWinter,
+  expandedWinterEdition,
+} from './campaigns/expanded-winter'
 
 const questIds = [
   'son-ilac',
@@ -113,17 +117,18 @@ async function fingerprint(value: unknown) {
 async function updateFields<T extends object>(
   saved: T,
   fresh: T,
-  fingerprints: Record<string, string>,
+  fingerprints: Record<string, string>[],
 ): Promise<T> {
   const result = { ...fresh, ...saved } as Record<string, unknown>
   await Promise.all(
     Object.entries(fresh).map(async ([key, value]) => {
       if (key === 'steps') return
       const oldValue = (saved as Record<string, unknown>)[key]
+      const digest =
+        oldValue === undefined ? undefined : await fingerprint(oldValue)
       if (
         oldValue === undefined ||
-        (fingerprints[key] &&
-          (await fingerprint(oldValue)) === fingerprints[key])
+        fingerprints.some((fields) => fields[key] === digest)
       )
         result[key] = value
     }),
@@ -145,16 +150,35 @@ export async function upgradeBuiltinCampaign(
   const quests = await Promise.all(
     saved.quests.map(async (q) => {
       const fresh = builtin.quests.find((f) => f.id === q.id)!
-      const base = legacyWinter[q.id as keyof typeof legacyWinter]
-      if (!base) return q
-      const merged = await updateFields(q, fresh, base.fields)
+      const older = legacyWinter[q.id as keyof typeof legacyWinter]
+      const expanded = expandedWinter[q.id as keyof typeof expandedWinter]
+      if (!older || !expanded) return q
+      // The newer order includes the four added opening/rescue scenes too.
+      const base =
+        saved.edition === expandedWinterEdition ||
+        q.steps?.some(
+          (step) =>
+            (expanded.order as readonly string[]).includes(step.id) &&
+            !(older.order as readonly string[]).includes(step.id),
+        )
+          ? expanded
+          : older
+      const merged = await updateFields(q, fresh, [
+        expanded.fields,
+        older.fields,
+      ])
       const updated = await Promise.all(
-        (q.steps || []).map(async (s) => {
-          const next = fresh.steps?.find((f) => f.id === s.id)
-          const fields = (base.steps as Record<string, Record<string, string>>)[
-            s.id
-          ]
-          return next && fields ? updateFields(s, next, fields) : s
+        (q.steps || []).map(async (step) => {
+          const next = fresh.steps?.find((f) => f.id === step.id)
+          const fingerprints = [expanded.steps, older.steps]
+            .map(
+              (steps) =>
+                (steps as Record<string, Record<string, string>>)[step.id],
+            )
+            .filter(Boolean)
+          return next && fingerprints.length
+            ? updateFields(step, next, fingerprints)
+            : step
         }),
       )
       const byId = new Map(updated.map((s) => [s.id, s]))

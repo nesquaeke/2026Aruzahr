@@ -580,6 +580,7 @@ export function mergeProjects(current: StudioProject, incoming: StudioProject) {
   )
   const questIds = new Map<string, string>(),
     stepIds = new Map<string, string>(),
+    eventIds = new Map<string, string>(),
     dmStorage = { ...current.dmStorage }
   const parse = (v: string | undefined) => {
     try {
@@ -600,25 +601,54 @@ export function mergeProjects(current: StudioProject, incoming: StudioProject) {
         usedQuestIds = new Set(a.quests.map((q) => q.id)),
         usedStepIds = new Set(
           a.quests.flatMap((q) => q.steps?.map((s) => s.id) || []),
+        ),
+        usedEventIds = new Set(
+          a.quests.flatMap((q) => q.events?.map((event) => event.id) || []),
         )
+      const uniqueId = (id: string, used: Set<string>, prefix: string) => {
+        let next = id
+        while (used.has(next)) next = freshId(prefix)
+        used.add(next)
+        return next
+      }
       if (a.quests.length + b.quests.length > 30)
         throw new Error(
           'Birleştirme 30 görev sınırını aşıyor. Ayrı kampanya olarak aç.',
         )
       for (const q of b.quests) {
-        questIds.set(q.id, usedQuestIds.has(q.id) ? freshId('quest') : q.id)
+        questIds.set(q.id, uniqueId(q.id, usedQuestIds, 'quest'))
         for (const step of q.steps || [])
-          stepIds.set(
-            step.id,
-            usedStepIds.has(step.id) ? freshId('step') : step.id,
-          )
+          stepIds.set(step.id, uniqueId(step.id, usedStepIds, 'step'))
+        for (const event of q.events || [])
+          eventIds.set(event.id, uniqueId(event.id, usedEventIds, 'event'))
       }
       const quests = b.quests.map((q) => ({
         ...q,
         id: questIds.get(q.id)!,
+        events: q.events?.map((event) => ({
+          ...event,
+          id: eventIds.get(event.id)!,
+          at: stepIds.get(event.at) || event.at,
+          followup: {
+            ...event.followup,
+            questId:
+              questIds.get(event.followup.questId) || event.followup.questId,
+            sceneId:
+              stepIds.get(event.followup.sceneId) || event.followup.sceneId,
+          },
+        })),
         steps: q.steps?.map((step) => ({
           ...step,
           id: stepIds.get(step.id)!,
+          play: step.play
+            ? {
+                ...step.play,
+                paths: step.play.paths.map((path) => ({
+                  ...path,
+                  to: stepIds.get(path.to) || path.to,
+                })),
+              }
+            : undefined,
           exits: step.exits?.map((e) => ({
             ...e,
             sceneId: stepIds.get(e.sceneId) || e.sceneId,
@@ -633,36 +663,76 @@ export function mergeProjects(current: StudioProject, incoming: StudioProject) {
           parse(incoming.dmStorage['aruzahr-director-progress']) || b.progress,
           b.quests,
         )
-      const mergedProgress = {
-        quest: ap.quest,
-        steps: {
-          ...ap.steps,
-          ...Object.fromEntries(
-            Object.entries(bp.steps).map(([id, n]) => [
-              questIds.get(id) || id,
-              n,
-            ]),
-          ),
+      const combinedQuests = [...a.quests, ...quests]
+      const mergedProgress = parseProgress(
+        {
+          quest: ap.quest,
+          steps: {
+            ...ap.steps,
+            ...Object.fromEntries(
+              Object.entries(bp.steps).map(([id, n]) => [
+                questIds.get(id) || id,
+                n,
+              ]),
+            ),
+          },
+          done: [...ap.done, ...bp.done.map((id) => questIds.get(id) || id)],
+          decisions: {
+            ...ap.decisions,
+            ...Object.fromEntries(
+              Object.entries(bp.decisions).map(([id, value]) => [
+                questIds.get(id) || id,
+                value,
+              ]),
+            ),
+          },
+          skipped: [
+            ...(ap.skipped || []),
+            ...(bp.skipped || []).map((id) => stepIds.get(id) || id),
+          ],
+          ...(ap.eventChoices || bp.eventChoices
+            ? {
+                eventChoices: {
+                  ...ap.eventChoices,
+                  ...Object.fromEntries(
+                    Object.entries(bp.eventChoices || {}).map(([id, value]) => [
+                      eventIds.get(id) || id,
+                      value,
+                    ]),
+                  ),
+                },
+              }
+            : {}),
+          ...(ap.eventNotes || bp.eventNotes
+            ? {
+                eventNotes: {
+                  ...ap.eventNotes,
+                  ...Object.fromEntries(
+                    Object.entries(bp.eventNotes || {}).map(([id, value]) => [
+                      eventIds.get(id) || id,
+                      value,
+                    ]),
+                  ),
+                },
+              }
+            : {}),
+          ...(ap.pinnedPeople || bp.pinnedPeople
+            ? {
+                pinnedPeople: [
+                  ...new Set([
+                    ...(ap.pinnedPeople || []),
+                    ...(bp.pinnedPeople || []),
+                  ]),
+                ],
+              }
+            : {}),
         },
-        done: [...ap.done, ...bp.done.map((id) => questIds.get(id) || id)],
-        decisions: {
-          ...ap.decisions,
-          ...Object.fromEntries(
-            Object.entries(bp.decisions).map(([id, value]) => [
-              questIds.get(id) || id,
-              value,
-            ]),
-          ),
-        },
-        skipped: [
-          ...(ap.skipped || []),
-          ...(bp.skipped || []).map((id) => stepIds.get(id) || id),
-        ],
-      }
+        combinedQuests,
+      )
       dmStorage['aruzahr-director-pack'] = JSON.stringify({
         ...a,
         version: Math.max(a.version, b.version),
-        quests: [...a.quests, ...quests],
+        quests: combinedQuests,
         progress: mergedProgress,
       })
       dmStorage['aruzahr-director-progress'] = JSON.stringify(mergedProgress)
@@ -672,7 +742,13 @@ export function mergeProjects(current: StudioProject, incoming: StudioProject) {
     for (const [quest, next] of questIds)
       if (id.startsWith('dm:' + quest + ':')) {
         const step = id.slice(('dm:' + quest + ':').length)
-        return 'dm:' + next + ':' + (stepIds.get(step) || step)
+        const eventPrefix = 'journey-event:'
+        const mapped = step.startsWith(eventPrefix)
+          ? eventPrefix +
+            (eventIds.get(step.slice(eventPrefix.length)) ||
+              step.slice(eventPrefix.length))
+          : stepIds.get(step) || step
+        return 'dm:' + next + ':' + mapped
       }
     return id
   }

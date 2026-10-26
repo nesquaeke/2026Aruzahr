@@ -24,6 +24,7 @@ import {
 } from '../dm-guide'
 import './story-flow.css'
 import DMPlayCard from '../DMPlayCard'
+import JourneyCompanion from './JourneyCompanion'
 
 const read = (key: string) => {
   try {
@@ -416,6 +417,15 @@ export default function StoryFlow({
         >
           İlk oturumun kısa rehberi ↗
         </a>
+        <JourneyCompanion
+          mode="summary"
+          pack={pack}
+          quest={quest}
+          sceneId={step.id}
+          opening={opening}
+          progress={progress}
+          onProgress={saveProgress}
+        />
       </aside>
       <section className="story-scroll" ref={scroll}>
         <div className="story-sheet" key={step.id}>
@@ -535,6 +545,20 @@ export default function StoryFlow({
                   <p>{source.stakes}</p>
                 </details>
               )}
+              <JourneyCompanion
+                mode="events"
+                pack={pack}
+                quest={quest}
+                sceneId={step.id}
+                opening={opening}
+                progress={progress}
+                onProgress={saveProgress}
+                canShow={connected && !busy}
+                onShow={async (scene, questId) => {
+                  setPrepared('')
+                  return onShow(scene, questId)
+                }}
+              />
               <section className="story-next">
                 <span>BURADAN SONRA</span>
                 <p>
@@ -682,6 +706,15 @@ export default function StoryFlow({
                   </details>
                 )}
               </section>
+              <JourneyCompanion
+                mode="people"
+                pack={pack}
+                quest={quest}
+                sceneId={step.id}
+                opening={opening}
+                progress={progress}
+                onProgress={saveProgress}
+              />
               <details className="story-live">
                 <summary>
                   <span className="story-live-dot" />

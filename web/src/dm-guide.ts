@@ -81,6 +81,8 @@ export type DMScene = {
   exits?: { label: string; sceneId: string }[]
 }
 export type DMQuest = {
+  dossiers?: DMDossier[]
+  events?: DMSideEvent[]
   quick?: DMQuickGuide
   briefing?: DMBriefing
   id: string
@@ -92,11 +94,39 @@ export type DMQuest = {
   steps?: DMScene[]
 }
 export type DMProgress = {
+  eventChoices?: Record<string, string>
+  eventNotes?: Record<string, string>
+  pinnedPeople?: string[]
   quest: string
   steps: Record<string, number>
   done: string[]
   decisions: Record<string, string>
   skipped?: string[]
+}
+export type DMDossier = {
+  id: string
+  name: string
+  role: string
+  portraitId?: string
+  appearance: string
+  wants: string
+  knows: string
+  voice: string
+  lines: { cue: string; line: string }[]
+}
+export type DMSideEvent = {
+  id: string
+  title: string
+  at: string
+  duration: string
+  hook: string
+  readAloud: string
+  beats: { title: string; text: string; line: string }[]
+  castIds: string[]
+  backgroundId: string
+  choices: { id: string; label: string; result: string; echo: string }[]
+  followup: { questId: string; sceneId: string; reminder: string }
+  checks: string[]
 }
 export type DMPack = {
   version: 1 | 2
@@ -231,6 +261,76 @@ function play(v: unknown): DMPlay {
   }
   return out
 }
+
+function identifier(v: Record<string, unknown>, key: string) {
+  const id = field(v, key, 160)
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(id))
+    throw new Error('Kişi veya yan olay kimliği geçersiz.')
+  return id
+}
+function dossiers(v: unknown): DMDossier[] {
+  const ids = new Set<string>()
+  return list(v, 16).map((d) => {
+    const id = identifier(d, 'id')
+    if (ids.has(id)) throw new Error('Kişi rehberinde yinelenen kimlik.')
+    ids.add(id)
+    return {
+      id,
+      name: field(d, 'name', 160),
+      role: field(d, 'role', 400),
+      ...(d.portraitId === undefined
+        ? {}
+        : { portraitId: field(d, 'portraitId', 160) }),
+      appearance: field(d, 'appearance', 2000),
+      wants: field(d, 'wants', 2000),
+      knows: field(d, 'knows', 3000),
+      voice: field(d, 'voice', 1200),
+      lines: list(d.lines, 6).map((line) => ({
+        cue: field(line, 'cue', 400),
+        line: field(line, 'line', 1600),
+      })),
+    }
+  })
+}
+function sideEvents(v: unknown): DMSideEvent[] {
+  return list(v, 10).map((e) => {
+    if (!texts(e.castIds, 8) || !texts(e.checks, 12) || !obj(e.followup))
+      throw new Error('Yan olay rehberi geçersiz.')
+    const choices = new Set<string>()
+    return {
+      id: identifier(e, 'id'),
+      title: field(e, 'title', 240),
+      at: field(e, 'at', 160),
+      duration: field(e, 'duration', 160),
+      hook: field(e, 'hook', 3000),
+      readAloud: field(e, 'readAloud', 8000),
+      castIds: e.castIds,
+      backgroundId: field(e, 'backgroundId', 160),
+      checks: e.checks,
+      beats: list(e.beats, 8).map((b) => ({
+        title: field(b, 'title', 160),
+        text: field(b, 'text', 6000),
+        line: field(b, 'line', 3000),
+      })),
+      choices: list(e.choices, 8).map((c) => {
+        const id = identifier(c, 'id')
+        if (choices.has(id)) throw new Error('Yan olayda yinelenen karar.')
+        choices.add(id)
+        return {
+          id,
+          label: field(c, 'label', 500),
+          result: field(c, 'result', 3000),
+          echo: field(c, 'echo', 3000),
+        }
+      }),
+      followup: {
+        questId: field(e.followup, 'questId', 160),
+        sceneId: field(e.followup, 'sceneId', 160),
+        reminder: field(e.followup, 'reminder', 3000),
+      },
+    }
+  })
+}
 export function parseDMPack(value: unknown): DMPack {
   if (
     !obj(value) ||
@@ -254,6 +354,8 @@ export function parseDMPack(value: unknown): DMPack {
       throw new Error('DM görev kaydı geçersiz.')
     ids.add(q.id)
     const result: DMQuest = { id: q.id, title: q.title, body: q.body }
+    if (q.dossiers !== undefined) result.dossiers = dossiers(q.dossiers)
+    if (q.events !== undefined) result.events = sideEvents(q.events)
     if (q.quick !== undefined) result.quick = quick(q.quick)
     if (q.briefing !== undefined) result.briefing = briefing(q.briefing)
     if (txt(q.location, 160)) result.location = q.location
@@ -340,12 +442,21 @@ export function parseDMPack(value: unknown): DMPack {
     if (!txt(value.edition, 100)) throw new Error('Hikâye baskısı geçersiz.')
     pack.edition = value.edition
   }
+  const eventIds = new Set<string>()
   for (const q of quests) {
     const sceneIds = new Set(q.steps?.map((s) => s.id) || [])
     for (const s of q.steps || [])
       for (const p of s.play?.paths || [])
         if (!sceneIds.has(p.to))
           throw new Error('Sahne bağlantısının hedefi bulunamadı.')
+    for (const event of q.events || []) {
+      if (eventIds.has(event.id) || !sceneIds.has(event.at))
+        throw new Error('Yan olayın kimliği veya başlangıç sahnesi geçersiz.')
+      eventIds.add(event.id)
+      const target = quests.find((t) => t.id === event.followup.questId)
+      if (!target?.steps?.some((s) => s.id === event.followup.sceneId))
+        throw new Error('Yan olayın geri dönüş sahnesi bulunamadı.')
+    }
   }
   if (obj(value.progress)) pack.progress = parseProgress(value.progress, quests)
   return pack
@@ -353,7 +464,57 @@ export function parseDMPack(value: unknown): DMPack {
 export function parseProgress(value: unknown, quests: DMQuest[]): DMProgress {
   const p = obj(value) ? value : {},
     ids = new Set(quests.map((q) => q.id))
+  const events = quests.flatMap((q) => q.events || [])
+  const people = new Set(
+    quests.flatMap((q) => q.dossiers?.map((d) => d.id) || []),
+  )
   return {
+    ...(obj(p.eventChoices)
+      ? {
+          eventChoices: Object.fromEntries(
+            events.flatMap((e) =>
+              e.choices.some(
+                (c) =>
+                  c.id === (p.eventChoices as Record<string, unknown>)[e.id],
+              )
+                ? [
+                    [
+                      e.id,
+                      String((p.eventChoices as Record<string, unknown>)[e.id]),
+                    ],
+                  ]
+                : [],
+            ),
+          ),
+        }
+      : {}),
+    ...(obj(p.eventNotes)
+      ? {
+          eventNotes: Object.fromEntries(
+            events.flatMap((e) =>
+              txt((p.eventNotes as Record<string, unknown>)[e.id], 10000)
+                ? [
+                    [
+                      e.id,
+                      String((p.eventNotes as Record<string, unknown>)[e.id]),
+                    ],
+                  ]
+                : [],
+            ),
+          ),
+        }
+      : {}),
+    ...(Array.isArray(p.pinnedPeople)
+      ? {
+          pinnedPeople: [
+            ...new Set(
+              p.pinnedPeople.filter(
+                (id): id is string => typeof id === 'string' && people.has(id),
+              ),
+            ),
+          ].slice(0, 64),
+        }
+      : {}),
     skipped: Array.isArray(p.skipped)
       ? p.skipped
           .filter((v): v is string => typeof v === 'string')

@@ -132,3 +132,23 @@ Sonuç, tanık ve verilen sözü karar notuna yaz. İlk bölüm sonunda 2. seviy
 ## Sonraki oturuma bağla
 
 Miren ve Sena’nın durumunu gösterip yükü Sela ile teslim tutanağına bağla. Batı Aldara köprüsündeki ilk sıra sayımı bir sonraki bölümün başlangıcıdır. Marhalden’in genel mülteci kapatma kararı yürürlükte; sevk belgesi herkese sınırsız geçiş hakkı vermez.
+
+## İstersen araya al — yan olay
+
+Yan olaylar ana görevin aciliyetini veya kurtarma süresini geçersiz kılmaz. Uygun sahnede teklif et; grup ilgilenmezse bir ceza eklemeden ana akışa dön. Olayda verilen söz, sonraki durakta karşılık bulabilir.
+
+**Kazanın arkasındaki duman — 10–20 dk**
+
+**Açıldığı adım:** Son İlaç · Ocak başında boş bir yer
+
+İlk akşam sofrada, gece dinlenmesinden önce. Ekin henüz galeride mahsur değildir. Oyuncular tanışmayı uzatmak isterse kullan; doğrudan geceyi kapatmak isterlerse olay zorunlu değildir.
+
+**Göster:** living-isci-sofrasi
+
+**Portreler:** eren-keld, ekin-sar, kesra-venn
+
+**İleride hatırlat:** Son İlaç · Kapının gerisindeki ıslık
+
+Bu olay oynandıysa Eren ve Ekin’le akşam kimin ne yaptığını bir cümleyle hatırlat. Onları zaten yakın dost sayma. Yapılan bakım veya bırakılan not hâlâ yerindeyse göster.
+
+Tam konuşma, eylemler ve kararlar: indirilebilir oynatım kitabında ilgili bölümün sonundaki İsteğe bağlı olaylar kısmı.
