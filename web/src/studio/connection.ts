@@ -58,7 +58,8 @@ export function useStudioConnection(
     epoch = useRef(''),
     id = useRef(freshId('window')),
     force = useRef(false),
-    publish = useRef<() => void>(() => {})
+    publish = useRef<() => void>(() => {}),
+    publishProgram = useRef<(snapshot: StudioProject) => Promise<StudioProject['program']>>(async () => { throw new Error('Yayın bağlantısı henüz hazır değil.') })
   latest.current = project
   remote.current = onRemote
   poll.current = onPoll
@@ -106,83 +107,131 @@ export function useStudioConnection(
         claimBusy = false
       }
     }
-    async function uploadAsset(hash: string, src: string) {
+    function leaseGuard(lease: string, leaseEpoch: string) {
+      if (closed || !lease || key.current !== lease || epoch.current !== leaseEpoch)
+        throw Object.assign(new Error('Yayın kontrolü değişti. Sahne gösterilmedi.'), { status: 409 })
+    }
+    async function uploadAsset(hash: string, src: string, lease: string, leaseEpoch: string) {
+      leaseGuard(lease, leaseEpoch)
       if (uploaded.has(hash)) return
-      await api('asset', { id: hash, src }, key.current)
+      await api('asset', { id: hash, src }, lease)
+      leaseGuard(lease, leaseEpoch)
       uploaded.add(hash)
+    }
+    async function postProgram(p: StudioProject) {
+      const lease = key.current, leaseEpoch = epoch.current
+      leaseGuard(lease, leaseEpoch)
+      const frame = publicRelayState(p.program)
+      frame.studio = {
+        ...frame.studio!,
+        epoch: leaseEpoch,
+        revision: Math.max(++sequence, frame.studio?.revision || 0),
+      }
+      sequence = frame.studio.revision
+      const refs = new Set<string>()
+      const visit = (value: unknown) => {
+        if (typeof value === 'string') {
+          const match = value.match(
+            /^\/__aruzahr-broadcast\/asset\/([a-f0-9]{64})$/,
+          )
+          if (match) refs.add(match[1])
+        } else if (Array.isArray(value)) value.forEach(visit)
+        else if (value && typeof value === 'object')
+          Object.values(value).forEach(visit)
+      }
+      visit(frame)
+      for (const hash of refs) {
+        const src = p.mediaVault[hash]
+        if (src) await uploadAsset(hash, src, lease, leaseEpoch)
+      }
+      const sounds = new Set([
+        ...(['music', 'ambience', 'effect'] as const).map(
+          (name) => frame.studio?.audio?.[name]?.id,
+        ),
+        frame.studio?.break?.ambientId,
+      ])
+      for (const sound of sounds) {
+        if (sound && !sound.startsWith('builtin-')) {
+          const asset = p.audioAssets.find((a) => a.id === sound)
+          if (!asset) throw new Error('Yayın sesi kampanyada bulunamadı.')
+          await uploadAsset(asset.id, asset.src, lease, leaseEpoch)
+        }
+      }
+      leaseGuard(lease, leaseEpoch)
+      await api('frame', { epoch: leaseEpoch, state: frame }, lease)
+      leaseGuard(lease, leaseEpoch)
+      status({
+        owner: true,
+        online: true,
+        error: '',
+        ack: Date.now(),
+        ackTakenAt: frame.studio.takenAt,
+      })
+      return frame
+    }
+    function reportFailure(e: unknown, lease: string) {
+      if (closed || key.current && key.current !== lease) return
+      const code = (e as any).status
+      status({
+        error: (e as Error).message,
+        online: false,
+        ...(code === 409 ? { owner: false, ackTakenAt: 0 } : {}),
+      })
+      if (code === 409) {
+        key.current = ''
+      } else if (
+        code === 422 ||
+        !code ||
+        code >= 500 ||
+        code === 408 ||
+        code === 429
+      ) {
+        uploaded.clear()
+      }
     }
     async function drain() {
       if (closed || busy || !pending || !key.current) return
       busy = true
       pending = false
+      const lease = key.current
       try {
         const p = latest.current
-        if (!p) return
-        const frame = publicRelayState(p.program)
-        frame.studio = {
-          ...frame.studio!,
-          epoch: epoch.current,
-          revision: Math.max(++sequence, frame.studio?.revision || 0),
-        }
-        sequence = frame.studio.revision
-        const refs = new Set<string>()
-        const visit = (value: unknown) => {
-          if (typeof value === 'string') {
-            const match = value.match(
-              /^\/__aruzahr-broadcast\/asset\/([a-f0-9]{64})$/,
-            )
-            if (match) refs.add(match[1])
-          } else if (Array.isArray(value)) value.forEach(visit)
-          else if (value && typeof value === 'object')
-            Object.values(value).forEach(visit)
-        }
-        visit(frame)
-        for (const hash of refs) {
-          const src = p.mediaVault[hash]
-          if (src) await uploadAsset(hash, src)
-        }
-        const sounds = new Set([
-          ...(['music', 'ambience', 'effect'] as const).map(
-            (name) => frame.studio?.audio?.[name]?.id,
-          ),
-          frame.studio?.break?.ambientId,
-        ])
-        for (const sound of sounds) {
-          if (sound && !sound.startsWith('builtin-')) {
-            const asset = p.audioAssets.find((a) => a.id === sound)
-            if (!asset) throw new Error('Yayın sesi kampanyada bulunamadı.')
-            await uploadAsset(asset.id, asset.src)
-          }
-        }
-        await api('frame', { epoch: epoch.current, state: frame }, key.current)
-        status({
-          owner: true,
-          online: true,
-          error: '',
-          ack: Date.now(),
-          ackTakenAt: frame.studio.takenAt,
-        })
+        if (p) await postProgram(p)
       } catch (e) {
+        reportFailure(e, lease)
         const code = (e as any).status
-        status({
-          error: (e as Error).message,
-          online: false,
-          ...(code === 409 ? { owner: false, ackTakenAt: 0 } : {}),
-        })
-        if (code === 409) {
-          key.current = ''
-        } else if (
-          code === 422 ||
-          !code ||
-          code >= 500 ||
-          code === 408 ||
-          code === 429
-        ) {
-          uploaded.clear()
-          pending = true
-        }
+        if (code === 422 || !code || code >= 500 || code === 408 || code === 429) pending = true
       } finally {
         busy = false
+      }
+    }
+    // Explicit takes share the background sender's revision counter and upload
+    // cache. The caller commits its program only after this request is ACKed.
+    publishProgram.current = async (snapshot) => {
+      const lease = key.current, leaseEpoch = epoch.current
+      const baseProgram = latest.current?.program, started = Date.now()
+      while (busy) {
+        leaseGuard(lease, leaseEpoch)
+        if (Date.now() - started > 12_500) throw new Error('Önceki yayın isteği tamamlanmadı. Tekrar dene.')
+        await new Promise(resolve => setTimeout(resolve, 25))
+      }
+      leaseGuard(lease, leaseEpoch)
+      busy = true
+      pending = false
+      let accepted = false
+      try {
+        const frame = await postProgram(snapshot)
+        accepted = true
+        return frame
+      } catch (e) {
+        reportFailure(e, lease)
+        throw e
+      } finally {
+        busy = false
+        // Do not re-publish the stale program while the take caller commits.
+        // A concurrent emergency/live command, or a failed take, still needs
+        // the background sender to restore the actual local program.
+        pending = !accepted || latest.current?.program !== baseProgram
       }
     }
     publish.current = () => {
@@ -276,6 +325,7 @@ export function useStudioConnection(
       window.removeEventListener('storage', storage)
       publish.current =
         () => {} /* StrictMode remount keeps the same identity; expiry also covers crashes. */
+      publishProgram.current = async () => { throw new Error('Yayın bağlantısı kapandı.') }
     }
   }, [!!project, nonce])
   useEffect(() => {
@@ -302,5 +352,6 @@ export function useStudioConnection(
       }))
     },
     request: (route: string, data: unknown) => api(route, data, key.current),
+    publishProgram: (snapshot: StudioProject) => publishProgram.current(snapshot),
   }
 }

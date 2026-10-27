@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-27",
+  "generator": "image_gen",
+  "count": 24,
+  "approach": "Yumuşak katmanlı yağlıboya yorumu; portreler yakın tonlu sade zemin, şehirler bağımsız geniş tuval. Resimler boyutlandırılmadı; özgün pikseller kayıpsız WebP olarak aktarıldı. 4K üretim iddiası yok.",
+  "images": [
+    {
+      "id": "night-ulvenin-evi",
+      "file": "web/public/illustrations/night-ulvenin-evi.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1514554,
+      "sha256": "72a3d3cfd9ea220aa4c9fb1aea0b8945adc0d34b02f28f2ef93e3a27ebc91f4b",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-bos-yatagin-konugu",
+      "file": "web/public/illustrations/night-bos-yatagin-konugu.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1497322,
+      "sha256": "e2628945bd631d2d4714996d98b5e925b61130cb546822a48fec934b72bd62b8",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-duvarin-solugu",
+      "file": "web/public/illustrations/night-duvarin-solugu.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1531708,
+      "sha256": "c1c6acd65ff56e50f7b9e66ecba24f7d0f8cda57a16fd8ed2c1f83f9b4fb894a",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-camp-torbasi",
+      "file": "web/public/illustrations/night-camp-torbasi.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1615772,
+      "sha256": "cf316771f0f4df7b08ec40f0b1f58f963bbc913b0e56c1a43a34e20cbf3e22bf",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-dorduncu-nefes",
+      "file": "web/public/illustrations/night-dorduncu-nefes.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1438518,
+      "sha256": "c3f1534b9d271ea43bd4cce5d63fc9d4dba6fbbdc9083ce82e43f94aa8b9a224",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-sicak-tasin-yolu",
+      "file": "web/public/illustrations/night-sicak-tasin-yolu.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1592814,
+      "sha256": "d2e8261e9c40a37ddd91e381c4be5e78e69a1e2c89dcb61d8248f31157cff12f",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-yuzsuz-rehber",
+      "file": "web/public/illustrations/night-yuzsuz-rehber.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1670124,
+      "sha256": "b3eb0fdb6f1b152568f0d3e2737fc480bccaa9ca30f211e1097b6237b3c2cdbb",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-kopegin-baktigi-su",
+      "file": "web/public/illustrations/night-kopegin-baktigi-su.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1456160,
+      "sha256": "de8840b7143d51e2b4e29ea5488b4d101ba05d8e04d6a6c44903643925ec9daf",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-binegin-reddi",
+      "file": "web/public/illustrations/night-binegin-reddi.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1585308,
+      "sha256": "227805694fadec09fdbd3151715103e6977d97742f1b7fbc5ab489ea17a5f8cc",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-bacasiz-ates",
+      "file": "web/public/illustrations/night-bacasiz-ates.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1527450,
+      "sha256": "dffc4322dd671472eac67a0c8c78c462786530e22818251e2e13ea71cf25928c",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-sokulen-ad",
+      "file": "web/public/illustrations/night-sokulen-ad.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1465488,
+      "sha256": "4546f4c96e068bea781ec9cfd08a0e5aaf85aadd18cfb87d9df7eec4b0778dcc",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-ikinci-islik",
+      "file": "web/public/illustrations/night-ikinci-islik.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1541386,
+      "sha256": "51ffb38f7ff1e02b5dc02f0e4959146763e641456a98b25b90d547412c3b6aa5",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-house",
+      "file": "web/public/illustrations/night-house.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1880370,
+      "sha256": "0db3919824a04d6c80f2af60033d3e8d1591aebcc8fc1afd7490e7428bd9666d",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-camp",
+      "file": "web/public/illustrations/night-camp.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1725656,
+      "sha256": "bc5d017933c893a73ae32e53a7d8545c9cbf6cf385a0f3202477198ea2aa580f",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-valdareth",
+      "file": "web/public/illustrations/city-oil-valdareth.webp",
+      "width": 1672,
+      "height": 940,
+      "bytes": 2268466,
+      "sha256": "a943cbab4a3fcec80a9d9eec0f883a4588b3a0127cb0d1925aca40cea5ac1e6f",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-morihael",
+      "file": "web/public/illustrations/city-oil-morihael.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2068032,
+      "sha256": "16f11f9b9588ab8b829b803bd124d7ac308643fb095e022c9d0ffc54feed8aea",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-marhalden",
+      "file": "web/public/illustrations/city-oil-marhalden.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2263622,
+      "sha256": "a6d64bfead0d498e2e67ba21b2da4a4d5c9030214a4b04d1d0c926e71e742c7f",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-elorwyn",
+      "file": "web/public/illustrations/city-oil-elorwyn.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2059518,
+      "sha256": "61adf9dfd50756d18510f90ae7fa415b4ca07dd622b808b86a4dba02eef7f591",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-theramis",
+      "file": "web/public/illustrations/city-oil-theramis.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2321036,
+      "sha256": "6ce625aaa0f146b36b6e4ea224347e28741e7772507346f2d8ad47a3846de227",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-dorvenhall",
+      "file": "web/public/illustrations/city-oil-dorvenhall.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2228028,
+      "sha256": "36d1e9761f5faf6602e7d6612907143ff0fe715cf273582998c00fa73f5aaf3a",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "city-oil-lirendil",
+      "file": "web/public/illustrations/city-oil-lirendil.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2011576,
+      "sha256": "c5fd4b62f647ec91cce63e1dcb8317ee22090855331292b99e939c8a53406fb2",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-vek-ardan",
+      "file": "web/public/illustrations/night-vek-ardan.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1729586,
+      "sha256": "dc0ab0364750f7bff7d7fa3c55a43949a982062424a74f55fc9f7d11216ac8bb",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-nella-rusk",
+      "file": "web/public/illustrations/night-nella-rusk.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1577552,
+      "sha256": "106d70e61ffb18c5d394ef649572804b846165aafe664510d1c5d0a963ca1f5b",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    },
+    {
+      "id": "night-orven-kest",
+      "file": "web/public/illustrations/night-orven-kest.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 1699262,
+      "sha256": "9bbf606498cb3fb4a75f5c9369042cb5f6669206338b9b549dd29d5702906f0e",
+      "nativeSize": true,
+      "losslessWebP": true,
+      "upscaled": false
+    }
+  ]
+}

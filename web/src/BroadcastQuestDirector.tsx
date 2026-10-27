@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { QuestBriefing, SceneRunbook } from './DMRunbook'
 import DMPlayCard from './DMPlayCard'
+import NightEncounterDeck from './NightEncounterDeck'
+import JourneyCompanion from './studio/JourneyCompanion'
 import {
   BookOpen,
   FileUp,
@@ -37,15 +39,21 @@ const read = (key: string) => {
 export default function BroadcastQuestDirector({
   onPrepare,
   onReveal,
+  onShow,
   onMap,
   onMessage,
   facts = [],
   studioMode = false,
+  disabled = false,
+  activeScene,
 }: {
   facts?: WorldFact[]
   studioMode?: boolean
+  disabled?: boolean
+  activeScene?: string
   onPrepare: (scene: DMScene, questId?: string) => boolean
   onReveal: () => void
+  onShow?: (scene: DMScene, questId: string) => Promise<string | null>
   onMap: (id: string) => void
   onMessage: (message: string) => void
 }) {
@@ -59,6 +67,12 @@ export default function BroadcastQuestDirector({
     } catch {}
     return parseProgress(raw, p?.quests || [])
   })
+  const [opening, setOpening] = useState(() => {
+    const saved = readPrivatePack()
+    const p = readSavedDMProgress(saved?.quests || [])
+    const pending = read('aruzahr-story-opening')
+    return pending ? pending === p.quest : !read('aruzahr-story-seen') && !p.done.length && !Object.values(p.steps).some(n => n > 0) && !Object.values(p.decisions).some(Boolean)
+  })
   const [selectedLegacy, setSelectedLegacy] = useState('')
   const [prepared, setPrepared] = useState<string | null>(null)
   const [expanded, setExpanded] = useState(false)
@@ -68,6 +82,29 @@ export default function BroadcastQuestDirector({
     pack?.quests.find((q) => q.id === progress.quest) || pack?.quests[0]
   const index = quest ? progress.steps[quest.id] || 0 : 0,
     step = quest?.steps?.[index]
+  useEffect(() => {
+    if (!studioMode || !pack) return
+    const open = (request: unknown) => {
+      if (!request || typeof request !== 'object') return
+      const { questId, stepId } = request as {questId?: unknown; stepId?: unknown}
+      if (typeof questId !== 'string' || typeof stepId !== 'string') return
+      const selected = pack.quests.find(q => q.id === questId)
+      const target = selected?.steps?.findIndex(s => s.id === stepId) ?? -1
+      if (!selected || target < 0) return
+      setPrepared(null)
+      setOpening(false)
+      setNotes(selected.body)
+      setProgress(p => ({...p,quest:selected.id,steps:{...p.steps,[selected.id]:target}}))
+      onMessage('İlgili görev adımı açıldı. Hazırlık ve canlı görüntü değiştirilmedi.')
+    }
+    try {
+      const saved = sessionStorage.getItem('aruzahr-dm-scene-request')
+      if (saved) { sessionStorage.removeItem('aruzahr-dm-scene-request'); open(JSON.parse(saved)) }
+    } catch { /* Ignore a malformed local navigation request. */ }
+    const receive = (event: Event) => open((event as CustomEvent).detail)
+    window.addEventListener('studio-open-dm-scene',receive)
+    return () => window.removeEventListener('studio-open-dm-scene',receive)
+  }, [pack,studioMode,onMessage])
   useEffect(() => {
     try {
       localStorage.setItem('aruzahr-director-notes', notes)
@@ -112,6 +149,7 @@ export default function BroadcastQuestDirector({
         setProgress(restored)
         setNotes(next.quests.find((q) => q.id === restored.quest)?.body || '')
         setSelectedLegacy('')
+        setOpening(!!next.quests.find(q => q.id === restored.quest)?.briefing)
         setPrepared(null)
         onMessage(
           `${next.quests.length} görev açıldı. Özel metinler yalnızca bu pencerede.`,
@@ -139,7 +177,7 @@ export default function BroadcastQuestDirector({
     setSelectedLegacy(id)
     setProgress((p) => ({ ...p, quest: id }))
     const q = pack?.quests.find((q) => q.id === id)
-    if (q) setNotes(q.body)
+    if (q) { setNotes(q.body); setOpening(!!q.briefing) }
   }
   function changeNotes(value: string) {
     setNotes(value)
@@ -152,21 +190,22 @@ export default function BroadcastQuestDirector({
       })
   }
   function changeStep(next: number) {
+    setOpening(false)
     setPrepared(null)
     if (quest)
       setProgress((p) => ({ ...p, steps: { ...p.steps, [quest.id]: next } }))
   }
-  const navigation = useRef({ index, quest, changeStep, onPrepare })
-  navigation.current = { index, quest, changeStep, onPrepare }
+  const navigation = useRef({ index, quest, changeStep, onPrepare, opening: studioMode && opening && !!quest?.briefing })
+  navigation.current = { index, quest, changeStep, onPrepare, opening: studioMode && opening && !!quest?.briefing }
   useEffect(() => {
     const run = (e: Event) => {
-      const { index, quest, changeStep, onPrepare } = navigation.current
+      const { index, quest, changeStep, onPrepare, opening } = navigation.current
       if (quest?.steps) {
         const next = Math.max(
           0,
           Math.min(
             quest.steps.length - 1,
-            index + (e as CustomEvent<number>).detail,
+            opening && (e as CustomEvent<number>).detail > 0 ? 0 : index + (e as CustomEvent<number>).detail,
           ),
         )
         changeStep(next)
@@ -222,6 +261,26 @@ export default function BroadcastQuestDirector({
         publicTitle: quest.briefing.publicTitle || 'Yolculuk başlangıcı',
       }
     : null
+  const activeOpening = studioMode && opening && !!quest?.briefing
+  useEffect(() => {
+    if (!studioMode || !quest) return
+    try {
+      localStorage.setItem('aruzahr-story-opening', activeOpening ? quest.id : '')
+      if (!activeOpening) localStorage.setItem('aruzahr-story-seen', '1')
+    } catch { /* progress already saved separately */ }
+  }, [studioMode, quest?.id, activeOpening])
+  function nextStage() {
+    if (!quest || !pack) return
+    if (activeOpening) { changeStep(0); return }
+    if (index < (quest.steps?.length || 0) - 1) { changeStep(index + 1); return }
+    const at = pack.quests.findIndex(q => q.id === quest.id)
+    if (at < pack.quests.length - 1) select(pack.quests[at + 1].id)
+  }
+  function previousStage() {
+    if (!quest) return
+    if (index > 0 && !activeOpening) { changeStep(index - 1); return }
+    if (quest.briefing) { setOpening(true); setPrepared(null) }
+  }
   useEffect(() => {
     if (!expanded) return
     const old = document.activeElement as HTMLElement | null
@@ -261,11 +320,11 @@ export default function BroadcastQuestDirector({
     }
   }, [expanded])
   const content = (
-    <div className="dm-director">
+    <div className="dm-director" inert={disabled}>
       <div className="broadcast-panel-heading">
         <span className="broadcast-kicker">ÖZEL OTURUM REHBERİ</span>
-        <h2>Görev yönetmeni</h2>
-        <p>Sırayla ilerle. Sahneyi hazırla, kontrol et, oyunculara göster.</p>
+        <h2>Hikâyeyi yönet</h2>
+        <p>Bütün görev zinciri burada. Bir bölüm seç, adımı oku, resmi kontrol et ve hazır olduğunda göster.</p>
       </div>
       {!expanded && (
         <button className="dm-reading-open" onClick={() => setExpanded(true)}>
@@ -296,11 +355,9 @@ export default function BroadcastQuestDirector({
       {pack && (
         <>
           <h3 className="dm-pack-heading">{pack.title}</h3>
-          <details className="dm-route-picker" open={!step}>
-            <summary>
-              Yol haritası · {pack.quests.length} görev · {progress.done.length}{' '}
-              tamamlandı
-            </summary>
+          <section className="dm-route-picker" aria-label="Bütün görev zinciri">
+            <div className="dm-chain-heading"><strong>{pack.quests.length} bölüm · görev zinciri</strong><small>{pack.quests.reduce((n,q)=>n+(q.steps?.length||0),0)} ana sahne · {pack.quests.reduce((n,q)=>n+(q.events?.length||0),0)} yan olay</small></div>
+            <p className="dm-party-note">Başlangıç grubu: 3 oyuncu · 1. seviye. Bölümler arasında kazandığınız seviyeyi masanıza göre ilerlet.</p>
             <nav className="dm-roadmap" aria-label="Görev yol haritası">
               {pack.quests.map((q, i) => (
                 <button
@@ -308,7 +365,7 @@ export default function BroadcastQuestDirector({
                   aria-pressed={quest?.id === q.id}
                   onClick={(e) => {
                     select(q.id)
-                    e.currentTarget.closest('details')?.removeAttribute('open')
+                    e.currentTarget.blur()
                   }}
                 >
                   <span>
@@ -320,12 +377,12 @@ export default function BroadcastQuestDirector({
                   </span>
                   <div>
                     <strong>{q.title}</strong>
-                    <small>{q.location || 'Özel görev'}</small>
+                    <small>{q.quick?.where || q.location || 'Özel görev'}</small>
                   </div>
                 </button>
               ))}
             </nav>
-            <div className="st-two">
+            <details className="dm-chain-order"><summary>Bölüm sırasını düzenle</summary><div className="st-two">
               <button
                 disabled={pack.quests[0]?.id === quest?.id}
                 onClick={() => {
@@ -353,7 +410,8 @@ export default function BroadcastQuestDirector({
                 Görevi sonraya taşı
               </button>
             </div>
-          </details>
+            </details>
+          </section>
         </>
       )}
       {!pack && (
@@ -366,6 +424,7 @@ export default function BroadcastQuestDirector({
           </p>
         </div>
       )}
+      {studioMode && <NightEncounterDeck value={progress.night} onChange={night=>setProgress(p=>({...p,night}))} onShow={onShow} onMap={onMap} />}
       {quest && (
         <section className="dm-current">
           <span className="broadcast-kicker">ŞİMDİ OYNAT</span>
@@ -386,6 +445,14 @@ export default function BroadcastQuestDirector({
                 <p>{f.value}</p>
               </div>
             ))}
+          <div className="dm-step-tabs" aria-label="Görev sahneleri">
+            {quest.briefing && <button aria-pressed={activeOpening} onClick={()=>{setOpening(true);setPrepared(null)}}>Giriş</button>}
+            {quest.steps?.map((scene,i)=><button key={scene.id} aria-pressed={!activeOpening && i===index} onClick={()=>changeStep(i)}>{i+1}. {scene.title}</button>)}
+          </div>
+          {(activeOpening ? quest.quick : step?.quick || quest.quick) && (() => {
+            const quick = (activeOpening ? quest.quick : step?.quick || quest.quick)!
+            return <dl className="dm-stage-context" data-testid="dm-stage-context"><div><dt>NEREDE?</dt><dd>{quick.where}</dd></div><div><dt>NE ZAMAN?</dt><dd>{quick.time}</dd></div><div><dt>BU ADIMIN AMACI</dt><dd>{quick.goal}</dd></div></dl>
+          })()}
           {quest.objective && <p className="dm-objective">{quest.objective}</p>}
           {!quest.briefing && pack?.title.startsWith('On Kış Kararı') && (
             <p className="dm-book-upgrade">
@@ -394,7 +461,7 @@ export default function BroadcastQuestDirector({
               aç. Aynı görevlerin ilerlemesi ve kararları korunur.
             </p>
           )}
-          {quest.briefing && (
+          {quest.briefing && (activeOpening || !studioMode) && (
             <QuestBriefing
               key={quest.id}
               value={quest.briefing}
@@ -402,8 +469,8 @@ export default function BroadcastQuestDirector({
                 if (intro)
                   setPrepared(onPrepare(intro, quest.id) ? intro.id : null)
               }}
-              onReveal={onReveal}
-              ready={!!intro && prepared === intro.id}
+              onReveal={() => { if (intro && onShow) void onShow(intro, quest.id); else onReveal() }}
+              ready={!!intro && prepared === intro.id && (!activeScene || activeScene === 'dm:' + quest.id + ':' + intro.id)}
             />
           )}
           {!quest.briefing && quest.people && (
@@ -416,19 +483,8 @@ export default function BroadcastQuestDirector({
               </ul>
             </details>
           )}
-          {step ? (
+          {step && !activeOpening ? (
             <>
-              <div className="dm-step-tabs" aria-label="Görev sahneleri">
-                {quest.steps!.map((s, i) => (
-                  <button
-                    key={s.id}
-                    aria-pressed={i === index}
-                    onClick={() => changeStep(i)}
-                  >
-                    {i + 1}. {s.title}
-                  </button>
-                ))}
-              </div>
               <div className="dm-step-counter">
                 {progress.skipped?.includes(step.id) ? 'ATLANDI · ' : ''}SAHNE{' '}
                 {index + 1} / {quest.steps!.length}
@@ -445,8 +501,8 @@ export default function BroadcastQuestDirector({
                 </button>
                 <button
                   data-testid="dm-reveal-scene"
-                  disabled={prepared !== step.id}
-                  onClick={onReveal}
+                  disabled={prepared !== step.id || !!activeScene && activeScene !== 'dm:' + quest.id + ':' + step.id}
+                  onClick={() => { if(onShow) void onShow(step,quest.id); else onReveal() }}
                 >
                   <Eye size={15} /> Oyunculara göster
                 </button>
@@ -479,12 +535,12 @@ export default function BroadcastQuestDirector({
                   </p>
                 )}
               </div>
-              <section className="dm-now">
-                <strong>Şimdi ne oluyor?</strong>
+              <section className="dm-now dm-private-note">
+                <strong>DM · Şimdi ne oluyor?</strong>
                 <p>{step.summary}</p>
               </section>
               <section className="dm-read">
-                <span>OYUNCULARA OKU</span>
+                <span>OYUNCULARA OKU · BETİMLEME</span>
                 <blockquote>{step.readAloud}</blockquote>
               </section>
               {step.runbook ? (
@@ -536,7 +592,7 @@ export default function BroadcastQuestDirector({
                     onMap(quest.location!)
                   }}
                 >
-                  <MapPin size={14} /> Şehri haritada göster
+                  <MapPin size={14} /> Konumu haritada hazırla
                 </button>
               )}
               {!step.runbook && step.checks.length > 0 && (
@@ -738,22 +794,8 @@ export default function BroadcastQuestDirector({
                   {exit.label}
                 </button>
               ))}
-              <div className="dm-step-navigation">
-                <button
-                  disabled={index === 0}
-                  onClick={() => changeStep(index - 1)}
-                >
-                  <ChevronLeft size={15} /> Önceki
-                </button>
-                <button
-                  disabled={index >= quest.steps!.length - 1}
-                  onClick={() => changeStep(index + 1)}
-                >
-                  Sonraki <ChevronRight size={15} />
-                </button>
-              </div>
             </>
-          ) : (
+          ) : !activeOpening ? (
             <section className="dm-legacy-read">
               <h3>Görev metni</h3>
               <p>
@@ -769,7 +811,17 @@ export default function BroadcastQuestDirector({
                 </details>
               ))}
             </section>
-          )}
+          ) : null}
+          {pack && <div className="story-flow dm-journey-tools">
+            <JourneyCompanion mode="events" pack={pack} quest={quest} sceneId={activeOpening ? quest.id+'-giris' : step?.id || ''} opening={activeOpening} progress={progress} onProgress={setProgress} onShow={onShow} canShow={!disabled} />
+            <JourneyCompanion mode="people" pack={pack} quest={quest} sceneId={activeOpening ? quest.id+'-giris' : step?.id || ''} opening={activeOpening} progress={progress} onProgress={setProgress} />
+            <JourneyCompanion mode="summary" pack={pack} quest={quest} sceneId={activeOpening ? quest.id+'-giris' : step?.id || ''} opening={activeOpening} progress={progress} onProgress={setProgress} />
+          </div>}
+          <div className="dm-step-navigation dm-main-navigation">
+            <button disabled={activeOpening || index===0 && !quest.briefing} onClick={previousStage}><ChevronLeft size={15}/>Önceki adım</button>
+            <div><small>{activeOpening ? 'BÖLÜM GİRİŞİ' : `ADIM ${index+1} / ${quest.steps?.length||0}`}</small><strong>{activeOpening ? quest.steps?.[0]?.title : quest.steps?.[index+1]?.title || pack?.quests[pack.quests.findIndex(q=>q.id===quest.id)+1]?.title || 'Bölümün sonu'}</strong></div>
+            <button disabled={!activeOpening && index===(quest.steps?.length||1)-1 && pack?.quests.at(-1)?.id===quest.id} onClick={nextStage}>{activeOpening ? 'İlk sahneye geç' : index===(quest.steps?.length||1)-1 ? 'Sonraki bölüme geç' : 'Sonraki adım'}<ChevronRight size={15}/></button>
+          </div>
           <label className="dm-decision-label">
             Masada ne karar verildi?
             <textarea
@@ -869,7 +921,7 @@ export default function BroadcastQuestDirector({
   )
   return expanded
     ? createPortal(
-        <div className="dm-reading-backdrop">
+        <div className={`dm-reading-backdrop ${studioMode ? 'unified-dm' : ''}`}>
           <section
             className="dm-reading-desk"
             role="dialog"

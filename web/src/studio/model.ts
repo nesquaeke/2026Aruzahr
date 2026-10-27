@@ -4,6 +4,7 @@ import {
   freshId,
 } from '../broadcast-state'
 import { parseDMPack, parseProgress } from '../dm-guide'
+import { mergeNightProgress } from './night-progress'
 import type { BroadcastState } from '../broadcast-state'
 import type {
   StudioProject,
@@ -666,6 +667,7 @@ export function mergeProjects(current: StudioProject, incoming: StudioProject) {
       const combinedQuests = [...a.quests, ...quests]
       const mergedProgress = parseProgress(
         {
+          night: mergeNightProgress(ap.night, bp.night),
           quest: ap.quest,
           steps: {
             ...ap.steps,

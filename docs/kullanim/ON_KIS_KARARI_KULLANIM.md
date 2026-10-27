@@ -1,31 +1,57 @@
-# On Kış Kararı — yeni oturum rehberi
+# On Kış Kararı · oturum rehberi
 
-Bu yolculuk, kullanıcının verdiği on ahlaki ikilemin Aruzahr'a uyarlanmış yeni alternatif macera taslağıdır. Mevcut kanonda oynanmış olay sayılmaz. Darbe öncesinde geçer; Eryndorn tahtta kalır. Yeni kaynak, 25–26 Ekim 2026 yazar çalışmasıdır. Güncel baskı üç oyuncu, 1. seviye başlangıç için 61 sahne içerir. [İlk oturum rehberi](../../web/public/dm/ILK-OTURUM.md), yedi başlangıç sahnesini ve gösterilecek resimleri sırayla verir. [Önce yazılan master prompt](../tasarim/YAYIN_VE_ON_GOREV_MASTER_PROMPTU.md).
+Bu, kullanıcının verdiği on ahlaki ikilemin Aruzahr’a uyarlanmış alternatif yolculuğudur. Oynanmış genel dünya kanonu sayılmaz. **Darbe öncesidir; Eryndorn tahtta.** Başlangıç grubu **3 oyuncu, 1. seviye**; bütün yolculuk boyunca aynı seviyede kalmaları gerekmez.
 
-## İlk kullanım
+Güncel baskı **10 bölüm, 61 ana sahne, 10 isteğe bağlı yan olay** içerir. Ayrıca uygun yol/kamp/eşik anlarında açılabilen **12 portreli gece ve yol kartı**, bunların içinde **5 savaş/pusu planı** vardır. [Tek DM Masası](TEK_DM_MASASI.md) bütün düğmelerin güncel rehberidir. Eski sade/gelişmiş geçişi kaldırıldı.
 
-1. Güncel siteyi başlatıp **Yayın Masası**na gir. Hikâye hazır açılır; şifre veya dosya yükleme gerekmez.
-2. Sade akıştan başlangıç ya da kaldığın sahneyi seç. **Nerede / ne zaman / amaç** ve kullanılacak görseller aynı ekrandadır.
-3. Anlatımı oku; **Bu sahneyi göster** ile seçili arka plan ve portreleri oyuncu ekranına gönder. Yalnız ileri/geri gitmek canlı görüntüyü değiştirmez.
-4. Kararı not edip sıradaki adıma geç. Ayrıntılı zar/karşılaşma notları gerektiğinde açılır.
+## Başlangıç
 
-[Kısa kullanım rehberi](SADE_HIKAYE_MASASI.md). İndirme isteğe bağlıdır: [şifresiz dosyalar](../../DM_NOTLARI.md). Kendi paketlerin ve önceki düzenlemelerin otomatik değiştirilmez. Gelişmiş masada v1/v2 dosyaları ve kapsamlı yayın araçları korunur.
+1. Yerel siteyi açıp **Yayın Masası → Görev** bölümüne gir. Hazır hikâye şifresiz açılır; dosya yüklemek gerekmez.
+2. **Son İlaç → Giriş** seç. Yük avlusuna nasıl gelindiğini, partinin neden birlikte yola çıkacağını ve ilk tanışmayı oku.
+3. **Giriş manzarasını hazırla** ile sağdaki görseli kontrol et; **Girişi oyunculara göster** ile yayına geçir.
+4. **İlk sahneye geç**; fildişi kitap yazısını oku, morumsu DM açıklamasını kendine ayır. Numaralı adımlarda **Sahneyi hazırla → Oyunculara göster** kullanılır.
+5. Kararları kaydet ve sırayla ilerle. **Sonraki adım** okumayı değiştirir, yayını değiştirmez.
 
-## Yeni içerik
+[İlk oturum rehberi](../../web/public/dm/ILK-OTURUM.md), başlangıçtaki yedi sahnenin görselini ve ilk tehlikesini sırayla verir. [Şifresiz indirmeler](../../DM_NOTLARI.md) isteğe bağlıdır. Kendi paketin veya değiştirdiğin metinler otomatik olarak hazır metne çevrilmez.
 
-10 görev, 30 adımlı sahne; **8 kişi portresi ve 20 sahne resmi**. Sena Erven, Miren Aska, Bera Hald, Iven Rusk, Elda Sorren, Neris Vel, Maeron Vesk ve Taren Olt genel karakter dizininde bulunur. Kamusal biyografiler gizli görev rollerini ve gelecekteki sonuçları açıklamaz. Görseller görsel kütüphanesine ve galeriye kayıtlıdır. İn, küçük köprü ve kamp için kesin yeni atlas koordinatı uydurulmaz.
+## Yol sırası
 
-Yol Marhalden, Harven, Mavric, Frostbay, Ternhaven ve Dranthol bağlantılarını kullanır. Kral Yolu Marhalden'de biter; Cevher Çizgisi yapılmamıştır. Yolculuk günleri ara sahnelerle atlanabilir. Parti bileşimi ve seviyesi bilinmediği için kontroller ve karşılaşma profilleri düzenlenebilir öneridir. Bütün üçüncü yollar kapatılmaz; oyuncular yaratıcı bir çözüm bulursa başarıları gizli bir cezayla geri alınmaz.
+| Bölüm | Ana sahne | Yer |
+|---|---:|---|
+| Son İlaç | 7 | Marhalden yük avlusu, dış revir ve eski galeri |
+| Köprünün İki Tarafı | 6 | Marhalden’in batısında Batı Aldara yük köprüsü |
+| Aç Çocuk | 6 | Harven, Bera’nın fırını ve un ambarı |
+| Masum Canavar | 6 | Mavric, odun yolu ve Varkul ini |
+| Bir Kişiye Karşı Bir Mahalle | 6 | Frostbay, eski kıyı yapısı ve su kapısı |
+| Hainin Kızı | 6 | Frostbay, ifade masası ve Iven Rusk’ın evi |
+| Son Kayık | 6 | Frostbay dış iskelesi ve güvenli kıyı |
+| İyi Kalpli Nekromant | 6 | Ternhaven sıcak su bahçeleri |
+| Kralın Yalanı | 6 | Dranthol ikmal masası ve iki tahıl deposu |
+| Sizi Kurtaran Düşman | 6 | Dranthol dışındaki eski kömürcü evleri |
 
-## Ara ekranı ve tam ekran
+Kral Yolu Marhalden’de biter. Hardlane bağlantıları **Kemiğe Basan Yol** ve yerel patikalardır; **Cevher Çizgisi yapılmamıştır**. Yol günlerini masanın temposuna göre atlayabilirsin. Görevdeki bir ini, köprüyü veya kampı haritaya kesin yeni şehir koordinatı diye yerleştirme.
 
-**Ara ver**, özgün Danstsud haritasını yavaş kamera kayması, sis ve hafif kar katmanıyla sakin bir döngüye alır. Ara mesajına dönüş saatini veya duyurunu yazabilirsin. **Moladan dön** sahneyi olduğu gibi geri getirir; zar/taş/portre kaydı değişmez. Perdeyi kapatma ayrı eylemdir. Hareket azaltma tercihinde döngü durur. Otomatik müzik yoktur.
+## Kişiler, tehlike ve resimler
 
-İzleyici tarayıcısında **F** tam ekranı açıp kapatır; üst sağdaki denetim üzerine gelince veya klavyeyle odaklayınca görünür. Tarayıcı güvenliği nedeniyle izleyicinin ekranını uzaktan zorla tam ekrana alamazsın. OBS Tarayıcı Kaynağında pencere çerçevesi zaten yoktur.
+**Kişi / yer bul** ortak araması; hikâye kişilerini, gece kartlarını, canavarları, şehirleri ve resimleri birlikte tarar. Seçtiğin kaydın görev kaynağı ile bulunduğu yer görünür. **İlgili görev sahnesini aç**, **Gece ve Yol kartını aç** veya **Savaş kartını aç** ile ilgili içeriğe geç.
 
-## OBS ve 4K
+Her ana sahnenin gösterilecek arka plan ve portreleri bağlıdır; **Bu sahnede gösterilecek görseller** bölümünden bakabilirsin. Yeni yedi şehir tablosu da şehir adıyla aranır: Valdareth, Morihael, Marhalden, Elorwyn, Theramis, Dorvenhall, Lirendil. Galeri ve ilgili wiki sayfaları da bu resimleri gösterir. Yağlıboya mekân yorumlarıdır; ölçülü plan veya yerel 4K üretim iddiası taşımazlar.
 
-URL: `http://127.0.0.1:5173/#/broadcast/live`. Yerel sunucu ve yönetim penceresi açık kalsın. OBS Tarayıcı Kaynağına bu adresi ver; genişlik/yükseklik ile OBS tuvalini eşleştir:
+**Karşılaşmalar · yol, pusu ve gece** başlığındaki kartlar ana zincirden ayrıdır. **Yalnız pusu ve canavar** filtresinde Sivren’in yol pususu, Ruvik’i arayan silahlılar ve üç yaratık karşılaşması bulunur. **Savaş masasında aç** ilgili planı geniş savaş alanına getirir. **Karşılaşmanın düşmanlarını ekle · gizli** komutuyla listeye al; görünürlüğü ayrıca yönet.
+
+[Gece ve Pusu Kartları](../../web/public/dm/GECE-VE-PUSU-KARTLARI.md), bütün 12 kişinin/yaratığın nerede ve ne zaman kullanılacağını verir. Uyarıları önce betimle, düşmanın amacını ve kaçış yolunu oku; aynı yol gününe beş savaşı yığma. Oyuncunun kazandığı yaratıcı üçüncü yolu gizli bir cezayla geri alma.
+
+## Karar ve kayıt
+
+Bölüm kararları **Masada ne karar verildi?** alanındadır. Yan olayın seçimi ve özel notu kendi kartında tutulur. **Kim kimdir?** rehberinden kişiyi sabitleyebilir, **Özel oturum özetini indir** ile yerel kararlarını kısa dosyaya çıkarabilirsin. [Yaşayan Yolculuk](YASAYAN_YOLCULUK.md).
+
+Yerleşik senaryo kullanıcının isteğiyle şifresizdir. Sonradan yazdığın özel not, kimlik, karar ve gelecek sonuçları yayına otomatik gönderilmez. Taşınabilir yedek için **Yayın → Özel kampanya paketini indir**; bu dosya kişisel bilgilerini içerir.
+
+Baştan başlamak için **Yayın → Bu cihazdaki tüm Aruzahr verilerini sıfırla** ve **SIFIRLA** onayı kullan. Hazır hikâye yeniden gelir; kişisel kayıtlar silinir. Aynı origin’de çalışır; GitHub dosyalarını silmez.
+
+## OBS, ara ekranı ve 4K
+
+Ana URL: **`http://127.0.0.1:5173/#/broadcast/live`**. Yerel sunucuyu ve yönetim penceresini açık tut. OBS Tarayıcı Kaynağı ile OBS tuvalini eşleştir:
 
 | Yayın | Kaynak ve tuval |
 |---|---|
@@ -33,20 +59,8 @@ URL: `http://127.0.0.1:5173/#/broadcast/live`. Yerel sunucu ve yönetim penceres
 | 1440p | 2560 × 1440 |
 | 4K UHD | 3840 × 2160 |
 
-Kaynağa sağ tık → **Dönüştür → Ekrana sığdır**. Masaüstü monitörünün çözünürlüğü yayını belirlemez. 16:9 sahne bu iki test edilmiş 1080p/4K alanda tam alanı doldurur. Farklı oranlarda oran korunur; resim ezilmez. Karakterler yüzdeyle, tipografi sahne genişliğine göre ölçeklenir. 4K sahne desteği, tüm mevcut illüstrasyonların yerel 4K çözünürlükte üretildiği anlamına gelmez. Zar sesi yönetim tarayıcısından yakalanır. OBS'nin masaüstü uygulaması bu Linux ortamında açılmadı; ayrı tarayıcı profiline aktarım tarayıcıda doğrulandı.
+Gerekirse kaynakta **Dönüştür → Ekrana sığdır** kullan. Monitör çözünürlüğü yayın çözünürlüğünü belirlemez. 4K yerleşim desteği, bütün resimlerin yerel 4K olduğu anlamına gelmez. Kameralarını OBS’de ekle.
 
-## Sıfırlama
+**Ara ver** sakin harita döngüsünü açar; **Moladan dön** ile kapat. Süre dolması gizli hazırlığı kendiliğinden göstermez. İzleyici tarayıcısında **F** tam ekrana geçer; tarayıcı güvenliği nedeniyle izleyiciyi uzaktan zorla tam ekrana alamazsın. Sesin çıkacağı pencereyi **Ses** bölümünden seç. Gerçek OBS masaüstü/Windows uygulaması bu Linux çalışma ortamında çalıştırılmış değildir.
 
-**Oturum → Yeni oturum başlat** sahneyi, taşları, çizimleri, zarı ve yerel görselleri temizler; özel DM defterini korur.
-
-**Gelişmiş masa → Yayın → Bu cihazdaki tüm Aruzahr verilerini sıfırla** özel paket, ilerleme, kararlar, notlar, portreler, kitap işaretleri ve tercihleri de siler. **SIFIRLA** yazmadan çalışmaz. Önce sahne ve DM yedeğini indirme düğmeleri vardır. Ana menüdeki **Verileri sıfırla** aynı Yayın paneline götürür. Yerleşik hikâye sonraki açılışta başlangıç haliyle yeniden gelir; kişisel notlar ve kararlar geri gelmez. Kaynak wiki, çizimler, GitHub dosyaları ve başka uygulamaların kayıtları silinmez. Aynı cihazda farklı originler (`localhost` ve `127.0.0.1` gibi) ayrı depolamadır; işlem yalnız açık origin için geçerlidir.
-
-## Yayın önizlemeleri
-
-Temiz oyuncu sahnesi, 4K tarayıcı kaynağından küçültülmüş önizleme:
-
-![On Kış Kararı sahnesi](../gorseller/on-kis-karari-sahne.webp)
-
-Ara ekranı; yavaş harita/sis/kar hareketi bu durağan görüntüde görünmez:
-
-![Sakin ara ekranı](../gorseller/on-kis-karari-ara.webp)
+Ayrıntılı ses, şeffaf kaynak, telefon ve yedek ayarları: [Yayın Stüdyosu](YAYIN_STUDYOSU_KULLANIM.md).

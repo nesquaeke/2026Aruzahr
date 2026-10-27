@@ -55,7 +55,7 @@ export function QuestBriefing({
               </button>
             </div>
             <small>
-              Bu giriş, üç görev adımından önce oynanır. Hazırlamak canlı yayını
+              Bu giriş, numaralı sahnelerden önce oynanır. Hazırlamak canlı yayını
               değiştirmez.
             </small>
           </>

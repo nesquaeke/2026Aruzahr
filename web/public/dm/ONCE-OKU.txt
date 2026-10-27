@@ -1,6 +1,6 @@
 ON KIŞ KARARI — ŞİFRESİZ HAZIR HİKÂYE
 
-Güncel siteyi aç: Yayın Masası → Hikâyeyi yönet. On görev, 61 ana sahne ve 10 isteğe bağlı olay hazır gelir; dosya yüklemene veya şifre girmene gerek yok.
+Güncel siteyi aç: Yayın Masası → Görev → Hikâyeyi yönet. On görev, 61 ana sahne ve 10 isteğe bağlı olay hazır gelir; dosya yüklemene veya şifre girmene gerek yok.
 
 Bu ZIP metin yedeğidir. Dosyalar:
 - On-Kis-Karari-DM.json: aynı hazır hikâyenin düzenlenebilir yedeği
@@ -8,6 +8,8 @@ Bu ZIP metin yedeğidir. Dosyalar:
 - On-Kis-Karari-Oynatim-Kitabi.html: bölüm listeli çevrimdışı kitap
 - YOL-HARITASI.md: nerede / ne zaman / amaç / sonra özeti
 - ILK-OTURUM.md: ilk bölüm için kısa yönetim rehberi
+- Night-Road-Encounters.json: 12 gece ve yol kartı, 5 pusu / yaratık çatışması
+- GECE-YOL-PUSU.md: karşılaşmaların konuşma, ipucu, savaş ve karar kitabı
 - ONCE-OKU.txt: bu açıklama
 
 Yayın görselleri ve portreler sitenin içinde gelir, bu metin ZIP'ine kopyalanmaz. Kendi notların ve kararların ayrıca tarayıcıda kaydedilir. Bu hazır kitap yayımlanmıştır; kişisel kampanya yedeğin ve kendi DM notların kendiliğinden yayımlanmaz.

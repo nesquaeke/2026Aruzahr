@@ -1,18 +1,26 @@
-# Hazır hikâye — On Kış Kararı
+# Hazır hikâye ve DM dosyaları
 
-**Şifre ve dosya yükleme gerekmez.** Güncel siteyi açıp **Yayın Masası**na gir. On Kış Kararı’nın 10 görevi, 61 ana sahnesi ve 10 isteğe bağlı yan olayı başlangıç hikâyesiyle birlikte hazır gelir.
+**Şifre ve dosya yükleme gerekmez.** Güncel siteyi açıp **Yayın Masası**na gir. Tek masadaki **Görev** bölümünde On Kış Kararı’nın **10 bölümü, 61 ana sahnesi ve 10 isteğe bağlı yan olayı** hazır gelir. Parti başlangıcı **3 oyuncu, 1. seviye** olarak yazıldı.
 
-1. **Giriş** adımında Marhalden’deki yük avlusundan başla; kayıtlı ilerlemen varsa kaldığın yer görünür.
-2. Sahnede **nerede / ne zaman / amaç** bilgisine bak, okunacak kısa anlatımı ve kişileri takip et.
-3. Görsel ve portre önizlemelerini kontrol edip **Bu sahneyi göster** düğmesine bas. İleri gitmek tek başına yayını değiştirmez.
-4. Kararı not et, sıradaki adıma geç. Ayrıntılı kontroller ve uzun anlatım gerektiğinde açılır.
+1. **Son İlaç → Giriş** ile Marhalden yük avlusundan başla; kaydın varsa kaldığın yer görünür.
+2. “Nerede / ne zaman / bu adımın amacı” bilgisine, ardından oyunculara okunacak anlatıma bak.
+3. **Giriş manzarasını hazırla** veya **Sahneyi hazırla** ile görselleri sağda kontrol et. **Girişi oyunculara göster / Oyunculara göster** ayrı canlı komutudur.
+4. Kararını not et, sonraki adıma geç. Okumak veya adım değiştirmek canlı görüntüyü değiştirmez.
 
-[ZIP’i doğrudan indir](https://github.com/nesquaeke/2026Aruzahr/raw/refs/heads/main/web/public/dm/On-Kis-Karari-DM-Paketi.zip). Site açıkken [indirme sayfasında](web/public/DM-Paketini-Ac.html) JSON, Markdown ve çevrimdışı HTML kitap da bulunur. İndirme zorunlu değildir; yerel site zaten hikâyeyi içerir. Site açıksa `http://127.0.0.1:5173/DM-Paketini-Ac.html` adresini kullan.
+Kişiyi ya da yeri bulamıyorsan üstte **Kişi / yer bul** kullan. Sonuçta kim olduğu, nerede bulunduğu ve hangi görev/karta bağlı olduğu yazar. **İlgili görev sahnesini aç** seni doğru adıma götürür. Artık sade/gelişmiş geçişi yoktur.
 
-Kendi hikâyen veya önceki düzenlemelerin varsa otomatik değiştirilmez. Gelişmiş masada dosya açma ve kampanya yedekleri kullanılabilir. Yerleşik senaryo şifresizdir; senin eklediğin notlar ve kararlar otomatik olarak oyuncu ekranına gönderilmez.
+**Görev → Karşılaşmalar · yol, pusu ve gece** altında ayrıca **12 portreli kart** ve bunların içinde **5 savaş/pusu planı** vardır. Ulven, Sivren, Ruvik Tann veya Uçurum Dinleyicisi diye arayabilirsin. Bunlar uygun zamanda senin açacağın isteğe bağlı yol olaylarıdır; kendiliğinden oynanmış sayılmaz. [Kim, nerede, ne zaman?](web/public/dm/GECE-VE-PUSU-KARTLARI.md)
 
-Kısa kullanım: [Sade Hikâye Masası](docs/kullanim/SADE_HIKAYE_MASASI.md). Ayrıntılı araçlar: [Gelişmiş Yayın Stüdyosu](docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md).
+## İndirme
 
-İlk oyun için **üç oyuncu, 1. seviye** esas alındı. [İlk oturumun kısa rehberi](web/public/dm/ILK-OTURUM.md), avludaki tanışmadan tedavi kararına yedi sahneyi, gösterilecek resimleri ve ilk karşılaşmanın değerlerini sırayla verir.
+[On Kış Kararı ZIP’ini doğrudan indir](https://github.com/nesquaeke/2026Aruzahr/raw/refs/heads/main/web/public/dm/On-Kis-Karari-DM-Paketi.zip). JSON, Markdown ve çevrimdışı HTML kitap için [indirme sayfasını](web/public/DM-Paketini-Ac.html) aç. Yerel site çalışıyorsa adres: `http://127.0.0.1:5173/DM-Paketini-Ac.html`.
 
-[Yan olaylar, kişi kartları ve özel oturum özeti](docs/kullanim/YASAYAN_YOLCULUK.md): yeni sekiz kişi ve portreleri; seçtiğin yolun sonraki durakta hatırlatılması.
+İndirme zorunlu değildir; site hikâyeyi içerir. Kendi hikâyen ve önceki metin düzenlemelerin korunur. Kişisel ilerleme, not ve medyanı taşımak için **Yayın → Özel kampanya paketini indir** kullan. Bu özel yedek, herkese açık hazır hikâye dosyasından ayrıdır; senin eklediğin sırları içerebilir. Notların oyuncu ekranına kendiliğinden gönderilmez.
+
+## Kullanım
+
+- [Tek DM Masası](docs/kullanim/TEK_DM_MASASI.md): başlangıç, kişi/yer arama, karşılaşmalar, savaş ve görseller.
+- [İlk oturum](web/public/dm/ILK-OTURUM.md): avludaki tanışmadan tedavi kararına yedi sahne.
+- [Yaşayan Yolculuk](docs/kullanim/YASAYAN_YOLCULUK.md): sahneye bağlı yan olay, kişi rehberi, seçim yankısı ve özel özet.
+- [Yayın Stüdyosu](docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md): OBS, 4K, harita araçları, telefon ve yedekler.
+- [ElevenLabs sesleri](docs/kullanim/ELEVENLABS_SESLERI.md): kendi sunucu anahtarınla ses seçimi ve kayıt üretimi.

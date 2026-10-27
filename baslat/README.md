@@ -12,6 +12,6 @@ Windows'ta dosyayı çift tıkla. Bash komutları depo ana klasöründen çalı�
 
 İlk açılışta bağımlılıklar ve harita katmanları hazırlanır. Terminali açık tut; kapatmak için **Ctrl+C** kullan. Yayın Masası açıldıktan sonra hazır hikâye otomatik gelir; ayrıca DM dosyası yüklemek gerekmez.
 
-- [Sade Hikâye Masası kullanımı](../docs/kullanim/SADE_HIKAYE_MASASI.md)
+- [Tek DM Masası kullanımı](../docs/kullanim/TEK_DM_MASASI.md)
 - [OBS ve gelişmiş yayın araçları](../docs/kullanim/YAYIN_STUDYOSU_KULLANIM.md)
 - [Elle kurulum](../web/README.md)

@@ -10,6 +10,12 @@ Kullanıcı mevcut yayın resimlerini çocukça, kaba ve tam ekranda düşük ka
 
 Yayın sahneleri ayrı geniş resimler olarak üretilir; toplu görselin küçük hücrelerinden kesilmez. Kaynak çözünürlüğü dürüstçe kaydedilir; büyütülmüş bir dosya yerel 4K üretim diye tanıtılmaz. Anlatı yazımı DM'nin doğrudan okuyup yürütebileceği giriş, kişi tanıtımı, amaç, konuşma, sahne akışı ve geçiş içerir. Kullanıcının sonraki “şifre işine gerek yok içinde gelsin direkt” talebiyle hazır On Kış Kararı senaryosu şifresiz olarak yönetim masasında gelir. Karşılaşma notları genel wikiye veya canlı sahne iletisine eklenmez; kullanıcının kendi özel notları yerel kalır.
 
+## 27 Ekim 2026 — portre zemini ve boya
+
+Kullanıcının yeni açık tercihi sonraki bütün portre üretimlerinde geçerlidir: figürün arkasında mekân, raf, pencere, dağ, şehir veya dekor bulunmaz. Tek rengin doğal koyu/açık tonları arasında yumuşak, boyanmış bir geçiş vardır. Toprak tonları olağan ve yıpranmış kişileri; sarı/kehribar kaotik ruh hâlini; kırmızı düşmanca tonu; siyahın birbirine yakın tonları büyük güç ve ağırlığı anlatabilir. Bunlar gizli kimliği otomatik olarak halka açıklayan bir oyun kuralı değildir; bilinmeyen kişi için nötr bir ton seçilir.
+
+Boya gerçek bir tablonun yumuşak katmanları gibi görünür: ince sırlamalar, doğal sfumato, kenarlarda yumuşama, seçilmiş ayrıntılar ve sakin ton ilişkileri. Sert kesilmiş ışık geçişi, fotoğraf dokusu üstüne sahte boya filtresi, her yüzeye aynı sert fırça kabuğu ve plastik render kullanılmaz. İsim ve güç çerçevesi yine arayüzde ayrı kalır. Sahne manzaraları için yerin okunması korunur; aynı sanatsal boya, yumuşak kenar ve ton yaklaşımı uygulanır. Önceki onaylı resimler sırf bu tercihle otomatik değiştirilmez.
+
 ## Görsel dil
 
 Hedef, gerçek bir ressamın elinden çıkmış fantastik bir tablo hissidir. Kullanıcının “sulu boya gibi ama suluboya da değil, çok net” tarifini şöyle uygula: renk geçişleri yumuşak ve boyanmış görünürken yüz, eller, siluet ve önemli nesneler açıkça okunmalı. Yağlıboya ve guajı çağrıştıran dolgun boya katmanları, seçilmiş kenarlarda belirginlik ve görünür fırça izleri bu dengeyi sağlar.

@@ -94,6 +94,7 @@ export type DMQuest = {
   steps?: DMScene[]
 }
 export type DMProgress = {
+  night?: DMNightProgress
   eventChoices?: Record<string, string>
   eventNotes?: Record<string, string>
   pinnedPeople?: string[]
@@ -102,6 +103,14 @@ export type DMProgress = {
   done: string[]
   decisions: Record<string, string>
   skipped?: string[]
+}
+export type DMNightProgress = {
+  selected: string
+  trigger: 'all' | 'camp' | 'travel' | 'trespass'
+  roll?: number
+  notes: Record<string, string>
+  choices: Record<string, string>
+  revealed: Record<string, number[]>
 }
 export type DMDossier = {
   id: string
@@ -461,6 +470,18 @@ export function parseDMPack(value: unknown): DMPack {
   if (obj(value.progress)) pack.progress = parseProgress(value.progress, quests)
   return pack
 }
+export function parseNightProgress(value: unknown): DMNightProgress {
+  const v = obj(value) ? value : {}
+  const pairs = (raw: unknown, max: number) => obj(raw) ? Object.entries(raw).filter(([id,text]) => /^[a-z0-9][a-z0-9-]{0,159}$/.test(id) && txt(text,max)).slice(0,100) as [string,string][] : []
+  return {
+    selected: txt(v.selected,160) && /^[a-z0-9-]*$/.test(v.selected) ? v.selected : '',
+    trigger: ['camp','travel','trespass'].includes(String(v.trigger)) ? v.trigger as 'camp'|'travel'|'trespass' : 'all',
+    ...(Number.isInteger(v.roll) && Number(v.roll)>=1 && Number(v.roll)<=12 ? {roll:Number(v.roll)} : {}),
+    notes: Object.fromEntries(pairs(v.notes,10000)),
+    choices: Object.fromEntries(pairs(v.choices,160)),
+    revealed: Object.fromEntries(obj(v.revealed) ? Object.entries(v.revealed).filter(([id,values]) => /^[a-z0-9][a-z0-9-]{0,159}$/.test(id) && Array.isArray(values)).slice(0,100).map(([id,values]) => [id,[...new Set((values as unknown[]).filter((n):n is number => Number.isInteger(n) && Number(n)>=0 && Number(n)<12))].slice(0,12)]) : []),
+  }
+}
 export function parseProgress(value: unknown, quests: DMQuest[]): DMProgress {
   const p = obj(value) ? value : {},
     ids = new Set(quests.map((q) => q.id))
@@ -469,6 +490,7 @@ export function parseProgress(value: unknown, quests: DMQuest[]): DMProgress {
     quests.flatMap((q) => q.dossiers?.map((d) => d.id) || []),
   )
   return {
+    ...(obj(p.night) ? {night: parseNightProgress(p.night)} : {}),
     ...(obj(p.eventChoices)
       ? {
           eventChoices: Object.fromEntries(

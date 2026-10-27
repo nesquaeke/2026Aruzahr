@@ -114,10 +114,10 @@ function buildLibrary(): LibraryEntry[] {
     if (!resolved.portrait || usedPortraits.has(resolved.src)) continue
     usedPortraits.add(resolved.src)
     unidentifiedCount += 1
-    const name = `Arşiv portresi ${String(unidentifiedCount).padStart(2, '0')}`
+    const name = resolved.id.startsWith('night-') ? resolved.title : `Arşiv portresi ${String(unidentifiedCount).padStart(2, '0')}`
     entries.push({
       asset: { id: resolved.id, name, src: resolved.src, kind: 'portrait' },
-      detail: 'Arşiv portresi · kimlik atanmamış',
+      detail: resolved.id.startsWith('night-') ? 'Gece ve yol karşılaşması · figür portresi' : 'Arşiv portresi · kimlik atanmamış',
       search: normalize(`${name} ${resolved.title} kimliği açıklanmamış arşiv`),
       group: 'unknown',
     })

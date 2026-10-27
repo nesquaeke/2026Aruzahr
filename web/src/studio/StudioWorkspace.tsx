@@ -35,11 +35,12 @@ import {
 import BroadcastStage, { type BroadcastTool } from '../BroadcastStage'
 import { broadcastAssets, type BroadcastAsset } from '../BroadcastLibrary'
 import BroadcastQuestDirector from '../BroadcastQuestDirector'
-import StoryFlow from './StoryFlow'
+import DMPreparation from './DMPreparation'
+import { StudioDirectory } from './StudioFinder'
 import { ensureBuiltinCampaign } from '../builtin-campaign'
 import { characters } from '../lore/characters'
 import { powerFor } from '../character-card-profiles'
-import { placeById } from '../data'
+import { placeById, locationById } from '../data'
 import {
   loadBroadcast,
   newBroadcastState,
@@ -101,6 +102,7 @@ import '../broadcast-workspace.css'
 import './studio.css'
 const panels = [
   ['quests', 'Görev', BookOpen],
+  ['finder', 'Kişi / yer bul', Search],
   ['scene', 'Sahne', Clapperboard],
   ['library', 'Görsel', ImageIcon],
   ['people', 'Kişi', Users],
@@ -111,6 +113,19 @@ const panels = [
   ['journal', 'Defter', BookOpen],
   ['broadcast', 'Yayın', Settings],
 ] as const
+const panelHelp: Record<string, {title:string;text:string}> = {
+  finder:{title:'Kim, nerede ve hangi olayda?',text:'Bütün kişileri, yaratıkları ve mekânları aynı aramadan bul. Karşılaşma kartına gitmek özel rehberi açar; resmi hazırlamak yayını değiştirmez.'},
+  quests:{title:'Oyunu buradan yürüt',text:'Ortadan bölümü ve adımı seç; sağda hazırladığın resmi kontrol et. Hazırlamak oyuncuların ekranını değiştirmez.'},
+  scene:{title:'Sahnenin görünüşü',text:'Arka planı, portreleri ve yerleşimi hazırlıkta düzenle. Bu düzeni tekrar kullanmak için Sahneyi kaydet; oyunculara geçirmek için Yayına al.'},
+  library:{title:'Resmi bul ve kullan',text:'Sahneyi arka plan yap, kişiyi portre olarak ekle. Göz simgesi açıkça seçtiğin görseli oyunculara gösterir.'},
+  people:{title:'Sahnede kim var?',text:'Kişilerin görünen adını, portresini ve durumunu ayarla. Gizli kimlik ile DM notu oyuncuların ekranında görünmez.'},
+  map:{title:'Yolculuğu göster',text:'Bir konuma git, taşları hareket ettir veya çizim yap. Hazırlık haritasını Yayına al; dikkat halkası doğrudan canlı işaret verir.'},
+  combat:{title:'Çatışmayı takip et',text:'İnisiyatifi ve canları burada tut. Gizli düşmanları açmadıkça oyuncular görmez; yayınlanan sayısal bilgiyi kendin seçersin.'},
+  dice:{title:'Zarı burada at',text:'Zar ifadesini ve görünürlüğünü seç. Açık atış ekrana gider; gizli atış yalnız bu masada kalır.'},
+  sound:{title:'Sahnenin sesi',text:'Hazır dokuyu ya da kendi sesini seç; ses düzeyini ayarla. Önce tarayıcıda sesi etkinleştir, sonra OBS ses kaynağını kontrol et.'},
+  journal:{title:'Verdiğiniz sözleri unutma',text:'Özel kararları ve oturum notlarını kaydet. Hatırlatmalar uygun sahneye bağlanabilir; özel not kendiliğinden yayımlanmaz.'},
+  broadcast:{title:'Yayın, yedek ve sıfırlama',text:'Temiz OBS adresini ve ölçüyü buradan al. Tam kampanya yedeği kişisel notları içerir; sıfırlamadan önce bu yedeği indir.'},
+}
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v))
 const storyFrameKey = (state: BroadcastState) =>
   JSON.stringify([
@@ -124,16 +139,6 @@ const storyFrameKey = (state: BroadcastState) =>
 export default function StudioWorkspace() {
   const [project, setProject] = useState<StudioProject | null>(null),
     [fatal, setFatal] = useState(''),
-    [layout, setLayout] = useState<'story' | 'advanced'>(() => {
-      if (location.hash.endsWith('/reset')) return 'advanced'
-      try {
-        return localStorage.getItem('aruzahr-studio-layout') === 'advanced'
-          ? 'advanced'
-          : 'story'
-      } catch {
-        return 'story'
-      }
-    }),
     [campaignReady, setCampaignReady] = useState(false),
     [panel, setPanel] = useState(
       location.hash.endsWith('/reset') ? 'broadcast' : 'quests',
@@ -156,6 +161,9 @@ export default function StudioWorkspace() {
     [obsConnected, setObsConnected] = useState(false),
     [showQuick, setShowQuick] = useState(false),
     [draftHash, setDraftHash] = useState('')
+  useEffect(() => {
+    try { localStorage.removeItem('aruzahr-studio-layout') } catch { /* optional preference */ }
+  }, [])
   const current = useRef(project)
   current.current = project
   const commandRef = useRef<(id: string, value?: string) => void>(() => {}),
@@ -284,12 +292,6 @@ export default function StudioWorkspace() {
       cancelled = true
     }
   }, [!!project, connection.state.owner, campaignReady, change, notify])
-  function chooseLayout(value: 'story' | 'advanced') {
-    setLayout(value)
-    try {
-      localStorage.setItem('aruzahr-studio-layout', value)
-    } catch {}
-  }
   useEffect(() => {
     if (!project || !connection.state.owner || resetting.current) return
     setSaved('Kaydediliyor')
@@ -599,7 +601,7 @@ export default function StudioWorkspace() {
     }))
     notify('Sahne hazırlığa açıldı. Yayın korunuyor.')
   }
-  async function take() {
+  async function take(): Promise<boolean> {
     if (
       taking.current ||
       !current.current ||
@@ -607,12 +609,13 @@ export default function StudioWorkspace() {
       !connection.state.online
     ) {
       notify('Yayına almak için ana masanın röle bağlantısı gerekli.')
-      return
+      return false
     }
     taking.current = true
     setBusy(true)
     try {
       const p = current.current
+      const startingProgram = p.program, startingEpoch = connection.epoch.current
       const { frame, vault } = await prepareProgram(p)
       const lastDraftHash = await digest(
         JSON.stringify({ ...p.draft, customAssets: [] }),
@@ -635,11 +638,16 @@ export default function StudioWorkspace() {
           : { combat: undefined }),
         poll: p.program.studio?.poll,
       }
+      if (!ownerRef.current || resetting.current || connection.epoch.current !== startingEpoch || current.current?.program !== startingProgram)
+        throw new Error('Hazırlık sırasında canlı kontrolü değişti. Yeniden gözden geçirip göster.')
+      const acceptedFrame = await connection.publishProgram({ ...p, program: frame, mediaVault: vault })
+      if (!ownerRef.current || resetting.current || connection.epoch.current !== startingEpoch || current.current?.program !== startingProgram)
+        throw new Error('Canlı kontrolü veya görüntü değişti. Hazırlık yeniden gösterilmedi; son canlı komut korundu.')
       const card = p.scenes.find((c) => c.id === p.activeScene)
       change((p) => ({
         ...p,
         previous: p.program,
-        program: frame,
+        program: acceptedFrame,
         lastDraftHash,
         mediaVault: vault,
         scenes: p.scenes.map((s) =>
@@ -665,8 +673,10 @@ export default function StudioWorkspace() {
         } catch (e) {
           notify('Sahne hazır; OBS geçişi başarısız: ' + (e as Error).message)
         }
+      return true
     } catch (e) {
       notify((e as Error).message)
+      return false
     } finally {
       taking.current = false
       setBusy(false)
@@ -928,6 +938,7 @@ export default function StudioWorkspace() {
       return
     }
     if (action === 'map') {
+      setPanel('map')
       draft({ mode: 'map' })
       return
     }
@@ -1121,6 +1132,14 @@ export default function StudioWorkspace() {
       })
       await connection.release()
       setProject(null)
+      try {
+        await fetch('/__aruzahr-voices/reset', {
+          method:'POST',
+          headers:{'X-Aruzahr-Voice':'1','Content-Type':'application/json'},
+          body:'{}',
+          signal:AbortSignal.timeout(3000),
+        })
+      } catch { /* Static/offline installations have no voice cache. */ }
       await clearAruzahrData()
       location.hash = '/broadcast'
       location.reload()
@@ -1186,7 +1205,7 @@ export default function StudioWorkspace() {
     extras,
     live,
     notify,
-    take,
+    take: async () => { await take() },
     saveScene,
     loadScene,
     addAsset,
@@ -1231,7 +1250,7 @@ export default function StudioWorkspace() {
   return (
     <StudioContext.Provider value={actions}>
       <main
-        className={`studio-workspace view-${p.view} ${layout === 'story' ? 'story-layout' : ''}`}
+        className={`studio-workspace unified-dm view-${p.view} ${['quests','combat','finder'].includes(panel) ? 'reading-quests' : ''}`}
         data-testid="studio-workspace"
         style={
           {
@@ -1251,7 +1270,7 @@ export default function StudioWorkspace() {
           <div className="studio-logo">
             ARUZAHR
             <small>
-              {layout === 'story' ? 'HİKÂYE MASASI' : 'YÖNETMEN MASASI'}
+              YÖNETMEN MASASI
             </small>
           </div>
           <div className="studio-project-name">
@@ -1280,21 +1299,11 @@ export default function StudioWorkspace() {
                 : 'Yayın rölesi bekleniyor')}
           </span>
           <small className="studio-save">{saved}</small>
-          <button
-            onClick={() =>
-              chooseLayout(layout === 'story' ? 'advanced' : 'story')
-            }
-          >
-            <BookOpen size={15} />
-            {layout === 'story' ? 'Gelişmiş masaya geç' : 'Sade hikâyeye dön'}
+          <button onClick={() => setPalette(true)}>
+            <Search size={16} />
+            <span>Komutlar</span>
+            <kbd>Ctrl K</kbd>
           </button>
-          {layout === 'advanced' && (
-            <button onClick={() => setPalette(true)}>
-              <Search size={16} />
-              <span>Komutlar</span>
-              <kbd>Ctrl K</kbd>
-            </button>
-          )}
           <button onClick={exportProject} title="Özel kampanya paketini indir">
             <Save size={17} />
           </button>
@@ -1308,6 +1317,18 @@ export default function StudioWorkspace() {
             Yayın ekranı ↗
           </a>
         </header>
+              <nav className="studio-panel-tabs studio-global-tabs" aria-label="Studio araçları">
+                {panels.map(([id, label, Icon]) => (
+                  <button
+                    key={id}
+                    aria-pressed={panel === id}
+                    onClick={() => setPanel(id)}
+                  >
+                    <Icon size={16} />
+                    <span>{label}</span>
+                  </button>
+                ))}
+              </nav>
         {!connection.state.owner && (
           <div className="studio-owner-banner">
             <strong>
@@ -1330,62 +1351,6 @@ export default function StudioWorkspace() {
             <button onClick={exportProject}>Bu kaydın yedeğini indir</button>
           </div>
         )}
-        {layout === 'story' ? (
-          <div
-            className="story-host"
-            inert={!connection.state.owner || resetting.current}
-          >
-            {campaignReady ? (
-              <StoryFlow
-                key={dmRevision}
-                onPrepare={prepareDM}
-                onShow={async (cue, questId) => {
-                  if (
-                    taking.current ||
-                    !connection.state.owner ||
-                    !connection.state.online ||
-                    !prepareDM(cue, questId)
-                  )
-                    return null
-                  const old = storyFrameKey(current.current!.program)
-                  await take()
-                  const key = storyFrameKey(current.current!.program)
-                  return old === key ? null : key
-                }}
-                onMessage={notify}
-                onMap={(id) => {
-                  const city = placeById(id)
-                  if (city?.point) {
-                    draft({
-                      mode: 'map',
-                      camera: { x: city.point[0], y: city.point[1], zoom: 6 },
-                    })
-                    notify(
-                      'Konum haritada hazır. Haritayı yayına vermek veya çizmek için gelişmiş masaya geç.',
-                    )
-                    setPanel('map')
-                    chooseLayout('advanced')
-                  }
-                }}
-                preview={<BroadcastStage state={p.program} readOnly />}
-                liveTitle={p.program.title}
-                liveKey={storyFrameKey(p.program)}
-                busy={busy}
-                connected={connection.state.owner && connection.state.online}
-                acknowledged={
-                  !!p.program.studio?.takenAt &&
-                  connection.state.ackTakenAt === p.program.studio.takenAt
-                }
-                intermission={!!p.program.intermission}
-                onBreak={() => perform('break')}
-                onRoll={() => perform('roll-d20')}
-                onAdvanced={() => chooseLayout('advanced')}
-              />
-            ) : (
-              <div className="broadcast-loading">Hikâye kitabı açılıyor…</div>
-            )}
-          </div>
-        ) : (
           <div
             className="studio-main-grid"
             inert={!connection.state.owner || resetting.current || busy}
@@ -1630,12 +1595,7 @@ export default function StudioWorkspace() {
                     </button>
                   ))}
                 </details>
-                <a
-                  href="#/broadcast/classic"
-                  onClick={() => void connection.release()}
-                >
-                  Klasik masa ↗
-                </a>
+
               </div>
             </aside>
             <div
@@ -1714,6 +1674,42 @@ export default function StudioWorkspace() {
                   {busy ? 'Hazırlanıyor…' : 'Yayına al'}
                 </button>
               </div>
+              {panel === 'finder' ? (
+                <div className="studio-wide-tool" data-testid="studio-directory-wide"><StudioDirectory /></div>
+              ) : panel === 'combat' ? (
+                <div className="studio-wide-tool" data-testid="studio-combat-wide"><CombatPanel /></div>
+              ) : panel === 'quests' ? (
+                <div className="studio-dm-reader" data-testid="studio-dm-reader">
+                  {campaignReady ? (
+                    <BroadcastQuestDirector
+                      key={dmRevision}
+                      disabled={!connection.state.owner || busy || !connection.state.online}
+                      activeScene={p.activeScene}
+                      onPrepare={prepareDM}
+                      onReveal={() => void take()}
+                      onShow={async (cue, questId) => {
+                        if (taking.current || !connection.state.owner || !connection.state.online || !prepareDM(cue, questId)) return null
+                        const old = storyFrameKey(current.current!.program)
+                        if (!await take()) return null
+                        const key = storyFrameKey(current.current!.program)
+                        return old === key ? null : key
+                      }}
+                      onMap={(id) => {
+                        const city = locationById(id)
+                        if (city?.point) {
+                          draft({mode:'map',camera:{x:city.point[0],y:city.point[1],zoom:6}})
+                          setPanel('map')
+                          notify('Konum hazırlık haritasında. Yayına al demeden oyuncuların görüntüsü değişmez.')
+                        }
+                      }}
+                      onMessage={notify}
+                      facts={p.facts}
+                      studioMode
+                    />
+                  ) : <p>Hikâye kitabı açılıyor…</p>}
+                </div>
+              ) : (
+                <>
               <div className="studio-preview-heading">
                 <span>
                   <i />
@@ -1973,6 +1969,8 @@ export default function StudioWorkspace() {
                   </li>
                 </ol>
               </details>
+                </>
+              )}
             </section>
             <div
               className="studio-resizer right"
@@ -2002,18 +2000,6 @@ export default function StudioWorkspace() {
               }}
             />
             <aside className="studio-inspector">
-              <nav className="studio-panel-tabs" aria-label="Studio araçları">
-                {panels.map(([id, label, Icon]) => (
-                  <button
-                    key={id}
-                    aria-pressed={panel === id}
-                    onClick={() => setPanel(id)}
-                  >
-                    <Icon size={16} />
-                    <span>{label}</span>
-                  </button>
-                ))}
-              </nav>
               <div className="studio-panel-body">
                 {panels.map(([id]) => (
                   <section
@@ -2021,31 +2007,17 @@ export default function StudioWorkspace() {
                     className={`studio-panel panel-${id}`}
                     hidden={panel !== id}
                   >
-                    {id === 'quests' ? (
-                      campaignReady ? (
-                        <BroadcastQuestDirector
-                          key={dmRevision}
-                          onPrepare={prepareDM}
-                          onReveal={() => void take()}
-                          onMap={(id) => {
-                            const city = placeById(id)
-                            if (city?.point)
-                              draft({
-                                mode: 'map',
-                                camera: {
-                                  x: city.point[0],
-                                  y: city.point[1],
-                                  zoom: 6,
-                                },
-                              })
-                          }}
-                          onMessage={notify}
-                          facts={p.facts}
-                          studioMode
-                        />
-                      ) : (
-                        <p>Hikâye kitabı açılıyor…</p>
-                      )
+                    <div className="studio-tool-explanation"><strong>{panelHelp[id].title}</strong><p>{panelHelp[id].text}</p></div>
+                    {id === 'quests' || id === 'combat' || id === 'finder' ? (
+                      panel === id ? <DMPreparation
+                        draft={localStage(p.draft, p.mediaVault)}
+                        program={localStage(p.program, p.mediaVault)}
+                        busy={busy}
+                        onTake={() => void take()}
+                        onEdit={() => setPanel('scene')}
+                        onBreak={() => perform('break')}
+                        onRoll={() => perform('roll-d20')}
+                      /> : null
                     ) : id === 'scene' ? (
                       <ScenePanel />
                     ) : id === 'library' ? (
@@ -2054,8 +2026,6 @@ export default function StudioWorkspace() {
                       <PeoplePanel />
                     ) : id === 'map' ? (
                       <MapPanel />
-                    ) : id === 'combat' ? (
-                      <CombatPanel />
                     ) : id === 'dice' ? (
                       <DicePanel />
                     ) : id === 'sound' ? (
@@ -2070,7 +2040,6 @@ export default function StudioWorkspace() {
               </div>
             </aside>
           </div>
-        )}
         <StudioAudio
           state={p.program}
           role="operator"

@@ -114,11 +114,8 @@ test('encounter and dialogue cards work; branches change reading without changin
   page,
 }) => {
   await bootStudio(page)
-  await page
-    .getByRole('button', { name: 'Sade hikâyeye dön', exact: true })
-    .click()
-  await expect(page.getByTestId('story-show')).toBeEnabled()
-  const phases = page.getByRole('navigation', { name: 'Bu bölümün adımları' })
+  await expect(page.getByTestId('studio-dm-reader')).toBeVisible()
+  const phases = page.locator('.dm-step-tabs')
   const steps = book.quests[0].steps
   await phases
     .getByRole('button')

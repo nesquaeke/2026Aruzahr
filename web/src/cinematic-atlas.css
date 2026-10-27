@@ -1,0 +1,226 @@
+.cinematic-viewer,
+.cinematic-pins {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.cinematic-viewer {
+  background: #111c21;
+}
+.cinematic-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+  outline-offset: -4px;
+}
+.cinematic-viewer canvas:active {
+  cursor: grabbing;
+}
+.cinematic-viewer canvas:focus-visible {
+  outline: 2px solid #d0b987;
+}
+.cinematic-pins {
+  pointer-events: none;
+  z-index: 5;
+}
+.cinematic-pins .map-pin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  justify-content: center;
+}
+.cinematic-pins .map-pin.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+.cinematic-pins .pin-symbol {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  font-size: 6px;
+  background: #b8a478;
+  border: 1px solid #222c2c;
+  box-shadow: 0 1px 6px #0009;
+}
+.cinematic-pins .pin-label {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  color: #dfd5bd;
+  background: #121e22e8;
+  border: 1px solid #a6987240;
+  padding: 5px 8px;
+  box-shadow: 0 2px 8px #0004;
+}
+.cinematic-pins .region-pin .pin-label {
+  font: 500 14px var(--serif);
+  letter-spacing: 2px;
+  background: #101b21ae;
+  border-color: #a6987230;
+}
+.cinematic-pins .selected .pin-symbol {
+  background: #ead6a8;
+  box-shadow: 0 0 0 4px #e8c78623;
+}
+.cinematic-pins .cinematic-distant:not(:hover):not(:focus-visible) .pin-symbol {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  font-size: 0;
+  border-radius: 50%;
+}
+.cinematic-pins .cinematic-distant:not(:hover):not(:focus-visible) .pin-label {
+  visibility: hidden;
+}
+.cinematic-pins .label-muted:not(:hover):not(:focus-visible) .pin-label {
+  visibility: hidden;
+}
+.cinematic-pins .label-left .pin-label {
+  right: 22px;
+  left: auto;
+}
+.cinematic-controls {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 8;
+  display: flex;
+  gap: 3px;
+  background: #111c22e8;
+  border: 1px solid #b7a77e40;
+  border-radius: 8px;
+  padding: 4px;
+  backdrop-filter: blur(9px);
+}
+.cinematic-controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  min-width: 36px;
+  padding: 7px 10px;
+  color: #c4bda9;
+  background: transparent;
+  border: 0;
+  font-size: 10px;
+  border-radius: 5px;
+}
+.cinematic-controls button:hover,
+.cinematic-controls button[aria-pressed='true'] {
+  background: #b6a07924;
+  color: #ead8b1;
+}
+.cinematic-controls button:focus-visible,
+.cinematic-exit:focus-visible {
+  outline: 2px solid #dfc799;
+  outline-offset: 2px;
+}
+.cinematic-exit {
+  position: absolute;
+  right: 16px;
+  bottom: 62px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px 11px;
+  color: #c9bda2;
+  background: #111d24e8;
+  border: 1px solid #b7a77e40;
+  border-radius: 7px;
+  font-size: 10px;
+}
+.cinematic-caption {
+  position: absolute;
+  left: 17px;
+  bottom: 17px;
+  z-index: 7;
+  pointer-events: none;
+  color: #dfcfad;
+  text-shadow: 0 2px 4px #000;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cinematic-caption strong {
+  font: 500 16px var(--serif);
+  letter-spacing: 3px;
+}
+.cinematic-caption strong span {
+  font: 9px var(--sans);
+  letter-spacing: 1.5px;
+  color: #b7b09b;
+}
+.cinematic-caption small {
+  font: 10px var(--sans);
+  color: #b2b5a8;
+}
+@media (max-width: 620px) {
+  .cinematic-controls {
+    left: 10px;
+    top: 10px;
+  }
+  .cinematic-controls button {
+    min-height: 40px;
+    padding: 8px;
+    font-size: 9px;
+  }
+  .cinematic-exit {
+    right: 10px;
+    bottom: 63px;
+    font-size: 9px;
+  }
+  .cinematic-caption {
+    left: 12px;
+    bottom: 14px;
+  }
+  .cinematic-caption strong {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .cinematic-caption small {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-viewer,
+  .cinematic-pins {
+    scroll-behavior: auto;
+  }
+}
+
+/* Region markers remain quieter than the city labels at world scale. */
+.cinematic-pins .map-pin.region-pin .pin-symbol {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  font-size: 0;
+  background: #a89872;
+  border-radius: 50%;
+}
+.cinematic-caption .cinematic-interpretation {
+  font-size: 9px;
+  color: #a3aaa3;
+  letter-spacing: 0;
+  max-width: 300px;
+  line-height: 1.4;
+}
+@media (max-width:620px) {
+  .cinematic-caption .cinematic-interpretation { max-width:180px; font-size:8px }
+}
+.cinematic-pins .map-pin.feature-pin .pin-label {
+  font: 500 10px var(--serif);
+  letter-spacing: .6px;
+  padding: 4px 7px;
+}
+.cinematic-pins .map-pin.feature-pin .pin-symbol {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  font-size: 5px;
+}

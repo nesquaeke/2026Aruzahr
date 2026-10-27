@@ -141,21 +141,19 @@ test('side event parsing rejects broken links and duplicate identities; local pr
 
 async function story(page: any) {
   await bootStudio(page)
-  await page
-    .getByRole('button', { name: 'Sade hikâyeye dön', exact: true })
-    .click()
-  await expect(page.getByTestId('story-show')).toBeEnabled()
+  await expect(page.getByTestId('studio-dm-reader')).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Giriş manzarasını hazırla', exact: true })).toBeEnabled()
 }
 async function openEvent(page: any, qi = 0) {
   const q = pack.quests[qi],
     e = q.events[0]
   await page
-    .getByRole('navigation', { name: 'Hikâye bölümleri' })
+    .getByRole('navigation', { name: 'Görev yol haritası' })
     .getByRole('button')
     .nth(qi)
     .click()
   await page
-    .getByRole('navigation', { name: 'Bu bölümün adımları' })
+    .locator('.dm-step-tabs')
     .getByRole('button')
     .nth(q.steps.findIndex((s: any) => s.id === e.at) + 1)
     .click()
@@ -180,7 +178,7 @@ test('event decisions and notes persist without changing the broadcast; echoes a
     .fill('ÖZEL: Halatı Orsa’ya verecekler.')
   expect((await publicFrame(page)).studio.takenAt).toBe(before.studio.takenAt)
   await page.reload()
-  await expect(page.getByTestId('story-show')).toBeEnabled()
+  await expect(page.getByTestId('studio-dm-reader')).toBeVisible()
   const reloaded = page.getByTestId('journey-event')
   await reloaded.locator(':scope > summary').click()
   await expect(
@@ -191,13 +189,13 @@ test('event decisions and notes persist without changing the broadcast; echoes a
     'ÖZEL: Halatı Orsa’ya verecekler.',
   )
   await page
-    .getByRole('navigation', { name: 'Hikâye bölümleri' })
+    .getByRole('navigation', { name: 'Görev yol haritası' })
     .getByRole('button')
     .nth(pack.quests.findIndex((q: any) => q.id === e.followup.questId))
     .click()
   const target = pack.quests.find((q: any) => q.id === e.followup.questId)
   await page
-    .getByRole('navigation', { name: 'Bu bölümün adımları' })
+    .locator('.dm-step-tabs')
     .getByRole('button')
     .nth(target.steps.findIndex((s: any) => s.id === e.followup.sceneId) + 1)
     .click()
@@ -239,7 +237,7 @@ test('a named dossier can stay at hand across chapters; summary download include
     })
     .click()
   await page
-    .getByRole('navigation', { name: 'Hikâye bölümleri' })
+    .getByRole('navigation', { name: 'Görev yol haritası' })
     .getByRole('button')
     .nth(1)
     .click()

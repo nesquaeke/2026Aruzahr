@@ -20,6 +20,8 @@ import { civicSections, cityGuides, civicSource } from './lore/civic-guides'
 import { institutionOperations } from './lore/institution-operations'
 import { characterLifeSections } from './lore/character-life'
 import { speciesExpansion } from './lore/species-guides'
+import { capitalScaleSections, demographicPlaceRevision, demographySource, honudRegionRevision } from './lore/honud-revision'
+import { polityArticles, polityHouseSections, politySource, worldHouses, worldPolities } from './lore/world-polities'
 
 export type RegionId = 'xotar' | 'murgul' | 'honud' | 'danstsud' | 'garmirk' | 'ariki' | 'gurbin' | 'lakbar'
 export type Section = { title: string; paragraphs: string[]; scene?: boolean; table?: { columns: string[]; rows: string[][] } }
@@ -142,8 +144,13 @@ const baseRegions: Region[] = [
   },
 ]
 
-const regionalAliases: Partial<Record<RegionId, string[]>> = { danstsud: ['Danstud'], honud: ['Honut'], garmirk: ['Garmirik'], murgul: ['İki Murgul Meclisi'] }
-export const regions: Region[] = baseRegions.map(region => ({ ...region, aliases: regionalAliases[region.id], sections: [...region.sections, ...(regionalLife[region.id] || [])], sources: [...region.sources, ...(regionalLife[region.id] ? [livingWorldSource] : [])] }))
+const regionalAliases: Partial<Record<RegionId, string[]>> = { danstsud: ['Danstud'], honud: ['Honut'], garmirk: ['Garmirik'], murgul: ['Morgul', 'İki Murgul Meclisi'] }
+export const regions: Region[] = baseRegions.map(original => {
+  const region = original.id === 'honud' ? { ...original, ...honudRegionRevision } : original
+  const polity = worldPolities.find(p => p.region === region.id)
+  const politicalSections: Section[] = polity ? [{ title: 'Yönetim ve silahlı güç', paragraphs: [polity.hegemony, 'Ülke nüfusu ' + polity.population.toLocaleString('tr-TR') + '. Daimî kara ve şehir gücü ' + polity.armed.standing.toLocaleString('tr-TR') + ', ayrı donanma tayfası ' + polity.armed.navalCrew.toLocaleString('tr-TR') + ', çağrılabilir ek kuvvet ' + polity.armed.muster.toLocaleString('tr-TR') + '. Haneler bölümünde unvanlar, armalar ve sayımın ayrıntıları bulunur.'] }] : []
+  return { ...region, aliases: regionalAliases[region.id], sections: [...region.sections, ...politicalSections, ...(regionalLife[region.id] || []), ...(region.id === 'murgul' ? capitalScaleSections.morihael : [])], sources: [...region.sources, ...(polity ? [politySource] : []), ...(regionalLife[region.id] ? [livingWorldSource] : []), ...(['honud', 'murgul'].includes(region.id) ? [demographySource] : [])] }
+})
 
 // Base records retain their original anchors. The audited map corrections below
 // replace confirmed settlement anchors. Unconfirmed places have no map point.
@@ -177,13 +184,15 @@ export { historyArticle } from './lore/history'
 export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place => !mapSettlementAliases[place.id])].map(original => {
   const correction = mapCorrections[original.id]
   const place = { ...original, ...correction, aliases: [...(original.aliases || []), ...(correction?.mapLabel ? [correction.mapLabel] : [])] }
-  const additions = cityLife[place.id] || []
+  const demographic = demographicPlaceRevision(place.id)
+  const honudRevision = place.region === 'honud' && demographic
+  const additions = honudRevision ? [] : cityLife[place.id] || []
   const furtherReading = place.id === 'valdareth' ? ['danstsud-ekmek-ve-vergi', 'danstsud-makam-ve-itiraz'] : place.id === 'marhalden' ? ['karlan-iscilik-ve-gecit', 'danstsud-ekmek-ve-vergi'] : place.subregion === 'hardlane' ? ['hardlane-bir-kis'] : []
   return { ...place,
-    summary: place.summary || additions[0]?.paragraphs[0].split(/(?<=[.!?])\s+/).slice(0,2).join(' '),
-    subtitle: place.subtitle || additions[0]?.title,
-    sections: [...(place.sections || []), ...additions, ...civicSections(place.id)],
-    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(correction ? [mapAuditSource] : []), ...(additions.length ? [livingWorldSource] : []), ...(cityGuides[place.id] ? [civicSource] : [])],
+    summary: demographic?.summary || place.summary || additions[0]?.paragraphs[0].split(/(?<=[.!?])\s+/).slice(0,2).join(' '),
+    subtitle: demographic?.subtitle || place.subtitle || additions[0]?.title,
+    sections: [...(honudRevision ? demographic.sections || [] : place.sections || []), ...additions, ...civicSections(place.id), ...(capitalScaleSections[place.id] || [])],
+    sources: [...(place.sources || ['Aruzahr 8k (1).jpg']), ...(correction ? [mapAuditSource] : []), ...(additions.length ? [livingWorldSource] : []), ...(cityGuides[place.id] ? [civicSource] : []), ...(demographic ? [demographySource] : [])],
     related: [...new Set([...(place.related || []), ...(place.region !== 'danstsud' ? [place.region] : []), ...furtherReading])],
   }
 })
@@ -191,17 +200,18 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place
 export const subregions: Subregion[] = danstsudSubregions
 export type MappedPlace = Place & { point: [number, number] }
 export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...hardlaneSessionArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...fieldWildlife, ...newDanstsudInstitutions].map(article => {
+export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...hardlaneSessionArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...fieldWildlife, ...newDanstsudInstitutions, ...polityArticles].map(article => {
   const operations = institutionOperations[article.id];
   const biography = characterLifeSections(article.id);
-  const additions = [...(operations ? [{ title: 'Yetki, destek ve hesap verme', paragraphs: [operations.mandate, operations.chain, operations.support, operations.accountability] }] : []), ...biography, ...(speciesExpansion[article.id] || [])];
-  return additions.length ? { ...article, sections: [...article.sections, ...additions], sources: [...article.sources, civicSource] } : article;
+  const house = article.id === 'vaeranth-hanedani' ? worldHouses.find(h => h.id === 'vaeranth') : article.id === 'elorwynder-hanedani' ? worldHouses.find(h => h.id === 'elorwynder') : undefined;
+  const additions = [...(house ? polityHouseSections(house) : []), ...(operations ? [{ title: 'Yetki, destek ve hesap verme', paragraphs: [operations.mandate, operations.chain, operations.support, operations.accountability] }] : []), ...biography, ...(speciesExpansion[article.id] || [])];
+  return additions.length ? { ...article, sections: [...article.sections, ...additions], sources: [...article.sources, civicSource, ...(house ? [politySource] : [])] } : article;
 })
-const routeAliases: Record<string, string> = { ...mapSettlementAliases, marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
+const routeAliases: Record<string, string> = { ...mapSettlementAliases, 'hane-vaeranth': 'vaeranth-hanedani', 'hane-elorwynder': 'elorwynder-hanedani', morgul: 'murgul', marahalden: 'marhalden', danstud: 'danstsud', honut: 'honud', garmirik: 'garmirk', galmire: 'gaalmire', korthen: 'korhenden', tora: 'toran', thesar: 'thessar', telvar: 'telvai', lurnvale: 'lurnvalf', orinhall: 'orinhal', vosir: 'vossir', lanvar: 'janvar', 'serenth-nehri': 'serenith-nehri' }
 export const canonicalId = (id: string) => routeAliases[id] || id
-export const regionById = (id: string) => regions.find(r => r.id === id)
+export const regionById = (id: string) => regions.find(r => r.id === canonicalId(id))
 export const placeById = (id: string) => places.find(p => p.id === canonicalId(id))
 export const subregionById = (id: string) => subregions.find(s => s.id === id)
 export const locationById = (id: string) => placeById(id) || subregionById(id)
-export const articleById = (id: string) => loreArticles.find(article => article.id === id)
+export const articleById = (id: string) => loreArticles.find(article => article.id === canonicalId(id))
 export const normalize = (text: string) => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i').replace(/[’']/g, '')

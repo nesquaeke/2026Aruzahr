@@ -1,0 +1,9 @@
+{
+  "sourceWidth": 8192,
+  "sourceHeight": 5668,
+  "maskWidth": 2048,
+  "maskHeight": 1417,
+  "sourceChecksum": "c6b2827887a6cc0e25fbf619507ad60153135e89971d923935f8ffcc430866c8",
+  "kind": "technical-land-mask",
+  "notes": "Color-derived shoreline guide; source grid/labels cleaned. Honud uses a traced outer guide while retaining source-blue water channels. Danstsud replaces this mask with its previously traced source contour at runtime. The source painting is not a terrain texture."
+}

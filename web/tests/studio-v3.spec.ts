@@ -77,7 +77,7 @@ test('kayıtlı sahneler çoğaltılır, sıralanır, silinir ve geri alınır',
 }) => {
   await bootStudio(page)
   await page
-    .getByRole('button', { name: 'Sahneyi kaydet', exact: true })
+    .getByRole('button', { name: 'Bu hazırlığı kaydet', exact: true })
     .click()
   await panel(page, 'Sahne')
   await page
@@ -150,11 +150,13 @@ test('gizli kimlik, özel savaş değerleri ve notlar yayın durumuna sızmaz', 
     .getByLabel('Kişi listesinden ekle')
     .selectOption({ label: 'SECRET-REAL-NAME' })
   await page.getByRole('button', { name: 'Savaşa ekle', exact: true }).click()
+  await page.locator('.st-battle-advanced>summary').click()
   const fighter = page.locator('.st-active-fighter')
   await fighter.getByLabel('Can', { exact: true }).fill('73')
   await fighter.getByLabel('Azami', { exact: true }).fill('100')
   await fighter.getByLabel('Zırh', { exact: true }).fill('19')
   await fighter.getByLabel('Özel savaş notu').fill('SECRET-AC')
+  await page.locator('.st-battle-broadcast>summary').click()
   await page.getByLabel('Savaş bilgisini canlı göster').check()
   const fight = await publicFrame(page)
   expect(fight.studio.combat.items[0].name).toBe('Yabancı yolcu')
@@ -214,6 +216,7 @@ test('inisiyatif geri alınır; gizli düşman ve sayısal can görünümü seç
     await page.getByLabel('Görünen savaşçı adı').fill(name)
     await page.getByRole('button', { name: 'Savaşa ekle', exact: true }).click()
   }
+  await page.locator('.st-battle-broadcast>summary').click()
   await page.getByLabel('Savaş bilgisini canlı göster').check()
   await page.getByRole('button', { name: 'Sıradaki', exact: true }).click()
   await expect(page.locator('.st-turn>span')).toHaveText('Yağmacı')

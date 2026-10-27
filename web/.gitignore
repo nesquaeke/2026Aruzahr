@@ -4,3 +4,5 @@ public/atlas/
 test-results/
 playwright-report/
 *.tsbuildinfo
+.env.local
+.env.*.local

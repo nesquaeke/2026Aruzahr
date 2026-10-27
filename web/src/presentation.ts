@@ -4,6 +4,7 @@ import { characterCards } from "./lore/characters";
 import { villageLife } from "./lore/village-life";
 import { worldDossiers } from './world-dossiers';
 import { mappedPlaceDossiers } from './mapped-place-dossiers';
+import { demographicDossierOverrides } from './lore/honud-revision';
 
 export type Power = { label: string; value: number; note: string };
 export type PersonCard = {
@@ -34,8 +35,8 @@ export type Dossier = {
 export const dossiers: Record<string, Dossier> = {
   valdareth: {
     badge: "Taç şehri",
-    population: "≈ 420.000",
-    populationNote: "Hane ve çevre yerleşim tahmini",
+    population: "500.000",
+    populationNote: "Şehir nüfusu · 27 Ekim yazar kararı; bağlı köyler hariç",
     ruler: "Eryndorn Vaeranth",
     government: "Doğrudan kraliyet",
     climate: "Verimli nehir ovası",
@@ -556,6 +557,9 @@ export const artFor = (id: string, region = "danstsud"): string => {
 
 Object.assign(dossiers, worldDossiers);
 Object.assign(dossiers, mappedPlaceDossiers);
+for (const [id, revision] of Object.entries(demographicDossierOverrides)) {
+  dossiers[id] = { ...dossiers[id], ...revision } as Dossier;
+}
 for (const [city, profile] of Object.entries(dossiers)) {
   const people = characterCards(city);
   if (people.length) profile.people = people;

@@ -53,7 +53,7 @@ test('özel kampanya paketi resim, ses, karar ve DM ilerlemesini temiz profilde 
     })
     .click()
   await page
-    .getByRole('button', { name: 'Sahneyi kaydet', exact: true })
+    .getByRole('button', { name: 'Bu hazırlığı kaydet', exact: true })
     .click()
   await take(page, 'Revir')
   await panel(page, 'Ses')
@@ -84,7 +84,7 @@ test('özel kampanya paketi resim, ses, karar ve DM ilerlemesini temiz profilde 
   await fresh
     .getByRole('button', { name: 'Kontrolü bu pencereye al', exact: true })
     .click()
-  await fresh.getByRole('button', { name: 'Gelişmiş masaya geç', exact: true }).click()
+  await expect(fresh.getByTestId('studio-dm-reader')).toBeVisible()
   await expect(fresh.getByTestId('studio-take')).toBeEnabled()
   await panel(fresh, 'Yayın')
   await fresh.locator('.panel-broadcast input[type=file]').setInputFiles(path)
@@ -301,6 +301,7 @@ test('tam sıfırlama stüdyo ve eski kayıtları temizler, ilgisiz anahtarı ko
   page,
 }) => {
   await bootStudio(page)
+  await panel(page, 'Sahne')
   await page
     .getByRole('button', { name: 'Sahneyi kaydet', exact: true })
     .click()
@@ -348,11 +349,13 @@ test('canlıdan kopyalanıp kaydedilen sahne yayından kalkınca da yerel arşiv
   page,
 }) => {
   await bootStudio(page)
+  await panel(page, 'Sahne')
   await take(page, 'HAZIRLIK: yeni')
   const old = (await publicFrame(page)).scene.src
   await page
     .getByRole('button', { name: 'Yayını hazırlığa kopyala', exact: true })
     .click()
+  await panel(page, 'Sahne')
   await page
     .getByRole('button', { name: 'Sahneyi kaydet', exact: true })
     .click()

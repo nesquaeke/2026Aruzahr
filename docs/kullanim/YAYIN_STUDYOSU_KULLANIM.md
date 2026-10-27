@@ -2,14 +2,14 @@
 
 Güncel yönetim masası `http://127.0.0.1:5173/#/broadcast` adresindedir. Önceki arayüz `/#/broadcast/classic` altında korunur. OBS'nin ana adresi değişmedi: **`http://127.0.0.1:5173/#/broadcast/live`**.
 
-Varsayılan sade akış için [kısa rehberi](SADE_HIKAYE_MASASI.md) kullan. Bu sayfa gelişmiş araçların ayrıntılarıdır.
+Sade/gelişmiş geçişi kaldırıldı; bütün araçlar tek masadadır. Önce [Tek DM Masası](TEK_DM_MASASI.md) rehberindeki başlangıç ve kişi/yer aramasını kullan. Bu sayfa yayın araçlarının ayrıntılarıdır.
 
 ## İlk oturum
 
 1. Güncel depoyu indirip çıkar. Windows'ta `baslat/Yayini-Baslat.cmd`; macOS/Linux'ta `bash baslat/Yayini-Baslat.sh` çalıştır. Node 22.12+ gerekir. Terminali açık tut.
-2. Yeni varsayılan **Sade Hikâye Masası**nda On Kış Kararı hazır gelir. Aşağıdaki ayrıntılı araçlar için **Gelişmiş masaya geç** düğmesini kullan. **Görev** panelinde kendi `On-Kis-Karari-DM.json` dosyanı da açabilirsin. Eski beşli paket de çalışır. Paket sıradan bir metin sayfası olarak kalmaz: görev adımları, okunacak sözler, kontroller, görseller ve karar alanları ayrılır.
-3. Sol taraftaki **Görev sahnelerini içe al** ile paketin sahnelerini kayıtlı sahnelere ekle. On Kış Kararı 10 görev ve 61 sahne içerir. Bu işlem yayın görüntüsünü değiştirmez.
-4. Bir sahneyi veya görev adımını **hazırla**. Orta bölümde kadrajı, portreleri ve başlığı kontrol et. Hazırlıkta yaptığın değişiklikler izleyiciye gitmez.
+2. **Görev** bölümünde On Kış Kararı hazır gelir: 10 bölüm, 61 ana sahne, 10 yan olay. Giriş ve numaralı adımlar aynı masadadır; ayrı bir gelişmiş moda geçmezsin. Kendi JSON veya not dosyanı **DM paketi aç** ile açabilirsin. Önceki beşli paket de desteklenir.
+3. İlk oyun için **Son İlaç → Giriş** seç. Kayıtlı sahne kartları da istersen soldaki **Görev sahnelerini içe al** ile eklenebilir; hikâyeyi okumak için bu işlem zorunlu değildir. İçe almak yayın görüntüsünü değiştirmez.
+4. **Giriş manzarasını hazırla** veya **Sahneyi hazırla** kullan. Görev ekranında sağdaki hazırlık önizlemesinde resmi ve portreleri kontrol et; altındaki canlı önizleme oyuncuların mevcut görüntüsüdür. Hazırlık değişiklikleri izleyiciye gitmez.
 5. **Yayına al** düğmesiyle göster. Altındaki canlı önizleme ve bağlantı durumu, gönderimin onayını gösterir. OBS kaynağında aynı görüntü açılır.
 6. Oturum sonunda **Özel kampanya paketini indir** ile dosya yedeği al. Otomatik yerel kayıt da vardır; taşınabilir yedek başka bilgisayara geçmek içindir.
 
@@ -30,9 +30,9 @@ Sol sütunda sahne arama, favori, sıralama, çoğaltma, çöp kutusu ve geri ge
 
 ## Görev ve defter
 
-Yeni **On Kış Kararı · Oynatım Kitabı** dosyasını yükledikten sonra **Geniş DM okuma masasını aç** düğmesini kullan. Önce “Bölümü buradan başlat” alanındaki geliş yolunu, amacı ve kişileri oku. Açılış anlatımından sonra üç sahneye geç. Her sahnenin okunacak metni, sırayla yapılacakları, konuşmaları ve sonraki geçişi ayrı gösterilir. Zarlar ve ek teknik notlar açılır bölümdedir. Esc, geniş okuma masasını kapatır.
+Hazır kitap otomatik açılır; dosya yüklemen gerekmez. İstersen **Geniş DM okuma masasını aç** düğmesini kullan. Önce “Bölümü buradan başlat” alanındaki geliş yolunu, amacı ve kişileri oku. İlk bölüm yedi, kalan bölümler altışar sahnedir. Açılıştan sonra **İlk sahneye geç** kullan. Her sahnenin okunacak metni, sırayla yapılacakları, konuşmaları ve sonraki geçişi ayrı gösterilir. Zarlar ve ek teknik notlar açılır bölümdedir. Esc, geniş okuma masasını kapatır.
 
-İlk bölümde ayrıca **Giriş manzarasını hazırla / Girişi oyunculara göster** düğmeleri vardır. Tanışma ve sevk sözleşmesi, revirdeki üç adımdan önce oynanır. Yeni JSON'u aynı görev kimlikleriyle açmak mevcut adım, karar ve tamamlanma kayıtlarını korur; dosyanın içinde açık bir ilerleme kaydı varsa o kullanılır. Tam defter dosyanı ayrıca indirebilirsin.
+Bölüm girişinde **Giriş manzarasını hazırla / Girişi oyunculara göster** düğmeleri vardır. İlk bölümün tanışma ve sevk sözleşmesi, revir olaylarından önce oynanır. Yeni JSON'u aynı görev kimlikleriyle açmak mevcut adım, karar ve tamamlanma kayıtlarını korur; dosyanın içinde açık bir ilerleme kaydı varsa o kullanılır. Tam defter dosyanı ayrıca indirebilirsin.
 
 Yeni resimler sitenin içindedir. Güncel siteyle hazır hikâye doğrudan açılır; kendi paketlerin için dosya seçimi korunur. Önceki kayıtlardaki canlı görüntü kendiliğinden değiştirilmez; yeni resmi hazırlayıp yayına al. **Görev sahnelerini içe al** mevcut görev kartlarını yeni içerikle günceller. ZIP'teki `On-Kis-Karari-Oynatim-Kitabi.html`, internetsiz okunabilen özel metin sürümüdür.
 
@@ -43,7 +43,17 @@ Görev panelinde adımları sırayla yürüt, kontrol maddelerini işaretle, ger
 
 Görev sonuçları otomatik olarak wiki kanonuna yazılmaz. DM paketi ve kampanya kaydı, uygulamanın halka açık lore verilerinden ayrıdır.
 
-Görevdeki **1–2–3** düğmeleri aynı görevin anlatım adımlarıdır. Örneğin Son İlaç; varış, araştırma ve karar olarak ilerler. Bazı adımlar aynı arka planı/portreleri kullanır; olay ve kontrol metni değişir. **Sahneyi hazırla** sonrasında resim/portrelerin hazırlandığını belirten bildirim görünür; hazırlıktaki ara/perde kaldırılır. **Oyunculara göster** ayrı canlı yayın komutudur.
+Görevdeki **numaralı sahneler** aynı bölümün adımlarıdır. Son İlaç, avludaki tanışma ve gece olayından başlayıp revir araştırmasına ve tedavi kararına uzanan yedi sahnedir. Bazı adımlar aynı arka planı/portreleri kullanır; olay ve kontrol metni değişir. **Sahneyi hazırla** sonrasında resim/portrelerin hazırlandığını belirten bildirim görünür; hazırlıktaki ara/perde kaldırılır. **Oyunculara göster** ayrı canlı yayın komutudur.
+
+## Kişi, yer veya karşılaşma arama
+
+Üstte **Kişi / yer bul** ortak dizini açar. Ad, yer veya görevle ara; **Kişiler / Karşılaşmalar / Yerler** filtresini seç. Sonuç kartında görev kaynağı, kişi rolü ve bağlı yer görünür. **İlgili görev sahnesini aç**, **Gece ve Yol kartını aç** veya **Savaş kartını aç** ile doğru içeriğe git. Bir sonuç seçmek yayını değiştirmez.
+
+Portreyi veya mekânı hazırlığa ekleyip üstte **Yayına al** kullan. **Haritada konumu hazırla** mevcut şehir çevresini açar. Kaynakta kesin konumu olmayan bir arşiv resmine rastgele nokta verilmez.
+
+Yeni yedi şehir tablosu **Valdareth, Morihael, Marhalden, Elorwyn, Theramis, Dorvenhall, Lirendil** adlarıyla bulunur. Ana sitedeki **Galeri** ve ilgili wiki sayfaları da bu resimleri gösterir. Yeni tablolar ölçülü plan değildir.
+
+Ana sitenin **Haneler** menüsünde sekiz ülkenin 33 hane/klanı, özgün armaları ve sözleri bulunur. Ülkeyi seçince unvanlar, atanma biçimi ve silahlı güç düzeni açılır. **Galeri → Armalar** arma koleksiyonudur. Atlasın **Özgün 2D / Danstsud 3D / Loş 3D** düğmeleri ayrı görünümlerdir; ortak kanonik noktalar korunur. Loş 3D bütün dünya kabartma yorumudur, erişilemeyen Velutan referansının bire bir kopyası diye sunulmaz.
 
 ## Kişiler, katmanlar ve ipuçları
 
@@ -65,11 +75,17 @@ Haritadan çıkmak için **Haritayı kapat · sahneye dön**, araç çubuğundak
 
 ## Savaş ve zar
 
+**Görev → Karşılaşmalar · yol, pusu ve gece** altında 12 kart vardır. **Yalnız pusu ve canavar** filtresi beş savaşlı kartı gösterir: Sivren’in yol pususu, Ruvik’in takipçileri, İs Halkası, Mühürsüz Nöbetçi ve Uçurum Dinleyicisi. Yer, kullanma zamanı, DM hakikati ve keşif ipuçları ayrı görünür. **1d12 at ve kart çek** seçilen koşula uygun kartı getirir; uygun değilse sakin geçiş olur. [Tam kişi/yer rehberi](../../web/public/dm/GECE-VE-PUSU-KARTLARI.md).
+
+**Savaş masasında aç** planı geniş orta alana taşır. **Karşılaşmanın düşmanlarını ekle · gizli** ile katılımcıları ekle; seçmek tek başına eklemez. Düşmanın amacı, uyarısı, taktiği, kaçış ve teslim koşulunu önce oku. **İsmiyle kişi veya yaratık bul** araması bütün dizini tarar; önce kendi kişi listene eklemen gerekmez. Kaynakta olmayan değerleri DM belirler. Hızlı hasar/iyileştirme düğmeleri geçici can ve azami can sınırına uyar.
+
 **Savaş** paneli inisiyatif sıralaması, tur, sıradaki, önceki hamle, grup inisiyatifi, can/geçici can, zırh, durum ve konsantrasyon tutar. **Savaş bilgisini canlı göster** kapalıyken yalnız DM görür. Açınca yalnız seçilen yayın alanları gider. Can gösterimini kapalı, durum, çubuk veya sayı seçebilirsin. **İzleyiciden tamamen gizle** açık düşman listede görünmez. Gizli not ve zırh sınıfı yayın katmanına eklenmez.
 
 **Zar** panelinde `1d20+5`, `2d6+1d4+3` gibi ifadeler kullanılabilir. Desteklenen zarlar d4/d6/d8/d10/d12/d20/d100; avantaj/dezavantaj tek d20 üzerindedir. Kişi, atış adı ve ek değer girilebilir. Atışları kaydet ve geçmişte kişi ara. **Gizli DM atışı** yayında ses veya görüntü üretmez. **Yalnız sonucu göster** formülü ve tekil zarları kapatır. Doğal 20 vurgusu otomatik başarı kuralı uygulamaz.
 
 ## Ses ve ara ekranı
+
+**Ses → Karakterlere ses ver · ElevenLabs** bölümünde kendi sunucu anahtarınla sesleri listeleyebilir, seçtiğin konuşmayı üretebilir, MP3’ü dinleyip indirebilir veya ses kütüphanesine ekleyebilirsin. Metin yalnız açık **Ses üret** komutuyla sağlayıcıya gönderilir. API anahtarı istemciye/yayına konmaz; henüz ayarlanmadıysa üretim yapılmaz. [Yerel anahtar kurulumu](ELEVENLABS_SESLERI.md).
 
 **Ses** panelinin müzik, ortam ve tek seferlik efekt kanalları bağımsızdır. Aynı ortam yeniden yayına alındığında baştan başlamaz. Seviye ve 0–5 saniye geçiş ayarlanır. Ses seçimi hazırlığa aittir; **Efekti canlı çal**, **Acil sessizlik** ve yeniden açma canlı komutlarıdır.
 

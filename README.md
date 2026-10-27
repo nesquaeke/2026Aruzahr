@@ -13,12 +13,22 @@ GitHub'da **Code → Download ZIP** ile deponun tamamını indirip çıkar. [Nod
 | macOS / Linux veya telefon kumandası | [Başlatma seçenekleri](baslat/README.md) |
 | Yan olayları ve kişileri takip et | [Yaşayan Yolculuk](docs/kullanim/YASAYAN_YOLCULUK.md) |
 | İlk oturumu hazırla | [Üç oyuncu, 1. seviye kısa rehber](web/public/dm/ILK-OTURUM.md) |
-| Oyunu adım adım yönet | [Sade Hikâye Masası](docs/kullanim/SADE_HIKAYE_MASASI.md) |
+| Oyunu adım adım yönet | [Tek DM Masası](docs/kullanim/TEK_DM_MASASI.md) |
 | Hikâye dosyalarını indir | [DM notları ve şifresiz indirmeler](DM_NOTLARI.md) |
 | Evrenin lore'unu oku | [Lore dizini](lore/README.md) |
 | PDF, Word, harita veya karakter asıllarını bul | [Özgün kaynaklar](kaynaklar/README.md) |
 
 Başlatıcının açtığı terminali kullanım boyunca açık tut. Yayın Masası `http://127.0.0.1:5173/#/broadcast`, OBS görüntüsü `http://127.0.0.1:5173/#/broadcast/live` adresindedir. Hazır hikâye şifresiz gelir; kendi notların ve kararların yerel kaydında kalır.
+
+## Nerede bulacağım?
+
+- **Yayın Masası → Kişi / yer bul:** karakter, yaratık, şehir ve karşılaşmaları aynı aramada bul; hangi görevden geldiğini ve nerede kullanıldığını gör.
+- **Görev:** 10 bölüm / 61 sahne, 10 yan olay ve 12 portreli yol/gece kartı. **Savaş:** hazır pusuları ve canavarları geniş masada yönet; beş yeni savaş planı dahil.
+- **Galeri:** bütün resimler ve yedi yeni büyük şehir tablosu. **Haneler:** sekiz ülkenin 33 hane/klanı, armaları, sözleri, unvanları ve silahlı güçleri.
+- **Atlas:** Özgün 2D, Danstsud 3D ve bütün dünya için Loş 3D. Kanonik konumlar ortaktır; 3D arazi görsel yorumdur.
+- **Ses → ElevenLabs:** özel sunucu anahtarıyla karakter konuşması üret, dinle ve kütüphaneye ekle. [Kurulum](docs/kullanim/ELEVENLABS_SESLERI.md).
+
+Sade/gelişmiş geçişi kaldırıldı; bütün araçlar tek DM masasındadır. [Başlangıç ve düğmelerin açıklaması](docs/kullanim/TEK_DM_MASASI.md).
 
 ## Klasör düzeni
 

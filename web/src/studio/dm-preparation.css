@@ -1,0 +1,10 @@
+.dm-preparation {min-width:0; color:#bfc7c6; font-size:12px;line-height:1.8}
+.dm-preparation>h2{font:26px/1.25 var(--serif);color:#e4d9c4;font-weight:400;margin:10px 0 18px}
+.dm-preparation-preview,.dm-program-preview{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid #b6bcb52b;border-radius:8px;background:#0a1117}
+.dm-preparation-preview .broadcast-stage,.dm-program-preview .broadcast-stage{width:100%;height:100%}
+.dm-preparation>button{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 0}
+.dm-preparation .dm-preparation-take{background:#c3ad7c;color:#14231f;border-color:#d4bf8a;font-weight:600}
+.dm-preparation-live{margin:28px 0 18px;padding-top:22px;border-top:1px solid #a9b4ac2b}
+.dm-preparation-live>h3{font:22px var(--serif);font-weight:400;margin:9px 0 15px;color:#d8ddce}
+.dm-preparation-live>small{display:block;margin-top:10px;font-size:11px;color:#a7b7ab}
+.dm-preparation li{margin:10px 0}

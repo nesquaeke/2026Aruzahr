@@ -1,6 +1,6 @@
 # Belgeler
 
-Oyunu yönetmek için önce [Sade Hikâye Masası](kullanim/SADE_HIKAYE_MASASI.md) rehberini aç.
+Oyunu yönetmek için önce [Tek DM Masası](kullanim/TEK_DM_MASASI.md) rehberini aç.
 
 | Klasör | İçerik |
 |---|---|

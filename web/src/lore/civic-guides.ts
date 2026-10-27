@@ -4,7 +4,7 @@ export const civicSource = '10 Ekim 2026 · yaşayan ansiklopedi geliştirmesi; 
 export type CityGuide = { food: string; work: string; order: string; magic: string; season: string; neighbours: string; tension: string };
 export const cityGuides: Record<string, CityGuide> = {
   valdareth: {
-    food: 'Serenith, Doğu Aldara ve Teyra ovasının tahılı değirmenlerden Yedi Ambar’a, oradan fırınlara gider. Kuyular ve mahalle su taşıyıcıları aynı hizmet düzeyini sunmaz; dış surlarda suyun taşınması hane işidir.',
+    food: '500.000 kişilik şehir, Serenith, Doğu Aldara ve Teyra ovasının tahılına, değirmenlere, Yedi Ambar’a ve liman sevklerine dayanır. Bu kent sayısına bağlı vergi köyleri eklenmez. Kuyular ve mahalle su taşıyıcıları aynı hizmet düzeyini sunmaz; dış surlarda suyun taşınması hane işidir.',
     work: 'Feneraltı yük taşır; Mor Sır ustaları Dorvenhall mineralini işler. İç sarayın düzenli siparişiyle dış mahalledeki günlük ücret arasında büyük fark vardır. Yeni gelenlerin ilk işi çoğunlukla taşıma, tamir veya mevsimlik hasattır.',
     order: 'Krala doğrudan gelen köy vergisini hazine kaydeder. Teren Halvek sivil hizmetleri, Rickon muhafız işini yürütür; gözaltı hapishane nazırına kayıtla devredilir. Dilekçe, tanık ve teslim alındı belgesi bir mahalle kavgasını saraya götürmeden çözmenin araçlarıdır.',
     magic: 'Geçerli ruhsatla hizmet mümkündür. Sicil kaydı, uygulamanın kapsamını ve sorumlusunu gösterir. İzinsiz büyü ve kurban ritüelleri yasaktır; saraya yakın olmak tek başına ruhsat yerine geçmez.',

@@ -1,0 +1,1305 @@
+{
+  "title": "Hardlane · Gece, Yol ve Eşik Kartları",
+  "edition": "night-road-2026-10-27",
+  "authorship": "Kullanıcının dünya kurma yetkisiyle yazılmış yeni DM içeriği; oynanmış kanon veya özgün kaynak alıntısı değildir.",
+  "party": "3 oyuncu, 1. seviye başlangıç; iki sert karşılaşmayı dinlenmeden peş peşe koyma.",
+  "cards": [
+    {
+      "id": "ulvenin-evi",
+      "title": "Eşik Evindeki Üç Kişi",
+      "region": "danstsud",
+      "locationId": "harven",
+      "triggers": [
+        "travel",
+        "trespass"
+      ],
+      "die": {
+        "min": 1,
+        "max": 1
+      },
+      "mood": "formidable",
+      "portraitId": "night-ulvenin-evi",
+      "visibleName": "Ulven, Eşik Dikişçisi",
+      "arrival": "Harven’e bir günlük yürüyüşten daha uzak olmayan eski bir kömürcü yan yolunda; ana ilaç saatini tehlikeye atacak zorunlu durak değildir. Tipi veya gece sığınağı ararken evi gösterebilirsin. Bir kez oynandıktan sonra kart tekrar çekilirse aynı evin yeni durumunu kullan, sahneyi başa sarma.",
+      "readAloud": "Kapıyı ilk çocuk açıyor. Arkasında daha küçüğü duruyor; ikisinin de ayakkabıları ayaklarında, paltoları sandalyeye atılmamış. Masanın öte yanında uzun parmaklı yaşlı bir adam bez dikiyor. Başını kaldırınca saçının altındaki iki soluk kemik çıkıntısını görüyorsunuz.\n\nAdamın söylediği sözleri seçemiyorsunuz. Bir kelimeyi iki kez, sonra daha yavaş söylüyor. Büyük çocuk ona bakmadan, “Ayakkabılarınızla girebilirsiniz,” diyor. Sözcükleri tercüme etmiş gibi değil, evin kuralını hatırlatır gibi.\n\nSoba sıcak. Yine de dipteki dolabın çevresinde ağır, demirsi bir koku var. Küçük çocuk kapıya bakıyor; sizin çıkmanızı mı bekliyor, kendisi mi çıkmak istiyor, yüzünden anlaşılmıyor.",
+      "dmTruth": "Ulven insan ile unutulmuş bir dağ soyunun yaşlı melezidir; bu kart ona bütün bir yeni ırkın kanonunu yüklemez. İki çocuk Lea ve Kev, üç gece önce yük yolunda ölen yetişkin taşıyıcı Raden Ulf’un çocuklarıdır. Ulven onları soğuktan kurtardı, ancak babalarının ölümünü söylemeyi erteledi. Çocuklar Ulven’in yabancı dilinden ve dolaptaki kokudan ürker; silahlı yabancıların onları ayırmasından da korkar. Kapı kilitli değildir.\nDolabın altındaki tuzlu bez kesesinde kanlı yetişkin beden parçaları vardır: çökmüş bir yük barakasından çıkarabildiği kalıntılar. İki farklı yetişkine aittir; Raden’in kimliği yük tokası ve mektupla doğrulanabilir, diğer yetişkinin kimliği bilinmez. Ulven bütün bedeni taşıyamadığı için parçaları cenaze beziyle topladı; aileden izin almadan bunu yapması gerçek bir kusurdur. Çocuklara ait kalıntı yoktur. Adamın sözleri eski bir cenaze sayımıdır, büyülü tehdit değildir. Anlamayı sağlayan gerçek bir dil özelliği işe yarar.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Bakış ve konuşma",
+          "discovery": "Çocukların ayakkabıları çıkışa hazırdır; kapının sürgüsü açık, sobanın yanında üç ayrı kap vardır. Çocuklarla Ulven’den ayrı konuşmak mümkündür."
+        },
+        {
+          "dc": 8,
+          "skill": "Algı",
+          "discovery": "Dolabın dibindeki bezde kurumuş kan, tuz ve acı koruyucu ot kokusu ayırt edilir. Yeni bir saldırı olduğuna kanıt değildir."
+        },
+        {
+          "dc": 10,
+          "skill": "Tıp",
+          "discovery": "Kalıntılar yetişkin ölçüsündedir; soğukta ölmüş bir bedenden sonradan ayrılmış izler görülür. Bu inceleme katili veya bütün ölüm nedenini sihirli kesinlikle söylemez."
+        },
+        {
+          "dc": 12,
+          "skill": "Araştırma",
+          "discovery": "Kesedeki iki farklı kol dokuması ve eşleşmeyen ölçüler, birden fazla yetişkinin kalıntısı olduğunu gösterir. Bezde Raden’in taşıyıcı tokası ve katlanmış bir teslim mektubu vardır."
+        },
+        {
+          "dc": 14,
+          "skill": "Tarih veya dil bilgisi",
+          "discovery": "Ulven’in tekrar ettiği sayıların cenaze sayımı olduğu anlaşılır. Dil büyüsü veya anlamlı bir iletişim planı varsa bu bilgiyi ayrıca zarla kilitleme."
+        }
+      ],
+      "warnings": [
+        "Dolabı açmadan önce koku ve çocukların dolaba bakmama çabası görünür; kanlı içeriği ansızın oyuncunun yüzüne fırlatma.",
+        "Ulven silah çekmez. Kapıya giden bir çocuğun önünü keserse konuşmayla durdurulabilir; ona kapının açık kalmasını kabul ettir.",
+        "Savaş başlatılırsa Ulven Zırh12/Can14, turda tek +3 isabet/1d4 itme hasarı kullanır; çocukları hedef almaz, kapıyı açıp çekilmeyi seçer. Bu ev gizli yüksek seviyeli boss tuzağı değildir."
+      ],
+      "choices": [
+        {
+          "id": "birlikte-anlat",
+          "label": "Çocuklarla ayrı konuş; cenazeyi ve gidişi birlikte düzenle",
+          "result": "Lea ile Kev kimi yanlarında istediklerini söyleyebilir. Ulven mektubu ve kalıntıları tanık önünde teslim eder; Raden’in ölümünü güvenilir bir yetişkinle açıklamak için zaman ayrılır. Bilinmeyen yetişkin ayrı kaydedilir.",
+          "echo": "Harven’de Bera teslim mektubunun işaretini tanıyabilir; bu bir aileyi veya bütün ölüyü tek zarla geri getirmez. Ulven’in yardım etmiş olması izinsiz beden toplamasını kendiliğinden meşrulaştırmaz."
+        },
+        {
+          "id": "guvenli-cikis",
+          "label": "Önce çocukları güvenli bir yere götür; kalıntıları tanıkla incelet",
+          "result": "Çocuklar çıkmak istiyorsa Ulven engellemez. Bir komşu veya Harven’de bulunan güvenilir hane aranır; kalıntılar örtülü ve ayrı tutulur, bulunmayan bir suçlu adı tutanağa eklenmez.",
+          "echo": "Ulven ne olduğunu anlatmak için sonra şehre gelebilir. Komşuların korkusu, onun gerçekten ne yaptığıyla ayrıca yüzleştirilir."
+        },
+        {
+          "id": "mesafe",
+          "label": "Eve girmeden yardım çağır; gözlem ve sözü kaydet",
+          "result": "Parti içeride kalmak zorunda değildir. Çocuklarla kapıda konuşup yiyecek/örtü bırakabilir, bildiği somut işaretlerle yardım isteyebilir. Bu tercih yüzünden çocuklar gizlice öldürülmez.",
+          "echo": "Dönüşte ev boşsa kapıda bırakılmış cenaze bezi ve nereye gidildiğini bildiren mektup bulunabilir. Şiddet yaşandıysa sonucu gerçekten masada olanlara göre kaydet."
+        }
+      ],
+      "obstacle": {
+        "goal": "Kimin tehlikede olduğunu anlamak, çocukların sözünü duymak ve kalıntıların ne olduğuna dair doğrulanabilir bilgi toplamak.",
+        "rounds": [
+          "İlk yaklaşımda Ulven ellerini ve iğneyi görünür tutar; kapı açık kalır. Oyuncuların kiminle konuşacağına karar vermesini bekle.",
+          "Dolap konusu açılırsa Lea sobadan uzağa çekilir, Ulven ilk kez susar. Bu hareket suç itirafı değildir; ayrı konuşma ve izin isteme fırsatıdır.",
+          "Keseyi incelemeyi seçerlerse tek anlamlı kontrol kullan; bulunan somut mektup ve ölçüler sonraki konuşmanın konusu olur. Kimlik ve çocukların tercihi ayrıca doğrulanır."
+        ],
+        "success": "İki çocuğun güvenliği, eve dair gerçek ve ölülerin emanetinin kimde kalacağı netleşir. Tek bir kusursuz ahlak seçimi yoktur.",
+        "failure": "Başarısız bir kontrol evi otomatik düşman yapmaz. Ulven yanlış anlaşılır, görüşme uzar veya tam kimlik için Harven’e gitmek gerekir. Çocukların canı zarın başarısızlık bedeli değildir.",
+        "checks": [
+          "Üç 1.seviye oyuncu için asıl karşılaşma konuşma ve incelemedir. Ulven’e gizli bağışıklık, çoklu saldırı veya cinayet büyüsü ekleme.",
+          "Ceset kimliği fiziksel mektup/toka üzerinden ilerler; iyi zar hiç bulunmayan yeni bir kurban veya katil yaratmaz."
+        ]
+      },
+      "voice": {
+        "speaker": "Ulven",
+        "direction": "Sözleri kısa; bildiği ortak dilde önce fiili ve nesneyi söyler. Anlaşılmadığında daha yüksek değil, daha yavaş konuşur.",
+        "lines": [
+          {
+            "cue": "Kesede ne var?",
+            "line": "Yolda kalan. Hepsini taşıyamadım."
+          },
+          {
+            "cue": "Çocuklar senden mi korkuyor?",
+            "line": "Bana sorun. Sonra onlara. Ben aynı cevabı veremem."
+          },
+          {
+            "cue": "Neden söylemedin?",
+            "line": "Sıcak bir gece verecektim. Sabah söyleyecektim. Üç sabah oldu."
+          }
+        ]
+      },
+      "continuation": "Harven’deki ekmek ve hane ilişkilerine küçük bir emanet veya tanıklık bağı kurabilir. Raden’i mevcut önemli karakterlerden biri ilan etme; ana kervan sözleşmesi ve ilaç olayının sonucu değişmez.",
+      "sceneId": "night-house"
+    },
+    {
+      "id": "bos-yatagin-konugu",
+      "title": "Boş Yatağın Konuğu",
+      "region": "danstsud",
+      "locationId": "hardlane",
+      "triggers": [
+        "camp"
+      ],
+      "die": {
+        "min": 2,
+        "max": 2
+      },
+      "mood": "formidable",
+      "portraitId": "night-bos-yatagin-konugu",
+      "visibleName": "Tül Taşıyan Kadın",
+      "arrival": "Bir nöbet değişiminde, grup üç yatak hazırlayıp dördüncü kuru köşeyi eşya için ayırdığında. Güvenli konaklamayı otomatik savaş sahnesine çevirmek için değil, bir gecelik sessiz karar için kullan.",
+      "readAloud": "Nöbetçi başını kaldırdığında kadın ateşin öte yanında duruyor. Kar, omuzundaki tülün üzerine oturmuyor. Elleri birbirine kenetli; size yaklaşmak için değil, bir şeyi bırakmamak için tutuyor gibi.\n\nBoş köşeye bakıyor. “Buraya biri gelecek mi?” diye soruyor. Biraz sonra aynı soruyu tekrarlıyor; bu kez hangi kelimeyi duyamadığınızı anlamaya çalışır gibi yüzünüze dönüyor.\n\nRüzgâr değiştiğinde ateşin dumanı ondan geçip gidiyor. Kadın hâlâ cevabı bekliyor.",
+      "dmTruth": "Bu, yıllar önce kış sevkinde dönmeyen eşini beklerken ölmüş yetişkin bir yolcunun kalmış izidir. Yaşayan birinin yatağını veya ruhunu almak istemez; boş yere dokunulmadan bir gece beklemek ister. Önceki eşini Taren veya başka ana kişi yapma. Gece boyunca duran soğuk onun çevresindedir; sabaha doğru yaklaşacak sert rüzgârı biliyor. Bir eşya çalındığında değil, kendisi ateşe itilip kışkırtıldığında tek soğuk itiş yapar. Ona gerçek hayaletlerle iletişim sağlayan özellikler uygulanabilir.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Kar tülün üstünde birikmez; duman içinden geçer. Doğaüstü oluşu tuzağa düşmeden anlaşılır."
+        },
+        {
+          "dc": 10,
+          "skill": "Din veya Tarih",
+          "discovery": "Sorusu, Hardlane’de kayıp yolcu için boş yer bırakılan eski bekleme âdetiyle benzeşir. Bu bilgiyi bilen yerli karakter otomatik hatırlayabilir."
+        },
+        {
+          "dc": 12,
+          "skill": "Sezgi",
+          "discovery": "Sözündeki “biri” yaşayanlardan birini işaret etmez. Cevabın dürüst olması, hangi cevabın verildiğinden daha önemlidir."
+        }
+      ],
+      "warnings": [
+        "Yaklaştıkça örtüde ince kırağı görünür; soğuk önce işaret verir.",
+        "Kadın uyuyan birini ele geçirmez, isim veya hizmet zorla istemez.",
+        "Kışkırtılırsa yalnız ilk yakın kişiye DC10 Dayanıklılık; başarısızlık1d4 soğuk. Sonra uzaklaşır, her tur yeniden hasar vermez."
+      ],
+      "choices": [
+        {
+          "id": "yer-birak",
+          "label": "Boş köşeyi ona ayır",
+          "result": "Kadın eşyayı değil yeri kabul eder. Rüzgârın sabaha karşı hangi taraftan geleceğini iki basit cümleyle anlatır; nöbetçi isterse başka birinin yanında kalabilir.",
+          "echo": "Ertesi gün kampın rüzgâr tarafını değiştirmek gerçek hazırlık yararı sağlar. Yeni bir gizli fırtınayla bu bilgiyi iptal etme."
+        },
+        {
+          "id": "nazikce-reddet",
+          "label": "Yeri veremeyeceğini açıkça söyle",
+          "result": "Kadın bir süre yere bakar, sonra çekilir. Kampın sınırına kırağı izi kalır; dinlenme otomatik iptal olmaz.",
+          "echo": "Bir sonraki sığınakta boş bir yere niçin ihtiyaç duyduklarını soran küçük bir anı olarak kalabilir; lanet yazılmaz."
+        },
+        {
+          "id": "dinle",
+          "label": "Adını ve kimi beklediğini sor",
+          "result": "Tam bir isim çıkmayabilir; eski bir sevk bezinin dokumasını tarif eder. Grup bu tarifi kaydederse yerel bir yaşlıyla daha sonra karşılaştırabilir.",
+          "echo": "Kayıp sevk, tek bir yeni araştırma kancasıdır; ana görevin gizli zorunlu anahtarı değildir."
+        }
+      ],
+      "obstacle": {
+        "goal": "Kampın sınırını belirlerken bir yabancının bekleyişine ne kadar yer verileceğini seçmek.",
+        "rounds": [
+          "Kadın ilk soruyu nöbetçiye sorar; uyuyanlar otomatik uyanmaz.",
+          "Cevap verilirse bir adım yaklaşır veya geri çekilir. Oyuncular kendi sınırlarını söyleyebilir.",
+          "Sabaha yakın tülün yerine ince bir kırağı halkası kalır; kamp kararının karşılığı kısa biçimde görülür."
+        ],
+        "success": "Bir anlaşma veya açık ret sonrası gece olağan biçimde sürer; nöbetçinin sözü kayda geçer.",
+        "failure": "Yanlış bir yorum bilgi eksikliği yaratır, uyuyanların ruhunu kaybettirmez. Fiziksel kışkırtma yukarıdaki tek uyarılı itişle sınırlıdır.",
+        "checks": [
+          "Sosyal çözüm için zar zorunlu değildir. Din DC10 yalnız yerel âdeti hatırlamayı hızlandırır.",
+          "Bu karta sırf güçlü görünüyor diye yüksek seviye hayalet statbloğu bağlama."
+        ]
+      },
+      "voice": {
+        "speaker": "Tül Taşıyan Kadın",
+        "direction": "Cümleyi bitirdikten sonra uzun süre bekler; tehditkâr şiir veya bilmeceli kehanet söylemez.",
+        "lines": [
+          {
+            "cue": "Burada kalırsan ne olacak?",
+            "line": "Ben bekleyeceğim. Siz uyuyabilirsiniz."
+          },
+          {
+            "cue": "Kimin için boş?",
+            "line": "Dönerse üşümesin diye. Ne kadar yer gerektiğini unuttum."
+          }
+        ]
+      },
+      "continuation": "Yolculuktaki bir dinlenme arasına konur. Nöbet ve hava hazırlığına bağlanabilir; hastalık, köprü veya cenaze kararını değiştirmez.",
+      "sceneId": "night-camp"
+    },
+    {
+      "id": "duvarin-solugu",
+      "title": "Duvarın Soluğu",
+      "region": "danstsud",
+      "locationId": "marhalden",
+      "triggers": [
+        "camp"
+      ],
+      "die": {
+        "min": 3,
+        "max": 3
+      },
+      "mood": "earth",
+      "portraitId": "night-duvarin-solugu",
+      "visibleName": "Esven Kül",
+      "arrival": "Marhalden’in batısındaki eski bakım barakasında veya ocak yolundaki sığınakta dinlenirken. Oda güvenli görünse de soba yakıldıktan sonra konuşma ağırlaşır.",
+      "readAloud": "Soba üçüncü kez çekiştirildiğinde alev küçülüyor ama oda daha sıcak oluyor. Biriniz başını çevirdiğinde yerdeki fenerin ışığı kısa bir an ikiye ayrılıyor. Kapıda biri öksürüyor.\n\nYaşlı adam içeri girmiyor. Önce kapının üst köşesine, sonra yatanlara bakıyor. “Pencerenin hangisi açılıyor?” diye soruyor. Cevabı beklemeden atkısını burnuna değil, ağzına bastırıyor.\n\nDuvarın dibindeki taşlardan birinin kenarı yenice kurumlanmış. Dışarıda rüzgâr var; içerideki ince bez kıpırdamıyor.",
+      "dmTruth": "Esven eski bir kömürcüdür; barakanın tıkanan bacasını bilir. Oda, kötü çekiş ve sızan ocak gazı yüzünden tehlikelidir. Kapıdaki adam hastalık veya uyku büyüsü taşımıyor. Alt duvarda yıllar önce aynı nedenle ölen bir işçinin küçücük tarih çizgisi vardır; kimliğini araştırmak isteğe bağlıdır. Havalandırmayı açmak gerçek çözümdür, büyülü korkuyu yenmek değil. Tuz ateşiyle aynı hastalık değildir; Esven’i Ravel’in yerini alan uzman yapma.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "İçerideki bez kıpırdamaz; baş ağrısı ve alevdeki çekiş zayıflığı görülür."
+        },
+        {
+          "dc": 8,
+          "skill": "Doğa veya uygun araç",
+          "discovery": "Havanın dönmediği, bacanın kar ve kurumla tıkandığı anlaşılır. Esven kendisine sorulursa bunu zar istemeden söyler."
+        },
+        {
+          "dc": 12,
+          "skill": "Araştırma",
+          "discovery": "Alt taşın arkasında eski bir havalandırma boşluğu, yanında bir işçi adı ve tarih vardır. Bu, gizli canavar yuvası değil eski uyarıdır."
+        }
+      ],
+      "warnings": [
+        "Baş ağrısını ve ağır havayı zar atmadan söyle; oyuncuya sebebini bilmediği sessiz ölüm verme.",
+        "Kapı her zaman açılır. Dinlenmekten vazgeçmek hâlâ mümkündür.",
+        "Uyarıya rağmen kapalı odada ateşi büyütürlerse bir kez DC10 Dayanıklılık, başarısızlık1d4 zarar ve dışarı çıkma ihtiyacı. Bu basit oyun taslağıdır; tekrar tekrar zehir hasarı veya otomatik boğulma uygulama."
+      ],
+      "choices": [
+        {
+          "id": "hava-ac",
+          "label": "Kapıyı ve havalandırmayı aç; ateşi küçült",
+          "result": "Hava değişir, baş ağrısı yavaşlar. Bir kişi sobayı, biri tıpayı, biri uyuyanları kontrol edebilir. İyi planın ardından aynı tehlike yeniden doğmaz.",
+          "echo": "Esven sabah baca başını nasıl koruyacaklarını gösterir; daha sonra bir sığınakta aynı işaret tanınabilir."
+        },
+        {
+          "id": "disari-kur",
+          "label": "Barakayı bırak; dışarıda korunaklı kamp kur",
+          "result": "Grup soğuk ama temiz havada kendi düzenini kurar. Esven kuru örtüsünü paylaşabilir; güvenli plan bir uzun dinlenmeyi sırf içerisi terk edildi diye engellemez.",
+          "echo": "Yerel bakım işliğine haber verilirse başka yolcuların aynı odaya girmesi önlenebilir."
+        },
+        {
+          "id": "bakimi-devret",
+          "label": "Barakayı işaretle; Esven’le onarım için kişi çağır",
+          "result": "Oda geçici olarak kullanılmaz. Birinin işi üstlenmesi gerekir, fakat bütün onarımı partinin yapması şart değildir.",
+          "echo": "Dönüşte işin yapılıp yapılmadığına bakılabilir; şikâyet ve bakım kaydı kervan işlerinin gerçek yanıdır."
+        }
+      ],
+      "obstacle": {
+        "goal": "Zarar görmeden temiz hava sağlamak ve dinlenilecek yeri seçmek.",
+        "rounds": [
+          "Önce herkes baş ağrısını veya alevin zayıflığını fark eder.",
+          "Kapı açıldığında bezin hareketi çözümü doğrular; sabit bir hasar turu bekletme.",
+          "Bir kişi baca veya tıpa işine yardım ederken diğerleri dışarıda kamp kurabilir."
+        ],
+        "success": "Hava dolaşımı kurulunca veya kamp taşınınca tehlike biter; dinlenme planı yeniden belirlenir.",
+        "failure": "Yanlış kontrol onarımı uzatır. Oyunculara çıkış ve temiz hava yolu açık tutulur; hastalık olayının süresi yalnız gerçekten harcanan oyun zamanı kadar etkilenir.",
+        "checks": [
+          "Havalandırma açmak iyi araç ve yardım planıyla zar istemez. Araç DC10 işi hızlandırabilir.",
+          "Uyuyan karakteri sarsıp dışarı çıkarmak için saldırı veya Tıp zarı isteme."
+        ]
+      },
+      "voice": {
+        "speaker": "Esven Kül",
+        "direction": "Öksürük arasında kısa sorular sorar; ne bildiğini açıklayınca aynı şeyi üç kez dramatikleştirmez.",
+        "lines": [
+          {
+            "cue": "Bizi nereden buldun?",
+            "line": "Duman kapının üstünden dönüyordu. Bacadan çıkması gerekirdi."
+          },
+          {
+            "cue": "Burada biri ölmüş mü?",
+            "line": "Taşa bakın. Ben o zaman çocuktum. Havayı değiştirmeyi o zamandan beri sorarım."
+          }
+        ]
+      },
+      "continuation": "İlk geceyi veya maden dönüşünü zorlaştıran adil bir çevre engelidir. Ekin’in kurtarılması ya da bulunan ilaç geriye dönük başarısız olmaz.",
+      "sceneId": "night-camp"
+    },
+    {
+      "id": "camp-torbasi",
+      "title": "Torbanın İçindeki Sıcaklık",
+      "region": "danstsud",
+      "locationId": "mavric",
+      "triggers": [
+        "camp"
+      ],
+      "die": {
+        "min": 4,
+        "max": 4
+      },
+      "mood": "earth",
+      "portraitId": "night-camp-torbasi",
+      "visibleName": "Duman Gelinciği",
+      "arrival": "Yiyecek torbaları açık bırakılmış veya hayvan yemi yatakların yanına konmuşsa, nöbetin sakin bir anında. Bu kart bir canavar baskını değil, kamp düzeni ve küçük bir canlıyla anlaşma işidir.",
+      "readAloud": "Torbanın ağzı kendi kendine kapanıyor. Bir süre sonra içeriden çok küçük bir çiğneme sesi geliyor; sonra o da kesiliyor. Bir çift koyu göz, bezin kıvrımından nöbetçiye bakıyor.\n\nHayvan çıkmak yerine karnını yiyeceğin üzerine bastırıyor. Kuyruğunun ucu hâlâ dışarıda. Eliniz torbaya yaklaşınca bütün bedeni küçülüyor, ama gözlerini kaçırmıyor.\n\nBiraz ötede, kuru yaprakların arasında iki küçük yavrunun nefesi duyuluyor. Yatağa değil, ateşten gelen sıcaklığa sokulmuşlar.",
+      "dmTruth": "Duman gelinciği sıcak hava ve kurumuş et kokusuna gelen küçük bir leşçildir. İnsan avlamaz; iki yavrusunu dondan korumak için kampın yakınına getirdi. Torbada bir öğün kadar yiyeceği kemirmiştir; bütün kervan erzağı bir zarla yok olmaz. Zorla yakalanırsa ısırabilir. Ateşi büyütmek veya dumanla kovalamak hayvanı panikle başka torbaya kaçırabilir; sakin bir çıkış yolu ve az yiyecek yeterlidir.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Torbadan çıkan kuyruk ve yavruların nefesi görünür; olay henüz bütün kampı uyandırmaz."
+        },
+        {
+          "dc": 8,
+          "skill": "Doğa",
+          "discovery": "Canlının kambur duruşu saldırı hazırlığından çok kaçacak yer aradığını gösterir."
+        },
+        {
+          "dc": 10,
+          "skill": "Hayvan İdaresi",
+          "discovery": "İyi yerleştirilmiş küçük bir yiyecek parçası ve geri çekilme alanıyla aileyi torbadan uzaklaştırmak kolaylaşır; doğru plan varsa kontrol gerekmez."
+        }
+      ],
+      "warnings": [
+        "Hayvan kıskaç gibi kapanmadan önce tıslar ve tüyünü kabartır.",
+        "Elini doğrudan ağzına veya yavruların üstüne uzatana en fazla bir ısırık: +3 isabet,1d4 delme; sonra kaçar.",
+        "Yavrulara zarar vermek bir başarı koşulu değildir. Büyük bir sürü veya gizli daha güçlü anne ekleme."
+      ],
+      "choices": [
+        {
+          "id": "pay-ver",
+          "label": "Bir küçük pay bırak; çıkışını aç",
+          "result": "Yetişkin yiyeceği alıp yavrularını kampın dışına taşır. Kaybedilen gerçek miktarı bir öğün gibi küçük ve açık tut.",
+          "echo": "Yiyecek torbalarını yataklardan uzak tutmak sonraki gece gerçek hazırlık yararı sağlar; hayvan geri dönüp aynı sahneyi zorla tekrarlamaz."
+        },
+        {
+          "id": "bezle-cikar",
+          "label": "Torbaya dokunmadan bezi açıp geri çekil",
+          "result": "Hayvan kendi yolundan çıkar; elde kalan erzak ayıklanır. Yırtılan bez küçük bir onarım işidir.",
+          "echo": "Mavric’te bir izci bu izi tanıyabilir; bütün yırtıcıların kötü alamet olmadığına dair bir ilişki doğar."
+        },
+        {
+          "id": "sesle-kov",
+          "label": "Yüksek sesle kovala; torbaları koru",
+          "result": "Hayvan korkup kaçar; ne kadar yiyecek götürdüğü gözle görülür. Ses nöbetin dikkatini dağıtır ama otomatik ikinci karşılaşma yaratmaz.",
+          "echo": "Kampın konumu gerçekten düşmanlara yakınsa çıkan sesi mevcut duruma ekle; boş bir ormanda yoktan asker üretme."
+        }
+      ],
+      "obstacle": {
+        "goal": "Yiyeceğin çoğunu ve kampın sakinliğini koruyarak hayvan ailesine bir çıkış bırakmak.",
+        "rounds": [
+          "Nöbetçi torbadaki hareketi fark eder; kendi yaklaşımını seçer.",
+          "Yetişkin yavruların tarafını kontrol eder. Yolu açıksa geri çekilme fırsatını kullanır.",
+          "Torba yeniden bağlanır, zarar miktarı gerçekten bakılıp sayılır."
+        ],
+        "success": "Hayvan uzaklaşınca kamp güvenlidir; küçük erzak kaybı ve yeni düzen kayda geçer.",
+        "failure": "Başarısız bir kontrol bir ısırık veya yırtık bez demektir; bütün grubun uzun dinlenmesi ve bütün erzağı kaybolmaz.",
+        "checks": [
+          "Üç 1.seviye karakter için yalnız tek küçük canlı vardır: gerekirse Zırh12/Can6, tek saldırı. 3canın altında kaçar.",
+          "Yaratığı öldürmeden erzağı korumak aynı karşılaşma başarısıdır."
+        ]
+      },
+      "voice": {
+        "speaker": "Duman Gelinciği",
+        "direction": "Konuşmaz. Tepkisini burun hareketi, kuyruğun çekilmesi ve yavrulara bakışıyla anlat.",
+        "lines": [
+          {
+            "cue": "Çok yaklaşılırsa",
+            "line": "Kısa bir tıslama; sonra torbanın öteki ağzına doğru küçük bir geri adım."
+          },
+          {
+            "cue": "Yiyecek yana bırakılırsa",
+            "line": "Gözleri önce elden yiyeceğe değil, kaçabileceği açıklığa gider."
+          }
+        ]
+      },
+      "continuation": "Kervan erzağına ve kamp disiplini konuşmasına bağlanır. Mavric’teki Varkul kararının sonucu yerine geçmez.",
+      "sceneId": "night-camp"
+    },
+    {
+      "id": "dorduncu-nefes",
+      "title": "Çadırdaki Dördüncü Nefes",
+      "region": "danstsud",
+      "locationId": "frostbay",
+      "triggers": [
+        "camp",
+        "travel"
+      ],
+      "die": {
+        "min": 5,
+        "max": 5
+      },
+      "mood": "earth",
+      "portraitId": "night-dorduncu-nefes",
+      "visibleName": "Ruvik Tann",
+      "arrival": "Frostbay yolunda, Tuz Saçağı denen terk edilmiş tuz deposunda veya yakındaki kıyı kampında. Ana yolculukta bir gece molasına yerleştir; kaçak yük ve zorla çalıştırma meselesini burada ilk kez somutlaştırabilirsin.",
+      "readAloud": "Yatakların sayısı değişmemiş. Yine de karanlıkta bir nefes fazla var. Ses, eşyaların arasından geliyor. Adam doğrulurken iki elini birden kaldırıyor; sol koluna doladığı bezin ortası koyulaşmış.\n\n“Dışarıdakiler geçsin,” diyor. “Sonra giderim.”\n\nKıyı yolunda bir demir halka taşa vuruyor. Ardından kadın sesi: “Ruvik. Soğukta nöbet tutacak kadar para vermiyorlar bize.” Kapının altından içeri bir kanca giriyor ve içeriden sürgülenip sürgülenmediğini yokluyor. Adam size bakmıyor artık; yükünüzün arkasında kaçabileceği bir boşluk arıyor.",
+      "dmTruth": "Ruvik Tann, Frostbay’deki özel bir yük işletmesinden kaçan yetişkin işçidir. Kışlık avans bahanesiyle borcu sürekli büyütülmüş, işten ayrılması engellenmiştir. Kaçarken gerçekten iki gümüş ve bir iş bıçağı almıştır. Peşindeki Vek Ardan ile Nella Rusk kraliyet görevlisi değildir: kaçan işçiyi geri götürmek için para alan silahlı yol avcılarıdır. Taşıdıkları borç kâğıdı ücret hesabıdır; gözaltı emri değildir. Vek daha önce aynı işi yapmış ve bir işçiyi dövmüştür. Nella suçun ortağıdır; durumu yanlış anlamış masum muhafız değildir. Kampın sayısını görünce gözdağıyla Ruvik’i veya yerine değerli bir sandığı almak isterler. Geri çekilmeleri yenilmez bir patronun yeni ordusunu çağırmaz.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "İçerideki adam silahsız durur. Gelenlerin işlik damgası ve kanca görünür; hiçbirinde kraliyet arması yoktur."
+        },
+        {
+          "dc": 10,
+          "skill": "Tıp",
+          "discovery": "Ruvik’in kolundaki yırtık, kapıyı yoklayan kancayla aynı genişliktedir. Yeni bez yarayı korur; ölümcül zehir belirtisi yoktur."
+        },
+        {
+          "dc": 10,
+          "skill": "Araştırma veya hukuk bilgisi",
+          "discovery": "Borç kâğıdı ücret ve avans sayar, tutuklama yetkisi vermez. Belgeyi sesli okuyarak aynı sonuca zarsız ulaşılabilir."
+        },
+        {
+          "dc": 12,
+          "skill": "Algı",
+          "discovery": "Nella konuşurken Vek kıyıdan yükün arkasına dolanır. Ağın takıldığı demir halkayı eline aldığı görülür; arka geçit kapatılmadan onunla yüzleşilebilir."
+        }
+      ],
+      "warnings": [
+        "Metal sesi, kanca ve iki kişinin ayrı yönlere açılması saldırıdan önce görünür. Oyuncular hiçbir belirti olmadan şaşırmış sayılmaz.",
+        "İki yol avcısı da aynı karaktere saldırmak zorunda değildir; amaçları birini düşürmekten çok kampı bölüp Ruvik’i veya bir sandığı çekmektir.",
+        "Bunu aynı gece başka sert savaşın üstüne koyma. Üç 1. seviye karakter için iki düşman gerçek can kaybı yaratabilir; ilk bakışta kaçış hattını göster."
+      ],
+      "choices": [
+        {
+          "id": "yetki-sor",
+          "label": "Kâğıdı oku; isimleri tanık önünde sor",
+          "result": "Borç ve gözaltı ayrılır. Kimliklerinin kayda geçtiğini gören Nella, geri götürmenin bedelini yeniden hesaplar. Somut tanık, ödeme veya resmî başvuru teklifi pazarlığı mümkün kılar; kötü bir ikna zarı belgeyi değiştirmez.",
+          "echo": "Frostbay’de isimleri verilen yol avcıları bir sonraki işte aynı kolaylığı bulamaz. Ruvik’in aldığı para ayrıca çözülebilir."
+        },
+        {
+          "id": "savun",
+          "label": "Ruvik’i ve kampı savun",
+          "result": "Girişteki dar alan, yük ve kıyı çıkışı savaşın parçaları olur. Teslim olanı bağlamak, kaçanı kovalamamak ve yaralıya yardım etmek ayrı kararlardır.",
+          "echo": "Ruvik sağ kalırsa işletmenin depo düzenini anlatabilir. Bu yardım bir sonraki sahnedeki araştırmayı kolaylaştırır; ana görevi onun çözmesine dönüştürmez."
+        },
+        {
+          "id": "yol-ver",
+          "label": "Ruvik’in kıyıdan kaçmasını sağla",
+          "result": "Bir kişi konuşmayı uzatırken diğeri arka tarafta çıkış açabilir. Duman, ışığı kapatma veya yükü siper etme gerçek katkı verir. Avcılar geride bırakılan para yahut bir sandıkla yetinmeyi seçebilir.",
+          "echo": "Grup bir şey bıraktıysa kayda gerçek eşya yazılır. Ertesi gün bulunabilen izler, geri almak için yeni bir karar doğurur."
+        }
+      ],
+      "obstacle": {
+        "goal": "Ruvik’i, kendi yükünü veya ikisini birden güvenli çıkarırken yol avcılarının kampı ikiye bölmesini önlemek.",
+        "rounds": [
+          "Geliş: Ruvik konuşur; Vek’in yandan açılması fark edilebilir. Harita üzerinde kapı, kıyı çıkışı ve iki sandığı göster.",
+          "İlk tur: Nella kapıda sopa ve sözle baskı kurar. Vek bir eylemle çıkışa ağ gerer; ağı germek saldırısının yerini alır. Ağ görünür ve bir eylemle kesilebilir.",
+          "İkinci tur: Vek en yakındaki değerli sandığı kıyıya çeker; Nella onu örter. Oyuncuların seçiminden önce Ruvik’i otomatik yakalanmış sayma.",
+          "Son: Biri düşer, silah bırakır veya Ruvik uzaklaşırsa kalan avcı anlaşma ya da kaçış arar."
+        ],
+        "success": "Saldırı önlenir veya kamp korunur. Kalan borç, çalınan iki gümüş ve tanık isimleri sonraya yazılır.",
+        "failure": "Bir sandık, para veya bir esir ellerine geçebilir. Geride kalanlara ölü muamelesi yapma; çekilen izler kısa bir takip, değiş tokuş veya Frostbay’e şikâyet olanağı bırakır.",
+        "checks": [
+          "Ağı germeden fark etmek Algı DC12; kesmek uygun kesiciyle zarsız bir eylem, çıkarmak Atletizm DC10.",
+          "İkna veya Gözdağı DC12 yalnız somut dayanağı olan bir teklifi sonuçlandırır. Ruvik’in yarası ve okunan belge için ayrı tekrar zar isteme."
+        ]
+      },
+      "voice": {
+        "speaker": "Ruvik Tann",
+        "direction": "Sesini küçük tutar; haksızlıktan söz ederken aldığı parayı sakladığı anlaşılırsa savunmaya geçer, destansı nutuk atmaz.",
+        "lines": [
+          {
+            "cue": "Ne aldın?",
+            "line": "İki gümüş. Bir de bıçak. Ücretimden sayacaklardı; şimdi ikisini de hırsızlık diye yazmışlar."
+          },
+          {
+            "cue": "Neden bizim eşyaların arasındasın?",
+            "line": "Saçak altında ışık gördüm. Sormam gerekirdi. Dışarıda beni bulmalarından önce davranmak istedim."
+          },
+          {
+            "cue": "Kapıdaki Nella ne ister?",
+            "line": "“Adamı çıkarın. Kimse malınızı tartmaya gelmedi. Bizi burada bekletirseniz ücretimiz de büyür.”"
+          }
+        ]
+      },
+      "continuation": "Bu olay Frostbay’in zayıf resmî otoritesiyle özel yük işletmelerinin gücünü görünür kılar. Harven’den gelen kaçak malın Frostbay’de kimin deposuna girdiğini araştırmak için Vek ve Nella’nın gerçek isimleri kullanılabilir; zorunlu bir küresel komplo yaratmaz.",
+      "sceneId": "night-camp",
+      "combat": {
+        "danger": "Orta; grup yorgunken sertleşir. Üç 1. seviye karakter için en fazla bu iki düşman; takviye yok.",
+        "enemyGoal": "Ruvik’i geri almak; bu pahalıysa kolay taşınan bir yükle ayrılmak.",
+        "telegraph": "Sürgüyü yoklayan kanca, yanlara açılan ayak sesleri, elde hazırlanan ağ.",
+        "tactics": [
+          "Vek ilk eylemini çıkışa ağ germeye veya sandığı tutmaya harcar. Ağ otomatik hasar vermez.",
+          "Nella kapıdaki karakteri oyalar; ikisi birden düşen karaktere vurmaz.",
+          "Bir sandığı alırlarsa 6 metre geri çekilip takip edilmediklerinde kaçarlar."
+        ],
+        "escape": "Kıyıdaki açık geçitten geriye çekilmek mümkün. Ağ görülüp kesilebilir; bir eylemle sandığı bırakmak avcıları bir tur oyalayabilir.",
+        "morale": "Vek 4 Can veya altında geri çekilir. Nella 3 Can veya altında ya da ortağı düştüğünde sopa bırakır; birini takip için öldürmek gerekmez.",
+        "combatants": [
+          {
+            "id": "vek-ardan",
+            "name": "Vek Ardan · yol avcısı",
+            "ac": 12,
+            "hp": 9,
+            "initiative": 1,
+            "attack": "Sopa +3, 1d4+1 ezici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-vek-ardan"
+          },
+          {
+            "id": "nella-rusk",
+            "name": "Nella Rusk · yol avcısı",
+            "ac": 11,
+            "hp": 7,
+            "initiative": 0,
+            "attack": "Kısa sopa +2, 1d4 ezici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-nella-rusk"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sicak-tasin-yolu",
+      "title": "Sıcak Taşın Yolu",
+      "region": "danstsud",
+      "locationId": "ternhaven",
+      "triggers": [
+        "travel"
+      ],
+      "die": {
+        "min": 6,
+        "max": 6
+      },
+      "mood": "earth",
+      "portraitId": "night-sicak-tasin-yolu",
+      "visibleName": "Erla Saye",
+      "arrival": "Ternhaven’in ılık su kollarından geçen yan patikada. Bu, Kral Yolu değildir; tamamlanmamış Cevher Çizgisi’nin yerine yeni resmî yol icat etme.",
+      "readAloud": "Patika karın altında kaybolmuyor. Tam tersine, ortasında kar kalmamış ince bir çizgi var. Çizginin iki yanında buz, yaprak gibi yukarı kıvrılmış.\n\nKarşı taraftaki kadın bakır anahtarını indiriyor. “Ortasına basmayın,” diyor. Ayaklarının altındaki taşa anahtarla bir kez vuruyor; ses boş bir küpten çıkmış gibi dönüyor.\n\nBiraz sonra sıcak çizgiden ince bir buhar yükseliyor. Yakınındaki taşın çatlağı, gözünüzün önünde çok az aralanıyor.",
+      "dmTruth": "Eski su kanalının üstündeki ince taş kapak basınç altında yerinden oynamaktadır. Erla yakın hattın bakımını yapan yerel bir işçidir; ne lordun elçisi ne de büyücüdür. Çatlak çizgiyi dağıtmadan basıncı yan vanadan boşaltmak, yükü sırayla geçirmek veya üstten dolanmak gerçek seçeneklerdir. Kanalın altındaki sıcak su ölümcül lav değildir; buna rağmen ağırlıkla kapağı kırmak bir kişiyi yakabilir. Erla işi aceleye getirmekten çekinir çünkü önceki onarımda yaptığı ölçü hatası vardır.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Karın eridiği çizgi, hafif buhar ve boş ses açıkça görülür."
+        },
+        {
+          "dc": 8,
+          "skill": "Doğa veya duvar/taş araçları",
+          "discovery": "İnce kapağın kenarları sağlam, ortası zayıftır. Yükü tek noktaya toplamamak işe yarar."
+        },
+        {
+          "dc": 10,
+          "skill": "Araştırma",
+          "discovery": "Yan vananın üstünde eski bir açma çentiği bulunur. Erla’nın anahtarı veya uygun bir araçla yavaşça kullanılabilir."
+        },
+        {
+          "dc": 12,
+          "skill": "Sezgi",
+          "discovery": "Erla sadece genel tehlikeden değil kendi eski ölçüsünden çekinmektedir. Sorulursa nerede yanıldığını gösterebilir; bu onu dolandırıcı yapmaz."
+        }
+      ],
+      "warnings": [
+        "Taş düşmeden önce buhar ve çatlak gösterilir.",
+        "Zayıf çizgiye bütün ağırlığı veren karakter DC10 Çeviklik, başarısızlıkta tek1d4 sıcak su zararı ve kenara çekilme. Aynı çatlağı her tur yeni hasar kaynağı yapma.",
+        "Yükü bırakıp geri çıkma ve üst patikadan dolanma yolu açık kalır."
+      ],
+      "choices": [
+        {
+          "id": "basinci-bosalt",
+          "label": "Basıncı kontrollü boşalt; sırayla geç",
+          "result": "Bir kişi vanayı tutarken diğerleri yükü paylaştırır. İyi bir planla kontrol gerekmez; yüzeye çıkan su çekilince geçiş açılır.",
+          "echo": "Erla sonradan hattı işaretlemek için isim veya çizim isteyebilir. Bu, Ternhaven bahçe işlerinin bakım ihtiyacına somut bağdır."
+        },
+        {
+          "id": "yuk-paylas",
+          "label": "Yükü küçült; sağlam kenardan emniyetle geçir",
+          "result": "Hız düşer ama bütün ağırlık zayıf kapağa binmez. Hayvanı zorlamak yerine önden yolu göstermek mümkündür.",
+          "echo": "Kaybolmayan yük ve sağlam hayvan, sonraki teslimde gerçek yarar sağlar; ek vergi diye geri alınmaz."
+        },
+        {
+          "id": "dolan",
+          "label": "Üst patikadan dolan",
+          "result": "Yaklaşık yarım saatlik fazladan yürüyüş yapılır. Süreyi söyleyip kabul ettir; kapalı hattın tuzağından kurtulmak için bir yetenek zarı şart değildir.",
+          "echo": "Erla’nın eksik ölçüsünü yerel masaya bildirmek oyuncuların seçimine kalır; yeni bir gizli düşman yaratılmaz."
+        }
+      ],
+      "obstacle": {
+        "goal": "İnce sıcak su kapağından kişi ve yük kaybetmeden geçmek veya güvenli rota seçmek.",
+        "rounds": [
+          "Erla ilk işareti gösterir; oyuncular yolun hangi kısmına basacağını seçer.",
+          "Yük ve vana işi ayrı paylaşılır; aynı kişi tek zarla bütün grubu taşımak zorunda değildir.",
+          "Basınç düşünce ses değişir. Başarıyı duyur, yeni bir kapak patlamasıyla iptal etme."
+        ],
+        "success": "Geçiş güvenli kurulur veya dolanma süresi kabul edilir; yolculuk kaldığı yerden sürer.",
+        "failure": "Yanlış kontrol vana işini uzatabilir. Hatalı ağırlık dağıtımının tek uyarılı sonucu yukarıdaki küçük zarar veya ıslak ekipmandır; otomatik bütün yük kaybı değildir.",
+        "checks": [
+          "Araç DC10 veya Atletizm DC10 bir işi hızlandırabilir; iyi emniyet planı aynı yararı zar olmadan sağlayabilir.",
+          "Sıcak suyu yönetebilen gerçek büyü veya özellik kullanılırsa etkisini kabul et."
+        ]
+      },
+      "voice": {
+        "speaker": "Erla Saye",
+        "direction": "Mesleki ve dürüst; hatasını söylemekte zorlanır, fakat yolcuların korkusunu gelir fırsatına dönüştürmez.",
+        "lines": [
+          {
+            "cue": "Bu senin hattın mı?",
+            "line": "Bakımına ben bakıyorum. Taşın bu kadar ince kaldığını yazmamışım."
+          },
+          {
+            "cue": "Ne kadar sürer?",
+            "line": "Şimdi yarım saat. Kırarsak kaç saat olduğunu bilmiyorum."
+          }
+        ]
+      },
+      "continuation": "Ternhaven’e geliş veya dönüş yoluna yerleştir. Neris’in bahçe kararını veya daha önce onarılmış savağı yeniden bozuk sayma."
+    },
+    {
+      "id": "yuzsuz-rehber",
+      "title": "Rehberin Sattığı Yol",
+      "region": "danstsud",
+      "locationId": "hardlane",
+      "triggers": [
+        "travel"
+      ],
+      "die": {
+        "min": 7,
+        "max": 7
+      },
+      "mood": "chaotic",
+      "portraitId": "night-yuzsuz-rehber",
+      "visibleName": "Sivren",
+      "arrival": "Marhalden’den Harven’e inildikten sonra Kemiğe Basan Yol üzerindeki Kesik İp Dönemeci. Harven ile Mavric arasındaki benzer bir dar kesime de taşınabilir. Bu, Karlan’ı aşan ikinci güvenli geçit değildir.",
+      "readAloud": "Atkılı adam elindeki taşları dizip size yolu anlatıyor. “Şurayı dolanırsanız güneş gitmeden aşağı inersiniz.” Yüzünün görünen kısmı rüzgârdan soyulmuş; ücret isterken sesini alçaltıyor, sanki gerisinde uyuyan biri varmış gibi.\n\nGösterdiği geçitte tek bir taze kızak izi bulunuyor. İz bir kayanın arkasında bitiyor. Yakınınızdaki eski yol direğine bağlanmış bez, rüzgârı beklemeden iki kez çekiliyor.\n\nAdam elindeki son taşı yere koymuyor. Önce yükünüzün bağlarına, sonra ayakkabılarınıza bakıyor.",
+      "dmTruth": "Sivren kış yollarını bilen, kendi başına çalışırken kaçakçı kervanlarına kılavuzluk da yapmış bir adamdır. Şimdi yolcuları saklı bir kızakla yük çalınabilen dar dönüşe götürür. Atkısı gerçek don yarasını örter; yara onun kötülüğünün kanıtı değildir. Arkadaşı Orven Kest kayanın ardında bekler, direğin bezini ince bir iple çekerek işaret verir. Bu bir yağma pususudur: Sivren’in derdi hızlı satılacak yük, Orven’inki peşin paradır. İlk başta öldürmeyi planlamazlar ama karşı koyanı silahla yaralamaya hazırdırlar. Pusu ve niyet zar sonucuna göre değişmez. Grubun tedbirli veya güçlü görünmesi onları vazgeçirebilir.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Kızak izi kayanın arkasına gider. Sivren bütün rotayı anlatmak yerine yükün nasıl bağlandığını sorar."
+        },
+        {
+          "dc": 10,
+          "skill": "Hayatta Kalma",
+          "discovery": "Kızak bu sabah boş olarak içeri çekilmiş, henüz yüklü geri çıkmamıştır. Burada yolcu bekleniyor."
+        },
+        {
+          "dc": 11,
+          "skill": "Algı",
+          "discovery": "Bezden kayaya giden ince ip görülür. Ardından kayanın kenarında bir bot ucu fark edilir; saklanan kişiye seslenmek mümkündür."
+        },
+        {
+          "dc": 12,
+          "skill": "Sezgi veya Araştırma",
+          "discovery": "Sivren son taşın yerini söylemez; onu bırakınca arkadakinin çıkmasını bekler. Ücretin neden yük ağırlığına göre değiştiğini açıklayamaması da aynı şüpheyi destekler."
+        }
+      ],
+      "warnings": [
+        "Kayanın arkasındaki bot, kızak izi ve işaret ipi saldırıdan önce keşfedilebilir; tek bir başarısız Sezgi bütün önlemleri yok saymaz.",
+        "Tuzak bir uçurum düşüşü değildir. Yolun kenarı dik görünse de pusu küçük taşlık bir cebe açılır; uçsuz bucaksız ölüm düşüşü ekleme.",
+        "Oyuncular ipi fark ederse sahneyi dondurup plan yapmalarına izin ver. Sivren konuşma sürerken otomatik saldırmaz; kendisinin açığa çıktığını anlarsa pazarlık edebilir."
+      ],
+      "choices": [
+        {
+          "id": "kanit-iste",
+          "label": "Gizlenen kişiyi çıkart; Sivren’i açık yolda tut",
+          "result": "Pusunun sürprizi bozulur. İki adamın işaret düzeni görüldüğünde yük çalmanın bedeli artar; ücretli bir geçiş, silah bırakma veya geri çekilme konuşulabilir.",
+          "echo": "Sivren bırakılırsa bu yolun kolay hedef olmadığını öğrenir. İsmi ve işaret düzeni Harven’de paylaşılırsa sonraki kervanlar yararlanır."
+        },
+        {
+          "id": "ana-yol",
+          "label": "Geri dön; yükü ve arkayı koruyarak ana yolu kullan",
+          "result": "Grup dar cebe girmeden düzenli çekilir. Sivren peşlerine koşarsa onu açık yolda görürler; ayrı bir görünmez çete ortaya çıkmaz.",
+          "echo": "Yarım saatlik dolanma ve yol işareti not edilir. Başka bir yolcuya uyarı bırakmak gelecekte somut bir iyilik olabilir."
+        },
+        {
+          "id": "karsi-pusu",
+          "label": "Yükü yem göster; pusu kuranları etkisizleştir",
+          "result": "Kendi planlarını açıklamalarını bekle. Sahte sandık, kesilmiş işaret ipi veya kayanın ötesine geçen bir gözcü durum avantajı yaratır. Bunun karşılığını ver; önceden yazılmış pusuya geri zorlama.",
+          "echo": "Boş kızak, birkaç çalıntı bağ ve Harven’de tanınan bir yük damgası ele geçebilir. Malın sahibi bulunursa ödül dışında yeni bir ilişki doğar."
+        }
+      ],
+      "obstacle": {
+        "goal": "Kervanı dar cebe sokmadan yağmayı açığa çıkarmak; çatışma başlarsa yükü ve kaçış hattını korumak.",
+        "rounds": [
+          "Yaklaşma: Sivren taşlarla rota çizer. Kızak, bez ve yük soruları için konuşma ve gözlem fırsatı vardır.",
+          "Tetik: Taş bırakılırsa Orven kayanın arkasından çıkar ve “İpi çöz” der. Silahlarını gösterirler; gerçek saldırı niyeti varsa inisiyatif atılır.",
+          "İlk tur: Sivren bir yük bağını kesmeye çalışır; bu eylem saldırısının yerini alır. Orven yolu tutar.",
+          "Sonraki tur: Bir bohça kızağa geçtiyse ikisi kaçışı dener. Oyuncular onları değil kızağı durdurmayı seçebilir."
+        ],
+        "success": "Pusu dağılır veya çalınan mal geri alınır. Teslim, sorgu, kaçanlar ve malın sahipliği ayrı kayda girer.",
+        "failure": "Bir bohça çalınabilir veya biri yaralanabilir. Kızak izleri görünür; kaçan adamlar bir anda bütün erzağı ve ilaçları taşımış sayılmaz.",
+        "checks": [
+          "Bağın kesilmesine karşı hamle, oyuncunun eylemine göre güreş/itme veya saldırı kurallarıyla çözülür; bağı önce koruma planı varsa otomatik kesilmez.",
+          "Yol dışından geçişi keşfetmek Hayatta Kalma DC10; sağlam ip ve gözcü planıyla aynı işi zarsız yapmak mümkündür."
+        ]
+      },
+      "voice": {
+        "speaker": "Sivren",
+        "direction": "Sözü kısa, hesabı hızlıdır. Yüzünü örten atkıyla oynamaz; asıl tedirginliği gözünün sürekli yüke dönmesidir. Köşeye sıkışınca daha az para ister, öğüt vermez.",
+        "lines": [
+          {
+            "cue": "Neden yükü soruyorsun?",
+            "line": "“Kızak izi dar. İki sandık yan yana sığmaz. Yolun fiyatını değil, işimi söylüyorum.”"
+          },
+          {
+            "cue": "Kayanın arkasında kim var?",
+            "line": "“Orven. Çık artık. Bunlar bezi gördü.”"
+          },
+          {
+            "cue": "Silahı indir.",
+            "line": "“Önce sen yana çekil. Kızağı alır gideriz. Bugün ikimizden birinin ölmesine gerek yok.”"
+          }
+        ]
+      },
+      "continuation": "Pusu Harven–Mavric arasındaki yük taşımacılığına bağlanır. Ele geçen damga veya tanınan mal bir depo sahibine ulaşma fırsatıdır; Marhalden’in bilinen tek resmî geçit oluşunu değiştirmez.",
+      "combat": {
+        "danger": "Orta; iki kişi. Üç 1. seviye karakter için tam dinlenmişken tek başına kullan; ek kurt, okçu veya saklı lider ekleme.",
+        "enemyGoal": "Bir bohça ya da küçük sandığı kızağa alıp kaçmak.",
+        "telegraph": "İşaret ipi, kayanın ardındaki bot ve boş kızak. Çatışmadan önce silahlı haraç talebi gelir.",
+        "tactics": [
+          "Sivren ilk tur yük bağıyla uğraşır veya geri çekilir; her tur hem hırsızlık hem saldırı yapmaz.",
+          "Orven yolu tutar; yere düşen bir karakteri bitirmek yerine onun yanından yükün peşine geçer.",
+          "İşaret ipi kesilir veya plan bozulursa birbirlerini suçlayıp pazarlığa dönerler."
+        ],
+        "escape": "Ana yol arkada açıktır; takipçiler kızağı terk etmeden hızla yetişemez. Yükün bir bölümünü bırakmak da geçerli bir bedeldir.",
+        "morale": "Sivren 4 Can veya altına düşünce kaçar ya da teslim olur. Orven 3 Can veya altında veya Sivren gittiğinde silah bırakır.",
+        "combatants": [
+          {
+            "id": "sivren",
+            "name": "Sivren · sahte rehber",
+            "ac": 12,
+            "hp": 10,
+            "initiative": 2,
+            "attack": "Kısa bıçak +3, 1d4+1 delici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-yuzsuz-rehber"
+          },
+          {
+            "id": "orven-kest",
+            "name": "Orven Kest · kızak hırsızı",
+            "ac": 11,
+            "hp": 7,
+            "initiative": 0,
+            "attack": "Sopa +2, 1d4+1 ezici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-orven-kest"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kopegin-baktigi-su",
+      "title": "Köpeğin Baktığı Su",
+      "region": "danstsud",
+      "locationId": "harven",
+      "triggers": [
+        "travel"
+      ],
+      "die": {
+        "min": 8,
+        "max": 8
+      },
+      "mood": "earth",
+      "portraitId": "night-kopegin-baktigi-su",
+      "visibleName": "Köprü Köpeği",
+      "arrival": "Harven’e yakın bir yan derenin eski taşıma köprüsünde. Ana Aldara köprüsündeki yirmi sivil hesabını bu küçük köprüye taşıma.",
+      "readAloud": "Köpeğin tasması bir kazığa bağlı değil; boynunun altında gevşekçe sallanıyor. Sizi görünce havlamıyor. Önce ayağa kalkıyor, sonra köprünün aynı aralığına dönüp yeniden bakıyor.\n\nTahtaların arasından gelen koku, suyun yosun kokusundan ağır. Akıntıda ince bir kumaş şeridi gidip geliyor; bir yere takılmış, kopup gitmiyor.\n\nKöpek bir kez inliyor. Elinizdeki yiyeceğe dönüyor, ama yerinden ayrılmıyor. Köprünün üst tahtası ona doğru attığınız adımda biraz aşağı esniyor.",
+      "dmTruth": "Derenin altında yetişkin bir işçinin bedeni, kopmuş bir taşıma halatına ve eski kazığa takılmıştır. Adı çevredeki yük kayıtlarından doğrulanabilecek Hedren Ar’dır; mevcut önemli kişilerin yerine konmaz. Akıntılı bir geçişte düşmüştür, cinayet olduğuna hazır kanıt yoktur. Köpek onun yük köpeğidir, tehlikeyi ve bedeni aynı yerden koklar. Üstteki tahta da çürümüştür; cesedi görmek için herkesin aynı aralığa yüklenmesi doğru değildir. Göğüste görülen koyu izlerin bir kısmı eski kumaş boyası ve su lekesidir, kötü zarla yeni bıçak yarası yaratma.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Köpeğin aynı yere dönmesi, koku, takılmış kumaş ve esneyen tahta açık işarettir."
+        },
+        {
+          "dc": 8,
+          "skill": "Hayvan İdaresi",
+          "discovery": "Köpek kişiyi korumaktan çok yerini bırakmak istemez. Yiyecek ve sakin bir duruşla emniyetli kıyıya alınabilir."
+        },
+        {
+          "dc": 10,
+          "skill": "Araştırma veya Tıp",
+          "discovery": "Yetişkin beden, taşıma halatına takılmıştır; görünen izler tek başına cinayet kanıtı değildir."
+        },
+        {
+          "dc": 12,
+          "skill": "Araştırma",
+          "discovery": "Kemerin iç tarafında Hedren Ar adının kısaltması ve işlik damgası bulunur. Kimliği Harven’deki gerçek kayıt veya bir tanıkla doğrulamak gerekir."
+        }
+      ],
+      "warnings": [
+        "Tahta basılmadan önce esner; akıntının kuvveti kıyıdan görülür.",
+        "Emniyetsiz suya atlayan kişi için tek DC10 Atletizm/Çeviklik kurtarışı; başarısızlık1d4 çarpma ve alt kıyıya sürüklenme. Önceden kurulan ip kurtarmayı sağlar.",
+        "Beden bir çocuk veya oyuncunun yakını çıkmaz; bu değişiklik sırf şok için yapılmaz."
+      ],
+      "choices": [
+        {
+          "id": "emaneti-cikar",
+          "label": "Bedeni emniyetle çıkar; kimliği kayıtla doğrula",
+          "result": "İp, uzun araç veya yerel yardım kullanılarak beden kıyıya alınır. Bulunan eşya örtülür ve kimin aldığı kaydedilir; köpek yanında kalabilir.",
+          "echo": "Harven’de işlik ailesine haber verilebilir. Ruvik ile gerçekten karşılaşılmışsa damga konusunda bildiğini sorabilirler; onu geçmişte buradaymış sayma."
+        },
+        {
+          "id": "isaretle-haber",
+          "label": "Köprüyü işaretle; yerel yardım çağır",
+          "result": "Yolcuların çürük tahtaya basması önlenir. Bedeni kendileri çıkarmasalar da yer ve eşya tarifini doğru verirler; köpek zorla takip ettirilmez.",
+          "echo": "Haberin kime verildiği daha sonra sorulabilir. Gecikme otomatik bütün aileyi yok eden bir sonuç üretmez."
+        },
+        {
+          "id": "yolu-gec",
+          "label": "Tahtaya yük bindirmeden geç; köpeğe seçim bırak",
+          "result": "Grup işi üstlenmeden emniyetli hattan devam eder. Köpek yiyecek alabilir ama yeni parti hayvanı olarak otomatik eklenmez.",
+          "echo": "İleride aynı işlikten biri kayıp kişiyi sorabilir; parti bildiği gerçek kadarını söyleyebilir."
+        }
+      ],
+      "obstacle": {
+        "goal": "Köprüdeki çürüme ve akıntıyı yönetirken ölü bir yolcunun emanetine ne yapılacağını seçmek.",
+        "rounds": [
+          "Önce köpeğin işareti ve tahtanın sesi fark edilir.",
+          "Bir kişi kıyıyı veya ipi tutarken diğeri uzun araçla kumaşa bakabilir; herkes suya girmek zorunda değildir.",
+          "Beden çıkarılır veya yer işaretlenir. Kimin neyi aldığı açıkça söylenir."
+        ],
+        "success": "Geçiş, köpeğin durumu ve ölüye dair bilgi/emanet sorumluluğu belirlenir.",
+        "failure": "Başarısız inceleme yalnız kimliği belirsiz bırakır. Akıntı tehlikesi uyarıdan sonra tek küçük zarar verir; bütün grup suya çekilmez.",
+        "checks": [
+          "İyi ip ve kıyı desteği aynı işi zarsız yapabilir; yalnız emniyetsiz hareket risk kontrolü ister.",
+          "Köpek gerekirse Zırh11/Can7,+3/1d4 ısırır, yalnız sıkıştırıldığında; takip veya sürekli saldırı yapmaz."
+        ]
+      },
+      "voice": {
+        "speaker": "Köprü Köpeği",
+        "direction": "Konuşmaz. Başını çevirmesi, tasmayı sürüklemesi ve aynı tahtaya dönmesiyle anlat.",
+        "lines": [
+          {
+            "cue": "Yiyecek uzatılırsa",
+            "line": "Bir lokmayı alır, yutarken gözünü yine kumaşın takıldığı aralığa çevirir."
+          },
+          {
+            "cue": "Uzaklaştırmaya çalışırlarsa",
+            "line": "İki adım gelir, sonra ağırlığını geriye verir. Çekiştirmek yerine beklenirse kıyıya oturabilir."
+          }
+        ]
+      },
+      "continuation": "Harven’de işlik ve kayıp emekçi hikâyesine bağlanabilecek küçük bir ölüm/emanet kancasıdır. Ana köprüde alınmış kararları yeniden yargılayan zorunlu ceza değildir."
+    },
+    {
+      "id": "binegin-reddi",
+      "title": "Bineğin Bakmadığı Yer",
+      "region": "danstsud",
+      "locationId": "hardlane",
+      "triggers": [
+        "travel"
+      ],
+      "die": {
+        "min": 9,
+        "max": 9
+      },
+      "mood": "earth",
+      "portraitId": "night-binegin-reddi",
+      "visibleName": "Gri Sırt",
+      "arrival": "Gevşek taşlı, iki geniş çıkıntı arasındaki bir orman yan yolunda. Karttaki Gri Sırt bulunan yerel bir yük katırıdır; oyuncuların adlandırdığı hayvanı yeniden adlandırma veya eşyalarını bunun üzerine taşıma.",
+      "readAloud": "Katır, yük yolunun tam ortasında değil, yolun kenarında duruyor. Yularının kopan ucu ön bacaklarının arasında. Önündeki beyaz taş çizgisine kadar geliyor, sonra bir adım geri alıyor.\n\nTaş çizgisinin ötesinde yol var gibi. Fakat üzerindeki karın yüzeyi çevresinden daha düz; rüzgâr tek bir yerini bile oymamış. Katır, siz o yöne baktığınızda başını başka tarafa çeviriyor.\n\nÜstteki sağlam kayada küçük bir nal izi var. Birisi buradan daha önce yan dönerek geçmiş.",
+      "dmTruth": "Öndeki düz beyaz yüzey, iki taşın arasına dolmuş gevşek kar köprüsüdür. Altında yaklaşık iki metre boşluk ve eğimli bir alt çıkıntı vardır; görünmez sonsuz uçurum yoktur. Katırın sahibi önceki gün geriye yürüyüp yardım aramış, hayvanı geçmeye zorlamamıştır; ölmüş olmak zorunda değildir. Yükünde sıradan boş yem çuvalları ve bir yular tamir parçası kalır. Üst kayadaki iz sağlam yan hattı gösterir. Hayvan büyülü kötülük sezmez, zemini ve yük taşıma dengesini hisseder.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Katırın aynı çizgide geri dönmesi ve karın pürüzsüzlüğü görülür."
+        },
+        {
+          "dc": 8,
+          "skill": "Hayatta Kalma",
+          "discovery": "Kar köprüsünün kenarı ile üst kayadaki gerçek ayak/nal hattı ayrılır."
+        },
+        {
+          "dc": 10,
+          "skill": "Hayvan İdaresi",
+          "discovery": "Yuları düzeltmek, yükü indirmek ve sağlam hattı önden göstermek katırı rahatlatır; zorla çekmek gerekmez."
+        },
+        {
+          "dc": 12,
+          "skill": "Araştırma",
+          "discovery": "Yükteki basit işlik işareti hayvanın sahibinin hangi yerel yük evinde aranacağını gösterebilir. Yeni hazine veya gizli görev anahtarı yoktur."
+        }
+      ],
+      "warnings": [
+        "İlk adımda kar çıtırdar; geri çekilme fırsatı vardır.",
+        "Uyarıya rağmen tek başına kar köprüsüne yüklenen karakter DC10 Çeviklik, başarısızlık1d4 çarpma ve alt çıkıntıya kayar. Önceden bağlanan ip veya destek hareketi işe yarar.",
+        "Hayvanı kurtarmak için onu öldürmek, sakatlamak veya pahalı büyü harcamak şart değildir."
+      ],
+      "choices": [
+        {
+          "id": "yan-hat",
+          "label": "Üst yan hattı emniyetle aç; katırı sırayla geçir",
+          "result": "Bir kişi kayayı kontrol eder, biri hayvanı sakinleştirir, biri yükü taşır. Kar köprüsünü kullanmadan geçilir; iyi plan için aynı kontrolü herkese attırma.",
+          "echo": "Katırın sahibi bulunursa kimin yardım ettiği ve eksik yük varsa ne olduğu konuşulur. Hayvan otomatik parti malı olmaz."
+        },
+        {
+          "id": "yerel-yardim",
+          "label": "Hayvanı güvenli taşa al; sahibine haber bırak",
+          "result": "Yular ve yem düzenlenir, yer açık tarif edilir. Parti kendi geçişini başka hattan sürdürebilir.",
+          "echo": "Sonraki kervan hayvanın sahibinin geri geldiğini söyleyebilir; yardımın karşılığı birkaç yiyecek veya doğru yol bilgisi olabilir."
+        },
+        {
+          "id": "dolambac",
+          "label": "Katırı zorlamadan geniş dönüş yolunu seç",
+          "result": "Yaklaşık yirmi dakika ek yürüyüşle aynı tehlikeli noktadan uzaklaşılır. Hayvan kendi güvenli yerinde bırakılır veya sonradan önden götürülür.",
+          "echo": "Gecikmeyi gerçek oyun saatine ekle, fakat hastanın durumuna açıklanmayan yeni ceza yükleme."
+        }
+      ],
+      "obstacle": {
+        "goal": "Kar köprüsünü fark etmek, emniyetli geçiş bulmak ve bulunan hayvanın durumunu seçmek.",
+        "rounds": [
+          "Hayvanın tekrar eden duruşunu gözlemlet.",
+          "Üst hat, yem ve ip işi ayrı planlanır; tek kahramanın bütün grubu çekmesi şart değildir.",
+          "Geçiş bitince kar çizgisini işaretlemek mümkündür; yolun yeni bir felaketle kapanmasını zorunlu tutma."
+        ],
+        "success": "Kişiler ve gerekirse hayvan güvenli hatta geçer veya açık süreli dolanma kabul edilir.",
+        "failure": "Başarısız kontrol üst hattı doğrulamaz; daha yakın bakmak veya dolanmak mümkündür. Riski bilerek yüklenen kişinin tek düşüşü başka bir oyuncuya rastgele verilmez.",
+        "checks": [
+          "Ekipmanla güvenli geçiş çözüldüyse ek “son bir zar” isteme.",
+          "Bu, yüksek seviye dağ geçidi değil yerel bir yol engelidir; Marhalden’in sınır önemini ortadan kaldırmaz."
+        ]
+      },
+      "voice": {
+        "speaker": "Gri Sırt",
+        "direction": "Konuşmaz. Beden ağırlığını geriye vermesi ve ön ayağını kaldırması, oyuncunun göreceği açık uyarıdır.",
+        "lines": [
+          {
+            "cue": "Önden güvenli hat gösterilirse",
+            "line": "Burnunu uzatıp taşın kokusunu alır; bütün bedeniyle atlamak yerine bir ön ayağını dikkatle indirir."
+          },
+          {
+            "cue": "Zorla çekilirse",
+            "line": "Yuları gerer, başını aşağı indirir ve arka ayaklarına yaslanır. Gözleri öndeki kar çizgisinden ayrılmaz."
+          }
+        ]
+      },
+      "continuation": "Hardlane yolculuğunda yük ve hayvan bakımını anlamlı kılar. Önceki odun patikası başarıyla açıldıysa bu engel o yeni yolun üstünde değil, seçilen ayrı yan hattadır."
+    },
+    {
+      "id": "bacasiz-ates",
+      "title": "Bacasız Ateş",
+      "region": "danstsud",
+      "locationId": "mavric",
+      "triggers": [
+        "camp",
+        "trespass"
+      ],
+      "die": {
+        "min": 10,
+        "max": 10
+      },
+      "mood": "hostile",
+      "portraitId": "night-bacasiz-ates",
+      "sceneId": "night-camp",
+      "visibleName": "İs Halkası",
+      "arrival": "Mavric yakınında kömürcülerin terk ettiği Alçak Ocak kulübesinde. Grup burada gecelemek veya kapalı ocağı yeniden yakmak isterse kullan. Geceyi güvenli şehir hanında geçirenlere uzaktan saldırı olarak taşıma.",
+      "readAloud": "Kulübenin çatısı yarılmış ama köşedeki ocak hâlâ düzgün. İçinde odun yok. Buna rağmen taşın dibinde ince bir kızıllık duruyor. Elinizi yaklaştırınca sıcak gelmiyor; soğuk bir demiri tutmuş gibi parmaklarınız sızlıyor.\n\nDışarıdan gelen hava ocağa gitmiyor. İs, çatlaklardan aşağı doğru süzülüyor. Zemine dökülmesi gereken siyah toz, duvarın önünde bir omuz ve eğik bir baş biçiminde toplanıyor.\n\nSonra birisi, çok yakından, iç çekiyor. Kulübenin kapısı hâlâ açık.",
+      "dmTruth": "İs Halkası bu kulübede yıllar önce mühürlenmiş başarısız bir ısı bağının kalıntısıdır. Bir insanın ruhu değildir; kömürcülerin yıllarca kullandığı taşta birikmiş büyülü ısıyı emip soğuğa çeviren kararsız bir varlıktır. Kapanmış menfez ocağın içine açılır. Menfez açılır ve köze tuzlu su dökülürse bağı çözülür. Yalnız normal su görünür isi bastırır, odak taşı yerinde kaldığı için varlık geri toplanır; bu ayrımı karaktersiz zar sürprizi yapma, tuz çanağı ve eski bakım çizikleriyle önceden göster. Ruh kovma gibi gerçekten uygun bir özellik de bağı doğrudan bozabilir.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Kızıllık ısıtmıyor; kapı açık ve dışarıdaki temiz hava güvenli. İs yalnız ocak ile arka duvar arasında toplanıyor."
+        },
+        {
+          "dc": 10,
+          "skill": "Araştırma",
+          "discovery": "Taşın altında boş bir tuz çanağı ve menfezi açan paslı kol var. Taş üzerindeki aynı oyuklara tuz kristalleri yapışmış."
+        },
+        {
+          "dc": 11,
+          "skill": "Arkana veya Din",
+          "discovery": "Bu bir ölünün bilinci değil, büyülü bağın tortusu. Tuzlu su, açık menfez veya uygun dağıtma yeteneği odağı çözebilir; yaratığı dövmek yalnız geçici boşluk açar."
+        }
+      ],
+      "warnings": [
+        "İlk belirti parmaklarda soğuk ve ters akan istir; saldırı başlamadan kapı ve kol gösterilir.",
+        "Duman biçimi görünmezlik, uçuş bağışıklığı veya sıradan silahlara direnç vermez. Statbloğun dışında bu özellikleri ekleme.",
+        "Dar kulübede ikinci düşman yoktur. Birkaç tur kalarak kışkırtmak tehlikelidir; dışarı çıkmak karşılaşmayı keser."
+      ],
+      "choices": [
+        {
+          "id": "bag-coz",
+          "label": "Menfezi aç; odağı tuzlu suyla çöz",
+          "result": "Bir kişi kolu indirir, biri su ve tuzu hazırlar, diğeri varlığı oyalayabilir. İki iş tamamlanınca is dağılır; yok ettiği bir canı geri getirmez ama kulübe yeniden kullanılabilir.",
+          "echo": "Mavricli kömürcüler barınağın açıldığını öğrenirse grubun adını hatırlar. Kalan odak taşı Theramisli bir araştırmacının ilgisini çekebilir."
+        },
+        {
+          "id": "geri-cekil",
+          "label": "Kulübeyi bırak; başkaları için işaret koy",
+          "result": "Kapıdan çıkmak için kontrol gerekmez. Eşyası içeride kalan biri geri dönmeyi ayrıca seçer. Eşiğe uyarı koyup başka kamp yeri aranır.",
+          "echo": "Güvenli gece yeri için zaman ve yakacak harcanır. Uyarı sonraki bir yolcuyu kurtarabilir; olay otomatik başka kampı izlemez."
+        },
+        {
+          "id": "dagit",
+          "label": "Varlığı silahla dağıt; içerideki eşyayı al",
+          "result": "Canı sıfırlanınca bir dakika dağınık is kalır; bu sırada odağı bozmak veya çıkmak mümkündür. Taşa dokunmadan burada tekrar uyumak güvenli olmaz.",
+          "echo": "Eşyanın ve taşın ne yapıldığı kayda geçer. Ertesi gün varlığın dönmesi yalnız odak yerinde kaldıysa olur."
+        }
+      ],
+      "obstacle": {
+        "goal": "Isı bağını çözmek veya içerideki eşyayla güvenle çıkmak.",
+        "rounds": [
+          "Ortaya çıkış: Baş ve omuz oluşur; oyuncular kapıya çekilebilir veya ocağı inceleyebilir.",
+          "İlk tur: İs Halkası en yakındaki sıcak bedene uzanır. Bir karakter menfez koluyla uğraşabilir; diğeri tuzlu su hazırlayabilir.",
+          "İkinci turdan sonra: Varlık hareket eden ışığa ve sıcak bedene döner. Hazırlanan çözelti odağa döküldüğünde menfez açıksa dövüş biter."
+        ],
+        "success": "Bağ çözülür ya da herkes güvenle çıkar. Ödül kullanılabilir barınak ve bilinçli toplanan araştırma örneğidir.",
+        "failure": "Can kaybı gerçektir; düşen kişiyi kurtarmak gerekebilir. Varlık kapıdan dışarı iki metreden fazla çıkamaz, böylece geri çekilme bir seçenek olarak kalır.",
+        "checks": [
+          "Paslı kolu normal araçla açmak bir eylem ve Kuvvet DC10; yağlama veya kaldıraçla bir eylemde zarsız açılır.",
+          "Tuz ve suyu birleştirmek zar gerektirmez. Bağı tanımak Arkana/Din DC11; fiziksel bakım izleri aynı çözümü keşfettirebilir."
+        ]
+      },
+      "voice": {
+        "speaker": "İs Halkası",
+        "direction": "Kelime kurmaz. Sesi nefes ile külün taşta kayması arasındadır; aşağıdaki satırlar sesi tarif eder, karşılıklı konuşma değildir.",
+        "lines": [
+          {
+            "cue": "İlk kez belirince",
+            "line": "Ağır bir nefes verir; fakat odanın hiçbir yerindeki alev kıpırdamaz."
+          },
+          {
+            "cue": "Menfez açılınca",
+            "line": "Taşın arkasından hava çekilir. Siyah omuz bir an duvara yapışır, sonra yeniden ileri uzanır."
+          }
+        ]
+      },
+      "continuation": "Bu kulübe, Hardlane’deki eski ısı işleriyle bugünün bakımsızlığı arasındaki bağı gösterir. Isı bağının ustasını araştırmak Theramis’e ulaşabilecek küçük bir izdir; her harabenin aynı yaratıkla dolu olduğu sonucu çıkmaz.",
+      "combat": {
+        "danger": "Orta; tek yaratık, çevreyi kullanarak bitirilebilir. Bilgi ve kaçış yolları görülmeden sert savaş başlatma.",
+        "enemyGoal": "Odağının yanında sıcaklığı emmek; dışarıdaki karakterleri avlamak değil.",
+        "telegraph": "Soğuk kızıllık, ters akan is ve önce oluşan baş silueti.",
+        "tactics": [
+          "Yalnız bir yakın saldırı yapar; alan hasarı ve çoklu saldırısı yok.",
+          "Odağa su dökeni tehdit eder ama hazırlık eylemlerini otomatik kesmez.",
+          "Canı sıfırda bir dakika dağılır; bu boşlukta odak çözülebilir."
+        ],
+        "escape": "Açık kapıdan çekilmek mümkün. Ocaktan 9 metre uzaklaşana ulaşamaz; kapı dışından menfeze erişim planı da kabul edilir.",
+        "morale": "Pazarlık etmez; odak çözülünce tamamen dağılır. Kaybedilmiş Can geri gelmez.",
+        "combatants": [
+          {
+            "id": "is-halkasi",
+            "name": "İs Halkası",
+            "ac": 11,
+            "hp": 13,
+            "initiative": 1,
+            "attack": "Soğuk dokunuş +3, 1d6 soğuk; tur başına tek saldırı. Menzil 1,5 metre.",
+            "count": 1,
+            "portraitId": "night-bacasiz-ates"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sokulen-ad",
+      "title": "Adı Sökülmüş Nöbet",
+      "region": "danstsud",
+      "locationId": "marhalden",
+      "triggers": [
+        "travel",
+        "trespass"
+      ],
+      "die": {
+        "min": 11,
+        "max": 11
+      },
+      "mood": "formidable",
+      "portraitId": "night-sokulen-ad",
+      "sceneId": "night-camp",
+      "visibleName": "Mühürsüz Nöbetçi",
+      "arrival": "Marhalden’in batı inişindeki kullanılmayan Tartı Sahanlığı. Kervan eski bir maden kantarına sığınır veya mühürlü depodan araç almak isterse kullan. Burası ikinci dağ geçidi değildir.",
+      "readAloud": "Kantarın zinciri rüzgârda hafifçe sürtünüyor. Tahta levhanın ortasından bir isim kazınmış; çevresindeki eski harfler duruyor. Kapı önünde oturan zırhlı adamın eteği karın içine gömülmüş.\n\nSiz yaklaşınca başını kaldırıyor. Ağzından buhar çıkmıyor. Bir elini kılıcının kabzasına, ötekini boş bir defterin üzerine koyuyor.\n\n“Teslim alan?” diyor. Cevabınızı beklerken taş kesilmiş parmaklarının arasından ince bir toz dökülüyor. “Adı ve mühürü.”",
+      "dmTruth": "Nöbetçi, terk edilen maden deposunu kapatma emrindeki eksik teslim bağını taşıyan eski bir ölüdür. Kapatma defterindeki sorumlu adı kazındığı için görevi bitmemiştir. Diri bir kraliyet görevlisi değildir ve yeni bir kraliyet emri veremez. İçeride olağan maden aletleri, iki sağlam battaniye ve eski teslim levhasının kopmuş alt parçası vardır. Parçada ölen nöbetçinin adı Edran Velc ve sorumlu lonca damgası okunur. Adı geri yazmak ve malı kimin devraldığını açıkça kaydetmek bağı çözer. Sahte bir unvanla kandırmak kısa süre kapıyı açabilir ama özgür bırakmaz. Eşyayı zorla alanı takip eder; tartı sahanlığının üç taş sınırının dışına çıkamaz.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Adam nefes almıyor; ad ve mühür soruyor, para istemiyor. Dışarı giden yol açıktır."
+        },
+        {
+          "dc": 10,
+          "skill": "Araştırma",
+          "discovery": "Kazınan satır bir yasak değil, teslim tutanağı. Levhanın düşen parçası kantarın altındadır; “Edran Velc” ve lonca damgası okunur."
+        },
+        {
+          "dc": 11,
+          "skill": "Din veya Arkana",
+          "discovery": "Nöbeti sürdüren bağ, devri tamamlanmamış görevdir. Doğru isim ve açık bir devir kaydıyla çözülmesi mümkündür; rastgele bir kurban veya kan gerekmez."
+        },
+        {
+          "dc": 12,
+          "skill": "Tarih",
+          "discovery": "Damga eski maden çıkarma koluna aittir. Marhalden’de loncaya götürülen levha aletlerin mirasçısını buldurabilir; krala ait gizli hazineyi işaret etmez."
+        }
+      ],
+      "warnings": [
+        "Nöbetçi önce üç kez aynı soruyu farklı biçimde sorar. Mühürlü eşya zorla alınır veya ona saldırılırsa inisiyatif başlar.",
+        "Üç sınır taşı ve nöbetçinin bunların dışına adım atmayışı görünür. Bu bilgi yalnız savaş başladıktan sonra saklı bir kurtuluş olarak ortaya çıkmaz.",
+        "Yalnız bu eski görev bağına bağlıdır; bütün kraliyet askerlerinin ölünce dirildiği yeni genel kural yaratma."
+      ],
+      "choices": [
+        {
+          "id": "devri-tamamla",
+          "label": "Adını geri yaz; devralanı dürüstçe kaydet",
+          "result": "Oyuncular aletlerin emanetçisi olmayı veya Marhalden’e bildirmeyi seçer. Defter kapatılınca nöbetçi dizlerinin üzerine çöker, bedeni eski bir ölünün ağırlığına geri döner.",
+          "echo": "Aletler teslim edildiyse loncadan bir kâtip bu kişinin adını kayda alır. Tutulan emanet satıldıysa bu, gerçekten verilen sözle çelişir ve sorulduğunda açıklanmalıdır."
+        },
+        {
+          "id": "dokunma",
+          "label": "Sığınağı kullan ama mühürlü mala dokunma",
+          "result": "Nöbetçi kapının önünde kalır. Kantarın açık tarafında dinlenilebilir; depo eşyası alınmaz. Sabah yol sürer.",
+          "echo": "İsim ve yer Marhalden’e iletilebilir. Başka bir görevle dönme imkânı açık kalır."
+        },
+        {
+          "id": "zorla-al",
+          "label": "İhtiyaç için mührü kır; nöbetçiyi durdur",
+          "result": "Nöbetçi eşyayı taşıyana ilerler. Onu etkisizleştirmek veya sınırı geçmek mümkündür; alınan araçların miktarı ve neden alındığı kaydedilir.",
+          "echo": "Ölünün adını sonra öğrenmek mümkün kalır. Çatışma onun tarihini yok etmez; daha sonra yapılan cenaze veya teslim hâlâ anlam taşır."
+        }
+      ],
+      "obstacle": {
+        "goal": "Deponun eşyasına ne yapılacağını seçmek; eksik teslimi tamamlamak veya nöbet alanından sağ çıkmak.",
+        "rounds": [
+          "Yaklaşma: Soru sorar; defter ve kazınmış isim incelenebilir.",
+          "Mühür kırılırsa: Kılıcını yavaşça çeker. İnisiyatiften önce niyet açıkça görülür; eşya bırakılırsa durur.",
+          "Çatışmada: Eşyayı taşıyana yönelir; diğer karakterler levha parçasına ulaşabilir veya emanet işini tamamlayabilir."
+        ],
+        "success": "Devir tamamlanır veya grup sağ salim ayrılır. Alınan eşya ve verilen söz gerçek envantere yazılır.",
+        "failure": "Yara, yere düşen eşya ve kaçırılan fırsat mümkündür. Nöbetçi sınır dışında takip yapmaz; alınan eşyanın peşinde gizli teleport kullanmaz.",
+        "checks": [
+          "Kantar altındaki parçayı çubukla çekmek zarsız mümkündür. Dar aralığa çıplak elle uzanılırsa El Çabukluğu DC10 zincirin sıkıştırmasını önler.",
+          "Bağı anlamak Din/Arkana DC11; nöbetçinin sözünü dinleyip devir işlemini doğru kurmak aynı sonucu zarsız verebilir."
+        ]
+      },
+      "voice": {
+        "speaker": "Mühürsüz Nöbetçi · Edran Velc",
+        "direction": "Kısa bir görev dili kullanır. Şiir söylemez; eksik tutanağı tekrarlar. Adı öğrenilince ilk kez soruyu değil kendini hatırlarmış gibi duraksar.",
+        "lines": [
+          {
+            "cue": "Ne istiyorsun?",
+            "line": "“Teslim alanın adı. Yükü sayacağım.”"
+          },
+          {
+            "cue": "Neden ayrılmıyorsun?",
+            "line": "“Benden alan olmadı.”"
+          },
+          {
+            "cue": "Edran adını söyleyince",
+            "line": "“Edran… Evet. Son satırı da yaz.”"
+          }
+        ]
+      },
+      "continuation": "Marhalden’deki loncaların uzun kurumsal hafızasına bağlanan küçük bir ölü nöbetidir. Aletler veya levha loncaya götürülürse yeni bir yüzle tanışma nedeni verir; şehir lordlarının seçim geleneğini değiştirmez.",
+      "combat": {
+        "danger": "Orta; tek muhafız. Silahından önce görevi çözmek ve sınırı görmek mümkündür.",
+        "enemyGoal": "Mühürlü malı sahanlıkta tutmak; yolcuların ruhunu almak değil.",
+        "telegraph": "Çekilen kılıç, deftere vurulan parmak ve aynı teslim sorusu.",
+        "tactics": [
+          "Bir turda yalnız bir saldırı yapar; büyü, korku aurası ve çoklu saldırı yok.",
+          "Mühürlü eşyayı taşımayanın yanından geçebilir; eşyayı bırakanı sırf önce vurduğu için kovalamaz.",
+          "Bir karakter devir satırını tamamlarsa saldırı döngüsü kesilir."
+        ],
+        "escape": "Üç taş sınırının arkasına geçmek serbest kaçış hattıdır. Taşınan eşya bırakılırsa nöbetçi durup onu toplar.",
+        "morale": "Pazarlık yerine tutanak kabul eder. Canı sıfır olunca bağ çözülmemişse bedeni yine hareketsiz kalır; aynı sahnede yeni dalga olarak kalkmaz.",
+        "combatants": [
+          {
+            "id": "edran-velc",
+            "name": "Mühürsüz Nöbetçi · Edran Velc",
+            "ac": 13,
+            "hp": 15,
+            "initiative": 0,
+            "attack": "Körlenmiş kılıç +3, 1d6+1 kesici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-sokulen-ad"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ikinci-islik",
+      "title": "İkinci Islık",
+      "region": "danstsud",
+      "locationId": "harven",
+      "triggers": [
+        "travel",
+        "camp"
+      ],
+      "die": {
+        "min": 12,
+        "max": 12
+      },
+      "mood": "hostile",
+      "portraitId": "night-ikinci-islik",
+      "sceneId": "night-camp",
+      "visibleName": "Uçurum Dinleyicisi",
+      "arrival": "Harven’den Mavric’e giden ormanlık yolun Kavruk Çentik kesiminde, kızakların dar bir kaya oluğundan geçtiği yerde. Kamp nöbeti sırasında çalılıktan taklit ses gelmesiyle de başlayabilir; yerin bir kanonik şehir noktası olduğu iddia edilmez.",
+      "readAloud": "Öndeki çalılıktan kısa bir ıslık geliyor. Yol arkadaşınızın az önce söylediği işaretin aynısı. Ardından kayaların yukarısından bir cevap duyuluyor; ilk sesten biraz daha ince.\n\nKatır başını kaldırıp yükünü yana veriyor. Karda, çakıl taşları kadar küçük koyu damlalar ve bir tavşanın çekilmiş arka ayakları var. Gövdesi görünmüyor.\n\nBu kez ıslık çok yakından geliyor. Kayaların dibinde, iki uzun kulağın arasından iki küçük göz size dönüyor. Hayvan çömelmiyor; geriye doğru geriliyor, sanki mesafeyi ölçüyor.",
+      "dmTruth": "Uçurum Dinleyicisi büyük porsuk boyutunda, tek başına avlanan bir yırtıcıdır. Uzun kulak kıvrımları yönünü bulmasına, kısa kancalı pençeleri taş yüzeyde tutunmasına yarar. İnsan ıslığının iki-üç notasını taklit eder; konuşma, zihin okuma veya kusursuz dost sesi yoktur. Yol kenarındaki tavşanı yeni öldürmüştür. Kışın yaralı ve küçük avların peşinden giden bu birey, kervanın küçük yiyecek kokusunu almıştır. İlk hamlesi açıkta kalan yiyeceği veya sürüden ayrılan küçük hayvanı almaktır; insan karşı koyarsa gerçekten ısırır. Bütün Hardlane’e yayılan bir canavar ordusunun habercisi değildir.",
+      "clues": [
+        {
+          "dc": 0,
+          "skill": "Algı",
+          "discovery": "Katır huysuzlanır, kan damlaları ve yarım tavşan görünür. Islık yalnız kısa bir işareti tekrarlar; gerçek bir yardım çağrısı yoktur."
+        },
+        {
+          "dc": 10,
+          "skill": "Doğa veya Hayatta Kalma",
+          "discovery": "İzler tek hayvana aittir. Tavşanın taş altına çekilmesi saklanan avı gösterir; yaratık yükün kokusuna gelmiştir."
+        },
+        {
+          "dc": 11,
+          "skill": "Algı",
+          "discovery": "Üst kaya çizgisindeki ikinci ses de aynı hayvandan gelir; yankı konumu şaşırtır. Kayanın arkasına bir kez bakmak görünür saldırı hattını ortaya çıkarır."
+        },
+        {
+          "dc": 12,
+          "skill": "Hayvan İdaresi veya Doğa",
+          "discovery": "Kulakları düzleşince atlamaya hazırlanır. Et atıp grup halinde geri çekilmek, taşlık hattı ona bırakmak veya yiyeceği kapalı kaba almak saldırı fırsatını azaltır."
+        }
+      ],
+      "warnings": [
+        "İlk ıslık, katırın davranışı ve yarım av saldırıdan önce gelir. Hayvanı görüp düzen alan grup otomatik şaşırmaz.",
+        "Tek hayvan vardır; ikinci ıslık ikinci düşman değildir. Üç 1. seviye oyuncu için sürü ekleme.",
+        "Yaratık kanayan veya yere düşen kişiyi otomatik parçalamaz. Kolay av hedefi ve kaçış içgüdüsü korunur; buna rağmen açıkta kalan bir karakter ciddi yara alabilir."
+      ],
+      "choices": [
+        {
+          "id": "avu-birak",
+          "label": "Et bırak; dar hattı birlikte geç",
+          "result": "Bir günlük et payı veya taş altındaki tavşanı rahatça alabileceği alan bırakılır. Grup sırtını dönüp dağılmadan geçerse hayvan avını seçer; sırf dövüş çıkmadı diye yeni saldırı eklenmez.",
+          "echo": "Erzak kaybı gerçek envantere yazılır. İzler ve davranış bilgisi sonraki geçişte daha erken tanınabilir."
+        },
+        {
+          "id": "kov",
+          "label": "Ateş ve düzenli sesle uzaklaştır",
+          "result": "Tek kişi karanlığa dalmak yerine birlikte ışık, kalkan ve gürültüyle alan tutulur. Hayvan üst hattını kaybedince mesafeyi açar; kıstırılırsa savaşır.",
+          "echo": "Yol işaretiyle uyarılan sonraki kervan aynı taklit sesine kanmayabilir. Yaratığın öldüğü iddia edilmez."
+        },
+        {
+          "id": "savun",
+          "label": "Yükün yanında kal; saldırıyı karşıla",
+          "result": "Kaya hattı, yük siperi ve kaçış patikası açık tutulur. Hayvan bir ısırık fırsatı arar; oyuncular onu öldürmek, geri püskürtmek veya yiyecekle oyalamak arasında sahne içinde seçim yapabilir.",
+          "echo": "Öldürülürse kulak yapısı ve postu incelenebilir. Böyle bir türle ilgili sonraki söylenti, bilinen anatomisiyle karşılaştırılabilir."
+        }
+      ],
+      "obstacle": {
+        "goal": "İnsanları, binekleri ve yiyeceği birbirinden ayırmadan taşlık dar geçidi aşmak.",
+        "rounds": [
+          "Uyarı: Islık ve taze av gösterilir. Oyuncular yükü kapatabilir, binekleri ortaya alabilir veya geri çekilebilir.",
+          "İlk tur: Hayvan kaya üstünden görünür bir konuma geçer; hemen ulaşabiliyorsa tek saldırı yapar, ulaşamıyorsa mesafeyi kapatır. Aynı turda bedelsiz ikinci hamle yok.",
+          "İkinci tur: Açık yiyecek veya yalnız kalan hedefe yönelir. Et atılırsa onu kapıp çekilmek bir saldırının yerini alır.",
+          "Son: Yaralanınca kayalık hattına döner. Oyuncular kovalamayı sürdürürse bunu yeni bir risk olarak açıkça ilan et."
+        ],
+        "success": "Grup geçer, yükün bir bölümü kaybedilir veya hayvan püskürtülür; hangi bedel ödendiği net biçimde söylenir.",
+        "failure": "Isırık ve düşen eşya gerçek sonuçtur. Düşen karaktere ulaşmak için diğerlerinin hamlesi gerekir; bütün yolu kilitleyen yeni yaratıklar belirmez.",
+        "checks": [
+          "Hattı erkenden fark etmek Algı DC11. Görünür bir yırtıcıyı perdelemek için kalkan/örtü kullanmak normal örtü kuralına uygundur.",
+          "Ateş ve toplu gürültü planı için tek Hayvan İdaresi ya da Hayatta Kalma DC11 yeterlidir; başarısızlıkta hayvan mesafeyi korur veya saldırıyı seçer, otomatik ek hasar verilmez."
+        ]
+      },
+      "voice": {
+        "speaker": "Uçurum Dinleyicisi",
+        "direction": "Konuşmaz. Kısa ıslığı iki notayla taklit et; oyuncu veya tanıdık NPC’nin gerçek konuşmasını onun ağzından verme.",
+        "lines": [
+          {
+            "cue": "İlk uyarı",
+            "line": "Kısa, kesilen iki nota; aralarında düzensiz bir nefes sesi."
+          },
+          {
+            "cue": "Avını korurken",
+            "line": "Dişlerini göstererek bağırmak yerine boğazından alçak, titreşen bir sürtünme sesi çıkarır."
+          }
+        ]
+      },
+      "continuation": "Harven–Mavric oduncularının ve avcılarının bildiği yerel bir yırtıcıdır. Postu veya izi bir avcıyla konuşma başlatır; kazanılan bilgi Kemiğe Basan Yol’un sonraki orman geçişlerinde işe yarar.",
+      "combat": {
+        "danger": "Orta; tek yırtıcı. Üç 1. seviye oyuncu için tek başına, kaçış ve yiyecek çözümü açıkken kullan.",
+        "enemyGoal": "Kolay yiyecek almak ve kendi avını korumak.",
+        "telegraph": "Taklit ıslık, katırın tepkisi, taze av ve görünür kulak silueti.",
+        "tactics": [
+          "Saldırı başına tek ısırık; atlama ek hasar veya ücretsiz saldırı sağlamaz.",
+          "En kolay erişilen açık yiyeceğe veya ayrı kalana yönelir; zırhlı hedefi uzun süre dövmek istemez.",
+          "Et kaparsa onu güvenli yere taşımayı seçer; yaralanınca geri çıkış hattını kullanır."
+        ],
+        "escape": "Grup birlikte ana yola çekilebilir. Taş altındaki avı ve biraz eti geride bırakmak hayvanı oyalayabilir; binek üstünde aniden kaçıp birini yalnız bırakmak tehlikeyi büyütür.",
+        "morale": "5 Can veya altında, açık ateşle sıkıştırıldığında ya da yiyeceği kaptığında kaçar. Kayalıkta peşinden gidilmezse yeniden saldırmaz.",
+        "combatants": [
+          {
+            "id": "ucurum-dinleyicisi",
+            "name": "Uçurum Dinleyicisi",
+            "ac": 12,
+            "hp": 14,
+            "initiative": 2,
+            "attack": "Isırık +3, 1d6+1 delici; tur başına tek saldırı.",
+            "count": 1,
+            "portraitId": "night-ikinci-islik"
+          }
+        ]
+      }
+    }
+  ]
+}

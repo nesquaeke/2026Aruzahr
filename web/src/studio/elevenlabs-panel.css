@@ -1,0 +1,14 @@
+.st-elevenlabs { margin: 0 0 1.25rem; padding: 1rem; border: 1px solid #605847; border-radius: 14px; background: linear-gradient(140deg,#25251f,#171a20); }
+.st-elevenlabs summary { cursor: pointer; font-weight: 700; color: #e3d5b7; }
+.st-elevenlabs p { color: #b6b6b2; font-size: .9rem; line-height: 1.6; }
+.st-elevenlabs .st-field { margin-block: .8rem; }
+.st-elevenlabs textarea { min-height: 120px; }
+.st-elevenlabs small { display:block; color:#c3b490; margin-bottom:.7rem; }
+.st-voice-setup { border-left: 3px solid #ad9568; padding: .7rem 1rem; background: #302b222d; }
+.st-voice-setup strong { color:#e6c78e; }
+.st-voice-setup code { font-size:.85em; overflow-wrap:anywhere; }
+.st-elevenlabs .st-voice-error { color:#f1b2a2; }
+.st-voice-result { padding-top:1rem; margin-top:1rem; border-top:1px solid #565041; }
+.st-voice-result audio { display:block; width:100%; margin-block:.8rem; }
+.st-voice-result > div { display:flex; align-items:center; flex-wrap:wrap; gap:.8rem; }
+.st-voice-result a { color:#e2c58a; text-decoration:underline; }

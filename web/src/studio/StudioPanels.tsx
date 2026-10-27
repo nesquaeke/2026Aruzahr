@@ -34,6 +34,9 @@ import type {
   StudioProject,
 } from './types'
 import { StudioRollDisplay } from './StudioOverlays'
+import { StudioDirectory } from './StudioFinder'
+import BattlePreparation, { type BattleFighterDraft } from './BattlePreparation'
+import ElevenLabsPanel from './ElevenLabsPanel'
 const Field = ({
   label,
   children,
@@ -579,6 +582,7 @@ export function LibraryPanel() {
     ) || p.cast.some((c) => c.src === src)
   return (
     <>
+      <StudioDirectory />
       <BroadcastLibrary
         customAssets={p.imageAssets}
         onScene={(a) => addAsset(a, 'background')}
@@ -700,6 +704,7 @@ export function PeoplePanel() {
         Gerçek kimlik ve amaçlar özel kayıttır. Sahneye yalnız oyuncuların
         bildiği ad taşınır.
       </Heading>
+      <details className="st-people-directory"><summary>Hazır karakteri, yaratığı veya yerini bul</summary><StudioDirectory /></details>
       <Field label="Kişinin adı">
         <input
           maxLength={100}
@@ -899,6 +904,7 @@ export function SoundPanel() {
         Hazırlık miksini sahneyle yayına al. Acil sessizlik anında canlı sesi
         durdurur.
       </Heading>
+      <ElevenLabsPanel />
       <Field label="Sesin çıkacağı pencere">
         <select
           value={config.owner}
@@ -1151,9 +1157,10 @@ export function updateEncounter(p: StudioProject, e: Encounter): StudioProject {
   return { ...p, encounter: e, draft, program }
 }
 export function CombatPanel() {
-  const { p, change, notify } = useStudio(),
+  const { p, change, notify, addAsset } = useStudio(),
     [name, setName] = useState(''),
-    [cast, setCast] = useState('')
+    [cast, setCast] = useState(''),
+    [damage, setDamage] = useState(1)
   const e = p.encounter
   const update = (patch: Partial<Encounter>) =>
     change((p) => updateEncounter(p, { ...p.encounter, ...patch }))
@@ -1161,6 +1168,40 @@ export function CombatPanel() {
     update({
       items: e.items.map((i) => (i.id === id ? { ...i, ...patch } : i)),
     })
+  const addFighters = (fighters: BattleFighterDraft[]) =>
+    change((project) =>
+      updateEncounter(project, {
+        ...project.encounter,
+        items: [
+          ...project.encounter.items,
+          ...fighters.map((fighter) => ({
+            ...fighter,
+            id: freshId('fighter'),
+            maxHp: fighter.hp,
+            tempHp: 0,
+            conditions: [],
+            concentration: false,
+          })),
+        ],
+      }),
+    )
+  const adjustHealth = (id: string, amount: number) =>
+    change((project) =>
+      updateEncounter(project, {
+        ...project.encounter,
+        items: project.encounter.items.map((item) => {
+          if (item.id !== id) return item
+          if (amount >= 0)
+            return { ...item, hp: Math.min(item.maxHp, item.hp + amount) }
+          const absorbed = Math.min(item.tempHp, -amount)
+          return {
+            ...item,
+            tempHp: item.tempHp - absorbed,
+            hp: Math.max(0, item.hp + amount + absorbed),
+          }
+        }),
+      }),
+    )
   function next() {
     const count = e.items.length
     if (!count) return
@@ -1172,280 +1213,443 @@ export function CombatPanel() {
   }
   return (
     <>
-      <Heading title="Savaş yönetimi">
-        Canlar, zırh ve notlar özel kalır. Yayın görünümünü aşağıdan seç.
+      <Heading title="Karşılaşma masası">
+        Düşmanı bul → katılımcıları ekle → sıra ve canları yönet. Eklenen
+        düşmanlar önce gizlidir; canlıya çıkış senin kontrolündedir.
       </Heading>
-      <Field label="Kişi listesinden ekle">
-        <select value={cast} onChange={(x) => setCast(x.target.value)}>
-          <option value="">Bağımsız katılımcı</option>
-          {p.cast.map((c) => (
-            <option key={c.id} value={c.id}>
-              {c.realName}
-            </option>
-          ))}
-        </select>
-      </Field>
-      <Field label="Görünen savaşçı adı">
-        <input
-          maxLength={100}
-          value={name}
-          onChange={(x) => setName(x.target.value)}
-        />
-      </Field>
-      <button
-        onClick={() => {
-          const c = p.cast.find((c) => c.id === cast)
-          update({
-            items: [
-              ...e.items,
-              {
-                id: freshId('fighter'),
-                castId: c?.id || '',
-                name: name || c?.knownName || c?.realName || 'Yeni savaşçı',
-                initiative: 0,
-                hp: c?.hp || 10,
-                maxHp: c?.maxHp || 10,
-                tempHp: 0,
-                ac: c?.ac || 10,
-                conditions: [],
-                concentration: false,
-                hidden: false,
-                group: '',
-                notes: '',
-              },
-            ],
-          })
-          setName('')
-        }}
-      >
-        Savaşa ekle
-      </button>
-      <div className="st-two">
-        <button
-          disabled={!e.items.length}
-          onClick={() => {
-            const active = e.items[e.active]?.id,
-              items = [...e.items].sort((a, b) => b.initiative - a.initiative)
-            update({
-              items,
-              active: Math.max(
-                0,
-                items.findIndex((i) => i.id === active),
-              ),
-            })
-          }}
-        >
-          İnisiyatife göre sırala
-        </button>
-        <button
-          disabled={!e.items.length}
-          onClick={() =>
-            update({
-              items: e.items.map((i) => ({
-                ...i,
-                initiative: rollExpression('1d20').total,
-              })),
-            })
-          }
-        >
-          Herkese d20 at
-        </button>
-      </div>
-      <div className="st-turn">
-        <strong>Tur {e.round}</strong>
-        <span>{e.items[e.active]?.name || 'Savaşçı ekle'}</span>
+      <BattlePreparation onAdd={addFighters} />
+      <section className="st-battle-manual">
+        <h3>Masadaki kişiden veya ismiyle ekle</h3>
+        <Field label="Kişi listesinden ekle">
+          <select value={cast} onChange={(x) => setCast(x.target.value)}>
+            <option value="">Bağımsız katılımcı</option>
+            {p.cast.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.realName}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label="Görünen savaşçı adı">
+          <input
+            maxLength={100}
+            value={name}
+            onChange={(x) => setName(x.target.value)}
+          />
+        </Field>
         <button
           onClick={() => {
-            const h = e.history.at(-1)
-            if (h)
-              update({
-                active: h.active,
-                round: h.round,
-                history: e.history.slice(0, -1),
-              })
-          }}
-          disabled={!e.history.length}
-        >
-          Önceki hamle
-        </button>
-        <button disabled={!e.items.length} onClick={next}>
-          Sıradaki
-        </button>
-      </div>
-      <label className="st-check">
-        <input
-          type="checkbox"
-          checked={p.combatOnAir}
-          onChange={(x) =>
-            change((p) => {
-              const on = x.target.checked,
-                combat = on ? combatPublic(p.encounter) : undefined
-              return {
-                ...p,
-                combatOnAir: on,
-                program: {
-                  ...p.program,
-                  studio: {
-                    ...p.program.studio!,
-                    combat,
-                    highlight: combat?.activeId || undefined,
-                  },
+            const c = p.cast.find((c) => c.id === cast)
+            update({
+              items: [
+                ...e.items,
+                {
+                  id: freshId('fighter'),
+                  castId: c?.id || '',
+                  name: name || c?.knownName || c?.realName || 'Yeni savaşçı',
+                  initiative: 0,
+                  hp: c?.hp || 10,
+                  maxHp: c?.maxHp || 10,
+                  tempHp: 0,
+                  ac: c?.ac || 10,
+                  conditions: [],
+                  concentration: false,
+                  hidden: false,
+                  group: '',
+                  notes: '',
                 },
-              }
+              ],
             })
-          }
-        />
-        Savaş bilgisini canlı göster
-      </label>
-      <div className="st-two">
-        <label className="st-check">
-          <input
-            type="checkbox"
-            checked={e.showOrder}
-            onChange={(x) => update({ showOrder: x.target.checked })}
-          />
-          Sıra açık
-        </label>
-        <label className="st-check">
-          <input
-            type="checkbox"
-            checked={e.showRound}
-            onChange={(x) => update({ showRound: x.target.checked })}
-          />
-          Tur açık
-        </label>
-      </div>
-      <Field label="İzleyiciye can gösterimi">
-        <select
-          value={e.hpDisplay}
-          onChange={(x) =>
-            update({ hpDisplay: x.target.value as Encounter['hpDisplay'] })
-          }
+            setName('')
+          }}
         >
-          <option value="none">Can gizli</option>
-          <option value="status">İyi / yaralı / ağır yaralı</option>
-          <option value="bar">Can çubuğu</option>
-          <option value="number">Sayısal can</option>
-        </select>
-      </Field>
-      {e.items.map((i, n) => (
-        <details
-          className={n === e.active ? 'st-active-fighter' : ''}
-          key={i.id}
-          open={n === e.active}
-        >
-          <summary>
-            {n === e.active ? '▶ ' : ''}
-            {i.name} · {i.initiative}
-            {i.hidden ? ' · gizli' : ''}
-          </summary>
-          <Field label="Yayın adı">
-            <input
-              maxLength={100}
-              value={i.name}
-              onChange={(x) => edit(i.id, { name: x.target.value })}
-            />
-          </Field>
-          <div className="st-four">
-            {(['initiative', 'hp', 'maxHp', 'tempHp', 'ac'] as const).map(
-              (k) => (
-                <Field
-                  key={k}
-                  label={
-                    {
-                      initiative: 'İnisiyatif',
-                      hp: 'Can',
-                      maxHp: 'Azami',
-                      tempHp: 'Geçici',
-                      ac: 'Zırh',
-                    }[k]
-                  }
-                >
-                  <input
-                    type="number"
-                    value={i[k]}
-                    onChange={(x) =>
-                      edit(i.id, {
-                        [k]: num(
-                          x.target.value,
-                          k === 'initiative' ? -100 : k === 'maxHp' ? 1 : 0,
-                        ),
-                      })
-                    }
-                  />
-                </Field>
-              ),
-            )}
-          </div>
-          <Field label="Durumlar · virgülle ayır">
-            <input
-              maxLength={100}
-              value={i.conditions.join(', ')}
-              onChange={(x) =>
-                edit(i.id, {
-                  conditions: x.target.value
-                    .split(',')
-                    .map((s) => s.trim())
-                    .filter(Boolean)
-                    .slice(0, 15),
-                })
-              }
-            />
-          </Field>
-          <label className="st-check">
-            <input
-              type="checkbox"
-              checked={i.concentration}
-              onChange={(x) => edit(i.id, { concentration: x.target.checked })}
-            />
-            Konsantrasyon
-          </label>
-          <label className="st-check">
-            <input
-              type="checkbox"
-              checked={i.hidden}
-              onChange={(x) => edit(i.id, { hidden: x.target.checked })}
-            />
-            İzleyiciden tamamen gizle
-          </label>
-          <Field label="Düşman grubu · özel">
-            <input
-              maxLength={100}
-              value={i.group}
-              onChange={(x) => edit(i.id, { group: x.target.value })}
-            />
-          </Field>
+          Savaşa ekle
+        </button>
+      </section>
+      <section className="st-battle-running" data-testid="battle-running">
+        <div className="st-battle-start">
+          <span className="st-finder-eyebrow">2 · TURU YÖNET</span>
+          <h3>
+            {e.items.length
+              ? `${e.items.length} katılımcı hazır`
+              : 'Savaş listesi henüz boş'}
+          </h3>
+          <p>
+            İnisiyatifleri girip sırala. Hasar geçici canı önce tüketir;
+            iyileştirme azami canı geçmez.
+          </p>
+        </div>
+        <div className="st-two">
           <button
-            disabled={!i.group}
-            onClick={() =>
+            disabled={!e.items.length}
+            onClick={() => {
+              const active = e.items[e.active]?.id,
+                items = [...e.items].sort((a, b) => b.initiative - a.initiative)
               update({
-                items: e.items.map((x) =>
-                  x.group === i.group ? { ...x, initiative: i.initiative } : x,
+                items,
+                active: Math.max(
+                  0,
+                  items.findIndex((i) => i.id === active),
                 ),
               })
-            }
+            }}
           >
-            Grubun inisiyatifini eşitle
+            İnisiyatife göre sırala
           </button>
-          <Field label="Özel savaş notu">
-            <textarea
-              maxLength={10000}
-              value={i.notes}
-              onChange={(x) => edit(i.id, { notes: x.target.value })}
-            />
-          </Field>
           <button
+            disabled={!e.items.length}
             onClick={() =>
               update({
-                items: e.items.filter((x) => x.id !== i.id),
-                active: Math.max(0, Math.min(e.active, e.items.length - 2)),
+                items: e.items.map((i) => ({
+                  ...i,
+                  initiative: rollExpression('1d20').total,
+                })),
               })
             }
           >
-            Savaştan çıkar
+            Herkese d20 at
           </button>
-        </details>
-      ))}
+        </div>
+        <div className="st-turn">
+          <strong>Tur {e.round}</strong>
+          <span>{e.items[e.active]?.name || 'Savaşçı ekle'}</span>
+          <button
+            onClick={() => {
+              const h = e.history.at(-1)
+              if (h)
+                update({
+                  active: h.active,
+                  round: h.round,
+                  history: e.history.slice(0, -1),
+                })
+            }}
+            disabled={!e.history.length}
+          >
+            Önceki hamle
+          </button>
+          <button disabled={!e.items.length} onClick={next}>
+            Sıradaki
+          </button>
+        </div>
+        <div className="st-battle-health-controls">
+          <label className="st-field">
+            <span>Hasar / iyileştirme miktarı</span>
+            <input
+              aria-label="Hızlı can değişimi"
+              type="number"
+              min={1}
+              max={9999}
+              value={damage}
+              onChange={(event) => setDamage(num(event.target.value, 1, 9999))}
+            />
+          </label>
+          <span>Karttaki “Hasar” veya “İyileştir” düğmesine bas.</span>
+        </div>
+        <div className="st-battle-roster">
+          {e.items.map((fighter, index) => {
+            const person = p.cast.find((person) => person.id === fighter.castId)
+            return (
+              <article
+                key={fighter.id}
+                className={`st-battle-fighter ${index === e.active ? 'is-active' : ''} ${fighter.hp === 0 ? 'is-down' : ''}`}
+                data-fighter-id={fighter.id}
+              >
+                <div className="st-battle-fighter-top">
+                  {person?.src && <img src={person.src} alt="" />}
+                  <div>
+                    <strong>{fighter.name}</strong>
+                    <small>
+                      {fighter.hidden
+                        ? 'İzleyiciden gizli'
+                        : 'Yayın listesinde görünür'}{' '}
+                      · {fighter.group || 'Grup yok'}
+                    </small>
+                  </div>
+                  <button
+                    aria-label={`${fighter.name}: sırayı buna getir`}
+                    onClick={() => update({ active: index })}
+                  >
+                    {index === e.active ? 'Sırası' : 'Sıraya al'}
+                  </button>
+                </div>
+                <div className="st-battle-stats">
+                  <label>
+                    İnisiyatif
+                    <input
+                      aria-label={`${fighter.name}: hızlı inisiyatif`}
+                      type="number"
+                      min={-100}
+                      max={100}
+                      value={fighter.initiative}
+                      onChange={(event) =>
+                        edit(fighter.id, {
+                          initiative: num(event.target.value, -100, 100),
+                        })
+                      }
+                    />
+                  </label>
+                  <span>
+                    <strong>
+                      {fighter.hp}/{fighter.maxHp}
+                    </strong>{' '}
+                    Can{fighter.tempHp ? ` +${fighter.tempHp} geçici` : ''}
+                  </span>
+                  <span>
+                    Zırh <strong>{fighter.ac}</strong>
+                  </span>
+                </div>
+                <meter
+                  min={0}
+                  max={fighter.maxHp}
+                  value={fighter.hp}
+                  aria-label={`${fighter.name}: can`}
+                />
+                <div className="st-directory-actions">
+                  <button
+                    aria-label={`${fighter.name}: ${damage} hasar`}
+                    onClick={() => adjustHealth(fighter.id, -damage)}
+                  >
+                    −{damage} Hasar
+                  </button>
+                  <button
+                    aria-label={`${fighter.name}: ${damage} iyileştir`}
+                    onClick={() => adjustHealth(fighter.id, damage)}
+                  >
+                    +{damage} İyileştir
+                  </button>
+                  <button
+                    onClick={() =>
+                      edit(fighter.id, { hidden: !fighter.hidden })
+                    }
+                  >
+                    {fighter.hidden ? 'Listede görünür yap' : 'Listeden gizle'}
+                  </button>
+                  {person?.src && (
+                    <button
+                      onClick={() =>
+                        addAsset(
+                          {
+                            id: person.sourceId || person.id,
+                            name: fighter.name,
+                            src: person.src,
+                            kind: 'portrait',
+                          },
+                          'portrait',
+                        )
+                      }
+                    >
+                      Portreyi hazırla
+                    </button>
+                  )}
+                </div>
+                {fighter.notes && (
+                  <details>
+                    <summary>Saldırı ve taktik · yalnız DM</summary>
+                    <p className="st-battle-private">{fighter.notes}</p>
+                  </details>
+                )}
+              </article>
+            )
+          })}
+        </div>
+      </section>
+      <details className="st-battle-broadcast" open={p.combatOnAir}>
+        <summary>3 · İzleyicinin göreceği savaş bilgisi</summary>
+        <label className="st-check">
+          <input
+            type="checkbox"
+            checked={p.combatOnAir}
+            onChange={(x) =>
+              change((p) => {
+                const on = x.target.checked,
+                  combat = on ? combatPublic(p.encounter) : undefined
+                return {
+                  ...p,
+                  combatOnAir: on,
+                  program: {
+                    ...p.program,
+                    studio: {
+                      ...p.program.studio!,
+                      combat,
+                      highlight: combat?.activeId || undefined,
+                    },
+                  },
+                }
+              })
+            }
+          />
+          Savaş bilgisini canlı göster
+        </label>
+        <div className="st-two">
+          <label className="st-check">
+            <input
+              type="checkbox"
+              checked={e.showOrder}
+              onChange={(x) => update({ showOrder: x.target.checked })}
+            />
+            Sıra açık
+          </label>
+          <label className="st-check">
+            <input
+              type="checkbox"
+              checked={e.showRound}
+              onChange={(x) => update({ showRound: x.target.checked })}
+            />
+            Tur açık
+          </label>
+        </div>
+        <Field label="İzleyiciye can gösterimi">
+          <select
+            value={e.hpDisplay}
+            onChange={(x) =>
+              update({ hpDisplay: x.target.value as Encounter['hpDisplay'] })
+            }
+          >
+            <option value="none">Can gizli</option>
+            <option value="status">İyi / yaralı / ağır yaralı</option>
+            <option value="bar">Can çubuğu</option>
+            <option value="number">Sayısal can</option>
+          </select>
+        </Field>
+      </details>
+      <details className="st-battle-advanced" open={!e.items.length}>
+        <summary>
+          Katılımcıların ayrıntılı değerleri, durumları ve özel notları
+        </summary>
+        {e.items.map((i, n) => (
+          <details
+            className={n === e.active ? 'st-active-fighter' : ''}
+            key={i.id}
+            open={n === e.active}
+          >
+            <summary>
+              {n === e.active ? '▶ ' : ''}
+              {i.name} · {i.initiative}
+              {i.hidden ? ' · gizli' : ''}
+            </summary>
+            <Field label="Yayın adı">
+              <input
+                maxLength={100}
+                value={i.name}
+                onChange={(x) => edit(i.id, { name: x.target.value })}
+              />
+            </Field>
+            <div className="st-four">
+              {(['initiative', 'hp', 'maxHp', 'tempHp', 'ac'] as const).map(
+                (k) => (
+                  <Field
+                    key={k}
+                    label={
+                      {
+                        initiative: 'İnisiyatif',
+                        hp: 'Can',
+                        maxHp: 'Azami',
+                        tempHp: 'Geçici',
+                        ac: 'Zırh',
+                      }[k]
+                    }
+                  >
+                    <input
+                      type="number"
+                      value={i[k]}
+                      onChange={(x) =>
+                        edit(i.id, {
+                          [k]: num(
+                            x.target.value,
+                            k === 'initiative' ? -100 : k === 'maxHp' ? 1 : 0,
+                          ),
+                        })
+                      }
+                    />
+                  </Field>
+                ),
+              )}
+            </div>
+            <Field label="Durumlar · virgülle ayır">
+              <input
+                maxLength={100}
+                value={i.conditions.join(', ')}
+                onChange={(x) =>
+                  edit(i.id, {
+                    conditions: x.target.value
+                      .split(',')
+                      .map((s) => s.trim())
+                      .filter(Boolean)
+                      .slice(0, 15),
+                  })
+                }
+              />
+            </Field>
+            <label className="st-check">
+              <input
+                type="checkbox"
+                checked={i.concentration}
+                onChange={(x) =>
+                  edit(i.id, { concentration: x.target.checked })
+                }
+              />
+              Konsantrasyon
+            </label>
+            <label className="st-check">
+              <input
+                type="checkbox"
+                checked={i.hidden}
+                onChange={(x) => edit(i.id, { hidden: x.target.checked })}
+              />
+              İzleyiciden tamamen gizle
+            </label>
+            <Field label="Düşman grubu · özel">
+              <input
+                maxLength={100}
+                value={i.group}
+                onChange={(x) => edit(i.id, { group: x.target.value })}
+              />
+            </Field>
+            <button
+              disabled={!i.group}
+              onClick={() =>
+                update({
+                  items: e.items.map((x) =>
+                    x.group === i.group
+                      ? { ...x, initiative: i.initiative }
+                      : x,
+                  ),
+                })
+              }
+            >
+              Grubun inisiyatifini eşitle
+            </button>
+            <Field label="Özel savaş notu">
+              <textarea
+                maxLength={10000}
+                value={i.notes}
+                onChange={(x) => edit(i.id, { notes: x.target.value })}
+              />
+            </Field>
+            <button
+              onClick={() =>
+                update({
+                  items: e.items.filter((x) => x.id !== i.id),
+                  active: Math.max(0, Math.min(e.active, e.items.length - 2)),
+                })
+              }
+            >
+              Savaştan çıkar
+            </button>
+          </details>
+        ))}
+      </details>
+      {!!e.items.length && <button className="st-battle-end" onClick={() => {
+        if(!window.confirm('Savaş listesini ve bu savaşa ait notları temizleyeyim mi? Kişi listen ve görev ilerlemen korunur.'))return
+        change(project=>({
+          ...project,
+          encounter:encounter(),
+          combatOnAir:false,
+          draft:{...project.draft,studio:{...project.draft.studio!,combat:undefined,highlight:undefined}},
+          program:{...project.program,studio:{...project.program.studio!,combat:undefined,highlight:undefined}},
+        }))
+        notify('Savaş kapatıldı. Yeni bir karşılaşma hazırlayabilirsin.')
+      }}>Savaşı bitir · listeyi temizle</button>}
     </>
   )
 }

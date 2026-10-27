@@ -1,179 +1,145 @@
 import { test, expect, type Page } from '@playwright/test'
-import { bootStudio, publicFrame } from './studio-fixtures'
-async function story(page: Page) {
+import { bootStudio, panel, publicFrame } from './studio-fixtures'
+
+async function desk(page: Page) {
   await bootStudio(page)
-  await page
-    .getByRole('button', { name: 'Sade hikâyeye dön', exact: true })
-    .click()
-  await expect(page.getByTestId('story-workspace')).toBeVisible()
-  await expect(page.getByTestId('story-show')).toBeEnabled()
+  await expect(page.getByTestId('studio-dm-reader')).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Giriş manzarasını hazırla', exact: true })).toBeEnabled()
 }
-test('hazır hikâye şifresiz açılır; bölüm, zaman, amaç ve görseller tek ekrandadır', async ({
-  page,
-}) => {
-  await story(page)
-  await expect(
-    page.getByRole('heading', { name: 'Hikâyeyi buradan başlat' }),
-  ).toBeVisible()
-  await expect(
-    page
-      .getByRole('navigation', { name: 'Hikâye bölümleri' })
-      .getByRole('button'),
-  ).toHaveCount(10)
-  await expect(page.getByTestId('story-context')).toContainText('NEREDE')
-  await expect(page.getByTestId('story-context')).toContainText('NE ZAMAN')
-  await expect(page.getByTestId('story-context')).toContainText('AMAÇ')
-  await expect(
-    page.getByRole('button', { name: 'Sahne görselini büyüt' }).locator('img'),
-  ).toHaveAttribute('src', /winter-yuk-avlusu/)
-  const pack = await (
-    await page.request.get('/dm/On-Kis-Karari-DM.json')
-  ).json()
-  await expect(page.locator('.story-next p')).toHaveText(
-    pack.quests[0].briefing.transition,
-  )
-  await page.getByText('Not al / bu adımı değiştir', { exact: true }).click()
-  await page
-    .getByRole('textbox', { name: 'Sonra ne olacak', exact: true })
-    .fill('Önce avluyu oynat, ardından ertesi sabah revire geç.')
-  await expect(page.locator('.story-next p')).toHaveText(
-    'Önce avluyu oynat, ardından ertesi sabah revire geç.',
-  )
-  expect(
-    await page.evaluate(
-      () =>
-        JSON.parse(localStorage.getItem('aruzahr-director-pack')!).quests[0]
-          .quick.next,
-    ),
-  ).toBe(pack.quests[0].quick.next)
-  await page.getByRole('button', { name: 'Sonraki adım', exact: true }).click()
-  await expect(
-    page.getByRole('heading', { name: pack.quests[0].steps[0].title, exact: true }),
-  ).toBeVisible()
-  await expect(page.locator('.story-speech blockquote')).toHaveText(
-    pack.quests[0].steps[0].readAloud,
-  )
-  await expect(page.locator('.story-visual img')).toHaveAttribute(
-    'src',
-    /winter-ocak-gecesi/,
-  )
-  await expect(page.locator('.story-people>article img')).toHaveCount(
-    pack.quests[0].steps[0].portraitIds.length,
-  )
+test('tek DM masası bütün zinciri, başlangıcı, bağlamı ve 61 sahneyi gösterir; düzenlenen anlatım rehberi bozmaz', async ({ page }) => {
+  await desk(page)
+  const pack = await (await page.request.get('/dm/On-Kis-Karari-DM.json')).json()
+  const reader = page.getByTestId('studio-dm-reader')
+  await expect(reader.getByRole('heading', { name: 'Hikâyeyi yönet', exact: true })).toBeVisible()
+  await expect(reader.getByRole('navigation', { name: 'Görev yol haritası' }).getByRole('button')).toHaveCount(10)
+  await expect(reader.locator('.dm-chain-heading')).toContainText('61 ana sahne')
+  await expect(reader.locator('.dm-chain-heading')).toContainText('10 yan olay')
+  await expect(reader.locator('.dm-party-note')).toContainText('3 oyuncu · 1. seviye')
+  await expect(reader.getByTestId('dm-stage-context')).toContainText('NEREDE?')
+  await expect(reader.getByTestId('dm-stage-context')).toContainText('NE ZAMAN?')
+  await expect(reader.getByTestId('dm-stage-context')).toContainText('BU ADIMIN AMACI')
+  await expect(reader.locator('.dm-book-opening > blockquote')).toHaveText(pack.quests[0].briefing.opening)
+  await expect(reader.locator('.dm-book-briefing > .dm-book-transition p')).toHaveText(pack.quests[0].briefing.transition)
+  await reader.getByRole('button', { name: 'Giriş manzarasını hazırla', exact: true }).click()
+  await expect(page.getByTestId('dm-preparation-preview').getByTestId('broadcast-scene').locator('img').first()).toHaveAttribute('src', /winter-yuk-avlusu/)
+  expect((await publicFrame(page)).title).toBe('CANLI: eski')
+  await reader.getByRole('button', { name: 'İlk sahneye geç', exact: true }).click()
+  const first = pack.quests[0].steps[0]
+  await expect(reader.getByRole('heading', { name: first.title, exact: true })).toBeVisible()
+  await expect(reader.locator('.dm-read blockquote')).toHaveText(first.readAloud)
+  await reader.getByText('Bu sahnede gösterilecek görseller', { exact: true }).click()
+  await expect(reader.locator('.dm-cues img')).toHaveCount(1 + first.portraitIds.length)
+  await reader.getByText('Sahne akışı ve düzenleme', { exact: true }).click()
+  await reader.getByRole('textbox', { name: 'Oyunculara oku', exact: true }).fill('Oyuncular için kendi yazdığım açılış. Avlunun demir kapısı rüzgârla inliyor.')
+  await expect(reader.locator('.dm-read blockquote')).toHaveText('Oyuncular için kendi yazdığım açılış. Avlunun demir kapısı rüzgârla inliyor.')
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('aruzahr-director-pack')!))
+  expect(saved.quests[0].steps[0].quick.next).toBe(first.quick.next)
+  expect(saved.quests[0].steps[0].runbook.next).toBe(first.runbook.next)
+  expect(saved.quests[0].steps[0].readAloud).not.toBe(first.readAloud)
   expect((await publicFrame(page)).title).toBe('CANLI: eski')
 })
-test('okuma ve hazırlık yayını korur; tek göster komutu yalnız seçilen görsel ve portreleri yayımlar', async ({
-  page,
-  browser,
-}) => {
-  await story(page)
-  const audience = await browser.newContext(),
-    live = await audience.newPage()
-  await live.goto('http://127.0.0.1:5173/#/broadcast/live')
-  await page
-    .getByRole('button', { name: 'Sadece hazırla', exact: true })
-    .click()
-  await expect(
-    page.getByRole('button', { name: 'Hazırlıkta hazır', exact: true }),
-  ).toBeVisible()
-  expect((await publicFrame(page)).title).toBe('CANLI: eski')
-  const book = await (
-    await page.request.get('/dm/On-Kis-Karari-DM.json')
-  ).json()
-  let releaseFrame!: () => void
-  const waitForFrame = new Promise<void>((resolve) => {
-    releaseFrame = resolve
-  })
-  await page.route('**/__aruzahr-broadcast/studio/frame', async (route) => {
-    if (
-      route.request().postDataJSON()?.state?.title ===
-      book.quests[0].briefing.publicTitle
-    )
-      await waitForFrame
-    await route.continue()
-  })
-  await page.getByTestId('story-show').click()
-  await expect(page.locator('.story-on-air')).toHaveText('Yayına gönderiliyor…')
-  expect((await publicFrame(page)).title).toBe('CANLI: eski')
-  releaseFrame()
-  await expect(page.locator('.story-on-air')).toHaveText('Bu sahne yayında')
-  await page.unroute('**/__aruzahr-broadcast/studio/frame')
-  const frame = await publicFrame(page)
-  expect(frame.title).toBe(book.quests[0].briefing.publicTitle)
-  expect(JSON.stringify(frame)).not.toContain(book.quests[0].briefing.opening)
-  await expect(
-    live.locator('.studio-output > .broadcast-stage .broadcast-stage-heading'),
-  ).toContainText(frame.title)
-  await page.getByRole('button', { name: 'Sonraki adım', exact: true }).click()
-  await expect(page.locator('.story-on-air')).toHaveText(
-    'Yayını değiştirmeden okuyorsun',
-  )
-  expect((await publicFrame(page)).title).toBe(frame.title)
-  await page.getByTestId('story-show').click()
-  await expect(page.locator('.story-on-air')).toHaveText('Bu sahne yayında')
-  await page.getByText('Not al / bu adımı değiştir', { exact: true }).click()
-  await page
-    .getByLabel('Hikâye sahne görseli', { exact: true })
-    .selectOption('winter-marhalden')
-  await expect(page.locator('.story-on-air')).toHaveText(
-    'Yayını değiştirmeden okuyorsun',
-  )
-  await audience.close()
+
+test('hazırlık özel kalır; göster komutu sunucu onayı gelince yalnız seçilen görselleri canlıya geçirir', async ({ page, browser }) => {
+  await desk(page)
+  const audience = await browser.newContext(), live = await audience.newPage()
+  try {
+    await live.goto('http://127.0.0.1:5173/#/broadcast/live')
+    const book = await (await page.request.get('/dm/On-Kis-Karari-DM.json')).json()
+    const reader = page.getByTestId('studio-dm-reader')
+    await expect(reader.getByRole('button', { name: 'Girişi oyunculara göster', exact: true })).toBeDisabled()
+    await reader.getByRole('button', { name: 'Giriş manzarasını hazırla', exact: true }).click()
+    await expect(reader.getByRole('button', { name: 'Girişi oyunculara göster', exact: true })).toBeEnabled()
+    expect((await publicFrame(page)).title).toBe('CANLI: eski')
+    let releaseFrame!: () => void, requestedFrame!: () => void
+    const waitForFrame = new Promise<void>(resolve => { releaseFrame = resolve })
+    const requestSeen = new Promise<void>(resolve => { requestedFrame = resolve })
+    await page.route('**/__aruzahr-broadcast/studio/frame', async route => {
+      if (route.request().postDataJSON()?.state?.title === book.quests[0].briefing.publicTitle) {
+        requestedFrame(); await waitForFrame
+      }
+      await route.continue()
+    })
+    try {
+      await reader.getByRole('button', { name: 'Girişi oyunculara göster', exact: true }).click()
+      await requestSeen
+      await expect(page.getByTestId('studio-take')).toBeDisabled()
+      await expect(page.getByTestId('studio-program-title')).toHaveText('CANLI: eski')
+      expect((await publicFrame(page)).title).toBe('CANLI: eski')
+    } finally { releaseFrame() }
+    await expect.poll(async () => (await publicFrame(page)).title).toBe(book.quests[0].briefing.publicTitle)
+    await page.unroute('**/__aruzahr-broadcast/studio/frame')
+    const frame = await publicFrame(page)
+    expect(JSON.stringify(frame)).not.toContain(book.quests[0].briefing.opening)
+    expect(JSON.stringify(frame)).not.toContain(book.quests[0].briefing.previous)
+    await expect(live.locator('.studio-output > .broadcast-stage .broadcast-stage-heading')).toContainText(frame.title)
+    await reader.getByRole('button', { name: 'İlk sahneye geç', exact: true }).click()
+    await expect(reader.getByTestId('dm-reveal-scene')).toBeDisabled()
+    expect((await publicFrame(page)).title).toBe(frame.title)
+    await reader.getByTestId('dm-prepare-scene').click()
+    await expect(reader.getByTestId('dm-prepare-status')).toContainText('Hazırlamak tek başına canlı görüntüyü değiştirmez.')
+    await reader.getByTestId('dm-reveal-scene').click()
+    // A cold native-size scene may need several image uploads before its ACK.
+    await expect.poll(async () => (await publicFrame(page)).title, {timeout:15000}).toBe(book.quests[0].steps[0].publicTitle)
+    await panel(page, 'Sahne')
+    await panel(page, 'Görev')
+    await expect(page.getByTestId('dm-reveal-scene')).toBeDisabled()
+    expect((await publicFrame(page)).title).toBe(book.quests[0].steps[0].publicTitle)
+  } finally { await audience.close() }
 })
-test('bölümler arası geçiş, sade düzenleme ve ilerleme yeniden açılınca korunur; önizleme ve telefon kullanılabilir', async ({
-  page,
-}) => {
-  await story(page)
-  const phases = page.getByRole('navigation', { name: 'Bu bölümün adımları' })
-  await phases.getByRole('button').last().click()
-  await page.getByRole('button', { name: 'Sonraki adım', exact: true }).click()
-  await expect(
-    page.getByRole('heading', { name: 'Köprünün İki Tarafı', exact: true }),
-  ).toBeVisible()
-  await expect(
-    page.getByRole('heading', { name: 'Hikâyeyi buradan başlat' }),
-  ).toBeVisible()
-  await page.getByRole('button', { name: 'Sonraki adım', exact: true }).click()
-  await page.getByText('Not al / bu adımı değiştir', { exact: true }).click()
-  await page
-    .getByLabel('Hikâye karar notu')
-    .fill('Parti iki arabayı bölüştürdü.')
-  await page
-    .getByLabel('Hikâye anlatımını düzenle')
-    .fill('Köprünün zincirleri soğukta geriliyor. Yolcular susarak bekliyor.')
+
+test('bölüm geçişi, kişisel karar ve anlatım kalır; geniş okuma masası klavyeyle kapanır ve telefon taşmaz', async ({ page }) => {
+  await desk(page)
+  const reader = page.getByTestId('studio-dm-reader')
+  await reader.locator('.dm-step-tabs').getByRole('button').last().click()
+  await reader.getByRole('button', { name: 'Sonraki bölüme geç', exact: true }).click()
+  await expect(reader.locator('.dm-current > h2')).toHaveText('Köprünün İki Tarafı')
+  await expect(reader.locator('.dm-book-opening')).toBeVisible()
+  await reader.getByRole('button', { name: 'İlk sahneye geç', exact: true }).click()
+  await reader.getByLabel('Oyuncuların kararı', { exact: true }).fill('Parti iki arabayı bölüştürdü.')
+  await reader.getByText('Sahne akışı ve düzenleme', { exact: true }).click()
+  await reader.getByRole('textbox', { name: 'Oyunculara oku', exact: true }).fill('Köprünün zincirleri soğukta geriliyor. Yolcular susarak bekliyor.')
+  await expect(page.locator('.studio-save')).toHaveText('Kaydedildi')
   await page.reload()
-  await expect(page.getByTestId('story-workspace')).toBeVisible()
-  await expect(page.locator('.story-speech blockquote')).toHaveText(
-    'Köprünün zincirleri soğukta geriliyor. Yolcular susarak bekliyor.',
-  )
-  await page.getByText('Not al / bu adımı değiştir', { exact: true }).click()
-  await expect(page.getByLabel('Hikâye karar notu')).toHaveValue(
-    'Parti iki arabayı bölüştürdü.',
-  )
-  await page.getByRole('button', { name: 'Sahne görselini büyüt' }).click()
-  const modal = page.getByRole('dialog', { name: 'Sahne görseli', exact: true })
+  await expect(page.getByTestId('studio-dm-reader')).toBeVisible()
+  await expect(reader.locator('.dm-current > h2')).toHaveText('Köprünün İki Tarafı')
+  await expect(reader.locator('.dm-read blockquote')).toHaveText('Köprünün zincirleri soğukta geriliyor. Yolcular susarak bekliyor.')
+  await expect(reader.getByLabel('Oyuncuların kararı', { exact: true })).toHaveValue('Parti iki arabayı bölüştürdü.')
+  await reader.getByRole('button', { name: 'Geniş DM okuma masasını aç', exact: true }).click()
+  const modal = page.getByRole('dialog', { name: 'Özel DM okuma masası', exact: true })
   await expect(modal).toBeVisible()
+  await expect(modal.getByRole('button', { name: 'Okuma masasını kapat · Esc', exact: true })).toBeFocused()
+  await page.keyboard.press('Shift+Tab')
+  await expect(modal.getByRole('button', { name: 'Defteri indir', exact: true })).toBeFocused()
   await page.keyboard.press('Tab')
-  await expect(modal.getByRole('button', { name: 'Kapat' })).toBeFocused()
+  await expect(modal.getByRole('button', { name: 'Okuma masasını kapat · Esc', exact: true })).toBeFocused()
   await page.keyboard.press('Escape')
   await expect(modal).not.toBeVisible()
   await page.setViewportSize({ width: 390, height: 844 })
-  await expect(page.getByTestId('story-show')).toBeVisible()
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth > innerWidth,
-    ),
-  ).toBe(false)
-  await page
-    .getByRole('button', { name: 'Gelişmiş masaya geç', exact: true })
-    .click()
-  await expect(
-    page.getByRole('navigation', { name: 'Studio araçları' }),
-  ).toBeVisible()
-  await page
-    .getByRole('button', { name: 'Sade hikâyeye dön', exact: true })
-    .click()
-  await expect(page.locator('.story-speech blockquote')).toHaveText(
-    'Köprünün zincirleri soğukta geriliyor. Yolcular susarak bekliyor.',
-  )
+  await reader.getByTestId('dm-prepare-scene').scrollIntoViewIfNeeded()
+  await expect(reader.getByTestId('dm-prepare-scene')).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false)
+  await expect(page.getByRole('navigation', { name: 'Studio araçları' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Sade hikâyeye dön|Gelişmiş masaya geç/ })).toHaveCount(0)
+})
+
+test('sunucu gösterimi reddederse canlı başlığı eski kalır; açık tekrar komutu başarılı olabilir', async ({ page }) => {
+  await desk(page)
+  const book = await (await page.request.get('/dm/On-Kis-Karari-DM.json')).json()
+  await page.getByRole('button', { name: 'Giriş manzarasını hazırla', exact: true }).click()
+  let rejected = 0
+  await page.route('**/__aruzahr-broadcast/studio/frame', async route => {
+    if (route.request().postDataJSON()?.state?.title === book.quests[0].briefing.publicTitle) {
+      rejected++
+      await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'Yayın gönderimi reddedildi (test).' }) })
+    } else await route.continue()
+  })
+  await page.getByRole('button', { name: 'Girişi oyunculara göster', exact: true }).click()
+  await expect(page.locator('.studio-toast')).toHaveText('Yayın gönderimi reddedildi (test).')
+  await expect(page.getByTestId('studio-program-title')).toHaveText('CANLI: eski')
+  expect((await publicFrame(page)).title).toBe('CANLI: eski')
+  await expect(page.getByRole('button', { name: 'Girişi oyunculara göster', exact: true })).toBeEnabled()
+  expect(rejected).toBe(1)
+  await page.unroute('**/__aruzahr-broadcast/studio/frame')
+  await page.getByRole('button', { name: 'Girişi oyunculara göster', exact: true }).click()
+  await expect.poll(async () => (await publicFrame(page)).title).toBe(book.quests[0].briefing.publicTitle)
 })

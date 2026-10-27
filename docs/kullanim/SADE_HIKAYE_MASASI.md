@@ -1,4 +1,6 @@
-# Sade Hikâye Masası
+# Sade Hikâye Masası · önceki sürüm
+
+> **27 Ekim 2026:** Sade/gelişmiş geçişi kaldırıldı. Güncel arayüz ve düğmeler için [Tek DM Masası](TEK_DM_MASASI.md) rehberini kullan. Bu sayfadaki eski ekran görüntüleri ve “Bu sahneyi göster / Gelişmiş masaya geç” adları önceki sürüme aittir.
 
 Yerel adres: **`http://127.0.0.1:5173/#/broadcast`**. Siteyi güncelledikten sonra hazır On Kış Kararı hikâyesi açılır. Şifre, paket indirme veya sahneleri tek tek kurma gerekmez. Önceki notların, kararların ve kendi hikâyen varsa korunur.
 
