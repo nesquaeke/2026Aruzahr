@@ -4,11 +4,13 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { chromium } from '@playwright/test'
+import sharp from 'sharp'
 
 const output=new URL('../public/downloads/',import.meta.url)
 await mkdir(output,{recursive:true})
-let fontCSS=''
-const fontLicenses=[]
+const gothic=await readFile(new URL('../public/fonts/GrenzeGotisch-Variable.ttf',import.meta.url))
+let fontCSS="@font-face{font-family:'Aruzahr Gothic';font-style:normal;font-weight:100 900;src:url(data:font/ttf;base64,"+gothic.toString('base64')+") format('truetype');}\n"
+const fontLicenses=['Grenze Gotisch\n'+await readFile(new URL('../public/licenses/GrenzeGotisch-OFL.txt',import.meta.url),'utf8')]
 for(const [font,weights] of [['cormorant-garamond',[400,600]],['dm-sans',[400,500,600]]]){
   const fontRoot=new URL(`../node_modules/@fontsource/${font}/`,import.meta.url)
   fontLicenses.push(font+'\n'+await readFile(new URL('LICENSE',fontRoot),'utf8'))
@@ -22,9 +24,9 @@ for(const [font,weights] of [['cormorant-garamond',[400,600]],['dm-sans',[400,50
     }
   }
 }
-await writeFile(new URL('YAZITIPI-LISANSLARI.txt',output),fontLicenses.join('\n\n—\n\n'))
-const sheetCSS=await readFile(new URL('../src/player/player-sheet.css',import.meta.url),'utf8')
-const server=await createServer({configFile:false,server:{middlewareMode:true,watch:null},appType:'custom',logLevel:'error'})
+await writeFile(new URL('YAZITIPI-LISANSLARI.txt',output),fontLicenses.join('\n\n—\n\n').replace(/[ \t]+$/gm,''))
+const sheetCSS=(await readFile(new URL('../src/player/player-sheet.css',import.meta.url),'utf8')).replace(/@font-face\{font-family:'Aruzahr Gothic';[^}]+\}/g,'')
+const server=await createServer({configFile:false,cacheDir:fileURLToPath(new URL('../node_modules/.vite-player-templates/',import.meta.url)),server:{middlewareMode:true,watch:null},appType:'custom',logLevel:'error'})
 const templates=[]
 try{
   const {default:PlayerSheet,BlankSpellPage}=await server.ssrLoadModule('/src/player/PlayerSheet.tsx')
@@ -52,8 +54,12 @@ try{
     await page.emulateMedia({media:'print'})
     await page.evaluate(()=>document.fonts.ready)
     const geometry=await page.locator('.aruzahr-sheet-page').evaluate(element=>{const box=element.getBoundingClientRect(),footer=element.querySelector('.sheet-page-footer').getBoundingClientRect();return{width:box.width,height:box.height,contentHeight:element.scrollHeight,footerBottom:footer.bottom-box.top}})
-    if(Math.abs(geometry.width-210*96/25.4)>2||Math.abs(geometry.height-297*96/25.4)>2||geometry.footerBottom>geometry.height-10)throw Error('A4 template content overflow: '+JSON.stringify({file:row.file,...geometry}))
+    if(Math.abs(geometry.width-210*96/25.4)>2||Math.abs(geometry.height-297*96/25.4)>2||geometry.footerBottom>geometry.height-28)throw Error('A4 template content overflow: '+JSON.stringify({file:row.file,...geometry}))
     await page.pdf({path:fileURLToPath(new URL(row.file+'.pdf',output)),format:'A4',preferCSSPageSize:true,printBackground:true,displayHeaderFooter:false})
+    if(row.file==='Aruzahr-Karakter-Kagidi-A4'){
+      const preview=await page.locator('.aruzahr-sheet-page').screenshot({animations:'disabled'})
+      await sharp(preview).resize({width:700,withoutEnlargement:true}).webp({quality:92}).toFile(fileURLToPath(new URL('Aruzahr-Karakter-Kagidi-Onizleme.webp',output)))
+    }
     report.push({file:row.file+'.pdf',...geometry})
     await page.close()
   }

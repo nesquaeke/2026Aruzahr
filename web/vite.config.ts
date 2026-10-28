@@ -6,6 +6,7 @@ import elevenLabsVoicesPlugin from './scripts/elevenlabs-voices.mjs'
 
 export default defineConfig(({ mode }) => ({
   plugins: [react(), broadcastRelayPlugin(), elevenLabsVoicesPlugin({ apiKey: process.env.ELEVENLABS_API_KEY || loadEnv(mode, fileURLToPath(new URL('.', import.meta.url)), '').ELEVENLABS_API_KEY || '' })],
+  optimizeDeps: { include: ['react-dom/server'] },
   server: {
     port: 5173,
     strictPort: true,

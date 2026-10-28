@@ -6,9 +6,19 @@ Sitede üst menüden **Oyuncu Masası** seç veya `/#/play` adresini aç. Bu bö
 
 1. **Karakter oluştur** ile bir isim ve sınıf seç. On iki temel sınıf ve 1–20. seviyeler desteklenir.
 2. **Kimlik** bölümünde soyunu, geçmişini ve memleketini yaz. İstersen bir Aruzahr hanesiyle bağ kur ve kendi portreni yükle. Bu seçimler seni otomatik olarak hanedanın yöneticisi yapmaz.
-3. **Nitelikler** bölümünde altı nihai puanını ve yetkinliklerini gir. Değiştiriciler, kurtulma atışları ve beceri bonusları hesaplanır. Soydan gelen puanları nihai puanlarına kendin ekle; uygulama bunları ikinci kez eklemez.
+3. **Nitelikler** bölümünde altı puanını dağıt ve yetkinliklerini gir. Değiştiriciler, kurtulma atışları ve beceri bonusları hesaplanır. İstersen dağıtıcıda **Bu dağılıma soy artışlarını ekle** seç; artışlar önizlemede görünür. Elle giriyorsan değerler nihai puanlardır ve artışları ikinci kez eklememelisin.
 4. Zırhını, kalkanını, saldırılarını ve eşyalarını kaydet. **Macerada** ekranı günlük oyun takibindir: can, geçici can, can zarları, durumlar, sınıf kaynakları ve dinlenme.
 5. Büyü kullanıyorsan **Büyüler** bölümünden defterini ve hazır büyülerini düzenle. **A4 kâğıt** bölümünden çıktını al.
+
+## Rehberle veya doğrudan oluştur
+
+Karakter açıldığında oluşturma rehberi kimlik, nitelikler, donanım, büyüler ve A4 kontrolünü bir arada gösterir. Her kart ilgili bölüme gider. Deneyimli oyuncular rehberi kapatıp doğrudan sekmelerden çalışabilir. Rehberdeki kontrol notları masanın kararını veya bütün karakter kurallarını otomatik doğrulayan bir onay değildir.
+
+**Nitelikler** bölümündeki dağıtıcıda standart dizinin her değeri bir kez kullanılır; dolu bir değeri başka niteliğe seçmek ikisini yer değiştirir. **27 puan dağıt** seçeneği 2014 maliyetlerini kullanır ve bütçeyi aşan seçenekleri kapatır. Önizleme, **Dağılımı uygula** düğmesine basılana kadar karakterini değiştirmez. Soy artışı varsayılan olarak kapalıdır; açarsan dokuz yerleşik soyun 2014 artışları başlangıç dağılımına bir kez eklenir. Yarı Elf için Karizma dışından iki farklı nitelik seçmek gerekir. Uygulama nihai değerleri önizlemeyle değiştirir; artışları mevcut nihai puanların üzerine tekrar tekrar yığmaz. Diğer özellik/eşya artışlarını ayrıca kontrol et. Can ve harcanmış kaynaklar yeniden doldurulmaz.
+
+**Kimlik** bölümündeki kural rehberi, seçili sınıfın gelişimini ve soy özelliklerini açıklar. Sınıf kaynakları, dil ve yetkinlikler yalnız ilgili uygulama düğmesiyle eklenir; kimlik seçimini değiştirmek eski seçimlerini kendiliğinden silmez. Çoklu sınıf, bütün ek kitap alt sınıfları ve her koşullu özellik otomatik hesaplanmaz.
+
+**Eşya** bölümünde silah, zırh, macera donanımı, araç ve taşıt arşivinde Türkçe veya İngilizce adla ara. Bir eşyayı çantaya koymak onu otomatik kuşanmak değildir; saldırı kaydı ve zırh/kalkan kullanımı ayrı açık işlemlerdir. Başlangıç donanımını sınıfına göre seçip içeriğini incele. Donanım seçeneği ile başlangıç altınını birlikte ücretsiz almak yerine DM’inle seçtiğin yöntemi uygula; arşivden ekleme para keseni otomatik değiştirmez.
 
 ## Seviye ve büyü derecesi
 
@@ -39,9 +49,15 @@ Karakterler **kullandığın tarayıcıda otomatik saklanır**. Hesap veya cihaz
 
 **Yedek indir** ile JSON dosyanı indir; başka cihazda veya sitede **Karakter yedeği aç** ile geri yükle. `127.0.0.1` ile Vercel alan adı ayrı kayıt alanlarıdır; taşınırken dosya yedeğini kullan. Tarayıcı verilerini silmeden önce yedek al. Sitedeki bütün Aruzahr verilerini sıfırlamak bu karakterleri de siler.
 
-Özel büyüler için arayüzdeki JSON şablonunu indirip doldur. Sınıf, derece ve kullanım bilgileri standart biçimde içe aktarılır; yerleşik büyüler değiştirilmez.
+**Büyüler → Yeni büyü / basit büyü ekle** formuyla dosya hazırlamadan özel büyü kaydedebilirsin. Ad, derece, sınıf ve etkiyi gir; süre, menzil, bileşen ve kaynak alanlarını tamamla. Büyü arşivine eklemek onu karaktere öğrenmiş saymaz; arşivde bulup defterine ayrıca seç. Çok sayıda kayıt için JSON içe/dışa aktarma da vardır; yerleşik büyüler değiştirilmez.
+
+**Tüm arşivi incele**, kendi sınıfın filtresini kaldırır. **Basit büyüleri bul** derece 0’a geçer; **Sınıfıma uygun seçimler** mevcut karaktere döner. Bu kısayollar kayıtlı büyü seçimlerini değiştirmez. Basit büyüler, bilinen büyüler, günlük hazırlık ve harcanan büyü yuvaları ayrı kavramlardır.
+
+1–2. seviyede ilk büyülerini seçmekte zorlanıyorsan arşivdeki **İlk büyülerini seçmekte zorlanıyor musun?** kartını aç. Altı tam büyücü sınıfı için 1. seviye örnekleri vardır. Ekleme yalnız açık seçim haklarını doldurur; önceki büyülerini çıkarmaz ve günlük hazırlık veya harcanmış yuvaları değiştirmez. Daha yüksek seviye kitap/bilinen büyü seçimlerini ayrıca tamamla.
 
 ## Vercel’de yayımlamak
+
+Render tercih ediyorsan [ücretsiz Render kurulumunu](RENDER_YAYINI.md) kullan; depo kökünde hazır `render.yaml` bulunur.
 
 Depo kökünde `vercel.json` hazırdır. Vercel projesinde bu depoyu seçip kök dizini depo kökü olarak bırak; Node.js sürümünü 24 seç. Kurulum ve derleme komutları `web/` uygulamasını kurar, 8K haritanın döşemelerini üretir ve `web/dist` çıktısını yayımlar. Bu oyuncu bölümünün çalışması için API anahtarı gerekmez.
 

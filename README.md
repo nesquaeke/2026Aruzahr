@@ -2,6 +2,10 @@
 
 İnteraktif harita, resimli wiki, oyuncu karakter defteri, A4 karakter kâğıtları ve D&D yayın masası.
 
+[![Render'da yayımla](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/nesquaeke/2026Aruzahr)
+
+Ücretsiz **Static Site** için [Render kurulum rehberi](docs/kullanim/RENDER_YAYINI.md). Oyuncu bölümü, atlas ve wiki yayımlanır; OBS rölesi yerelde çalışır.
+
 ## Hızlı başla
 
 GitHub'da **Code → Download ZIP** ile deponun tamamını indirip çıkar. [Node.js LTS](https://nodejs.org/en/download) 22.12 veya üzerini kur.
@@ -28,6 +32,7 @@ Başlatıcının açtığı terminali kullanım boyunca açık tut. Yayın Masas
 - **Görev:** 10 bölüm / 61 sahne, 10 yan olay ve 12 portreli yol/gece kartı. **Savaş:** hazır pusuları ve canavarları geniş masada yönet; beş yeni savaş planı dahil.
 - **Galeri:** bütün resimler ve yedi yeni büyük şehir tablosu. **Haneler:** sekiz ülkenin 33 hane/klanı, armaları, sözleri, unvanları ve silahlı güçleri.
 - **Atlas:** Özgün 2D, Danstsud 3D ve bütün dünya için Loş 3D. Kanonik konumlar ortaktır; 3D arazi görsel yorumdur.
+- **Oyuncu Masası:** adımlı hazırlık rehberi, 27 puan dağıtımı, 237 temel donanım, 319 SRD büyüsü, özel büyü formu ve işlemeli A4 kâğıt.
 - **Ses → ElevenLabs:** özel sunucu anahtarıyla karakter konuşması üret, dinle ve kütüphaneye ekle. [Kurulum](docs/kullanim/ELEVENLABS_SESLERI.md).
 
 Sade/gelişmiş geçişi kaldırıldı; bütün araçlar tek DM masasındadır. [Başlangıç ve düğmelerin açıklaması](docs/kullanim/TEK_DM_MASASI.md).

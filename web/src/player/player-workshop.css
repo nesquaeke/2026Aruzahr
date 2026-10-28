@@ -20,4 +20,7 @@
 @media(max-width:600px){.pw-character-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) 36px;width:100%;margin-left:0;gap:8px}.pw-character-actions>button{justify-content:center;min-width:0}.pw-character-actions>details{min-width:0}}
 
 /* Body text stays readable on both parchment cards and narrow screens. */
+.player-workshop .pw-main{scroll-margin-top:90px}
+.player-workshop .pw-paper-teaser:has(.pw-manuscript-preview){padding:0;background:transparent;border:0;box-shadow:none;display:block;max-width:300px;transform:rotate(3deg);justify-self:center}.player-workshop .pw-manuscript-preview{display:block;width:100%;height:auto;box-shadow:0 20px 60px #0008;border-radius:2px}
+.pw-new-class-help{margin:18px 0;padding:16px;border:1px solid #b99c6233;background:#b99c620a;border-radius:7px}.pw-new-class-help strong{color:#e6d4ad;font:500 18px var(--serif)}.pw-new-class-help p{font-size:12px;line-height:1.8}.pw-new-class-help small{display:block;line-height:1.8;color:#b5baa9}.pw-archive-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.pw-archive-shortcuts button{font-size:12px;padding:10px 14px;background:#c8b28412;color:#d1c3a6;border-color:#c8b28433}
 .player-workshop .pw-spell-open p{font-size:13px;line-height:1.8;color:#4a5546}.player-workshop .pw-spell-fulltext p{font-size:15px;line-height:1.9;color:#313d32}

@@ -1,0 +1,23 @@
+# Only a static site is created. No paid web service or database is requested.
+services:
+  - type: web
+    name: aruzahr
+    runtime: static
+    buildCommand: npm --prefix web ci --include=dev --no-audit --no-fund && npm --prefix web run assets && npm --prefix web run build
+    staticPublishPath: ./web/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /index.html
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /rules/*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff

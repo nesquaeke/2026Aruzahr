@@ -160,3 +160,83 @@
   .sheet-spell-entry,.sheet-appendix-section,.sheet-appendix-item{break-inside:auto;page-break-inside:auto}
   .sheet-character-portrait{object-fit:cover;max-width:100%;height:29mm}
 }
+
+/* Valhunar manuscript edition: original margin drawings, quiet writing areas. */
+@font-face{font-family:'Aruzahr Gothic';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/GrenzeGotisch-Variable.ttf') format('truetype')}
+.player-sheet-document{--sheet-ink:#302920;--sheet-muted:#716453;--sheet-line:#b39a73;--sheet-gold:#785936;--sheet-paper:#f7efde}
+.aruzahr-sheet-page{background:radial-gradient(ellipse at 0 0,#b9975b1c 0,transparent 37%),radial-gradient(ellipse at 100% 100%,#9e783119 0,transparent 42%),repeating-linear-gradient(0deg,#7b613204 0,#7b613204 .3px,transparent .3px,transparent 3px),var(--sheet-paper);border-color:#b6a17c}
+.aruzahr-sheet-page:before,.aruzahr-sheet-page:after{display:none}
+.aruzahr-sheet-page>*:not(.sheet-page-ornaments){position:relative;z-index:1}
+.sheet-page-ornaments{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;fill:none;stroke:#795a39;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round}
+.sheet-page-ornaments .ornament-outer{stroke-width:1.35;stroke:#493a28}
+.sheet-page-ornaments .ornament-inner{stroke-width:.65;stroke:#a78a5d}
+.sheet-page-ornaments .ornament-vines{stroke-width:1;fill:#ae8e5421}
+.sheet-page-ornaments .ornament-beasts{stroke:#443625;stroke-width:2.5;fill:#c0a36b13}
+.sheet-page-ornaments .ornament-fine{stroke-width:1;fill:none}
+.sheet-page-ornaments .ornament-dark{fill:#443625;stroke:none}
+.sheet-page-ornaments .ornament-head-tail{stroke-width:1.25;fill:#c1a36612}
+.sheet-page-ornaments .ornament-knots{fill:#f7efde;stroke-width:.75}
+.sheet-page-header{border-bottom:3px double #856846;padding-bottom:2.5mm;margin-bottom:3mm}
+.sheet-page-header:after{content:'';width:3mm;height:3mm;position:absolute;bottom:-1.7mm;left:50%;transform:rotate(45deg);border:1px solid #856846;background:var(--sheet-paper)}
+.sheet-page-header h2{font-family:'Aruzahr Gothic','Cormorant Garamond',Georgia,serif;font-size:31pt;font-weight:500;line-height:.9;letter-spacing:-.025em;margin-top:1mm}
+.sheet-wordmark{font-size:7.7pt;letter-spacing:.4em;color:#725430}
+.sheet-edition strong{font:500 6.5pt/1.2 'DM Sans',Arial,sans-serif;letter-spacing:.1em}
+.sheet-edition small{font-family:'Cormorant Garamond',Georgia,serif;font-size:16pt}
+.sheet-emblem{filter:sepia(.2)}
+.sheet-identity{gap:2mm 4mm}
+.sheet-identity .sheet-field>span{font-size:6.1pt;letter-spacing:.1em}
+.sheet-identity .sheet-field>div{border-bottom:1px solid #9f8055;background:linear-gradient(90deg,#a78b5d08,transparent 80%)}
+.sheet-name>div{font-size:14pt}
+.sheet-abilities{gap:2mm}
+.sheet-ability{padding:2.4mm .8mm .5mm;border:0;border-radius:0;background:none;min-height:20mm;height:20mm;isolation:isolate}
+.sheet-ability-ornament{position:absolute;inset:0;width:100%;height:100%;fill:#d9bf8521;stroke:#6d5233;stroke-width:.8;pointer-events:none;z-index:-1}
+.sheet-ability-ornament .ornament-fine{stroke-width:.55;fill:none}
+.sheet-ability h3{font:600 7pt/1 'DM Sans',Arial,sans-serif;letter-spacing:.03em;display:table;margin:0 auto 1.8mm;padding:0 .5mm;background:var(--sheet-paper);position:relative;z-index:1}
+.sheet-ability strong{font-family:'Aruzahr Gothic',Georgia,serif;font-size:24pt;line-height:.9;min-height:7.5mm;font-weight:400}
+.sheet-ability span{font-size:6.7pt;display:table;margin:.6mm auto 0;padding:0 .8mm;background:var(--sheet-paper);position:relative;z-index:1}
+.sheet-main-columns{gap:3.5mm}
+.sheet-skill-column{border-right:3px double #9e8159;padding-right:3mm}
+.sheet-story-column{border-left:3px double #9e8159;padding-left:2.3mm}
+.sheet-main-columns h3{font-family:'Aruzahr Gothic',Georgia,serif;font-size:11.2pt;font-weight:500;line-height:1.05;letter-spacing:.015em;color:#57412b}
+.sheet-saves h3,.sheet-skills h3,.sheet-attacks h3,.sheet-equipment h3{display:flex;align-items:center;gap:1.2mm}
+.sheet-saves h3:after,.sheet-skills h3:after,.sheet-attacks h3:after,.sheet-equipment h3:after{content:'';height:1mm;flex:1;border-top:.6px solid #a68a60;border-bottom:.5px solid #c5af84;transform:skew(-35deg)}
+.sheet-proficiency{border-bottom:3px double #9e8159}
+.sheet-proficiency strong{font-family:'Aruzahr Gothic',Georgia,serif;font-weight:400}
+.sheet-value-box{border-color:#9b7d53;border-radius:0;background:#decba118;position:relative;box-shadow:inset 0 0 0 .7mm #f7efde,inset 0 0 0 .9mm #b49b71}
+.sheet-value-box>strong{font-family:'Aruzahr Gothic',Georgia,serif;font-weight:400}
+.sheet-value-box>span{color:#64543d;font-size:6pt}
+.sheet-defenses .sheet-value-box{border-radius:30% 30% 28% 28% / 12% 12% 30% 30%;padding-top:1.5mm}
+.sheet-health>div:first-of-type{border:1px solid #88633b;box-shadow:inset 0 0 0 .5mm #f7efde,inset 0 0 0 .7mm #c0a274;background:#d1b8790a}
+.sheet-health>div:first-of-type .sheet-field>div{font-family:'Aruzahr Gothic',Georgia,serif}
+.sheet-check-row{border-bottom-color:#a88b6045}
+.sheet-skills .sheet-check-row,.sheet-saves .sheet-check-row{min-height:4mm}
+.sheet-check-row>i,.sheet-dots>i{border-color:#816849}
+.sheet-portrait-space,.sheet-character-portrait{height:34mm;border-radius:45% 45% 2px 2px / 16% 16% 2px 2px;border:1px solid #977448;box-shadow:inset 0 0 0 .7mm var(--sheet-paper),inset 0 0 0 1mm #baa175;background:#e9d7ac25}
+.sheet-portrait-space{gap:0;padding:.5mm 1mm 1mm;place-content:center}
+.sheet-anatomy-well{width:36mm;height:28mm;fill:none;stroke:#7f6643;stroke-width:.8;stroke-linejoin:round;stroke-linecap:round;opacity:.64}
+.sheet-anatomy-well .anatomy-guide{stroke-width:.45;stroke-dasharray:2 3;opacity:.6}
+.sheet-anatomy-well .ornament-filled{fill:#c5a26755;stroke-width:.6}
+.sheet-portrait-space>span{font-size:5.1pt;letter-spacing:.1em;margin-top:-.8mm}
+.sheet-arcane-well{width:17mm;height:17mm;fill:none;stroke:#785c39;stroke-width:1;stroke-linecap:round}
+.sheet-arcane-well .ornament-filled{fill:#b3945c}
+.sheet-arcane-well .ornament-fine{stroke-width:.65}
+.sheet-text-box{border:.7px solid #b49b73;border-top:2px solid #917144;border-radius:1px;background:linear-gradient(180deg,#c7a96708,transparent 9mm);padding:1.5mm 1.8mm}
+.sheet-main-columns .sheet-text-box h3{font-size:9.3pt;line-height:1;margin-bottom:1.3mm}
+.sheet-text-box p{font-size:7pt;line-height:1.3}
+.sheet-text-box p>i{border-bottom-color:#a68a614a}
+.sheet-bottom-notes{border-top:3px double #9e8159;margin-top:1.5mm;padding-top:1.5mm}
+.sheet-bottom-notes h3{font:500 11.5pt/1.1 'Aruzahr Gothic',Georgia,serif;color:#57412b}
+.sheet-bottom-notes p{font-size:7.4pt;line-height:1.4}
+.sheet-page-footer{border-top:3px double #9e8159;font-size:5.4pt;color:#6d5b40;padding-top:1.6mm}
+.sheet-page-footer>span:nth-child(2){font-family:'Aruzahr Gothic',Georgia,serif;font-size:8.2pt}
+.sheet-spell-entry h3,.sheet-appendix-section>h3{font-family:'Aruzahr Gothic',Georgia,serif;font-size:20pt;font-weight:500;color:#57412b}
+.sheet-spell-slots{border:3px double #9b7d53;background:#dbc3930c}
+.sheet-spell-slots>section{border-color:#b49b73}
+.sheet-blank-slots h3,.sheet-blank-spell-list h3,.sheet-blank-spell-notes h3{font:500 16pt/1.1 'Aruzahr Gothic',Georgia,serif;color:#57412b}
+.sheet-blank-slots>div>section{border:2px double #b49b73;background:#dbc3930c;padding:1.5mm 2.5mm}
+.sheet-blank-spell-list>div:not(.sheet-blank-spell-heading){border-bottom-color:#a98c604d;height:4.5mm}
+@media print{
+  .player-sheet-document{--sheet-paper:#f7efde}
+  .aruzahr-sheet-page{background:radial-gradient(ellipse at 0 0,#b9975b12 0,transparent 37%),radial-gradient(ellipse at 100% 100%,#9e783111 0,transparent 42%),#f7efde!important}
+  .sheet-flow-page>.sheet-page-ornaments{display:none}
+}

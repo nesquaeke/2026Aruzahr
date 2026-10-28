@@ -30,7 +30,12 @@ test('both downloadable blank templates are single-page physical A4 PDFs with Tu
 test('filled A4 printing retains zero values, arcanum usage and long records across continuation pages',async({page,context},testInfo)=>{
   test.setTimeout(60000)
   await context.addInitScript(()=>{window.print=()=>{document.documentElement.dataset.printRequested='true'}})
-  await page.goto('/#/play')
+  // Let Vite discover the lazy server-renderer dependency before the browser
+  // imports it; production already bundles this dependency with the editor.
+  await expect(await page.request.get('/src/player/print.tsx')).toBeOK()
+  // Exercise the real print module without coupling the document test to the
+  // character editor's current tab or optional reference-panel imports.
+  await page.goto('/#/wiki')
   const opened=context.waitForEvent('page')
   const printing=page.evaluate(async()=>{
     const {newPlayerCharacter}=await import('/src/player/model.ts')
@@ -66,7 +71,7 @@ test('filled A4 printing retains zero values, arcanum usage and long records acr
   const bounds=await core.evaluate(element=>{const box=element.getBoundingClientRect(),footer=element.querySelector('.sheet-page-footer')!.getBoundingClientRect();return{width:box.width,height:box.height,footerBottom:footer.bottom-box.top}})
   expect(bounds.width).toBeCloseTo(210*96/25.4,0)
   expect(bounds.height).toBeCloseTo(297*96/25.4,0)
-  expect(bounds.footerBottom).toBeLessThan(bounds.height-10)
+  expect(bounds.footerBottom).toBeLessThan(bounds.height-28)
   const file=testInfo.outputPath('filled-character-A4.pdf')
   await popup.pdf({path:file,format:'A4',preferCSSPageSize:true,printBackground:true})
   expect(Number(information(file).match(/Pages:\s+(\d+)/)![1])).toBeGreaterThan(2)

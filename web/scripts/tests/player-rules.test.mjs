@@ -5,7 +5,7 @@ import { createServer } from 'vite'
 
 let server, rules, model
 before(async () => {
-  server=await createServer({configFile:false,server:{middlewareMode:true,watch:null},appType:'custom',logLevel:'error'})
+  server=await createServer({configFile:false,cacheDir:'node_modules/.vite-test-player-rules',server:{middlewareMode:true,watch:null,hmr:false},appType:'custom',logLevel:'error'})
   rules=await server.ssrLoadModule('/src/player/rules.ts')
   model=await server.ssrLoadModule('/src/player/model.ts')
 })

@@ -8,6 +8,20 @@ const text=(v:Record<string,unknown>,key:string,max:number)=>{
   if(typeof v[key]!=='string'||(v[key] as string).length>max)throw Error('Büyü alanı geçersiz: '+key)
   return v[key] as string
 }
+const spellSchoolAliases:Record<string,string>={
+  abjuration:'abjuration',koruma:'abjuration',
+  conjuration:'conjuration',cagirma:'conjuration',
+  divination:'divination',kehanet:'divination',
+  enchantment:'enchantment',efsun:'enchantment',
+  evocation:'evocation',tezahur:'evocation',evokasyon:'evocation',
+  illusion:'illusion',yanilsama:'illusion',
+  necromancy:'necromancy',nekromansi:'necromancy',
+  transmutation:'transmutation',donusturme:'transmutation',donusum:'transmutation',
+}
+function normalizeSpellSchool(value:string){
+  const key=value.trim().toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i')
+  return spellSchoolAliases[key] || value.trim()
+}
 export function parsePlayerSpellPack(value:unknown):PlayerSpellPack{
   if(!obj(value)||value.version!==1||!Array.isArray(value.spells)||value.spells.length>1200)throw Error('Büyü dosyası sürüm 1 biçiminde ve en fazla 1.200 kayıt olmalı.')
   const ids=new Set<string>()
@@ -22,7 +36,7 @@ export function parsePlayerSpellPack(value:unknown):PlayerSpellPack{
     if(typeof raw.concentration!=='boolean'||typeof raw.ritual!=='boolean')throw Error('Yoğunlaşma ve ritüel alanları açıkça belirtilmeli.')
     const name=text(raw,'name',160),description=text(raw,'description',30000)
     if(!name.trim()||!description.trim())throw Error('Büyünün adı ve açıklaması boş olamaz.')
-    return {id,name,description,englishName:text(raw,'englishName',160),level:Number(raw.level),school:text(raw,'school',120),classes:[...new Set(raw.classes)] as PlayerSpell['classes'],castingTime:text(raw,'castingTime',300),range:text(raw,'range',300),components:[...new Set(raw.components)] as string[],material:text(raw,'material',5000),duration:text(raw,'duration',400),concentration:raw.concentration,ritual:raw.ritual,higherLevels:text(raw,'higherLevels',15000),source:text(raw,'source',500)}
+    return {id,name,description,englishName:text(raw,'englishName',160),level:Number(raw.level),school:normalizeSpellSchool(text(raw,'school',120)),classes:[...new Set(raw.classes)] as PlayerSpell['classes'],castingTime:text(raw,'castingTime',300),range:text(raw,'range',300),components:[...new Set(raw.components)] as string[],material:text(raw,'material',5000),duration:text(raw,'duration',400),concentration:raw.concentration,ritual:raw.ritual,higherLevels:text(raw,'higherLevels',15000),source:text(raw,'source',500)}
   })
   return {version:1,title:text(value,'title',200),source:text(value,'source',1000),spells}
 }

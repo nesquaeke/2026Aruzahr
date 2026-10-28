@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { abilityIds, type PlayerCharacter, type PlayerSpell } from './types'
 import { abilityLabels, abilityModifier, classDefinitions, derivedStats, races as raceDefinitions, backgrounds as backgroundDefinitions, savingThrow, skillBonus, skills, subclasses } from './rules'
 import { worldHouses } from '../lore/world-polities'
+import { AbilityMedallion, AnatomyWell, ArcaneWell, PageOrnaments } from './SheetOrnaments'
 import './player-sheet.css'
 
 const signed = (number: number) => `${number >= 0 ? '+' : ''}${number}`
@@ -17,7 +18,7 @@ export function SheetSeal() {
 function PageHeader({ number, title, name, houseId }: {number: string; title: string; name?: string; houseId?: string}) {
   const house = worldHouses.find(house => house.id === houseId)
   return <header className="sheet-page-header">
-    <div className="sheet-emblem">{house ? <img src={`/heraldry/${house.id}.svg`} alt={house.name + ' arması'}/> : <SheetSeal/>}</div>
+    <div className="sheet-emblem">{house ? <img src={`/heraldry/${house.id}.svg`} alt={house.name + ' arması'}/> : title==='Büyü Defteri' ? <ArcaneWell/> : <SheetSeal/>}</div>
     <div><span className="sheet-wordmark">ARUZAHR</span><h2>{title}</h2><p>{compact(name,90) || 'Adını yaz. Yolunu kendin çiz.'}</p></div>
     <div className="sheet-edition"><strong>YOLCUNUN DEFTERİ</strong><span>5e · 2014</span><small>{number}</small></div>
   </header>
@@ -48,6 +49,7 @@ function CoreSheet({character}:{character?:PlayerCharacter}) {
   const house=worldHouses.find(row=>row.id===character?.houseId)
   const textExists=!!character && (!!character.backstory || !!character.notes)
   return <section className="aruzahr-sheet-page sheet-core" data-testid="player-sheet-core">
+    <PageOrnaments/>
     <PageHeader number="I" title="Karakter Kâğıdı" name={character?.name} houseId={character?.houseId}/>
     <div className="sheet-identity">
       <Field label="Karakterin adı" value={compact(character?.name,48)} className="sheet-name"/>
@@ -58,7 +60,7 @@ function CoreSheet({character}:{character?:PlayerCharacter}) {
       <Field label="Yönelim" value={compact(character?.alignment,30)}/>
       <Field label="Memleket / bağlılık" value={compact([character?.origin,house?.name].filter(Boolean).join(' · '),88)} className="sheet-origin"/>
     </div>
-    <div className="sheet-abilities">{abilityIds.map(id=><section key={id} className="sheet-ability"><h3>{abilityLabels[id]}</h3><strong>{character ? character.scores[id] : ''}</strong><span>{character ? signed(abilityModifier(character.scores[id])) : 'Değiştirici'}</span></section>)}</div>
+    <div className="sheet-abilities">{abilityIds.map(id=><section key={id} className="sheet-ability"><AbilityMedallion/><h3>{abilityLabels[id]}</h3><strong>{character ? character.scores[id] : ''}</strong><span>{character ? signed(abilityModifier(character.scores[id])) : 'Değiştirici'}</span></section>)}</div>
     <div className="sheet-main-columns">
       <div className="sheet-skill-column">
         <div className="sheet-proficiency"><strong>{stats ? signed(stats.proficiency) : ''}</strong><span>Yetkinlik bonusu</span><i className={character?.inspiration?'filled':''}/><small>İlham</small></div>
@@ -75,7 +77,7 @@ function CoreSheet({character}:{character?:PlayerCharacter}) {
         <section className="sheet-coins">{([['cp','Bakır'],['sp','Gümüş'],['ep','Elektrum'],['gp','Altın'],['pp','Platin']] as const).map(([id,label])=><Box key={id} label={label} value={character?.coins[id]}/>)}</section>
       </div>
       <div className="sheet-story-column">
-        {character?.portrait ? <img className="sheet-character-portrait" src={character.portrait} alt={character.name + ' portresi'}/> : <div className="sheet-portrait-space"><SheetSeal/><span>Portre / kişisel işaret</span></div>}
+        {character?.portrait ? <img className="sheet-character-portrait" src={character.portrait} alt={character.name + ' portresi'}/> : <div className="sheet-portrait-space"><AnatomyWell/><span>Portre · suret · kişisel işaret</span></div>}
         <TextBox label="Özellikler ve kaynaklar" value={character?.resources.slice(0,4).map(row=>`${row.name}: ${Math.max(0,row.max-row.used)} / ${row.max}`).join('\n')} limit={170}/>
         <TextBox label="Kişilik" value={character?.personality}/>
         <TextBox label="İdealler" value={character?.ideals}/>
@@ -95,7 +97,7 @@ function SpellSlots({character}:{character:PlayerCharacter}) {
 }
 
 export function BlankSpellPage() {
-  return <section className="aruzahr-sheet-page sheet-blank-magic" data-testid="player-sheet-blank-magic"><PageHeader number="II" title="Büyü Defteri"/><div className="sheet-blank-magic-stats"><Field label="Karakter / sınıf"/><Field label="Büyü niteliği"/><Field label="Kurtulma ZD"/><Field label="Saldırı bonusu"/></div><section className="sheet-blank-slots"><h3>Büyü Yuvaları</h3><div>{Array.from({length:9},(_,i)=><section key={i}><strong>{i+1}. derece</strong><Field label="Toplam / kalan"/></section>)}</div><Field label="Antlaşma yuvaları / derece"/><Field label="Yoğunlaşılan büyü"/></section><section className="sheet-blank-spell-list"><h3>Bildiğin ve Hazırladığın Büyüler</h3><div className="sheet-blank-spell-heading"><span>Hazır</span><span>Derece / büyünün adı</span><span>Kullanım / kısa not</span></div>{Array.from({length:18},(_,i)=><div key={i}><i/><span/><span/></div>)}</section><section className="sheet-blank-spell-notes"><h3>Bileşenler, Ritüeller ve Büyü Notları</h3>{Array.from({length:6},(_,i)=><i key={i}/>)}</section><PageFooter page="2"/></section>
+  return <section className="aruzahr-sheet-page sheet-blank-magic" data-testid="player-sheet-blank-magic"><PageOrnaments grimoire/><PageHeader number="II" title="Büyü Defteri"/><div className="sheet-blank-magic-stats"><Field label="Karakter / sınıf"/><Field label="Büyü niteliği"/><Field label="Kurtulma ZD"/><Field label="Saldırı bonusu"/></div><section className="sheet-blank-slots"><h3>Büyü Yuvaları</h3><div>{Array.from({length:9},(_,i)=><section key={i}><strong>{i+1}. derece</strong><Field label="Toplam / kalan"/></section>)}</div><Field label="Antlaşma yuvaları / derece"/><Field label="Yoğunlaşılan büyü"/></section><section className="sheet-blank-spell-list"><h3>Bildiğin ve Hazırladığın Büyüler</h3><div className="sheet-blank-spell-heading"><span>Hazır</span><span>Derece / büyünün adı</span><span>Kullanım / kısa not</span></div>{Array.from({length:18},(_,i)=><div key={i}><i/><span/><span/></div>)}</section><section className="sheet-blank-spell-notes"><h3>Bileşenler, Ritüeller ve Büyü Notları</h3>{Array.from({length:6},(_,i)=><i key={i}/>)}</section><PageFooter page="2"/></section>
 }
 
 function SpellPages({character,spells}:{character:PlayerCharacter;spells:PlayerSpell[]}) {
@@ -103,7 +105,7 @@ function SpellPages({character,spells}:{character:PlayerCharacter;spells:PlayerS
   const unknown=character.spellbook.filter(id=>!spells.some(spell=>spell.id===id))
   const stats=derivedStats(character)
   if(!selected.length&&!unknown.length&&!stats.spellAbility)return null
-  return <section className="aruzahr-sheet-page sheet-flow-page" data-testid="player-sheet-spells"><PageHeader number="II" title="Büyü Defteri" name={character.name} houseId={character.houseId}/><SpellSlots character={character}/>{character.concentration&&<p className="sheet-concentration"><strong>Yoğunlaşılan büyü:</strong> {character.concentration}</p>}{!selected.length&&!unknown.length&&<p className="sheet-missing-spells">Henüz büyü seçilmedi. Büyü defterinden bildiğin büyüleri ekleyebilirsin.</p>}<div className="sheet-spell-entries">{selected.map(spell=><article className="sheet-spell-entry" key={spell.id}><header><h3>{spell.name}</h3><span>{spellDegree(spell.level)} · {spell.school}</span><small>{spell.level===0?'Basit büyü':character.preparedSpells.includes(spell.id)?'Hazır işaretli':'Defterde'}</small></header><dl><div><dt>Kullanım</dt><dd>{spell.castingTime}</dd></div><div><dt>Menzil</dt><dd>{spell.range}</dd></div><div><dt>Süre</dt><dd>{spell.duration}{spell.concentration?' · yoğunlaşma':''}</dd></div><div><dt>Bileşen</dt><dd>{spell.components.map(c=>({V:'Söz',S:'Hareket',M:'Malzeme'}[c]||c)).join(' · ')}{spell.material?' · '+spell.material:''}{spell.ritual?' · ritüel':''}</dd></div></dl><p>{spell.description}</p>{spell.higherLevels&&<p><strong>Yüksek derecede:</strong> {spell.higherLevels}</p>}</article>)}{unknown.map(id=><article className="sheet-spell-entry" key={id}><h3>{id}</h3><p>Bu büyünün açıklaması açık katalogda bulunamadı. Karakter kaydındaki seçim korunmuştur; kendi büyü notunu ekleyebilirsin.</p></article>)}</div><PageFooter name={character.name} page="Büyü eki"/></section>
+  return <section className="aruzahr-sheet-page sheet-flow-page" data-testid="player-sheet-spells"><PageOrnaments grimoire/><PageHeader number="II" title="Büyü Defteri" name={character.name} houseId={character.houseId}/><SpellSlots character={character}/>{character.concentration&&<p className="sheet-concentration"><strong>Yoğunlaşılan büyü:</strong> {character.concentration}</p>}{!selected.length&&!unknown.length&&<p className="sheet-missing-spells">Henüz büyü seçilmedi. Büyü defterinden bildiğin büyüleri ekleyebilirsin.</p>}<div className="sheet-spell-entries">{selected.map(spell=><article className="sheet-spell-entry" key={spell.id}><header><h3>{spell.name}</h3><span>{spellDegree(spell.level)} · {spell.school}</span><small>{spell.level===0?'Basit büyü':character.preparedSpells.includes(spell.id)?'Hazır işaretli':'Defterde'}</small></header><dl><div><dt>Kullanım</dt><dd>{spell.castingTime}</dd></div><div><dt>Menzil</dt><dd>{spell.range}</dd></div><div><dt>Süre</dt><dd>{spell.duration}{spell.concentration?' · yoğunlaşma':''}</dd></div><div><dt>Bileşen</dt><dd>{spell.components.map(c=>({V:'Söz',S:'Hareket',M:'Malzeme'}[c]||c)).join(' · ')}{spell.material?' · '+spell.material:''}{spell.ritual?' · ritüel':''}</dd></div></dl><p>{spell.description}</p>{spell.higherLevels&&<p><strong>Yüksek derecede:</strong> {spell.higherLevels}</p>}</article>)}{unknown.map(id=><article className="sheet-spell-entry" key={id}><h3>{id}</h3><p>Bu büyünün açıklaması açık katalogda bulunamadı. Karakter kaydındaki seçim korunmuştur; kendi büyü notunu ekleyebilirsin.</p></article>)}</div><PageFooter name={character.name} page="Büyü eki"/></section>
 }
 
 function CharacterAppendix({character}:{character:PlayerCharacter}) {
@@ -123,6 +125,7 @@ function CharacterAppendix({character}:{character:PlayerCharacter}) {
   const resourcesExtra=character.resources.length>0
   if(!equipmentExtra&&!attacksExtra&&!textExtra&&!resourcesExtra)return null
   return <section className="aruzahr-sheet-page sheet-flow-page" data-testid="player-sheet-appendix">
+    <PageOrnaments/>
     <PageHeader number="III" title="Yolculuk Notları" name={character.name} houseId={character.houseId}/>
     {textExtra&&paragraphs.filter(([,text])=>text).map(([label,text])=><section className="sheet-appendix-section" key={label}><h3>{label}</h3><p>{text}</p></section>)}
     {attacksExtra&&<section className="sheet-appendix-section"><h3>Saldırı Ayrıntıları</h3>{character.attacks.map(attack=><div className="sheet-appendix-item" key={attack.id}><h4>{attack.name}</h4><p>Saldırı {signed(abilityModifier(character.scores[attack.ability])+(attack.proficient?stats.proficiency:0))} · {abilityLabels[attack.ability]}{attack.proficient?' · Yetkin':''}</p><p>{attack.damage} {attack.damageType}</p>{attack.notes&&<p>{attack.notes}</p>}</div>)}</section>}
