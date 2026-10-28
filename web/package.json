@@ -13,7 +13,8 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "playwright test",
     "player:spells": "node scripts/build-player-spells.mjs",
-    "player:templates": "node scripts/build-player-templates.mjs"
+    "player:templates": "node scripts/build-player-templates.mjs",
+    "broadcast:slates": "node scripts/build-broadcast-slates.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "5.3.0",

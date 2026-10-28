@@ -1299,6 +1299,7 @@ export default function StudioWorkspace() {
                 : 'Yayın rölesi bekleniyor')}
           </span>
           <small className="studio-save">{saved}</small>
+          <a href="#/broadcast/screens" target="_blank" rel="noopener" className="studio-output-link" title="Açılış ve kapanış tablolarını önizle, MP4 indir">Yayın ekranları ↗</a>
           <button onClick={() => setPalette(true)}>
             <Search size={16} />
             <span>Komutlar</span>

@@ -15,6 +15,7 @@ GitHub'da **Code → Download ZIP** ile deponun tamamını indirip çıkar. [Nod
 | Windows'ta siteyi aç | [baslat/BASLAT.bat](baslat/BASLAT.bat) |
 | Kendi D&D karakterini oluştur | [Oyuncu Masası · 2014 / Türkçe büyüler](docs/kullanim/OYUNCU_MASASI.md) · sitede `/#/play` |
 | Boş A4 karakter kâğıdını indir | [Karakter PDF](web/public/downloads/Aruzahr-Karakter-Kagidi-A4.pdf) · [Büyü defteri PDF](web/public/downloads/Aruzahr-Buyu-Defteri-A4.pdf) |
+| Yayın başlıyor / kapanış videosu | [İki hareketli ekran, kamera ve müzik kurulumu](docs/kullanim/YAYIN_EKRANLARI_VE_SES.md) · sitede `/#/broadcast/screens` |
 | Windows'ta hikâye ve yayın masasını aç | [baslat/Yayini-Baslat.cmd](baslat/Yayini-Baslat.cmd) |
 | macOS / Linux veya telefon kumandası | [Başlatma seçenekleri](baslat/README.md) |
 | Yan olayları ve kişileri takip et | [Yaşayan Yolculuk](docs/kullanim/YASAYAN_YOLCULUK.md) |

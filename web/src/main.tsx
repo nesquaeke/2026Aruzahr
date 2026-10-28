@@ -23,6 +23,8 @@ const BroadcastWorkspace = React.lazy(() => import('./BroadcastWorkspace'))
 const StudioWorkspace = React.lazy(()=>import('./studio/StudioWorkspace'))
 const StudioOutput = React.lazy(()=>import('./studio/StudioOutput'))
 const StudioRemote = React.lazy(()=>import('./studio/StudioRemote'))
+const BroadcastSlate = React.lazy(()=>import('./studio/BroadcastSlate'))
+const BroadcastSlateLibrary = React.lazy(()=>import('./studio/BroadcastSlate').then(module=>({default:module.BroadcastSlateLibrary})))
 function Root() {
   const [route, setRoute] = React.useState(() => window.location.hash.slice(1))
   React.useEffect(() => {
@@ -33,7 +35,10 @@ function Root() {
   if(!route.startsWith('/broadcast'))return <App />
   const path=route.split('?')[0]
   let screen:React.ReactNode
-  if(path==='/broadcast/live')screen=<StudioOutput kind="main"/>
+  if(path==='/broadcast/starting')screen=<BroadcastSlate kind="starting"/>
+  else if(path==='/broadcast/ending')screen=<BroadcastSlate kind="ending"/>
+  else if(path==='/broadcast/screens')screen=<BroadcastSlateLibrary/>
+  else if(path==='/broadcast/live')screen=<StudioOutput kind="main"/>
   else if(path.startsWith('/broadcast/output/')){const kind=path.split('/').at(-1);screen=<StudioOutput kind={['map','portraits','dice','initiative','break'].includes(kind||'')?kind as 'map':'main'}/>}
   else if(path==='/broadcast/remote')screen=<StudioRemote/>
   else if(path==='/broadcast/vote')screen=<StudioRemote voting/>

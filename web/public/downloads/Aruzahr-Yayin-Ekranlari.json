@@ -1,0 +1,37 @@
+{
+  "format": "aruzahr-broadcast-slates",
+  "version": 1,
+  "technique": "İki özgün yağlıboya yorum üzerinde sabit kamera, periyodik kar/sis ve ışık kompoziti. Üretken video değildir.",
+  "videos": [
+    {
+      "kind": "starting",
+      "file": "Aruzahr-Yayin-Basliyor-1080p.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 20,
+      "frames": 600,
+      "audio": false,
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "loopEndpointsIdentical": true,
+      "bytes": 3616308,
+      "sha256": "a3ea9ccced603ca02b172965174e978e501bc8cfdc76d67f4de628576c84c3be"
+    },
+    {
+      "kind": "ending",
+      "file": "Aruzahr-Yayin-Sona-Erdi-1080p.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 20,
+      "frames": 600,
+      "audio": false,
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "loopEndpointsIdentical": true,
+      "bytes": 2918296,
+      "sha256": "9af7fbaccaddadf6cad3a7376a3c6438f832abafb307bb887c9f858814525d34"
+    }
+  ]
+}

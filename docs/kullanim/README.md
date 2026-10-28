@@ -4,6 +4,8 @@
 
 [Ücretsiz Render yayını](RENDER_YAYINI.md) — hazır Blueprint, statik site ayarları ve oyuncu kayıtlarını yeni adrese taşıma.
 
+[Açılış / kapanış ve OBS](YAYIN_EKRANLARI_VE_SES.md) — iki döngülü MP4, bağımsız tarayıcı ekranları, dört kamera, isimlikler ve müzik kurulumu.
+
 1. [Tek DM Masası](TEK_DM_MASASI.md) — başlangıç, kişi/yer arama, görevler, karşılaşmalar ve savaş.
 2. [Yayın Stüdyosu](YAYIN_STUDYOSU_KULLANIM.md) — haritada çizim, karakter yerleştirme, ses, zar, OBS ve telefon.
 3. [On Kış Kararı](ON_KIS_KARARI_KULLANIM.md) — maceranın kapsamı ve yayın ayarları.

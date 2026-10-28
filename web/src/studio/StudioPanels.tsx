@@ -2651,12 +2651,15 @@ export function BroadcastPanel() {
             : 'Ses kapalı'}
       </p>
       <h3>OBS kaynakları</h3>
+      <p><a href="#/broadcast/screens" target="_blank" rel="noopener">Yeni açılış ve kapanış tabloları · önizle ve MP4 indir ↗</a></p>
       <p className="st-muted">
         Kaynak ve OBS tuvalini aynı ölçü seç: 1920×1080, 2560×1440 veya
         3840×2160. Şeffaf katmanlar ayrı kaynak olarak eklenebilir.
       </p>
       {[
         ['/broadcast/live', 'Ana sahne'],
+        ['/broadcast/starting', 'Yayın başlıyor · bağımsız döngü'],
+        ['/broadcast/ending', 'Yayın sona erdi · bağımsız döngü'],
         ['/broadcast/output/map', 'Yalnız harita'],
         ['/broadcast/output/portraits', 'Şeffaf portreler'],
         ['/broadcast/output/dice', 'Şeffaf zar'],
