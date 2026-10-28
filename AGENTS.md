@@ -1,5 +1,7 @@
 # Proje için kalıcı yaratıcı yönlendirme
 
+- 29 Ekim 2026: kullanıcı oyuncuların kendi karakterlerini ücretsiz veritabanında saklamasını istedi. Supabase Auth + oyuncuya özel RLS yedek tablosu hazırlandı; kurulum `docs/kullanim/OYUNCU_BULUT_KAYDI.md`. Gerçek proje ve public API ayarları bağlanmadan bulut çalışıyor denmez. İlk sürüm açık komutla sürümlü yedek/kopyalama yapar; otomatik eşitleme değildir. Yerel kayıtlar korunur; gizli service_role anahtarı istemciye girmez. Gerçek projede iki hesapla RLS izolasyonu ayrıca doğrulanmalıdır.
+
 Görsel, karakter biyografisi veya canlı lore'u üretmeden önce [görsel ve anlatı rehberini](docs/tasarim/GORSEL_VE_ANLATI_REHBERI.md) oku. Kullanıcı bu tercihlerinin sonraki işlerde uygulanmasını istedi.
 
 - Görseller: elle boyanmış tablo hissi, görünür fırça dokusu, yumuşak renk geçişleri, net yüzler ve biçimler. Bu yaklaşım karakter, hayvan, yaratık ve sahne çizimlerinde geçerlidir.

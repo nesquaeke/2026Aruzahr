@@ -1,4 +1,5 @@
 import { cloneElement, isValidElement, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import PlayerCloud from './PlayerCloud';
 import {
   ArrowLeft,
   ArrowRight,
@@ -766,6 +767,12 @@ export default function PlayerWorkshop({
 
   return (
     <div className="player-workshop" data-testid="player-workshop">
+      <PlayerCloud players={players} onRestore={c=>{
+        if(loadError)throw Error('Önce yerel kayıt sorununu çöz; eski verin korunuyor.');
+        if(players.length>=20)throw Error('Bu cihazda en fazla 20 karakter tutulabilir. Önce yedek indirip yer aç.');
+        savePlayers([...players,c]);
+        setPlayers([...players,c]);
+      }}/>
       {loadError && (
         <section className="pw-alert" role="alert">
           <h2>Kayıt korunuyor</h2>
