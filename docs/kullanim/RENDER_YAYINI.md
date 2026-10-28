@@ -22,6 +22,8 @@ Başlangıçta 8K haritadan döşemeler üretildiği için yalnız `npm run buil
 
 ## Yayın sonrası kontrol
 
+`render.yaml`, GitHub `main` dalına her yeni commit geldiğinde otomatik dağıtım isteyecek şekilde `autoDeployTrigger: commit` kullanır. Mevcut Blueprint'te Auto Sync açık olmalıdır; gerekirse Blueprint → Manual Sync ile dosya değişikliğini uygula. Site hizmetinin Settings → Build & Deploy bölümünde Auto-Deploy ayarı On Commit görünmelidir. Gerçek Render hesabı bu ortamdan kontrol edilmediğinden ayarın uygulandığı ayrıca doğrulanmalıdır. Build başarısız olursa önceki başarılı sürüm yayında kalır.
+
 - Ana adres: atlas ve harita döşemeleri görünmeli.
 - `/#/play`: **Karakter oluştur** ile bir deneme karakteri açılmalı.
 - **Büyüler**: 319 yerleşik büyü ve basit büyü filtresi açılmalı.
@@ -30,7 +32,7 @@ Başlangıçta 8K haritadan döşemeler üretildiği için yalnız `npm run buil
 
 ## Oyuncu kayıtlarını taşı
 
-Karakterler hesapta veya sunucuda değil, oyuncunun tarayıcısında saklanır. Yerel siteden yeni adrese geçmeden önce **Yedek indir**, yeni sitede **Karakter yedeği aç** kullan. Özel büyü arşivini ayrıca indirip aktar. Farklı cihaz, tarayıcı, localhost ve Render adresi ayrı kayıt alanlarıdır.
+Yerel otomatik kayıt tarayıcıya özeldir. Supabase kurulumu tamamlandıysa oyuncu hesabıyla açık komut üzerinden bulut yedeği kaydedip başka cihazda kopyalayabilir; otomatik eşitleme yapılmaz. Yerel siteden yeni adrese geçmeden önce ayrıca **Yedek indir**, yeni sitede **Karakter yedeği aç** kullan. Özel büyü arşivini ayrıca indirip aktar. Ayrıntı: [Oyuncu bulut kaydı](OYUNCU_BULUT_KAYDI.md).
 
 ## OBS ve özel bilgiler
 

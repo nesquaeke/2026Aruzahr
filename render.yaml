@@ -3,6 +3,9 @@ services:
   - type: web
     name: aruzahr
     runtime: static
+    repo: https://github.com/nesquaeke/2026Aruzahr
+    branch: main
+    autoDeployTrigger: commit
     buildCommand: npm --prefix web ci --include=dev --no-audit --no-fund && npm --prefix web run assets && npm --prefix web run build
     staticPublishPath: ./web/dist
     envVars:
