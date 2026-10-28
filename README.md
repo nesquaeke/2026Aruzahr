@@ -1,6 +1,6 @@
 # Aruzahr — Valhunar Atlası
 
-İnteraktif harita, resimli wiki, karakter kartları ve D&D yayın masası.
+İnteraktif harita, resimli wiki, oyuncu karakter defteri, A4 karakter kâğıtları ve D&D yayın masası.
 
 ## Hızlı başla
 
@@ -9,6 +9,8 @@ GitHub'da **Code → Download ZIP** ile deponun tamamını indirip çıkar. [Nod
 | Ne yapmak istiyorsun? | Açılacak dosya / rehber |
 |---|---|
 | Windows'ta siteyi aç | [baslat/BASLAT.bat](baslat/BASLAT.bat) |
+| Kendi D&D karakterini oluştur | [Oyuncu Masası · 2014 / Türkçe büyüler](docs/kullanim/OYUNCU_MASASI.md) · sitede `/#/play` |
+| Boş A4 karakter kâğıdını indir | [Karakter PDF](web/public/downloads/Aruzahr-Karakter-Kagidi-A4.pdf) · [Büyü defteri PDF](web/public/downloads/Aruzahr-Buyu-Defteri-A4.pdf) |
 | Windows'ta hikâye ve yayın masasını aç | [baslat/Yayini-Baslat.cmd](baslat/Yayini-Baslat.cmd) |
 | macOS / Linux veya telefon kumandası | [Başlatma seçenekleri](baslat/README.md) |
 | Yan olayları ve kişileri takip et | [Yaşayan Yolculuk](docs/kullanim/YASAYAN_YOLCULUK.md) |

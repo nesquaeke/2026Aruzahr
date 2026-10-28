@@ -1,0 +1,744 @@
+[
+  {
+    "id": "acid-arrow",
+    "name": "Asit Oku",
+    "description": "Menzildeki hedefe uzak büyü saldırısı yap. İsabette hemen 4d4 asit hasarı, hedefin sonraki turunun sonunda ayrıca 2d4 asit hasarı verirsin. Iskalarsan başlangıç hasarının yarısını verir; sonraki turda hasar vermez.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi için hem ilk hem sonraki hasar 1d4 artar.",
+    "material": "Öğütülmüş ravent yaprağı ve bir engereğin midesi."
+  },
+  {
+    "id": "acid-splash",
+    "name": "Asit Sıçraması",
+    "description": "Menzilde bir yaratık veya birbirine en fazla 5 fit uzakta iki yaratık seç. Her hedef Çeviklik kurtulma atışında başarısız olursa 1d6 asit hasarı alır. Hasar karakter seviyen 5 olduğunda 2d6, 11 olduğunda 3d6, 17 olduğunda 4d6 olur.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "aid",
+    "name": "Destek",
+    "description": "Menzilde en fazla üç yaratık seç. Büyü boyunca her hedefin azami canı ve mevcut canı 5 artar. Bu, geçici can değildir.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi için can artışı 5 daha yükselir.",
+    "material": "Küçük bir beyaz kumaş şeridi."
+  },
+  {
+    "id": "alarm",
+    "name": "Alarm",
+    "description": "Bir kapıyı, pencereyi veya kenarı en fazla 20 fit olan küp biçimindeki alanı korursun. Küçücük veya daha büyük bir yaratık alana dokunur ya da girerse alarm çalışır; büyüyü yaparken muaf yaratıkları belirleyebilirsin. Zihinsel veya sesli alarm seç. Zihinsel alarm 1 mil içindeysen zihninde duyulur ve uyuyorsan seni uyandırır. Sesli alarm 60 fit içinden duyulan, 10 saniyelik el çanı sesidir.",
+    "higherLevels": "",
+    "material": "Küçük bir çan ve ince gümüş tel."
+  },
+  {
+    "id": "alter-self",
+    "name": "Kendini Değiştirme",
+    "description": "Büyü boyunca aşağıdaki biçimlerden birini kullanırsın; bir eylemle diğerine geçebilirsin.\nSuda uyum: Su altında nefes alır, yürüme hızına eşit yüzme hızı kazanırsın.\nGörünüş: Boy, ağırlık, yüz, ses, saç ve benzeri ayrıntılarını değiştirirsin. Başka bir ırk gibi görünebilirsin; oyun değerlerin değişmez. Boyut kategorin ve temel beden düzenin değişmez; iki ayaklıyken dört ayaklı olamazsın. Bir eylemle görünüşünü yeniden değiştirebilirsin.\nDoğal silah: Pençe, diş veya benzeri bir silah çıkar. Silahsız vuruşların uygun türde 1d6 ezici, delici veya kesici hasar verir ve bu saldırılarda yetkinsindir. Silah büyülüdür; saldırı ve hasar atışları +1 kazanır.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "animal-friendship",
+    "name": "Hayvan Dostluğu",
+    "description": "Gördüğün bir canavar olmayan hayvan seç; hayvan seni görmeli ve duymalıdır. Zekâsı 4 veya üzerindeyse büyü başarısız olur. Aksi hâlde Bilgelik kurtulma atışında başarısız olursa büyü boyunca senin tarafından Büyülenmiş duruma girer. Sen veya yoldaşlarından biri ona zarar verirse büyü biter.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi için bir ek hayvanı hedefleyebilirsin.",
+    "material": "Bir lokma yiyecek."
+  },
+  {
+    "id": "animal-messenger",
+    "name": "Hayvan Ulak",
+    "description": "Gördüğün Küçücük bir hayvana, daha önce ziyaret ettiğin bir yeri, genel bir tarifle alıcıyı ve en fazla 25 sözcüklük mesajı bildirirsin. Hayvan büyü boyunca yola gider; uçabiliyorsa 24 saatte yaklaşık 50 mil, diğerleri 25 mil ilerler. Varınca tarifine uyan birine senin sesini taklit ederek mesajı söyler. Süre dolmadan varamazsa mesaj kaybolur ve hayvan büyünün yapıldığı yere geri döner.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi süreyi 48 saat uzatır.",
+    "material": "Bir lokma yiyecek."
+  },
+  {
+    "id": "animal-shapes",
+    "name": "Hayvan Biçimleri",
+    "description": "Menzilde gördüğün istediğin sayıda gönüllü yaratığı, her biri için farklı seçebileceğin, Meydan Okuma Derecesi en fazla 4 olan Büyük veya daha küçük hayvanlara dönüştürürsün. Sonraki turlarında bir eylemle etkilenenleri yeni hayvan biçimlerine sokabilirsin. Dönüşüm süre dolana, hedef ölünceye veya yeni biçimin canı 0 olana kadar sürer.\nHedefin değerleri hayvanın değerleriyle değişir; ahlakı, Zekâ, Bilgelik ve Karizma değerleri kalır. Yeni biçimin canını alır; geri dönünce eski canına döner. Yeni biçimi 0 cana indiren hasarın fazlası asıl biçime aktarılır; bu hasar asıl biçimi 0 yapmıyorsa bayılmaz. Hedef yeni bedenin yapabildikleriyle sınırlıdır; konuşamaz ve büyü yapamaz. Ekipmanı biçimine karışır ve kullanılamaz, yarar sağlamaz.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "animate-dead",
+    "name": "Ölü Canlandırma",
+    "description": "Küçük veya Orta boy bir insansı cesedi ya da kemik yığını seç. Ceset zombiye, kemikler iskelete dönüşür; değerlerini DM belirler. Her turunda bir bonus eylemle 60 fit içindeki bu büyüyle yarattığın hizmetkârlara zihinsel emir verebilirsin. Birkaçına aynı emri birlikte verebilirsin; bir sonraki eylemini ve hareketini veya genel bir görevi belirlersin. Emir verilmezse yalnız kendini savunur; aldığı görevi bitirene kadar sürdürür.\nDenetim 24 saat sürer. Süre dolmadan yeniden bu büyüyü yaparak yeni ölü yaratmak yerine daha önce yarattığın en fazla dört ölü üzerindeki denetimini 24 saat uzatabilirsin. Denetim bitince emirlerine uymazlar.",
+    "higherLevels": "4. veya daha yüksek derece yuvada, 3. derecenin üzerindeki her yuva derecesi iki ek ölü yaratmanı veya denetlemeni sağlar. Her biri farklı ceset ya da kemik yığınından gelmelidir.",
+    "material": "Bir damla kan, bir parça et ve bir tutam kemik tozu."
+  },
+  {
+    "id": "animate-objects",
+    "name": "Nesne Canlandırma",
+    "description": "Taşınmayan veya giyilmeyen, büyüsüz en fazla on nesneyi canlandırırsın. Orta nesne iki, Büyük dört, Kocaman sekiz nesne sayılır; Kocaman boydan büyüğü seçilemez. Nesneler büyü bitene veya 0 cana inene kadar denetimindedir. Bir bonus eylemle 500 fit içindeki hizmetkârlarına aynı zihinsel emri verebilir; eylem, hareket veya genel görev belirleyebilirsin. Emir yoksa kendilerini savunurlar.\nBoyuta göre Can / Zırh Sınıfı / saldırı / hasar / Kuvvet / Çeviklik: Küçücük 20 / 18 / +8 / 1d4+4 / 4 / 18; Küçük 25 / 16 / +6 / 1d8+2 / 6 / 14; Orta 40 / 13 / +5 / 2d6+1 / 10 / 12; Büyük 50 / 10 / +6 / 2d10+2 / 14 / 10; Kocaman 80 / 10 / +8 / 2d12+4 / 18 / 6.\nBunlar yapı yaratıktır: Dayanıklılık 10, Zekâ ve Bilgelik 3, Karizma 1. Hızları 30 fittir; uygun uzvu olmayanlar 30 fit uçup havada asılı kalır. Sabitlenmiş nesnenin hızı 0 olur. 30 fit körgörüşleri vardır; ötesini göremezler. 0 cana inen nesne eski hâline döner ve fazla hasar nesneye aktarılır. 5 fit içindeki bir hedefe tek yakın saldırı yapar; hasar genellikle ezicidir, biçime göre DM delici veya kesici seçebilir.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi iki ek nesne canlandırır.",
+    "material": ""
+  },
+  {
+    "id": "antilife-shell",
+    "name": "Yaşamı Dışlayan Kabuk",
+    "description": "Merkezinde sen olan, seninle hareket eden 10 fit yarıçaplı bir engel oluşur. Ölüler ve yapı yaratıklar dışındaki yaratıklar içinden geçemez veya uzanamaz. Etkilenenler engelin içinden büyü yapabilir; menzilli ya da erişimli silahlarla saldırabilir. Hareket ederek etkilenen bir yaratığı engelden geçmeye zorlarsan büyü biter.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "antimagic-field",
+    "name": "Büyü Karşıtı Alan",
+    "description": "Merkezinde sen olan, seninle hareket eden 10 fit yarıçaplı görünmez bir küre oluşur. Eser veya ilah kaynaklı etkiler dışında büyüler, büyülü özellikler ve etkiler küre içinde bastırılır; içine uzanamaz. İçeride büyü yapılamaz, büyülü nesneler sıradan işlev görür. Bastırılan büyüye harcanan yuva harcanmış kalır; bastırılarak geçen zaman etkilerin süresinden düşer.\nKüre içindeki hedefleri seçen büyüler işlemez; alan büyülerinin küreyle örtüşen kısmı bastırılır. Küre içindeki bir yaratık ya da nesne üzerindeki etkin büyüler durur. Büyülü silah, saldırganı veya hedefi içerideyse büyüsüzdür; bütünüyle dışarı çıkan silah veya mühimmat özelliklerini geri kazanır.\nKüreden veya küreye ışınlanma ve düzlemler arası yolculuk başarısız olur. Geçitler ve boyut dışı alan girişleri geçici olarak kapanır. Büyüyle çağrılan ya da yaratılan yaratık ve nesneler içeride yok olur; bulundukları yer kürenin dışında kalınca geri belirirler. Büyü Dağıtma küreyi dağıtamaz; iki Büyü Karşıtı Alan birbirini etkisiz kılmaz.",
+    "higherLevels": "",
+    "material": "Bir tutam demir tozu veya demir talaşı."
+  },
+  {
+    "id": "antipathy-sympathy",
+    "name": "İtme ve Çekme",
+    "description": "Kocaman veya daha küçük bir nesne ya da yaratığı veya kenarı en fazla 200 fit olan küp biçimindeki bir alanı seç. Belirli bir zeki yaratık türü belirt; büyü yalnız o türü iter veya çeker.\nİtme: Hedefi gören veya 60 fit yakınına gelen yaratık Bilgelik kurtulma atışında başarısız olursa korkar. Hedefi gördükçe veya 60 fit yakınındayken korkusu sürer; hareketini hedefi göremeyeceği en yakın güvenli yere gitmek için kullanır. 60 fit ötesine geçip görüşünü keserse korku durur, yeniden yaklaşır ya da görürse döner.\nÇekme: Hedefi gören veya 60 fit yakınına gelen yaratık Bilgelik kurtulma atışında başarısız olursa her tur hareketini hedef alana girmeye veya hedefe erişmeye kullanır. Ulaşınca gönüllü olarak uzaklaşamaz. Hedef ona zarar verirse etkiyi sonlandırmak için kurtulma atışı yapabilir.\nEtkilenen yaratık turunu hedefi göremeden ve ondan 60 fit uzakta bitirirse Bilgelik kurtulma atışı yapar; başarı etkilenmeyi bitirir ve duygunun büyülü olduğunu anlar. Ayrıca her 24 saatte yeniden kurtulma atışı yapabilir. Başarılı kurtulma atışı 1 dakika bağışıklık verir.",
+    "higherLevels": "",
+    "material": "İtme için sirkeye batırılmış şap; çekme için bir damla bal."
+  },
+  {
+    "id": "arcane-eye",
+    "name": "Gizemli Göz",
+    "description": "Menzilde havada duran görünmez bir büyülü göz oluşturursun. Görsel bilgilerini zihninden alırsın; göz her yöne bakar, normal görüşe ve 30 fit karanlıkgörüşe sahiptir. Bir eylemle istediğin yöne en fazla 30 fit hareket ettirebilirsin. Senden uzaklığı sınırsızdır, ancak başka varoluş düzlemine geçemez. Katı engeller onu durdurur; 1 inç çapındaki açıklıklardan geçebilir.",
+    "higherLevels": "",
+    "material": "Bir parça yarasa kürkü."
+  },
+  {
+    "id": "arcane-hand",
+    "name": "Gizemli El",
+    "description": "Gördüğün boş bir yerde Büyük boy, yarı saydam kuvvet eli oluşturursun. El bir nesnedir; Zırh Sınıfı 20, canı senin azami canına eşittir. Kuvveti 26 (+8), Çevikliği 10 (+0) olur; yerini tamamen kapatmaz. 0 cana inerse büyü biter. Büyüyü yaptığında ve sonraki turlarında bonus eylemle eli 60 fit ilerletip şu etkilerden birini uygularsın:\nYumruk: Elin 5 fit yakınındaki hedefe kendi büyü saldırı değerlerinle yakın büyü saldırısı; isabette 4d8 kuvvet hasarı.\nİtme: 5 fit içindeki yaratıkla elin Kuvvet kontrolünü hedefin Kuvvet (Atletizm) kontrolüne karşı yarıştır. Hedef Orta veya daha küçükse avantajın vardır. Başarıda hedefi 5 + büyü yapma niteliği değiştiricinin beş katı fit itersin; el yanında gider.\nKavrama: 5 fit yakınındaki Kocaman veya daha küçük yaratığı elin Kuvvetiyle kavramayı denersin; Orta veya küçük hedefe karşı avantajın vardır. Kavrarken sonraki bonus eylemle sıkarak 2d6 + büyü yapma niteliği değiştiricin kadar ezici hasar verebilirsin.\nSiper: El seninle seçtiğin yaratık arasında durur ve sana o yaratığa karşı yarım siper sağlar. Hedefin Kuvveti elinkine eşit veya düşükse elin yerinden geçemez; daha yüksekse geçebilir ama burası zor arazidir.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi yumruk hasarını 2d8, kavrama hasarını 2d6 artırır.",
+    "material": "Bir yumurta kabuğu ve yılan derisinden eldiven."
+  },
+  {
+    "id": "arcane-lock",
+    "name": "Gizemli Kilit",
+    "description": "Dokunduğun kapalı kapı, pencere, sandık veya benzeri giriş büyüyle kilitlenir. Sen ve belirlediğin yaratıklar normal açabilir. 5 fit yakınında söylenince büyüyü 1 dakika bastıran parola belirleyebilirsin. Aksi hâlde kırılana, dağıtılana veya bastırılana kadar geçilmez. Kapı Açma büyüsü bunu 10 dakika bastırır. Kilidi açma veya girişi zorlayarak kırma Zorluk Derecesi 10 artar.",
+    "higherLevels": "",
+    "material": "En az 25 altın değerinde, büyünün tükettiği altın tozu."
+  },
+  {
+    "id": "arcane-sword",
+    "name": "Gizemli Kılıç",
+    "description": "Menzilde havada duran, kılıç biçiminde kuvvet oluşturursun. Belirdiğinde kılıcın 5 fit yakınındaki seçtiğin hedefe yakın büyü saldırısı yaparsın; isabette 3d10 kuvvet hasarı verir. Sonraki her turunda bonus eylemle kılıcı görebildiğin bir yere en fazla 20 fit hareket ettirip aynı veya başka hedefe yeniden bu saldırıyı yaptırabilirsin.",
+    "higherLevels": "",
+    "material": "Kabzası bakır ve çinkodan olan, 250 altın değerinde minyatür platin kılıç."
+  },
+  {
+    "id": "arcanists-magic-aura",
+    "name": "Büyücünün Sahte Halesi",
+    "description": "Dokunduğun gönüllü yaratığa veya başkasının giymediği ve taşımadığı nesneye yanıltıcı bir hale yerleştirirsin. Şu etkilerden birini veya ikisini seç: Sahte hale, büyüsüz nesneyi büyülü, büyülüyü büyüsüz ya da başka büyü okulundan gösterir; istersen nesneye dokunan herkes sahte büyüyü fark eder. Maske, yaratık türünü veya ahlakını saptayan etkilerin hedefi seçtiğin tür ya da ahlaktaymış gibi algılamasını sağlar. Aynı hedefe aynı etkiyi 30 gün boyunca her gün uygularsan büyü dağıtılana kadar kalıcı olur.",
+    "higherLevels": "",
+    "material": "Küçük kare bir ipek parçası."
+  },
+  {
+    "id": "astral-projection",
+    "name": "Astral Yansıtma",
+    "description": "Sen ve menzildeki en fazla sekiz gönüllü yaratık Astral Düzlem’e astral bedenlerinizi yansıtırsınız. Zaten Astral Düzlem’deysen büyü boşa harcanır. Gerideki bedenler bilinçsiz askıda kalır; yemez, solumaz, yaşlanmaz. Astral biçimlerin oyun değerleri ve eşyaları asıl bedenle aynıdır; kürek kemikleri arasından uzanan ve 1 fit sonra görünmez olan gümüş kordon asıl bedene bağlar. Yalnız açıkça kordon kesebildiğini söyleyen etkiler kesebilir; kesilirse anında ölürsün.\nAstral Düzlem’de gezebilir ve geçitlerle başka düzlemlere gidebilirsin. Yeni bir düzleme girdiğinde veya başlangıç düzlemine döndüğünde asıl beden ve eşyalar kordon boyunca taşınır, yeniden bedenine girersin. Astral biçime uygulanan hasar ve etkiler asıl bedene geçmez. Bir eylemle kendin ve yoldaşların için büyüyü bitirip bedenlerinizi uyandırabilirsin. Astral veya asıl bedene başarılı Büyü Dağıtma yapılması ya da ikisinden birinin 0 cana inmesi o yaratık için büyüyü bitirir; kordon sağlamsa biçimi bedene geri çeker. Sen erken dönersen yoldaşların dönmez; kendi dönüş yollarını bulmaları gerekir.",
+    "higherLevels": "",
+    "material": "Her hedef için büyünün tükettiği, en az 1.000 altın değerinde sümbül taşı ve en az 100 altın değerinde işlemeli gümüş külçe."
+  },
+  {
+    "id": "augury",
+    "name": "Kehanet İşareti",
+    "description": "Önümüzdeki 30 dakika içinde yapmayı planladığın belirli bir eylem hakkında öte dünyadan işaret alırsın. DM, iyi sonuç için uğur, kötü sonuç için uğursuzluk, karışık sonuç için ikisi veya belirgin iyi/kötü sonuç yoksa sessizlik seçer. Kehanet, sonradan yapılan büyüler veya yoldaş kaybı gibi sonucu değiştirecek olasılıkları hesaba katmaz. Sonraki uzun dinlenmene kadar ilkten sonraki her kullanımda, rastgele bir işaret alma olasılığı birikimli %25 artar; zarı DM gizli atar.",
+    "higherLevels": "",
+    "material": "En az 25 altın değerinde işaretli çubuklar, kemikler veya benzeri kehanet araçları."
+  },
+  {
+    "id": "awaken",
+    "name": "Bilinç Uyandırma",
+    "description": "Kocaman veya daha küçük bir hayvan ya da bitkiye dokunursun. Hedefin Zekâ değeri olmamalı veya 3 ya da daha düşük olmalıdır. Zekâsı 10 olur ve bildiğin bir dili konuşabilir. Bitkiyse uzuv, kök ve dallarını hareket ettirebilir; insana benzer duyular kazanır. DM uygun canlı değerlerini belirler. Hedef 30 gün boyunca veya sen ya da yoldaşların ona zarar verene kadar senin tarafından Büyülenmiş durumdadır. Etki bitince dost kalıp kalmayacağına kendisine nasıl davrandığına göre karar verir.",
+    "higherLevels": "",
+    "material": "Büyünün tükettiği, en az 1.000 altın değerinde akik."
+  },
+  {
+    "id": "bane",
+    "name": "Uğursuzluk",
+    "description": "Menzilde gördüğün en fazla üç yaratık Karizma kurtulma atışı yapar. Başarısız hedef, büyü boyunca yaptığı her saldırı ve kurtulma atışında 1d4 atar ve sonucu toplamından çıkarır.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi için bir ek yaratığı hedefleyebilirsin.",
+    "material": "Bir damla kan."
+  },
+  {
+    "id": "banishment",
+    "name": "Sürgün",
+    "description": "Gördüğün bir yaratık Karizma kurtulma atışında başarısız olursa başka düzleme sürülür. Bulunduğun düzlemin yerlisiyse zararsız bir cep düzleme gider ve orada Eylemsiz durumdadır. Büyü bitince eski yerine veya burası doluysa en yakın boş yere döner. Başka düzlemin yerlisiyse kendi düzlemine gönderilir. Büyü 1 dakika dolmadan biterse geri döner; tam 1 dakika sürerse geri dönmez.",
+    "higherLevels": "5. veya daha yüksek derece yuvada, 4. derecenin üzerindeki her yuva derecesi için bir ek yaratığı hedefleyebilirsin.",
+    "material": "Hedefin hoşlanmadığı bir nesne."
+  },
+  {
+    "id": "barkskin",
+    "name": "Kabuk Deri",
+    "description": "Gönüllü bir yaratığa dokunursun. Derisi kabuk gibi görünür; büyü boyunca giydiği zırh ne olursa olsun Zırh Sınıfı 16’dan düşük olamaz.",
+    "higherLevels": "",
+    "material": "Bir avuç meşe kabuğu."
+  },
+  {
+    "id": "beacon-of-hope",
+    "name": "Umut Işığı",
+    "description": "Menzilde istediğin sayıda yaratık seç. Büyü boyunca Bilgelik ve ölüm kurtulma atışlarında avantaj kazanırlar. Aldıkları tüm iyileştirmeler mümkün olan azami canı geri kazandırır.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "bestow-curse",
+    "name": "Lanet Bahşetme",
+    "description": "Dokunduğun yaratık Bilgelik kurtulma atışında başarısız olursa lanetlenir. Şunlardan birini seç: Bir niteliğe bağlı kontrolleri ve kurtulma atışları dezavantajlı olur; sana yaptığı saldırılar dezavantajlı olur; her tur başında Bilgelik kurtulma atışı yapar, başarısızsa eylemini boşa harcar; ya da senin saldırı ve büyülerin ona ek 1d8 nekrotik hasar verir. Lanet Kaldırma etkiyi bitirir. DM, bu seçeneklerden güçlü olmayan başka bir lanete izin verebilir.",
+    "higherLevels": "4. derece yuvada yoğunlaşmayla en fazla 10 dakika; 5. ve 6. derecede 8 saat; 7. ve 8. derecede 24 saat; 9. derecede dağıtılana kadar sürer. 5. veya daha yüksek derece kullanım yoğunlaşma gerektirmez.",
+    "material": ""
+  },
+  {
+    "id": "black-tentacles",
+    "name": "Kara Dokunaçlar",
+    "description": "Gördüğün zeminde kenarı 20 fit olan kare alanı dokunaçlar doldurur; alan zor arazi olur. Bir yaratık turda ilk kez alana girdiğinde veya turuna orada başladığında Çeviklik kurtulma atışında başarısız olursa 3d6 ezici hasar alır ve dokunaçlarla Kısıtlanmış duruma girer. Turuna alanda zaten kısıtlanmış başlayan yaratık 3d6 ezici hasar alır. Kısıtlanan yaratık bir eylemle, senin büyü kurtulma Zorluk Derecene karşı Kuvvet veya Çeviklik kontrolü yapabilir; başarıyla kurtulur.",
+    "higherLevels": "",
+    "material": "Dev ahtapot veya dev kalamar dokunacından bir parça."
+  },
+  {
+    "id": "blade-barrier",
+    "name": "Bıçak Duvarı",
+    "description": "Büyülü enerji bıçaklarından dik bir duvar yaratırsın. Düz biçimi en fazla 100 fit uzunluk, 20 fit yükseklik ve 5 fit kalınlıktadır; halka biçimi en fazla 60 fit çap, 20 fit yükseklik ve 5 fit kalınlıktadır. Arkasındakilere dörtte üç siper sağlar; bulunduğu yer zor arazidir. Turda ilk kez duvara giren veya turuna orada başlayan yaratık Çeviklik kurtulma atışı yapar; başarısızsa 6d10 kesici hasar, başarılıysa yarısını alır.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "bless",
+    "name": "Kutsama",
+    "description": "Menzilde en fazla üç yaratığı kutsarsın. Büyü boyunca hedef yaptığı her saldırı veya kurtulma atışına 1d4 ekleyebilir.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi için bir ek yaratık seçebilirsin.",
+    "material": "Bir miktar kutsal su."
+  },
+  {
+    "id": "blight",
+    "name": "Kurutma",
+    "description": "Gördüğün yaratık Dayanıklılık kurtulma atışı yapar; başarısızsa 8d8 nekrotik hasar, başarılıysa yarısını alır. Ölüleri ve yapı yaratıkları etkilemez. Bitki yaratığı veya büyülü bitki kurtulma atışını dezavantajla yapar ve hasar azami olur. Yaratık olmayan büyüsüz bir bitki kurtulma atışı yapmadan kurur ve ölür.",
+    "higherLevels": "5. veya daha yüksek derece yuvada, 4. derecenin üzerindeki her yuva derecesi hasarı 1d8 artırır.",
+    "material": ""
+  },
+  {
+    "id": "blindness-deafness",
+    "name": "Körlük ve Sağırlık",
+    "description": "Gördüğün bir yaratık Dayanıklılık kurtulma atışı yapar. Başarısızsa seçimine göre Kör veya Sağır olur. Her turunun sonunda tekrar Dayanıklılık kurtulma atışı yapabilir; başarı büyüyü sonlandırır.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi için bir ek yaratığı hedefleyebilirsin.",
+    "material": ""
+  },
+  {
+    "id": "blink",
+    "name": "Göz Kırpımı",
+    "description": "Her turunun sonunda 1d20 at. Sonuç 11 veya üzerindeyse mevcut düzleminden kaybolup Eter Düzlem’e geçersin. Zaten oradaysan büyü boşa gider. Sonraki turun başında veya büyü oradayken biterse, kaybolduğun yerin 10 fit içindeki gördüğün boş bir yere dönersin. Boş yer yoksa en yakına; eşit uzaklıkta birkaç yer varsa rastgele seçilene dönersin. Bir eylemle büyüyü bitirebilirsin. Eter Düzlem’den başlangıç düzlemini 60 fit öteye kadar gri tonlarda görür ve duyarsın. Yalnız Eter Düzlem’dekilerle etkileşebilirsin; özel yeteneği olmayan diğer yaratıklar seni algılayamaz veya etkileyemez.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "blur",
+    "name": "Bulanıklık",
+    "description": "Bedeninin görüntüsü titreyip bulanır. Büyü boyunca sana yapılan saldırı atışları dezavantajlıdır. Görmeye ihtiyaç duymayan veya illüzyonların içini gören saldırganlar bu etkiden etkilenmez.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "branding-smite",
+    "name": "Damgalayan Darbe",
+    "description": "Büyü bitmeden önce bir yaratığa isabet ettirdiğin sonraki silah saldırısı ek 2d6 ışıma hasarı verir. Hedef görünmezse görünür olur; büyü bitene kadar 5 fit yarıçapında loş ışık yayar ve görünmez olamaz.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi ek hasarı 1d6 artırır.",
+    "material": ""
+  },
+  {
+    "id": "burning-hands",
+    "name": "Yanan Eller",
+    "description": "15 fitlik bir konideki her yaratık Çeviklik kurtulma atışı yapar; başarısızsa 3d6 ateş hasarı, başarılıysa yarısını alır. Alan içindeki taşınmayan ve giyilmeyen yanıcı nesneler tutuşur.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi hasarı 1d6 artırır.",
+    "material": ""
+  },
+  {
+    "id": "call-lightning",
+    "name": "Şimşek Çağırma",
+    "description": "Tam üstünde, 100 fit yüksekte gördüğün noktada 60 fit yarıçaplı ve 10 fit yüksek bir fırtına bulutu oluşturursun. Buluta yetecek görünür hava alanı yoksa büyü başarısız olur. Büyüyü yaparken menzilde gördüğün bir noktaya yıldırım düşür: Noktanın 5 fit içindeki her yaratık Çeviklik kurtulma atışı yapar; başarısızsa 3d10 yıldırım hasarı, başarılıysa yarısını alır. Sonraki turlarında bir eylemle aynı veya farklı bir noktaya yeniden yıldırım düşürebilirsin. Dışarıda zaten fırtına varsa mevcut fırtınayı yönetir ve hasarı 1d10 artırırsın.",
+    "higherLevels": "4. veya daha yüksek derece yuvada, 3. derecenin üzerindeki her yuva derecesi hasarı 1d10 artırır.",
+    "material": ""
+  },
+  {
+    "id": "calm-emotions",
+    "name": "Duyguları Yatıştırma",
+    "description": "Seçtiğin nokta çevresindeki 20 fit yarıçaplı kürede her insansı Karizma kurtulma atışı yapar; isterse gönüllü başarısız olur. Her başarısız hedef için birini seç: Büyülenmiş veya Korkmuş yapan etkileri bastır; büyü bitince süresi kalmış etkiler geri döner. Ya da hedefi seçtiğin düşmanlarına karşı kayıtsız yap. Hedef saldırıya veya zararlı büyüye uğrarsa ya da dostunun zarar gördüğünü görürse kayıtsızlık biter. Büyü bitince DM aksini belirlemezse eski düşmanlığı geri döner.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "chain-lightning",
+    "name": "Zincirleme Yıldırım",
+    "description": "Gördüğün bir hedefe yıldırım gönderirsin. İlk hedeften en fazla 30 fit uzaklıkta üç başka hedefe daha sıçrar. Hedefler yaratık veya nesne olabilir; her biri yalnız bir kez hedeflenir. Her hedef Çeviklik kurtulma atışı yapar; başarısızsa 10d8 yıldırım hasarı, başarılıysa yarısını alır.",
+    "higherLevels": "7. veya daha yüksek derece yuvada, 6. derecenin üzerindeki her yuva derecesi ilk hedeften bir ek hedefe sıçrayan yıldırım oluşturur.",
+    "material": "Bir parça kürk; kehribar, cam veya kristal çubuk parçası; üç gümüş iğne."
+  },
+  {
+    "id": "charm-person",
+    "name": "Kişi Büyüleme",
+    "description": "Gördüğün bir insansı Bilgelik kurtulma atışı yapar; sen veya yoldaşların onunla savaşıyorsa avantajlı yapar. Başarısızsa büyü bitene veya sen ya da yoldaşların ona zarar verene kadar senin tarafından Büyülenmiş durumdadır ve seni dostça bir tanıdık sayar. Etki bitince onu büyülediğini bilir.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi için bir ek insansı seçebilirsin. Hedefler birbirinden en fazla 30 fit uzakta olmalıdır.",
+    "material": ""
+  },
+  {
+    "id": "chill-touch",
+    "name": "Mezar Dokunuşu",
+    "description": "Menzildeki yaratığa uzak büyü saldırısı yaparsın. İsabette 1d8 nekrotik hasar alır ve sonraki turunun başlangıcına kadar can geri kazanamaz; hayalet el ona yapışır. Hedef ölü bir yaratıksa ayrıca sonraki turunun sonuna kadar sana yaptığı saldırılar dezavantajlıdır. Hasar karakter seviyen 5 olduğunda 2d8, 11 olduğunda 3d8, 17 olduğunda 4d8 olur.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "circle-of-death",
+    "name": "Ölüm Çemberi",
+    "description": "Menzildeki bir nokta çevresinde 60 fit yarıçaplı negatif enerji küresi oluşur. Alandaki her yaratık Dayanıklılık kurtulma atışı yapar; başarısızsa 8d6 nekrotik hasar, başarılıysa yarısını alır.",
+    "higherLevels": "7. veya daha yüksek derece yuvada, 6. derecenin üzerindeki her yuva derecesi hasarı 2d6 artırır.",
+    "material": "En az 500 altın değerindeki ezilmiş siyah incinin tozu."
+  },
+  {
+    "id": "clairvoyance",
+    "name": "Uzak Algı",
+    "description": "Menzilde daha önce gördüğün veya ziyaret ettiğin bir yere ya da kapı arkası, köşe veya koruluk gibi açıkça belirlenebilir bir yere görünmez bir algılayıcı yerleştirirsin. Algılayıcı sabittir; saldırılamaz veya onunla fiziksel etkileşilemez. Görme ya da duyma seçersin ve seçtiğin duyuyu oradaymış gibi kullanırsın. Bir eylemle bu ikisi arasında geçiş yapabilirsin. Görünmezliği görebilen biri algılayıcıyı yumruk büyüklüğünde, ışıklı ve maddesiz bir küre olarak görür.",
+    "higherLevels": "",
+    "material": "En az 100 altın değerinde odak: duyma için mücevherli boru, görme için cam göz."
+  },
+  {
+    "id": "clone",
+    "name": "Klon",
+    "description": "Yaşayan bir yaratığın ölümüne karşı güvence olan hareketsiz bir kopyasını kapalı bir kapta büyütürsün. Kopya 120 günde olgunlaşır; istersen aynı yaratığın daha genç biçimi olabilir. Kabı bozulmadıkça süresiz korunur. Olgunlaşmadan sonra asıl yaratık ölürse, ruhu özgür ve dönmeye gönüllüyse klona geçer. Klonun bedeni, kişiliği, anıları ve yetenekleri aynıdır; asıl yaratığın ekipmanını almaz. Asıl bedenin kalıntıları artık hayata döndürülemez; ruh başka bedendedir.",
+    "higherLevels": "",
+    "material": "Büyünün tükettiği en az 1.000 altın değerinde elmas ve hedefin en az 1 inç küp eti; ayrıca en az 2.000 altın değerinde, kapatılabilir ve Orta boy yaratık alabilen bir kap."
+  },
+  {
+    "id": "cloudkill",
+    "name": "Öldürücü Bulut",
+    "description": "Seçtiğin nokta çevresinde 20 fit yarıçaplı zehirli sis küresi oluşur. Köşeleri dolaşır ve alan yoğun biçimde görüşü kapatır. Kuvvetli rüzgâr sisi dağıtıp büyüyü bitirir. Turda ilk kez alana giren veya turuna orada başlayan yaratık Dayanıklılık kurtulma atışı yapar; başarısızsa 5d8 zehir hasarı, başarılıysa yarısını alır. Nefes tutmak veya nefese ihtiyaç duymamak korumaz. Her turunun başında bulut senden 10 fit uzaklaşır; zeminde yuvarlanır, alçak yerlere ve açıklıklardan aşağı çöker.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi hasarı 1d8 artırır.",
+    "material": ""
+  },
+  {
+    "id": "color-spray",
+    "name": "Renk Püskürtme",
+    "description": "6d10 at; toplam, etkileyebileceğin can havuzudur. Senden başlayan 15 fitlik konideki yaratıkları mevcut canı en düşükten yükseğe sırala; bilinçsizleri ve göremeyenleri atla. Kalan toplamdan canı büyük olmayan her hedef büyü bitene kadar Kör olur. Hedefin mevcut canını havuzdan çıkarıp sıradakine geç; kalan havuz bir yaratığın canına yetmiyorsa o yaratık etkilenmez.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi için 2d10 ek at.",
+    "material": "Kırmızı, sarı ve mavi renklerde bir tutam kum veya toz."
+  },
+  {
+    "id": "command",
+    "name": "Buyruk",
+    "description": "Gördüğün yaratığa tek sözcüklük bir emir ver. Bilgelik kurtulma atışında başarısızsa sonraki turunda emri uygular. Ölüler, dilini anlamayanlar ve kendisine doğrudan zarar veren emirler etkilenmez. Uygulanamayan emir büyüyü bitirir; başka emirleri DM yorumlar.\nYaklaş: En kısa yoldan sana gelir; 5 fit yakınına gelince turu biter. Bırak: Tuttuklarını düşürüp turunu bitirir. Kaç: Turunu mümkün olan en hızlı biçimde uzaklaşmaya harcar. Yere yat: Yere Kapaklanıp turunu bitirir. Dur: Hareket ve eylem yapmaz; uçuyorsa havada kalmak için gereken asgari hareketi yapabilir.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi bir ek yaratık sağlar. Hedefler birbirinden en fazla 30 fit uzakta olmalıdır.",
+    "material": ""
+  },
+  {
+    "id": "commune",
+    "name": "İlahla Görüşme",
+    "description": "İlahına veya ilahi temsilcisine, büyü bitmeden evet/hayırla yanıtlanabilecek en fazla üç soru sorarsın. Yanıtlar doğrudur; varlığın bilmediği bilgi için belirsiz yanıtı gelebilir. Tek sözcük yanıltıcı olacaksa veya ilahın çıkarlarına aykırıysa DM kısa bir ifade verebilir. Sonraki uzun dinlenmene kadar ilkten sonraki her kullanımda yanıt alamama olasılığı birikimli %25 artar; zarı DM gizli atar.",
+    "higherLevels": "",
+    "material": "Tütsü ve bir şişe kutsal veya lanetli su."
+  },
+  {
+    "id": "commune-with-nature",
+    "name": "Doğayla Görüşme",
+    "description": "Çevredeki doğayla birleşip açık havada 3 mil, doğal mağara ve yeraltında 300 fit yarıçaplı alan hakkında bilgi edinirsin. Doğanın yerini yapıların aldığı kent ve zindanlarda çalışmaz. Şu konulardan seçtiğin en fazla üç gerçeği anında öğrenirsin: arazi ve sular; yaygın bitki, mineral, hayvan veya halklar; güçlü göksel, peri, iblis, element veya ölü yaratıklar; başka düzlemlerin etkisi; yapılar. Örneğin büyük içme suyu kaynaklarının veya güçlü ölülerin yerini sorabilirsin.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "comprehend-languages",
+    "name": "Dilleri Kavrama",
+    "description": "Duyduğun bütün konuşmaların kelimesi kelimesine anlamını kavrarsın. Dokunduğun yüzeyde gördüğün yazıları da anlarsın; bir sayfayı okumak yaklaşık 1 dakika sürer. Büyü sana bu dilleri konuşma yeteneği vermez; metindeki gizli mesajları veya yazı dilinin parçası olmayan büyülü simgeleri çözmez.",
+    "higherLevels": "",
+    "material": "Bir tutam is ve tuz."
+  },
+  {
+    "id": "compulsion",
+    "name": "Zorlama",
+    "description": "Seni duyabilen ve gördüğün seçili yaratıklar Bilgelik kurtulma atışı yapar; Büyülenmiş durumuna bağışık olanlar otomatik başarılı olur. Başarısız hedefler için her tur bonus eylemle yatay bir yön belirtirsin. Sonraki turlarında hareketlerinin mümkün olan en büyük kısmını o yöne gitmek için kullanırlar; önce istedikleri eylemi yapabilirler. Bu hareketten sonra Bilgelik kurtulma atışıyla etkiyi bitirmeyi deneyebilirler. Açıkça ölümcül ateş veya çukura girmezler, ancak yönü izlemek fırsat saldırılarına neden olabilir.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "cone-of-cold",
+    "name": "Soğuk Konisi",
+    "description": "60 fitlik konideki her yaratık Dayanıklılık kurtulma atışı yapar; başarısızsa 8d8 soğuk hasarı, başarılıysa yarısını alır. Bu büyüyle ölen yaratık çözülene kadar donmuş bir heykele dönüşür.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi hasarı 1d8 artırır.",
+    "material": "Küçük kristal veya cam koni."
+  },
+  {
+    "id": "confusion",
+    "name": "Zihin Karmaşası",
+    "description": "Seçtiğin nokta çevresindeki 10 fit yarıçaplı küredeki her yaratık Bilgelik kurtulma atışında başarısız olursa etkilenir. Tepki kullanamaz; her turunun başında davranışı için 1d10 atar. 1: 1d8 ile rastgele yön belirleyip tüm hareketiyle gider, eylem yapmaz. 2–6: Hareket ve eylem yapmaz. 7–8: Erişimindeki rastgele bir yaratığa eylemiyle bir yakın saldırı yapar; hedef yoksa hiçbir şey yapmaz. 9–10: Normal hareket ve eylem yapabilir. Her turunun sonunda Bilgelik kurtulma atışında başarılı olursa kendisi için etki biter.",
+    "higherLevels": "5. veya daha yüksek derece yuvada, 4. derecenin üzerindeki her yuva derecesi kürenin yarıçapını 5 fit artırır.",
+    "material": "Üç ceviz kabuğu."
+  },
+  {
+    "id": "conjure-animals",
+    "name": "Hayvan Çağırma",
+    "description": "Gördüğün boş yerlerde hayvan biçiminde peri ruhları çağırırsın. Şunlardan birini seç: Meydan Okuma Derecesi en fazla 2 olan bir; 1 olan iki; 1/2 olan dört; veya 1/4 olan sekiz hayvan. Hepsi ayrıca peri sayılır ve 0 cana inince ya da büyü bitince kaybolur. Sana ve yoldaşlarına dostturlar. Grup olarak kendi inisiyatifleri ve turları vardır; eylem harcamadan verdiğin sözlü emirlere uyarlar. Emir yoksa yalnız kendilerini savunurlar. Yaratıkların oyun değerleri DM’dedir.",
+    "higherLevels": "5. derece yuvada seçtiğin sayı iki katına, 7. derecede üç katına, 9. derecede dört katına çıkar.",
+    "material": ""
+  },
+  {
+    "id": "conjure-celestial",
+    "name": "Göksel Çağırma",
+    "description": "Gördüğün boş yerde Meydan Okuma Derecesi en fazla 4 olan bir göksel yaratırsın. 0 cana inince veya büyü bitince kaybolur. Sana ve yoldaşlarına dosttur; kendi inisiyatifi ve turu vardır. Ahlakına aykırı olmayan sözlü emirlerine uyar; emir vermek eylem gerektirmez. Emir yoksa yalnız kendini savunur. Oyun değerleri DM’dedir.",
+    "higherLevels": "9. derece yuvayla Meydan Okuma Derecesi en fazla 5 olan bir göksel çağırabilirsin.",
+    "material": ""
+  },
+  {
+    "id": "conjure-elemental",
+    "name": "Element Varlığı Çağırma",
+    "description": "Menzilde kenarı 10 fit olan küpü dolduran hava, toprak, ateş veya su alanı seç. Bu elemana uygun, Meydan Okuma Derecesi en fazla 5 olan bir element varlığı alanın 10 fit içindeki boş bir yerde belirir. 0 cana inince veya büyü bitince kaybolur. Dosttur, kendi inisiyatifi ve turu vardır; eylem harcamadan verdiğin sözlü emirlerine uyar. Emir yoksa kendini savunur. Yoğunlaşman bozulursa kaybolmaz: Denetimini kaybeder, sana ve yoldaşlarına düşman olur ve saldırabilir. Denetimsiz varlığı gönderemezsin; çağrılmasından 1 saat sonra kaybolur. Oyun değerleri DM’dedir.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi azami Meydan Okuma Derecesini 1 artırır.",
+    "material": "Hava için yanan tütsü; toprak için yumuşak kil; ateş için kükürt ve fosfor; su için su ve kum."
+  },
+  {
+    "id": "conjure-fey",
+    "name": "Peri Çağırma",
+    "description": "Gördüğün boş bir yerde Meydan Okuma Derecesi en fazla 6 olan bir peri veya bu derecede hayvan biçimi alan peri ruhu çağırırsın. 0 cana inince ya da büyü bitince kaybolur. Sana ve yoldaşlarına dosttur; kendi inisiyatifi ve turu vardır. Ahlakına aykırı olmayan sözlü emirlerine uyar; emirler eylem gerektirmez. Emir yoksa kendini savunur. Yoğunlaşman bozulursa kaybolmaz; denetiminden çıkıp sana ve yoldaşlarına düşman olur, saldırabilir. Onu gönderemezsin; çağrılmasından 1 saat sonra kaybolur. Oyun değerleri DM’dedir.",
+    "higherLevels": "7. veya daha yüksek derece yuvada, 6. derecenin üzerindeki her yuva derecesi azami Meydan Okuma Derecesini 1 artırır.",
+    "material": ""
+  },
+  {
+    "id": "conjure-minor-elementals",
+    "name": "Küçük Element Varlıkları Çağırma",
+    "description": "Gördüğün boş yerlerde element varlıkları çağırırsın. Şunlardan birini seç: Meydan Okuma Derecesi en fazla 2 olan bir; 1 olan iki; 1/2 olan dört; veya 1/4 olan sekiz varlık. 0 cana inince veya büyü bitince kaybolurlar. Sana ve yoldaşlarına dostturlar; grup olarak kendi inisiyatifleri ve turları vardır. Eylem harcamadan verdiğin sözlü emirlere uyarlar; emir yoksa yalnız kendilerini savunurlar. Değerleri DM’dedir.",
+    "higherLevels": "6. derece yuvada seçtiğin sayı iki katına, 8. derecede üç katına çıkar.",
+    "material": ""
+  },
+  {
+    "id": "conjure-woodland-beings",
+    "name": "Orman Varlıkları Çağırma",
+    "description": "Gördüğün boş yerlerde peri yaratıkları çağırırsın. Şunlardan birini seç: Meydan Okuma Derecesi en fazla 2 olan bir; 1 olan iki; 1/2 olan dört; veya 1/4 olan sekiz peri. 0 cana inince ya da büyü bitince kaybolurlar. Sana ve yoldaşlarına dostturlar; grup olarak kendi inisiyatif ve turlarını kullanırlar. Eylem harcamadan verdiğin sözlü emirlere uyarlar; emir yoksa yalnız kendilerini savunurlar. Değerleri DM’dedir.",
+    "higherLevels": "6. derece yuvada seçtiğin sayı iki katına, 8. derecede üç katına çıkar.",
+    "material": "Çağrılan her yaratık için bir çobanpüskülü meyvesi."
+  },
+  {
+    "id": "contact-other-plane",
+    "name": "Öte Düzlemle Bağlantı",
+    "description": "Başka düzlemden bir varlıkla zihinsel bağ kurarsın. Zorluk Derecesi 15 olan Zekâ kurtulma atışı yap: Başarısızsan 6d6 ruhsal hasar alır, uzun dinlenmeni bitirene kadar aklını yitirirsin. Bu sürede eylem yapamaz, başkalarının sözlerini anlayamaz, okuyamaz ve yalnız anlamsız seslerle konuşursun. Güçlü İyileştirme bu etkiyi bitirir. Başarılıysan süre dolmadan en fazla beş soru sorabilirsin. DM her birine evet, hayır, belki, asla, ilgisiz veya belirsiz gibi tek sözcükle doğru yanıt verir; tek sözcük yanıltıcıysa kısa ifade kullanabilir.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "contagion",
+    "name": "Bulaşıcı Hastalık",
+    "description": "Erişimindeki yaratığa yakın büyü saldırısı yap. İsabette hedef Zehirlenmiş olur. Her turunun sonunda Dayanıklılık kurtulma atışı yapar. Üç kez başarılı olursa zehirlenme ve büyü biter; üç kez başarısız olursa zehirlenme biter ve şu hastalıklardan seçtiğin biri büyünün kalan süresince sürer. Bu doğal bir hastalıktır; hastalığı gideren veya hafifleten etkiler işler.\nKör eden hastalık: Körlük; Bilgelik kontrolleri ve kurtulma atışlarında dezavantaj. Pislik humması: Kuvvet kontrolleri, kurtulma atışları ve Kuvvet kullanan saldırılarda dezavantaj. Et çürümesi: Karizma kontrollerinde dezavantaj ve tüm hasara kırılganlık. Zihin ateşi: Zekâ kontrolleri ve kurtulma atışlarında dezavantaj; savaşta Zihin Karmaşası etkisindeki gibi davranır. Nöbet: Çeviklik kontrolleri, kurtulma atışları ve Çeviklik kullanan saldırılarda dezavantaj. Sümüksü son: Dayanıklılık kontrolleri ve kurtulma atışlarında dezavantaj; her hasar aldığında sonraki turunun sonuna kadar Sersemlemiş olur.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "contingency",
+    "name": "Koşullu Büyü",
+    "description": "Yapabildiğin, en fazla 5. derece olan, yapımı bir eylem süren ve seni hedefleyebilen bir büyü seç. Koşullu Büyü’nün parçası olarak onu da yapar, iki büyünün de yuvalarını harcarsın; seçilen büyü henüz etkinleşmez. İkisini yaparken belirttiğin koşul ilk kez gerçekleştiğinde, istesen de istemesen de seçilen büyü hemen yalnız sana uygulanır ve Koşullu Büyü biter. Seçilen büyü normalde başkalarını etkileyebilse bile yalnız seni etkiler. Aynı anda yalnız bir Koşullu Büyü taşıyabilirsin; yeniden yaparsan eskisi biter. Malzeme heykelciği üzerinde taşımayı bırakırsan büyü de biter.",
+    "higherLevels": "",
+    "material": "En az 1.500 altın değerinde, mücevherlerle süslü fildişinden kendi heykelciğin."
+  },
+  {
+    "id": "continual-flame",
+    "name": "Sönmez Alev",
+    "description": "Dokunduğun nesneden meşale parlaklığında büyülü bir alev çıkar. Normal alev gibi görünür ama ısı ve oksijen tüketimi yaratmaz. Üzeri örtülebilir veya gizlenebilir; boğularak ya da suyla söndürülemez.",
+    "higherLevels": "",
+    "material": "Büyünün tükettiği, 50 altın değerinde yakut tozu."
+  },
+  {
+    "id": "control-water",
+    "name": "Suyu Yönetme",
+    "description": "Kenarı en fazla 100 fit olan küp biçimindeki alanda açık suyu yönetirsin. Büyüyü yaparken ve sonraki turlarında bir eylemle bir etki seçebilir veya tekrarlayabilirsin.\nTaşkın: Durgun suyu 20 fit yükseltir; kıyıya taşırırsın. Büyük bir su kütlesinde bunun yerine alanın bir yanından diğerine giden 20 fitlik dalga oluşur. Dalga Kocaman veya küçük araçları öte yana taşır; çarptığı bu boydaki araçların devrilme olasılığı %25’tir. Taşkın seçiliyken dalga sonraki tur başında tekrarlar.\nAyırma: Suyu iki yana ayırıp alan boyunca hendek açarsın. Etkiyi değiştirince veya büyü bitince su bir tur içinde normal seviyesine döner.\nAkışı çevirme: Akan suyu engellerin ve duvarların üzerinden bile seçtiğin yöne yönlendirirsin; alan dışına çıkan su doğal akışına döner.\nGirdap: En az 50 fit kare ve 25 fit derin su gerekir. Ortada tabanı 5 fit, üstü en fazla 50 fit genişlikte, 25 fit yüksek girdap oluşur. Sudaki ve girdabın 25 fit yakınındaki yaratık ve nesneler ona doğru 10 fit çekilir. Yaratık büyü kurtulma Zorluk Derecene karşı Kuvvet (Atletizm) kontrolüyle yüzerek uzaklaşabilir. Turda ilk kez girdaba giren veya turuna orada başlayan yaratık Kuvvet kurtulma atışı yapar; başarısızsa 2d8 ezici hasar alıp yakalanır, başarılıysa hasarın yarısını alır ve yakalanmaz. Yakalanan, eylemle aynı Atletizm kontrolünü dezavantajlı yaparak kaçabilir. Girdaba giren nesneler her tur ilk girişte ve içeride kaldıkları her turda 2d8 ezici hasar alır.",
+    "higherLevels": "",
+    "material": "Bir damla su ve bir tutam toz."
+  },
+  {
+    "id": "control-weather",
+    "name": "Havayı Yönetme",
+    "description": "Açık havadayken çevrendeki 5 mil içindeki havayı yönetirsin. Gökyüzüne açık erişimi olmayan yere geçersen büyü erken biter. DM’nin belirlediği mevcut koşulları aşağıdaki sıralarda her değişiklikte yalnız bir basamak yükseltir veya düşürürsün. Yeni koşulun oluşması 1d4 × 10 dakika sürer; oluştuktan sonra yeniden değiştirebilirsin. Büyü bitince hava yavaşça normale döner.\nYağış: 1 açık; 2 hafif bulut; 3 kapalı veya yer sisi; 4 yağmur, dolu veya kar; 5 sağanak, şiddetli dolu veya tipi.\nSıcaklık: 1 dayanılmaz sıcak; 2 sıcak; 3 ılık; 4 serin; 5 soğuk; 6 kutup soğuğu.\nRüzgâr: 1 durgun; 2 orta; 3 kuvvetli; 4 fırtınamsı; 5 fırtına. Rüzgârın yönünü de değiştirebilirsin.",
+    "higherLevels": "",
+    "material": "Yanan tütsü ve suya karıştırılmış toprak ile odun parçaları."
+  },
+  {
+    "id": "counterspell",
+    "name": "Karşı Büyü",
+    "description": "Menzilde gördüğün bir yaratık büyü yaparken tepkiyle sözünü kesmeyi denersin. Yaptığı büyü en fazla 3. dereceyse etkisiz biçimde başarısız olur. 4. veya daha yüksek dereceyse kendi büyü yapma niteliğinle, Zorluk Derecesi 10 + karşı büyünün derecesi olan bir nitelik kontrolü yaparsın. Başarıda karşı büyü başarısız olur ve etkisiz kalır.",
+    "higherLevels": "4. veya daha yüksek derece yuvayla, karşı büyünün derecesi kullandığın yuva derecesine eşit veya düşükse kontrol gerekmeden engellersin.",
+    "material": ""
+  },
+  {
+    "id": "create-food-and-water",
+    "name": "Yiyecek ve Su Yaratma",
+    "description": "Menzilde zeminde veya kaplarda 45 libre yiyecek ve 30 galon su yaratırsın. On beş insansıyı veya beş binek hayvanını 24 saat beslemeye yeter. Yiyecek tatsız ama besleyicidir; 24 saat sonra yenmediyse bozulur. Su temizdir ve bozulmaz.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "create-undead",
+    "name": "Ölü Yaratma",
+    "description": "Yalnız gece yapılır. Küçük veya Orta boy en fazla üç insansı cesedi seç; her biri denetiminde bir gulyabaniye dönüşür. Değerleri DM’dedir. Her tur bir bonus eylemle 120 fit içindeki bu büyüyle yarattığın ölülerin birine veya hepsine aynı zihinsel emri verebilirsin; gelecek eylem ve hareketi veya genel görev belirlenir. Emir yoksa kendilerini savunurlar; verilen görev bitene kadar sürer. Denetim 24 saat sürer. Süre dolmadan büyüyü tekrar yaparak yeni ölüler yerine daha önce yarattığın en fazla üç ölü üzerindeki denetimi 24 saat uzatabilirsin.",
+    "higherLevels": "7. derece yuvada dört gulyabani; 8. derecede beş gulyabani veya iki kokuşmuş gulyabani ya da ölüm muhafızı; 9. derecede altı gulyabani, üç kokuşmuş gulyabani ya da ölüm muhafızı veya iki mumya yaratabilir ya da denetleyebilirsin.",
+    "material": "Mezar toprağı dolu bir kil kap, acı su dolu bir kil kap ve her ceset için 150 altın değerinde siyah oniks."
+  },
+  {
+    "id": "create-or-destroy-water",
+    "name": "Su Yaratma veya Yok Etme",
+    "description": "Yaratma: Menzilde açık bir kapta en fazla 10 galon temiz su yaratırsın veya kenarı 30 fit olan küpte yağmur yağdırırsın. Yok etme: Açık bir kaptan en fazla 10 galon suyu yok eder veya kenarı 30 fit olan küpteki sisi dağıtırsın.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi su miktarını 10 galon veya küpün kenarını 5 fit artırır.",
+    "material": "Su yaratmak için bir damla su; yok etmek için birkaç kum tanesi."
+  },
+  {
+    "id": "creation",
+    "name": "Yaratım",
+    "description": "Gölge maddesinden cansız bir nesne oluşturursun: kumaş, ip, ahşap gibi bitkisel madde veya taş, kristal ve metal gibi mineral olabilir. Kenarı 5 fit olan küpten büyük olamaz; biçimini ve maddesini daha önce görmüş olmalısın. Süre, malzemeye bağlıdır; karışımda en kısa süreyi kullan. Bitkisel madde 1 gün; taş veya kristal 12 saat; değerli metaller 1 saat; mücevherler 10 dakika; adamantin veya mitral 1 dakika kalır. Bu maddeleri başka büyünün malzemesi yaparsan o büyü başarısız olur.",
+    "higherLevels": "6. veya daha yüksek derece yuvada, 5. derecenin üzerindeki her yuva derecesi küpün kenarını 5 fit artırır.",
+    "material": "Yaratmak istediğin nesneyle aynı türden küçük bir madde parçası."
+  },
+  {
+    "id": "cure-wounds",
+    "name": "Yaraları İyileştirme",
+    "description": "Dokunduğun yaratık 1d8 + büyü yapma niteliği değiştiricin kadar can geri kazanır. Ölülerde ve yapı yaratıklarda etkisizdir.",
+    "higherLevels": "2. veya daha yüksek derece yuvada, 1. derecenin üzerindeki her yuva derecesi iyileştirmeyi 1d8 artırır.",
+    "material": ""
+  },
+  {
+    "id": "dancing-lights",
+    "name": "Dans Eden Işıklar",
+    "description": "Menzilde meşale, fener veya parlayan küre biçiminde en fazla dört ışık oluşturursun. Dördünü Orta boy, belirsiz insansı bir ışık biçimine de birleştirebilirsin. Her ışık 10 fit yarıçapında loş ışık yayar. Bir bonus eylemle ışıkları menzil içinde en fazla 60 fit hareket ettirebilirsin. Her ışık diğerlerinden birinin 20 fit yakınında kalmalıdır; büyünün menzilini aşan ışık söner.",
+    "higherLevels": "",
+    "material": "Bir parça fosfor veya cadıağacı ya da ateş böceği."
+  },
+  {
+    "id": "darkness",
+    "name": "Karanlık",
+    "description": "Seçtiğin noktadan 15 fit yarıçaplı büyülü karanlık küresi yayılır; köşeleri dolaşır. Karanlıkgörüş bu karanlığı göremez ve büyüsüz ışık onu aydınlatamaz. Elinde tuttuğun veya kimsenin giymediği ya da taşımadığı bir nesneyi merkez yaparsan karanlık onunla hareket eder. Kaynağı ışık geçirmeyen bir nesneyle tamamen örtmek karanlığı engeller. Alan, 2. veya düşük derece bir büyünün ışığıyla örtüşürse ışık büyüsü dağıtılır.",
+    "higherLevels": "",
+    "material": "Yarasa kürkü ve bir damla zift veya bir kömür parçası."
+  },
+  {
+    "id": "darkvision",
+    "name": "Karanlıkgörüş",
+    "description": "Gönüllü bir yaratığa dokunursun. Büyü boyunca 60 fit menzilli karanlıkgörüş kazanır.",
+    "higherLevels": "",
+    "material": "Bir tutam kurutulmuş havuç veya akik."
+  },
+  {
+    "id": "daylight",
+    "name": "Günışığı",
+    "description": "Seçtiğin noktadan 60 fit yarıçaplı parlak ışık yayılır; bunun ötesinde 60 fit daha loş ışık vardır. Nokta elinde tuttuğun veya kimsenin giymediği ya da taşımadığı nesneyse ışık onunla hareket eder. Nesneyi ışık geçirmeyen bir şeyle tamamen örtmek ışığı engeller. Alan 3. veya düşük derece büyülü karanlıkla örtüşürse karanlığı yaratan büyü dağıtılır. Bu büyünün adı, ışığının kendiliğinden gerçek güneş ışığı sayıldığı anlamına gelmez.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "death-ward",
+    "name": "Ölüme Karşı Koruma",
+    "description": "Dokunduğun yaratık, büyü sürerken hasar yüzünden ilk kez 0 cana düşeceği zaman bunun yerine 1 canda kalır ve büyü biter. Büyü sürerken hasar vermeden anında öldüren bir etkiye maruz kalırsa, etki o hedef için geçersiz kılınır ve büyü biter.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "delayed-blast-fireball",
+    "name": "Gecikmeli Ateş Topu",
+    "description": "Seçtiğin noktada ışıklı bir boncuk belirir. Yoğunlaşma bozulunca veya büyüyü bitirince patlar; köşeleri dolaşan ateş 20 fit yarıçaplı küredeki yaratıkları etkiler. Her biri Çeviklik kurtulma atışı yapar; başarısızsa biriken hasarı, başarılıysa yarısını ateş hasarı olarak alır. Başlangıç hasarı 12d6’dır; patlamadan bitirdiğin her turunun sonunda 1d6 artar. Boncuğa dokunan yaratık Çeviklik kurtulma atışı yapar; başarısızsa anında patlar. Başarılıysa boncuğu 40 fit fırlatabilir; bir yaratığa veya katı nesneye çarpınca patlar. Ateş nesnelere zarar verir ve taşınmayan, giyilmeyen yanıcı nesneleri tutuşturur.",
+    "higherLevels": "8. veya daha yüksek derece yuvada, 7. derecenin üzerindeki her yuva derecesi başlangıç hasarını 1d6 artırır.",
+    "material": "Küçük bir yarasa gübresi ve kükürt topağı."
+  },
+  {
+    "id": "demiplane",
+    "name": "Cep Düzlem",
+    "description": "Gördüğün düz ve katı yüzeyde, Orta boy yaratıkların rahatça geçebileceği gölgeli bir kapı oluşturursun. Açıldığında her boyutu 30 fit olan boş, ahşap veya taş bir oda biçimindeki cep düzleme açılır. Büyü bitince iki yandaki kapı da kaybolur; içerideki yaratık ve nesneler içeride kalır. Her kullanımda yeni bir cep düzlem yaratabilir veya önceki yarattıklarından birine bağlanabilirsin. Başka birinin bu büyüyle yarattığı cep düzlemin niteliğini ve içindekileri biliyorsan ona da bağlanabilirsin.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "detect-evil-and-good",
+    "name": "İyiyi ve Kötüyü Sezme",
+    "description": "30 fit içinde sapkın, göksel, element, peri, iblis veya ölü yaratık bulunup bulunmadığını ve yerlerini anlarsın. Aynı mesafedeki büyüyle kutsanmış veya kirletilmiş yer ve nesneleri de sezersin. Bu, sıradan bir kişinin ahlakını okuyan büyü değildir. Çoğu engeli aşar; 1 fit taş, 1 inç sıradan metal, ince kurşun levha veya 3 fit ahşap ya da toprak onu engeller.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "detect-magic",
+    "name": "Büyüyü Sezme",
+    "description": "30 fit içindeki büyünün varlığını hissedersin. Hissedersen bir eylemle alandaki görebildiğin büyülü yaratık veya nesnelerin çevresindeki zayıf haleyi görebilir ve varsa büyü okulunu öğrenebilirsin. Çoğu engeli aşar; 1 fit taş, 1 inç sıradan metal, ince kurşun levha veya 3 fit ahşap ya da toprak onu engeller.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "detect-poison-and-disease",
+    "name": "Zehir ve Hastalık Sezme",
+    "description": "30 fit içindeki zehirlerin, zehirli yaratıkların ve hastalıkların varlığını, yerini ve türünü algılarsın. Çoğu engeli aşar; 1 fit taş, 1 inç sıradan metal, ince kurşun levha veya 3 fit ahşap ya da toprak onu engeller.",
+    "higherLevels": "",
+    "material": "Bir porsuk ağacı yaprağı."
+  },
+  {
+    "id": "detect-thoughts",
+    "name": "Düşünceleri Sezme",
+    "description": "Büyüyü yaptığında ve sonraki turlarında bir eylemle 30 fit içinde gördüğün bir yaratığın zihnine odaklanabilirsin. Zekâsı 3 veya düşük olanlar ve hiçbir dil konuşmayanlar etkilenmez. Önce en baskın yüzey düşüncelerini öğrenirsin. Bir eylemle başka zihne geçebilir veya daha derine bakabilirsin. Derine bakınca hedef Bilgelik kurtulma atışı yapar; başarı büyüyü bitirir. Başarısızsa akıl yürütmesini, duygularını ve zihnindeki önemli bir kaygı, sevgi veya nefreti öğrenirsin. Sonuç ne olursa olsun hedef zihnini kurcaladığını anlar; başka zihne geçmezsen bir eylemle senin Zekâ kontrolüne karşı kendi Zekâ kontrolünü yapabilir. Başarısı büyüyü bitirir. Sorduğun sorular doğal olarak düşüncelerini şekillendirir.\nBüyüyü yaparken veya bir eylemle 30 fit içinde göremediğin düşünen yaratıkları da arayabilirsin. İki fit taş, 2 inç kurşun dışı metal veya ince kurşun levha bu aramayı engeller. Zekâsı 3 veya düşük olanları ve dil konuşmayanları bulamazsın. Bulduğun zihni göremesen de menzil içinde kaldıkça aynı şekilde okuyabilirsin.",
+    "higherLevels": "",
+    "material": "Bir bakır sikke."
+  },
+  {
+    "id": "dimension-door",
+    "name": "Boyut Kapısı",
+    "description": "Menzil içinde tam seçtiğin bir noktaya ışınlanırsın. Yeri görebilir, zihninde canlandırabilir veya yön ve mesafeyle tarif edebilirsin. Taşıma kapasiteni aşmayan eşyalarını götürürsün. 5 fit yakınında, senin boyutunda veya daha küçük bir gönüllü yaratığı da kendi taşıma kapasitesini aşmayan eşyalarıyla götürebilirsin. Varış yeri bir yaratık veya nesneyle doluysa ışınlanma başarısız olur; sen ve götürdüğün yaratık ayrı ayrı 4d6 kuvvet hasarı alırsınız.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "disguise-self",
+    "name": "Kendini Gizleme",
+    "description": "Kendinin, giysilerinin, zırhının, silahlarının ve üzerindeki eşyaların görünüşünü değiştirirsin. En fazla 1 fit kısa veya uzun, daha ince ya da şişman görünebilirsin. Temel beden düzenin ve uzuv yerleşimin değişmez. Bir eylemle büyüyü bitirebilirsin. İllüzyon dokunmayla gerçek bedenini veya boşluğu gizleyemez; eklediğin sahte şapkadan nesneler geçer. Bir yaratık eylemiyle seni inceleyip büyü kurtulma Zorluk Derecene karşı Zekâ (Araştırma) kontrolünde başarılı olursa kılık değiştirdiğini anlar.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "disintegrate",
+    "name": "Parçacıklara Ayırma",
+    "description": "Gördüğün bir yaratığa, nesneye veya büyülü kuvvetten yapılmış oluşuma ince bir ışın gönderirsin. Yaratık Çeviklik kurtulma atışında başarısızsa 10d6 + 40 kuvvet hasarı alır; başarılıysa bu hasarı almaz. Hasarın ardından hedef 0 canda kalırsa, büyülü nesneleri dışında giydiği ve taşıdığı her şeyle birlikte gri toza dönüşür. Yalnız Kusursuz Diriltme veya Dilek ile hayata döndürülebilir. Büyüsüz Büyük veya daha küçük nesne ya da kuvvet oluşumu otomatik parçalanır; Kocaman veya daha büyüğünün kenarı 10 fit olan küp bölümü parçalanır. Büyülü nesneler etkilenmez.",
+    "higherLevels": "7. veya daha yüksek derece yuvada, 6. derecenin üzerindeki her yuva derecesi hasarı 3d6 artırır.",
+    "material": "Mıknatıs taşı ve bir tutam toz."
+  },
+  {
+    "id": "dispel-evil-and-good",
+    "name": "İyiyi ve Kötüyü Dağıtma",
+    "description": "Büyü boyunca göksel, element, peri, iblis ve ölü yaratıkların sana yaptığı saldırılar dezavantajlıdır. Şu özel işlevlerden biriyle büyüyü erken bitirebilirsin:\nEtki kırma: Bir eylemle dokunduğun yaratığın bu tür bir varlık tarafından Büyülenmiş, Korkmuş veya ele geçirilmiş olmasını sona erdirirsin.\nGönderme: Bir eylemle erişimindeki bu tür bir varlığa yakın büyü saldırısı yap. İsabette Karizma kurtulma atışında başarısızsa ve zaten ana düzleminde değilse oraya gönderilir. Kendi düzlemi dışında olan ölüler Gölge Düzlem’e, periler Peri Düzlem’e gönderilir.",
+    "higherLevels": "",
+    "material": "Kutsal su veya gümüş ve demir tozu."
+  },
+  {
+    "id": "dispel-magic",
+    "name": "Büyü Dağıtma",
+    "description": "Menzilde bir yaratık, nesne veya büyülü etki seç. Hedef üzerindeki 3. veya düşük derece büyüler biter. Hedefteki 4. ve yüksek derece her büyü için, büyü yapma niteliğinle Zorluk Derecesi 10 + o büyünün derecesi olan ayrı bir nitelik kontrolü yaparsın. Başarıda o büyü biter. Bu büyü, büyü olmayan her büyülü özelliği kendiliğinden ortadan kaldırmaz.",
+    "higherLevels": "4. veya daha yüksek derece yuvada, kullandığın yuva derecesine eşit veya düşük dereceli büyüler otomatik biter.",
+    "material": ""
+  },
+  {
+    "id": "divination",
+    "name": "Kehanet",
+    "description": "Bir ilaha veya hizmetkârlarına, önümüzdeki yedi gün içinde gerçekleşecek belirli bir amaç, olay veya eylem hakkında tek soru sorarsın. DM doğru bir yanıt verir; bu kısa ifade, bilmece veya işaret olabilir. Büyü, sonradan yapılan büyüler ya da yoldaş kaybı gibi sonucu değiştirecek olasılıkları hesaba katmaz. Sonraki uzun dinlenmene kadar ilkten sonraki her kullanımda rastgele bir işaret alma olasılığı birikimli %25 artar; zarı DM gizli atar.",
+    "higherLevels": "",
+    "material": "Toplam en az 25 altın değerinde, büyünün tükettiği tütsü ve inancına uygun adak."
+  },
+  {
+    "id": "divine-favor",
+    "name": "İlahi Lütuf",
+    "description": "Büyü boyunca silah saldırıların isabette ek 1d4 ışıma hasarı verir.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "divine-word",
+    "name": "İlahi Söz",
+    "description": "Menzilde gördüğün istediğin sayıda yaratık seç. Seni duyabilenler Karizma kurtulma atışı yapar. Başarısız yaratığa mevcut canına göre şu etki uygulanır: En fazla 50 can, 1 dakika Sağır; en fazla 40 can, 10 dakika Sağır ve Kör; en fazla 30 can, 1 saat Kör, Sağır ve Sersemlemiş; en fazla 20 can, anında ölüm. Canı ne olursa olsun kurtulma atışında başarısız olan göksel, element, peri veya iblis, zaten orada değilse ana düzlemine gönderilir; Dilek dışındaki hiçbir yolla 24 saat boyunca bulunduğun düzleme dönemez.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "dominate-beast",
+    "name": "Hayvana Hükmetme",
+    "description": "Gördüğün bir hayvan Bilgelik kurtulma atışında başarısız olursa büyü boyunca senin tarafından Büyülenmiş olur. Sen veya dostların onunla savaşıyorsa ilk kurtulma atışında avantajlıdır. Aynı varoluş düzleminde kaldıkça telepatik bağınız vardır; bilincin açıkken eylem harcamadan genel emirler verebilirsin. Görevi bitirip başka emir almazsa kendini korur. Bir eylemle sonraki turunun sonuna kadar davranışının tam denetimini alabilir, yalnız izin verdiğin hareket ve eylemleri yaptırabilirsin. Tepki kullandırmak senin de tepkini harcar. Her hasar aldığında yeniden Bilgelik kurtulma atışı yapar; başarılıysa büyü biter.",
+    "higherLevels": "5. derece yuvada yoğunlaşmayla en fazla 10 dakika; 6. derecede en fazla 1 saat; 7. veya daha yüksek derecede en fazla 8 saat sürer.",
+    "material": ""
+  },
+  {
+    "id": "dominate-monster",
+    "name": "Yaratığa Hükmetme",
+    "description": "Gördüğün bir yaratık Bilgelik kurtulma atışında başarısız olursa büyü boyunca senin tarafından Büyülenmiş olur. Sen veya dostların onunla savaşıyorsa ilk kurtulma atışını avantajlı yapar. Aynı düzlemde kaldıkça telepatik bağınız vardır; bilincin açıkken eylem harcamadan genel emirler verebilirsin. Görevi bitirip başka emir almazsa kendini korur. Bir eylemle sonraki turunun sonuna kadar davranışının tam denetimini alabilir; yalnız izin verdiğin eylem ve hareketleri yaptırabilirsin. Tepki kullandırmak senin de tepkini harcar. Her hasar aldığında tekrar Bilgelik kurtulma atışı yapar; başarı büyüyü bitirir.",
+    "higherLevels": "9. derece yuvada yoğunlaşmayla en fazla 8 saat sürer.",
+    "material": ""
+  },
+  {
+    "id": "dominate-person",
+    "name": "Kişiye Hükmetme",
+    "description": "Gördüğün bir insansı Bilgelik kurtulma atışında başarısız olursa büyü boyunca senin tarafından Büyülenmiş olur. Sen veya dostların onunla savaşıyorsa ilk kurtulma atışını avantajlı yapar. Aynı düzlemde kaldıkça telepatik bağınız vardır; bilincin açıkken eylem harcamadan genel emirler verebilirsin. Görevi bitirip başka emir almazsa kendini korur. Bir eylemle sonraki turunun sonuna kadar davranışını tam denetleyebilir, yalnız izin verdiğin hareket ve eylemleri yaptırabilirsin. Tepki kullandırmak senin de tepkini harcar. Her hasar aldığında tekrar Bilgelik kurtulma atışı yapar; başarı büyüyü bitirir.",
+    "higherLevels": "6. derece yuvada yoğunlaşmayla en fazla 10 dakika; 7. derecede en fazla 1 saat; 8. veya daha yüksek derecede en fazla 8 saat sürer.",
+    "material": ""
+  },
+  {
+    "id": "dream",
+    "name": "Rüya",
+    "description": "Aynı düzlemdeki tanıdığın bir yaratığın rüyasını biçimlendirirsin. Elf gibi uyumayan yaratıklar hedef olamaz. Sen veya dokunduğun gönüllü bir yaratık ulak olarak transa girer: Çevresinin farkındadır ama eylem yapamaz veya hareket edemez. Hedef uyuyorsa rüyasına girip süre boyunca konuşabilir, rüyadaki ortam ve görüntüleri değiştirebilir. Transı isteyerek bitirmek büyüyü de bitirir. Hedef uyandığında rüyayı eksiksiz hatırlar. Uyanıksa ulak bunu bilir; vazgeçebilir veya uyumasını bekleyebilir.\nUlağı korkunç bir görünüşe sokarsan en fazla on sözcüklük mesaj verir; hedef Bilgelik kurtulma atışı yapar. Başarısızsa uykusu boyunca kâbus görür, bu dinlenmeden yarar kazanamaz ve uyanınca 3d6 ruhsal hasar alır. Hedefin saç, tırnak veya beden parçası elindeyse kurtulma atışı dezavantajlıdır.",
+    "higherLevels": "",
+    "material": "Bir avuç kum, az miktarda mürekkep ve uyuyan kuştan alınmış yazı tüyü."
+  },
+  {
+    "id": "druidcraft",
+    "name": "Druid Sanatı",
+    "description": "Menzilde şu zararsız etkilerden birini yaratırsın: Bulunduğun yerde gelecek 24 saatin havasını anlatan, bir tur süren küçük duyusal işaret; bir çiçeği, tohum kesesini veya yaprak tomurcuğunu anında açma; kenarı 5 fit olan küpe sığan yaprak dökümü, esinti, küçük hayvan sesi veya hafif koku gibi anlık duyusal etki; mum, meşale veya küçük kamp ateşini anında yakma ya da söndürme.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "earthquake",
+    "name": "Deprem",
+    "description": "Gördüğün zemin noktası çevresinde 100 fit yarıçapında şiddetli sarsıntı yaratırsın. Zemin zor arazi olur. Zemindeki yoğunlaşan yaratıklar Dayanıklılık kurtulma atışında başarısızsa yoğunlaşmayı kaybeder. Büyüyü yaptığında ve yoğunlaşmayı sürdürdüğün her turun sonunda zemindeki her yaratık Çeviklik kurtulma atışında başarısızsa Yere Kapaklanır. DM araziye göre ek etkiler belirler.\nYarıklar: Büyüden sonraki turunun başında DM’nin seçtiği yerlerde 1d6 yarık açılır. Her biri 1d10 × 10 fit derin, 10 fit geniş ve alanı bir uçtan diğerine keser. Açıldığı yerdeki yaratık Çeviklik kurtulma atışında başarısızsa düşer; başarılıysa açılan kenarla birlikte yer değiştirir. Altında yarık açılan yapı otomatik çöker.\nYapılar: Büyü yapıldığında ve sonraki her turunun başında alanda zemine temas eden yapılar 50 ezici hasar alır. 0 cana inen yapı çöker. Yapının yüksekliğinin yarısı kadar mesafe içindeki yaratıklar Çeviklik kurtulma atışı yapar. Başarısızsa 5d6 ezici hasar alır, Yere Kapaklanır ve enkaza gömülür; bir eylem ve Zorluk Derecesi 20 Kuvvet (Atletizm) kontrolüyle kaçabilir. DM enkaza göre zorluğu değiştirebilir. Başarılı kurtulmada yarım hasar alır, kapaklanmaz veya gömülmez.",
+    "higherLevels": "",
+    "material": "Bir tutam toprak, kaya parçası ve kil topağı."
+  },
+  {
+    "id": "eldritch-blast",
+    "name": "Tekinsiz Işın",
+    "description": "Menzildeki bir yaratığa uzak büyü saldırısı yap. İsabette 1d10 kuvvet hasarı verir. Karakter seviyen 5 olduğunda iki, 11 olduğunda üç, 17 olduğunda dört ışın oluşturursun. Işınları aynı veya farklı yaratıklara yöneltebilirsin; her ışın için ayrı saldırı atışı yap.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "enhance-ability",
+    "name": "Nitelik Güçlendirme",
+    "description": "Dokunduğun yaratığa büyü boyunca şu etkilerden birini verirsin:\nAyının dayanıklılığı: Dayanıklılık kontrollerinde avantaj ve 2d6 geçici can; büyü bitince kalan bu geçici can gider.\nBoğanın kuvveti: Kuvvet kontrollerinde avantaj ve iki kat taşıma kapasitesi.\nKedinin zarafeti: Çeviklik kontrollerinde avantaj; Eylemsiz değilse en fazla 20 fit düşüşten hasar almaz.\nKartalın görkemi: Karizma kontrollerinde avantaj.\nTilkinin kurnazlığı: Zekâ kontrollerinde avantaj.\nBaykuşun bilgeliği: Bilgelik kontrollerinde avantaj. Bu avantajlar kurtulma atışlarına kendiliğinden uygulanmaz.",
+    "higherLevels": "3. veya daha yüksek derece yuvada, 2. derecenin üzerindeki her yuva derecesi bir ek yaratık seçmeni sağlar.",
+    "material": "Bir hayvandan alınmış kürk veya tüy."
+  },
+  {
+    "id": "enlarge-reduce",
+    "name": "Büyütme ve Küçültme",
+    "description": "Gördüğün bir yaratığı veya kimsenin giymediği ya da taşımadığı nesneyi büyütür veya küçültürsün. Gönülsüz yaratık Dayanıklılık kurtulma atışında başarılıysa etkilenmez. Bir yaratığın üzerindeki eşyalar da onunla boyut değiştirir; bıraktığı eşya normal boyuna döner.\nBüyütme: Tüm boyutları iki, ağırlığı sekiz kat olur ve bir boyut kategorisi büyür. Yer yetmezse sığabileceği en büyük boya ulaşır. Kuvvet kontrolleri ve kurtulma atışlarında avantaj kazanır. Büyüyen silahlarla saldırıları ek 1d4 hasar verir.\nKüçültme: Tüm boyutları yarıya, ağırlığı sekizde bire iner; bir boyut kategorisi küçülür. Kuvvet kontrolleri ve kurtulma atışlarında dezavantaj kazanır. Küçülen silahlarla saldırıları 1d4 daha az hasar verir; bu azaltma hasarı 1’in altına düşüremez.",
+    "higherLevels": "",
+    "material": "Bir tutam demir tozu."
+  },
+  {
+    "id": "entangle",
+    "name": "Dolaştırma",
+    "description": "Menzilde bir noktadan başlayan, kenarı 20 fit olan kare zeminde sarmaşıklar çıkar; alan zor arazi olur. Büyüyü yaptığında alanda bulunan yaratık Kuvvet kurtulma atışında başarısızsa büyü bitene kadar Kısıtlanmış olur. Kısıtlanan yaratık bir eylemle büyü kurtulma Zorluk Derecene karşı Kuvvet kontrolü yaparak kurtulmayı deneyebilir. Büyü bitince bitkiler solar.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "enthrall",
+    "name": "Büyüleyici Hitabet",
+    "description": "Gördüğün ve seni duyabilen seçili yaratıklar Bilgelik kurtulma atışı yapar. Büyülenmeye bağışık olanlar otomatik başarılı olur; sen veya yoldaşlarınla savaşanlar avantajlı atar. Başarısız hedef, büyü bitene veya seni duyamayana kadar senden başka yaratıkları fark etmek için yaptığı Bilgelik (Algı) kontrollerinde dezavantajlıdır. Sen Eylemsiz olursan veya konuşamazsan büyü biter.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "etherealness",
+    "name": "Eter Yolculuğu",
+    "description": "Mevcut düzleminle örtüşen Sınır Eter’e geçersin; süre boyunca veya bir eylemle bitirene kadar orada kalırsın. Her yöne hareket edebilirsin; yukarı ve aşağı her fit hareket 1 ek fit harcatır. Başlangıç düzlemini 60 fit öteye kadar gri tonlarda görür ve duyarsın. Yalnız Eter Düzlem’deki yaratıklarla etkileşebilirsin; özel yeteneği olmayan dışarıdakiler seni algılayamaz veya etkileyemez. Eter’de olmayan nesne ve etkilerden geçersin.\nBüyü bitince bulunduğun noktada başlangıç düzlemine dönersin. Nokta katı nesne veya yaratıkla doluysa en yakın uygun boş yere itilirsin ve itildiğin fit sayısının iki katı kuvvet hasarı alırsın. Eter Düzlem’de veya onunla sınırı olmayan bir düzlemde yapıldığında etkisizdir.",
+    "higherLevels": "8. derece yuvada sen dâhil en fazla üç, 9. derecede sen dâhil en fazla altı gönüllü yaratığı etkilersin. Büyü yapılırken 10 fit yakınında olmalıdırlar.",
+    "material": ""
+  },
+  {
+    "id": "expeditious-retreat",
+    "name": "Çabuk Geri Çekilme",
+    "description": "Büyüyü yaptığında ve büyü boyunca sonraki her turunda bir bonus eylemle Depar eylemi yapabilirsin.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "eyebite",
+    "name": "Korkunç Bakış",
+    "description": "60 fit içinde gördüğün bir yaratık Bilgelik kurtulma atışında başarısızsa aşağıdaki seçtiğin etkiye uğrar. Sonraki her turunda bir eylemle başka yaratık hedefleyebilirsin; bu kullanımına karşı kurtulmuş yaratığı yeniden hedefleyemezsin.\nUyku: Bilinçsiz düşer; hasarla veya başka birinin onu eylemle sarsmasıyla uyanır.\nPanik: Senden Korkmuş olur; her tur Depar yaparak mümkün olan en kısa güvenli yoldan uzaklaşır. Gidecek yer yoksa hareket etmek zorunda değildir. Senden en az 60 fit uzakta olup seni göremediği yere ulaşırsa etki biter.\nHastalık hissi: Saldırı ve nitelik kontrollerinde dezavantaj alır. Her turunun sonunda Bilgelik kurtulma atışı yapabilir; başarı etkiyi bitirir.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "fabricate",
+    "name": "İmal Etme",
+    "description": "Gördüğün ham maddeleri aynı türden işlenmiş nesneye dönüştürürsün. Yeterli malzemeyle Büyük veya daha küçük, kenarı 10 fit olan küpe ya da birbirine bağlı sekiz adet 5 fitlik küpe sığan bir nesne yapabilirsin. Metal, taş veya başka mineralde azami boyut Orta, yani tek 5 fitlik küptür. Ürünün kalitesi ham maddenin kalitesine bağlıdır. Yaratık ve büyülü nesne oluşturamaz veya dönüştüremezsin. Mücevher, silah, cam ve zırh gibi yüksek ustalık isteyen nesneler için ilgili zanaatkâr aletlerinde yetkin olmalısın.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "faerie-fire",
+    "name": "Peri Ateşi",
+    "description": "Menzilde kenarı 20 fit olan küpteki tüm nesneler seçtiğin mavi, yeşil veya mor ışıkla çizilir. Büyü yapıldığında alandaki yaratıklar Çeviklik kurtulma atışında başarısızsa aynı şekilde çizilir. Etkilenenler 10 fit yarıçapında loş ışık yayar. Onları görebilen saldırganların onlara yaptığı saldırılar avantajlıdır; etkilenen yaratık veya nesne görünmezlikten yararlanamaz.",
+    "higherLevels": "",
+    "material": ""
+  },
+  {
+    "id": "faithful-hound",
+    "name": "Sadık Tazı",
+    "description": "Gördüğün boş bir yerde hayalet bekçi köpeği çağırırsın. Süre bitene, bir eylemle gönderene veya ondan 100 fitten fazla uzaklaşana kadar yerinde kalır. Senden başkasına görünmezdir ve zarar verilemez. Belirlediğin parolayı söylemeden 30 fit yakınına gelen Küçük veya daha büyük yaratığa yüksek sesle havlar. Görünmez yaratıkları ve Eter Düzlem’i görür, illüzyonları yok sayar. Her turunun başında 5 fit yakınında sana düşman bir yaratığı ısırmayı dener. Saldırı bonusu büyü yapma niteliği değiştiricin + yetkinlik bonusundur; isabette 4d8 delici hasar verir.",
+    "higherLevels": "",
+    "material": "Küçük gümüş düdük, kemik parçası ve iplik."
+  }
+]

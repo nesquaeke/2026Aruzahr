@@ -22,6 +22,7 @@ const Atlas3D = lazy(() => import('./Atlas3D').catch(() => ({ default: Unavailab
 const GalleryHub = lazy(() => import('./GalleryHub'))
 const Bookshelf = lazy(() => import('./Bookshelf'))
 const CharactersHub = lazy(() => import('./CharactersHub'))
+const PlayerWorkshop = lazy(() => import('./player/PlayerWorkshop'))
 const readRoute = () => window.location.hash.slice(1) || '/atlas'
 const decodeId = (value: string) => { try { return canonicalId(decodeURIComponent(value)) } catch { return canonicalId(value) } }
 const allIds = new Set([...regions, ...mapLocations, ...loreArticles, ...mapFeatures, historyArticle].map(entry => entry.id))
@@ -65,6 +66,7 @@ export default function App() {
   const gallery = route.startsWith('/gallery')
   const books = route.startsWith('/books')
   const people = route.startsWith('/characters')
+  const player = route.startsWith('/play')
   const isAtlas = route.startsWith('/atlas')
   const articleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
   const selectedRegion = regionById(selected || '')
@@ -176,6 +178,7 @@ export default function App() {
     { href: '/wiki', label: 'Ansiklopedi', Icon: BookOpen, active: wiki && !isHistory },
     { href: '/houses', label: 'Haneler', Icon: Crown, active: houses },
     { href: '/characters', label: 'Karakterler', Icon: Users, active: people },
+    { href: '/play', label: 'Oyuncu Masası', Icon: BookOpen, active: player },
     { href: '/gallery', label: 'Galeri', Icon: ImageIcon, active: gallery },
     { href: '/books', label: 'Kitaplar', Icon: Library, active: books },
     { href: '/broadcast', label: 'Yayın Masası', Icon: Maximize2, active: false },
@@ -214,8 +217,8 @@ export default function App() {
       <div className="sidebar-bottom"><div className="sidebar-world-note"><Compass size={23} strokeWidth={1} /><span>Yaşayan bir dünya<small>{places.length} yerleşim · {loreArticles.length} wiki kaydı</small></span></div><div className="sidebar-footer"><span className="small-diamond">◆</span><span>Bir haritadan daha fazlası.</span></div></div>
     </aside>
 
-    <main id="main-content" className={`main-content ${isAtlas ? 'atlas-main' : gallery ? 'gallery-main' : books ? 'books-main' : ''}`} tabIndex={-1}>
-      {houses ? <Suspense fallback={<div className="collection-loading" role="status">Haneler açılıyor…</div>}><RealmDirectory navigate={navigate} /></Suspense> : people ? <Suspense fallback={<div className="collection-loading" role="status">Karakterler açılıyor…</div>}><CharactersHub navigate={navigate} /></Suspense> : gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} route={route} /></Suspense> : !wiki ? <>
+    <main id="main-content" className={`main-content ${isAtlas ? 'atlas-main' : gallery ? 'gallery-main' : books ? 'books-main' : player ? 'player-main' : ''}`} tabIndex={-1}>
+      {player ? <Suspense fallback={<div className="collection-loading" role="status">Oyuncu Masası açılıyor…</div>}><PlayerWorkshop navigate={navigate} route={route} /></Suspense> : houses ? <Suspense fallback={<div className="collection-loading" role="status">Haneler açılıyor…</div>}><RealmDirectory navigate={navigate} /></Suspense> : people ? <Suspense fallback={<div className="collection-loading" role="status">Karakterler açılıyor…</div>}><CharactersHub navigate={navigate} /></Suspense> : gallery ? <Suspense fallback={<div className="collection-loading" role="status">Galeri açılıyor…</div>}><GalleryHub navigate={navigate} /></Suspense> : books ? <Suspense fallback={<div className="collection-loading" role="status">Kitaplık açılıyor…</div>}><Bookshelf navigate={navigate} route={route} /></Suspense> : !wiki ? <>
         <div className="page-heading atlas-arrival"><div><div className="breadcrumb"><span>ARUZAHR EVRENİ</span><ChevronRight size={10} /><span>YAŞAYAN ATLAS</span></div><h1>Bir dünya. <em>Binlerce hikâye.</em></h1></div><div className="atlas-stats"><div><Globe2 size={19} /><strong>8</strong><span>BÖLGE</span></div><span className="stat-separator" /><div><MapPin size={19} /><strong>{places.length}</strong><span>YERLEŞİM</span></div></div></div>
         <div className="atlas-presets" aria-label="Hızlı keşif"><span>KEŞFET</span><button onClick={() => { setQuery(''); setRoutes(false); select('hardlane') }}><Snowflake size={15} />Hardlane</button><button onClick={() => { setQuery(''); setRoutes(false); select('valdareth') }}><Crown size={15} />Başkent</button><button onClick={() => { setQuery(''); setRoutes(true); select('kemige-basan-yol') }}><Map size={15} />Yolları keşfet</button><button onClick={() => { setQuery(''); setRoutes(false); setAtlasMode('2d'); resetMap() }}><Globe2 size={15} />Bütün dünya</button><div className="atlas-renderer-switch" role="group" aria-label="Harita görünümü"><button data-testid="toggle-3d" aria-label="Danstsud 3D" aria-pressed={atlasMode === '3d'} onClick={toggle3D}><Mountain size={15} />Danstsud 3D<span className="atlas-switch-state">{atlasMode === '3d' ? 'Kapat' : 'Aç'}</span></button><button data-testid="toggle-cinematic" aria-label="Loş dünya 3D" aria-pressed={atlasMode === 'cinematic'} onClick={() => setAtlasMode('cinematic')}><Globe2 size={15} />Loş 3D</button><button aria-pressed={atlasMode === '2d'} onClick={() => setAtlasMode('2d')}><Map size={15} />Özgün 2D</button></div></div>
         <section className={`map-shell ${focusMode ? 'focus-mode' : ''}`} aria-label="İnteraktif atlas">

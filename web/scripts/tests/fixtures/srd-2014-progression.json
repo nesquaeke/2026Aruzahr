@@ -1,0 +1,3085 @@
+{
+  "source": "5e-bits/5e-database \u00b7 SRD 5.1 \u00b7 2014/en/5e-SRD-Levels.json",
+  "rows": [
+    {
+      "id": "barbarian",
+      "level": 1,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 2,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 3,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 4,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 5,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 6,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 7,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 8,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 9,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 10,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 11,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 12,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 13,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 14,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 15,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 16,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 17,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 18,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 19,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "barbarian",
+      "level": 20,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "bard",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 4,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 5,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 6,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 7,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 8,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 9,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 10,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 11,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 12,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 14,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 16,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 18,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 19,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 19,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "bard",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 20,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "bard",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 22,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "bard",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 22,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "bard",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 22,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 2,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "cleric",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 2,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "druid",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "druid",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "druid",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "druid",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "druid",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 2,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "fighter",
+      "level": 1,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 2,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 3,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 4,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 5,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 6,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 7,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 8,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 9,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 10,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 11,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 12,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 13,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 14,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 15,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 16,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 17,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 18,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 19,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "fighter",
+      "level": 20,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 1,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 2,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 3,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 4,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 5,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 6,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 7,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 8,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 9,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 10,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 11,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 12,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 13,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 14,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 15,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 16,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 17,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 18,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 19,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "monk",
+      "level": 20,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "paladin",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2
+      }
+    },
+    {
+      "id": "paladin",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "spells_known": 0,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "spells_known": 2,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "spells_known": 3,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "spells_known": 3,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "spells_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "spells_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "spells_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "spells_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "spells_known": 6,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "spells_known": 6,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "spells_known": 7,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "spells_known": 7,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "spells_known": 8,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "spells_known": 8,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "spells_known": 9,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "spells_known": 9,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "spells_known": 10,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "spells_known": 10,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "spells_known": 11,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2
+      }
+    },
+    {
+      "id": "ranger",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "spells_known": 11,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2
+      }
+    },
+    {
+      "id": "rogue",
+      "level": 1,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 2,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 3,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 4,
+      "pb": 2,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 5,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 6,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 7,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 8,
+      "pb": 3,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 9,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 10,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 11,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 12,
+      "pb": 4,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 13,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 14,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 15,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 16,
+      "pb": 5,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 17,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 18,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 19,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "rogue",
+      "level": 20,
+      "pb": 6,
+      "spells": {}
+    },
+    {
+      "id": "sorcerer",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 2,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 3,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 6,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 7,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 8,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 9,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spells_known": 10,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 11,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 12,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 12,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 13,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 13,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 14,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 14,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "sorcerer",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 6,
+        "spells_known": 15,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 2,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 2,
+        "spell_slots_level_1": 1,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 3,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 2,
+        "spells_known": 4,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 5,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 6,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 7,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 8,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 9,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 3,
+        "spells_known": 10,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 10,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 11,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 11,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 12,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 12,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 13,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 13,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 14,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 4,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 14,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 4,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 15,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 4,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "warlock",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 4,
+        "spells_known": 15,
+        "spell_slots_level_1": 0,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 4,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 1,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 2,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 2,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 3,
+        "spell_slots_level_2": 0,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 3,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 3,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 2,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 4,
+      "pb": 2,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 0,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 5,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 2,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 6,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 0,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 7,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 1,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 8,
+      "pb": 3,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 2,
+        "spell_slots_level_5": 0,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 9,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 4,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 1,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 10,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 0,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 11,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 12,
+      "pb": 4,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 0,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 13,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 14,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 0,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 15,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 16,
+      "pb": 5,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 0
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 17,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 2,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 18,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 1,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 19,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 1,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    },
+    {
+      "id": "wizard",
+      "level": 20,
+      "pb": 6,
+      "spells": {
+        "cantrips_known": 5,
+        "spell_slots_level_1": 4,
+        "spell_slots_level_2": 3,
+        "spell_slots_level_3": 3,
+        "spell_slots_level_4": 3,
+        "spell_slots_level_5": 3,
+        "spell_slots_level_6": 2,
+        "spell_slots_level_7": 2,
+        "spell_slots_level_8": 1,
+        "spell_slots_level_9": 1
+      }
+    }
+  ]
+}

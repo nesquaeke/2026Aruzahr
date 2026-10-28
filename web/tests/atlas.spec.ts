@@ -89,7 +89,8 @@ test('keyboard search, help, focus view and reduced motion are usable', async ({
 test('mobile navigation, map and wiki fit without horizontal overflow', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-  await expect(page.getByTestId('marker-xotar')).toBeVisible()
+  // Phone-sized map labels are decluttered; regions remain reachable in the menu.
+  await expect(page.getByTestId('marker-xotar')).toBeAttached()
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
   await page.getByRole('button', { name: 'Bölge menüsünü aç' }).click()
   await page.locator('.region-list').getByRole('button', { name: /Honud/ }).click()

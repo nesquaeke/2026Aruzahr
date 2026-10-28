@@ -1,0 +1,19 @@
+{
+  "edition": "2014",
+  "count": 319,
+  "levels": {
+    "0": 24,
+    "1": 49,
+    "2": 54,
+    "3": 42,
+    "4": 31,
+    "5": 37,
+    "6": 31,
+    "7": 20,
+    "8": 16,
+    "9": 15
+  },
+  "sha256": "c98a13ad65ed9785e9588f864d59702c23fcacd5932743478e32c7b0dd09e62e",
+  "source": "5e-bits/5e-database · src/2014/en/5e-SRD-Spells.json",
+  "adaptation": "Türkçe oyun metni; sayısal kurallar ve kaynak kimlikleri korunur."
+}

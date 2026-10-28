@@ -4,6 +4,10 @@ React 19, TypeScript, Vite, Three.js ve OpenSeadragon ile Türkçe interaktif at
 
 ## Kurulum ve çalıştırma
 
+Yeni oyuncu bölümü `/#/play` adresindedir. [Kullanım rehberi](../docs/kullanim/OYUNCU_MASASI.md), [boş A4 PDF](public/downloads/Aruzahr-Karakter-Kagidi-A4.pdf) ve [büyü defteri PDF](public/downloads/Aruzahr-Buyu-Defteri-A4.pdf) depoda bulunur. 319 Türkçe SRD büyüsü hazır JSON olarak gelir; çalışma sırasında harici D&D API’si çağrılmaz. Karakterler tarayıcıda saklanır ve JSON ile taşınır. Depo kökündeki `vercel.json` statik yayına hazırlıktır; OBS rölesi yerelde çalışır.
+
+Büyü çevirileri değişirse `npm run player:spells`; boş A4 çıktıları değişirse `npm run player:templates` ile indirmeleri yeniden üret. Bunlar normal site kurulumunda yeniden görsel üretimi veya API anahtarı istemez.
+
 [Başlatıcılar](../baslat/README.md) yerel kurulumu yapar; Windows’ta `baslat/BASLAT.bat`, macOS/Linux’ta `bash baslat/baslat.sh` kullan. Elle çalıştırmak için:
 
 ```bash

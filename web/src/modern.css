@@ -267,3 +267,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   .brand:hover .brand-emblem svg,.sidebar-navigation a:hover,.region-link:hover > svg,.atlas-presets button:hover svg,.gold-button:hover,.icon-button:active,.below-map a:hover > svg { transform:none; }
   .nav-backdrop { animation:none; }
 }
+
+/* Keep the player portal entry and the help controls reachable together. */
+@media(min-width:1051px) and (max-width:1600px){.topbar .world-label,.topbar .top-divider{display:none}.topbar .primary-nav{min-width:0;flex:1;overflow-x:auto;scrollbar-width:none}.topbar .primary-nav::-webkit-scrollbar{display:none}.topbar .primary-nav a{padding-inline:10px;gap:6px;font-size:11px}.topbar .topbar-right{flex:0 0 auto}}

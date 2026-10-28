@@ -1,5 +1,7 @@
 # Kullanım rehberleri
 
+[Oyuncu Masası](OYUNCU_MASASI.md) — D&D 5e 2014 karakter oluşturma, 319 Türkçe SRD büyüsü, oyun takibi, yerel yedek, A4 şablonlar ve Vercel kurulumu.
+
 1. [Tek DM Masası](TEK_DM_MASASI.md) — başlangıç, kişi/yer arama, görevler, karşılaşmalar ve savaş.
 2. [Yayın Stüdyosu](YAYIN_STUDYOSU_KULLANIM.md) — haritada çizim, karakter yerleştirme, ses, zar, OBS ve telefon.
 3. [On Kış Kararı](ON_KIS_KARARI_KULLANIM.md) — maceranın kapsamı ve yayın ayarları.
