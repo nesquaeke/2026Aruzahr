@@ -1,5 +1,7 @@
 # Proje için kalıcı yaratıcı yönlendirme
 
+- 29 Ekim 2026: kullanıcı Tugg adlı arkadaşının goblin oyuncu karakterini görünüş referansı ve biyografi dosyasıyla verdi, siteye eklenmesini istedi. Bu görsel önceki yalnız üslup referanslarından farklı olarak Tugg'ın kimlik kaynağıdır. STR 12 / DEX 16 / CON 13 / INT 10 / WIS 10 / CHA 8; WIS 10 sonradan açıkça doğrulandı. Şehir/köken bilinmiyor, sınıf ve seviye belirtilmedi. `lore/oyuncular/TUGG.md` kaynak notudur. Kamusal kişi kaydı otomatik parti veya özel oyuncu hesabı oluşturmaz. `locationUnknown` işaretli kişilere ülke/şehir atfetme veya harita noktası uydurma. Yeni portre toprak tonlu mekânsız zemin ve sade Olağan çerçeve kullanır.
+
 - 29 Ekim 2026: kullanıcı oyuncuların kendi karakterlerini ücretsiz veritabanında saklamasını istedi. Supabase Auth + oyuncuya özel RLS yedek tablosu hazırlandı; kurulum `docs/kullanim/OYUNCU_BULUT_KAYDI.md`. Gerçek proje ve public API ayarları bağlanmadan bulut çalışıyor denmez. İlk sürüm açık komutla sürümlü yedek/kopyalama yapar; otomatik eşitleme değildir. Yerel kayıtlar korunur; gizli service_role anahtarı istemciye girmez. Gerçek projede iki hesapla RLS izolasyonu ayrıca doğrulanmalıdır.
 
 Görsel, karakter biyografisi veya canlı lore'u üretmeden önce [görsel ve anlatı rehberini](docs/tasarim/GORSEL_VE_ANLATI_REHBERI.md) oku. Kullanıcı bu tercihlerinin sonraki işlerde uygulanmasını istedi.

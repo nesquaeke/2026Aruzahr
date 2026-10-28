@@ -5,8 +5,8 @@ export default function CharacterAbilities({ id, compact = false }: { id: string
   const scores = characterAbilities[id]
   if (!scores) return null
   return <section className={`character-abilities ${compact ? 'abilities-compact' : ''}`} data-testid={`abilities-${id}`} aria-label="D&D nitelikleri">
-    {!compact && <div className="abilities-heading"><span className="eyebrow">D&D OYUN TASLAĞI</span><p>Altı nitelik. Siyasi nüfuz ve kart çerçevesi ayrıca değerlendirilir.</p></div>}
+    {!compact && <div className="abilities-heading"><span className="eyebrow">{id === 'tugg' ? 'OYUNCUNUN NİTELİK KAYDI' : 'D&D OYUN TASLAĞI'}</span><p>Altı nitelik. Siyasi nüfuz ve kart çerçevesi ayrıca değerlendirilir.</p></div>}
     <dl>{abilities.map((ability,index) => <div key={ability.key} title={`${ability.name} · ${ability.use}`}><dt><abbr title={ability.name}>{ability.key}</abbr>{!compact && <span>{ability.name}</span>}</dt><dd><strong>{scores[index]}</strong><small aria-label={`${ability.name} değiştiricisi ${modifierLabel(scores[index])}`}>{modifierLabel(scores[index])}</small></dd></div>)}</dl>
-    {!compact && <p className="ability-source">Oyun için önerilen değerlerdir. Oyuncu karakterlerinde gerçek karakter kâğıdı esas alınır; bu sayılar sınıf veya seviye belirtmez.</p>}
+    {!compact && <p className="ability-source">{id === 'tugg' ? 'Oyuncunun karakter dosyası ve kullanıcının Bilgelik 10 açıklaması esas alınmıştır. Sınıf ve seviye henüz belirtilmedi.' : 'Oyun için önerilen değerlerdir. Oyuncu karakterlerinde gerçek karakter kâğıdı esas alınır; bu sayılar sınıf veya seviye belirtmez.'}</p>}
   </section>
 }

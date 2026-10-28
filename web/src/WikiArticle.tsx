@@ -159,7 +159,7 @@ export default function WikiArticle({
   const record = articleById(id);
   const entry = place || record;
   const history = id === historyArticle.id;
-  const context = region || regionById(entry?.region || "");
+  const context = characterById(id)?.locationUnknown ? undefined : region || regionById(entry?.region || "");
   const name =
     region?.name || entry?.name || (history ? historyArticle.name : "");
   const sections: Section[] =
@@ -436,7 +436,7 @@ export default function WikiArticle({
           </div>
         </div>
       )}
-      {character && <div className="character-passport" data-testid="character-passport"><div><span>Rol</span><strong>{character.role}</strong></div><div><span>Bağlılık</span><strong>{character.affiliation}</strong></div><div><span>İlgili yer</span><button onClick={() => navigate(`/wiki/${character.city}`)}>{locationById(character.city)?.name || character.city}<ArrowRight size={14} /></button></div><div className="character-traits">{character.traits.map(trait => <span key={trait}>{trait}</span>)}</div></div>}
+      {character && <div className="character-passport" data-testid="character-passport"><div><span>Rol</span><strong>{character.role}</strong></div><div><span>Bağlılık</span><strong>{character.affiliation}</strong></div><div><span>İlgili yer</span>{character.city ? <button onClick={() => navigate(`/wiki/${character.city}`)}>{locationById(character.city)?.name || character.city}<ArrowRight size={14} /></button> : <strong>Bilinmiyor</strong>}</div><div className="character-traits">{character.traits.map(trait => <span key={trait}>{trait}</span>)}</div></div>}
       {character && <CharacterAbilities id={character.id} />}
       <SpeciesGuide id={id} />
       <nav className="article-local-navigation" aria-label="Wiki keşif alanları">{cityGuides[id] && <button onClick={() => document.querySelector('.wiki-article .living-guide')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><Castle size={15} />Yaşam</button>}<button onClick={() => goToSection(0)}><Feather size={15} />Hikâye<span>{sections.length}</span></button>{profile?.people?.length ? <button onClick={() => document.querySelector('.wiki-article .people-section')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block:'start' })}><Users size={15} />Yüzler<span>{profile.people.length}</span></button> : null}<button onClick={() => setImageIndex(0)}><Sparkles size={15} />Galeri<span>{gallery.length}</span></button>{!book && relatedBookCount > 0 && <button onClick={() => document.querySelector('.wiki-article .related-volumes')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'start' })}><BookOpen size={15} />Kitaplar<span>{relatedBookCount}</span></button>}{book && <button onClick={() => navigate(`/books/${book.id}`)}><BookOpen size={15} />Kitaplık<ArrowRight size={14} /></button>}</nav>

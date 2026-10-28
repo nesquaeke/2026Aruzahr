@@ -9,6 +9,7 @@ export const abilities: { key: AbilityKey; name: string; use: string }[] = [
  {key:'WIS',name:'Bilgelik',use:'Algı ve muhakeme'}, {key:'CHA',name:'Karizma',use:'İfade ve ikna'},
 ]
 export const characterAbilities: Record<string, AbilityScores> = {
+  'tugg': [12, 16, 13, 10, 10, 8],
   // Yaşayan yolculuk: sivil mesleklerden türetilmiş, düzenlenebilir taslaklar.
   'eren-keld': [13, 11, 14, 14, 15, 9],
   'ekin-sar': [10, 14, 11, 14, 12, 11],

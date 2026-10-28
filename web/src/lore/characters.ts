@@ -1,6 +1,7 @@
 import type { LoreArticle, RegionId, Section } from '../data'
 import type { PowerTier } from '../character-card-profiles'
 import { winterCharacters, winterSource } from './winter-characters'
+import { playerLoreCharacters, playerCharacterSource } from './player-characters'
 import { newWorldCharacters } from './world-roster'
 import { newDanstsudCharacters } from './danstsud-roster'
 import { writerCharacters } from './writers'
@@ -10,7 +11,7 @@ export type Character = {
   id: string; name: string; role: string; city: string; affiliation: string;
   portrait: string; traits: string[]; summary: string; background: string;
   presence: string; related?: string[]; origin?: string; source: 'author' | 'new';
-  region?: RegionId; sections?: Section[]; power?: PowerTier;
+  region?: RegionId; sections?: Section[]; power?: PowerTier; locationUnknown?: boolean;
 }
 const authorSource = 'Karakterler/ · özgün portreler ve kişi notları; 8 Ekim 2026 yazar eşleştirmeleri'
 const newSource = 'Danstsud kişi taslakları · 7–8 Ekim 2026 yeni yazım'
@@ -65,11 +66,11 @@ const originalCharacters: Character[] = [
 
 ]
 
-export const characters: Character[] = [...originalCharacters, ...newDanstsudCharacters, ...newWorldCharacters, ...writerCharacters, ...hardlaneSessionCharacters, ...winterCharacters]
+export const characters: Character[] = [...originalCharacters, ...newDanstsudCharacters, ...newWorldCharacters, ...writerCharacters, ...hardlaneSessionCharacters, ...winterCharacters, ...playerLoreCharacters]
 const existing = new Set(['eryndorn', 'nera-veld', 'edran-korr', 'bryndon-kiyi-defteri'])
 export const characterArticles: LoreArticle[] = characters.filter(c => !existing.has(c.id)).map(c => ({
   id: c.id, name: c.name, kind: 'person', region: c.region || 'danstsud', subtitle: c.role, mapLocation: c.city, summary: c.summary,
-  sources: winterCharacters.some(campaign => campaign.id === c.id) ? [winterSource] : hardlaneSessionCharacters.some(contact => contact.id === c.id) ? [hardlaneSessionSource] : writerCharacters.some(writer => writer.id === c.id) ? [writerSource] : c.source === 'author' ? [authorSource, newSource + ' · gündelik yaşam betimlemeleri'] : [c.region && c.region !== 'danstsud' ? 'Dünya kadroları · 8 Ekim 2026 yeni yazım' : newSource], related: [c.city, ...(c.related || [])],
+  sources: playerLoreCharacters.some(player => player.id === c.id) ? [playerCharacterSource] : winterCharacters.some(campaign => campaign.id === c.id) ? [winterSource] : hardlaneSessionCharacters.some(contact => contact.id === c.id) ? [hardlaneSessionSource] : writerCharacters.some(writer => writer.id === c.id) ? [writerSource] : c.source === 'author' ? [authorSource, newSource + ' · gündelik yaşam betimlemeleri'] : [c.region && c.region !== 'danstsud' ? 'Dünya kadroları · 8 Ekim 2026 yeni yazım' : newSource], related: [c.city, ...(c.related || [])].filter(Boolean),
   aliases: c.id === 'varoxh' ? ['Varokh', 'Varoxh'] : c.id === 'volomiyr' ? ['Volomyr'] : c.id === 'damian' ? ['Damien', 'Damian Elorwyn'] : c.id === 'tharion' ? ['Tharion Elorwyn'] : [],
   sections: c.sections || [{ title: 'Kimdir?', paragraphs: [c.summary, c.background] }, { title: 'Dünyadaki yeri', paragraphs: [c.presence] }],
 }))

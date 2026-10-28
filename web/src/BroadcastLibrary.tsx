@@ -96,13 +96,13 @@ function buildLibrary(): LibraryEntry[] {
     const art = portraitFor(person.portrait)
     if (!art) continue
     usedPortraits.add(art.src)
-    const region = person.region || 'danstsud'
+    const region = person.locationUnknown ? undefined : person.region || 'danstsud'
     const cityName = placeById(person.city)?.name || regionById(person.city)?.name || ''
     const detail = [cityName, person.role].filter(Boolean).join(' · ')
     entries.push({
       asset: { id: person.id, name: person.name, src: art.src, kind: 'portrait', locationId: placeById(person.city)?.id },
       detail,
-      search: normalize(`${person.name} ${person.role} ${person.affiliation} ${cityName} ${regionById(region)?.name || ''}`),
+      search: normalize(`${person.name} ${person.role} ${person.affiliation} ${cityName} ${regionById(region || '')?.name || ''}`),
       region,
       group: 'known',
     })

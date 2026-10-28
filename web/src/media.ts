@@ -44,6 +44,7 @@ const sessionArtworks: Artwork[] = [
   ...[['sela-varn', 'Sela Varn'], ['deren-olm', 'Deren Olm'], ['aysra-tann', 'Aysra Tann'], ['ovel-sarn', 'Ovel Sarn']].map(([id, name]): Artwork => ({ id: `session-${id}`, src: `/illustrations/session-${id}.webp`, title: name, caption: 'Yük ve Söz · yeni kamusal karakter tasviri', origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: id })),
 ]
 export const artworks: Record<string, Artwork> = Object.fromEntries([
+  { id:'tugg', src:'/illustrations/tugg.webp', title:'Tugg', caption:'Goblin paralı asker · oyuncunun karakter tasarımına dayanan yağlıboya portre yorumu', origin:'generated' as const, portrait:true, painted:true, category:'portrait' as const, relatedId:'tugg' },
   ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks, ...nightArtworks, ...heraldryArtworks, ...cityArtworks,
 ].map(a => [a.id, a]))
 const heraldryAliases = Object.fromEntries(heraldryArtworks.map(a => [a.relatedId!, a.id]))
