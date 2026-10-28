@@ -1,0 +1,9 @@
+.pw-cloud{margin-bottom:24px}
+.pw-cloud summary{cursor:pointer;color:#decba4;font:500 14px var(--sans);padding:10px 0}
+.pw-cloud p{color:#acb9b0;font:13px/1.8 var(--sans);max-width:780px;overflow-wrap:anywhere}
+.pw-cloud label{display:grid;gap:8px;font:12px var(--sans);color:#c9bea6}
+.pw-cloud input,.pw-cloud select{width:100%;max-width:460px;min-height:44px;background:#101c19;border:1px solid #bda57355;border-radius:5px;color:#eee3cc;padding:10px;font:14px var(--sans)}
+.pw-cloud button{min-height:44px;border:1px solid #bda57355;border-radius:5px;padding:10px 14px;background:#1c2c24;color:#decba4;font:500 12px var(--sans);width:fit-content;max-width:100%}
+.pw-cloud button:hover{background:#293b30;border-color:#bda573}
+.pw-cloud fieldset>div{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:14px 0;border-top:1px solid #bda57333;font:12px/1.6 var(--sans);color:#acb9b0}
+.pw-cloud strong{overflow-wrap:anywhere}

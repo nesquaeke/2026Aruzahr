@@ -2,6 +2,8 @@
 
 Supabase ücretsiz planıyla küçük bir arkadaş grubu için başlanabilir. Güncel kota ve e-posta gönderim sınırlarını Supabase panelinden kontrol et; ücretsiz projeler kullanılmadığında duraklatılabilir. Ücretli plan gerekmez. Bu özellik proje bağlanmadan çalışmaz.
 
+29 Ekim: kullanıcının verdiği proje URL ve herkese açık publishable anahtarı `web/src/player/cloud-config.ts` içine varsayılan olarak bağlandı. Bu depo için Render'a ayrıca ortam değişkeni eklemek gerekmez; istenirse aşağıdaki değişkenlerle proje değiştirilebilir. Tablo kurulumu hâlâ gereklidir. Geliştirme ortamından Supabase'e ağ erişimi engellendiği için gerçek bağlantı ve hesap izolasyonu henüz doğrulanmadı.
+
 ## Bir defalık kurulum
 
 1. supabase.com üzerinde ücretsiz bir proje oluştur. Veritabanı parolasını özel tut.
