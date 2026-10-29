@@ -36,6 +36,7 @@ import BroadcastStage, { type BroadcastTool } from '../BroadcastStage'
 import { broadcastAssets, type BroadcastAsset } from '../BroadcastLibrary'
 import BroadcastQuestDirector from '../BroadcastQuestDirector'
 import DMPreparation from './DMPreparation'
+import SideQuestDesk from './SideQuestDesk'
 import { StudioDirectory } from './StudioFinder'
 import { ensureBuiltinCampaign } from '../builtin-campaign'
 import { characters } from '../lore/characters'
@@ -102,6 +103,7 @@ import '../broadcast-workspace.css'
 import './studio.css'
 const panels = [
   ['quests', 'Görev', BookOpen],
+  ['sidequests', 'Yan Görevler', Sparkles],
   ['finder', 'Kişi / yer bul', Search],
   ['scene', 'Sahne', Clapperboard],
   ['library', 'Görsel', ImageIcon],
@@ -114,6 +116,7 @@ const panels = [
   ['broadcast', 'Yayın', Settings],
 ] as const
 const panelHelp: Record<string, {title:string;text:string}> = {
+  sidequests:{title:'Ana yoldan ayrılan hikâyeler',text:'Gizemleri, zindan odalarını, muhafız gelişini ve ganimeti burada yönet. Okuma, çözümler ve özel notlar yayına gitmez. Görseli hazırla, sonra sağdan Yayına al.'},
   finder:{title:'Kim, nerede ve hangi olayda?',text:'Bütün kişileri, yaratıkları ve mekânları aynı aramadan bul. Karşılaşma kartına gitmek özel rehberi açar; resmi hazırlamak yayını değiştirmez.'},
   quests:{title:'Oyunu buradan yürüt',text:'Ortadan bölümü ve adımı seç; sağda hazırladığın resmi kontrol et. Hazırlamak oyuncuların ekranını değiştirmez.'},
   scene:{title:'Sahnenin görünüşü',text:'Arka planı, portreleri ve yerleşimi hazırlıkta düzenle. Bu düzeni tekrar kullanmak için Sahneyi kaydet; oyunculara geçirmek için Yayına al.'},
@@ -141,7 +144,7 @@ export default function StudioWorkspace() {
     [fatal, setFatal] = useState(''),
     [campaignReady, setCampaignReady] = useState(false),
     [panel, setPanel] = useState(
-      location.hash.endsWith('/reset') ? 'broadcast' : 'quests',
+      location.hash.endsWith('/reset') ? 'broadcast' : location.hash.endsWith('/sidequests') ? 'sidequests' : 'quests',
     ),
     [message, setMessage] = useState(''),
     [saved, setSaved] = useState('Hazırlanıyor'),
@@ -1675,7 +1678,9 @@ export default function StudioWorkspace() {
                   {busy ? 'Hazırlanıyor…' : 'Yayına al'}
                 </button>
               </div>
-              {panel === 'finder' ? (
+              {panel === 'sidequests' ? (
+                <div className="studio-wide-tool"><SideQuestDesk /></div>
+              ) : panel === 'finder' ? (
                 <div className="studio-wide-tool" data-testid="studio-directory-wide"><StudioDirectory /></div>
               ) : panel === 'combat' ? (
                 <div className="studio-wide-tool" data-testid="studio-combat-wide"><CombatPanel /></div>
@@ -2009,7 +2014,7 @@ export default function StudioWorkspace() {
                     hidden={panel !== id}
                   >
                     <div className="studio-tool-explanation"><strong>{panelHelp[id].title}</strong><p>{panelHelp[id].text}</p></div>
-                    {id === 'quests' || id === 'combat' || id === 'finder' ? (
+                    {id === 'quests' || id === 'combat' || id === 'finder' || id === 'sidequests' ? (
                       panel === id ? <DMPreparation
                         draft={localStage(p.draft, p.mediaVault)}
                         program={localStage(p.program, p.mediaVault)}

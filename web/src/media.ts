@@ -1,4 +1,5 @@
 import { heraldryArtworks } from './heraldry-manifest'
+import { sideArtworks } from './side-art-manifest'
 import { cityArtworks, cityArtAliases } from './city-art-manifest'
 import { nightArtworks } from './night-art-manifest'
 import { newPortraitArtworks, paintedPortraitAliases } from './portrait-manifest'
@@ -7,7 +8,7 @@ import { mappedSettlementArtworks, mappedSettlementAliases } from './mapped-art-
 import { writerArtworks } from './writer-art-manifest'
 import { winterArtworks, winterAliases } from './winter-art-manifest'
 
-export type Artwork = { id: string; src: string; title: string; caption: string; origin: 'author' | 'generated' | 'map' | 'adapted'; portrait?: boolean; painted?: boolean; category?: 'fauna' | 'landscape' | 'portrait' | 'scene' | 'heraldry'; relatedId?: string }
+export type Artwork = { id: string; src: string; title: string; caption: string; origin: 'author' | 'generated' | 'map' | 'adapted'; portrait?: boolean; painted?: boolean; category?: 'fauna' | 'landscape' | 'portrait' | 'scene' | 'heraldry' | 'item' | 'map'; relatedId?: string }
 const picture = (id: string, title: string, caption: string, origin: Artwork['origin'] = 'generated', portrait = false): Artwork => ({ id, src: `/illustrations/${id}.webp`, title, caption, origin, portrait })
 export const regionNames: Record<string, string> = { xotar: 'Xotar', murgul: 'Murgul', honud: 'Honud', danstsud: 'Danstsud', garmirk: 'Garmirk', ariki: 'Ariki', gurbin: 'Gurbin', lakbar: 'Lakbar' }
 const regionCaptions = ['Su, kum ve kervanların buluştuğu vahalar', 'Ada limanları ve Azja mirası', 'Klan evleri, atalar ve soğuk kıyılar', 'Mor çatılar, beş sur ve bereketli ova', 'Taş, demircilik ve klan hafızası', 'Deniz sunakları ve özgür ada klanları', 'Kayalık limanlar ve bağımsızlık', 'Basalt, sıcak sular ve volkan ustalığı']
@@ -44,11 +45,12 @@ const sessionArtworks: Artwork[] = [
   ...[['sela-varn', 'Sela Varn'], ['deren-olm', 'Deren Olm'], ['aysra-tann', 'Aysra Tann'], ['ovel-sarn', 'Ovel Sarn']].map(([id, name]): Artwork => ({ id: `session-${id}`, src: `/illustrations/session-${id}.webp`, title: name, caption: 'Yük ve Söz · yeni kamusal karakter tasviri', origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: id })),
 ]
 export const artworks: Record<string, Artwork> = Object.fromEntries([
-  { id:'tugg', src:'/illustrations/tugg.webp', title:'Tugg', caption:'Goblin paralı asker · oyuncunun karakter tasarımına dayanan yağlıboya portre yorumu', origin:'generated' as const, portrait:true, painted:true, category:'portrait' as const, relatedId:'tugg' },
+  ...sideArtworks,
+  { id:'tugg', src:'/illustrations/tugg.webp', title:'Mac', caption:'Goblin paralı asker · oyuncunun karakter tasarımına dayanan yağlıboya portre yorumu', origin:'generated' as const, portrait:true, painted:true, category:'portrait' as const, relatedId:'tugg' },
   ...Object.values(baseCountryArt), ...settlementRows.map(([id, title, caption]) => picture(id, title, caption)), ...portraits.map(([id, title, caption, origin]) => picture(id, title, caption, origin as Artwork['origin'], true)), ...baseFaunaArt, ...sceneArt, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks, ...nightArtworks, ...heraldryArtworks, ...cityArtworks,
 ].map(a => [a.id, a]))
 const heraldryAliases = Object.fromEntries(heraldryArtworks.map(a => [a.relatedId!, a.id]))
-const portraitAliases: Record<string, string> = { ...heraldryAliases, 'vaeranth-hanedani': 'crest-vaeranth', 'elorwynder-hanedani': 'crest-elorwynder', ...winterAliases, 'bryndon-kiyi-defteri': paintedPortraitAliases.bryndon || 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases, 'sela-varn': 'session-sela-varn', 'deren-olm': 'session-deren-olm', 'aysra-tann': 'session-aysra-tann', 'ovel-sarn': 'session-ovel-sarn', 'marhalden-aktarma-avlusu': 'session-marhalden-avlu', 'frostbay-kirik-kanat-yuk-evi': 'session-frostbay-kirik-kanat', ...cityArtAliases }
+const portraitAliases: Record<string, string> = { 'marhalden-uc-muhur':'side-marhalden-guild', 'solukoz':'side-solukoz', ...heraldryAliases, 'vaeranth-hanedani': 'crest-vaeranth', 'elorwynder-hanedani': 'crest-elorwynder', ...winterAliases, 'bryndon-kiyi-defteri': paintedPortraitAliases.bryndon || 'bryndon', ...paintedPortraitAliases, ...paintedSceneAliases, ...mappedSettlementAliases, 'sela-varn': 'session-sela-varn', 'deren-olm': 'session-deren-olm', 'aysra-tann': 'session-aysra-tann', 'ovel-sarn': 'session-ovel-sarn', 'marhalden-aktarma-avlusu': 'session-marhalden-avlu', 'frostbay-kirik-kanat-yuk-evi': 'session-frostbay-kirik-kanat', ...cityArtAliases }
 export const portraitFor = (id: string) => { const item = artworks[portraitAliases[id] || id]; return item?.portrait ? item : undefined }
 const readingCovers: Record<string, string> = { 'danstsud-ekmek-ve-vergi':'pilorn', 'hardlane-bir-kis':'frostbay', 'karlan-iscilik-ve-gecit':'marhalden', 'danstsud-makam-ve-itiraz':'valdareth' }
 export const artworkFor = (id: string) => artworks[portraitAliases[id] || id]
@@ -58,11 +60,11 @@ const galleries: Record<string, string[]> = {
   eryndorn: ['eryndorn-study', 'valdareth'],
   'rilorn-korfezi': ['valdareth', 'doran-kest'],
   'buyuk-kirilma': ['ejderha-imparatorlugu', 'halendar', 'yarethus'], 'hardlane-otlak-hayvanlari': ['tervan', 'norruk', 'velkir'], veyralt: ['marhalden'], 'rydorn-sirti': ['ternhaven', 'rook'], 'lirendil-buyu-akademisi': ['vaelcor', 'lirendil-sokak'],
-  valdareth: ['eryndorn', 'alisande', 'ilyenne', 'mirelda', 'maelis-dervan', 'rickon', 'valdareth-zindan', 'remaster-horizon'], lirendil: ['lirendil-sokak', 'lirendil-map', 'celikkalkan-map', 'celikkalkan-yemek', 'demirci-ocagi', 'vardek', 'ghorin', 'zylara', 'ellyn', 'gil', 'jeremiah', 'volomiyr'], kethra: ['kethra-liman', 'kethra-map', 'denizkizi-meyhanesi', 'kanca-meyhanesi', 'damian', 'aveline', 'rook', 'seraphinia'], myrran: ['myrran-map'], elorwyn: ['tharion', 'volomiyr', 'valerius'], marhalden: ['karlan', 'frostmere', 'edran-korr', 'vessa-thol'], frostbay: ['nera-veld', 'odran-vehl', 'bryndon'], dranthol: ['garran-veyl', 'ak-cam'], ternhaven: ['mera-sorn', 'ak-cam'], dorvenhall: ['rovan-mereth', 'gil'], theramis: ['elyas-theren', 'bryndon'], brannis: ['varlen-neth'],
+  valdareth: ['eryndorn', 'alisande', 'ilyenne', 'mirelda', 'maelis-dervan', 'rickon', 'valdareth-zindan', 'remaster-horizon'], lirendil: ['lirendil-sokak', 'lirendil-map', 'celikkalkan-map', 'celikkalkan-yemek', 'demirci-ocagi', 'vardek', 'ghorin', 'zylara', 'ellyn', 'gil', 'jeremiah', 'volomiyr'], kethra: ['kethra-liman', 'kethra-map', 'denizkizi-meyhanesi', 'kanca-meyhanesi', 'damian', 'aveline', 'rook', 'seraphinia'], myrran: ['myrran-map'], elorwyn: ['tharion', 'volomiyr', 'valerius'], marhalden: ['side-marhalden-guild', 'karlan', 'frostmere', 'edran-korr', 'vessa-thol'], frostbay: ['nera-veld', 'odran-vehl', 'bryndon'], dranthol: ['garran-veyl', 'ak-cam'], ternhaven: ['mera-sorn', 'ak-cam'], dorvenhall: ['rovan-mereth', 'gil'], theramis: ['elyas-theren', 'bryndon'], brannis: ['varlen-neth'],
   'vaeranth-hanedani': ['eryndorn', 'alisande', 'ilyenne', 'mirelda'], 'elorwynder-hanedani': ['tharion', 'damian', 'aveline', 'rook'], 'karlan-canlilari': faunaArt.map(a => a.id), 'karlan-daglari': ['karlan', 'marhalden', 'orvak', 'kar-kartali'], 'celikkalkan-loncasi': ['celikkalkan-map', 'celikkalkan-yemek', 'vardek', 'kaelen', 'varric', 'mrog'], 'valdareth-saray-makamlari': ['maelis-dervan', 'eryndorn', 'rickon'],
 }
 export function galleryFor(id: string, region: string, cover: string): Artwork[] {
   const primary = primaryArtwork(id) || Object.values(artworks).find(a => a.src === cover) || countryArt[region]
-  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks, ...nightArtworks, ...heraldryArtworks, ...cityArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
+  const list = [primary, ...(galleries[id] || []).map(key => artworkFor(key)), ...[...sideArtworks, ...newPortraitArtworks, ...paintedSceneArtworks, ...mappedSettlementArtworks, ...writerArtworks, ...sessionArtworks, ...winterArtworks, ...nightArtworks, ...heraldryArtworks, ...cityArtworks].filter(a => a.relatedId === id && a.id !== primary?.id)].filter((a): a is Artwork => !!a)
   return list.filter((item, i) => list.findIndex(a => a.id === item.id) === i)
 }

@@ -6,11 +6,11 @@ import { articleById, placeById, regionById } from './data'
 import { ArtworkButton, ImageViewer } from './MediaGallery'
 import './gallery.css'
 
-type Filter = 'heraldry' | 'all' | 'portrait' | 'landscape' | 'fauna' | 'map'
-const filters: { id: Filter; label: string }[] = [{ id: 'all', label: 'Tümü' }, { id:'heraldry',label:'Armalar' }, { id: 'portrait', label: 'Karakterler' }, { id: 'landscape', label: 'Şehirler & sahneler' }, { id: 'fauna', label: 'Canlılar & yaratıklar' }, { id: 'map', label: 'Çizim haritaları' }]
+type Filter = 'heraldry' | 'all' | 'portrait' | 'landscape' | 'fauna' | 'map' | 'item'
+const filters: { id: Filter; label: string }[] = [{ id: 'all', label: 'Tümü' }, { id:'heraldry',label:'Armalar' }, { id: 'portrait', label: 'Karakterler' }, { id:'item',label:'Eşyalar & madenler' }, { id: 'landscape', label: 'Şehirler & sahneler' }, { id: 'fauna', label: 'Canlılar & yaratıklar' }, { id: 'map', label: 'Çizim haritaları' }]
 const animalIds = new Set(['tac-kecisi', 'kar-kartali', 'cig-kuzgunu', 'orvak', 'varkul', 'kharven', 'ulveth', 'gumusalasi', 'tervan', 'norruk', 'velkir'])
 const normalize = (text: string) => text.toLocaleLowerCase('tr').normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/ı/g, 'i')
-const category = (art: Artwork): Filter => art.category === 'heraldry' ? 'heraldry' : art.category === 'fauna' || animalIds.has(art.id.replace(/-painted$/, '')) ? 'fauna' : art.portrait ? 'portrait' : art.id.includes('-map') || art.origin === 'map' ? 'map' : 'landscape'
+const category = (art: Artwork): Filter => art.category === 'item' ? 'item' : art.category === 'heraldry' ? 'heraldry' : art.category === 'fauna' || animalIds.has(art.id.replace(/-painted$/, '')) ? 'fauna' : art.portrait ? 'portrait' : art.id.includes('-map') || art.origin === 'map' || art.category === 'map' ? 'map' : 'landscape'
 function relatedTarget(art: Artwork) {
   const character = characters.find(person => person.portrait === art.id || portraitFor(person.portrait)?.id === art.id)
   if (character) return { id: character.id, label: 'Karakteri tanı' }

@@ -1,5 +1,7 @@
 # Tasarım ve yaratıcı yönlendirme
 
+- [Yan görevler ve maden tasarım sözleşmesi](YAN_GOREV_VE_MADEN_MASTER_PROMPTU.md).
+
 - [Görsel ve Anlatı Rehberi](GORSEL_VE_ANLATI_REHBERI.md) — kullanıcının resim ve lore tercihleri.
 - [Evren ve ansiklopedi master promptu](EVREN_VE_ANSIKLOPEDI_MASTER_PROMPTU.md).
 - [İçerik üretim master promptu](URETIM_MASTER_PROMPTU.md).

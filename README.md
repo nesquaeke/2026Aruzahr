@@ -19,6 +19,7 @@ GitHub'da **Code → Download ZIP** ile deponun tamamını indirip çıkar. [Nod
 | Windows'ta hikâye ve yayın masasını aç | [baslat/Yayini-Baslat.cmd](baslat/Yayini-Baslat.cmd) |
 | macOS / Linux veya telefon kumandası | [Başlatma seçenekleri](baslat/README.md) |
 | Yan olayları ve kişileri takip et | [Yaşayan Yolculuk](docs/kullanim/YASAYAN_YOLCULUK.md) |
+| Gizemli yan görevleri ve maden zindanını aç | [Yan Görevler](docs/kullanim/YAN_GOREVLER.md) · sitede `/#/broadcast/sidequests` |
 | İlk oturumu hazırla | [Üç oyuncu, 1. seviye kısa rehber](web/public/dm/ILK-OTURUM.md) |
 | Oyunu adım adım yönet | [Tek DM Masası](docs/kullanim/TEK_DM_MASASI.md) |
 | Hikâye dosyalarını indir | [DM notları ve şifresiz indirmeler](DM_NOTLARI.md) |

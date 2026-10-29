@@ -393,6 +393,7 @@ export function StudioDirectory() {
   const asset = selected?.asset
   return (
     <div className="st-directory" data-testid="studio-directory">
+      <button className="st-finder-more" onClick={()=>setPanel('sidequests')}>Yan görevdeki kişiler, odalar ve ganimet →</button>
       <StudioFinder entries={entries} onChoose={setSelected} />
       {error && (
         <p className="st-finder-warning">

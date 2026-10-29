@@ -68,7 +68,8 @@ export default function App() {
   const people = route.startsWith('/characters')
   const player = route.startsWith('/play')
   const isAtlas = route.startsWith('/atlas')
-  const articleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
+  const requestedArticleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
+  const articleId = requestedArticleId === 'mac' ? 'tugg' : requestedArticleId
   const selectedRegion = regionById(selected || '')
   const selectedPlace = locationById(selected || '')
   const selectedFeature = featureById(selected || '')

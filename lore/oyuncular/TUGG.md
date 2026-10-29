@@ -1,4 +1,4 @@
-# Tugg
+# Mac (önceki adı Tugg)
 
 Oyuncu tarafından oluşturulmuş goblin paralı asker. Kaynak, kullanıcının 29 Ekim 2026'da paylaştığı karakter görselidir. Bilgelik 10 ve şehrin bilinmediği aynı konuşmada ayrıca doğrulandı.
 
@@ -32,3 +32,5 @@ Geçmiş metninin bir cümlesi eşit bölüşmeyi “hırsızlık” diye adland
 Portre `web/public/illustrations/tugg.webp`, 1024 × 1536. Paylaşılan görünüş referans alınarak yeni üretildi. Yumuşak yağlıboya yorumu, yakın toprak tonlarında mekânsız zemin. Çerçeve ve isim plakası çizime gömülmez; arayüzde Olağan çerçeve uygulanır. Bu bir sınıf/seviye ya da düello gücü ölçümü değildir.
 
 Kamusal biyografi oyuncunun özel hesabına otomatik kayıt oluşturmaz, mevcut partiyi veya yayın sahnesini değiştirmez. Konum bilinmediğinden haritaya rastgele nokta eklenmez. Veri dizininin mevcut bölge alanı Danstsud kampanya kataloğunu kullanır; `locationUnknown` ile ülke/şehir ataması arayüzde ve yayın filtrelerinde yapılmaz.
+
+29 Ekim güncellemesi: kullanıcının talebiyle görünen ad **Mac** oldu. `tugg` teknik kimliği, portre dosyası ve eski bağlantılar korundu. Önceki Tugg alıntıları aynı kişinin eski adını taşır.

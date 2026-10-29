@@ -9,6 +9,7 @@ import { bryndonArticles } from './lore/bryndon'
 import { taxVillages, visualPeopleArticles } from './presentation'
 import { atlasRouteArticles, atlasGeographyArticles } from './map-features'
 import { characterArticles } from './lore/characters'
+import {sidePublicArticles} from './lore/sidequest-public'
 import { lirendilInstitutions } from './lore/lirendil-institutions'
 import { cityLife, regionalLife, livingArticles, livingWorldSource } from './lore/living-world'
 import { bookArticles } from './lore/books'
@@ -200,7 +201,7 @@ export const places: Place[] = [...basePlaces, ...newlyMappedPlaces.filter(place
 export const subregions: Subregion[] = danstsudSubregions
 export type MappedPlace = Place & { point: [number, number] }
 export const mapLocations: (MappedPlace | Subregion)[] = [...places.filter((place): place is MappedPlace => place.point !== null), ...subregions]
-export const loreArticles: LoreArticle[] = [...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...hardlaneSessionArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...fieldWildlife, ...newDanstsudInstitutions, ...polityArticles].map(article => {
+export const loreArticles: LoreArticle[] = [...sidePublicArticles, ...danstsudArticles, ...danstsudExpansionArticles, ...karlanExpansionArticles, ...hardlaneArticles, ...hardlaneLawArticles, ...hardlaneCoastArticles, ...hardlaneSessionArticles, ...bryndonArticles, ...visualPeopleArticles, ...atlasRouteArticles, ...atlasGeographyArticles, ...characterArticles, ...lirendilInstitutions, ...livingArticles, ...bookArticles, ...newFaunaArticles, ...fieldWildlife, ...newDanstsudInstitutions, ...polityArticles].map(article => {
   const operations = institutionOperations[article.id];
   const biography = characterLifeSections(article.id);
   const house = article.id === 'vaeranth-hanedani' ? worldHouses.find(h => h.id === 'vaeranth') : article.id === 'elorwynder-hanedani' ? worldHouses.find(h => h.id === 'elorwynder') : undefined;

@@ -79,7 +79,7 @@ const groups: Record<PowerTier, string[]> = {
     'doran-kest',
     'lethan-orve',
   ],
-  ordinary: ['seraphinia', 'tarb', 'yasli-kaelen', 'tugg'],
+  ordinary: ['seraphinia', 'tarb', 'yasli-kaelen', 'tugg', 'side-bren', 'side-dessa', 'side-ilven'],
 }
 export const characterPower: Record<string, PowerTier> = Object.fromEntries([
   ...Object.entries(groups).flatMap(([tier, ids]) =>

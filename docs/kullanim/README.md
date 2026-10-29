@@ -1,5 +1,7 @@
 # Kullanım rehberleri
 
+[Yan Görevler ve Kayıp Pay Madeni](YAN_GOREVLER.md) — üç gizem, yedi odalı zindan, haritalar, makine bulmacası ve resimli ganimet.
+
 [Oyuncu Masası](OYUNCU_MASASI.md) — D&D 5e 2014 karakter oluşturma, 319 Türkçe SRD büyüsü, oyun takibi, yerel yedek, A4 şablonlar ve Vercel kurulumu.
 
 [Ücretsiz Render yayını](RENDER_YAYINI.md) — hazır Blueprint, statik site ayarları ve oyuncu kayıtlarını yeni adrese taşıma.

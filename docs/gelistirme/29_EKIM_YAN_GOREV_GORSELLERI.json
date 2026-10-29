@@ -1,0 +1,157 @@
+{
+  "note": "19 bağımsız görsel. Boyut değiştirme veya hücre kırpma yapılmadı. Maden aracı resmindeki hatalı işaret görsel üretim aracıyla kaldırıldı.",
+  "images": [
+    {
+      "id": "side-frostbay-market",
+      "source": "exec-81dfcacf-4c38-4145-9bb2-46c5bce5ba87.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 476934,
+      "sha256": "4b51edb45b281dc42c383860decfccffd30f8eb94a759c8ba6e69239fe11e8a0"
+    },
+    {
+      "id": "side-mine-entrance",
+      "source": "exec-98921a8c-3e9a-4c74-add6-0317afd830be.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 594386,
+      "sha256": "3eb17df7b546487a0fd0298ccb7f2a649e27a70fbb376c982a0af3f45555e289"
+    },
+    {
+      "id": "side-marhalden-guild",
+      "source": "exec-b22a86d8-b467-4470-81b6-f0e1c594056b.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 487492,
+      "sha256": "c6ba900318a998939d87cf34769c2268bcdcb7dd145206ae05db89c26833d8e1"
+    },
+    {
+      "id": "side-dagger",
+      "source": "exec-c0746de2-15bc-4ef3-84d0-3ca3495919a1.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 326434,
+      "sha256": "2f13db9822f58df65f55060d6bb9dcac2a03e9d90147abbdfed49721d1f9b41c"
+    },
+    {
+      "id": "side-sword",
+      "source": "exec-831cdb82-69a0-4609-b778-b449e4def40c.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 234630,
+      "sha256": "c56e1000518183d652ae007ae9950f35d2b76a4fa2016bffa0aac6892281b65f"
+    },
+    {
+      "id": "side-bow",
+      "source": "exec-cfb6bb26-85dd-4094-8a3b-512fd2bee577.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 308368,
+      "sha256": "dbe090d5692c78b80a11c87e8f8610261ed432e290d05bc4b0535428ca7abf37"
+    },
+    {
+      "id": "side-arrow",
+      "source": "exec-b2e2ec29-76a1-4f53-b6f1-a31f18943358.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 268990,
+      "sha256": "c4e9c99568ce43b9d6ae318551d0193e973f48d2f7c034862e7f87e5fd884724"
+    },
+    {
+      "id": "side-cloak",
+      "source": "exec-4f070506-4e84-4ae6-8d5d-9f51af391679.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 265398,
+      "sha256": "399bad4718d1a5387ee6d9f8bf0574b2bbcdeccd200bddfbd6d3ba8362aec930"
+    },
+    {
+      "id": "side-solukoz",
+      "source": "exec-9d7c5fa8-0c2b-48be-9414-385b3b09d5fd.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 464184,
+      "sha256": "9d8983feed6b752d034bfc6bd06693892b802f5f97b36efd14281aa9ea118a4f"
+    },
+    {
+      "id": "side-bad-sword",
+      "source": "exec-fcfc74fd-eb45-42a7-baf5-fa1192755b21.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 234050,
+      "sha256": "853fdfb8f54086beb959edade77da5267c2573bdf83b90049b0a9b80f78e6950"
+    },
+    {
+      "id": "side-fake-armor",
+      "source": "exec-85a009b7-c0be-40d9-9f3f-009496d2ac80.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 315932,
+      "sha256": "5531a0d6775add38c7afc20ebc8bbeb588e7316c6a7fdb6b3516c77793cc9eee"
+    },
+    {
+      "id": "side-mine-rig",
+      "source": "exec-78ee86be-3704-40a7-99e6-5844eae696c8.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 601160,
+      "sha256": "30b25c7dd89f0257fa92b110f450004707398275a5767bc7f7ec94270faf0445"
+    },
+    {
+      "id": "side-orvek-house",
+      "source": "exec-fc1d6ad5-bb65-4f2d-9254-b5633923a5a3.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 567616,
+      "sha256": "fd639761c18e39c459d8ca64e34d17458b861e6f870ad4ed3786e4b92e899c0d"
+    },
+    {
+      "id": "side-dry-mill",
+      "source": "exec-0398c003-c144-46aa-850a-7e361be2a5ed.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 747260,
+      "sha256": "d99b29f47973624871f092c16b4a9b15eda2705acc29a9baab81e68728afb9fa"
+    },
+    {
+      "id": "side-mine-hall",
+      "source": "exec-8cc3d274-c9ea-43bf-9429-bb3b8aa5406e.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 568672,
+      "sha256": "915c7ab2865e83a7d946fd3283fe97887228099fd4ce4c03b89c93ab425486f1"
+    },
+    {
+      "id": "side-bren",
+      "source": "exec-1731f5c0-af63-452f-9473-44295231a744.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 335648,
+      "sha256": "4c65c0c7b6a97ecd7fadeac0cdb25a71ca43df5f9e43e18d0ea4f87f375e2cf9"
+    },
+    {
+      "id": "side-dessa",
+      "source": "exec-be8aef34-9bbc-4a58-b604-10439e08daaf.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 396206,
+      "sha256": "29b8d3ff1a106e30828597762c300d6f01a6713ec2775fc0fb360da2f10cc1f6"
+    },
+    {
+      "id": "side-ilven",
+      "source": "exec-1dfc65e8-8c2b-4a14-a394-d91271b741a3.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 314726,
+      "sha256": "bfbb1b92e10fb0e77fb93f3e5e7b76ff9837c0fb3a14880782ebbc803918e370"
+    },
+    {
+      "id": "side-treasure-handout",
+      "source": "exec-347e2650-6ab1-4b5a-af76-74d2d404c265.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 766596,
+      "sha256": "7f324b99418bc99e0c411578e2337973c3b5dff8872612c0f16b93591b1e8c40"
+    }
+  ]
+}
