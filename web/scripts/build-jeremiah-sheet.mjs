@@ -14,6 +14,7 @@ try{
  const {derivedStats,maxHitPoints}=await server.ssrLoadModule('/src/player/rules.ts');
  const {applyStarterEquipment,addCatalogAttack,equipCatalogArmor}=await server.ssrLoadModule('/src/player/equipment-catalog.ts');
  const {jeremiahRevision}=await server.ssrLoadModule('/src/lore/player-duo.ts');
+ const {jeremiahGiftResource}=await server.ssrLoadModule('/src/lore/jeremiah-gift.ts');
  const {characterAbilities}=await server.ssrLoadModule('/src/character-abilities.ts');
  const {default:PlayerSheet}=await server.ssrLoadModule('/src/player/PlayerSheet.tsx');
  const scores=characterAbilities.jeremiah;
@@ -22,10 +23,11 @@ try{
   'Nitelikler sitedeki mevcut editoryal Jeremiah değerleri: STR 9 / DEX 16 / CON 12 / INT 15 / WIS 11 / CHA 15. Atış/puan yöntemi ayrıca DM ile onaylanır. İnsan soy bonusu ikinci kez eklenmedi.',
   'Beceriler: sınıftan Akrobasi, El Çabukluğu, Gizlilik ve Araştırma; özel geçmişten Aldatma ve İkna. Uzmanlık: Gizlilik ve Aldatma. * işaretli Elfçe ve kılık değiştirme seti yetkinliği özel geçmiş için taslak seçimlerdir. Araç yetkinliği, ekipman bulundurmakla aynı değildir; kılık değiştirme seti ayrıca satın alınmadı.',
   'Gizli Saldırı 1d6: tur başına bir kez, finesse veya menzilli bir silahla isabet edince; avantaj ya da hedefin 5 fit yakınında etkisiz olmayan başka düşmanı gerekir. Dezavantaj varken uygulanmaz. Her saldırıya eklenmez; ayrı saldırı zarı atılmaz. Bu kâğıttaki sayaçlar otomatik ek hasar uygulamaz.',
-  '1. seviyede Kurnaz Eylem, Arcane Trickster alt sınıfı, büyü yuvaları veya sınıf büyüleri yok. Kurnaz Eylem 2., Arcane Trickster seçimi 3. seviyede gelir. Doğuştan büyü ve yankı düğümü mevcut seviyede yalnız anlatıdır; ücretsiz büyü, otomatik dezavantaj veya sözlü bileşen yasağı yaratmaz.',
+  '1. seviyede Kurnaz Eylem, Arcane Trickster alt sınıfı, büyü yuvaları veya sınıf büyüleri yok. Kurnaz Eylem 2., Arcane Trickster seçimi 3. seviyede gelir. Kullanıcının son isteğiyle Kan Yankısı adlı Aruzahr özel kuralı eklendi: Soluk El ve Sahte Fısıltı ortak 2 kullanım paylaşır; uzun dinlenmede yenilenir. Tam kurallar Özellik ve Kaynak Ayrıntıları bölümündedir. Yankı düğümü otomatik dezavantaj veya sözlü bileşen yasağı yaratmaz.',
   'Envanter sınıfın meç/kısa yay başlangıç seçimi ve hırsız çantasıdır; deri zırh ayrıca kuşanıldı. Başlangıç altını veya ikinci bir geçmiş donanım paketi eklenmedi. Geçmişin ek maddi varlıklarını oyuncu/DM ayrıca belirler.',
   'This work includes material taken from the System Reference Document 5.1 (SRD 5.1) by Wizards of the Coast LLC: https://dnd.wizards.com/resources/systems-reference-document. Licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/legalcode. Türkçe çeviri ve kısaltma: Aruzahr, 2026.',
  ].join('\n\n')};
+ character.resources=[jeremiahGiftResource()];
  character.hp=maxHitPoints(character);
  Object.assign(character,applyStarterEquipment(character));
  Object.assign(character,equipCatalogArmor(character,'leather-armor'));
@@ -41,7 +43,7 @@ try{
  const cleanNotes=text=>text.split('\n').filter(line=>!/^\[(SRD:|Başlangıç:)/.test(line)).join('\n');
  const printCharacter={...character,equipment:character.equipment.map(item=>({...item,notes:cleanNotes(item.notes)})),attacks:character.attacks.map(attack=>({...attack,notes:cleanNotes(attack.notes)})),portrait:'data:image/jpeg;base64,'+(await sharp(web+'public/illustrations/jeremiah-remaster.webp').jpeg({quality:87,mozjpeg:true}).toBuffer()).toString('base64')};
  markup=renderToStaticMarkup(React.createElement(PlayerSheet,{character:printCharacter,spells:[]}));
- await writeFile(web+'../docs/gelistirme/JEREMIAH_KAGIT_KAYDI.json',JSON.stringify({status:'Sınıf ve seviye kullanıcı tarafından onaylandı; nitelikler mevcut editoryal kayıt, yetkinlikler ve özel geçmiş düzenlenebilir başlangıç seçimleri',level:1,classId:character.classId,futureSubclass:'arcane-trickster (3. seviyede)',scores:character.scores,derived:derivedStats(character),equipment:character.equipment.length,attacks:character.attacks.map(a=>({name:a.name,damage:a.damage,ability:a.ability})),privatePlayerNamePublished:false},null,2)+'\n');
+ await writeFile(web+'../docs/gelistirme/JEREMIAH_KAGIT_KAYDI.json',JSON.stringify({status:'Sınıf ve seviye kullanıcı tarafından onaylandı; nitelikler mevcut editoryal kayıt, yetkinlikler ve özel geçmiş düzenlenebilir başlangıç seçimleri',level:1,classId:character.classId,futureSubclass:'arcane-trickster (3. seviyede)',scores:character.scores,derived:derivedStats(character),houseRule:character.resources,equipment:character.equipment.length,attacks:character.attacks.map(a=>({name:a.name,damage:a.damage,ability:a.ability})),privatePlayerNamePublished:false},null,2)+'\n');
 }finally{await server.close();}
 
 let fontCSS='';const licenseParts=[];

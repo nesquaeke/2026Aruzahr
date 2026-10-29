@@ -1,11 +1,11 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {importPlayerFile,playerStorageKey,newPlayerCharacter,exportPlayers} from '../src/player/model';
+import {importPlayerFile,playerStorageKey,newPlayerCharacter,exportPlayers,exportPlayerCharacter,shortRest,longRest,parsePlayerCharacter} from '../src/player/model';
 import {derivedStats,skillBonus,savingThrow} from '../src/player/rules';
 
 const file='public/downloads/Jeremiah-Aruzahr.json';
-test('Jeremiah is playable as rogue 1 without premature magic or missing gear',()=>{
+test('Jeremiah has limited innate magic without premature class spellcasting or missing gear',()=>{
  const c=importPlayerFile(readFileSync(file,'utf8'))[0],stats=derivedStats(c);
  expect(c.name).toBe('Jeremiah');expect(c.playerName).toBe('');
  expect(c.classId).toBe('rogue');expect(c.level).toBe(1);expect(c.subclass).toBe('');
@@ -21,8 +21,23 @@ test('Jeremiah is playable as rogue 1 without premature magic or missing gear',(
  expect(c.equipment.some(e=>e.name==='Ok'&&e.quantity===20)).toBe(true);
  expect(c.armorId).toBe('leather');expect(stats.slots.every(n=>n===0)).toBe(true);
  expect(c.spellbook).toEqual([]);expect(c.portrait).toMatch(/^data:image\/webp;base64,/);
+ expect(c.resources).toHaveLength(1);
+ expect(c.resources[0]).toMatchObject({id:'jeremiah-kan-yankisi',name:'Kan Yankısı',max:2,used:0,reset:'long'});
+ expect(c.resources[0].description).toContain('Soluk El');expect(c.resources[0].description).toContain('Sahte Fısıltı');
  expect(c.notes).toContain('SINIF ONAYLANDI');expect(c.backstory).toContain('yankı düğümü');
  expect(Buffer.byteLength(readFileSync(file))).toBeLessThan(750000);
+});
+
+test('innate magic shares one pool, survives export and only resets on a long rest',()=>{
+ const c=importPlayerFile(readFileSync(file,'utf8'))[0];c.resources[0].used=2;
+ const restored=importPlayerFile(exportPlayerCharacter(c))[0];
+ expect(shortRest(restored).resources[0].used).toBe(2);
+ expect(longRest(restored).resources[0].used).toBe(0);
+ expect(longRest(restored).resources[0].description).toBe(c.resources[0].description);
+ const other=newPlayerCharacter('rogue');expect(other.resources).toEqual([]);
+ other.resources=[{id:'old-source',name:'Eski kaynak',max:1,used:1,reset:'manual'}];
+ expect(parsePlayerCharacter(other).resources).toEqual(other.resources);
+ expect(()=>parsePlayerCharacter({...c,resources:[{...c.resources[0],description:'x'.repeat(4001)}]})).toThrow('Kaynak açıklaması');
 });
 
 test('filled A4 PDF preserves the biography, weapons and final inventory details',()=>{
@@ -33,7 +48,7 @@ test('filled A4 PDF preserves the biography, weapons and final inventory details
  expect(Math.abs(Number(dimensions[1])-595.28)).toBeLessThan(2);
  expect(Math.abs(Number(dimensions[2])-841.89)).toBeLessThan(2);
  const text=execFileSync('pdftotext',['-layout',pdf,'-'],{encoding:'utf8'});
- for(const value of ['Jeremiah','Gizli Saldırı','yankı düğümü','Kısa yay','Çantanın Tam Listesi','Kayıt eki'])expect(text).toContain(value);
+ for(const value of ['Jeremiah','Gizli Saldırı','yankı düğümü','Kısa yay','Çantanın Tam Listesi','Kayıt eki','Kan Yankısı','Soluk El','Sahte Fısıltı'])expect(text).toContain(value);
  const c=importPlayerFile(readFileSync(file,'utf8'))[0];
  expect(text).toContain(c.equipment.at(-1)!.name);
 });
@@ -50,6 +65,15 @@ test('wiki downloads work and importing Jeremiah preserves another player charac
  await page.goto('/#/play');await page.getByLabel('Karakter JSON dosyası').setInputFiles(file);
  await expect(page).toHaveURL(/#\/play\/player-jeremiah-draft$/);
  await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'{}').characters?.map((c:{name:string})=>c.name),playerStorageKey)).toEqual(['Mevcut Yolcu','Jeremiah']);
+ await page.getByRole('navigation',{name:'Karakter bölümleri'}).getByRole('button',{name:'Macerada'}).click();
+ const use=page.getByRole('button',{name:'Kan Yankısı kullan',exact:true});
+ const resource=page.locator('.pw-resource-list>article').filter({has:use});
+ await resource.getByText('Nasıl kullanılır?',{exact:true}).click();
+ await expect(resource).toContainText('Soluk El');await expect(resource).toContainText('Sahte Fısıltı');
+ await use.click();await use.click();await expect(use).toBeDisabled();
+ await expect(resource.locator(':scope>span')).toHaveText('0 / 2');
+ await page.getByRole('button',{name:'Kan Yankısı geri koy',exact:true}).click();
+ await expect(resource.locator(':scope>span')).toHaveText('1 / 2');
 });
 
 test('standalone printable sheet fits its A4 core and has no network dependencies',async({page})=>{

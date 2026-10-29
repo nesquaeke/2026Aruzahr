@@ -1966,6 +1966,7 @@ export default function PlayerWorkshop({
                       {character.resources.map((resource) => (
                         <article key={resource.id}>
                           <strong>{resource.name}</strong>
+                          {resource.description&&<details className="pw-resource-description"><summary>Nasıl kullanılır?</summary><p>{resource.description}</p></details>}
                           <span>
                             {Math.max(0, resource.max - resource.used)} /{" "}
                             {resource.max}

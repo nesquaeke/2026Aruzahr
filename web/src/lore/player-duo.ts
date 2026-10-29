@@ -1,4 +1,5 @@
 import type {Character} from './characters';
+import {jeremiahGift} from './jeremiah-gift';
 
 export const playerDuoSource='29 Ekim 2026 · Ciotella-Aruzahr.json, kullanıcının Ciotella/Jeremiah açıklamaları ve isteğiyle yapılan yeni biyografi düzenlemesi';
 
@@ -63,8 +64,12 @@ export const jeremiahRevision:Character={
    'Lonca hekimi Zylara’nın muayenesi ve Magister Vaelcor’un denetimli çalışmaları, çözüm aramak için kullanılabilecek iki yoldur. Sonuç henüz belirlenmiş değildir. Oyuncuların gerçekten kullanabildiği tedavi veya büyü çözümleri, hikâyeyi uzatmak için sebepsizce geçersiz kılınmaz.',
   ]},
   {title:'Oyuncu kâğıdı · 1. seviye Düzenbaz',paragraphs:[
-   'Sınıf ve seviye onaylandı: D&D 5e 2014, 1. seviye Düzenbaz. İleride Arcane Trickster yolu seçilecek; alt sınıf 3. seviyede açılır. Bu başlangıç kâğıdında henüz büyü yuvası veya sınıf büyüsü yoktur. Kanındaki büyü, şimdilik anlatıda kendini gösterir.',
+   'Sınıf ve seviye onaylandı: D&D 5e 2014, 1. seviye Düzenbaz. İleride Arcane Trickster yolu seçilecek; alt sınıf 3. seviyede açılır. Bu başlangıç kâğıdında henüz büyü yuvası veya sınıf büyüsü yoktur. Kullanıcının son isteğiyle doğuştan gelen iki küçük büyülü etki, Kan Yankısı özel kuralıyla eklendi.',
    'Portreli A4 kâğıdı ve Oyuncu Masası dosyası aşağıdan indirilebilir. Mevcut editoryal niteliklerle Can 9, Zırh 14, İnisiyatif +3 ve Yetkinlik +2 hesaplandı. Gizlilik ve Aldatma Uzmanlıkları, altı beceri ve başlangıç donanımı dolduruldu. Nitelikler, beceriler ve özel geçmiş seçimleri oyuncu ile DM tarafından düzenlenebilir; bunlar oyuncunun verdiği bir zar dökümü değildir.',
+  ]},
+  {title:jeremiahGift.name+' · doğuştan büyü',paragraphs:[
+   'Jeremiah büyük büyüler kuramaz; elini bir anahtara uzattığında bazen ondan önce soluk bir gölge uzanır. Kısa bir ıslığı ise kendi dudakları yerine odanın başka bir köşesinden duyurabilir. Elorwyn’de gizlediği yetenek, şimdi küçük ve denetlenebilir denemelerle ortaya çıkar.',
+   jeremiahGift.rules,...jeremiahGift.options.map(option=>option.name+': '+option.text),
   ]},
  ],
 };

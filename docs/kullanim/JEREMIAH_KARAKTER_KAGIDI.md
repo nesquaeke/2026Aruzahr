@@ -10,7 +10,18 @@ Yazdırma: A4, %100 / gerçek boyut. HTML sürümünü açtıysan tarayıcının
 
 ## Hazır oyun değerleri
 
-Kullanıcının seçimi **D&D 5e 2014, Düzenbaz 1; ileride Arcane Trickster**. Alt sınıf 3. seviyede seçilir; 1. seviyede sınıf büyüleri veya büyü yuvası yoktur. Kurnaz Eylem 2. seviyede açılır. Kanındaki büyü ve sesindeki yankı düğümü şimdilik anlatı ayrıntısıdır; zorunlu susma veya otomatik mekanik ceza değildir.
+Kullanıcının seçimi **D&D 5e 2014, Düzenbaz 1; ileride Arcane Trickster**. Alt sınıf 3. seviyede seçilir; 1. seviyede sınıf büyüleri veya büyü yuvası yoktur. Kurnaz Eylem 2. seviyede açılır. Son kullanıcı isteğiyle **Kan Yankısı** adlı hafif doğuştan büyü özelliği eklendi; bu, Aruzahr özel kuralıdır. Sesindeki yankı düğümü zorunlu susma veya otomatik mekanik ceza değildir.
+
+## Kan Yankısı nasıl kullanılır?
+
+İki seçenek **ortak 2 kullanım** paylaşır. Her başlatma 1 eylem ve 1 kullanım harcar. Menzil 9 metre; görülen, tam siper arkasında olmayan nokta seçilir. Kısık bir sözcük ve el hareketi gerekir. Aynı anda tek etki sürer; yeni etki öncekini bitirir. Uzun dinlenmede iki kullanım da geri gelir; kısa dinlenmede yenilenmez.
+
+- **Soluk El:** 1 dakika süren solgun el, en fazla 1 kg ağırlığındaki sahipsiz eşyayı taşıyabilir veya hafif, kilitsiz bir kapıyı itebilir. İlk iş başlatma eyleminde yapılır; sonraki yönlendirmeler eylem ister, yeni kullanım harcamaz. El 9 metre menzilden çıkarsa kaybolur. Saldıramaz, kilit açamaz, hırsız aleti/büyülü eşya kullanamaz veya kişinin üzerindeki/tuttuğu eşyayı alamaz.
+- **Sahte Fısıltı:** 1 tur / 6 saniyelik tıkırtı, ayak sürtünmesi veya ıslık üretir. Normal konuşmadan yüksek olamaz; en fazla 9 metre öteden duyulur, çevre gürültüsü sesi örtebilir. Söz, emir veya belirli kişinin sesi üretilemez. İncelemek için eylem harcayan yaratık **Zekâ (Araştırma) ZD 12** ile yanılsamayı anlar. Formül 8 + yetkinlik + Zekâ değiştiricisidir. Otomatik hareket, saldırı avantajı veya Gizli Saldırı sağlamaz.
+
+Hasar vermez ve büyü yuvası kullanmaz. Bunlar sınırsız cantrip değildir. Oyuncu Masası'nın savaş/dinlenme bölümünde **Kan Yankısı → Nasıl kullanılır?** açıklamasını aç; iki seçenekten birini kullandığında **Kullan** düğmesine bir kez bas. **Geri koy**, yanlışlıkla harcanan kullanımı geri alır. Eşya hareketi ve yanılsamayı değerlendirme masa başında yapılır; site otomatik hedef/zorluk çözmez. Kullanım sayacı ve açıklama karakter JSON yedeğinde korunur.
+
+Önceden içe alınmış karakterler otomatik değişmez. Güncel JSON'u açmak mevcut karakterinin üstüne yazmaz; ayrı kopya oluşturabilir. Mevcut karakterini sürdürmek istersen bu kuralları notlarına ve uzun dinlenmede yenilenen **2 kullanımlık Kan Yankısı** sayacına elle ekleyebilirsin. Çift kopyada ilerlemeyi iki kez yürütme.
 
 Can 9, Zırh 14 (kuşanılmış deri zırh), İnisiyatif +3, Yetkinlik +2, hız 30 fit. Gizlilik +7 ve Aldatma +6, Uzmanlıkları içerir. Meç / kısa yay / hançer saldırıları +5. Yazılı hasarlar sırasıyla 1d8+3, 1d6+3 ve 1d4+3; Çeviklik +3 zaten dahildir. İki hafif hançerle bonus eylem saldırısının hasarı 1d4'tür; meç hafif değildir. Gizli Saldırı 1d6 yalnız koşulları sağlanırsa tur başına bir kez eklenir.
 

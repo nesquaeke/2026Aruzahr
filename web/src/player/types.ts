@@ -5,7 +5,7 @@ export type ClassId = typeof classIds[number]
 export type SkillId = 'acrobatics'|'animal-handling'|'arcana'|'athletics'|'deception'|'history'|'insight'|'intimidation'|'investigation'|'medicine'|'nature'|'perception'|'performance'|'persuasion'|'religion'|'sleight-of-hand'|'stealth'|'survival'
 export type PlayerAttack = {id:string;name:string;ability:AbilityId;proficient:boolean;damage:string;damageType:string;notes:string}
 export type PlayerEquipment = {id:string;name:string;quantity:number;weight:number;notes:string}
-export type PlayerResource = {id:string;name:string;max:number;used:number;reset:'short'|'long'|'manual'}
+export type PlayerResource = {id:string;name:string;max:number;used:number;reset:'short'|'long'|'manual';description?:string}
 export type PlayerCharacter = {
   version:1;id:string;createdAt:string;updatedAt:string;name:string;playerName:string;
   classId:ClassId;level:number;subclass:string;raceId:string;backgroundId:string;
