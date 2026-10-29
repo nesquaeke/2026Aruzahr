@@ -1,5 +1,15 @@
 # Aruzahr kamera çerçevesi
 
+## Büyütmede netlik için yeni sürüm
+
+- [Saf vektör SVG](../../web/public/downloads/Aruzahr-Kamera-Cercevesi-Vektor.svg): raster resim içermez. Desenler yeniden çizilmiş geometrik bezemelerdir; ilk resmin piksel büyütmesi değildir.
+- [Vektörden 4160 × 2640 PNG](../../web/public/downloads/Aruzahr-Kamera-Cercevesi-4K.png): OBS Görüntü Kaynağı için önerilen dosya. Şeffaf kamera açıklığı bu ölçekte x160/y160, 3840 × 2160'dır. Oranı 16:9; üst/alt kırpmaya gerek yoktur. İsim plakası yaklaşık x1030/y2386 ile x3130/y2558 arasındadır.
+- [Yeni detaylı boyalı yorum](../../web/public/downloads/Aruzahr-Kamera-Cercevesi-Detayli.png): 1672 × 941 yerel üretim; büyütme sınırsız değildir. Vektör dosyasından ayrı bir görsel yorumdur.
+
+4K genişliğindeki PNG'yi doğal boyutundan küçük kullan. Çok küçültürken OBS → sağ tık → Ölçekleme Filtresi → Lanczos denenebilir. Kamera, çerçeve ve metni aynı gruba koyup grubun köşesinden orantılı ölçekle. Kaynakları tek tek büyütürsen hizaları kayar. Vektör çerçeve net kalsa da düşük çözünürlüklü VDO.Ninja kamera görüntüsüne yeni ayrıntı eklemez. SVG'yi OBS sürümün Görüntü Kaynağı olarak desteklemiyorsa PNG sürümünü kullan.
+
+## İlk boyalı sürüm
+
 [Şeffaf PNG indir](../../web/public/downloads/Aruzahr-Kamera-Cercevesi.png)
 
 Tek oyuncu için yeniden kullanılabilir eskitilmiş metal çerçeve ve boş isim plakası. Üretim boyutu 1672 × 941, RGBA PNG. Kamera alanı ve dış zemin gerçek alfa şeffaflığı kullanır; siyah bir dikdörtgen değildir. Kamera açıklığı yaklaşık 2,1:1 olduğundan 16:9 kameranın bir miktar üst/alt kırpılması gerekir. İnternet bağlantısı gerektirmeyen yerel OBS Görüntü Kaynağı olarak kullan.

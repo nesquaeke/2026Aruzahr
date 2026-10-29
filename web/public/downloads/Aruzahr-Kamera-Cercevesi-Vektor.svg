@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2080" height="1320" viewBox="0 0 2080 1320" fill="none">
+ <title>Aruzahr — kamera çerçevesi</title>
+ <desc>Saf vektör. Şeffaf kamera açıklığı x80 y80, 1920×1080. Boş isim plakası alttadır.</desc>
+ <defs>
+  <linearGradient id="steel" x2=".3" y2="1"><stop stop-color="#596164"/><stop offset=".25" stop-color="#20292c"/><stop offset=".55" stop-color="#10191d"/><stop offset=".8" stop-color="#374145"/><stop offset="1" stop-color="#131d20"/></linearGradient>
+  <linearGradient id="brass" x2=".7" y2="1"><stop stop-color="#e6d4a1"/><stop offset=".22" stop-color="#9f824e"/><stop offset=".48" stop-color="#dec790"/><stop offset=".65" stop-color="#705a35"/><stop offset="1" stop-color="#bba06b"/></linearGradient>
+  <linearGradient id="plate" x2="0" y2="1"><stop stop-color="#252827"/><stop offset=".6" stop-color="#141c1e"/><stop offset="1" stop-color="#242523"/></linearGradient>
+  <pattern id="etch" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M0 12L12 0M12 24L24 12" stroke="#b5b7a9" stroke-opacity=".08" stroke-width=".65"/></pattern>
+  <g id="vine" stroke="url(#brass)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M0 0C23-13 33 13 56 0S89-13 112 0S145 13 168 0"/>
+   <path d="M28 0C21-11 14-13 9-11C12-4 20-1 28 0ZM58 0C64 11 72 13 78 11C74 4 66 1 58 0ZM110 0C104-11 96-13 90-11C94-4 102-1 110 0ZM140 0C146 11 154 13 160 11C156 4 148 1 140 0Z" fill="#7d714f"/>
+   <path d="M35 1L42-6L45-3M121 0L128 6L130 3"/>
+  </g>
+  <pattern id="vineRow" width="168" height="32" patternUnits="userSpaceOnUse"><use xlink:href="#vine" y="16"/></pattern>
+  <g id="corner">
+   <path d="M10 72L20 20L72 10L61 32L111 32L76 48L53 53L48 76L32 111L32 61Z" fill="url(#steel)" stroke="url(#brass)" stroke-width="3"/>
+   <path d="M25 25L64 19L43 39L38 65L21 91L26 50L16 63Z" fill="url(#brass)"/>
+   <path d="M35 36L90 37L58 47L47 58L37 90Z" fill="#aa905a" stroke="#ead7a0"/>
+   <circle cx="35" cy="35" r="16" fill="url(#steel)" stroke="url(#brass)" stroke-width="3"/>
+   <circle cx="35" cy="35" r="8" stroke="#a8aaa0" stroke-width="2"/>
+   <path d="M32 32L38 38" stroke="#070f14" stroke-width="2"/>
+  </g>
+  <g id="seal" stroke="url(#brass)" stroke-linejoin="round">
+   <path d="M0-27L22 0L0 29L-22 0Z" fill="url(#steel)" stroke-width="3"/>
+   <path d="M0-17V18M0 8L-10-2M0 2L10-8M0-4L-7-11" stroke-width="2"/>
+   <path d="M-31 7L-16 10M31 7L16 10" stroke-width="2"/>
+  </g>
+ </defs>
+ <!-- Ring uses an even-odd hole; there is no painted camera background. -->
+ <path fill-rule="evenodd" d="M32 32H2048V1208H32ZM80 80V1160H2000V80Z" fill="url(#steel)"/>
+ <path fill-rule="evenodd" d="M32 32H2048V1208H32ZM80 80V1160H2000V80Z" fill="url(#etch)"/>
+ <rect x="32" y="32" width="2016" height="1176" rx="3" stroke="#0c1216" stroke-width="7"/>
+ <rect x="36" y="36" width="2008" height="1168" rx="2" stroke="url(#brass)" stroke-width="4"/>
+ <rect x="43" y="43" width="1994" height="1154" stroke="#d1ba84" stroke-opacity=".55" stroke-width="1"/>
+ <rect x="78" y="78" width="1924" height="1084" stroke="url(#brass)" stroke-width="4"/>
+ <rect x="73" y="73" width="1934" height="1094" stroke="#090f12" stroke-width="3"/>
+ <path d="M100 56H1980M100 1184H1980M56 100V1140M2024 100V1140" stroke="#080f13" stroke-width="28"/>
+ <rect x="100" y="40" width="1880" height="32" fill="url(#vineRow)"/>
+ <rect x="100" y="1168" width="1880" height="32" fill="url(#vineRow)"/>
+ <g transform="translate(72 100) rotate(90)"><rect width="1040" height="32" fill="url(#vineRow)"/></g>
+ <g transform="translate(2040 100) rotate(90)"><rect width="1040" height="32" fill="url(#vineRow)"/></g>
+ <use xlink:href="#corner" x="6" y="6"/>
+ <g transform="translate(2074 6) scale(-1 1)"><use xlink:href="#corner"/></g>
+ <g transform="translate(6 1234) scale(1 -1)"><use xlink:href="#corner"/></g>
+ <g transform="translate(2074 1234) scale(-1 -1)"><use xlink:href="#corner"/></g>
+ <use xlink:href="#seal" x="1040" y="49"/>
+ <!-- Opaque blank label; users add live text as a separate OBS source. -->
+ <path d="M520 1181H1560L1578 1199V1273L1560 1291H520L502 1273V1199Z" fill="url(#steel)" stroke="url(#brass)" stroke-width="5"/>
+ <path d="M529 1193H1551L1565 1207V1265L1551 1279H529L515 1265V1207Z" fill="url(#plate)" stroke="#9d8658" stroke-width="1.5"/>
+ <path d="M539 1201H1541M539 1271H1541" stroke="#bba374" stroke-opacity=".32"/>
+ <g fill="url(#brass)" stroke="#151e20" stroke-width="2"><circle cx="520" cy="1236" r="7"/><circle cx="1560" cy="1236" r="7"/></g>
+ <use xlink:href="#seal" x="485" y="1236"/>
+ <use xlink:href="#seal" x="1595" y="1236"/>
+</svg>
