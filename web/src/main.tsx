@@ -18,6 +18,7 @@ import './remaster.css'
 import './character-cards.css'
 import './modern.css'
 import './relief.css'
+import './character-font.css'
 
 const BroadcastWorkspace = React.lazy(() => import('./BroadcastWorkspace'))
 const StudioWorkspace = React.lazy(()=>import('./studio/StudioWorkspace'))

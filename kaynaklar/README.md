@@ -10,6 +10,7 @@ Kullanıcının yüklediği belgeler ve görseller burada toplanır. Dosyaların
 | [maceralar/](maceralar/) | Bölüm ve ana görev Word belgeleri |
 | [karakterler/](karakterler/) | Önceki `Karakterler/` klasörünün bütün dosyaları |
 | [gorseller/](gorseller/) | Önce kökte duran Ashara referansı |
+| [fontlar/](fontlar/) | Kullanıcının yüklediği özgün Enchanted Land ZIP'i; kişisel kullanım lisansı içindedir |
 | [arsiv/](arsiv/README.md) | Aruzahr'a karışmış Broken Oath dosyası ve boş eski yükleme |
 
 - [Özgün 8K haritayı aç](haritalar/Aruzahr%208k%20%281%29.jpg).

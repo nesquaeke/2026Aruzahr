@@ -1,5 +1,7 @@
 # Kullanım rehberleri
 
+[Enchanted Land fontu ve OBS kurulumu](ENCHANTED_LAND_FONTU.md) — karakter/portre isimleri, Türkçe desteği ve özgün lisans.
+
 [Yan Görevler ve Kayıp Pay Madeni](YAN_GOREVLER.md) — üç gizem, yedi odalı zindan, haritalar, makine bulmacası ve resimli ganimet.
 
 [Oyuncu Masası](OYUNCU_MASASI.md) — D&D 5e 2014 karakter oluşturma, 319 Türkçe SRD büyüsü, oyun takibi, yerel yedek, A4 şablonlar ve Vercel kurulumu.

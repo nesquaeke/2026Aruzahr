@@ -1,3 +1,4 @@
+@font-face{font-family:'Enchanted Land';src:url('/fonts/EnchantedLand/Enchanted%20Land.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
 .player-sheet-document{--sheet-ink:#282724;--sheet-muted:#6c665c;--sheet-line:#b8ad98;--sheet-gold:#897247;--sheet-paper:#fcfaf3;display:grid;gap:24px;justify-items:center;color:var(--sheet-ink);font:9pt/1.35 'DM Sans',Arial,sans-serif;text-align:left;font-synthesis:none}
 .player-sheet-document *{box-sizing:border-box}
 .aruzahr-sheet-page{width:210mm;min-height:297mm;padding:10mm 11mm 8mm;background:var(--sheet-paper);color:var(--sheet-ink);position:relative;box-shadow:0 12px 65px #0005;border:1px solid #c0b79f;isolation:isolate}
@@ -12,7 +13,7 @@
 .sheet-seal{width:16mm;height:16mm;fill:none;stroke:var(--sheet-gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .sheet-seal-fill{fill:var(--sheet-gold);stroke:none}
 .sheet-wordmark{font:8pt/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.35em;color:var(--sheet-gold)}
-.sheet-page-header h2{font:400 27pt/.98 'Cormorant Garamond',Georgia,serif;letter-spacing:-.025em;color:var(--sheet-ink);margin-top:1mm}
+.sheet-page-header h2{font:400 25pt/1 'Enchanted Land','Cormorant Garamond',Georgia,serif;letter-spacing:.01em;color:var(--sheet-ink);margin-top:1mm}
 .sheet-page-header p{font:7pt/1.35 'DM Sans',Arial,sans-serif;color:var(--sheet-muted);margin-top:1mm;overflow-wrap:anywhere}
 .sheet-edition{text-align:right;align-self:center;font-size:7pt;color:var(--sheet-muted)}
 .sheet-edition strong{display:block;font-size:6.5pt;letter-spacing:.12em;font-weight:500;color:var(--sheet-ink)}

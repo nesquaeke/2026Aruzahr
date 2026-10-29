@@ -326,6 +326,7 @@ export default function WikiArticle({
   return (
     <article
       className={`wiki-article visual-article story-article ${profile ? "city-article" : ""} ${record ? "lore-article" : ""} ${record?.kind === "chronicle" ? "manuscript-article" : ""} ${record?.kind === "law" ? "law-article" : ""} ${fullReading ? "reading-full" : "reading-cards"} ${quietReading ? 'quiet-reading' : ''}`}
+      data-character-page={character?.id}
     >
       <ReadingProgress id={id} />
       {place?.positionStatus === 'unlocated' && <p className="position-note">Haritadaki konumu henüz doğrulanmadı.</p>}

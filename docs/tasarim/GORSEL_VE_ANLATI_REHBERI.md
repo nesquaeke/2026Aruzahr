@@ -18,6 +18,8 @@ Boya gerçek bir tablonun yumuşak katmanları gibi görünür: ince sırlamalar
 
 ## Görsel dil
 
+29 Ekim font tercihi: sonraki karakter/portre isimliklerinde kullanıcının yüklediği **Enchanted Land Regular** kullanılır. İsimler UI/metin katmanıdır; çizime gömülmez. Yazı tipi uzun metinlerin okunurluğu korunarak karakter isimlerine uygulanır. Özgün readme kişisel kullanım lisansı taşır; ticari kullanım izni varmış gibi sunulmaz. OBS kurulumu ve kapsam: `docs/kullanim/ENCHANTED_LAND_FONTU.md`.
+
 Hedef, gerçek bir ressamın elinden çıkmış fantastik bir tablo hissidir. Kullanıcının “sulu boya gibi ama suluboya da değil, çok net” tarifini şöyle uygula: renk geçişleri yumuşak ve boyanmış görünürken yüz, eller, siluet ve önemli nesneler açıkça okunmalı. Yağlıboya ve guajı çağrıştıran dolgun boya katmanları, seçilmiş kenarlarda belirginlik ve görünür fırça izleri bu dengeyi sağlar.
 
 - **Boya ve yüzey:** fırça darbeleri, yer yer kuru fırça izleri, tuval veya kâğıt hissi; kontrollü pürüzler ve elde çizilmiş biçimler.

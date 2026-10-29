@@ -1,0 +1,28 @@
+/* User-supplied Enchanted Land, Dennis Ludlow / Sharkshock.
+ * Personal-use license retained unmodified beside the font file. */
+@font-face{
+  font-family:'Enchanted Land';
+  src:url('/fonts/EnchantedLand/Enchanted%20Land.otf') format('opentype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+:root{--character-font:'Enchanted Land','Cormorant Garamond',Georgia,serif}
+.character-card .character-nameplate strong,
+.wiki-article[data-character-page] .article-title h1,
+.broadcast-stage .broadcast-actor-name,
+.player-workshop .pw-character-title h1,
+.player-workshop .pw-character-card h3,
+.sq-desk .sq-enemies h4,
+.sq-desk .sq-item-grid h3,
+.gallery-tile-item .artwork-caption strong,
+.player-sheet-document .sheet-page-header h2{
+  font-family:var(--character-font);
+  font-weight:400;
+  font-synthesis:none;
+  font-style:normal;
+  text-transform:none;
+  letter-spacing:.01em;
+  line-height:1.2;
+}
+.player-sheet-document .sheet-page-header h2{font-size:25pt;line-height:1}

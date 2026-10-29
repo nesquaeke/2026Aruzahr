@@ -16,7 +16,7 @@ Tek oyuncu için yeniden kullanılabilir eskitilmiş metal çerçeve ve boş isi
 
 1. PNG'yi bilgisayarına indir. OBS → Kaynaklar → Görüntü ile ekle.
 2. VDO.Ninja Tarayıcı Kaynağını veya kameranı çerçevenin ALTINA yerleştir. Görüntüyü boşluğa göre boyutlandır; Alt ile kenarlarından kırp. Çerçeveyi esnetme.
-3. Metin (GDI+) kaynağını çerçevenin ÜSTÜNE ekle. İsmi alt plakaya ortala; Palatino Linotype Bold veya Georgia Bold, açık krem önerilir. Yazı boyutunu ekranda görünen plakanın yüksekliğine göre seç.
+3. Metin (GDI+) kaynağını çerçevenin ÜSTÜNE ekle. İsmi alt plakaya ortala; kullanıcının seçtiği **Enchanted Land Regular**, açık krem önerilir. [Font kurulumu](ENCHANTED_LAND_FONTU.md). Yazı boyutunu ekranda görünen plakanın yüksekliğine göre seç.
 4. Üç kaynağı Ctrl ile seç → sağ tık → Seçili öğeleri grupla. Grup adı oyuncunun adı olsun. Bitince kilitle.
 5. Her oyuncu için ayrı kamera, metin ve grup kullan. Aynı PNG dosyasını tekrar kullanabilirsin; kişilerin isimlerini PNG'ye yazmak gerekmez.
 
