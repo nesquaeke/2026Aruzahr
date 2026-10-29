@@ -24,7 +24,7 @@ export default function GalleryHub({ navigate }: { navigate: (path: string) => v
   const [originalOnly, setOriginalOnly] = useState(false)
   const [limit, setLimit] = useState(36)
   const [index, setIndex] = useState<number | null>(null)
-  const all = useMemo(() => Object.values(artworks).sort((a, b) => Number(!!b.painted) - Number(!!a.painted) || a.title.localeCompare(b.title, 'tr')), [])
+  const all = useMemo(() => Object.values(artworks).filter(art => art.id !== 'jeremiah' || portraitFor('jeremiah')?.id === art.id).sort((a, b) => Number(!!b.painted) - Number(!!a.painted) || a.title.localeCompare(b.title, 'tr')), [])
   const items = useMemo(() => all.filter(art => (filter === 'all' || category(art) === filter) && (!originalOnly || art.origin === 'author' || art.origin === 'map') && (!query || normalize(`${art.title} ${art.caption}`).includes(normalize(query)))), [all, filter, originalOnly, query])
   const choose = (next: Filter) => { setFilter(next); setLimit(36); setIndex(null) }
   return <main className="gallery-hub" data-testid="gallery-hub">

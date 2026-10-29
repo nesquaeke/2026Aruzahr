@@ -4,3 +4,4 @@
 @media(prefers-reduced-motion:reduce){.character-directory-entry{transition:none}.character-directory-entry:hover{transform:none}}
 
 .character-player-entry{display:flex;align-items:center;justify-content:space-between;gap:24px;border-block:1px solid #bbab7738;padding:22px 0;margin:24px 0}.character-player-entry p{color:#b9c5c2;margin:6px 0 0}.character-player-entry .gold-button{flex-shrink:0}@media(max-width:600px){.character-player-entry{display:block}.character-player-entry .gold-button{display:inline-flex;margin-top:15px}}
+.character-player-file{display:grid;gap:12px;justify-items:start;margin:22px 0}.character-player-file small{font:12px/1.7 var(--sans);color:#a4b3b0;max-width:650px}

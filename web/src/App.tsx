@@ -69,7 +69,7 @@ export default function App() {
   const player = route.startsWith('/play')
   const isAtlas = route.startsWith('/atlas')
   const requestedArticleId = route.startsWith('/wiki/') ? decodeId(route.slice('/wiki/'.length)) : null
-  const articleId = requestedArticleId === 'mac' ? 'tugg' : requestedArticleId
+  const articleId = requestedArticleId === 'mac' ? 'tugg' : ['ciotel','ciotel-veyr'].includes(requestedArticleId || '') ? 'ciotella' : requestedArticleId
   const selectedRegion = regionById(selected || '')
   const selectedPlace = locationById(selected || '')
   const selectedFeature = featureById(selected || '')

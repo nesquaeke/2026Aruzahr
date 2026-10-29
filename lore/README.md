@@ -5,6 +5,7 @@
 | Danstsud: kanon, şehirler, hanedanlar ve Hardlane | [Danstsud dosyaları](danstsud/README.md) |
 | Diğer ülkelerin kadroları ve canlıları | [Dünya kadroları ve canlılar](DUNYA_KADROLARI_VE_CANLILAR.md) |
 | Oyuncu karakteri: Tugg | [Tugg kaynak ve karakter kaydı](oyuncular/TUGG.md) |
+| Oyuncu karakterleri: Ciotel Veyr ve Jeremiah | [Güncel hikâyeler ve kaynak kaydı](oyuncular/CIOTEL_VE_JEREMIAH.md) |
 | Oyun sırasında hazır macerayı yönetme | [Sade Hikâye Masası](../docs/kullanim/SADE_HIKAYE_MASASI.md) |
 | Özgün PDF ve Word belgeleri | [Kaynaklar](../kaynaklar/README.md) |
 

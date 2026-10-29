@@ -9,6 +9,7 @@ export const abilities: { key: AbilityKey; name: string; use: string }[] = [
  {key:'WIS',name:'Bilgelik',use:'Algı ve muhakeme'}, {key:'CHA',name:'Karizma',use:'İfade ve ikna'},
 ]
 export const characterAbilities: Record<string, AbilityScores> = {
+  'ciotella': [10,16,12,15,12,10],
   'side-bren': [12,13,12,13,11,12],
   'side-dessa': [11,12,12,15,13,10],
   'side-ilven': [13,12,13,10,14,12],

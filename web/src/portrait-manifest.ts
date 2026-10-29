@@ -2,6 +2,8 @@ import type { Artwork } from './media'
 
 /** Original painterly portraits; names and power-dependent ornament stay in the UI. */
 export const newPortraitArtworks: Artwork[] = [
+  {id:'ciotella',src:'/illustrations/ciotella.webp',title:'Ciotel Veyr',caption:'Altın Çocuk · Ciotella adıyla da bilinen Frostbay doğumlu düzenbaz',origin:'generated',portrait:true,painted:true,category:'portrait',relatedId:'ciotella'},
+  {id:'jeremiah-remaster',src:'/illustrations/jeremiah-remaster.webp',title:'Jeremiah',caption:'ÇelikKalkan maceracısı · 29 Ekim sıfırdan yeni portre tasarımı',origin:'generated',portrait:true,painted:true,category:'portrait',relatedId:'jeremiah'},
   { id: "ardel-veyran", src: "/illustrations/ardel-veyran.webp", title: "Ser Ardel Veyran", caption: "On İki Taç Şövalyesi başı · Danstsud", origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: "ardel-veyran" },
   { id: "selka-orven", src: "/illustrations/selka-orven.webp", title: "Dame Selka Orven", caption: "Taç şövalyesi · kral yolu görevlisi · Danstsud", origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: "selka-orven" },
   { id: "beltran-sael", src: "/illustrations/beltran-sael.webp", title: "Ser Beltran Sael", caption: "Taç şövalyesi · silah talimi ustası · Danstsud", origin: 'generated', portrait: true, painted: true, category: 'portrait', relatedId: "beltran-sael" },
@@ -133,6 +135,7 @@ export const newPortraitArtworks: Artwork[] = [
 
 /** Preserve original media while choosing the repainted portrait for cards. */
 export const paintedPortraitAliases: Record<string, string> = {
+  'jeremiah':'jeremiah-remaster',
   "alisande": "alisande-painted",
   "ilyenne": "ilyenne-painted",
   "mirelda": "mirelda-painted",

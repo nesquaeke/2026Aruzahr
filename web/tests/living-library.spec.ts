@@ -14,7 +14,7 @@ import { articleById, locationById, regionById, loreArticles, historyArticle } f
 import { portraitFor } from '../src/media';
 
 test('every identified character has six bounded editable abilities without assigning identity to unknown portraits', () => {
-  expect(characters).toHaveLength(186);
+  expect(characters).toHaveLength(187);
   expect(Object.keys(characterAbilities).sort()).toEqual(characters.map(person => person.id).sort());
   for (const person of characters) {
     const scores = characterAbilities[person.id];

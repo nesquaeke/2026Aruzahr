@@ -1,0 +1,23 @@
+{
+  "note": "Kullanılan iki portre sıfırdan üretildi. Jeremiah için reddedilen referanslı deneme kullanılmadı; özgün eski portre arşivde korundu.",
+  "images": [
+    {
+      "id": "ciotella",
+      "source": "exec-f6475cd7-3cbb-4bce-93d2-b0dd1b1480a4.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 368504,
+      "sha256": "c95902c7f1cb700f227c5f0191d1eb71269bb62522b0ad9f47f3d48a3959bae9",
+      "newFromScratch": true
+    },
+    {
+      "id": "jeremiah-remaster",
+      "source": "exec-a745517e-513f-43d6-b249-c8043c3e2d24.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 297386,
+      "sha256": "66b41e8a7b115244cacb7708f78b36faccffb3365c7d36f8e3881992d94fb309",
+      "newFromScratch": true
+    }
+  ]
+}
