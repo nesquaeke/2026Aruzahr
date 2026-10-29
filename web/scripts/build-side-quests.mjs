@@ -1,6 +1,7 @@
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {forestQuest,forestUnits} from './harven-forest.mjs';
+import {campQuest,campUnits} from './abandoned-camp.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const check=(skill,dc,success,failure)=>({skill,dc,success,failure});
 const puzzle=(setup,clues,solution,alternatives,failure)=>({setup,clues,solution,alternatives,failure});
@@ -106,7 +107,7 @@ const pack={format:'aruzahr-sidequests',version:1,title:'Hardlane · Yan Görevl
  'Çekil: üç muhafızın gelmesini tehlikesiz zafer düğmesi yapma; dar girişten çıkıp şehirden planlı destek alınabilir.'
 ],aftermath:'Muhafızlar isimleri, mevcut canları ve gördükleriyle devam eder. Parti gerçek ölüm olana dek “öldüler” sayamaz; sağ kalanlar tanık olmadıkları davranışları bilemez. Tutsaklara ait para ve eşya ayrılır.'},rig:{steps:['5 numaradaki sağlam fren pimini tak.','3 numaradaki sağlam kayışı tak.','Havalığı temizle; soğutma suyu yolunu aç.','Üç farklı plakayı A/B/C yuvalarına yerleştir; göstergeleri 10 / 7 / 8 yap.'],clues:['Toplam = A+B+C = 10.','Kaldıraç = 2A+B = 7.','Dönüş = B+C = 8.','Plakalar 1, 2, 3, 5 ve 8; aynı plaka iki yuvaya giremez.','İpucu 1: Toplam ile Dönüşü karşılaştır. İpucu 2: A=2. İpucu 3: 2A+B=7 ilişkisine 2 koy.'],solution:'A=2, B=3, C=5. Onarım tamamlanmadan doğru plakalarla da araç çalışmaz. Tamir ve doğru ayardan sonra tek ham Soluköz çekirdeği çıkar.',failure:'Yanlış ayar güvenlik freniyle durur. Üç yanlış denemeden sonra bezle 1 dakika havalık temizliği gerekir; zar yok. Cevher otomatik yok olmaz.'},maps:{handout:'side-treasure-handout',player:'side-mine-map',dm:'dm/Kayip-Pay-Madeni-DM-Haritasi.svg'}};
 
-pack.quests.push(forestQuest);pack.units.push(...forestUnits);
+pack.quests.push(forestQuest,campQuest);pack.units.push(...forestUnits,...campUnits);
 await mkdir(root+'public/dm',{recursive:true});
 await writeFile(root+'public/dm/Yan-Gorevler.json',JSON.stringify(pack,null,2)+'\n');
 const lines=['# '+pack.title,'','3 oyuncu · 1. seviye · D&D 5e 2014 için Aruzahr özel içerik','','## Kullanım',...pack.principles.map(s=>'- '+s),''];
@@ -120,9 +121,18 @@ console.log(`${pack.quests.length} yan görev, ${pack.quests.reduce((n,q)=>n+q.s
 
 const fullBook=await readFile(root+'public/dm/Yan-Gorevler-Oynatim-Kitabi.html','utf8');
 const forestStart=fullBook.indexOf('<h2>'+escape(forestQuest.title));
-const forestEnd=fullBook.indexOf('<h2>Muhafızlar</h2>',forestStart);
+const forestEnd=fullBook.indexOf('<h2>'+escape(campQuest.title),forestStart);
 if(forestStart<0||forestEnd<0)throw Error('Orman kitabı bölümü bulunamadı.');
 const forestHtml=fullBook.slice(0,fullBook.indexOf('<header>'))+'<header><h1>'+escape(forestQuest.title)+'</h1><p>3 oyuncu · 1. seviye · Son İlaç sonrası · Yalnız DM</p><button onclick="window.print()">Yazdır / PDF kaydet</button></header>'+fullBook.slice(forestStart,forestEnd)+'<h2>Küçük savaş kartları</h2>'+forestUnits.map(u=>'<article><h3>'+escape(u.name)+'</h3><p>Zırh '+u.ac+' · Can '+u.hp+' · İnisiyatif +'+u.initiative+'</p><p>'+escape(u.attack)+'</p><p>'+escape(u.tactics)+'</p><p>'+escape(u.morale)+'</p></article>').join('')+'</html>';
 await writeFile(root+'public/dm/Harven-Orman-Yolu.html',forestHtml.replace('<title>Hardlane Yan Görevler · Özel DM Kitabı</title>','<title>Harven Yolu · Üç Sessiz İşaret</title>').replace('<h3>Nara Vesk</h3>','<h3>Nara Vesk</h3><img src="../illustrations/road-nara-portrait.webp" alt="Nara Vesk" width="220">'));
-const start=lines.indexOf('## '+forestQuest.title),end=lines.indexOf('## Üç muhafız',start);
+const start=lines.indexOf('## '+forestQuest.title),end=lines.indexOf('## '+campQuest.title,start);
 await writeFile(root+'public/dm/Harven-Orman-Yolu.md',lines.slice(start,end<0?undefined:end).join('\n')+'\n\n## Küçük savaş kartları\n'+forestUnits.map(u=>`### ${u.name}\nZırh ${u.ac} · Can ${u.hp} · İnisiyatif +${u.initiative}\n${u.attack}\n${u.tactics}\n${u.morale}`).join('\n\n')+'\n');
+
+const campStart=fullBook.indexOf('<h2>'+escape(campQuest.title)),campEnd=fullBook.indexOf('<h2>Muhafızlar</h2>',campStart);
+if(campStart<0||campEnd<0)throw Error('Kamp kitabı bulunamadı.');
+const campEnemies=pack.units.filter(u=>['forest-len','forest-rusk','camp-tova-unit'].includes(u.id));
+const campCards=campEnemies.map(u=>`<article><h3>${escape(u.name)}</h3><img src="../illustrations/${escape(u.artId)}.webp" alt="${escape(u.name)}" width="220" style="border:1px solid #8e7750"><p>Zırh ${u.ac} · Can ${u.hp} · İnisiyatif +${u.initiative}</p><p>${escape(u.attack)}</p><p>${escape(u.tactics)}</p><p>${escape(u.morale)}</p></article>`).join('');
+const campHtml=fullBook.slice(0,fullBook.indexOf('<header>')).replace('<title>Hardlane Yan Görevler · Özel DM Kitabı</title>','<title>Sönmüş Ocak · Kamp Haydutları</title>')+`<header><h1>${escape(campQuest.title)}</h1><p>Üç oyuncu · 1. seviye · Yalnız DM</p><button onclick="window.print()">Yazdır / PDF kaydet</button></header>`+fullBook.slice(campStart,campEnd)+'<h2>Portreler ve savaş kartları</h2>'+campCards+'</html>';
+await writeFile(root+'public/dm/Terk-Edilmis-Kamp.html',campHtml);
+const campMdStart=lines.indexOf('## '+campQuest.title),campMdEnd=lines.indexOf('## Üç muhafız',campMdStart);
+await writeFile(root+'public/dm/Terk-Edilmis-Kamp.md',lines.slice(campMdStart,campMdEnd).join('\n')+'\n\n## Savaş kartları\n'+campEnemies.map(u=>`### ${u.name}\nZırh ${u.ac} · Can ${u.hp}\n${u.attack}\n${u.tactics}\n${u.morale}`).join('\n\n')+'\n');

@@ -1,5 +1,5 @@
 {
-  "note": "23 bağımsız görsel; son dört Harven orman macerası için. Boyut değiştirme veya hücre kırpma yok.",
+  "note": "27 bağımsız görsel; son üç portre yaşlı, zırhlı haydutlardır; bir yeni terk edilmiş kamp sahnesi. Kaynaklar kırpılmadı/büyütülmedi.",
   "images": [
     {
       "id": "side-frostbay-market",
@@ -184,6 +184,42 @@
       "height": 1536,
       "kind": "portrait",
       "note": "Yeni bağımsız yağlıboya üretimi; kırpma/büyütme yok."
+    },
+    {
+      "id": "camp-len",
+      "source": "/workspace/generated_images/exec-6c3b9ca0-dd48-4143-8023-6227adcf017c.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 422346,
+      "sha256": "14f0c893233fc6670b51b21d05bd9f1724f966193ed6692a362af360f612cc13",
+      "note": "Son kullanıcı isteğine göre yaşlı ve zırhlı; önceki genç portre denemesi kullanılmadı."
+    },
+    {
+      "id": "camp-rusk",
+      "source": "/workspace/generated_images/exec-921f2656-6329-44e2-935b-7a4eb47bcf1f.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 439258,
+      "sha256": "e1bde12fb6c89794f57412ce14e82cd194bedb7b5f0378bd8a72d3a02bbef45b",
+      "note": "Son kullanıcı isteğine göre yaşlı ve zırhlı; önceki genç portre denemesi kullanılmadı."
+    },
+    {
+      "id": "camp-tova",
+      "source": "/workspace/generated_images/exec-f5dd1283-096f-4378-b90d-49ded3ebebbc.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 374656,
+      "sha256": "a6add5bccc67dba41fed0301218b33e1161813fe1da5f3f518a722018f1a7661",
+      "note": "Son kullanıcı isteğine göre yaşlı ve zırhlı; önceki genç portre denemesi kullanılmadı."
+    },
+    {
+      "id": "camp-abandoned",
+      "source": "/workspace/generated_images/exec-020efbcd-37e4-45cd-b789-de5ae5082409.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 586090,
+      "sha256": "eaf84201eb0b2dec95d10ef34298784a232ca38e4713ada84979070eaf355333",
+      "note": "Son kullanıcı isteğine göre yaşlı ve zırhlı; önceki genç portre denemesi kullanılmadı."
     }
   ]
 }

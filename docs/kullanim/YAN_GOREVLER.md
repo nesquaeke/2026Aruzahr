@@ -4,12 +4,13 @@ Yayın Masası → **Yan Görevler**. Doğrudan: `/#/broadcast/sidequests`.
 
 Yayın yönetimi yerel röleyle çalışır. Render gibi yalnız statik barındırmada kitabı `/dm/Yan-Gorevler-Oynatim-Kitabi.html`, hazır PDF'yi `/dm/Hardlane-Yan-Gorevler-Oynatim-Kitabi.pdf` adresinden doğrudan okuyabilirsin; canlı yayın kontrolü için bilgisayarında yayın başlatıcısını çalıştır.
 
-Bu menü ana On Kış Kararı hikâyesini değiştirmez. Dört yan görev hazır gelir. **Acil yeni oturum: Harven Yolu · Üç Sessiz İşaret.** Doğrudan kitap `/dm/Harven-Orman-Yolu.html`, PDF `/dm/Harven-Orman-Yolu.pdf`. Son İlaç sonrası için seç; köprünün yerine veya köprüden sonra oynanabilir. Maden araçları/ganimet tablosu bu orman görevinin parçası değildir.
+Bu menü ana On Kış Kararı hikâyesini değiştirmez. Beş yan görev hazır gelir. **Sönmüş Ocak · Terk Edilmiş Kamp** son eklenen, üç yaşlı/zırhlı haydutlu kısa karşılaşmadır; `/dm/Terk-Edilmis-Kamp.pdf` ayrı resimli kitaptır. Len ve Rusk yol pususundaki aynı kişilerdir; iki karşılaşmayı zorunlu üst üste yığma, ölen/yakalananı yeniden doğurma. **Acil yeni oturum: Harven Yolu · Üç Sessiz İşaret.** Doğrudan kitap `/dm/Harven-Orman-Yolu.html`, PDF `/dm/Harven-Orman-Yolu.pdf`. Son İlaç sonrası için seç; köprünün yerine veya köprüden sonra oynanabilir. Maden araçları/ganimet tablosu bu orman görevinin parçası değildir.
 
 Görevler:
 
 | Görev | Nerede? | Süre | İçerik |
 |---|---|---|---|
+| Sönmüş Ocak · Terk Edilmiş Kamp | Harven ormanı | 20–35 dakika | Len, Rusk ve Tova için ayrı yaşlı/zırhlı portreler; başlangıç seviyesine uygun çatışma |
 | Harven Yolu · Üç Sessiz İşaret | Marhalden → Harven | 90–120 dakika | Yön bulma, iki küçük savaş, dürüst köylüler ve koşullu gece hırsızlığı |
 | Dördüncü Vardiya · Kayıp Pay Madeni | Frostbay ve yakınındaki ocak | 2–3 saat, ikiye bölünebilir | Pazarda kâğıt harita, yedi oda, insan çetesi, üç muhafız, onarım ve basınç bulmacası |
 | Evde Üç Kişi Var | Harven yan patikası | 40–60 dakika | Yaşlı Orvek, iki çocuk, yetişkin kaçakçı kalıntıları ve üç araba araştırması |
@@ -55,4 +56,4 @@ Beş ödül: hançer, kısa kılıç, kısa yay, üç özel ok, hafif büyülü 
 
 Paket açık hazır DM içeriğidir; bir erişim kontrolü veya gizli internet kasası sayılmaz. Kullanıcının kendi notları bu dosyalara otomatik yazılmaz. Harita küçük zindan şemasıdır; özgün atlas kıyılarını ve şehir konumlarını değiştirmez.
 
-Görseller: 23 bağımsız üretim; son dört yeni tablo orman macerası içindir; yatay tablolar 1672×941, dikey eşya/kişi portreleri 1024×1536. Yapay büyütme veya toplu levhadan kırpma yapılmadı. Dosya kayıtları `docs/gelistirme/29_EKIM_YAN_GOREV_GORSELLERI.json` içindedir.
+Görseller: 27 bağımsız üretim; son üç yaşlı/zırhlı haydut portresi ve kamp sahnesi ayrıca eklenmiştir; son dört yeni tablo orman macerası içindir; yatay tablolar 1672×941, dikey eşya/kişi portreleri 1024×1536. Yapay büyütme veya toplu levhadan kırpma yapılmadı. Dosya kayıtları `docs/gelistirme/29_EKIM_YAN_GOREV_GORSELLERI.json` içindedir.

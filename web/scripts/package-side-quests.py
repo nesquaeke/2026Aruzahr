@@ -11,6 +11,7 @@ files += [public / p for p in [
     'dm/Kayip-Pay-Madeni-DM-Haritasi.svg', 'dm/Yan-Gorevler.json',
     'dm/Yan-Gorevler.md', 'dm/Yan-Gorevler-Oynatim-Kitabi.html',
     'dm/Harven-Orman-Yolu.html', 'dm/Harven-Orman-Yolu.md', 'dm/Harven-Orman-Yolu.pdf',
+    'dm/Terk-Edilmis-Kamp.html', 'dm/Terk-Edilmis-Kamp.md', 'dm/Terk-Edilmis-Kamp.pdf',
 ]]
 pdf = public / 'dm/Hardlane-Yan-Gorevler-Oynatim-Kitabi.pdf'
 if pdf.exists():
@@ -36,3 +37,14 @@ Bu ZIP bir oyuncu yedegi veya canli kampanya durumu degildir.
 with ZipFile(target) as archive:
     assert archive.testzip() is None
 print(f'{target.name}: {len(files)} dosya + rehber, {target.stat().st_size} bayt')
+
+# Small OBS-friendly delivery, without the other DM adventures.
+camp_target = public / 'downloads/Kamp-Haydutlari.zip'
+with ZipFile(camp_target, 'w', ZIP_DEFLATED) as archive:
+    for file, label in [('camp-len.webp','Len.webp'),('camp-rusk.webp','Rusk.webp'),('camp-tova.webp','Tova-Kest.webp'),('camp-abandoned.webp','Terk-Edilmis-Kamp.webp')]:
+        archive.write(public / 'illustrations' / file, label)
+    archive.write(public / 'dm/Terk-Edilmis-Kamp.pdf', 'DM-Kamp.pdf')
+    archive.writestr('ONCE-OKU.txt', 'ARUZAHR - SONMUS OCAK\n\nLen, Rusk ve Tova: yeni yasli/zirhli haydut portreleri. Kamp tablosu ve DM oynatim PDFsi dahildir.\nSitede Yayin Masasi > Yan Gorevler > Sonmus Ocak.\nLen/Rusk onceki orman pususundaki ayni kisilerdir; olu/yakalanmis kisileri tekrar oynatma.\nPortre adlarini OBSde ayri metin katmani olarak ekleyebilirsin; Enchanted Land fontu.\n')
+with ZipFile(camp_target) as archive:
+    assert archive.testzip() is None
+print(f'{camp_target.name}: {camp_target.stat().st_size} bayt')

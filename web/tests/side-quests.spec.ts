@@ -6,7 +6,7 @@ import {bootStudio,panel,project,publicFrame} from './studio-fixtures';
 test.describe.configure({mode:'serial'});
 const pack=parseSidePack(JSON.parse(readFileSync('public/dm/Yan-Gorevler.json','utf8')));
 test('dungeon is connected, has an alternative exit, exactly three guards and real separate artwork files',()=>{
-  expect(pack.quests.map(q=>q.steps.length)).toEqual([8,3,3,6]);
+  expect(pack.quests.map(q=>q.steps.length)).toEqual([8,3,3,6,3]);
   for(const q of pack.quests)for(const r of q.steps){expect(artworks[r.artId],r.artId).toBeDefined();expect(existsSync('public'+artworks[r.artId].src)).toBe(true);for(const link of r.exits)expect(q.steps.some(x=>x.id===link)).toBe(true);}
   expect(pack.units.filter(u=>u.kind==='ally')).toHaveLength(3);
   expect(pack.units.filter(u=>u.id==='bren'||u.id==='dessa')).toHaveLength(2);

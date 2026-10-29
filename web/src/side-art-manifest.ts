@@ -1,5 +1,6 @@
 import type {Artwork} from './media';
 const scenes=[
+ ['camp-abandoned','Sönmüş Ocak · Terk edilmiş kamp',''],
  ['road-forest-ambush','Harven yolu · Devrilen çam',''],
  ['road-root-maw','Kökdiş · Orman canlısı',''],
  ['road-yalin-hamlet','Çatalocak · Yol sığınağı',''],
@@ -13,10 +14,10 @@ const scenes=[
  ['side-treasure-handout','Eski bir ocak krokisi','']
 ];
 const items=[['side-dagger','Düğümkesen'],['side-sword','Denge Çeliği'],['side-bow','Sakin Kiriş'],['side-arrow','İz Boyası Okları'],['side-cloak','İs Tülü'],['side-solukoz','Soluköz'],['side-bad-sword','Yıpranmış Kılıç'],['side-fake-armor','Süslü Göğüslük']];
-const people=[['side-bren','Bren Volk'],['side-dessa','Dessa Kurn'],['side-ilven','Çavuş İlven Sorn'],['road-nara-portrait','Nara Vesk']];
+const people=[['side-bren','Bren Volk'],['side-dessa','Dessa Kurn'],['side-ilven','Çavuş İlven Sorn'],['road-nara-portrait','Nara Vesk'],['camp-len','Len · Yaşlı haydut'],['camp-rusk','Rusk · Yaşlı haydut'],['camp-tova','Tova Kest · Yaşlı gözcü']];
 export const sideArtworks:Artwork[]=[
  ...scenes.map(([id,title,relatedId]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'29 Ekim · yeni yağlıboya mekân yorumu; yaşanmış olay kaydı değildir',origin:'generated',painted:true,category:id==='side-treasure-handout'?'map':'scene',...(relatedId?{relatedId}:{})})),
  ...items.map(([id,title]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'Aruzahr · eşya ve mineral yağlıboya portresi',origin:'generated',painted:true,category:'item',...(id==='side-solukoz'?{relatedId:'solukoz'}:{})})),
- ...people.map(([id,title]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'Frostbay · yeni kişi tasviri; sade yağlıboya portre',origin:'generated',painted:true,portrait:true,category:'portrait',relatedId:id})),
+ ...people.map(([id,title]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'Aruzahr · yeni kişi tasviri; sade yağlıboya portre',origin:'generated',painted:true,portrait:true,category:'portrait',relatedId:id})),
  {id:'side-mine-map',title:'Eski ocak · Oyuncu planı',src:'/illustrations/side-mine-map.png',caption:'Çözümsüz, şematik oda planı · atlas koordinatı değildir',origin:'adapted',category:'map'},
 ];

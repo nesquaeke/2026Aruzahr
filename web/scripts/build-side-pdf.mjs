@@ -27,4 +27,7 @@ try{
   await page.goto(`http://127.0.0.1:${server.address().port}/dm/Harven-Orman-Yolu.html`);
   await page.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));
   await page.pdf({path:publicRoot+'dm/Harven-Orman-Yolu.pdf',format:'A4',printBackground:true,margin:{top:'12mm',bottom:'12mm',left:'12mm',right:'12mm'}});
+  await page.goto(`http://127.0.0.1:${server.address().port}/dm/Terk-Edilmis-Kamp.html`);
+  await page.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));
+  await page.pdf({path:publicRoot+'dm/Terk-Edilmis-Kamp.pdf',format:'A4',printBackground:true,margin:{top:'12mm',bottom:'12mm',left:'12mm',right:'12mm'}});
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

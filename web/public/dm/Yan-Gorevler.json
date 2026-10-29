@@ -678,6 +678,94 @@
         "Nöbet ve eşya planı işe yaradıysa hırsızlık olmaz. Kaybolanlar sınırlı ve geri alınabilir.",
         "Köprüde oynanmamış karar yoktur; Sena’nın durumu ve önceki oturum kayıtları korunur."
       ]
+    },
+    {
+      "id": "sonmus-ocak",
+      "title": "Sönmüş Ocak · Terk Edilmiş Kamp",
+      "where": "Harven yolundaki eski kömürcü kampı; atlas üzerinde yeni yerleşim pini değildir",
+      "duration": "20–35 dakika · üç oyuncu / 1. seviye",
+      "hook": "Orman yolunda dinlenecek yer arayan grup eski bir kömürcü kampı bulur. Kamp terk edilmiş görünür; fakat ateşin külü yeni karıştırılmıştır. Bu karşılaşmayı Devrilen Çam pususunun YERİNE seçebilirsin.",
+      "goal": "Kampı incele, saklanan üç yaşlı haydudu fark et ve erzağı koruyarak çatışmayı çöz.",
+      "warning": "Len ve Rusk önceki yol pususundaki AYNI kişilerdir. Orada öldülerse, yakalandılarsa veya ayrıldılarsa burada yeniden doğmazlar; yalnız gerçekten kaçıp gelebilen kişi bulunur. En kolay kullanım: bu kampı yol pususunun yerine oynat. Zırhları yamalı, yüzleri korkutucu; bu bir boss dövüşü değildir. Grubun canı azsa Tova savaşmaz veya yalnız bir haydut kalır. Savaşı kazanmak için üç kişiyi öldürmek gerekmez.",
+      "steps": [
+        {
+          "id": "kul",
+          "title": "1 · Kül hâlâ ılık",
+          "artId": "camp-abandoned",
+          "read": "Yırtık çadırın ipleri çamların arasında sarkıyor. Taş ocağın içindeki külün üzerinde yeni bir çizgi var; biri az önce içini karıştırmış. Paslı tencerenin sapı, rüzgâr kesilince de hafifçe sallanıyor.\n\nIslak kütüklerin yanında demir bir omuzluk görüyorsunuz. Sonra omuzluk hareket ediyor. Çadırın karanlığından, zincir halkalarının kumaşa sürtünme sesi geliyor.",
+          "truth": "Len çadırda, Rusk sağdaki kütük yığınının gerisinde, Tova kuzeydeki dar çıkışta. Üçü de yaşlı, insan ve büyüsüz. Kamp, eski kömürcülerden kalma; haydutlar yalnız geçici olarak saklanıyor. Yeni ayak izleri, ılık kül ve hareket eden zırh parçası zarsız fark edilir. Algı başarılı olmasa da tehlikenin belirtileri kaybolmaz. Habersiz sürpriz turu veya kapanan görünmez kapı yok.",
+          "exits": [
+            "hesap"
+          ],
+          "clues": [
+            {
+              "skill": "Algı",
+              "dc": 11,
+              "success": "Üç ayrı saklanma yerini seçersin; gözcü Tova kuzey çıkışında.",
+              "failure": "Tam sayıyı çıkaramazsın; ateşin yeni söndüğü ve içeride biri olduğu açıktır."
+            }
+          ],
+          "lines": [
+            "Sela: “Kül kendi kendine eşelenmez. Katırları açıkta bırakmayalım.”"
+          ],
+          "enemyIds": [],
+          "next": "Grup seslenebilir, geri çekilebilir, saklanabilir veya ilerleyebilir. Konuşma ya da yüzleşme için 2. adıma geç."
+        },
+        {
+          "id": "hesap",
+          "title": "2 · Eski zırhların içindekiler",
+          "artId": "camp-abandoned",
+          "read": "Çadırın önündeki adam doğrulurken zırhının bir kayışı kopacak gibi geriliyor. Kel başının iki yanından kirli gri saçlar sarkıyor; yanağındaki eski yara ağzını aşağı çekmiş. “Torbalardan birini bırakın,” diyor.\n\nSağınızda demir başlıklı, çökmüş yüzlü ikinci bir adam yer değiştiriyor. Kuzey patikasındaki yaşlı kadınsa silahını kaldırmıyor. Gözü sizin üstünüzde, ayağı çıkışa dönük.",
+          "truth": "Len erzak ister; Rusk bir torba kapıp kaçmak ister; Tova diğer ikisi için ölmek istemez. Oyuncular konuşurken üçünün portresini tek tek hazırlayabilirsin. Len bir torbayı kabul eder ve sözüne uyar. Bir günlük yiyecek için İkna ZD 11; başarısızlık yalnız ilk istekte ısrar doğurur. Savaş açık saldırı veya zorla çanta almaya müdahaleyle başlar. İlk tur Len tek saldırı yapar; Rusk torba için hareket eder ve o tur saldırmaz; Tova çıkışı gözetler ve saldırmaz. Sonraki turlarda en fazla iki haydut saldırır, üçüncüsü kaçışla uğraşır. Siper ve açık geri çekilme hattı vardır; kampı ateş çemberiyle kapatma. Bir haydut düşünce veya Len 3 cana inince Rusk ve Tova teslim olur/kaçar. Yeni takviye gelmez. Kaçanı yakalayıp öldürmek görev şartı değildir.",
+          "exits": [
+            "sonuc"
+          ],
+          "clues": [
+            {
+              "skill": "İkna",
+              "dc": 11,
+              "success": "Bir günlük yiyeceği kabul edip yolu açarlar.",
+              "failure": "Len bir torbada ısrar eder; konuşma hâlâ sürebilir."
+            },
+            {
+              "skill": "Sezgi",
+              "dc": 10,
+              "success": "Tova’nın kaçış kolladığını fark edersin; ona çekilme sözü verirsen savaşmaz.",
+              "failure": "Niyetini okuyamazsın; açıkça konuşabilir veya geçiş isteyebilirsin."
+            }
+          ],
+          "lines": [
+            "Len: “Zırha bakıp param var sanma. Altı boş.”",
+            "Rusk: “Len, bırak. Üçler. Bizim için bir torbaya değmez.”",
+            "Tova: “Yolunuzu kesmem. Onlar için ölmeyeceğim.”"
+          ],
+          "enemyIds": [
+            "forest-len",
+            "forest-rusk",
+            "camp-tova-unit"
+          ],
+          "next": "Kaçış, teslim veya anlaşma olduğunda dövüşü bitir. 3. adımda alınan/verilen malı ve kampın güvenliğini kaydet."
+        },
+        {
+          "id": "sonuc",
+          "title": "3 · Kampı kim kullanacak?",
+          "artId": "camp-abandoned",
+          "read": "Demir halkaların sesi susuyor. Çadırın yanındaki eski sandığın kapağı açık kalmış; içinde zenginlik değil, ıslak bezler ve birkaç bakır var. Ormanın sesi yeniden duyuluyor. Sela katırları ocağın yanına getirip torbaları sayıyor.",
+          "truth": "Yalnız gerçekten düşmüş/kaçmış/teslim olmuş kişileri kaydet. Kamp aramasında iki günlük kumanya, 2d6 bakır ve 6 metrelik yıpranmış ip bulunabilir; başkasına verilmiş veya götürülmüşse yeniden üretme. Zırh parçaları yamalı hurda; büyülü veya tam takım zırh değildir, otomatik yüksek Zırh vermez. Haydutlar teslim olduysa silahlarını bırakıp ayrılabilir veya Harven’de teslim edilebilir. Güvenli bir nöbet planıyla burada kısa dinlenme yapılabilir; gerçekte kaçmış haydutları habersiz tekrar saldırttırma. Önceki pusudaki aynı iksir ve torbalar ikinci kez ganimet olmaz.",
+          "exits": [],
+          "clues": [],
+          "lines": [
+            "Sela: “Burada kalacaksak nöbeti paylaşalım. Sonra Harven.”"
+          ],
+          "enemyIds": [],
+          "next": "Harven Yolu’nun Kökdiş sahnesine veya doğrudan Çatalocak’a devam et. Bu kamp yerine zaten yol pususunu oynadıysan yorgun gruba ikisini zorunlu yığma."
+        }
+      ],
+      "outcomes": [
+        "Aynı Len/Rusk yeniden doğmaz ve aynı ganimet iki kez verilmez.",
+        "Pazarlık, geri çekilme veya teslim dövüşü gerçekten bitirir.",
+        "Haydutlar yaşlı ve korkutucu; karakter gücünü yalnız portre görünüşünden çıkarma."
+      ]
     }
   ],
   "loot": [
@@ -896,28 +984,28 @@
     {
       "id": "forest-len",
       "name": "Len · yol kesici",
-      "artId": "road-forest-ambush",
-      "ac": 12,
+      "artId": "camp-len",
+      "ac": 13,
       "hp": 7,
       "initiative": 1,
       "attack": "+3 isabet; 1d4+1 ezici. Turda yalnız bir saldırı.",
       "tactics": "Yolu tutar; Rusk yükle uğraşırken tek etkin saldırgandır.",
       "morale": "3 cana inince veya arkadaşı düşünce teslim/kaçış.",
       "kind": "enemy",
-      "role": "İlk pusunun önündeki yetişkin."
+      "role": "Yaklaşık 62 yaşında; eski yara izli, yamalı paslı göğüslüklü yol kesici."
     },
     {
       "id": "forest-rusk",
       "name": "Rusk · torba sökücü",
-      "artId": "road-forest-ambush",
-      "ac": 11,
+      "artId": "camp-rusk",
+      "ac": 12,
       "hp": 4,
       "initiative": 1,
       "attack": "+2 isabet; 1d4 ezici; yalnız kaçışı kesilirse.",
       "tactics": "İlk iki tur torba ve kaçışla uğraşır; aynı tur çalıp saldıramaz.",
       "morale": "Len teslim olursa o da bırakır.",
       "kind": "enemy",
-      "role": "Pusuda yükü almaya çalışan yetişkin."
+      "role": "Yaklaşık 58 yaşında; dişleri kırık, demir başlıklı ve yıpranmış zincir zırhlı yük hırsızı."
     },
     {
       "id": "forest-kokdis",
@@ -957,6 +1045,19 @@
       "morale": "Nara teslim olursa savaşmaz.",
       "kind": "enemy",
       "role": "Nara’nın yetişkin kardeşi; yük hırsızı."
+    },
+    {
+      "id": "camp-tova-unit",
+      "name": "Tova Kest · yaşlı gözcü",
+      "role": "Kampın çıkışını kollayan yaşlı haydut; Nara ile aynı kişi değil.",
+      "artId": "camp-tova",
+      "ac": 12,
+      "hp": 5,
+      "initiative": 0,
+      "attack": "+2 isabet; 1d4 ezici. Yalnız kaçışı kesilip saldırıya uğrarsa.",
+      "tactics": "İlk tur saldırmaz. Çıkış açık tutulursa kaçar veya savaşmadan teslim olur.",
+      "morale": "Len düşerse ya da kendisi 2 cana inerse silahını bırakır.",
+      "kind": "enemy"
     }
   ],
   "guards": {

@@ -128,13 +128,13 @@ Kapıdaki kadın unlu ellerini önlüğüne siliyor. “Bera,” diyor. “Sizde
 
 ## Küçük savaş kartları
 ### Len · yol kesici
-Zırh 12 · Can 7 · İnisiyatif +1
+Zırh 13 · Can 7 · İnisiyatif +1
 +3 isabet; 1d4+1 ezici. Turda yalnız bir saldırı.
 Yolu tutar; Rusk yükle uğraşırken tek etkin saldırgandır.
 3 cana inince veya arkadaşı düşünce teslim/kaçış.
 
 ### Rusk · torba sökücü
-Zırh 11 · Can 4 · İnisiyatif +1
+Zırh 12 · Can 4 · İnisiyatif +1
 +2 isabet; 1d4 ezici; yalnız kaçışı kesilirse.
 İlk iki tur torba ve kaçışla uğraşır; aynı tur çalıp saldıramaz.
 Len teslim olursa o da bırakır.
