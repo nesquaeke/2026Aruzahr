@@ -34,3 +34,7 @@ Portre `web/public/illustrations/tugg.webp`, 1024 × 1536. Paylaşılan görün�
 Kamusal biyografi oyuncunun özel hesabına otomatik kayıt oluşturmaz, mevcut partiyi veya yayın sahnesini değiştirmez. Konum bilinmediğinden haritaya rastgele nokta eklenmez. Veri dizininin mevcut bölge alanı Danstsud kampanya kataloğunu kullanır; `locationUnknown` ile ülke/şehir ataması arayüzde ve yayın filtrelerinde yapılmaz.
 
 29 Ekim güncellemesi: kullanıcının talebiyle görünen ad **Mac** oldu. `tugg` teknik kimliği, portre dosyası ve eski bağlantılar korundu. Önceki Tugg alıntıları aynı kişinin eski adını taşır.
+
+## Son kişisel yetenek isteği
+
+Kullanıcı Mac ve Ciotella için mevcut silahlar ile küçük büyüsüz yetenekler istedi. Mac için **Bıçak Siperliği** yeni Aruzahr özel kuralıdır: uzun dinlenme başına 1, tepki ve elde hançer gerekir; görülen bir yaratığın yakın dövüş silah saldırısındaki fiziksel hasarı 1d4 azaltır, en az 0. Sınıfı, seviyesi, canı ve zırhı bu yetenekten çıkarılmaz. Tek kaynak `web/src/lore/player-small-skills.ts`; wikiye işlendi. Geçerli bir tam oyuncu kâğıdı için sınıf hâlâ eksik olduğundan sahte sınıflı JSON oluşturulmadı; gerçek kâğıtta aynı adla 1/uzun dinlenme kaynak sayacı eklenebilir. Hançer fırlatma 6/18 metre, Çeviklikle 1d4+3; 1. seviyede yetkinse +5 isabet koşulludur.

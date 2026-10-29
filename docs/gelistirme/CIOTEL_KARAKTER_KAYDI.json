@@ -33,7 +33,6 @@
     "personality",
     "preparedSpells",
     "raceId",
-    "resources",
     "scores",
     "shield",
     "skillProficiencies",
@@ -45,11 +44,21 @@
     "usedSpellSlots",
     "version"
   ],
-  "mechanicalSha256": "6a7eeab19a9f357f3d3cdeac51c75fc0b456e009441b703ed8d813e79bd5b44d",
+  "mechanicalSha256": "011f8c977a657f532f05574ff3a566d999a87eb53c44fa993b633d78eabf0104",
+  "originalResources": [],
+  "authorizedAddedResource": {
+    "id": "ciotel-cikis-gozu",
+    "name": "Çıkış Gözü",
+    "max": 1,
+    "used": 0,
+    "reset": "long",
+    "description": "Aruzahr özel kuralı · büyüsüz kişisel yetenek. Uzun dinlenme başına 1 kez. Bir yapıda kaçış yolu veya gizli geçit ararken yaptığın Zekâ (Araştırma) kontrolüne 1d4 eklersin. d20 sonucunu gördükten sonra, DM başarı veya başarısızlığı açıklamadan önce kullanacağını söyle. Araştırma normal eylemini/süresini ister; yeteneği eklemek ayrıca bir eylem istemez. Kontrol başarısız olsa da kullanım harcanır. Otomatik geçit oluşturmaz, kilit açmaz, tuzak sökmez ve saldırı zarlarına uygulanmaz. Çeviklik veya başka beceri bonusunu bu Zekâ kontrolüne ekleme. Ciotel’in mevcut Araştırma kontrolü d20 +2; yetenekle d20 +2 +1d4 olur. Site önce d20 atar; ek 1d4 ve kaynak kullanımı elle uygulanır."
+  },
   "publicChanges": [
     "Yeni görünen ad ve ayrı şablon kimliği",
     "Yeni portre ve düzenlenmiş görünüş/öykü",
-    "Kişisel oyuncu adı ve özel notlar boş bırakıldı"
+    "Kişisel oyuncu adı ve özel notlar boş bırakıldı",
+    "Son kullanıcı isteğiyle büyüsüz Çıkış Gözü, uzun dinlenmede 1 kullanım eklendi; diğer mekanikler ve özgün kaynaklar korundu"
   ],
-  "bytes": 503663
+  "bytes": 504576
 }

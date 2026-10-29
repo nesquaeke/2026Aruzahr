@@ -1,6 +1,7 @@
 import type { Character } from './characters';
+import {macSmallSkill} from './player-small-skills';
 
-export const playerCharacterSource = '29 Ekim 2026 · kullanıcı tarafından verilen Mac karakter dosyası; anlatım düzenlemesi ve yeni portre yorumu';
+export const playerCharacterSource = '29 Ekim 2026 · kullanıcı tarafından verilen Mac karakter dosyası; anlatım düzenlemesi, yeni portre yorumu ve sonradan istenen kişisel yetenek';
 
 export const playerLoreCharacters: Character[] = [{
   id: 'tugg', name: 'Mac', role: 'Goblin paralı asker · oyuncu karakteri',
@@ -25,6 +26,9 @@ export const playerLoreCharacters: Character[] = [{
     {title:'Kendi sözleriyle',paragraphs:[
       '“Para, dostluk, sadakat… Hepsi aynı kefede. Benim kefemde ise tartı var.”',
       '“Eşit pay, eşit hak. Aksi halde… kan.”',
+    ]},
+    {title:macSmallSkill.name+' · kişisel yetenek',paragraphs:[macSmallSkill.description,
+      'Elindeki bıçaklar hançer olarak oynatıldığında fırlatılabilir: normal menzil 6 metre, uzun menzil 18 metre; uzun menzilde dezavantaj vardır. Çeviklikle normal isabet hasarı 1d4+3 delicidir. 1. seviyede hançer yetkinliği varsa isabet d20 +5 olur. Sınıf/seviye kaydı tamamlanmadığından bu koşul, kesinleşmiş bir oyuncu kâğıdı gibi sunulmaz. Atılan hançer geri alınana kadar elde değildir; Bıçak Siperliği için elinde başka hançer bulunmalıdır.',
     ]},
     {title:'Oyuncu kaydı hakkında',paragraphs:[
       'Kuvvet 12, Çeviklik 16, Dayanıklılık 13, Zekâ 10 ve Karizma 8 oyuncunun verdiği dosyadan alınmıştır. Görselde bulunmayan Bilgelik değeri, kullanıcının açıklamasıyla 10 olarak tamamlanmıştır. D&D sınıfı, seviye, can, zırh sınıfı ve yetkinlikler henüz belirtilmemiştir.',

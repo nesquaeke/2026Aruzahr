@@ -23,7 +23,7 @@ try{
   'Nitelikler sitedeki mevcut editoryal Jeremiah değerleri: STR 9 / DEX 16 / CON 12 / INT 15 / WIS 11 / CHA 15. Atış/puan yöntemi ayrıca DM ile onaylanır. İnsan soy bonusu ikinci kez eklenmedi.',
   'Beceriler: sınıftan Akrobasi, El Çabukluğu, Gizlilik ve Araştırma; özel geçmişten Aldatma ve İkna. Uzmanlık: Gizlilik ve Aldatma. * işaretli Elfçe ve kılık değiştirme seti yetkinliği özel geçmiş için taslak seçimlerdir. Araç yetkinliği, ekipman bulundurmakla aynı değildir; kılık değiştirme seti ayrıca satın alınmadı.',
   'Gizli Saldırı 1d6: tur başına bir kez, finesse veya menzilli bir silahla isabet edince; avantaj ya da hedefin 5 fit yakınında etkisiz olmayan başka düşmanı gerekir. Dezavantaj varken uygulanmaz. Her saldırıya eklenmez; ayrı saldırı zarı atılmaz. Bu kâğıttaki sayaçlar otomatik ek hasar uygulamaz.',
-  '1. seviyede Kurnaz Eylem, Arcane Trickster alt sınıfı, büyü yuvaları veya sınıf büyüleri yok. Kurnaz Eylem 2., Arcane Trickster seçimi 3. seviyede gelir. Kullanıcının son isteğiyle Kan Yankısı adlı Aruzahr özel kuralı eklendi: Soluk El ve Sahte Fısıltı ortak 2 kullanım paylaşır; uzun dinlenmede yenilenir. Tam kurallar Özellik ve Kaynak Ayrıntıları bölümündedir. Yankı düğümü otomatik dezavantaj veya sözlü bileşen yasağı yaratmaz.',
+  '1. seviyede Kurnaz Eylem, Arcane Trickster alt sınıfı, büyü yuvaları veya sınıf büyüleri yok. Kurnaz Eylem 2., Arcane Trickster seçimi 3. seviyede gelir. Kullanıcının son isteğiyle Kan Yankısı adlı Aruzahr özel kuralı eklendi: Soluk El, Sahte Fısıltı ve Buz Kıymığı ortak 2 kullanım paylaşır; uzun dinlenmede yenilenir. Tam kurallar Özellik ve Kaynak Ayrıntıları bölümündedir. Yankı düğümü otomatik dezavantaj veya sözlü bileşen yasağı yaratmaz.',
   'Envanter sınıfın meç/kısa yay başlangıç seçimi ve hırsız çantasıdır; deri zırh ayrıca kuşanıldı. Başlangıç altını veya ikinci bir geçmiş donanım paketi eklenmedi. Geçmişin ek maddi varlıklarını oyuncu/DM ayrıca belirler.',
   'This work includes material taken from the System Reference Document 5.1 (SRD 5.1) by Wizards of the Coast LLC: https://dnd.wizards.com/resources/systems-reference-document. Licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/legalcode. Türkçe çeviri ve kısaltma: Aruzahr, 2026.',
  ].join('\n\n')};
@@ -35,6 +35,9 @@ try{
  // This ready-to-play sheet prints the complete ordinary hit damage. The
  // catalog normally stores base dice with the modifier explained in notes.
  character.attacks=character.attacks.map(attack=>({...attack,damage:attack.damage+'+3',notes:attack.notes.replace(/Hasar zarı temel değerdir;[^\n]+/,'Çeviklik +3 yukarıdaki hasara DAHİLDİR; ikinci kez ekleme. İki hafif hançerle iki silah dövüşünün bonus eylem saldırısı 1d4 hasar verir; +3 eklenmez. Meç hafif değildir. Direnç, kritik ve Gizli Saldırı ayrıca değerlendirilir.')}));
+ const ice=jeremiahGiftResource().description.split('\n\n').find(line=>line.startsWith('Buz Kıymığı:'));
+ if(!ice)throw Error('Buz Kıymığı kuralları bulunamadı.');
+ character.attacks.push({id:'jeremiah-buz-kiymigi',name:'Buz Kıymığı',ability:'int',proficient:true,damage:'1d6',damageType:'Soğuk',notes:ice});
  character.portrait='data:image/webp;base64,'+(await readFile(web+'public/illustrations/jeremiah-remaster.webp')).toString('base64');
  character=parsePlayerCharacter(character);
  await writeFile(out+'Jeremiah-Aruzahr.json',JSON.stringify(character,null,2)+'\n');

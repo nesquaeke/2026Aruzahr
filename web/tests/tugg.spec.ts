@@ -50,5 +50,7 @@ test('new Mac address and old Tugg address both open Mac biography',async({page}
     await page.goto('/#/wiki/'+path);
     await expect(page.getByRole('heading',{name:'Mac',exact:true})).toBeVisible();
     await expect(page.getByTestId('abilities-tugg').locator('dd strong')).toHaveText(['12','16','13','10','10','8']);
+    await expect(page.locator('.wiki-article')).toContainText('Bıçak Siperliği');
+    await expect(page.locator('.wiki-article')).toContainText('yakın dövüş silah saldırısı');
   }
 });

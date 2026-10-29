@@ -14,12 +14,14 @@ Kullanıcının seçimi **D&D 5e 2014, Düzenbaz 1; ileride Arcane Trickster**. 
 
 ## Kan Yankısı nasıl kullanılır?
 
-İki seçenek **ortak 2 kullanım** paylaşır. Her başlatma 1 eylem ve 1 kullanım harcar. Menzil 9 metre; görülen, tam siper arkasında olmayan nokta seçilir. Kısık bir sözcük ve el hareketi gerekir. Aynı anda tek etki sürer; yeni etki öncekini bitirir. Uzun dinlenmede iki kullanım da geri gelir; kısa dinlenmede yenilenmez.
+Üç seçenek **ortak 2 kullanım** paylaşır. Her başlatma 1 eylem ve 1 kullanım harcar. Soluk El ve Sahte Fısıltı 9 metre, Buz Kıymığı 18 metre menzillidir; görülen, tam siper arkasında olmayan hedef/nokta seçilir. Kısık bir sözcük ve el hareketi gerekir. Aynı anda tek etki sürer; yeni etki öncekini bitirir. Uzun dinlenmede iki kullanım da geri gelir; kısa dinlenmede yenilenmez.
 
 - **Soluk El:** 1 dakika süren solgun el, en fazla 1 kg ağırlığındaki sahipsiz eşyayı taşıyabilir veya hafif, kilitsiz bir kapıyı itebilir. İlk iş başlatma eyleminde yapılır; sonraki yönlendirmeler eylem ister, yeni kullanım harcamaz. El 9 metre menzilden çıkarsa kaybolur. Saldıramaz, kilit açamaz, hırsız aleti/büyülü eşya kullanamaz veya kişinin üzerindeki/tuttuğu eşyayı alamaz.
 - **Sahte Fısıltı:** 1 tur / 6 saniyelik tıkırtı, ayak sürtünmesi veya ıslık üretir. Normal konuşmadan yüksek olamaz; en fazla 9 metre öteden duyulur, çevre gürültüsü sesi örtebilir. Söz, emir veya belirli kişinin sesi üretilemez. İncelemek için eylem harcayan yaratık **Zekâ (Araştırma) ZD 12** ile yanılsamayı anlar. Formül 8 + yetkinlik + Zekâ değiştiricisidir. Otomatik hareket, saldırı avantajı veya Gizli Saldırı sağlamaz.
 
-Hasar vermez ve büyü yuvası kullanmaz. Bunlar sınırsız cantrip değildir. Oyuncu Masası'nın savaş/dinlenme bölümünde **Kan Yankısı → Nasıl kullanılır?** açıklamasını aç; iki seçenekten birini kullandığında **Kullan** düğmesine bir kez bas. **Geri koy**, yanlışlıkla harcanan kullanımı geri alır. Eşya hareketi ve yanılsamayı değerlendirme masa başında yapılır; site otomatik hedef/zorluk çözmez. Kullanım sayacı ve açıklama karakter JSON yedeğinde korunur.
+- **Buz Kıymığı:** 1 eylem, 18 metre. Tek bir yaratığa **d20 +4** menzilli büyü saldırısı yap; isabette **1d6 soğuk**, doğal 20 kritik isabette **2d6 soğuk** hasarı ver. Hasara nitelik değiştiricisi veya Gizli Saldırı eklenmez. Dondurma/yavaşlatma yoktur. Menzilli saldırı dezavantajı ve siper kuralları sürer. Iskalama da bir kullanım harcar. Saldırı zarını atmak sayacı otomatik harcamaz; **Kan Yankısı → Kullan** düğmesine bir kez bas.
+
+İlk iki etki hasar vermez; Buz Kıymığı 1d6 soğuk hasarı verir. Üçü de büyü yuvası kullanmaz. Bunlar sınırsız cantrip değildir. Oyuncu Masası'nın savaş/dinlenme bölümünde **Kan Yankısı → Nasıl kullanılır?** açıklamasını aç; üç seçenekten birini kullandığında **Kullan** düğmesine bir kez bas. **Geri koy**, yanlışlıkla harcanan kullanımı geri alır. Eşya hareketi ve yanılsamayı değerlendirme masa başında yapılır; site otomatik hedef/zorluk çözmez. Kullanım sayacı ve açıklama karakter JSON yedeğinde korunur.
 
 Önceden içe alınmış karakterler otomatik değişmez. Güncel JSON'u açmak mevcut karakterinin üstüne yazmaz; ayrı kopya oluşturabilir. Mevcut karakterini sürdürmek istersen bu kuralları notlarına ve uzun dinlenmede yenilenen **2 kullanımlık Kan Yankısı** sayacına elle ekleyebilirsin. Çift kopyada ilerlemeyi iki kez yürütme.
 

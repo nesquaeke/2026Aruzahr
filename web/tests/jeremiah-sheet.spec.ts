@@ -14,8 +14,10 @@ test('Jeremiah has limited innate magic without premature class spellcasting or 
  expect(c.hp).toBe(9);expect(c.skillProficiencies).toHaveLength(6);
  expect(skillBonus(c,'stealth')).toBe(7);expect(skillBonus(c,'deception')).toBe(6);
  expect(savingThrow(c,'dex')).toBe(5);expect(savingThrow(c,'int')).toBe(4);
- expect(c.attacks.map(a=>a.damage)).toEqual(['1d8+3','1d6+3','1d4+3']);
- expect(c.attacks.every(a=>a.proficient&&a.ability==='dex')).toBe(true);
+ expect(c.attacks.map(a=>a.damage)).toEqual(['1d8+3','1d6+3','1d4+3','1d6']);
+ expect(c.attacks.slice(0,3).every(a=>a.proficient&&a.ability==='dex')).toBe(true);
+ expect(c.attacks[3]).toMatchObject({id:'jeremiah-buz-kiymigi',ability:'int',proficient:true,damageType:'Soğuk'});
+ expect(c.attacks[3].notes).toContain('Iskalasan da 1 kullanım harcanır');
  expect(c.attacks[0].notes).toContain('ikinci kez ekleme');
  expect(c.equipment.some(e=>e.name==='Hançer'&&e.quantity===2)).toBe(true);
  expect(c.equipment.some(e=>e.name==='Ok'&&e.quantity===20)).toBe(true);
@@ -23,7 +25,7 @@ test('Jeremiah has limited innate magic without premature class spellcasting or 
  expect(c.spellbook).toEqual([]);expect(c.portrait).toMatch(/^data:image\/webp;base64,/);
  expect(c.resources).toHaveLength(1);
  expect(c.resources[0]).toMatchObject({id:'jeremiah-kan-yankisi',name:'Kan Yankısı',max:2,used:0,reset:'long'});
- expect(c.resources[0].description).toContain('Soluk El');expect(c.resources[0].description).toContain('Sahte Fısıltı');
+ expect(c.resources[0].description).toContain('Soluk El');expect(c.resources[0].description).toContain('Sahte Fısıltı');expect(c.resources[0].description).toContain('Buz Kıymığı');
  expect(c.notes).toContain('SINIF ONAYLANDI');expect(c.backstory).toContain('yankı düğümü');
  expect(Buffer.byteLength(readFileSync(file))).toBeLessThan(750000);
 });
@@ -48,7 +50,7 @@ test('filled A4 PDF preserves the biography, weapons and final inventory details
  expect(Math.abs(Number(dimensions[1])-595.28)).toBeLessThan(2);
  expect(Math.abs(Number(dimensions[2])-841.89)).toBeLessThan(2);
  const text=execFileSync('pdftotext',['-layout',pdf,'-'],{encoding:'utf8'});
- for(const value of ['Jeremiah','Gizli Saldırı','yankı düğümü','Kısa yay','Çantanın Tam Listesi','Kayıt eki','Kan Yankısı','Soluk El','Sahte Fısıltı'])expect(text).toContain(value);
+ for(const value of ['Jeremiah','Gizli Saldırı','yankı düğümü','Kısa yay','Çantanın Tam Listesi','Kayıt eki','Kan Yankısı','Soluk El','Sahte Fısıltı','Buz Kıymığı','1d6 soğuk'])expect(text).toContain(value);
  const c=importPlayerFile(readFileSync(file,'utf8'))[0];
  expect(text).toContain(c.equipment.at(-1)!.name);
 });
@@ -83,5 +85,7 @@ test('standalone printable sheet fits its A4 core and has no network dependencie
  const bounds=await page.getByTestId('player-sheet-core').evaluate(e=>{const box=e.getBoundingClientRect(),footer=e.querySelector('.sheet-page-footer')!.getBoundingClientRect();return {height:box.height,footer:footer.bottom-box.top};});
  expect(bounds.height).toBeCloseTo(297*96/25.4,0);expect(bounds.footer).toBeLessThan(bounds.height-28);
  await expect(page.getByTestId('player-sheet-core').locator('.sheet-attack-row').first()).toContainText('1d8+3');
+ const ice=page.getByTestId('player-sheet-core').locator('.sheet-attack-row').nth(3);
+ await expect(ice).toContainText('Buz Kıymığı');await expect(ice.locator(':scope>span')).toHaveText('+4');await expect(ice).toContainText('1d6');
  expect(requests.filter(url=>url.startsWith('http'))).toEqual([]);
 });

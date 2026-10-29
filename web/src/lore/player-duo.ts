@@ -1,7 +1,8 @@
 import type {Character} from './characters';
 import {jeremiahGift} from './jeremiah-gift';
+import {ciotelSmallSkill} from './player-small-skills';
 
-export const playerDuoSource='29 Ekim 2026 · Ciotella-Aruzahr.json, kullanıcının Ciotella/Jeremiah açıklamaları ve isteğiyle yapılan yeni biyografi düzenlemesi';
+export const playerDuoSource='29 Ekim 2026 · Ciotella-Aruzahr.json, kullanıcının Ciotella/Jeremiah açıklamaları ve isteğiyle yapılan yeni biyografi düzenlemesi ve Aruzahr özel yetenekleri';
 
 export const ciotel:Character={
  id:'ciotella',name:'Ciotel Veyr',role:'Altın Çocuk · insan düzenbaz · oyuncu karakteri',city:'morihael',region:'murgul',affiliation:'Bağımsız',portrait:'ciotella',source:'author',power:'ordinary',origin:'Frostbay',
@@ -30,7 +31,10 @@ export const ciotel:Character={
   ]},
   {title:'Oyuncu dosyası',paragraphs:[
    'Verilen kayıt: insan, 1. seviye düzenbaz. Kuvvet 10, Çeviklik 16, Dayanıklılık 12, Zekâ 15, Bilgelik 12, Karizma 10. Sayılar hikâyeyi daha gösterişli kılmak için değiştirilmedi.',
-   'İkna kabiliyeti sokak tecrübesiyle anlatılır; dosyasında İkna yetkinliği henüz seçili değildir. Bunu değiştirmek, iki Uzmanlık seçimini yapmak ve taşıdığı deri zırhı kuşanmak oyuncuyla birlikte ele alınacak mekanik kararlardır. Aşağıdaki indirilebilir kopya yeni adı, portresi ve düzenlenmiş hikâyesini taşır; mevcut yetkinlik, eşya ve kaynak değerlerini korur.',
+   'İkna kabiliyeti sokak tecrübesiyle anlatılır; dosyasında İkna yetkinliği henüz seçili değildir. Bunu değiştirmek, iki Uzmanlık seçimini yapmak ve taşıdığı deri zırhı kuşanmak oyuncuyla birlikte ele alınacak mekanik kararlardır. Aşağıdaki indirilebilir kopya yeni adı, portresi ve düzenlenmiş hikâyesini taşır; özgün nitelik, yetkinlik, eşya ve mevcut kaynakları korur. Kullanıcının son isteğiyle yalnız Çıkış Gözü adlı yeni kişisel kaynak eklenmiştir.',
+  ]},
+  {title:ciotelSmallSkill.name+' · kişisel yetenek',paragraphs:[ciotelSmallSkill.description,
+   'Mevcut kısa yayını menzilli kullanabilir: isabet d20 +5, hasar 1d6+3 delici; normal menzil 24 metre, uzun menzil 96 metre. 24 metrenin ötesinde saldırı dezavantajlıdır. Bir ok harcanır. Bu, büyü değildir; Gizli Saldırı koşulları ayrıca sağlanırsa uygulanabilir.',
   ]},
  ],
 };
@@ -64,11 +68,11 @@ export const jeremiahRevision:Character={
    'Lonca hekimi Zylara’nın muayenesi ve Magister Vaelcor’un denetimli çalışmaları, çözüm aramak için kullanılabilecek iki yoldur. Sonuç henüz belirlenmiş değildir. Oyuncuların gerçekten kullanabildiği tedavi veya büyü çözümleri, hikâyeyi uzatmak için sebepsizce geçersiz kılınmaz.',
   ]},
   {title:'Oyuncu kâğıdı · 1. seviye Düzenbaz',paragraphs:[
-   'Sınıf ve seviye onaylandı: D&D 5e 2014, 1. seviye Düzenbaz. İleride Arcane Trickster yolu seçilecek; alt sınıf 3. seviyede açılır. Bu başlangıç kâğıdında henüz büyü yuvası veya sınıf büyüsü yoktur. Kullanıcının son isteğiyle doğuştan gelen iki küçük büyülü etki, Kan Yankısı özel kuralıyla eklendi.',
+   'Sınıf ve seviye onaylandı: D&D 5e 2014, 1. seviye Düzenbaz. İleride Arcane Trickster yolu seçilecek; alt sınıf 3. seviyede açılır. Bu başlangıç kâğıdında henüz büyü yuvası veya sınıf büyüsü yoktur. Kullanıcının son isteğiyle doğuştan gelen üç küçük büyülü etki, Kan Yankısı özel kuralıyla eklendi.',
    'Portreli A4 kâğıdı ve Oyuncu Masası dosyası aşağıdan indirilebilir. Mevcut editoryal niteliklerle Can 9, Zırh 14, İnisiyatif +3 ve Yetkinlik +2 hesaplandı. Gizlilik ve Aldatma Uzmanlıkları, altı beceri ve başlangıç donanımı dolduruldu. Nitelikler, beceriler ve özel geçmiş seçimleri oyuncu ile DM tarafından düzenlenebilir; bunlar oyuncunun verdiği bir zar dökümü değildir.',
   ]},
   {title:jeremiahGift.name+' · doğuştan büyü',paragraphs:[
-   'Jeremiah büyük büyüler kuramaz; elini bir anahtara uzattığında bazen ondan önce soluk bir gölge uzanır. Kısa bir ıslığı ise kendi dudakları yerine odanın başka bir köşesinden duyurabilir. Elorwyn’de gizlediği yetenek, şimdi küçük ve denetlenebilir denemelerle ortaya çıkar.',
+   'Jeremiah büyük büyüler kuramaz; elini bir anahtara uzattığında bazen ondan önce soluk bir gölge uzanır. Kısa bir ıslığı ise kendi dudakları yerine odanın başka bir köşesinden duyurabilir. Kendini zorladığında avucunda ince bir buz kıymığı oluşur; bıraktığında havada bir an parlayıp hedefe saplanır. Elorwyn’de gizlediği yetenek, şimdi küçük ve denetlenebilir denemelerle ortaya çıkar.',
    jeremiahGift.rules,...jeremiahGift.options.map(option=>option.name+': '+option.text),
   ]},
  ],

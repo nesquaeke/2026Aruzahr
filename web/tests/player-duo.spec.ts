@@ -4,6 +4,8 @@ import {createHash} from 'node:crypto';
 import {importPlayerFile} from '../src/player/model';
 import {characterById} from '../src/lore/characters';
 import {portraitFor} from '../src/media';
+import {macSmallSkill,ciotelSmallSkill} from '../src/lore/player-small-skills';
+import {longRest,shortRest} from '../src/player/model';
 
 test('portable Ciotel file is valid, anonymous and preserves uploaded mechanical values',()=>{
  const text=readFileSync('public/downloads/Ciotel-Veyr-Aruzahr.json','utf8'),raw=JSON.parse(text),character=importPlayerFile(text)[0];
@@ -16,6 +18,13 @@ test('portable Ciotel file is valid, anonymous and preserves uploaded mechanical
  expect(character.scores).toEqual({str:10,dex:16,con:12,int:15,wis:12,cha:10});
  expect(character.portrait).toMatch(/^data:image\/webp;base64,/);expect(Buffer.byteLength(text)).toBeLessThan(750000);
  expect(character.skillProficiencies).not.toContain('persuasion');expect(character.expertise).toEqual([]);
+ expect(character.resources).toEqual([...audit.originalResources,audit.authorizedAddedResource]);
+ expect(character.resources.at(-1)).toMatchObject({id:'ciotel-cikis-gozu',max:1,used:0,reset:'long'});
+ const used={...character,resources:character.resources.map(r=>({...r,used:1}))};
+ expect(shortRest(used).resources.at(-1)?.used).toBe(1);expect(longRest(used).resources.at(-1)?.used).toBe(0);
+ expect(macSmallSkill).toMatchObject({max:1,used:0,reset:'long'});
+ expect(macSmallSkill.description).toContain('tepkini harcayarak');
+ expect(ciotelSmallSkill.description).toContain('d20 +2 +1d4');
  expect(characterById('ciotella')?.city).toBe('morihael');expect(characterById('ciotella')?.origin).toBe('Frostbay');
  expect(portraitFor('jeremiah')?.src).toBe('/illustrations/jeremiah-remaster.webp');
 });
@@ -27,11 +36,13 @@ test('both character biographies have their new portraits and the requested stor
  await expect(page.getByRole('link',{name:'Oyuncu Masası için karakter dosyasını indir'})).toHaveAttribute('href','/downloads/Ciotel-Veyr-Aruzahr.json');
  await expect(page.locator('.hero-portrait-button img')).toHaveAttribute('src','/illustrations/ciotella.webp');
  await expect(page.locator('.wiki-article')).toContainText('Arkadaşları içeride kaldı');
+ await expect(page.locator('.wiki-article')).toContainText('Çıkış Gözü');
  await page.goto('/#/wiki/jeremiah');
  await expect(page.getByRole('heading',{name:'Jeremiah',exact:true})).toBeVisible();
  await expect(page.locator('.hero-portrait-button img')).toHaveAttribute('src','/illustrations/jeremiah-remaster.webp');
  await expect(page.locator('.wiki-article')).toContainText('yankı düğümü');
  await expect(page.locator('.wiki-article')).toContainText('İkna kontrollerine otomatik dezavantaj');
+ await expect(page.locator('.wiki-article')).toContainText('Buz Kıymığı');
  await expect.poll(()=>page.locator('.hero-portrait-button img').evaluate((i:HTMLImageElement)=>i.naturalHeight)).toBe(1536);
 });
 
