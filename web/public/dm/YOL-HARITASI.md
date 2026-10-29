@@ -26,19 +26,19 @@ Bu olay oynandıysa Eren ve Ekin’le akşam kimin ne yaptığını bir cümleyl
 
 ## 2. Köprünün İki Tarafı
 
-**Yer:** Marhalden’in batısı • Batı Aldara yük köprüsü
+**Yer:** Marhalden’in batısı · Batı Aldara yük köprüsü
 
-**Zaman:** Kervan batıya yola çıktığında
+**Zaman:** Son İlaç sonrasında; batıya giden sevk köprüyü yeni geçtiğinde
 
-**Yapılacak:** Kaçan sivilleri geçir; takipçiler yaklaşırken köprü ve yük için bir plan seç.
+**Yapılacak:** Doğuda kalan sekiz sivili kurtar; yaklaşan üç silahlı adamla ne yapacağını seç.
 
-**Devam:** Deren’in rehberliğiyle Harven’de Bera’nın fırınına git.
+**Devam:** Olanları ve eksilen yükü kaydet; Harven’de Bera’nın fırınına devam et.
 
 **İsteğe bağlı:** Kapının arkasında kalan yük (10–15 dk)
 
-**Açıldığı adım:** Köprünün İki Tarafı · Son bağ
+**Açıldığı adım:** Köprünün İki Tarafı · 6 · Köprüye ne olacak?
 
-Köprü kararının sonucu belli olduktan ve acil takip tehlikesinden çıkıldıktan sonra. Köprü hâlâ ateş altındaysa bu olayı açma. Harven’e yaklaşan küçük yol sığınağında durulur; tamamlanmış yeni bir Kral Yolu kolu değildir.
+Köprü kararı bittikten ve takip tehlikesinden uzaklaştıktan sonra isteğe bağlıdır. Harven yolundaki sığınakta yükünü kontrol eden odun alıcısı Haldor Pell ile ilk kez karşılaşırlar. Onu köprüde bulunmuş sayma. Köprü hâlâ ateş altındaysa bu olayı açma.
 
 **Göster:** living-gecit-siginagi · Portreler: deren-olm, haldor-pell
 

@@ -1,0 +1,118 @@
+// Supplied bridge chapter before the 29 October rewrite. Field hashes only; no private saves.
+export const bridgePrevious = {
+  "fields": {
+    "id": "6953e0a4885113c5985af7e80b6f2f15a7649ec0521d2dd520558b57840164d7",
+    "title": "46fdcb78e2eae29baf58768f8c39a7020efc86f89656d766475eb6d4f6e50229",
+    "location": "52ef5b8ef18098ea676ea8a82215c37c9c3c601e043a9835870793f1e56905b6",
+    "objective": "dab021f7c3be65d6e6b3a0a3a24272a809eac5dfad33cec598545677184a499b",
+    "people": "ebd89a4fb8bf3d25a11992c9ab632c72e091925a7dec1abdf40cd5f5d0254174",
+    "body": "4ffafac7cf75a4f1c60ec59781ff84b389cf464d46115fa859fdf862bfbe58f9",
+    "briefing": "73964ed41b0616c7b76082407e1c75fab8919ce1282e1f4ab9ebbe178c8bc59b",
+    "quick": "26876cef7cbf0ea7a5f6552a42ca17eea07960a232a23eb36f8e04fb56344450",
+    "events": "8f5bcf6d0eb906d22c313fc455c6e88615ed4b86e84d95b50357a68d2bb23514",
+    "dossiers": "11ae55819438ec8820bab02b09dd9fc0099279fe3bf912bd83b7c228a259441a"
+  },
+  "order": [
+    "koprunun-iki-tarafi-1",
+    "kopru-tahta",
+    "koprunun-iki-tarafi-2",
+    "kopru-halattaki",
+    "kopru-sayim",
+    "koprunun-iki-tarafi-3"
+  ],
+  "steps": {
+    "koprunun-iki-tarafi-1": {
+      "id": "bb95b020f8bfdf15bf8694d50f4fa2f9754a931c5b59f05d900510e2f1815991",
+      "title": "346b17d90897de46085539bb86ef558c04b9fcd832c134b1aeddbb80bf01e00b",
+      "summary": "28a3923ab452a40e243ab939ab8f4df277abab443d714eeaa82942ac54a826f3",
+      "readAloud": "00d6db1cfe200b03d6e9c95efade30be32d9555ba789ef6a2d1c6ca3b2352ed4",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "261b86033d3ac66740205b5ce9e46c1367d395814cd7c7246a341491b8a51a07",
+      "choices": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "backgroundId": "fd0f9ba69a2d2f54b0652190621f7abe5832ac510805cc38ee051cdc20b5dc8f",
+      "portraitIds": "4c5fd2249dcd3dd79257a1cf7aa6c5bb5e12a5cb9e2766724358dd61dbc961cc",
+      "publicTitle": "6b7f0706cd9ec5df83377983484d35565b02d4311cdfd7acfa90ab8273a9d585",
+      "publicNames": "7b4610a07b4af118291c231bd9a0dca86642b96693eb43f9be4ba091abcdcd5c",
+      "runbook": "a10f1c47fa2a8743e4ddf893ea538469604c8ed0bb67d7571d18709d18c9f68e",
+      "quick": "978d18ec8d4726dc7d0f1d4b35c3f9a191fa06d448602e5207a8342233fe2c15",
+      "play": "0f9774abddce1ccf2da46c1e4529a4d011dfa49eb0836d2366c05bc530b0d7c2"
+    },
+    "kopru-tahta": {
+      "id": "f6e8002d3dca6566b9c71e63fcca070cbb422a5e570d9b688053b1f4016dc451",
+      "title": "b657dcb9ba066439b263913c28b82c23f0276d83ab94aaf4f93c0997d5741fd1",
+      "summary": "908390d17d31052f4314ad27a1cc3fe493ecc55ece3e3c30b7778e4b76c29b39",
+      "readAloud": "77757d1d84b3520cbc9d57e7ad6e23e46b676558f5b4358d526d5c4b0dbcc47f",
+      "backgroundId": "1da946868fbb5c0b9866437a179ec8e9ad6d16f81ec46c5b6d5b66b807ca2de1",
+      "portraitIds": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "publicTitle": "6bfbc0c92ee3fa4b30a271e31d58ee1e01980d22130da7dd0102679382113b72",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "682f288fc6b15bea9085bfc0f1dca92e69cbaf19a79d8fef78e3b68f8e86351b",
+      "choices": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "quick": "de3653841f41218453174c083756db63578ee2a0376a0d79b2286b74aaf94f41",
+      "runbook": "5a12377312e8a1c46e9106561c2506bddacc4ec86e270613b33d5632e1e11bf6",
+      "play": "a6c0a7422062aa32bc22264c9f67a69213a13a2b7dc9f3601c07cf395a763ba8"
+    },
+    "koprunun-iki-tarafi-2": {
+      "id": "c069ad6c81fa6c847a854aa01dd37de36e42c3e62583923d10536460fd14c40f",
+      "title": "1850c41279e33e556cde0dee3949f902db35c0dab9885368550250cbce7dbe41",
+      "summary": "dd745c682bc061edab496cfbd6515a51cd24f0072e26721ae982065741349bb3",
+      "readAloud": "cd5ffacdd532274070f6ac5adf70c2fa52ee6ddb044552896662006c2a74d0af",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "choices": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "backgroundId": "1da946868fbb5c0b9866437a179ec8e9ad6d16f81ec46c5b6d5b66b807ca2de1",
+      "portraitIds": "6dc43e4f261977b83edd37c406ee9072a30265a61cec15eeedd415f14e5aaace",
+      "publicTitle": "be6dfce4af16f234b637c92b5454652e35dcdf1fbd93704aaaa7501ecea65620",
+      "publicNames": "7b4610a07b4af118291c231bd9a0dca86642b96693eb43f9be4ba091abcdcd5c",
+      "runbook": "0462949aa79cc6a4360e5a7977057b2b67ea85602ae9b27ee3cb440d6a93d976",
+      "quick": "accbea6a26bd7cfa136eca60ff9ae1f525807eab8564dff53e66794d36ab64ee",
+      "play": "99bb48838d741ba4310f9c522568136d7da714a9a7afee99ee6825ef2c95c3ce"
+    },
+    "kopru-halattaki": {
+      "id": "4a03fec47aa28b208714e10e123d1593aea2f0c88361d13bcc777c8c7413ac16",
+      "title": "16245ebf589d002d5b31cf6e2dad30f5c04859fe1399d7310358829f6e3f0ba2",
+      "summary": "308ab38b43cd6cf3b5bdfb2c4d7e9e1aae08d47f7a17dc14976d393042e11be5",
+      "readAloud": "9e03b938727b2996c5d6e17e85471e55984f48e4b75babe84791dff5e3e36881",
+      "backgroundId": "1da946868fbb5c0b9866437a179ec8e9ad6d16f81ec46c5b6d5b66b807ca2de1",
+      "portraitIds": "4c5fd2249dcd3dd79257a1cf7aa6c5bb5e12a5cb9e2766724358dd61dbc961cc",
+      "publicTitle": "9d942bc86f1b5e41f81a3c5f7b45c18b21ddf07ae2ce02f9c6ad4e40cbf858eb",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "a3af2f905567ceb9e3dec46ec90146110376eeef769e5c56524bb9cb8b6305af",
+      "choices": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "quick": "f0bcce8e414a493c2a5dbfae05f2796ce68159fce0683944cb16fe1c9c7e48b2",
+      "runbook": "7e020ce7cafa78b953cb1a0496bf6ec512db3cf70ef5c00af7e623c1c2b8ed28",
+      "play": "16ff5e372c137597526f449ff553c94f90a3513263a6456c6b0ca431cc9bb5b5"
+    },
+    "kopru-sayim": {
+      "id": "12739f86b23cd58f3ba1dccadb3bdaa7cb21395f83f1b1e38540144c04abaf0f",
+      "title": "9383b924d4f6895381f1a82066ab038feebe511bc8ac34ffe5aa8c2a2cae4c13",
+      "summary": "c759bdede3e2a5948fe2c3bef463e0ad929890fd460185022892922c6ae459b5",
+      "readAloud": "5b58ed23db1f62db4cb0c5fcde5a374517fc36afc5c35b0a115d4b45c1622538",
+      "backgroundId": "fd0f9ba69a2d2f54b0652190621f7abe5832ac510805cc38ee051cdc20b5dc8f",
+      "portraitIds": "39e1c86db203b5ef3cdacd12199073ae432427359dfab93bd0121ec1e681ff5f",
+      "publicTitle": "9e6d19cab8f57df2b4dffd0ed23624110de6d8c3fb3a20380ad838acfb9abc56",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "choices": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "quick": "a23f69cca0d25d915dea5da7d8360b550032518f5c0c6b5ba0256bf30cc47dc6",
+      "runbook": "a51c604af417b4a379d6e1255dc5f514fcf5413c358307450c8ef576c38d034c",
+      "play": "138aa5c59a4d92aa01a8f6515f21d1c22d1c2166ad5671e77bdb7b051dae2870"
+    },
+    "koprunun-iki-tarafi-3": {
+      "id": "f85e79c970126e012909871538ce170e02fab45632f72c53df71f7a4677cec4f",
+      "title": "1b8777c7bee1521af4dc831b6ea0e3e9fba64d5bb44c92686c3ff03e1d080ccd",
+      "summary": "ed0e8c25eddb18c2241d3d73df9b2122fb40f82a4a3759ecb187abf0ba1f7f47",
+      "readAloud": "41226aad3de2df0969bdc2a1872d9878fe1ed54339134ccfeb4d858764e1aca9",
+      "actions": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "checks": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "choices": "09114bd25750142ab1363a5133929a79f27d762cafd1815ceac3220dc85b3e44",
+      "backgroundId": "1da946868fbb5c0b9866437a179ec8e9ad6d16f81ec46c5b6d5b66b807ca2de1",
+      "portraitIds": "4c5fd2249dcd3dd79257a1cf7aa6c5bb5e12a5cb9e2766724358dd61dbc961cc",
+      "publicTitle": "cb7fed846782ee1b5f746868bf101383f717acb8e2e7a7631304b50256a33bd5",
+      "publicNames": "7b4610a07b4af118291c231bd9a0dca86642b96693eb43f9be4ba091abcdcd5c",
+      "runbook": "75864f294c83fd41b20e1346d65cfb25999e6b8cf5f1d191fd0b5dcba89c0042",
+      "quick": "2f1c2889af7123ee7ce8b9e7129235a92ed37b763e499737cdd643ef0ccaa143",
+      "play": "d7919b0ceac9e8572bd6d3da53f5eff7722f76d13609d95aa3ee0b6c82345211"
+    }
+  }
+}

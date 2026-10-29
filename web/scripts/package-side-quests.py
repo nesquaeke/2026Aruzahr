@@ -10,6 +10,7 @@ files += [public / p for p in [
     'illustrations/side-mine-map.svg', 'illustrations/side-mine-map.png',
     'dm/Kayip-Pay-Madeni-DM-Haritasi.svg', 'dm/Yan-Gorevler.json',
     'dm/Yan-Gorevler.md', 'dm/Yan-Gorevler-Oynatim-Kitabi.html',
+    'dm/Harven-Orman-Yolu.html', 'dm/Harven-Orman-Yolu.md', 'dm/Harven-Orman-Yolu.pdf',
 ]]
 pdf = public / 'dm/Hardlane-Yan-Gorevler-Oynatim-Kitabi.pdf'
 if pdf.exists():

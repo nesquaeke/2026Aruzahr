@@ -784,219 +784,255 @@ Bu olay isteğe bağlıdır. Oynanmamış bir seçim veya sonuç gerçekleşmiş
 
 # 2. Köprünün İki Tarafı
 
-Nerede: Marhalden’in batısı • Batı Aldara yük köprüsü
-Ne zaman: Kervan batıya yola çıktığında
-Amaç: Kaçan sivilleri geçir; takipçiler yaklaşırken köprü ve yük için bir plan seç.
-Sonra: Deren’in rehberliğiyle Harven’de Bera’nın fırınına git.
+Nerede: Marhalden’in batısı · Batı Aldara yük köprüsü
+Ne zaman: Son İlaç sonrasında; batıya giden sevk köprüyü yeni geçtiğinde
+Amaç: Doğuda kalan sekiz sivili kurtar; yaklaşan üç silahlı adamla ne yapacağını seç.
+Sonra: Olanları ve eksilen yükü kaydet; Harven’de Bera’nın fırınına devam et.
 
 ## Bölüm başlangıcı
 
-Marhalden’deki bakım ve tedavi işinden sonra kervan batı çıkışına gelir. Sena gelmişse arabada, kalmışsa Ravel’in bakımındadır. Önceki sonucu değiştirmeden sevki sürdür.
+Son İlaç bitti. Grup, Sela’nın batıya götürdüğü yüke eşlik ediyor. Sena’nın gelip gelmediğini önceki karar belirler; bu bölüm için iyileşmiş veya ölmüş sayılmaz. Kervan Marhalden’in batı kapısından çıktı ve Batı Aldara köprüsünü geçti. Oyun şimdi BATI kıyısında başlar; parti ve kendi yük arabası buradadır.
 
-Kervan batı yük izinde dar bir köprüye yaklaşır. Karşıdan kaçan siviller aynı geçidi kullanmak zorundadır. Başlangıç sayımı yirmi sivildir: on iki kişi batıda, sekiz kişi doğu ucunda veya orta açıklıktadır. Deren, parti, sürücüler ve tahsildarlar bu yirmiye dahil değildir.
+DM için yerleşim: DOĞU = Marhalden yönü, sekiz sivil ve onlara yaklaşan üç atlı. ORTA = 18 metre uzunluğunda ahşap köprü; bir sivilin sıkışmış el arabası yolu daraltıyor. BATI = parti, Sela’nın yük arabası, Deren ve güvende bekleyen on iki sivil; Harven yolu buradan devam ediyor. Bu yirmi yolcu Marhalden kapısından geri çevrildiği için Harven’e dönüyor. Deren onları karşılamaya değil, geri götürmeye yardım ediyor. Parti, Deren, Sela ve atlılar yirmi sivilin dışında sayılır.
 
-Kafileyi ve kendi yükünü geçirirken takipçilerin zamanını hesaplamak.
+Olayın özü: Sekiz kişi daralan köprüden geçmeye çalışıyor. Arkalarından gelen adamlar yiyeceklerini ve partinin yükünü almak istiyor. Oyuncular geçişi açabilir, adamları oyalayabilir, erzak karşılığında anlaşabilir veya kısa bir savunma yapabilir. Kazanılmış bir çözüm herkesi kurtarabilir.
 
 ### Oyunculara oku
 
-> Batı kapısından uzaklaşınca taş döşeme bitiyor. Arabalar aynı anda yavaşlıyor; ön tekerlekler çamura girip yeniden çıkıyor. Aşağıda köprü var ama yol boş değil. Eşyalarını sırtlarına bağlamış insanlar, birbirine geçiş hakkı vermeye çalışıyor.
+> Son arabanın tekerleği kıyıdaki çamura oturuyor. Sela dizginleri gevşetirken arkanızdan bir tahta çatlıyor. Köprünün ortasında, tekerleği döşemeye saplanmış bir el arabası var. Karşısında bekleyen kadın çocuğunu kucağına almış; ileri gitmeye cesaret edemiyor.
 >
-> Köprünün ortasında bir araba yan durmuş. Çeki oku korkuluğa dayanmış; altından geçen su, kırık bir tahtayı durmadan aynı yere vuruyor. Karşı kıyıda bir adam başının üzerinde ip çeviriyor. “Arabanızda uzun ip var mı?” diye bağırıyor. “Varsa burada lazım.”
->
-> Sırtın üstünde üç atlı görünüyor. İnsanlar onları fark edince konuşmalar kesiliyor; yalnız tekerleğin altındaki tahta vurmaya devam ediyor.
+> Yanınızdaki kırçıl sakallı adam köprüye dönüyor. “On ikisini aldık. Sekiz kişi kaldı,” diyor. Sonra doğudaki yola bakıyor. Yolun kıvrımında üç atlı beliriyor; öndeki, yük arabanızı görünce elini kaldırıyor.
 
 ### Kim kimdir?
 
-**Deren Olm — Harvenli odun ve nöbet işlerini bilen sivil.**
+**Deren Olm — Harvenli oduncu; sivil grubun yardımcısı.**
 
-İstediği: Karşılamaya geldiği insanları geçirebilmek.
+İstediği: Doğuda kalan sekiz kişiyi almak.
 
-İlk karşılaşma: Batı kıyısında bir kızak halatını çekmektedir; gruba seslenir.
+İlk karşılaşma: Partinin yanında, batı köprü başında.
 
-> Yol evinin ambarını aldılar. Önce un istediler, sonra kapıları kilitlediler. Ben burada sayabildiğimi geçiriyorum.
+> Arabayı kenara alırsak insanlar tek sıra geçebilir. Biriniz şu tekerleğe yardım eder mi?
 
-**Yabancı asker / Taren Olt — Takipçilerin arasında görülen silahlı adam; gerçek adı ilk anda bilinmez.**
+**Sela Varn — Sevk sorumlusu; kendi yükünü ve partiyle yaptığı işi takip eder.**
 
-İstediği: Bu baskını durdurmak ve gruptan ayrılmak.
+İstediği: İnsanları kurtarıp kalan yükle Harven’e ulaşmak.
 
-İlk karşılaşma: Halatın kesilmesini geciktirerek yardım eder; oyuncular yüzünü görebilir.
+İlk karşılaşma: Batıdaki sevk arabasının yanında.
 
-> Halatı şimdi kesmeyin. Ben arkalarındaki yolu tutarım.
+> İp burada. Çuval vermemiz gerekirse hangisini verdiğimizi sayalım.
 
-İlk sahneye geçiş: Sivillerle ve arabalarla köprüye yaklaşmayı oynat. Hemen köprüyü kesme sorusuna geçme; önce iki kıyıyı, hasarlı yükü ve yardıma ihtiyacı göster.
+**Tahsildar — Noll’un adamı; üç atlının başındaki yağmacı.**
 
-## 2.1. Yolda kalan yük
+İstediği: Dört çuval erzak.
 
-Nerede: Batı Aldara • köprü başı
-Ne zaman: Marhalden’den çıktıktan sonra
-Amaç: Alanı tanı, sivillerle konuş ve devrilen arabanın geçişini aç.
-Sonra: Araba kısmen düzeldiğinde veya tahsildarlarla konuşmak için yol açıldığında köprü tahtalarının durumunu inceleme sahnesine geç.
+İlk karşılaşma: 3. sahnede doğu köprü başına gelir.
+
+> Dört çuvalı burada bırakın. Sonra kim nereye gidecekse gitsin.
+
+**Yabancı asker / Taren Olt — Üç atlıdan biri; sivillere saldırılmasına karşı.**
+
+İstediği: Yağmaya katılmamak ve sivillerin zarar görmesini önlemek.
+
+İlk karşılaşma: Tahsildarın arkasında durur; biri sivile yöneldiğinde onu durdurur.
+
+> İnsanlara dokunmayacaksın. Yük için geldiysen yükü konuş.
+
+İlk sahneye geçiş: Bu açılışı bir kez oku. Sonra 1. sahnede oyunculara el arabasıyla ne yapacaklarını sor. Altı sahne bir kontrol listesidir; daha önce tamamlanan kurtarmayı yeniden oynatma. Normal süre 60–90 dakika; pazarlık hızlı çözülürse daha kısa bitebilir.
+
+## 2.1. 1 · Kim nerede, kim geride?
+
+Nerede: Batı kıyısı · el arabası köprü ortasında
+Ne zaman: 1. adım · Köprüyü yeni geçtiniz
+Amaç: Sivil el arabasını kenara al ve insanlara tek sıra geçebilecekleri yol aç.
+Sonra: El arabası kenara alındığında 2. adıma geç: güvenli geçişi ve köprünün nasıl kapanacağını göster.
 
 Gösterilecek sahne: Batı Aldara · köprü başı · Görsel: winter-kopru · Portreler: deren-olm
 
 ### Oyunculara oku
 
-> Köprüye yaklaştığınızda kaç kişinin geride kaldığını saymak kolay olmuyor. İnsanlar çocuklarını, torbalarını ve birbirlerinin isimlerini sayıyor. Yan yatmış arabanın sahibi, yükün altından bir ayakkabı arıyor; tekerleğin yanına basınca tahta esniyor.
+> Deren el arabasının sıkıştığı tahtayı gösteriyor. “Tekerleği yukarı alın; altına şu takozu koyayım.” Doğu ucundaki kadın, çocuğunu indirip elinden tutuyor. Arkasındaki yaşlı adam bohçasını göğsüne bastırmış.
 >
-> Kıyıdaki adam ipini indiriyor. Kollarının ikisi de dirseğe kadar ıslak. “Deren Olm,” diyor. “On iki kişi bu tarafta. Sekizi kaldı. Şu tekerlek düzelirse yol açılacak.” Size yer göstermek için çekilirken, yukarıdaki atlılardan biri kuru bir boru sesi çıkarıyor.
+> Atlılar henüz köprüye ulaşmadı. Birinin elinde katlanmış bir kâğıt, ötekinin eyerinde boş çuvallar var. Üçüncüsü geriden geliyor; yolculara değil, önündeki iki adama bakıyor.
 
 ### Sırayla oynat
 
-**Haritayı basit kur**
+**Yerleri söyle**
 
-Doğu: yaklaşan atlılar ve sekiz sivilin geçişi beklediği uç. Orta: sekizlinin bir bölümünü oyalayan yan araba. Batı: daha önce geçmiş on iki sivil, iki sağlam direk ve kuru yükselti. Doğudaki sekiz ile arabadakileri iki ayrı grup olarak yeniden toplama. Deren yirmi kişilik kafilenin dışında yardımcıdır. İpi, yükü ve kurtarılacakları ayrı nesneler olarak yerleştir.
+Masanın soluna BATI, sağına DOĞU yaz. Parti ve Sela solda, sekiz sivil sağda, üç atlı daha geride sağdadır. Köprü boyunca ilerlemek 18 metredir. Oyuncu doğuya geçmek isterse hareketini gerçekten oynat; kendiliğinden yer değiştirmiş sayma.
 
-> Deren: Şu direk tutar. Korkuluk süs niyetine, ona güvenmeyin.
+> Deren: Biz bu taraftayız. Onları da buraya alacağız.
 
-**İlk işi yaptır**
+**El arabasını kaldır**
 
-Üç oyuncuya araba sabitleme, insanları yönlendirme ve yük hafifletme işleri sun. Sela’nın sağlam ipi ve ilk görevde kalan kayışlar doğrudan yarar sağlar.
+Deren takozu hazırlar. İki kişi birlikte tekerleği kaldırıp arabayı korkuluk yanındaki çıkıntıya alırsa zar isteme. Kendi başına acele kaldırmak isteyen için aşağıdaki kontrolü kullan. Bu iş sivillerin eşyalarını atmalarını gerektirmez.
 
-**Takipçiyi tanıt**
+**Yol açılınca durumu güncelle**
 
-Atlılar kraliyet askeri değil, eski mühürle geçiş parası isteyen silahlı adamlardır. Öndeki Kerrik Noll’un ücretli tahsildarıdır. Birkaç kişinin daha uzakta olduğu görünür; hepsi aynı anda savaşa girmez.
-
-> Tahsildar: Yük duracak. İnsanlar geçsin; bizim hesabımız arabalarla.
+On iki güvende, sekiz bekliyor diye yaz. Oyuncular hemen geçişi başlatırsa bunu engelleme; 2. sahnedeki sağlamlaştırmayı eşzamanlı oynat. Atlıların yaklaşması için burada ayrıca beklemek zorunda değiller.
 
 ### Masada oynat
 
-Süre: 15–25 dk
+Süre: 5–10 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Bu adımda gerçek zaman sayacı yok. Oyuncuların konuşması, sayfa değiştirmek veya görsel hazırlamak zamanı ilerletmez.
 
-**Sahne ne zaman biter?** Oyuncular iki kıyıyı ve ilk hedeflerini tarif edebildiğinde.
+**Sahne ne zaman biter?** El arabası kenara alındığında 2. adıma geç: güvenli geçişi ve köprünün nasıl kapanacağını göster.
 
-**Oyuncular duraksarsa:** Deren ıslak ipi yere bırakmadan boş ucunu size uzatır. Korkuluğun gevşek tahtasıyla sağlam batı direğini birlikte göster; arabanın sabitlenmesi, sekiz kişinin yönlendirilmesi veya atlılarla konuşma işlerinden hangisine döneceklerini sor.
+**Oyuncular duraksarsa:** Deren: Biz bu taraftayız. Onları da buraya alacağız.
 
 ### Deren Olm
 
-Nefes nefese, sesini kullanmaktan yorulmuş; yapabildiği işi söyler.
+Telaşlı ama açık konuşur; önce yapılacak işi söyler.
 
-**Neden kaçıyorsunuz?**
+**Bu insanlar nereden geliyor?**
 
-> Yol evinin ambarını aldılar. Önce un istediler, sonra kapıları kilitlediler. Ben burada sayabildiğimi geçiriyorum.
+> Kapıdan geri çevirdiler. Harven’de barınacakları bir yer arıyoruz.
 
-**Kim yönetiyor bunu?**
+**Atlılar kim?**
 
-> Burayı mı? Kim ipi tutarsa o. Şu an bir ucu bende.
+> Yolda bizden un istediler. Vermeyince peşimize düştüler. Sizde daha çok yük görünce ona döndüler.
 
 ### Oyuncular sorarsa
 
+**Siviller niye Marhalden’e gitmiyor?**
+
+Kapıdan geri çevrildiler; Harven’e dönüyorlar. Kervan da batıya gidiyor, ters yönlü iki akış yok.
+
+**Görsel?**
+
+winter-kopru tablosunu göster. Haritaya sabit doğu/batı yerleşimini ayrıca sözle veya kalemle işaretle.
+
 ### Kontroller ve ek notlar
 
-- Araba uygun takozla sabitlenirse otomatik. Plansız bütün yükü çekmek Atletizm DC 11; başarısızlık 1d4 hasar yerine önce bir kasanın kayması ve yeniden düzen kurma fırsatı verir.
+- Tek başına hızlı kaldırma: Kuvvet (Atletizm) ZD 11. Başarılı: yol açılır. Başarısız: tekerlek tekrar oturur; bir kişi yardım ederse yeni zar gerekmeden çıkar. Hasar veya sivil ölümü ekleme.
 
 ### Kararlar ve yankılar
 
-Sonraki geçiş: Araba kısmen düzeldiğinde veya tahsildarlarla konuşmak için yol açıldığında köprü tahtalarının durumunu inceleme sahnesine geç.
+Sonraki geçiş: El arabası kenara alındığında 2. adıma geç: güvenli geçişi ve köprünün nasıl kapanacağını göster.
 
-## 2.2. Tahtanın altındaki boşluk
+## 2.2. 2 · Geçişi güvene al
 
-Nerede: Batı Aldara • köprü orta açıklığı
-Ne zaman: İlk kurtarma sürerken
-Amaç: Köprünün nereden tutulduğunu öğren; kesme kararından önce güvenli taşıma hattı kur.
-Sonra: Plan kurulduğunda tahsildarın köprüye gelişiyle yüzleşmeyi başlat. Grup sivilleri çoktan geçirdiyse çatışma kısa bir pazarlığa dönüşebilir.
+Nerede: Batı köprü başı · geçici onarım bölümü
+Ne zaman: 2. adım · Atlılar henüz yoldayken
+Amaç: Bir emniyet hattı kur; köprüyü kapatma yöntemini karardan önce öğren.
+Sonra: Geçiş planı belli olduğunda 3. adıma geç. Oyuncular bu sırada geçirdikleri sivilleri sekizden düş; ileride yeniden geride bırakma.
 
 Gösterilecek sahne: Batı Aldara · köprü orta açıklığı · Görsel: winter-aldara-halati · Portreler: yok
 
 ### Oyunculara oku
 
-> Arabanın yana kaymasıyla tahtaların altında kalan kiriş görünüyor. Yeni kırılmamış; kenarları suyla kararmış, çivilerinden biri çoktan çıkmış. Deren bir torbayı sizin tarafa atıyor. Torbanın ardından geçmeye çalışan yaşlı adam, ayağının altındaki boşluğu görünce duruyor.
+> Deren, korkuluğa yaslanmak üzere olan adamı omzundan geri çekiyor. “Oraya yüklenme.” Sonra kendi kıyınızdaki iki kalın bağı gösteriyor. Bağlar tahtaların altından geçip taş ayağın dibindeki demir halkalara dolanmış.
 >
-> Sırtın üzerindeki adam yeniden sesleniyor. Bu defa beklediği cevap ücret değil. Birisi onun arkasından aşağı inmiş; yayını omzundan alırken kirişe bakıyor. Aranızdaki mesafe giderek kısalıyor.
+> “Bu son bölüm onarım,” diyor. “Şunları açarsanız döşeme aşağı iner. Karşıda kim kaldıysa orada kalır. Önce bir emniyet ipi çekelim.”
 
 ### Sırayla oynat
 
-**Araştırmayı eyleme bağla**
+**Emniyet ipini bağla**
 
-Kirişe uzanmak için yükü durdurmak veya birini ipte tutmak gerekir. Yapıyı gözle incelemek temel bilgiyi verir: iki yan bağ kesilirse orta açıklık düşer. Tek yan bağ kesilirse köprü eğilir ama tamamen kapanmaz.
+Sela’nın ipini batıdaki sağlam taş halkaya bağlayıp geçecek kişilere uzatabilirler. Deren karşı ucu götürür. Uygun ip ve iki yardım eli varsa zar gerekmez. Korkuluk ipi emniyet hattı değildir.
 
-**Üç planı mümkün kıl**
+> Sela: Sağlam ip bu. Korkuluğa değil, taş halkaya bağlayın.
 
-Kirişi takviye etmek, insanları yan halattan geçirmek veya düşmanı konuşmayla oyalamak geçerli. Sela yükündeki iki demir bağın burada kullanılması sonraki teslimi eksiltir; bedeli baştan söyle.
+**Takviyeyi seç**
 
-> Sela: Bunları veririm. Mavric’te niye iki tane eksik diye sorarlarsa orada da konuşursunuz.
+Sevk yükündeki iki demir bağ ve kısa bir kalas ile gevşek tahta sabitlenebilir. Uygun malzeme ve yardımla otomatik olur; Sela kullanılan iki bağı teslim listesinden düşer. Yapmazlarsa geçiş mümkündür ama son yaşlı yolcu için 4. adımda kurtarma gerekebilir.
 
-**Geri sayımı görünür yap**
+**Kapanışı açık anlat**
 
-Tahsildar yürümeye başlar. Bir sivil düşecek diye zar beklemek yerine tahtanın önce çatladığını göster; biri ona el uzatabilir.
+Siviller geçtikten sonra, batı kıyısındaki iki yük bağını bırakmak geçici döşemeyi düşürür. Her bağı çözmek veya uygun kesiciyle kesmek ayrı bir eylemdir; iki kişi aynı turda yapabilir. İlk bağdan sonra geçiş durdurulur; ikincide döşeme düşer. Kimseyi uyarısız düşürme. Altı metrelik açıklık takipçileri geciktirir; kalıcı olarak aşılamaz bir engel değildir.
 
 ### Masada oynat
 
-Süre: 10–20 dk
+Süre: 5–10 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Bu adımda gerçek zaman sayacı yok. Oyuncuların konuşması, sayfa değiştirmek veya görsel hazırlamak zamanı ilerletmez.
 
-**Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
+**Sahne ne zaman biter?** Geçiş planı belli olduğunda 3. adıma geç. Oyuncular bu sırada geçirdikleri sivilleri sekizden düş; ileride yeniden geride bırakma.
 
-**Oyuncular duraksarsa:** Deren kuru ucundan tuttuğu halatı size uzatır: “Bunu nereye bağlayayım?” Cevap somut bir planı başlatır.
+**Oyuncular duraksarsa:** Sela: Sağlam ip bu. Korkuluğa değil, taş halkaya bağlayın.
+
+### Deren Olm
+
+Sorulana kısa ve teknik olmayan cevap verir.
+
+**Köprüyü hemen kapatalım mı?**
+
+> Kapatabilirsiniz. Ama önce şu sekiz kişinin yüzüne bir bakın; öbür kıyıda ne yapacaklarını da düşünelim.
+
+**Bunu yapmadan durduramaz mıyız?**
+
+> Konuşun, yük verin ya da yolu tutun. Köprüyü illa bozacağız diye bir şey yok.
 
 ### Oyuncular sorarsa
 
+**İp taşır mı?**
+
+Karakterin gerçek ekipman kapasitesini kullan. Bu destek, insanları tek tek emniyete almak içindir; yüklü arabayı tek ipten geçirme.
+
+**Büyüyle çözerlerse?**
+
+Büyünün gerçek menzil, ağırlık ve hedef sınırını uygula. Jeremiah’ın Soluk El’i en fazla 1 kg taşır; insan taşıyamaz. Uygun güçlü bir çözüm kazanılmışsa kabul et.
+
 ### Kontroller ve ek notlar
 
-- Takviye için uygun demir ve ip varsa yeterli iş gücüyle otomatik. Eksik malzemeyle hızlı destek Ustalık/Atletizm DC 11; başarısızlık bir bağın gevşemesi ve yeniden iş yapma süresidir.
+- Malzeme eksikse geçici destek: Kuvvet (Atletizm) veya uygun marangoz aletiyle Zekâ kontrolü ZD 11. Başarısızlık desteğin tutmadığını baştan belli eder; emniyet hattı ve tek tek geçiş hâlâ mümkündür. Aynı kontrolü tekrar ettirme.
 
 ### Kararlar ve yankılar
 
-Sonraki geçiş: Plan kurulduğunda tahsildarın köprüye gelişiyle yüzleşmeyi başlat. Grup sivilleri çoktan geçirdiyse çatışma kısa bir pazarlığa dönüşebilir.
+Sonraki geçiş: Geçiş planı belli olduğunda 3. adıma geç. Oyuncular bu sırada geçirdikleri sivilleri sekizden düş; ileride yeniden geride bırakma.
 
-## 2.3. Geçiş parası
+## 2.3. 3 · Dört çuval isteyen adam
 
-Nerede: Batı Aldara • doğu köprü başı
-Ne zaman: Tahsildar menzile geldiğinde
-Amaç: Siviller için zaman kazan; yükü koru veya hangi kısmını vereceğini seç.
-Sonra: Sivillerin geçişi açılınca halattan kurtarma sahnesine geç. Tahsildarla anlaşılmışsa onun gözetiminde geçer; çatışma olduysa doğu kıyısındaki baskı sürer.
+Nerede: Tahsildar doğuda · parti batıda
+Ne zaman: 3. adım · Atlılar doğu ucuna ulaşınca
+Amaç: Pazarlık, oyalama veya kısa savunmayla sekiz sivil için güvenli geçiş sağla.
+Sonra: Anlaşma veya kısa bir güvenlik aralığı oluştuğunda 4. adıma geç. Sekiz sivil zaten geçtiyse 4. adımı atlayıp 5. adımdaki sayıma git.
 
 Gösterilecek sahne: Batı Aldara · doğu köprü başı · Görsel: winter-aldara-halati · Portreler: taren-olt
 
 ### Oyunculara oku
 
-> Tahsildar atından inmiyor. Köprü başındaki çamura bakıp hayvanını daha kuru yere alıyor. Bir elinde eski mühürlü bir kâğıt var; ötekinde dizgin. “Dördünü bırakın,” diyor. “Dört çuval. Köprü sağlam kalır.”
+> Öndeki atlı doğu köprü başında duruyor. “Kervanın sorumlusu kim?” diye sesleniyor. Katlanmış kâğıdı açıp mührünü gösteriyor. “Dört çuval erzak bırakın. İnsanlar geçsin.”
 >
-> Arkasındaki genç adam, köprü korkuluğuna tutunan bir sivile bakıyor. Tahsildar yayıyla o tarafa dönünce genç adam kolunu yakalıyor. Bir an ikisi de hareket etmiyor. Sonra kâğıt çamura düşüyor.
->
-> Genç adam size dönüp, “İnsanları geçirin,” diyor. “Buna şimdi cevap veremeyeceğim.”
+> Sela çuvallara bakıyor, sonra size dönüyor. “Bunlar da Harven’in yiyeceği.” Arkadaki genç adam atından inip sivillerin yanına geçiyor. Önündeki adama, “Çocukları araya sokma. Yükü konuş,” diyor. Elini henüz silahına götürmüyor.
 
 ### Sırayla oynat
 
-**Önce konuşmayı aç**
+**Tahsildarın isteğini net söyle**
 
-Tahsildar Noll adına geçiş parası topladığını söyler. Mühür kraliyet yazısına benzer ama yetki ve tarih sorulunca lafı değiştirir. Bunu fark etmek tek Sezgi zarına bağlı değildir.
+İstenen dört çuval erzak partinin batıdaki sevk yükünden veya sivillerin erzağından verilebilir. Kimin malı olduğunu ve kaç çuval kaldığını masada kaydet. Sela’nın yükünde dört uygun çuval yoksa eşdeğer malı önce birlikte belirleyin; oyuncuya sonradan borç icat etme.
 
-> Tahsildar: Mühür var işte. Ben size hangi masada basıldığını mı anlatacağım?
+> Tahsildar: Kâğıt benim. Yük sizin. Dört çuval bırakın, yolunuza gidin.
 
-**Güveni seçim yap**
+**Oyuncuya cevap alanı bırak**
 
-Yabancı asker tahsildarın yayını yana iter. Parti onu tutuklarsa direnmeden kılıcını bırakabilir; bırakılsa da bütün savaşı tek başına çözmez. Deren’i tutar, bir sivili çeker, gerektiğinde bir saldırıya siper olur.
+Mühür şehirdeki vergiye ait eski bir kopyadır; geçiş yetkisi vermez. Bunu kâğıdı inceleyerek öğrenirler, tek bir Sezgi başarısına kilitleme. Dört çuval teklif edilirse adam kabul eder ve sözüne uyar. İki çuval ve makbuzla pazarlık da mümkündür. Konuşurken siviller geçebilir.
 
-> Yabancı asker: Bana güvenmeniz gerekmiyor. Korkuluğun yanındaki kadını alın.
+**Taren’i davranışıyla tanıt**
 
-**Hedefli çatışma kur**
-
-Dövüş başlarsa iki etkin düşman yeterlidir; uzaktakiler yükün peşindedir ve köprüye yığılmaz. Üç oyuncunun önüne altı saldırı koyma.
+Bir adam sivile vurmak veya onu rehin almak isterse Taren önüne geçer. Oyuncular kendisine yardım isterse bir sivili batıya taşıyabilir. Barışçıl anlaşma olduysa zorunlu bir saldırı veya taraf değiştirme sahnesi yaratma. Gruba katılmasını, yaralanmasını veya adını söylemesini peşinen varsayma.
 
 ### Masada oynat
 
-Süre: 20–30 dk
+Süre: 15–20 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Bu adımda gerçek zaman sayacı yok. Oyuncuların konuşması, sayfa değiştirmek veya görsel hazırlamak zamanı ilerletmez.
 
-**Sahne ne zaman biter?** Geçiş için kısa bir güvenlik aralığı oluştuğunda; bütün düşmanları öldürme hedefi koyma.
+**Sahne ne zaman biter?** Anlaşma veya kısa bir güvenlik aralığı oluştuğunda 4. adıma geç. Sekiz sivil zaten geçtiyse 4. adımı atlayıp 5. adımdaki sayıma git.
 
-**Oyuncular duraksarsa:** Tahsildar mührünü kaldırırken tarihin üstüne başparmağı denk gelir. Oyuncular mührü görmek, ücretin dayanağını sormak veya siviller için geçiş istemek üzere konuşabilir. Beklemeleri tek başına saldırıyı başlatmaz.
+**Oyuncular duraksarsa:** Tahsildar: Kâğıt benim. Yük sizin. Dört çuval bırakın, yolunuza gidin.
 
-### Karşılaşma · Köprü başındaki tahsildarlar
+### Karşılaşma · Yolu tutan iki yağmacı
 
-**Amaç:** Üç tur geçişi korumak ya da yükü vererek insanları geçirmek.
+**Amaç:** Düşmanları öldürmek değil, kalan sivilleri geçirmek veya yükle ilgili anlaşmaya varmak.
 
-**Başlangıç:** Tahsildar birini zorla arabadan indirir veya grup açıkça saldırırsa. Önceden ücret, geciktirme ve geri çekilme konuşulabilir.
+**Başlangıç:** Grup saldırırsa veya tahsildar zorla mal almaya kalktığında müdahale edilirse inisiyatif aç. Konuşmak, ödeme yapmamak veya kötü İkna zarı tek başına dövüş başlatmaz.
 
-**Alan:** Doğuda genişçe çamurlu alan; ortada arabanın siper verdiği dar köprü; batıda iki taş direk. Atlar ürkerse kıyıya çekilir, savaş canavarı gibi tekmelemez.
+**Alan:** Batıda parti ve yük; 18 metrelik dar köprü; doğuda iki düşman ve sivillere yardım eden Taren. Atlar doğuda bağlı kalır, savaşa girmez. Deren ve Sela geçişe yardım eder; ekstra saldırı üretmez.
 
-1. İlk tur tahsildar önündekini sopayla uzaklaştırır; yardımcısı arabaya tırmanır ve çuvalı söker. Yardımcı aynı tur saldırmaz.
-2. İkinci tur bir düşman halata yönelir. Engellemek eylemle, itmeyle veya konuşmayla mümkündür.
-3. Üçüncü tur sivillerin çoğu geçer. Düşmanlar yaralanmışsa kalan yükü alıp çekilmeye başlar.
+1. Önce geçişin açık olup olmadığını söyle. Engel kaldırılmış ve yol korunuyorsa her tur sonunda sıradaki sivil grubu geçer: önce 4, sonra 3, en son 1. Başka yolla daha önce geçenleri düş; toplam 8’i aşma. Yol kapanırsa o tur ilerleme olmaz; sayıyı silme.
+2. Tahsildar önünü tutana bir saldırı yapar: +3 / 1d4+1. Yardımcı yükün yanına ulaşmaya veya bir çuvalı almaya çalışır; bunu yaptığı tur saldırmaz. İki işi birden yapmaz.
+3. Bir karakterin saldırısıyla yol kapanmışsa Deren o tur sivilleri bekletir. Tahsildar yaralanıp 4 cana inerse mal veya kaçış anlaşması arar. Tahsildar çekilirse yardımcı da çekilir; gizli yeni düşman çıkarma.
 
 **1 × Tahsildar — Zırh 12, Can 8, Hız 9 m**
 
@@ -1016,152 +1052,169 @@ Tahsildar çekilirse hemen kaçar.
 
 **Dövüş dışındaki yollar:**
 
-- Dört çuvalın tamamı yerine daha azını ve bir makbuzu teklif etmek; iyi gerekçe için İkna DC 11.
-- Mühürden sorumlu kişinin adını ve tarihini sorarak zaman kazanmak; sahte yetkiyi herkesin önünde açığa vurmak.
-- Arabayı siper bırakıp sivillerle çekilmek.
+- Dört çuvalı vererek anlaşmayı bitirmek; siviller geçer, köprü sağlam kalır.
+- İki çuval ve makbuzla başarılı pazarlık.
+- Herkes batıdayken onarım döşemesini bırakmak; geride biri varsa önce açıkça söyle.
 
-**Aksilik:** Bir karakter düşerse Deren onu batıya çekmeye yardım eder; düşmanlar ölümcül son vuruş yerine çuvalları almaya yönelir. Kötü sonuç mal, yaralanma ve doğu kıyısında kalan işin bedelidir.
+**Aksilik:** Bir karakter düşerse düşmanlar yerdekini infaz etmek yerine erzağa yönelir. Deren ve Sela, güvenli yolu varsa onu batıya çeker. Yenilgi çuval kaybı, esirlik veya geri çekilme olabilir; gizli ölüm ekleme.
 
 Bu kart 3 oyuncu, 1. seviye başlangıç için yazıldı. Yeni başlayan grupta aynı tur birden fazla etkin düşman saldırısını rutinleştirme; gözcü/yardımcı kendi işini yapar. Grup dinlenememişse yardımcıyı çıkar veya çevre hasarını yalnız ilk temasla sınırla. Seviye yükseldiğinde önce amaç ve alanı genişlet, hasarı habersizce katlama. Kullanılan değerler düzenlenebilir masa taslaklarıdır.
 
 ### Tahsildar
 
-Ücretli zorba; resmî dil taklit eder, sorular uzayınca sabrı biter.
+Resmî sözcükler kullanır; asıl derdi erzak.
 
-**Kimin emri?**
+**Kimin adına?**
 
-> Kerrik Noll’un geçiş listesi. Şu arabada adı olan yük var. Kâğıdı okuyacaksanız okuyun, suyun ortasında beklemeyeceğim.
+> Noll’un adına. Dört çuval için onu buraya çağırmayın.
 
-**Bunlar sivil.**
+**Dört çuval versek çekilecek misiniz?**
 
-> Ben de onları tartmıyorum. Çuvalları tartıyorum.
+> Çekileceğiz. Arabayı da yolu da istemiyorum. Çuvalları istiyorum.
 
 ### Yabancı asker
 
-Kısa ve alçak konuşur. Yardımını kahramanlık ilanına dönüştürmez.
+Alçak, doğrudan konuşur; uzun savunma yapmaz.
 
-**Sen de onlardansın.**
+**Sen bunlarla değil misin?**
 
-> Evet. Şimdi şu yay benden geçmeden size dönmez.
+> Onlarla geldim. İnsanlara vurmak için gelmedim.
 
-**Silahını bırak.**
+**Bize yardım et.**
 
-> Tamam. Kıyıya bırakıyorum. İpi tutan elime dokunmayın.
+> Şu yaşlıyı alırım. Silahımı bırakmamı istiyorsanız önce ona bir el uzatın.
+
+**Alternatif sahneler:**
+
+- Sekiz kişi de geçti → kıyıdaki sayıma git → kopru-sayim
+- Geçiş sürüyor → son yolcuyu al → kopru-halattaki
 
 ### Oyuncular sorarsa
 
 ### Kontroller ve ek notlar
 
+- İki çuval ve yazılı teslim kaydıyla anlaşma: Karizma (İkna) ZD 11. Başarılı: kabul ederler. Başarısız: tahsildar dört çuvalda ısrar eder; otomatik saldırı başlamaz.
+- Konuşmayla zaman kazanmak: somut bir gerekçeyle Aldatma veya İkna ZD 11. Başarılı: bir kurtarma turu kazanılır; aynı sözü tekrar ederek sınırsız tur kazanılmaz.
 
 ### Kararlar ve yankılar
 
-Sonraki geçiş: Sivillerin geçişi açılınca halattan kurtarma sahnesine geç. Tahsildarla anlaşılmışsa onun gözetiminde geçer; çatışma olduysa doğu kıyısındaki baskı sürer.
+Sonraki geçiş: Anlaşma veya kısa bir güvenlik aralığı oluştuğunda 4. adıma geç. Sekiz sivil zaten geçtiyse 4. adımı atlayıp 5. adımdaki sayıma git.
 
-## 2.4. Halatın ucundaki adam
+## 2.4. 4 · Son yolcuyu al
 
-Nerede: Batı Aldara • batı destek direği
-Ne zaman: Geçiş açıldığında
-Amaç: Düşen sivili çıkar; kurtarma sırasında yük ve kaçış hattını paylaş.
-Sonra: Adam ve kalan siviller sayıldığında batı kıyısında toparlanma sahnesine geç.
+Nerede: Köprü onarım bölümü · batı ucuna yakın
+Ne zaman: 4. adım · Geçiş yolu açılınca; gerekirse
+Amaç: Son yolcuyu ve varsa diğer bekleyenleri batıya al; kurtarılan kişiyi sayıya ekle.
+Sonra: Son yolcu batıya geçtiğinde veya grup onu almak için başka plan seçtiğinde 5. adıma geç. Sekiz kişi zaten kurtarıldıysa bu adım yalnız kısa bir teşekkür konuşmasıdır.
 
 Gösterilecek sahne: Batı Aldara · batı destek direği · Görsel: winter-aldara-halati · Portreler: deren-olm
 
 ### Oyunculara oku
 
-> Kalabalık hareket edince köprü hafiflemiyor; ağırlık bu kez tek tarafa biniyor. Bir tahta kırılıyor ve ayak bileğine dolanan ip, yaşlı adamı korkuluğun dışına çekiyor. Adam suya düşmüyor. Bir eliyle direği tutuyor, ötekinde de bırakmadığı bir bez bohça var.
+> Yaşlı yolcu daralan geçide bakıyor. Bir elinde korkuluk, ötekinde bez bohça var. “Bunu karşıya alır mısınız?” diye soruyor. Bohçanın ağzında solmuş kırmızı bir mendil görünüyor.
 >
-> Deren halatın üzerine bütün ağırlığıyla oturuyor. “Bohçayı bırak!” diye bağırıyor. Adam duymamış gibi yapıyor. Suyun içindeki tahta başını kaldırıp yeniden vuruyor; ipin bir teli gözünüzün önünde kopuyor.
+> Deren ipin boşluğunu topluyor. “Önce bohçayı ver. Sonra bana bakarak yürü.” Adam eşyasını bırakmakta tereddüt ediyor; karşı kıyıya geçmek istiyor ama korkuyor.
 
 ### Sırayla oynat
 
-**Bohçayı somut seçim yap**
+**Önce önceki hazırlığı uygula**
 
-Grup bohçayı ayrıca bağlayabilir, adama teslim sözü verebilir veya önce onun ellerine ulaşabilir. Bir eşyanın duygusal değeri otomatik olarak kurtarmayı imkânsızlaştırmaz.
+Demir destek veya güvenli geçiş kurulduysa adam geçer; düşme olmaz. Yol hâlâ dengesizse gevşek tahta önce ses verir. Oyuncular durdurabilir. İlerlemesine rağmen kırılırsa Sela’nın emniyet ipi onu suya düşmeden tutar; hat yoksa Deren son anda kolundan yakalar.
 
-> Adam: Kırmızı bağ var içinde. Annem bağlamıştı; kesmeyin onu.
+> Deren: Bohçayı bana verin. Siz onun kolunu tutun.
 
-**Üç oyuncuya üç iş ver**
+**Kurtarmayı iki işe böl**
 
-Halatı tutmak, adama inmek ve çıkış yolunu kapatmak/kalabalığı sakinleştirmek. İki iyi eylem kurtarmayı bitirebilir; her oyuncuya aynı zarı attırma.
+Bir kişi sağlam noktadan ipi/adamı tutar; bir kişi adamın veya bohçanın ağırlığını alır. Bu iki somut iş yardımla yapılırsa zar isteme. Tek başına acele uzanan için ZD 11 kullan. Bohçada ölen eşinin mendili ve iki aile mektubu var; yeni bir büyülü eşya veya gizli görev değildir.
 
-**Sonuca göre geçiş kur**
+**Kurtarılanı gerçekten kurtar**
 
-Yardımcı düşman yakındaysa çuval kaçırma fırsatı bulabilir. Başarılı kurtarmanın bedeli bazen mal kaybıdır; insanı kurtardıkları için fazladan ölüm uydurma.
+Adam batıya alındığında 8’den 1 düş. Başka bekleyen kaldıysa aynı geçiş yolunu kullanabilirler; her biri için yeni ölüm tehlikesi çıkarma. Tahsildarın o sırada aldığı çuval varsa kaydet, yoksa bir sonraki metinde kaybolmuş sayma.
 
 ### Masada oynat
 
-Süre: 10–20 dk
+Süre: 5–10 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Dövüş sürüyorsa aynı inisiyatifte devam et; yeni bir sayaç başlatma. Pazarlıkla güven sağlandıysa bu adımda ek süre baskısı yok.
 
-**Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
+**Sahne ne zaman biter?** Son yolcu batıya geçtiğinde veya grup onu almak için başka plan seçtiğinde 5. adıma geç. Sekiz kişi zaten kurtarıldıysa bu adım yalnız kısa bir teşekkür konuşmasıdır.
 
-**Oyuncular duraksarsa:** Adamın eli kayar ama ip onu tutar. Deren birine doğrudan “Şu ucu tut” diye seslenir; kurtarma görevi başlar.
+**Oyuncular duraksarsa:** Deren: Bohçayı bana verin. Siz onun kolunu tutun.
+
+### Yaşlı yolcu
+
+Korkmuş, kısa konuşur.
+
+**Bohçada ne var?**
+
+> Eşimin mendili. İki mektup. Başka bir şey kalmadı.
+
+**Sana yardım edeceğiz.**
+
+> Bohçayı alın. Ben de arkanızdan gelirim.
 
 ### Oyuncular sorarsa
 
 ### Kontroller ve ek notlar
 
-- Sabit ikinci ip kuran ve yardımla çeken grup kurtarır. Acele tek başına uzanış Atletizm DC 11; ilk başarısızlık elin kayması ve bir tur kaybıdır. Yardım olmadan ikinci acelede 1d4 sıyrık/çarpma olabilir.
+- Tek başına acele çekiş: Kuvvet (Atletizm) ZD 11. Başarılı: adam çıkar. Başarısız: tutuş kayar ama emniyet devam eder; başka biri yardım ettiğinde ikinci zar gerekmeden çıkar. O tur geçiş sayacı ilerlemez. Bu kontrolden ani ölüm veya ekstra düşman saldırısı doğmaz.
 
 ### Kararlar ve yankılar
 
-Sonraki geçiş: Adam ve kalan siviller sayıldığında batı kıyısında toparlanma sahnesine geç.
+Sonraki geçiş: Son yolcu batıya geçtiğinde veya grup onu almak için başka plan seçtiğinde 5. adıma geç. Sekiz kişi zaten kurtarıldıysa bu adım yalnız kısa bir teşekkür konuşmasıdır.
 
-## 2.5. Islak isimler
+## 2.5. 5 · Kimin kaldığını söyle
 
-Nerede: Batı Aldara • kuru kıyı
-Ne zaman: Son siviller geçerken
-Amaç: Kalanları say, yaralıyı taşı ve takipçilerin yeniden yetişip yetişemeyeceğini gör.
-Sonra: Kalan geçiş hattı ve insanlar belli olduğunda son halat kararına geç.
+Nerede: Batı kıyısı · Sela’nın arabası yanı
+Ne zaman: 5. adım · Acil tehlikeden uzaklaşınca
+Amaç: Karardan önce insan, yük ve takipçi durumunu açıkça netleştir.
+Sonra: Herkes gerçek sayıları ve takipçilerin durumunu bildiğinde 6. adıma geç; yeni bir çatışma başlatma.
 
 Gösterilecek sahne: Batı Aldara · kuru kıyı · Görsel: winter-kopru · Portreler: taren-olt, deren-olm
 
 ### Oyunculara oku
 
-> Karşıya geçenler hemen yürüyüp gitmiyor. Biri çocuğunu arıyor, biri dizinin üzerine çökmüş ayakkabısındaki suyu döküyor. Deren, bohçayı adamın kucağına bırakıyor. “Sen buradasın,” diyor; sonra başka bir ismi çağırıyor.
+> Batı kıyısına ulaşanlar yolun kenarına çekiliyor. Bir kadın çocuğunun paltosunu ilikliyor; bir başkası el arabasındaki ıslak örtüyü sıkıyor. Sela yükün yanında durup defterini açıyor.
 >
-> Yabancı asker kıyıya oturmuş. Kolundaki eski kumaşın üzerine yeni kan yayılmış ama size bakıp yardım istemiyor. Köprünün öteki ucunda bir at dönüyor. Eyerin ardındaki çuvalı görünce Sela ağzını açıyor, sonra yeniden kapatıyor.
+> Deren köprüye dönüyor. “Sayalım,” diyor. “Buraya geleni bir daha geride sanmayalım.”
 
 ### Sırayla oynat
 
-**Somut durumu yaz**
+**İnsanları say**
 
-Başlangıçtaki on iki güvenli kişi ile sonradan doğudan geçenleri topla; toplam yirmi sivildir. Doğuda veya orta açıklıkta kalanları sekizden düşerek yaz. Başarıyla kurtarılanları geri silme. Halattan alınan adam da bu sekizden biridir; fazladan yirmi birinci kişi değildir. Deren, parti ve Taren ayrı sayılır.
+Batı = başlangıçtaki 12 + gerçekten geçirilenler. Doğu = 8 − geçirilenler. İki sayının toplamı 20 olmalı. Deren, Taren, Sela ve parti bu hesaba girmez. Kayıp veya ölüm gerçekten oynandıysa ayrıca kaydet; matematiği tutturmak için sonuç üretme.
 
-> Deren: İsmini bilmiyorsanız üstündekini söyleyin. Kırmızı paltolu yaşlıyı gördünüz mü?
+> Deren: Siz geçirirken ben de saydım. Eksik kalan var mı?
 
-**Yabancıyı dinle**
+**Malı ve insanları bulunduğu yerde bırak**
 
-Adı sorulursa Taren der; baştan geçmişini dökmez. Soyduğu kafileyle bağını inkâr etmez. Şimdilik ne yapacaklarına oyuncular karar verir.
+Yalnız gerçekten verilmiş, düşmüş veya alınmış çuvalları düş. Yaralanmayan Taren’i kan içinde gösterme. Yardım etmediyse veya doğuda kaldıysa batıda oturuyormuş gibi anlatma. Sorulursa adı Taren’dir; geçmişinin tamamını bu sahnede açma.
 
-> Taren: Noll’un yük işinde iki gündür vardım. İki gün de fazla olmuş.
+**Baskıyı söyle**
 
-**Son bağı göster**
-
-Doğu kıyısındaki takipçiler geri gelirse köprüyü kullanabilir. Şu anda kesilirse geride kalan kişi ve yük de geçemez. Son karar için artık yeterli bilgi vardır.
+Anlaşma olduysa adamlar çekilir; köprüyü kesmek zorunda değiller. Çatışma sürüyorsa düşmanın bulunduğu yeri ve sıradaki niyetini açık söyle. Oyunculara şu cümleyi gerçek sayılarla kur: Batıda __ kişi var, doğuda __ kişi kaldı; __ çuval eksik; takipçiler __ durumda.
 
 ### Masada oynat
 
-Süre: 10–15 dk
+Süre: 5 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Bu adımda gerçek zaman sayacı yok. Oyuncuların konuşması, sayfa değiştirmek veya görsel hazırlamak zamanı ilerletmez.
 
-**Sahne ne zaman biter?** Oyuncular bir sonraki iş için somut bir plan yaptığında devam et; aşağıdaki geçişi o plana göre anlat.
+**Sahne ne zaman biter?** Herkes gerçek sayıları ve takipçilerin durumunu bildiğinde 6. adıma geç; yeni bir çatışma başlatma.
 
-**Oyuncular duraksarsa:** Deren elindeki sayım çubuğunda aynı çentiğe iki kez dokunduğunu fark edip durur. Kıyılardaki gerçek kişileri yeniden işaretle; bir oyuncu insanları, biri çuvalları, biri sağlam kalan bağları sayabilir.
+**Oyuncular duraksarsa:** Deren: Siz geçirirken ben de saydım. Eksik kalan var mı?
 
 ### Sela Varn
 
-Hesabını tutar; insanları kurtarmanın da gerçek bedeli olduğunu saklamaz.
+Önce kayıt, sonra yol; suçlayıcı nutuk atmaz.
 
-**Çuvalları kaybettik.**
+**Erzağı verdik.**
 
-> Gördüm. Deftere yazarız. Önce şu yaralının arabaya çıkacak hali var mı, onu söyleyin.
+> Kaç çuval verdiysek onu yazarım. Harven’de kime teslim edeceğimizi de beraber konuşuruz.
 
-**Bunu sen öder misin?**
+**Hiçbir şey kaybetmedik.**
 
-> Bir kısmını. Kalanını Harven’de açıklayacağız. Bu iş konuşmadan kaybolmayacak.
+> O zaman öyle yazacağız. Hazır mısınız, yola çıkalım mı?
 
 ### Oyuncular sorarsa
 
@@ -1170,50 +1223,60 @@ Hesabını tutar; insanları kurtarmanın da gerçek bedeli olduğunu saklamaz.
 
 ### Kararlar ve yankılar
 
-Sonraki geçiş: Kalan geçiş hattı ve insanlar belli olduğunda son halat kararına geç.
+Sonraki geçiş: Herkes gerçek sayıları ve takipçilerin durumunu bildiğinde 6. adıma geç; yeni bir çatışma başlatma.
 
-## 2.6. Son bağ
+## 2.6. 6 · Köprüye ne olacak?
 
-Nerede: Batı Aldara • köprü batı ucu
-Ne zaman: Sayımın ardından
-Amaç: Köprüyü kesme, tutma veya savunma kararını eldeki gerçek duruma göre ver.
-Sonra: Deren’in rehberliğinde Harven’e geç. Kaybolan çuvallar, yaralılar ve elde kalan halat aynı defterde yolculuğa devam eder.
+Nerede: Batı kıyısı · yük bağlarının bulunduğu taş ayak
+Ne zaman: 6. adım · Geride kalanlar sayılınca
+Amaç: Eldeki gerçek duruma göre geçidi açık bırak, kapat veya önce kalanları kurtar.
+Sonra: Köprünün durumu ve geride kalanların akıbeti kaydedildiğinde bölüm biter. Harven’de Bera’nın fırınına geç.
 
 Gösterilecek sahne: Batı Aldara · köprü batı ucu · Görsel: winter-aldara-halati · Portreler: deren-olm
 
 ### Oyunculara oku
 
-> Son sağlam halat direğin etrafında geriliyor. Deren bıçağını çıkarıp sapından tutuyor; size uzatıyor ama ipin başına geçmiyor. Karşıda ne kadar yol kaldığı artık gözünüzle ölçülebiliyor.
+> Sela arabayı Harven yoluna çeviriyor. Deren onarım bölümünün yanındaki bıçağı eline alıyor, kesmeye başlamadan size bakıyor.
 >
-> Sela arabalardan birini yola çevirmiş. Tekerlek çamurda yarım tur dönüp duruyor. “Burada kalacaksak kalalım,” diyor. “Gideceksek arabanın arkasını itin.”
->
-> Nehir kesintisiz akıyor. Köprünün öteki ucundakiler de sizin ne yapacağınızı bekliyor.
+> “Yolu açık mı bırakıyoruz?” diye soruyor. “Arkamızdan gelecekler var. Bizi takip edenler de olabilir, odun getirenler de.”
 
 ### Sırayla oynat
 
-**Son durumu bir kez söyle**
+**Karardan önce tek cümle**
 
-Geride kim var, düşman ne kadar uzakta, takviye ne kadar dayanır? Bu bilgiyi tek cümleyle yeniden kur. Gizli sayıyla karar tuzağı kurma.
+5. adımdaki sayıları tekrar söyle. Doğuda kimse kalmadıysa kalmış gibi ikilem sorma. Kalan varsa isim veya belirgin tarifiyle göster ve bağlar bırakılmadan önce bunu oyunculara doğrulat.
+
+> Deren: Siz söylemeden dokunmayacağım.
 
 **Seçimi uygula**
 
-Kesmek, savunmak, pazarlık etmek ve son kişiyi yan halattan geçirmek olasıdır. Önceki sahnelerde gerçekten çözülen sorunlar burada çözülmüş kalır.
+İki yük bağı bırakılırsa yalnız altı metrelik onarım döşemesi düşer. Doğudaki biri başka bir geçiş bulabilir ama hemen arabalara yetişemez; suya itilmiş sayılmaz. Oyuncular ipten kurtarma, savunma veya gerçek bir büyü çözümü kurarsa sonucunu oynat. Ücret ödenip adamlar gittiyse sonradan ihanete uğratma.
 
-**Harven’e insanla bağla**
+**Harven’e bağla**
 
-Deren Harven’e kadar yol gösterir ve Bera’nın fırınından ekmek almalarını ister. Yanındaki sivillerden Lio’nun adını duyabilirler; sonraki çocuk sahnesi yoktan doğmaz.
-
-> Deren: Bera’nın fırını solda. Kapıda para konuşmadan önce beni gördüğünüzü söyleyin.
+Deren sağsa ve yanlarındaysa Bera’nın fırınını tarif eder; değilse adres Sela’dadır. Harven’de kaybolan erzağın ihtiyacı olan hanelere etkisini konuşacaklar. Çocuk Lio fırın çevresinde görülebilir ama şu anda hırsızlık sahnesini başlatma. İsteğe bağlı sığınak olayı yalnız takip tehlikesi bittiyse açılır.
 
 ### Masada oynat
 
-Süre: 15–20 dk
+Süre: 5–10 dk
 
-Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başarısızlık sayma.
+Bu adımda gerçek zaman sayacı yok. Oyuncuların konuşması, sayfa değiştirmek veya görsel hazırlamak zamanı ilerletmez.
 
-**Sahne ne zaman biter?** Kimin nerede kaldığı, köprünün durumu ve kervanın gidişi belli olduğunda.
+**Sahne ne zaman biter?** Köprünün durumu ve geride kalanların akıbeti kaydedildiğinde bölüm biter. Harven’de Bera’nın fırınına geç.
 
-**Oyuncular duraksarsa:** Deren bıçağı sapı size dönük tutar; kesmeye başlamaz. Hangi bağın neyi taşıdığını ve doğuda kim kaldığını bir kere daha göster. Sela arabanın takozunu kaldırmadan önce kararlarını bekler.
+**Oyuncular duraksarsa:** Deren: Siz söylemeden dokunmayacağım.
+
+### Deren Olm
+
+Kararı oyunculara bırakır.
+
+**Yıkalım mı?**
+
+> Karşıdaki adamlar çekildiyse gerek yok. Hâlâ geleceklerse ne kadar zaman kazanacağımızı düşünelim.
+
+**Harven’de nereye gideceğiz?**
+
+> Bera’nın fırınına. Beni tanır. Yoldan kaç kişinin döndüğünü de bilmek ister.
 
 ### Oyuncular sorarsa
 
@@ -1224,33 +1287,33 @@ Sahnede süreyi oyuncuların yaptığı işle ilerlet; susmayı otomatik başar�
 
 **Köprüyü tut**
 
-Takipçiler de kullanabilir; grup savunma, oyalama veya daha hızlı hareket planının bedelini alır.
+Geçit açık kalır. Anlaşma varsa takipçiler çekilir; savunma seçildiyse düşmanın gerçek durumunu ve grubun geri çekilişini oynat. Otomatik bir ikinci baskın yok.
 
-Sonraki yankı: Harven yolunda bir takip işareti görülebilir. Bu otomatik yeni saldırı veya kayıp değildir.
+Sonraki yankı: Harven’in yükçüleri aynı yolu kullanabilir. Erzak kaybı veya yaralanma gerçekten yaşandıysa sonraki konuşmada onu hatırlat.
 
 **Geçiş tamamlandıktan sonra kes**
 
-Kalan insanlar güvenli taraftaysa kesmek onların hayatını geri almaz. Geçit kapanır, rota uzar.
+Herkes batıdaysa kimse geride kalmaz. İki yük bağını bırakmak onarım döşemesini düşürür; takipçiler gecikir, geçit tamir edilene kadar yük arabaları geçemez.
 
-Sonraki yankı: Sonraki sevkte yol ve köprü emeği pahalanır; Deren’in tanıklığı kararı nasıl aldıklarını taşır.
+Sonraki yankı: Harven’de tamir için kalas, ip ve iş gücü aranabilir. Kurtarılan siviller kararın nedenini anlatabilir; otomatik düşmanlık üretme.
 
 **Birileri gerideyken kes**
 
-Geride kalanların durumunu açıkça sonuçlandır; nerede sığınabileceklerini ve kurtarma şansı olup olmadığını konuş.
+Doğuda kalanları isim veya sayıyla kaydet. Onarım bölümü düşer; insanlar otomatik ölmez. Tahsildarın gerçekten yakalayabildiklerini, sığınabilecekleri kıyı yolunu ve sonraki kurtarma imkânını masada belirle.
 
-Sonraki yankı: Bir kurtulan daha sonra partiyi bulabilir. Sonuçları yalnız intikam monoloğuna indirme.
+Sonraki yankı: Kayıtlı sonuçla devam et: bir kurtarma isteği, fidye haberi veya kendi yolunu bulan bir yolcu olabilir. Yaşananı tek bir intikam konuşmasına indirgeme.
 
-Sonraki geçiş: Deren’in rehberliğinde Harven’e geç. Kaybolan çuvallar, yaralılar ve elde kalan halat aynı defterde yolculuğa devam eder.
+Sonraki geçiş: Köprünün durumu ve geride kalanların akıbeti kaydedildiğinde bölüm biter. Harven’de Bera’nın fırınına geç.
 
 ## Kişi rehberi — DM için
 
-### Deren Olm — Harven odun ve yük sayıcısı; sivil tanık.
+### Deren Olm — Harvenli oduncu; kapıdan geri çevrilen yirmi yolcunun yardımcısı.
 
 **Görünüş:** Kısa kırçıl sakallı, ağır kahverengi ceketli. Çentikli çubuğun karşı iki parçasını yan yana koymadan anlaşmayı bitmiş saymaz.
 
-**İstediği:** Kaçanların adını ve yükünü birbirine karıştırmadan geçirmek. Kayıp bir mal için yaşayan birini yalancı ilan etmekten sakınır.
+**İstediği:** Doğuda kalan sekiz sivili batıya almak.
 
-**Bildiği:** Harven’in kuru odun işaretini, yük sırasını ve sığınak çevresini bilir. Askerî emir veya vergi muafiyeti veremez.
+**Bildiği:** Köprünün onarım bölümünü, batıdaki sağlam halkaları ve Harven yolunu bilir. Resmî geçiş yetkisi veya vergi muafiyeti veremez.
 
 **Nasıl konuşur?** Alçak, sabırlı bir ses. Birinin sözüne itiraz ederken suçlamak yerine elindeki karşı çentiği uzatır.
 
@@ -1263,6 +1326,22 @@ Sonraki geçiş: Deren’in rehberliğinde Harven’e geç. Kaybolan çuvallar, 
 **Herkes geçti mi?**
 
 > İsimleri bir kere daha okuyacağım. Ben okurken siz yüzlere bakın; eksik olanı kâğıt her zaman söylemez.
+
+### Taren Olt — Takipçilerin arasındaki yabancı asker; adı sorulursa öğrenilir.
+
+**Görünüş:** Yıpranmış asker giysileri; ilk anda bir rütbe veya kraliyet yetkisi göstermez.
+
+**İstediği:** Sivillere saldırılmasını önlemek; Noll’un adamlarından ayrılabilmek.
+
+**Bildiği:** Tahsildarın erzak istediğini ve yetki kâğıdının geçerli olmadığını bilir. Eski hayatının ayrıntılarını bu bölümde kendiliğinden anlatmaz.
+
+**Nasıl konuşur?** Alçak ve doğrudan; yardım ettiği işi söyler.
+
+**Portre:** taren-olt
+
+**Adın ne?**
+
+> Taren. Şu adamı karşıya alalım, sonra konuşuruz.
 
 ### Haldor Pell — Harven hanelerinin odun alıcısı ve ortak yük tartıcısı.
 
@@ -1286,11 +1365,11 @@ Sonraki geçiş: Deren’in rehberliğinde Harven’e geç. Kaybolan çuvallar, 
 
 ## İsteğe bağlı olay · Kapının arkasında kalan yük
 
-**Ne zaman açılır?** Köprünün İki Tarafı · Son bağ
+**Ne zaman açılır?** Köprünün İki Tarafı · 6 · Köprüye ne olacak?
 
 **Masada:** 10–15 dk
 
-Köprü kararının sonucu belli olduktan ve acil takip tehlikesinden çıkıldıktan sonra. Köprü hâlâ ateş altındaysa bu olayı açma. Harven’e yaklaşan küçük yol sığınağında durulur; tamamlanmış yeni bir Kral Yolu kolu değildir.
+Köprü kararı bittikten ve takip tehlikesinden uzaklaştıktan sonra isteğe bağlıdır. Harven yolundaki sığınakta yükünü kontrol eden odun alıcısı Haldor Pell ile ilk kez karşılaşırlar. Onu köprüde bulunmuş sayma. Köprü hâlâ ateş altındaysa bu olayı açma.
 
 **Görsel:** living-gecit-siginagi
 

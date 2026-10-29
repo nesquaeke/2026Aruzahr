@@ -1,5 +1,8 @@
 import type {Artwork} from './media';
 const scenes=[
+ ['road-forest-ambush','Harven yolu · Devrilen çam',''],
+ ['road-root-maw','Kökdiş · Orman canlısı',''],
+ ['road-yalin-hamlet','Çatalocak · Yol sığınağı',''],
  ['side-frostbay-market','Frostbay · Eski çarşı','frostbay'],
  ['side-mine-entrance','Eski ocak · Giriş',''],
  ['side-mine-hall','Eski ocak · Ayrım galerisi',''],
@@ -10,7 +13,7 @@ const scenes=[
  ['side-treasure-handout','Eski bir ocak krokisi','']
 ];
 const items=[['side-dagger','Düğümkesen'],['side-sword','Denge Çeliği'],['side-bow','Sakin Kiriş'],['side-arrow','İz Boyası Okları'],['side-cloak','İs Tülü'],['side-solukoz','Soluköz'],['side-bad-sword','Yıpranmış Kılıç'],['side-fake-armor','Süslü Göğüslük']];
-const people=[['side-bren','Bren Volk'],['side-dessa','Dessa Kurn'],['side-ilven','Çavuş İlven Sorn']];
+const people=[['side-bren','Bren Volk'],['side-dessa','Dessa Kurn'],['side-ilven','Çavuş İlven Sorn'],['road-nara-portrait','Nara Vesk']];
 export const sideArtworks:Artwork[]=[
  ...scenes.map(([id,title,relatedId]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'29 Ekim · yeni yağlıboya mekân yorumu; yaşanmış olay kaydı değildir',origin:'generated',painted:true,category:id==='side-treasure-handout'?'map':'scene',...(relatedId?{relatedId}:{})})),
  ...items.map(([id,title]):Artwork=>({id,title,src:`/illustrations/${id}.webp`,caption:'Aruzahr · eşya ve mineral yağlıboya portresi',origin:'generated',painted:true,category:'item',...(id==='side-solukoz'?{relatedId:'solukoz'}:{})})),

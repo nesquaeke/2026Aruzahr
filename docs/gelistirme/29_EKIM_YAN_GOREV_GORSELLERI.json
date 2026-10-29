@@ -1,5 +1,5 @@
 {
-  "note": "19 bağımsız görsel. Boyut değiştirme veya hücre kırpma yapılmadı. Maden aracı resmindeki hatalı işaret görsel üretim aracıyla kaldırıldı.",
+  "note": "23 bağımsız görsel; son dört Harven orman macerası için. Boyut değiştirme veya hücre kırpma yok.",
   "images": [
     {
       "id": "side-frostbay-market",
@@ -152,6 +152,38 @@
       "height": 941,
       "bytes": 766596,
       "sha256": "7f324b99418bc99e0c411578e2337973c3b5dff8872612c0f16b93591b1e8c40"
+    },
+    {
+      "id": "road-forest-ambush",
+      "source": "/workspace/generated_images/exec-d232ceb0-7f2e-449b-a3b1-3de2529dda2a.png",
+      "width": 1672,
+      "height": 941,
+      "kind": "scene",
+      "note": "Yeni bağımsız yağlıboya üretimi; kırpma/büyütme yok."
+    },
+    {
+      "id": "road-root-maw",
+      "source": "/workspace/generated_images/exec-4f97f280-cbf8-4be8-9760-618db30059dc.png",
+      "width": 1672,
+      "height": 941,
+      "kind": "scene",
+      "note": "Yeni bağımsız yağlıboya üretimi; kırpma/büyütme yok."
+    },
+    {
+      "id": "road-yalin-hamlet",
+      "source": "/workspace/generated_images/exec-bbfe9fa8-9b4e-4234-99c0-a33b284d22e4.png",
+      "width": 1672,
+      "height": 941,
+      "kind": "scene",
+      "note": "Yeni bağımsız yağlıboya üretimi; kırpma/büyütme yok."
+    },
+    {
+      "id": "road-nara-portrait",
+      "source": "/workspace/generated_images/exec-7ea6a1bf-8374-40d9-9e5c-a9b6182dee24.png",
+      "width": 1024,
+      "height": 1536,
+      "kind": "portrait",
+      "note": "Yeni bağımsız yağlıboya üretimi; kırpma/büyütme yok."
     }
   ]
 }

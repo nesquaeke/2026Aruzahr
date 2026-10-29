@@ -8,7 +8,7 @@ export type SidePack = {format:'aruzahr-sidequests';version:1;title:string;princ
 export function parseSidePack(raw:unknown):SidePack {
   if(!raw||typeof raw!=='object')throw Error('Yan görev dosyası okunamadı.');
   const p=raw as SidePack;
-  if(p.format!=='aruzahr-sidequests'||p.version!==1||!Array.isArray(p.quests)||p.quests.length!==3||!Array.isArray(p.loot)||!Array.isArray(p.units))throw Error('Yan görev dosyasının sürümü uyumsuz.');
+  if(p.format!=='aruzahr-sidequests'||p.version!==1||!Array.isArray(p.quests)||p.quests.length<3||p.quests.length>20||!Array.isArray(p.loot)||!Array.isArray(p.units))throw Error('Yan görev dosyasının sürümü uyumsuz.');
   const ids=new Set<string>();
   for(const q of p.quests){
     if(!q.id||ids.has(q.id)||!Array.isArray(q.steps)||!q.steps.length)throw Error('Yan görev kimlikleri bozuk.');ids.add(q.id);

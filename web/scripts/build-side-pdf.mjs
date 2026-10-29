@@ -24,4 +24,7 @@ try{
   const path=publicRoot+'dm/Hardlane-Yan-Gorevler-Oynatim-Kitabi.pdf';
   await page.pdf({path,format:'A4',printBackground:true,margin:{top:'12mm',bottom:'12mm',left:'12mm',right:'12mm'}});
   console.log('PDF:',(await stat(path)).size,'bayt; site tablolarının boyutu değişmedi.');
+  await page.goto(`http://127.0.0.1:${server.address().port}/dm/Harven-Orman-Yolu.html`);
+  await page.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));
+  await page.pdf({path:publicRoot+'dm/Harven-Orman-Yolu.pdf',format:'A4',printBackground:true,margin:{top:'12mm',bottom:'12mm',left:'12mm',right:'12mm'}});
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

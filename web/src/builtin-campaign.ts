@@ -7,6 +7,7 @@ import {
   type DMProgress,
 } from './dm-guide'
 import { legacyWinter } from './campaigns/legacy-winter'
+import { bridgePrevious } from './campaigns/bridge-previous'
 import {
   expandedWinter,
   expandedWinterEdition,
@@ -152,6 +153,7 @@ export async function upgradeBuiltinCampaign(
       const fresh = builtin.quests.find((f) => f.id === q.id)!
       const older = legacyWinter[q.id as keyof typeof legacyWinter]
       const expanded = expandedWinter[q.id as keyof typeof expandedWinter]
+      const bridge = q.id === 'koprunun-iki-tarafi' ? bridgePrevious : undefined
       if (!older || !expanded) return q
       // The newer order includes the four added opening/rescue scenes too.
       const base =
@@ -166,11 +168,12 @@ export async function upgradeBuiltinCampaign(
       const merged = await updateFields(q, fresh, [
         expanded.fields,
         older.fields,
+        ...(bridge ? [bridge.fields] : []),
       ])
       const updated = await Promise.all(
         (q.steps || []).map(async (step) => {
           const next = fresh.steps?.find((f) => f.id === step.id)
-          const fingerprints = [expanded.steps, older.steps]
+          const fingerprints = [expanded.steps, older.steps, ...(bridge ? [bridge.steps] : [])]
             .map(
               (steps) =>
                 (steps as Record<string, Record<string, string>>)[step.id],
