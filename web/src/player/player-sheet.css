@@ -23,7 +23,7 @@
 .sheet-field{min-width:0}
 .sheet-field>span,.sheet-health-track>section>span{display:block;font:6.3pt/1.2 'DM Sans',Arial,sans-serif;text-transform:uppercase;letter-spacing:.075em;color:var(--sheet-muted);margin-bottom:1mm}
 .sheet-field>div{min-height:5.2mm;border-bottom:.6px solid var(--sheet-line);font:9pt/1.35 'DM Sans',Arial,sans-serif;overflow-wrap:anywhere;padding-bottom:.6mm}
-.sheet-name>div{font-family:'Cormorant Garamond',Georgia,serif;font-size:13pt;line-height:1.05}
+.sheet-name>div{font-family:'Enchanted Land','Cormorant Garamond',Georgia,serif;font-size:13pt;line-height:1.05}
 .sheet-origin{grid-column:1/-1}
 .sheet-origin>div{min-height:4.3mm;font-size:7.6pt}
 .sheet-identity .sheet-field>div{height:6mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -177,7 +177,7 @@
 .sheet-page-ornaments .ornament-dark{fill:#443625;stroke:none}
 .sheet-page-ornaments .ornament-head-tail{stroke-width:1.25;fill:#c1a36612}
 .sheet-page-ornaments .ornament-knots{fill:#f7efde;stroke-width:.75}
-.sheet-page-header{border-bottom:3px double #856846;padding-bottom:2.5mm;margin-bottom:3mm}
+.sheet-page-header{border-bottom:3px double #856846;padding-bottom:2.5mm;margin-bottom:1.5mm}
 .sheet-page-header:after{content:'';width:3mm;height:3mm;position:absolute;bottom:-1.7mm;left:50%;transform:rotate(45deg);border:1px solid #856846;background:var(--sheet-paper)}
 .sheet-page-header h2{font-family:'Aruzahr Gothic','Cormorant Garamond',Georgia,serif;font-size:31pt;font-weight:500;line-height:.9;letter-spacing:-.025em;margin-top:1mm}
 .sheet-wordmark{font-size:7.7pt;letter-spacing:.4em;color:#725430}

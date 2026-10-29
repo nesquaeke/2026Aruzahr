@@ -13,7 +13,7 @@ export type Character = {
   id: string; name: string; role: string; city: string; affiliation: string;
   portrait: string; traits: string[]; summary: string; background: string;
   presence: string; related?: string[]; origin?: string; source: 'author' | 'new';
-  region?: RegionId; sections?: Section[]; power?: PowerTier; locationUnknown?: boolean; aliases?:string[]; playerFile?:string;
+  region?: RegionId; sections?: Section[]; power?: PowerTier; locationUnknown?: boolean; aliases?:string[]; playerFile?:string; playerPdf?:string; playerBook?:string;
 }
 const authorSource = 'Karakterler/ · özgün portreler ve kişi notları; 8 Ekim 2026 yazar eşleştirmeleri'
 const newSource = 'Danstsud kişi taslakları · 7–8 Ekim 2026 yeni yazım'

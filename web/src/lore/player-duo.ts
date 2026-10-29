@@ -36,6 +36,7 @@ export const ciotel:Character={
 
 export const jeremiahRevision:Character={
  id:'jeremiah',name:'Jeremiah',role:'ÇelikKalkan maceracısı · oyuncu karakteri',city:'lirendil',affiliation:'ÇelikKalkan Loncası',portrait:'jeremiah',source:'author',
+ playerFile:'/downloads/Jeremiah-Aruzahr.json',playerPdf:'/downloads/Jeremiah-Karakter-Kagidi-A4.pdf',playerBook:'/downloads/Jeremiah-Karakter-Defteri-A4.pdf',
  traits:['Doğuştan büyü','Zeki','Umursamaz','Kısık ses'],origin:'Elorwyn',related:['gil','volomiyr','elorwyn','kaelen','vaelcor','zylara'],
  summary:'Elorwynli bir soylunun evlilik dışı oğlu olan Jeremiah, kanındaki büyüyü saklamayı sözlerini saklamaktan önce öğrendi. Lirendil’de ÇelikKalkan çevresindedir. Umursamaz görünüşünün ardında çalışan aklına, son zamanlarda cümlelerinin sonunda çatallanan kısık bir ses eşlik eder.',
  background:'Babası Elorwynli bir soylu, annesi Danstsudludur. Babasının adı ve hanedanı açıklanmamıştır; Jeremiah’ın Tharion’un oğlu olduğu varsayılmaz. Elorwyn’in büyüye karşı sert yerel tutumu, doğuştan taşıdığı yeteneğini açıkça denemesini güçleştirdi.',
@@ -60,6 +61,10 @@ export const jeremiahRevision:Character={
   {title:'Oyun masasında ses sorunu',paragraphs:[
    'Bu durum önce rol yapma ayrıntısıdır. Konuşması tamamen yasak değildir; İkna kontrollerine otomatik dezavantaj, büyü başarısızlığı veya sözlü bileşen kullanamama cezası verilmez. Böyle bir mekanik etki ancak oyuncu ve DM açıkça birlikte seçerse uygulanır.',
    'Lonca hekimi Zylara’nın muayenesi ve Magister Vaelcor’un denetimli çalışmaları, çözüm aramak için kullanılabilecek iki yoldur. Sonuç henüz belirlenmiş değildir. Oyuncuların gerçekten kullanabildiği tedavi veya büyü çözümleri, hikâyeyi uzatmak için sebepsizce geçersiz kılınmaz.',
+  ]},
+  {title:'Oyuncu kâğıdı · 1. seviye Düzenbaz',paragraphs:[
+   'Sınıf ve seviye onaylandı: D&D 5e 2014, 1. seviye Düzenbaz. İleride Arcane Trickster yolu seçilecek; alt sınıf 3. seviyede açılır. Bu başlangıç kâğıdında henüz büyü yuvası veya sınıf büyüsü yoktur. Kanındaki büyü, şimdilik anlatıda kendini gösterir.',
+   'Portreli A4 kâğıdı ve Oyuncu Masası dosyası aşağıdan indirilebilir. Mevcut editoryal niteliklerle Can 9, Zırh 14, İnisiyatif +3 ve Yetkinlik +2 hesaplandı. Gizlilik ve Aldatma Uzmanlıkları, altı beceri ve başlangıç donanımı dolduruldu. Nitelikler, beceriler ve özel geçmiş seçimleri oyuncu ile DM tarafından düzenlenebilir; bunlar oyuncunun verdiği bir zar dökümü değildir.',
   ]},
  ],
 };

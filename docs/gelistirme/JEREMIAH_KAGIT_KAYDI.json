@@ -1,0 +1,69 @@
+{
+  "status": "Sınıf ve seviye kullanıcı tarafından onaylandı; nitelikler mevcut editoryal kayıt, yetkinlikler ve özel geçmiş düzenlenebilir başlangıç seçimleri",
+  "level": 1,
+  "classId": "rogue",
+  "futureSubclass": "arcane-trickster (3. seviyede)",
+  "scores": {
+    "str": 9,
+    "dex": 16,
+    "con": 12,
+    "int": 15,
+    "wis": 11,
+    "cha": 15
+  },
+  "derived": {
+    "proficiency": 2,
+    "armorClass": 14,
+    "maxHp": 9,
+    "initiative": 3,
+    "speed": 30,
+    "passivePerception": 10,
+    "spellAbility": null,
+    "spellDC": null,
+    "spellAttack": null,
+    "slots": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": {
+      "slots": 0,
+      "level": 0
+    },
+    "spellLimits": {
+      "mode": "none",
+      "ability": null,
+      "maxLevel": 0,
+      "cantrips": 0,
+      "known": null,
+      "prepared": null,
+      "minimumBook": 0,
+      "arcanumLevels": []
+    }
+  },
+  "equipment": 21,
+  "attacks": [
+    {
+      "name": "Meç",
+      "damage": "1d8+3",
+      "ability": "dex"
+    },
+    {
+      "name": "Kısa yay",
+      "damage": "1d6+3",
+      "ability": "dex"
+    },
+    {
+      "name": "Hançer",
+      "damage": "1d4+3",
+      "ability": "dex"
+    }
+  ],
+  "privatePlayerNamePublished": false
+}
